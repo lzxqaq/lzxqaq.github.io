@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Zexun Luo | 罗泽勋</title>
+    <title>Zexun Luo</title>
     <link>/</link>
-    <description>Recent content on Zexun Luo | 罗泽勋</description>
+    <description>Recent content on Zexun Luo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 12 Jan 2021 08:46:08 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -30,6 +30,117 @@ public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ ret
 public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
 public static void main(String[] args){ MyRunnable instance = new MyRunnable(); Thread thread = new Thread(instance); thread.start(); } 实现 Callable 接口 与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。
 public class MyCallable implements Callable&amp;lt;Integer&amp;gt; { public Integer call(){ return 123; } } public static void main(String[] args) throws ExecutionException,InterruptedException { MyCallable mc = new MyCallble(); FutureTask&amp;lt;Integer&amp;gt; ft = new FutureTask&amp;lt;&amp;gt;(mc); Thread thread = new Thread(ft); thread.</description>
+    </item>
+    
+    <item>
+      <title>HTTP</title>
+      <link>/post/network/http/</link>
+      <pubDate>Thu, 07 Jan 2021 15:25:54 +0800</pubDate>
+      
+      <guid>/post/network/http/</guid>
+      <description>一、基础概念 请求和响应报文 客户端发送一个请求报文给服务器，服务器根据请求报文中的信息进行处理，并将处理结果放入响应报文中返回给客户端。
+请求报文结构：
+ 第一行包含了请求方法、URL、协议版本； 接下来的多行都是请求首部 Header，每个首部都有一个首部名称，以及对应的值。 一个空行用来分割首部和内容主体 Body。 最后是请求的内容主体。  GET http://www.example.com/ HTTP/1.1 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9 Accept-Encoding: gzip, deflate Accept-Language: zh-CN,zh;q=0.9,en;q=0.8 Cache-Control: max-age=0 Host: www.example.com If-Modified-Since: Thu, 17 Oct 2019 07:18:26 GMT If-None-Match: &amp;quot;3147526947+gzip&amp;quot; Proxy-Connection: keep-alive Upgrade-Insecure-Requests: 1 User-Agent: Mozilla/5.0 xxx param1=1&amp;amp;param2=2 响应报文结构：
+ 第一行 包含协议版本、状态码以及描述，最常见的是 200 OK 表示请求成功了 接下来多行也是首部内容。 一个空行分割首部和内容主体。 最后是响应的内容主体。  HTTP/1.1 200 OK Age: 529651 Cache-Control: max-age=604800 Connection: keep-alive Content-Encoding: gzip Content-Length: 648 Content-Type: text/html; charset=UTF-8 Date: Mon, 02 Nov 2020 17:53:39 GMT Etag: &amp;quot;3147526947+ident+gzip&amp;quot; Expires: Mon, 09 Nov 2020 17:53:39 GMT Keep-Alive: timeout=4 Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT Proxy-Connection: keep-alive Server: ECS (sjc/16DF) Vary: Accept-Encoding X-Cache: HIT &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>概述</title>
+      <link>/post/network/summary/</link>
+      <pubDate>Thu, 07 Jan 2021 14:56:42 +0800</pubDate>
+      
+      <guid>/post/network/summary/</guid>
+      <description>网络的网络 网络把主机连接起来，而互连网（internet）是把多种不同的网络连接起来，因此互连网是网络的网络。而互联网（Internet）是全球范围的互联网。
+ISP 互联网服务提供商（ISP）可以从互联网管理机构获得许多 IP 地址，同时拥有通信线路以及路由器等联网设备，个人或机构向 ISP 缴纳一定的费用就可以接入互联网。
+目前的互联网是一种多层次 ISP 结构，ISP 根据覆盖面积的大小分为第一层 ISP、区域 ISP和接入 ISP。互联网交换点 IXP 允许两个 ISP 直接相连而不用经过第三个 ISP。
+主机之间的通信方式  客户-服务器（C/S）：客户是服务的请求方，服务器是服务的提供方。 对等（P2P）：不区分客户和服务器。  电路交换和分组交换 1. 电路交换 2. 分组交换 时延 总时延 = 排队时延 + 处理时延 + 传输时延 + 传播时延
+计算机网络体系结构 1. 无层协议  应用层：HTTP、DNS 等协议，数据单位是报文。 传输层：TCP、UDP。TCP 主要提供完整性服务，UDP 主要提供及时性服务。 网络层：为主机提供数据传输服务。而传输层协议是为主机中的进程提供数据传输服务。网络层把传输层传递下来的报文段或者用户数据报封装成分组。 数据链路层：为同一链路的主机提供数据传输服务。数据链路层把网络层传下来的分组封装成帧。 物理层：考虑的是怎样在传输媒体上传输数据比特流，而不是指具体的传输媒体。物理层的作用是尽可能屏蔽传输媒体和通信手段的差异，使数据链路层感觉不到这些差异。  2. OSI 其中表示层和会话层用途如下：
+ 表示层：数据压缩、加密以及数据描述，这使得应用程序不必关心在各台主机中数据内部格式不同的问题。 会话层：建立及管理会话。 五层协议没有表示层和会话层，而是将这些功能留给应用程序开发者处理。  3. TCP/IP 它只有四层，相当于五层协议中数据链路层和物理层合并为网络接口层。
+TCP/IP 体系结构不严格遵循 OSI 分层概念，应用层可能会直接使用 IP 层或者网络接口层。</description>
+    </item>
+    
+    <item>
+      <title>内存管理</title>
+      <link>/post/operatingsystem/memorymanagement/</link>
+      <pubDate>Thu, 07 Jan 2021 10:48:45 +0800</pubDate>
+      
+      <guid>/post/operatingsystem/memorymanagement/</guid>
+      <description>虚拟内存 虚拟内存的目的是为了让物理内存扩充成更大的逻辑内存，从而让程序获得更多的可用内存。
+为了更好的管理内存，操作系统将内存抽象成地址空间。每个程序拥有自己的地址空间，这个地址空间被分割成多个块，每一块称为一页。这些页被映射到物理内存，但不需要映射到连续的物理内存，也不需要所有页都必须在物理内存中。当程序引用到不在物理内存中的页时，由硬件执行必要的映射，将缺失的部分装入物理内存并重新执行失败的指令。
+从上面的描述中可以看出，虚拟内存允许程序不用将地址空间中的每一页都映射到物理内存，也就是说一个程序不需要全部调入内存就可以运行，这使得有限的内存运行大程序成为可能。例如有一台计算机可以产生16位地址，那么一个程序的地址空间范围是 0～64K。该计算机只有 32KB 的物理内存，虚拟内存技术允许该计算机运行一个 64K 大小的程序。
+分页系统地址映射 内存管理单元（MMU）管理着地址空间和物理内存的转换，其中的页表（Page table）存储着页（程序地址空间）和叶框（物理内存空间）的映射表。
+一个虚拟地址分为两个部分，一部分存储页面号，一部分存储偏移量。
+页面置换算法 在程序运行过程中，如果要访问的页面不在内存中，就发生缺页中断从而将该页调入内存中。此时如果内存已无空闲空间，系统必须从内存中调出一个页面到磁盘对换区中来腾出空间。
+页面置换算法和缓存淘汰策略类似，可以将内存看成磁盘的缓存。在缓存系统中，缓存你的大小有限，当有新的缓存到达时，需要淘汰一部分已经存在的缓存，这样才有空间存放新的缓存数据。
+页面置换算法的主要目标是使页面置换频率最低（也可以说缺页率最低）。
+1. 最佳 2. 最近最久未使用 3. 最近未使用 4. 先进先出 5. 第二次机会算法 6. 时钟 分段 虚拟内存采用的是分页技术，也就是将地址空间划分成固定大小的页，每一页再与内存进行映射。
+分段的做法是把每个表分成段，一个段构成一个独立的地址空间。每个段的长度可以不同，并且可以动态增长。
+段页式 程序的地址空间划分成多个拥有独立地址空间的段，每个段上的地址空间划分成大小相同的页。这样既拥有分段系统的共享和保护，又拥有分页系统的虚拟内存功能。
+分页与分段的比较  对程序员的透明性： 分页透明，但是分段需要程序员显式划分每个段。 地址空间的维度：分页是一维地址空间，分段是二维的。 大小是否可以改变：页的大小不可变，段的大小可以动态改变。 出现的原因：分页主要用于实现虚拟内存，从而获得更大的地址空间；分段主要是为了使程序和数据可以被划分为逻辑上独立的地址空间并且有助于共享和保护。  </description>
+    </item>
+    
+    <item>
+      <title>死锁</title>
+      <link>/post/operatingsystem/deadlock/</link>
+      <pubDate>Thu, 07 Jan 2021 10:00:08 +0800</pubDate>
+      
+      <guid>/post/operatingsystem/deadlock/</guid>
+      <description>必要条件  互斥：每个资源要么已经分配给了一个进程，要么就是不可用的。 占有和等待：已经得到了某个资源的进程可以再请求心的资源。 不可抢占：已经分配给一个进程的资源不能强制性地被抢占，它只能被占有它的进程显式地释放。 环路等待：有两个或者两个以上的进程组成一条环路，该环路中的每个进程都在等待下一个进程所占有的资源。  处理方法 </description>
+    </item>
+    
+    <item>
+      <title>进程管理</title>
+      <link>/post/operatingsystem/processmanagement/</link>
+      <pubDate>Tue, 05 Jan 2021 21:50:53 +0800</pubDate>
+      
+      <guid>/post/operatingsystem/processmanagement/</guid>
+      <description>进程与线程 1.进程 进程是资源分配的基本单位。
+进程控制块（Process Control Block,PCB)描述进程的基本信息和运行状态，所谓的创建进程和撤销进程，都是指对 PCB 的操作。
+进程可以并发执行。
+2.线程 线程是独立调度的基本单位。
+一个进程中可以有多个线程，它们共享进程资源。
+QQ 和浏览器是两个进程，浏览器进程里面有很多线程，例如 HTTP 请求线程、时间相应线程、渲染线程的呢个等，线程的并发执行使得在浏览器中点击一个新链接从而发起 HTTP 请求时，浏览器还可以相应用户的其他事件。
+3.区别 （1）拥有资源
+进程是资源分配的基本单位，但是线程不用有资源，线程可以访问隶属进程的资源。
+（2）调度
+线程是独立调度的基本单位，在同一进程中，线程的切换不会引起进程切换，从一个进程中的线程切换到另一个进程的线程时，会引起进程的切换。
+（3）系统开销
+由于创建或撤销进程时，系统都要为之分配或回收资源，如内存空间、I/O 设备等，所付出的开销远大于创建或撤销线程时的开销。类似地，在进行进程切换时，涉及当前执行进程 CPU 环境的保存及新调度进程 CPU 环境的设置，而进程切换时只需保存和设置少量寄存器内容，开销很小。
+（4）通信方面
+线程间可以通过直接读写同一进程中的数据进行通信，但是进程通信需要借助 IPC。
+进程状态的切换  就绪状态（ready）：等待被调度 运行状态（running） 阻塞状态（waiting）：等待资源  应该注意以下内容：
+ 只有就绪态和运行态可以相互转换，其它的都是单向转换。就绪状态的进程通过调度算法从而获得 CPU 时间，转为运行状态，而运行状态的进程，在分配给它的 CPU 时间片用完之后就会转为就绪状态，等待下一次调度。 阻塞状态是缺少需要的资源从而由运行状态转换而来，但是该资源不包括 CPU 时间，缺少 CPU 时间会从运行状态转换为就绪态。  进程调度算法 不同环境的调度算法目标不同，因此需要针对不同的环境来讨论调度算法。
+1. 批处理系统 批处理系统没有太多的用户操作，在该系统中，调度算法目标是保证吞吐量和周转时间（从提交到终止的时间）。
+1.1 先来先服务 1.2 短作业优先 1.3 最短剩余时间优先 2. 交互式系统 交互式系统有大量的用户交互操作，在该系统中调度算法的目标是快速地进行响应。
+2.1 时间片轮转 2.2 优先级调度 2.</description>
+    </item>
+    
+    <item>
+      <title>概述</title>
+      <link>/post/operatingsystem/summary/</link>
+      <pubDate>Tue, 05 Jan 2021 16:28:30 +0800</pubDate>
+      
+      <guid>/post/operatingsystem/summary/</guid>
+      <description>接本特征 1.并发 并发是指宏观上在一段时间内能同时运行多个程序，而并行则指同一时刻能运行多个指令。
+并行需要硬件支持，如多流水线、多核处理器或者分布式计算系统。
+操作系统通过引入线程和进程，使得程序能够并发运行。
+2.共享 共享是指系统中的资源可以被多个并发进程共同使用。
+有两种共享方式：互斥共享和同时共享。
+互斥共享的资源称为临界资源，例如打印机等，在同一时刻只允许一个进程访问，需要用同步机制来实现互斥访问。
+3.虚拟 虚拟技术把一个物理实体转换为多个逻辑实体。
+主要有两种虚拟技术：时分复用技术和空分复用技术。
+多个进程能在同一个处理器上并发执行使用了时分复用技术，让每个进程轮流占用处理器，每次只执行一小个时间片并快速切换。
+虚拟内存使用了空分复用技术，它将物理内存抽象为地址空间，每个进程都有各自的地址空间。地址空间的页被映射到物理内存，地址空间的页并不需要全部在物理内存中，当使用到一个没有在物理内存的页时，执行页面置换算法，将该页置换到内存中。
+4.异步 异步是指进程不是一次性执行完毕，而是走走停停，以不可知的速度向前推进。
+基本功能 1.进程管理 进程控制、进程同步、进程通信、死锁处理、处理机调度等。
+2.内存管理 内存分配、地址映射、内存保护与共享、虚拟内存等。
+3.文件管理 文件存储空间的管理、目录管理、文件读写管理和保护等。
+4.设备管理 完成用户的 I/O 请求，方便用户使用各种设备，并提高设备的利用率。
+主要包括缓冲管理、设备分配、设备处理、虚拟设备等。
+系统调用 如果一个进程在用户态需要使用内核态的功能，就进行系统调用从而陷入内核，由操作系统代为完成。
+Linux 的系统调用主要有以下这些：
+   Task Commands     进程控制 fork();exit();wait();   进程通信 pipe();shmget();mmap();   文件操作 open();read();write();   设备操作 ioctl();read();write();   信息维护 getpid();alarm();sleep();   安全 chmod();umask();chown();    宏内核和微内核 1.宏内核 宏内核是将操作系统功能作为一个紧密结合的整体放到内核。
+由于各模块共享信息，因此有很高的性能。</description>
     </item>
     
     <item>
