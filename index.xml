@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 08 May 2021 11:09:51 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</title>
-      <link>/post/java/paopaotang/</link>
+      <link>/post/paopaotang/</link>
       <pubDate>Sat, 08 May 2021 11:09:51 +0800</pubDate>
       
-      <guid>/post/java/paopaotang/</guid>
+      <guid>/post/paopaotang/</guid>
       <description>介绍和成果展示 本项目是一个很久以前的实训周项目，当时花费了两天左右时间，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功夫。本项目仍存在一些不足的地方，后续可能会进行优化，现在我将项目源代码和一些实现思路开源公布。
 源代码：https://github.com/lzxqaq/CrazyArcade
 文章介绍：https://lzxqaq.com/post/java/paopaotang/
@@ -27,198 +27,47 @@
     </item>
     
     <item>
-      <title>Java I/O</title>
-      <link>/post/java/io/</link>
-      <pubDate>Tue, 12 Jan 2021 08:46:08 +0800</pubDate>
+      <title>从零开始搭建博客网站（win10,Github,Hugo）</title>
+      <link>/post/2021-2-18-2/</link>
+      <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
       
-      <guid>/post/java/io/</guid>
-      <description>一、概览 Java 的 I/O 大概可以分成以下几类：
- 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO  二、磁盘操作 File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { System.out.println(dir.getName()); return ; } for (File:file : dir.listFiles()) { listAllFiles(file); } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
-三、字节操作 实现文件复制 public static void copuFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读 buffer.</description>
+      <guid>/post/2021-2-18-2/</guid>
+      <description>准备工作 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）
+Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。
+2.准备Git。
+（1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
+（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 git config --global user.email &amp;quot;你注册Github所用的邮箱&amp;quot; 回车执行，再输入 git config --global user.name &amp;quot;你的昵称&amp;quot; 回车执行。
+3.安装 Hugo。（官方教程可看这里)
+（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。
+（2）前往这里，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。
+（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。
+（4）配置环境变量。方法1:在 win10 搜索 cmd，右键以管理员身份打开命令提示符，将 setx &amp;quot;Path&amp;quot; &amp;quot;%PATH%;D:\Hugo\bin&amp;quot; /m 复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&amp;gt;编辑-&amp;gt;新建，然后将 D:\Hugo\bin 复制进去，确定。</description>
     </item>
     
     <item>
-      <title>Java 并发</title>
-      <link>/post/java/concurrent/</link>
-      <pubDate>Sat, 09 Jan 2021 10:50:16 +0800</pubDate>
+      <title>Linux 不同发行版的选择</title>
+      <link>/post/2020-12-26/</link>
+      <pubDate>Sat, 26 Dec 2020 22:33:13 +0800</pubDate>
       
-      <guid>/post/java/concurrent/</guid>
-      <description>一、使用线程 有三种使用线程的方法：
- 实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类；  实现 Runnable 接口 需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
-public static void main(String[] args){ MyRunnable instance = new MyRunnable(); Thread thread = new Thread(instance); thread.start(); } 实现 Callable 接口 与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。
-public class MyCallable implements Callable&amp;lt;Integer&amp;gt; { public Integer call(){ return 123; } } public static void main(String[] args) throws ExecutionException,InterruptedException { MyCallable mc = new MyCallble(); FutureTask&amp;lt;Integer&amp;gt; ft = new FutureTask&amp;lt;&amp;gt;(mc); Thread thread = new Thread(ft); thread.</description>
+      <guid>/post/2020-12-26/</guid>
+      <description>如果你对 Linux 感兴趣但还不了解，想知道 Linux 的不同发行版之间的区别，我的这些经历应该对你有帮助。
+我最初使用的是 Ubuntu，它以前经常被推荐为 Linux 入门选择。用了很长一段时间，它给我最大的感受是不稳定和笨重。会经常收到系统内部崩溃的通知，而且另一个问题是装其他显卡驱动时很艰难（做深度学习、玩游戏等等会用到），令我几度崩溃 T_T 。所以，我认为 Ubuntu 对新手非常不友好；
+后来我开始尝试 Deepin 系统，这是一款由国内深之度公司推出的发行版，预装软件最符合国人习惯，而且上手简单，系统不需要怎么配置就能拥有漂亮的界面。但是很快我就不能忍受它的软件源的落后。软件获取、维护便捷本该是 Linux 系统的一大优点，它可以为很多工作带来便利。
+接着我来到 Arch 的世界。遗憾的是 Arch Linux 我在尝试的中途便放弃了。它确实很棒，从零开始定制操作系统很诱人，但是因为时间关系，我需要的是能快速上手，成为主力的操作系统。
+最后，我接触到了很多人推荐的 Manjaro，它是为了让用户更方便使用的 Arch 衍生版。安装之后确实让我很惊喜，它完美符合我对操作系统的需求：上手简单、使用高效、美。而且尝试过后我才知道 Arch 系的软件仓库 AUR 有多强大。AUR 是一个社区维护的软件包仓库，有了它，你可以轻易获取到很多想要的软件。因此我很推荐使用 Manjaro。
+（顺便提一下最稳定发行版之一的 CentOS。当我想在服务器上尝试它时，它就被官宣抛弃了……）</description>
     </item>
     
     <item>
-      <title>HTTP</title>
-      <link>/post/network/http/</link>
-      <pubDate>Thu, 07 Jan 2021 15:25:54 +0800</pubDate>
+      <title>String 类真的不可以改变吗？</title>
+      <link>/post/2020-12-15-2/</link>
+      <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
       
-      <guid>/post/network/http/</guid>
-      <description>一、基础概念 请求和响应报文 客户端发送一个请求报文给服务器，服务器根据请求报文中的信息进行处理，并将处理结果放入响应报文中返回给客户端。
-请求报文结构：
- 第一行包含了请求方法、URL、协议版本； 接下来的多行都是请求首部 Header，每个首部都有一个首部名称，以及对应的值。 一个空行用来分割首部和内容主体 Body。 最后是请求的内容主体。  GET http://www.example.com/ HTTP/1.1 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9 Accept-Encoding: gzip, deflate Accept-Language: zh-CN,zh;q=0.9,en;q=0.8 Cache-Control: max-age=0 Host: www.example.com If-Modified-Since: Thu, 17 Oct 2019 07:18:26 GMT If-None-Match: &amp;quot;3147526947+gzip&amp;quot; Proxy-Connection: keep-alive Upgrade-Insecure-Requests: 1 User-Agent: Mozilla/5.0 xxx param1=1&amp;amp;param2=2 响应报文结构：
- 第一行 包含协议版本、状态码以及描述，最常见的是 200 OK 表示请求成功了 接下来多行也是首部内容。 一个空行分割首部和内容主体。 最后是响应的内容主体。  HTTP/1.1 200 OK Age: 529651 Cache-Control: max-age=604800 Connection: keep-alive Content-Encoding: gzip Content-Length: 648 Content-Type: text/html; charset=UTF-8 Date: Mon, 02 Nov 2020 17:53:39 GMT Etag: &amp;quot;3147526947+ident+gzip&amp;quot; Expires: Mon, 09 Nov 2020 17:53:39 GMT Keep-Alive: timeout=4 Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT Proxy-Connection: keep-alive Server: ECS (sjc/16DF) Vary: Accept-Encoding X-Cache: HIT &amp;lt;!</description>
-    </item>
-    
-    <item>
-      <title>概述</title>
-      <link>/post/network/summary/</link>
-      <pubDate>Thu, 07 Jan 2021 14:56:42 +0800</pubDate>
-      
-      <guid>/post/network/summary/</guid>
-      <description>网络的网络 网络把主机连接起来，而互连网（internet）是把多种不同的网络连接起来，因此互连网是网络的网络。而互联网（Internet）是全球范围的互联网。
-ISP 互联网服务提供商（ISP）可以从互联网管理机构获得许多 IP 地址，同时拥有通信线路以及路由器等联网设备，个人或机构向 ISP 缴纳一定的费用就可以接入互联网。
-目前的互联网是一种多层次 ISP 结构，ISP 根据覆盖面积的大小分为第一层 ISP、区域 ISP和接入 ISP。互联网交换点 IXP 允许两个 ISP 直接相连而不用经过第三个 ISP。
-主机之间的通信方式  客户-服务器（C/S）：客户是服务的请求方，服务器是服务的提供方。 对等（P2P）：不区分客户和服务器。  电路交换和分组交换 1. 电路交换 2. 分组交换 时延 总时延 = 排队时延 + 处理时延 + 传输时延 + 传播时延
-计算机网络体系结构 1. 无层协议  应用层：HTTP、DNS 等协议，数据单位是报文。 传输层：TCP、UDP。TCP 主要提供完整性服务，UDP 主要提供及时性服务。 网络层：为主机提供数据传输服务。而传输层协议是为主机中的进程提供数据传输服务。网络层把传输层传递下来的报文段或者用户数据报封装成分组。 数据链路层：为同一链路的主机提供数据传输服务。数据链路层把网络层传下来的分组封装成帧。 物理层：考虑的是怎样在传输媒体上传输数据比特流，而不是指具体的传输媒体。物理层的作用是尽可能屏蔽传输媒体和通信手段的差异，使数据链路层感觉不到这些差异。  2. OSI 其中表示层和会话层用途如下：
- 表示层：数据压缩、加密以及数据描述，这使得应用程序不必关心在各台主机中数据内部格式不同的问题。 会话层：建立及管理会话。 五层协议没有表示层和会话层，而是将这些功能留给应用程序开发者处理。  3. TCP/IP 它只有四层，相当于五层协议中数据链路层和物理层合并为网络接口层。
-TCP/IP 体系结构不严格遵循 OSI 分层概念，应用层可能会直接使用 IP 层或者网络接口层。</description>
-    </item>
-    
-    <item>
-      <title>内存管理</title>
-      <link>/post/operatingsystem/memorymanagement/</link>
-      <pubDate>Thu, 07 Jan 2021 10:48:45 +0800</pubDate>
-      
-      <guid>/post/operatingsystem/memorymanagement/</guid>
-      <description>虚拟内存 虚拟内存的目的是为了让物理内存扩充成更大的逻辑内存，从而让程序获得更多的可用内存。
-为了更好的管理内存，操作系统将内存抽象成地址空间。每个程序拥有自己的地址空间，这个地址空间被分割成多个块，每一块称为一页。这些页被映射到物理内存，但不需要映射到连续的物理内存，也不需要所有页都必须在物理内存中。当程序引用到不在物理内存中的页时，由硬件执行必要的映射，将缺失的部分装入物理内存并重新执行失败的指令。
-从上面的描述中可以看出，虚拟内存允许程序不用将地址空间中的每一页都映射到物理内存，也就是说一个程序不需要全部调入内存就可以运行，这使得有限的内存运行大程序成为可能。例如有一台计算机可以产生16位地址，那么一个程序的地址空间范围是 0～64K。该计算机只有 32KB 的物理内存，虚拟内存技术允许该计算机运行一个 64K 大小的程序。
-分页系统地址映射 内存管理单元（MMU）管理着地址空间和物理内存的转换，其中的页表（Page table）存储着页（程序地址空间）和叶框（物理内存空间）的映射表。
-一个虚拟地址分为两个部分，一部分存储页面号，一部分存储偏移量。
-页面置换算法 在程序运行过程中，如果要访问的页面不在内存中，就发生缺页中断从而将该页调入内存中。此时如果内存已无空闲空间，系统必须从内存中调出一个页面到磁盘对换区中来腾出空间。
-页面置换算法和缓存淘汰策略类似，可以将内存看成磁盘的缓存。在缓存系统中，缓存你的大小有限，当有新的缓存到达时，需要淘汰一部分已经存在的缓存，这样才有空间存放新的缓存数据。
-页面置换算法的主要目标是使页面置换频率最低（也可以说缺页率最低）。
-1. 最佳 2. 最近最久未使用 3. 最近未使用 4. 先进先出 5. 第二次机会算法 6. 时钟 分段 虚拟内存采用的是分页技术，也就是将地址空间划分成固定大小的页，每一页再与内存进行映射。
-分段的做法是把每个表分成段，一个段构成一个独立的地址空间。每个段的长度可以不同，并且可以动态增长。
-段页式 程序的地址空间划分成多个拥有独立地址空间的段，每个段上的地址空间划分成大小相同的页。这样既拥有分段系统的共享和保护，又拥有分页系统的虚拟内存功能。
-分页与分段的比较  对程序员的透明性： 分页透明，但是分段需要程序员显式划分每个段。 地址空间的维度：分页是一维地址空间，分段是二维的。 大小是否可以改变：页的大小不可变，段的大小可以动态改变。 出现的原因：分页主要用于实现虚拟内存，从而获得更大的地址空间；分段主要是为了使程序和数据可以被划分为逻辑上独立的地址空间并且有助于共享和保护。  </description>
-    </item>
-    
-    <item>
-      <title>死锁</title>
-      <link>/post/operatingsystem/deadlock/</link>
-      <pubDate>Thu, 07 Jan 2021 10:00:08 +0800</pubDate>
-      
-      <guid>/post/operatingsystem/deadlock/</guid>
-      <description>必要条件  互斥：每个资源要么已经分配给了一个进程，要么就是不可用的。 占有和等待：已经得到了某个资源的进程可以再请求心的资源。 不可抢占：已经分配给一个进程的资源不能强制性地被抢占，它只能被占有它的进程显式地释放。 环路等待：有两个或者两个以上的进程组成一条环路，该环路中的每个进程都在等待下一个进程所占有的资源。  处理方法 </description>
-    </item>
-    
-    <item>
-      <title>进程管理</title>
-      <link>/post/operatingsystem/processmanagement/</link>
-      <pubDate>Tue, 05 Jan 2021 21:50:53 +0800</pubDate>
-      
-      <guid>/post/operatingsystem/processmanagement/</guid>
-      <description>进程与线程 1.进程 进程是资源分配的基本单位。
-进程控制块（Process Control Block,PCB)描述进程的基本信息和运行状态，所谓的创建进程和撤销进程，都是指对 PCB 的操作。
-进程可以并发执行。
-2.线程 线程是独立调度的基本单位。
-一个进程中可以有多个线程，它们共享进程资源。
-QQ 和浏览器是两个进程，浏览器进程里面有很多线程，例如 HTTP 请求线程、时间相应线程、渲染线程的呢个等，线程的并发执行使得在浏览器中点击一个新链接从而发起 HTTP 请求时，浏览器还可以相应用户的其他事件。
-3.区别 （1）拥有资源
-进程是资源分配的基本单位，但是线程不用有资源，线程可以访问隶属进程的资源。
-（2）调度
-线程是独立调度的基本单位，在同一进程中，线程的切换不会引起进程切换，从一个进程中的线程切换到另一个进程的线程时，会引起进程的切换。
-（3）系统开销
-由于创建或撤销进程时，系统都要为之分配或回收资源，如内存空间、I/O 设备等，所付出的开销远大于创建或撤销线程时的开销。类似地，在进行进程切换时，涉及当前执行进程 CPU 环境的保存及新调度进程 CPU 环境的设置，而进程切换时只需保存和设置少量寄存器内容，开销很小。
-（4）通信方面
-线程间可以通过直接读写同一进程中的数据进行通信，但是进程通信需要借助 IPC。
-进程状态的切换  就绪状态（ready）：等待被调度 运行状态（running） 阻塞状态（waiting）：等待资源  应该注意以下内容：
- 只有就绪态和运行态可以相互转换，其它的都是单向转换。就绪状态的进程通过调度算法从而获得 CPU 时间，转为运行状态，而运行状态的进程，在分配给它的 CPU 时间片用完之后就会转为就绪状态，等待下一次调度。 阻塞状态是缺少需要的资源从而由运行状态转换而来，但是该资源不包括 CPU 时间，缺少 CPU 时间会从运行状态转换为就绪态。  进程调度算法 不同环境的调度算法目标不同，因此需要针对不同的环境来讨论调度算法。
-1. 批处理系统 批处理系统没有太多的用户操作，在该系统中，调度算法目标是保证吞吐量和周转时间（从提交到终止的时间）。
-1.1 先来先服务 1.2 短作业优先 1.3 最短剩余时间优先 2. 交互式系统 交互式系统有大量的用户交互操作，在该系统中调度算法的目标是快速地进行响应。
-2.1 时间片轮转 2.2 优先级调度 2.</description>
-    </item>
-    
-    <item>
-      <title>概述</title>
-      <link>/post/operatingsystem/summary/</link>
-      <pubDate>Tue, 05 Jan 2021 16:28:30 +0800</pubDate>
-      
-      <guid>/post/operatingsystem/summary/</guid>
-      <description>接本特征 1.并发 并发是指宏观上在一段时间内能同时运行多个程序，而并行则指同一时刻能运行多个指令。
-并行需要硬件支持，如多流水线、多核处理器或者分布式计算系统。
-操作系统通过引入线程和进程，使得程序能够并发运行。
-2.共享 共享是指系统中的资源可以被多个并发进程共同使用。
-有两种共享方式：互斥共享和同时共享。
-互斥共享的资源称为临界资源，例如打印机等，在同一时刻只允许一个进程访问，需要用同步机制来实现互斥访问。
-3.虚拟 虚拟技术把一个物理实体转换为多个逻辑实体。
-主要有两种虚拟技术：时分复用技术和空分复用技术。
-多个进程能在同一个处理器上并发执行使用了时分复用技术，让每个进程轮流占用处理器，每次只执行一小个时间片并快速切换。
-虚拟内存使用了空分复用技术，它将物理内存抽象为地址空间，每个进程都有各自的地址空间。地址空间的页被映射到物理内存，地址空间的页并不需要全部在物理内存中，当使用到一个没有在物理内存的页时，执行页面置换算法，将该页置换到内存中。
-4.异步 异步是指进程不是一次性执行完毕，而是走走停停，以不可知的速度向前推进。
-基本功能 1.进程管理 进程控制、进程同步、进程通信、死锁处理、处理机调度等。
-2.内存管理 内存分配、地址映射、内存保护与共享、虚拟内存等。
-3.文件管理 文件存储空间的管理、目录管理、文件读写管理和保护等。
-4.设备管理 完成用户的 I/O 请求，方便用户使用各种设备，并提高设备的利用率。
-主要包括缓冲管理、设备分配、设备处理、虚拟设备等。
-系统调用 如果一个进程在用户态需要使用内核态的功能，就进行系统调用从而陷入内核，由操作系统代为完成。
-Linux 的系统调用主要有以下这些：
-   Task Commands     进程控制 fork();exit();wait();   进程通信 pipe();shmget();mmap();   文件操作 open();read();write();   设备操作 ioctl();read();write();   信息维护 getpid();alarm();sleep();   安全 chmod();umask();chown();    宏内核和微内核 1.宏内核 宏内核是将操作系统功能作为一个紧密结合的整体放到内核。
-由于各模块共享信息，因此有很高的性能。</description>
-    </item>
-    
-    <item>
-      <title>数据库系统原理</title>
-      <link>/post/database/databasetheory/</link>
-      <pubDate>Thu, 31 Dec 2020 10:12:55 +0800</pubDate>
-      
-      <guid>/post/database/databasetheory/</guid>
-      <description> 一、事务  概念 ACID AUTOCOMMIT   二、并发一致性问题  丢失修改 读脏数据 不可重复读 幻影读   三、封锁  封锁粒度 封锁类型 封锁协议 MySQL 隐式与显示锁定   四、隔离级别  未提交读（READ UNCOMMITTED) 提交读（READ COMMITTED） 可重复读（REPEATABLE READ） 可串行化（SERIALIZABLE）   五、多版本并发控制  基本思想 版本号 Undo 日志 ReadView 快照读与当前读   六、Next-Key Locks  Record Locks Gap Locks Next-Key Locks   七、关系数据库设计理论  函数依赖 异常 范式   八、ER图                                   </description>
-    </item>
-    
-    <item>
-      <title>SQL 语法</title>
-      <link>/post/database/sql/</link>
-      <pubDate>Thu, 31 Dec 2020 10:12:40 +0800</pubDate>
-      
-      <guid>/post/database/sql/</guid>
-      <description>一、基础 二、创建表 三、修改表 四、插入 五、更新 六、删除 七、查询  DISTINCT LIMIT   八、排序 九、过滤 十、通配符 十一、计算字段 十二、函数  汇总 文本处理 日期和时间处理 数值处理   十三、分组 十四、子查询 十五、连接  内连接 自连接 自然连接 外连接   十六、组合查询 十七、视图 十八、存储过程 十九、游标 二十、触发器 二十一、事务管理 二十二、字符集 二十三、权限管理  一、基础 模式定义了数据如何存储、存储怎么样的数据以及数据如何分解等信息，数据库和表都有模式。
-主键的值不允许修改，也不允许复用（不能将已经删除的主键值赋给新数据行的主键）。
-SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。
-SQL 语句不区分大小写，但是数据库表名、列名和值是否区分依赖于具体的 DBMS 以及配置。
-SQL 支持以下三种注释：
-### 注释 SELECT * FROM mytable; -- 注释 /* 注释1 注释2 */ 数据库创建与使用：</description>
-    </item>
-    
-    <item>
-      <title>Java 虚拟机</title>
-      <link>/post/java/jvm/</link>
-      <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
-      
-      <guid>/post/java/jvm/</guid>
-      <description>参考自 CyC2018/CS-Notes
- 一、运行时数据区域  程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存   二、垃圾收集  判断一个对象是否可被回收 引用类型 垃圾收集算法 垃圾收集器   三、内存分配和回收策略  Minor Gc 和 Full Gc 内存分配策略 Full GC 的触发条件   四、类加载机制  类的生命周期 类加载过程 类初始化时机 类与类加载器 类加载器分类 双亲委派模型 自定义类加载器实现    一、运行时数据区域  程序计数器  记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。
-Java 虚拟机栈  每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
-可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</description>
-    </item>
-    
-    <item>
-      <title>Java 容器</title>
-      <link>/post/java/collection/</link>
-      <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
-      
-      <guid>/post/java/collection/</guid>
-      <description>参考自 CyC2018/CS-Notes
- 一、概览  Collection Map    一、概览  容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。
-Collection  1.Set
- TreeSet: 基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet, HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。 HashSet: 基于哈希表的实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。 LinkedHashSet: 具有 HashSet 的查找效率，并且内部使用双向链表维护元素的插入顺序。  2.List
- ArrayList： 基于动态数组实现，支持随机访问。 Vector： 和 ArrayList 类似，但它是线程安全的。 LinkedList： 基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用做栈、队列和双向队列。  3.Queue
- LinkedList：可以用它来实现双向队列。 PriorityQueue：基于堆结构实现，可以用它来实现优先队列。  Map   TreeMap：基于红黑树实现 HashMap：基于哈希表实现 hashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程同时写入 HashTable 不会导致数据不一致。它是遗留类，不应该去使用它，而是使用 ConcurrentHashMap 来支持线程安全，ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。 LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。  </description>
-    </item>
-    
-    <item>
-      <title>Java 基础</title>
-      <link>/post/java/base/</link>
-      <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
-      
-      <guid>/post/java/base/</guid>
-      <description>参考自 CyC2018/CS-Notes
- 一、数据类型  基本类型 包装类型 缓存池   二、String  概述 不可变的好处 String,StringBuffer and StringBuilder StringPoll new String(&amp;ldquo;abc&amp;rdquo;)   三、运算  参数传递 float与double 隐式类型转换 switch   四、关键字  final static   五、Object通用方法  概览 equals() hashCode() toString() clone()   六、继承  访问权限 抽象类和接口 super 重载和重写   七、反射 八、异常 九、泛型 十、注解 十一、特性  一、数据类型  基本类型   byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~  boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</description>
+      <guid>/post/2020-12-15-2/</guid>
+      <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。
+然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。(傻子才修改 String 给自己找麻烦啊)
+事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：
+ //实验1 String s1 = &amp;quot;1&amp;quot;; Field valueField = String.class.getDeclaredField(&amp;quot;value&amp;quot;); valueField.setAccessible(true); char[] value = (char[]) valueField.get(s1); value[0] = &#39;2&#39;; System.out.println(s1); //2 System.out.println((s1 == &amp;quot;1&amp;quot;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot;  的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;ldquo;1&amp;rdquo; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
     </item>
     
   </channel>

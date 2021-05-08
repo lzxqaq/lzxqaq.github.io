@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 08 May 2021 11:09:51 +0800</lastBuildDate><atom:link href="/categories/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</title>
-      <link>/post/java/paopaotang/</link>
+      <link>/post/paopaotang/</link>
       <pubDate>Sat, 08 May 2021 11:09:51 +0800</pubDate>
       
-      <guid>/post/java/paopaotang/</guid>
+      <guid>/post/paopaotang/</guid>
       <description>介绍和成果展示 本项目是一个很久以前的实训周项目，当时花费了两天左右时间，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功夫。本项目仍存在一些不足的地方，后续可能会进行优化，现在我将项目源代码和一些实现思路开源公布。
 源代码：https://github.com/lzxqaq/CrazyArcade
 文章介绍：https://lzxqaq.com/post/java/paopaotang/
@@ -24,67 +24,6 @@
 选择MVC架构最主要的原因是让这个游戏项目具有良好的可扩展性和更新功能，当然了，一个好的游戏也需要良好的交互功能，漂亮的UI设计。
 架构图：
 包结构 核心实现 </description>
-    </item>
-    
-    <item>
-      <title>Java I/O</title>
-      <link>/post/java/io/</link>
-      <pubDate>Tue, 12 Jan 2021 08:46:08 +0800</pubDate>
-      
-      <guid>/post/java/io/</guid>
-      <description>一、概览 Java 的 I/O 大概可以分成以下几类：
- 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO  二、磁盘操作 File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { System.out.println(dir.getName()); return ; } for (File:file : dir.listFiles()) { listAllFiles(file); } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
-三、字节操作 实现文件复制 public static void copuFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读 buffer.</description>
-    </item>
-    
-    <item>
-      <title>Java 并发</title>
-      <link>/post/java/concurrent/</link>
-      <pubDate>Sat, 09 Jan 2021 10:50:16 +0800</pubDate>
-      
-      <guid>/post/java/concurrent/</guid>
-      <description>一、使用线程 有三种使用线程的方法：
- 实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类；  实现 Runnable 接口 需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
-public static void main(String[] args){ MyRunnable instance = new MyRunnable(); Thread thread = new Thread(instance); thread.start(); } 实现 Callable 接口 与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。
-public class MyCallable implements Callable&amp;lt;Integer&amp;gt; { public Integer call(){ return 123; } } public static void main(String[] args) throws ExecutionException,InterruptedException { MyCallable mc = new MyCallble(); FutureTask&amp;lt;Integer&amp;gt; ft = new FutureTask&amp;lt;&amp;gt;(mc); Thread thread = new Thread(ft); thread.</description>
-    </item>
-    
-    <item>
-      <title>Java 虚拟机</title>
-      <link>/post/java/jvm/</link>
-      <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
-      
-      <guid>/post/java/jvm/</guid>
-      <description>参考自 CyC2018/CS-Notes
- 一、运行时数据区域  程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存   二、垃圾收集  判断一个对象是否可被回收 引用类型 垃圾收集算法 垃圾收集器   三、内存分配和回收策略  Minor Gc 和 Full Gc 内存分配策略 Full GC 的触发条件   四、类加载机制  类的生命周期 类加载过程 类初始化时机 类与类加载器 类加载器分类 双亲委派模型 自定义类加载器实现    一、运行时数据区域  程序计数器  记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。
-Java 虚拟机栈  每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
-可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</description>
-    </item>
-    
-    <item>
-      <title>Java 容器</title>
-      <link>/post/java/collection/</link>
-      <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
-      
-      <guid>/post/java/collection/</guid>
-      <description>参考自 CyC2018/CS-Notes
- 一、概览  Collection Map    一、概览  容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。
-Collection  1.Set
- TreeSet: 基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet, HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。 HashSet: 基于哈希表的实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。 LinkedHashSet: 具有 HashSet 的查找效率，并且内部使用双向链表维护元素的插入顺序。  2.List
- ArrayList： 基于动态数组实现，支持随机访问。 Vector： 和 ArrayList 类似，但它是线程安全的。 LinkedList： 基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用做栈、队列和双向队列。  3.Queue
- LinkedList：可以用它来实现双向队列。 PriorityQueue：基于堆结构实现，可以用它来实现优先队列。  Map   TreeMap：基于红黑树实现 HashMap：基于哈希表实现 hashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程同时写入 HashTable 不会导致数据不一致。它是遗留类，不应该去使用它，而是使用 ConcurrentHashMap 来支持线程安全，ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。 LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。  </description>
-    </item>
-    
-    <item>
-      <title>Java 基础</title>
-      <link>/post/java/base/</link>
-      <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
-      
-      <guid>/post/java/base/</guid>
-      <description>参考自 CyC2018/CS-Notes
- 一、数据类型  基本类型 包装类型 缓存池   二、String  概述 不可变的好处 String,StringBuffer and StringBuilder StringPoll new String(&amp;ldquo;abc&amp;rdquo;)   三、运算  参数传递 float与double 隐式类型转换 switch   四、关键字  final static   五、Object通用方法  概览 equals() hashCode() toString() clone()   六、继承  访问权限 抽象类和接口 super 重载和重写   七、反射 八、异常 九、泛型 十、注解 十一、特性  一、数据类型  基本类型   byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~  boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</description>
     </item>
     
   </channel>
