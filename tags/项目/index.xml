@@ -6,7 +6,20 @@
     <description>Recent content in 项目 on Zexun Luo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 08 May 2021 11:09:51 +0800</lastBuildDate><atom:link href="/tags/%E9%A1%B9%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 May 2021 07:12:32 +0800</lastBuildDate><atom:link href="/tags/%E9%A1%B9%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
+      <link>/post/zxhan/</link>
+      <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
+      
+      <guid>/post/zxhan/</guid>
+      <description>前言 这是一个适合编程新手练手的小玩意，核心是哈夫曼编码和解码，软件界面由 QT 实现（占比很小）。
+源代码： https://gitee.com/lzxqaq/zxhan.git
+文章介绍：
+运行截图：
+包结构 核心实现 </description>
+    </item>
+    
     <item>
       <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</title>
       <link>/post/paopaotang/</link>

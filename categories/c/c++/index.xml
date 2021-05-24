@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C/C&#43;&#43; on Zexun Luo</title>
+    <link>/categories/c/c&#43;&#43;/</link>
+    <description>Recent content in C/C&#43;&#43; on Zexun Luo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="/categories/c/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
+      <link>/post/zxhan/</link>
+      <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
+      
+      <guid>/post/zxhan/</guid>
+      <description>前言 这是一个适合编程新手练手的小玩意，核心是哈夫曼编码和解码，软件界面由 QT 实现（占比很小）。
+源代码： https://gitee.com/lzxqaq/zxhan.git
+文章介绍：
+运行截图：
+包结构 核心实现 </description>
+    </item>
+    
+  </channel>
+</rss>
