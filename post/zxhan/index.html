@@ -51,12 +51,27 @@
     </div>
     <p class="lead"></p>
     <h3 id="前言">前言</h3>
-<p>这是一个适合编程新手练手的小玩意，核心是哈夫曼编码和解码，软件界面由 QT 实现（占比很小）。</p>
+<p>这是以前的一个实训周作业，核心是哈夫曼编码和解码，软件界面由 QT 实现。代码量很小，比较简单。</p>
 <p>源代码： <a href="https://gitee.com/lzxqaq/zxhan.git">https://gitee.com/lzxqaq/zxhan.git</a></p>
-<p>文章介绍：<a href=""></a></p>
+<p>介绍：<a href="https://lzxqaq.com/post/zxhan/">https://lzxqaq.com/post/zxhan/</a></p>
+<p>算法参考：<a href="https://blog.csdn.net/small_hacker/article/details/52843738">Huffman压缩真正的C++实现</a></p>
+<p>运行环境：Linux 系统（Windows系统下运行尚有 bug ),开发环境为 QT Creator。</p>
 <p>运行截图：</p>
-<h3 id="包结构">包结构</h3>
+<div  align="center">    
+ <img src="https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png" width = "500" height = "200" alt="图片名称" align=center /></div>
+<!-- ![img](https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png) -->
 <h3 id="核心实现">核心实现</h3>
+<pre><code>void create_node_array();//构造包含字符及其频率的数组
+void create_pq();//构造优先级队列
+void create_huffman_tree();//构造哈夫曼树
+void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表
+bool calculate_huffman_codes();//计算哈夫曼编码
+bool do_compress();//开始压缩
+bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树
+void decode_huffman();//根据重构的哈夫曼树解码文件
+
+</code></pre><h3 id="后续">后续</h3>
+<p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
 
     <h4><a href="/"></a></h4>
 </div>
