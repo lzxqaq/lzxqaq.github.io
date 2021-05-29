@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on 狂人笔记</title>
+    <link>/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on 狂人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 28 May 2021 11:46:44 +0800</lastBuildDate><atom:link href="/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【规约】 C&#43;&#43; 编程篇</title>
+      <link>/post/c&#43;&#43;codingguidelines/</link>
+      <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
+      
+      <guid>/post/c&#43;&#43;codingguidelines/</guid>
+      <description>前言 “码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。
+（一）排版 1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。
+2.相对独立的程序块之间、变量说明之后必须加空行。
+3.较长的语句（&amp;gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。
+4.if、for、do、while、case、switch、default 等语句自占一行，且执行语句部分无论多少都要加括号 {}。
+（二）注释 1.一般情况下，源程序有效注释量必须在 20% 以上。
+2.说明性文件（如头文件 .h 文件、.inc 文件、.def 文件等）头部应进行注释，注释必须列出：版权说明、版本号、生成日期、作者、内容、功能、与其他头文件关系、修改日志等，头文件注释中还应有函数功能简要说明。
+3.源文件头部应进行注释，列出：版权说明、版本号、生成日期、作者、模块目的/功能、主要函数及其功能、修改日志等。
+4.函数头部应进行注释，列出：函数的目的/功能、输入参数、输出参数、返回值、调用关系（函数、表）等。
+5.边写代码边注释，修改代码同时修改响应的注释。不再有用的注释 要删除。
+6.注释格式尽量统一，建议使用“/…………/”。
+7.注释应考虑程序易读性，建议使用中文。
+（三）标识符命名 1.命名规范必须与所使用的系统风格保持一致，并在同一项目中统一，比如采用 UNIX 的全小写加下划线风格或大小写混排的方式，不要将两种方式混合使用。用作特殊标识如标识成员变量或全局变量的 m_ 和 g_，其后加上大小写混排的方式是允许的。
+示例：Add_User 不允许，add_user、AddUser、m_AddUser允许。
+2.用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。
+说明：以下是一些在软件中常用的反义词组。
+add / remove begin / end create / destroy
+insert /delete first / last get / release
+increment / decrement put / get
+add /delete lock unlock open /close
+min / max old /new stat / stop</description>
+    </item>
+    
+    <item>
+      <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
+      <link>/post/zxhan/</link>
+      <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
+      
+      <guid>/post/zxhan/</guid>
+      <description>前言 这是以前的一个实训周作业，核心是哈夫曼编码和解码，软件界面由 QT 实现。代码量很小，比较简单。
+源代码： https://gitee.com/lzxqaq/zxhan.git
+介绍：https://lzxqaq.com/post/zxhan/
+算法参考：Huffman压缩真正的C++实现
+运行环境：Linux 系统（Windows系统下运行尚有 bug ),开发环境为 QT Creator。
+运行截图：
+ 核心实现 void create_node_array();//构造包含字符及其频率的数组 void create_pq();//构造优先级队列 void create_huffman_tree();//构造哈夫曼树 void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表 bool calculate_huffman_codes();//计算哈夫曼编码 bool do_compress();//开始压缩 bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树 void decode_huffman();//根据重构的哈夫曼树解码文件 后续 该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎联系我。如有任何问题，亦可与我一同探讨。</description>
+    </item>
+    
+  </channel>
+</rss>

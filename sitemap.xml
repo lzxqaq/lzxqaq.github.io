@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/categories/c&#43;&#43;/</loc>
+    <loc>/tags/c&#43;&#43;/</loc>
     <lastmod>2021-05-28T11:46:44+08:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
     <lastmod>2021-05-28T11:46:44+08:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
-    <lastmod>2021-05-28T11:46:44+08:00</lastmod>
-  </url><url>
     <loc>/tags/</loc>
-    <lastmod>2021-05-28T11:46:44+08:00</lastmod>
-  </url><url>
-    <loc>/</loc>
     <lastmod>2021-05-28T11:46:44+08:00</lastmod>
   </url><url>
     <loc>/post/c&#43;&#43;codingguidelines/</loc>
     <lastmod>2021-05-28T11:46:44+08:00</lastmod>
   </url><url>
-    <loc>/tags/%E8%A7%84%E7%BA%A6/</loc>
+    <loc>/</loc>
     <lastmod>2021-05-28T11:46:44+08:00</lastmod>
   </url><url>
-    <loc>/categories/java/</loc>
+    <loc>/categories/%E8%A7%84%E7%BA%A6/</loc>
+    <lastmod>2021-05-28T11:46:44+08:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2021-05-28T11:46:44+08:00</lastmod>
+  </url><url>
+    <loc>/tags/java/</loc>
     <lastmod>2021-05-28T10:36:40+08:00</lastmod>
   </url><url>
     <loc>/post/javacodingguidelines/</loc>
     <lastmod>2021-05-28T10:36:40+08:00</lastmod>
   </url><url>
-    <loc>/categories/mysql/</loc>
+    <loc>/tags/mysql/</loc>
     <lastmod>2021-05-28T09:03:51+08:00</lastmod>
   </url><url>
     <loc>/post/databaseguidelines/</loc>
@@ -38,7 +38,7 @@
     <loc>/post/zxhan/</loc>
     <lastmod>2021-05-25T07:12:32+08:00</lastmod>
   </url><url>
-    <loc>/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>/categories/%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2021-05-25T07:12:32+08:00</lastmod>
   </url><url>
     <loc>/post/paopaotang/</loc>
@@ -53,7 +53,7 @@
     <loc>/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-02-18T09:03:38+08:00</lastmod>
   </url><url>
-    <loc>/categories/linux/</loc>
+    <loc>/tags/linux/</loc>
     <lastmod>2020-12-26T22:33:13+08:00</lastmod>
   </url><url>
     <loc>/post/2020-12-26/</loc>
@@ -63,7 +63,5 @@
     <lastmod>2020-12-15T15:05:27+08:00</lastmod>
   </url><url>
     <loc>/about/</loc>
-  </url><url>
-    <loc>/categories/c/c&#43;&#43;/</loc>
   </url>
 </urlset>

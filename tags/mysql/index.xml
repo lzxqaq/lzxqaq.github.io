@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on 狂人笔记</title>
+    <link>/tags/mysql/</link>
+    <description>Recent content in MySQL on 狂人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 28 May 2021 09:03:51 +0800</lastBuildDate><atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【规约】 MySQL 数据库篇</title>
+      <link>/post/databaseguidelines/</link>
+      <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
+      
+      <guid>/post/databaseguidelines/</guid>
+      <description>前言 “码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。
+(一)建表规约 1.【强制】表达是与否概念的字段，必须使用 is_xxx 的方式命名，数据类型是 unsigned tinying(1 表示是，0 表示否)。
+说明：任何字段如果为非负数，必须是 unsigned。
+注意：POJO 类中任何布尔类型的变量，都不要加 is 前缀，所以，需要在  设置从 is_xxx 到 Xxx 的映射关系。数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的命名方式是为了明确其取值含义与范围。
+正例：表达逻辑删除的字段名 is_deleted，1 表示删除，0 表示未删除。
+2.【强制】表名、字段名必须使用小写字母或数字，禁止出现数字开头，禁止两个下划线中间只出现数字。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑。
+说明:MySQL 在 Windows 下不区分大小写，但在 Linux 下默认是区分大小写。因此，数据库名、表名、字段名，都不允许出现任何大小写字母，避免节外生枝。
+正例：aliyun_admin, rdc_config, level3_name 反例：AliyunAdmin, rdcConfig, level_3_name
+3.【强制】表明不使用复数名词。 说明：表名应该仅仅表示表里面的实体内容，不应该表示实体数量，对应于 DO 类名也是单数形式，符合表达习惯。
+4.【强制】主键索引名为 pk_字段名；唯一索引名为 uk_字段名；普通索引名则为 idx_字段名。
+说明：pk_ 即 primary key；uk_ 即 unique key；idx_ 即 index 的简称。
+5.【小数类型】为 decimal，禁止使用 float 和 double。</description>
+    </item>
+    
+  </channel>
+</rss>

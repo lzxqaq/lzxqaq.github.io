@@ -613,6 +613,7 @@ a:focus {
 }
 
 .container {
+  margin-top: 5px;
   margin-left: 20px;
   *zoom: 1;
 }
@@ -4455,6 +4456,7 @@ input[type="submit"].btn.btn-mini {
   display: none;
   float: right;
   padding: 0 12.4px;
+  margin-top: 8px;
   margin-right: 12.4px;
   margin-left: 12.4px;
   *background-color: #aeaeae;

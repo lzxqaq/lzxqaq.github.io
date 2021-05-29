@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Zexun Luo</title>
+    <title>记录 on 狂人笔记</title>
     <link>/post/</link>
-    <description>Recent content in Posts on Zexun Luo</description>
+    <description>Recent content in 记录 on 狂人笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 28 May 2021 11:46:44 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
       
       <guid>/post/c&#43;&#43;codingguidelines/</guid>
-      <description>前言 “码出高效，码出质量”。本文整理了比较常见 C++ 编程规范，主要来源于华为《软件编程规范总则》。
+      <description>前言 “码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。
 （一）排版 1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。
 2.相对独立的程序块之间、变量说明之后必须加空行。
 3.较长的语句（&amp;gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。
