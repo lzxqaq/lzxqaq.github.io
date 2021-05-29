@@ -6,13 +6,31 @@
     <description>Recent content in Categories on Zexun Luo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 08 May 2021 11:09:51 +0800</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 May 2021 11:46:44 +0800</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>/categories/c&#43;&#43;/</link>
+      <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
+      
+      <guid>/categories/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Java</title>
       <link>/categories/java/</link>
-      <pubDate>Sat, 08 May 2021 11:09:51 +0800</pubDate>
+      <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
       
       <guid>/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>/categories/mysql/</link>
+      <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
+      
+      <guid>/categories/mysql/</guid>
       <description></description>
     </item>
     
