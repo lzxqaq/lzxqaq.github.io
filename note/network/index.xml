@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机网络 on 狂人笔记</title>
+    <link>/note/network/</link>
+    <description>Recent content in 计算机网络 on 狂人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 07 Jan 2021 15:25:54 +0800</lastBuildDate><atom:link href="/note/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP</title>
+      <link>/note/network/http/</link>
+      <pubDate>Thu, 07 Jan 2021 15:25:54 +0800</pubDate>
+      
+      <guid>/note/network/http/</guid>
+      <description>一、基础概念 请求和响应报文 客户端发送一个请求报文给服务器，服务器根据请求报文中的信息进行处理，并将处理结果放入响应报文中返回给客户端。
+请求报文结构：
+ 第一行包含了请求方法、URL、协议版本； 接下来的多行都是请求首部 Header，每个首部都有一个首部名称，以及对应的值。 一个空行用来分割首部和内容主体 Body。 最后是请求的内容主体。  GET http://www.example.com/ HTTP/1.1 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9 Accept-Encoding: gzip, deflate Accept-Language: zh-CN,zh;q=0.9,en;q=0.8 Cache-Control: max-age=0 Host: www.example.com If-Modified-Since: Thu, 17 Oct 2019 07:18:26 GMT If-None-Match: &amp;quot;3147526947+gzip&amp;quot; Proxy-Connection: keep-alive Upgrade-Insecure-Requests: 1 User-Agent: Mozilla/5.0 xxx param1=1&amp;amp;param2=2 响应报文结构：
+ 第一行 包含协议版本、状态码以及描述，最常见的是 200 OK 表示请求成功了 接下来多行也是首部内容。 一个空行分割首部和内容主体。 最后是响应的内容主体。  HTTP/1.1 200 OK Age: 529651 Cache-Control: max-age=604800 Connection: keep-alive Content-Encoding: gzip Content-Length: 648 Content-Type: text/html; charset=UTF-8 Date: Mon, 02 Nov 2020 17:53:39 GMT Etag: &amp;quot;3147526947+ident+gzip&amp;quot; Expires: Mon, 09 Nov 2020 17:53:39 GMT Keep-Alive: timeout=4 Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT Proxy-Connection: keep-alive Server: ECS (sjc/16DF) Vary: Accept-Encoding X-Cache: HIT &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>概述</title>
+      <link>/note/network/summary/</link>
+      <pubDate>Thu, 07 Jan 2021 14:56:42 +0800</pubDate>
+      
+      <guid>/note/network/summary/</guid>
+      <description>网络的网络 网络把主机连接起来，而互连网（internet）是把多种不同的网络连接起来，因此互连网是网络的网络。而互联网（Internet）是全球范围的互联网。
+ISP 互联网服务提供商（ISP）可以从互联网管理机构获得许多 IP 地址，同时拥有通信线路以及路由器等联网设备，个人或机构向 ISP 缴纳一定的费用就可以接入互联网。
+目前的互联网是一种多层次 ISP 结构，ISP 根据覆盖面积的大小分为第一层 ISP、区域 ISP和接入 ISP。互联网交换点 IXP 允许两个 ISP 直接相连而不用经过第三个 ISP。
+主机之间的通信方式  客户-服务器（C/S）：客户是服务的请求方，服务器是服务的提供方。 对等（P2P）：不区分客户和服务器。  电路交换和分组交换 1. 电路交换 2. 分组交换 时延 总时延 = 排队时延 + 处理时延 + 传输时延 + 传播时延
+计算机网络体系结构 1. 无层协议  应用层：HTTP、DNS 等协议，数据单位是报文。 传输层：TCP、UDP。TCP 主要提供完整性服务，UDP 主要提供及时性服务。 网络层：为主机提供数据传输服务。而传输层协议是为主机中的进程提供数据传输服务。网络层把传输层传递下来的报文段或者用户数据报封装成分组。 数据链路层：为同一链路的主机提供数据传输服务。数据链路层把网络层传下来的分组封装成帧。 物理层：考虑的是怎样在传输媒体上传输数据比特流，而不是指具体的传输媒体。物理层的作用是尽可能屏蔽传输媒体和通信手段的差异，使数据链路层感觉不到这些差异。  2. OSI 其中表示层和会话层用途如下：
+ 表示层：数据压缩、加密以及数据描述，这使得应用程序不必关心在各台主机中数据内部格式不同的问题。 会话层：建立及管理会话。 五层协议没有表示层和会话层，而是将这些功能留给应用程序开发者处理。  3. TCP/IP 它只有四层，相当于五层协议中数据链路层和物理层合并为网络接口层。
+TCP/IP 体系结构不严格遵循 OSI 分层概念，应用层可能会直接使用 IP 层或者网络接口层。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+    <title>狂人笔记</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="//favicon.ico">
+    <link rel="canonical" href="/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="/">狂人笔记</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>关于</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>原创</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/note/">
+                                    
+                                    <span>收集</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>概述 - Thu, Jan 7, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <h3 id="网络的网络">网络的网络</h3>
+<p>网络把主机连接起来，而互连网（internet）是把多种不同的网络连接起来，因此互连网是网络的网络。而互联网（Internet）是全球范围的互联网。</p>
+<h3 id="isp">ISP</h3>
+<p>互联网服务提供商（ISP）可以从互联网管理机构获得许多 IP 地址，同时拥有通信线路以及路由器等联网设备，个人或机构向 ISP 缴纳一定的费用就可以接入互联网。</p>
+<p>目前的互联网是一种多层次 ISP 结构，ISP 根据覆盖面积的大小分为第一层 ISP、区域 ISP和接入 ISP。互联网交换点 IXP 允许两个 ISP 直接相连而不用经过第三个 ISP。</p>
+<h3 id="主机之间的通信方式">主机之间的通信方式</h3>
+<ul>
+<li>客户-服务器（C/S）：客户是服务的请求方，服务器是服务的提供方。</li>
+<li>对等（P2P）：不区分客户和服务器。</li>
+</ul>
+<h3 id="电路交换和分组交换">电路交换和分组交换</h3>
+<h4 id="1-电路交换">1. 电路交换</h4>
+<h4 id="2-分组交换">2. 分组交换</h4>
+<h3 id="时延">时延</h3>
+<p>总时延 = 排队时延 + 处理时延 + 传输时延 + 传播时延</p>
+<h3 id="计算机网络体系结构">计算机网络体系结构</h3>
+<h4 id="1-无层协议">1. 无层协议</h4>
+<ul>
+<li>应用层：HTTP、DNS 等协议，数据单位是报文。</li>
+<li>传输层：TCP、UDP。TCP 主要提供完整性服务，UDP 主要提供及时性服务。</li>
+<li>网络层：为主机提供数据传输服务。而传输层协议是为主机中的进程提供数据传输服务。网络层把传输层传递下来的报文段或者用户数据报封装成分组。</li>
+<li>数据链路层：为同一链路的主机提供数据传输服务。数据链路层把网络层传下来的分组封装成帧。</li>
+<li>物理层：考虑的是怎样在传输媒体上传输数据比特流，而不是指具体的传输媒体。物理层的作用是尽可能屏蔽传输媒体和通信手段的差异，使数据链路层感觉不到这些差异。</li>
+</ul>
+<h4 id="2-osi">2. OSI</h4>
+<p>其中表示层和会话层用途如下：</p>
+<ul>
+<li>表示层：数据压缩、加密以及数据描述，这使得应用程序不必关心在各台主机中数据内部格式不同的问题。</li>
+<li>会话层：建立及管理会话。
+五层协议没有表示层和会话层，而是将这些功能留给应用程序开发者处理。</li>
+</ul>
+<h3 id="3-tcpip">3. TCP/IP</h3>
+<p>它只有四层，相当于五层协议中数据链路层和物理层合并为网络接口层。</p>
+<p>TCP/IP 体系结构不严格遵循 OSI 分层概念，应用层可能会直接使用 IP 层或者网络接口层。</p>
+<h3 id="4-数据在各层之间的传递过程">4. 数据在各层之间的传递过程</h3>
+<p>在向下的过程中，需要添加下层协议所需要的首部或者尾部，而在向上的过程中不断拆开首部和尾部。</p>
+<p>路由器只有下面三层协议，因为路由器位于网络的中心，不需要为进程或者应用程序提供服务，因此也就不需要传输层和应用层。</p>
+
+    <h4><a href="/"></a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    
+    <div class="text-center">
+        <a href="https://github.com/lzxqaq">Github | </a> 
+        <a href="https://gitee.com/lzxqaq">Gitee | </a> 
+        <a href="http://lzxqaq.top">人间谎话 | </a> 
+        <a href="https://space.bilibili.com/404289432">哔哩哔哩</a> 
+
+    </div>
+    <div class="text-center">
+
+&copy; 
+<a href="/" target="_blank">
+    Zexun Luo
+</a>
+<span id="thisyear">2020-2021</span>
+
+</div>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script></html>

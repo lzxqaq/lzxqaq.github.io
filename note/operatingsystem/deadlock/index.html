@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+    <title>狂人笔记</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="//favicon.ico">
+    <link rel="canonical" href="/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="/">狂人笔记</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>关于</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>原创</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/note/">
+                                    
+                                    <span>收集</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>死锁 - Thu, Jan 7, 2021</h1>
+    </div>
+    <p class="lead"></p>
+    <h3 id="必要条件">必要条件</h3>
+<ul>
+<li>互斥：每个资源要么已经分配给了一个进程，要么就是不可用的。</li>
+<li>占有和等待：已经得到了某个资源的进程可以再请求心的资源。</li>
+<li>不可抢占：已经分配给一个进程的资源不能强制性地被抢占，它只能被占有它的进程显式地释放。</li>
+<li>环路等待：有两个或者两个以上的进程组成一条环路，该环路中的每个进程都在等待下一个进程所占有的资源。</li>
+</ul>
+<h3 id="处理方法">处理方法</h3>
+
+    <h4><a href="/"></a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    
+    <div class="text-center">
+        <a href="https://github.com/lzxqaq">Github | </a> 
+        <a href="https://gitee.com/lzxqaq">Gitee | </a> 
+        <a href="http://lzxqaq.top">人间谎话 | </a> 
+        <a href="https://space.bilibili.com/404289432">哔哩哔哩</a> 
+
+    </div>
+    <div class="text-center">
+
+&copy; 
+<a href="/" target="_blank">
+    Zexun Luo
+</a>
+<span id="thisyear">2020-2021</span>
+
+</div>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script></html>
