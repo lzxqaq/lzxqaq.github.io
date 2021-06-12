@@ -9,54 +9,29 @@
     <lastBuildDate>Tue, 01 Jun 2021 06:16:32 +0800</lastBuildDate><atom:link href="/categories/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>从零开始搭建个人网站——小白篇</title>
-      <link>/post/2021-6-1/</link>
+      <link>/blog/2021-6-1/</link>
       <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
       
-      <guid>/post/2021-6-1/</guid>
-      <description>前言 小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。
-准备工作（与前篇一致） 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是你网站网址的一部分）
-补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。
-2.准备Git。
-（1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
-（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 git config --global user.email &amp;quot;你注册Github所用的邮箱&amp;quot; 回车执行，再输入 git config --global user.name &amp;quot;你的昵称&amp;quot; 回车执行。
-3.安装 Hugo。（官方教程可看这里)
-（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。
-（2）前往这里，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。
-（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。
-（4）配置环境变量。方法1:在 win10 搜索 cmd，右键以管理员身份打开命令提示符，将 setx &amp;quot;Path&amp;quot; &amp;quot;%PATH%;D:\Hugo\bin&amp;quot; /m 复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&amp;gt;编辑-&amp;gt;新建，然后将 D:\Hugo\bin 复制进去，确定。</description>
+      <guid>/blog/2021-6-1/</guid>
+      <description>前言 小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这</description>
     </item>
     
     <item>
       <title>从零开始搭建个人网站（win10,Github,Hugo）</title>
-      <link>/post/2021-2-18-2/</link>
+      <link>/blog/2021-2-18-2/</link>
       <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
       
-      <guid>/post/2021-2-18-2/</guid>
-      <description>准备工作 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）
-补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。
-2.准备Git。
-（1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
-（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 git config --global user.email &amp;quot;你注册Github所用的邮箱&amp;quot; 回车执行，再输入 git config --global user.name &amp;quot;你的昵称&amp;quot; 回车执行。
-3.安装 Hugo。（官方教程可看这里)
-（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。
-（2）前往这里，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。
-（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。
-（4）配置环境变量。方法1:在 win10 搜索 cmd，右键以管理员身份打开命令提示符，将 setx &amp;quot;Path&amp;quot; &amp;quot;%PATH%;D:\Hugo\bin&amp;quot; /m 复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&amp;gt;编辑-&amp;gt;新建，然后将 D:\Hugo\bin 复制进去，确定。</description>
+      <guid>/blog/2021-2-18-2/</guid>
+      <description>准备工作 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分） 补充：Github 是一个代码托管平台（</description>
     </item>
     
     <item>
       <title>“十分钟”创建个人网站（Linux环境、Hugo、Gitee)</title>
-      <link>/post/2021-1-2/</link>
+      <link>/blog/2021-1-2/</link>
       <pubDate>Sat, 02 Jan 2021 02:27:58 +0800</pubDate>
       
-      <guid>/post/2021-1-2/</guid>
-      <description>首先要注意的是，“十分钟”是因人而已，受环境影响的。不过这无关紧要，本篇文章的主要目的是讲述建立一个静态的个人网站是一件多容易、多好玩的事情。如果你感兴趣的话，相信多少个“十分钟”也不会影响你的热情。重要提示，若你对下面的内容有不理解的，无关紧要，跳过它。你只需要知道最后的结果是不是你想要的，过程不是目的，我也不会详述。
-首先介绍一下接下来演示的环境背景和需要用到的东西：Manjaro 系统、Hugo(静态网站生成器)、hugo-ivy（一个Hugo的主题模板）、Gitee（国内免费的代码托管平台）。
-我简单解释一下上面的选择。使用Windows 系统当然也可以，但是使用体验较差（强推一波 Linux）。然后就是静态网站生成器：Hugo 还是 Hexo？（其他也可，但是本文不会介绍）这个选择因人而已，得看自己真正想要什么。我先介绍一下它俩（搬运官网介绍）：Hugo，以其惊人的速度和灵活性，使网站建设再次变得有趣；Hexo，快速，简单而强大的博客框架。我的个人感觉是 Hugo 非常快、轻便、灵活。Hexo 更容易集成很多的功能，但是也会因此而臃肿，初学者难以让人理解其内部原理。关于主题，如果你刚刚选择了 Hugo，我推荐 hugo-ivy（也是我在用的），它推崇简洁之美，而且很容易让人理解相关原理；如果你刚刚选择了 Hexo，我推荐你使用 Volantis，它功能非常丰富，最重要的是它有一个活跃的社区，甚至还有官方 QQ 群（相对来说，你更容易获取帮助）。最后就是代码托管平台的选择了，我觉得如果没有 Github 情怀或者有高级一点的需求(绑定域名等等，Gitee以前收费版有提供，现在没有)，使用 Gitee 就好了，国内访问速度较快，而且支持国产嘛（虽然也是白嫖）。
-接下来是演示操作：
-首先下载安装 Hugo(Manjaro 使用包管理器 yay 一行命令下载安装) 使用 Hugo 生成你的网站 进入生成的网站（文件夹），并下载 hugo-ivy 主题到 themes 文件夹 简单修改一下网站的配置 写出第一篇文章 启动服务，本地预览 创建Gitee帐号、新建仓库（仓库名为你创建的用户名，是否开源选择公开，然后确定创建） 执行　hugo 命令生成静态网页文件 进入静态网页文件夹(public)，下载你刚刚创建的空仓库，把刚刚生成的网页文件加入进去，然后提交保存到 Gitee 仓库 回到　Gitee 仓库，选择服务中的 Gitee Pages ,然后开启服务，更新或部署。 最后就可以通过上一步给的域名访问你的网站啦！ 当然，你的网站需要更多的内容，而且你也许还会加上自己的设计。
-如果你感兴趣的话，在网上可以查询到更详细的教程。有需要的话，你可以联系我，我会提供一定的建议和帮助。
-演示视频请看这里。</description>
+      <guid>/blog/2021-1-2/</guid>
+      <description>首先要注意的是，“十分钟”是因人而已，受环境影响的。不过这无关紧要，本篇文章的主要目的是讲述建立一个静态的个人网站是一件多容易、多好玩的事情</description>
     </item>
     
   </channel>

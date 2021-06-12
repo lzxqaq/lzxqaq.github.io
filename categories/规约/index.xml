@@ -9,75 +9,29 @@
     <lastBuildDate>Fri, 28 May 2021 11:46:44 +0800</lastBuildDate><atom:link href="/categories/%E8%A7%84%E7%BA%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【规约】 C&#43;&#43; 编程篇</title>
-      <link>/post/c&#43;&#43;codingguidelines/</link>
+      <link>/blog/c&#43;&#43;codingguidelines/</link>
       <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
       
-      <guid>/post/c&#43;&#43;codingguidelines/</guid>
-      <description>前言 “码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。
-（一）排版 1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。
-2.相对独立的程序块之间、变量说明之后必须加空行。
-3.较长的语句（&amp;gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。
-4.if、for、do、while、case、switch、default 等语句自占一行，且执行语句部分无论多少都要加括号 {}。
-（二）注释 1.一般情况下，源程序有效注释量必须在 20% 以上。
-2.说明性文件（如头文件 .h 文件、.inc 文件、.def 文件等）头部应进行注释，注释必须列出：版权说明、版本号、生成日期、作者、内容、功能、与其他头文件关系、修改日志等，头文件注释中还应有函数功能简要说明。
-3.源文件头部应进行注释，列出：版权说明、版本号、生成日期、作者、模块目的/功能、主要函数及其功能、修改日志等。
-4.函数头部应进行注释，列出：函数的目的/功能、输入参数、输出参数、返回值、调用关系（函数、表）等。
-5.边写代码边注释，修改代码同时修改响应的注释。不再有用的注释 要删除。
-6.注释格式尽量统一，建议使用“/…………/”。
-7.注释应考虑程序易读性，建议使用中文。
-（三）标识符命名 1.命名规范必须与所使用的系统风格保持一致，并在同一项目中统一，比如采用 UNIX 的全小写加下划线风格或大小写混排的方式，不要将两种方式混合使用。用作特殊标识如标识成员变量或全局变量的 m_ 和 g_，其后加上大小写混排的方式是允许的。
-示例：Add_User 不允许，add_user、AddUser、m_AddUser允许。
-2.用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。
-说明：以下是一些在软件中常用的反义词组。
-add / remove begin / end create / destroy
-insert /delete first / last get / release
-increment / decrement put / get
-add /delete lock unlock open /close
-min / max old /new stat / stop</description>
+      <guid>/blog/c&#43;&#43;codingguidelines/</guid>
+      <description>前言 “码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。 （一）排版 1.程序块要采用缩进风格编写，缩进</description>
     </item>
     
     <item>
       <title>【规约】 Java 编程篇</title>
-      <link>/post/javacodingguidelines/</link>
+      <link>/blog/javacodingguidelines/</link>
       <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
       
-      <guid>/post/javacodingguidelines/</guid>
-      <description>前言 “码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。
-（一）命名风格 1.【强制】类名使用 UpperCamelCase风格，但以下情形例外：DO / BO / DTO / VO / AO / PO / UID等。 正例：MarcoPolo / UserDO / XmlService / TcpUdpDeal /TaPromotion
-2.【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。
-正例：localValue / getHttpMessage() / inputUserId
-3.【强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。
-正例：MAX_STOCK_COUNT
-4.【强制】抽象类命名使用 Abstract 或 Base 开头；异常类命名使用 Exception 结尾；测试类命名以它要测试的类的名称开始，以 Test 结尾。
-5.【强制】类型与中括号紧挨起来表示数组。
-正例：int[] arrayDemo;
-6.【强制】POJO 类中布尔类型的变量，都不要加 is 前缀。
-7.【强制】包名统一使用小写，点分隔符之间有且只有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。
-正例：应用工具类包名为 com.alibaba.ai.util、类名为 MessageUtils。
-8.【强制】杜绝完全不规范的缩写，任何自定义编程元素在命名时，使用尽量完整的单词组合来表达其意。
-9.【推荐】如果模块、接口、类、方法使用了设计模式，在命名时需体系那具体模式。
-10.【推荐】接口类的方法和属性不要加任何修饰符号（public 也不要加），保持代码整洁，并加上有效的 Javadoc 注释。
-11.【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的一定时接口，内部的实现类用 Impl 的后缀与接口区别。</description>
+      <guid>/blog/javacodingguidelines/</guid>
+      <description>前言 “码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。 （一）命名风格 1.【强制】类名使用 UpperC</description>
     </item>
     
     <item>
       <title>【规约】 MySQL 数据库篇</title>
-      <link>/post/databaseguidelines/</link>
+      <link>/blog/databaseguidelines/</link>
       <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
       
-      <guid>/post/databaseguidelines/</guid>
-      <description>前言 “码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。
-(一)建表规约 1.【强制】表达是与否概念的字段，必须使用 is_xxx 的方式命名，数据类型是 unsigned tinying(1 表示是，0 表示否)。
-说明：任何字段如果为非负数，必须是 unsigned。
-注意：POJO 类中任何布尔类型的变量，都不要加 is 前缀，所以，需要在  设置从 is_xxx 到 Xxx 的映射关系。数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的命名方式是为了明确其取值含义与范围。
-正例：表达逻辑删除的字段名 is_deleted，1 表示删除，0 表示未删除。
-2.【强制】表名、字段名必须使用小写字母或数字，禁止出现数字开头，禁止两个下划线中间只出现数字。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑。
-说明:MySQL 在 Windows 下不区分大小写，但在 Linux 下默认是区分大小写。因此，数据库名、表名、字段名，都不允许出现任何大小写字母，避免节外生枝。
-正例：aliyun_admin, rdc_config, level3_name 反例：AliyunAdmin, rdcConfig, level_3_name
-3.【强制】表明不使用复数名词。 说明：表名应该仅仅表示表里面的实体内容，不应该表示实体数量，对应于 DO 类名也是单数形式，符合表达习惯。
-4.【强制】主键索引名为 pk_字段名；唯一索引名为 uk_字段名；普通索引名则为 idx_字段名。
-说明：pk_ 即 primary key；uk_ 即 unique key；idx_ 即 index 的简称。
-5.【小数类型】为 decimal，禁止使用 float 和 double。</description>
+      <guid>/blog/databaseguidelines/</guid>
+      <description>前言 “码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。 (一)建表规约 1.【强制】表达是与否概念</description>
     </item>
     
   </channel>

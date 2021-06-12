@@ -1,11 +1,417 @@
-body { 
-	visibility: hidden 
+/* Micro Reset */
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  box-sizing: border-box;
 }
 
-.navmargin {
-	margin-top: 2em;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button, input, select, textarea, label {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Typography */
+
+body {
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 60px 0 30px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: normal;
 }
 
 h2 {
-    white-space: normal;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h3, h4, h5, h6 {
+  font-size: 19px;
+  font-weight: bold;
+  text-align: left;
+}
+
+blockquote {
+  margin: 1em 0;
+  padding: 0 2em;
+  border-left: 3px solid #ddd;
+}
+
+/* Code */
+
+pre, code {
+  font-size: .9em;
+}
+
+pre code {
+  display: block;
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px 5px #eee;
+  padding: 1em;
+  overflow-x: auto;
+  line-height: 1.75;
+}
+
+code {
+  background: #f9f9f9;
+}
+
+pre code {
+  background: none;
+}
+
+/* Lists */
+
+ul, ol {
+  padding: 0 0 0 20px;
+}
+
+li {
+  margin: 4px 0;
+  padding: 0;
+}
+
+/* Links */
+
+a {
+  color: black;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid;
+}
+
+a:hover {
+}
+
+sup a {
+  border-bottom: none;
+}
+
+/* Miscellanea */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid;
+  margin: 50px auto;
+  padding: 0;
+  max-width: 360px;
+}
+
+.copyright {
+  text-align: center;
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.nav-next {
+  margin-left: 1em;
+  text-align: right;
+}
+
+.nav-prev {
+  margin-right: 1em;
+}
+
+.comments {
+  margin-top: 20px;
+}
+
+/* Layout */
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.masthead {
+  width: auto;
+  float: none;
+  padding: 10px 0 10px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-bottom: 3px solid black;
+}
+
+.main {
+  width: auto;
+  padding: 45px 40px;
+  margin-left: 0;
+  border-left: none;
+  min-height: auto;
+
+  /* min-height: calc(100vh - 60px); */
+}
+
+/* Masthead */
+
+.masthead h1 {
+  margin-top: 0;
+  margin-bottom: 0px;
+  padding: 0;
+  /* text-align: right; */
+  font-size: 46px;
+  line-height: 58px;
+}
+
+.masthead h1 a {
+  border-bottom: none;
+}
+
+.masthead .tagline {
+  font-style: italic;
+  text-align: right;
+}
+
+.masthead .menu {
+/* 　display: flex;
+　justify-content: center;
+　align-items: center; */
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  max-width: 400px;
+  text-align: center;
+  align-content: center;
+}
+.masthead .menu ul{
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  background: #fff;
+}
+
+.masthead .menu a {
+  direction: ltr;
+}
+
+.masthead .menu ul ul {
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.masthead .menu li li::before {
+  content: "•\00a\000a0\00a0"
+}
+
+#menu-check {
+  display: none;
+}
+
+#menu-label {
+  display: none;
+}
+
+/* Main */
+
+.main .title h1 {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.title h3 {
+  font-weight: normal;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: .9em;
+  color: #666;
+}
+
+/* Footnotes */
+
+.footnotes {
+  font-size: .9em;
+}
+
+/* Tables */
+
+table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+
+table thead th {
+  border-bottom: 1px solid #666;
+}
+
+th, td {
+  padding: 5px;
+}
+
+thead, tfoot, tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+.archive {
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+/**
+ * Utility Styles
+ */
+
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/**
+ * -------------------------------------------------------------------------
+ *  Media Queries
+ * -------------------------------------------------------------------------
+ *
+ * The @viewport tag does the same thing as
+ *
+ *   <meta name="viewport" content="width=device-width">
+ *
+ * but in the future W3C standard way. The -ms- prefix is required for
+ * IE10+ to render responsive styling in Windows 8 "snapped" views;
+ * IE10+ does not honour the meta tag.
+ */
+
+@-ms-viewport {
+  width: device-width;
+}
+
+@viewport {
+  width: device-width;
+}
+
+/* Tablet screens and smaller */
+
+@media screen and (max-width: 960px) {
+
+  body {
+    width: auto;
+    max-width: 700px;
+  }
+
+  
+}
+
+/* Landscape phone screens and smaller */
+
+@media screen and (max-width: 720px) {
+}
+
+/* Portrait phone screens */
+
+@media screen and (max-width: 480px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3, h4, h5, h6 {
+    font-size: 16px;
+  }
+
+  pre, code {
+    font-size: 12px;
+  }
+
+}
+body {
+  background: #f5eee6;
+  /* background: url("/images/bg2.png"); */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.content {
+  padding: 20px;
+  /* background: #d6e6f2; */
+  background-repeat: no-repeat;
+  background-position: center;
+  background: #fff;
+  border-radius: 5px;
+}
+/* .home-ul {
+  padding: 0px;
+}
+.home-li {
+  padding: 20px;
+  border-radius: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.home-li a{
+  font-size: 19px;
+
+}
+.home-li .date{
+  font-size: 16px;
+} */
+.masthead .menu a {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+.masthead .menu .active a {
+  background: #fff;
+  border: 1px solid #444;
+  color: #000;
+}
+.masthead .menu li, .masthead .menu li:first-child {
+  border: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.panel { order: inherit; }
+.label { width: 100%; }
+.masthead img {
+  max-width: 80px;
+}
+.home blockquote {
+  border-left-color: transparent;
 }

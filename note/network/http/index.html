@@ -1,64 +1,86 @@
 <!DOCTYPE html>
-<html lang="zh-cn"><head>
-    <title>狂人笔记</title>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="theme-color" content="#000084" />
-    <link rel="icon" href="//favicon.ico">
-    <link rel="canonical" href="/">
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <title>HTTP - 狂人笔记</title>
+    <meta property="og:title" content="HTTP - 狂人笔记">
     
-</head>
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
-            <a class="brand" href="/">狂人笔记</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    
-                    
-                        
-                            <li>
-                                <a href="/post/">
-                                    
-                                    <span>日志</span>
-                                </a>
-                            </li>
-                        
-                    
-                        
-                            <li>
-                                <a href="/note/">
-                                    
-                                    <span>笔记</span>
-                                </a>
-                            </li>
-                        
-                    
-                        
-                            <li>
-                                <a href="/about/">
-                                    
-                                    <span>关于</span>
-                                </a>
-                            </li>
-                        
-                    
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav><div id="content" class="container">
 
-<div class="row-fluid navmargin">
-    <div class="page-header">
-        <h1>HTTP - Thu, Jan 7, 2021</h1>
-    </div>
-    <p class="lead"></p>
+    
+      
+    
+
+    
+      
+      <meta property="description" content="客户端发送一个请求报文给服务器，服务器根据请求报文中的信息进行处理，并将处理结果放入响应报文中返回给客户端。
+请求报文结构：
+[&amp;hellip;] GET http://www.example.com/ HTTP/1.1 Accept: &amp;hellip;">
+      <meta property="og:description" content="客户端发送一个请求报文给服务器，服务器根据请求报文中的信息进行处理，并将处理结果放入响应报文中返回给客户端。
+请求报文结构：
+[&amp;hellip;] GET http://www.example.com/ HTTP/1.1 Accept: &amp;hellip;">
+      
+    
+
+
+    
+
+    
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="note">
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="狂人笔记" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/note/">笔记</a></li>
+  
+  <li><a href="/work/">作品</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<div class = "title">
+<h1>HTTP</h1>
+
+<h3>罗泽勋
+  /  2021-01-07</h3>
+<hr>
+</div>
+
+
+
+      </header>
+
+
+
+
+<div class = "content">
     <h3 id="一基础概念">一、基础概念</h3>
 <h4 id="请求和响应报文">请求和响应报文</h4>
 <p>客户端发送一个请求报文给服务器，服务器根据请求报文中的信息进行处理，并将处理结果放入响应报文中返回给客户端。</p>
@@ -169,53 +191,26 @@ Cookie: yummy_cookie=choco; tasty_cookie=strawberry
 </ul>
 <h3 id="九get-和-post-比较">九、GET 和 POST 比较</h3>
 
-    <h4><a href="/"></a></h4>
 </div>
+  
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/note/network/summary/">概述</a></span>
+  <span class="nav-next"></span>
+</nav>
 
 
-        </div><footer class="container">
-    <hr class="soften">
-    
-    
-    <div class="text-center">
+<script async src="//yihui.org/js/center-img.js"></script>
 
-&copy; 
-<a href="/" target="_blank">
-    Zexun Luo
-</a>
-<span id="thisyear">2020-2021</span>
+  
+  <hr>
+  <div class="copyright">© <a href="/">狂人笔记</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
 
-</div>
-</footer>
-
-</body><link rel="stylesheet" href="/css/bootstrap.css">
-<link rel="stylesheet" href="/css/bootstrap-responsive.css">
-<link rel="stylesheet" href="/css/style.css">
-
-<script src="/js/jquery.js"></script>
-<script src="/js/bootstrap-386.js"></script>
-<script src="/js/bootstrap-transition.js"></script>
-<script src="/js/bootstrap-alert.js"></script>
-<script src="/js/bootstrap-modal.js"></script>
-<script src="/js/bootstrap-dropdown.js"></script>
-<script src="/js/bootstrap-scrollspy.js"></script>
-<script src="/js/bootstrap-tab.js"></script>
-<script src="/js/bootstrap-tooltip.js"></script>
-<script src="/js/bootstrap-popover.js"></script>
-<script src="/js/bootstrap-button.js"></script>
-<script src="/js/bootstrap-collapse.js"></script>
-<script src="/js/bootstrap-carousel.js"></script>
-<script src="/js/bootstrap-typeahead.js"></script>
-<script src="/js/bootstrap-affix.js"></script>
-<script>
-    _386 = { 
-        fastLoad: false ,
-        onePass: false , 
-        speedFactor: 1 
-    };
-
-    
-    function ThisYear() {
-        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
-    };
-</script></html>

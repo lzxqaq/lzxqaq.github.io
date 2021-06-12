@@ -1,0 +1,31 @@
+.masthead h1 {
+  margin-bottom: 10px;
+}
+.masthead .menu ul {
+  text-align: center;
+}
+.masthead .menu a {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+.masthead .menu .active a {
+  background: none;
+  border: 1px solid #444;
+  color: #000;
+}
+.masthead .menu li, .masthead .menu li:first-child {
+  border: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+.masthead .menu .menu-extra {
+  display: none;
+}
+.panel { order: inherit; }
+.label { width: 100%; }
+.masthead img {
+  max-width: 80px;
+}
