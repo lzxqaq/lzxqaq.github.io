@@ -9,28 +9,28 @@
     <lastBuildDate>Fri, 28 May 2021 10:36:40 +0800</lastBuildDate><atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【规约】 Java 编程篇</title>
-      <link>/blog/javacodingguidelines/</link>
+      <link>/post/javacodingguidelines/</link>
       <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
       
-      <guid>/blog/javacodingguidelines/</guid>
+      <guid>/post/javacodingguidelines/</guid>
       <description>前言 “码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。 （一）命名风格 1.【强制】类名使用 UpperC</description>
     </item>
     
     <item>
       <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</title>
-      <link>/blog/paopaotang/</link>
+      <link>/post/paopaotang/</link>
       <pubDate>Sat, 08 May 2021 11:09:51 +0800</pubDate>
       
-      <guid>/blog/paopaotang/</guid>
+      <guid>/post/paopaotang/</guid>
       <description>介绍 本项目是一个很久以前的实训周项目，当时花费了两天左右时间，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功</description>
     </item>
     
     <item>
       <title>String 类真的不可以改变吗？</title>
-      <link>/blog/2020-12-15-2/</link>
+      <link>/post/2020-12-15-2/</link>
       <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
       
-      <guid>/blog/2020-12-15-2/</guid>
+      <guid>/post/2020-12-15-2/</guid>
       <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引</description>
     </item>
     

@@ -9,19 +9,19 @@
     <lastBuildDate>Fri, 28 May 2021 11:46:44 +0800</lastBuildDate><atom:link href="/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【规约】 C&#43;&#43; 编程篇</title>
-      <link>/blog/c&#43;&#43;codingguidelines/</link>
+      <link>/post/c&#43;&#43;codingguidelines/</link>
       <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
       
-      <guid>/blog/c&#43;&#43;codingguidelines/</guid>
+      <guid>/post/c&#43;&#43;codingguidelines/</guid>
       <description>前言 “码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。 （一）排版 1.程序块要采用缩进风格编写，缩进</description>
     </item>
     
     <item>
       <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
-      <link>/blog/zxhan/</link>
+      <link>/post/zxhan/</link>
       <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
       
-      <guid>/blog/zxhan/</guid>
+      <guid>/post/zxhan/</guid>
       <description>前言 这是以前的一个实训周作业，核心是哈夫曼编码和解码，软件界面由 QT 实现。代码量很小，比较简单。 源代码： https://gitee.com/lzxqaq/zxhan.git 介绍：https://lzxqaq.</description>
     </item>
     

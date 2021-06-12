@@ -9,28 +9,28 @@
     <lastBuildDate>Fri, 28 May 2021 11:46:44 +0800</lastBuildDate><atom:link href="/categories/%E8%A7%84%E7%BA%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【规约】 C&#43;&#43; 编程篇</title>
-      <link>/blog/c&#43;&#43;codingguidelines/</link>
+      <link>/post/c&#43;&#43;codingguidelines/</link>
       <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
       
-      <guid>/blog/c&#43;&#43;codingguidelines/</guid>
+      <guid>/post/c&#43;&#43;codingguidelines/</guid>
       <description>前言 “码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。 （一）排版 1.程序块要采用缩进风格编写，缩进</description>
     </item>
     
     <item>
       <title>【规约】 Java 编程篇</title>
-      <link>/blog/javacodingguidelines/</link>
+      <link>/post/javacodingguidelines/</link>
       <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
       
-      <guid>/blog/javacodingguidelines/</guid>
+      <guid>/post/javacodingguidelines/</guid>
       <description>前言 “码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。 （一）命名风格 1.【强制】类名使用 UpperC</description>
     </item>
     
     <item>
       <title>【规约】 MySQL 数据库篇</title>
-      <link>/blog/databaseguidelines/</link>
+      <link>/post/databaseguidelines/</link>
       <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
       
-      <guid>/blog/databaseguidelines/</guid>
+      <guid>/post/databaseguidelines/</guid>
       <description>前言 “码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。 (一)建表规约 1.【强制】表达是与否概念</description>
     </item>
     

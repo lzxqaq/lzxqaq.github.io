@@ -9,64 +9,64 @@
     <lastBuildDate>Tue, 01 Jun 2021 06:16:32 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>从零开始搭建个人网站——小白篇</title>
-      <link>/blog/2021-6-1/</link>
+      <link>/post/2021-6-1/</link>
       <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
       
-      <guid>/blog/2021-6-1/</guid>
+      <guid>/post/2021-6-1/</guid>
       <description>前言 小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这</description>
     </item>
     
     <item>
       <title>【规约】 C&#43;&#43; 编程篇</title>
-      <link>/blog/c&#43;&#43;codingguidelines/</link>
+      <link>/post/c&#43;&#43;codingguidelines/</link>
       <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
       
-      <guid>/blog/c&#43;&#43;codingguidelines/</guid>
+      <guid>/post/c&#43;&#43;codingguidelines/</guid>
       <description>前言 “码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。 （一）排版 1.程序块要采用缩进风格编写，缩进</description>
     </item>
     
     <item>
       <title>【规约】 Java 编程篇</title>
-      <link>/blog/javacodingguidelines/</link>
+      <link>/post/javacodingguidelines/</link>
       <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
       
-      <guid>/blog/javacodingguidelines/</guid>
+      <guid>/post/javacodingguidelines/</guid>
       <description>前言 “码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。 （一）命名风格 1.【强制】类名使用 UpperC</description>
     </item>
     
     <item>
       <title>【规约】 MySQL 数据库篇</title>
-      <link>/blog/databaseguidelines/</link>
+      <link>/post/databaseguidelines/</link>
       <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
       
-      <guid>/blog/databaseguidelines/</guid>
+      <guid>/post/databaseguidelines/</guid>
       <description>前言 “码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。 (一)建表规约 1.【强制】表达是与否概念</description>
     </item>
     
     <item>
       <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
-      <link>/blog/zxhan/</link>
+      <link>/post/zxhan/</link>
       <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
       
-      <guid>/blog/zxhan/</guid>
+      <guid>/post/zxhan/</guid>
       <description>前言 这是以前的一个实训周作业，核心是哈夫曼编码和解码，软件界面由 QT 实现。代码量很小，比较简单。 源代码： https://gitee.com/lzxqaq/zxhan.git 介绍：https://lzxqaq.</description>
     </item>
     
     <item>
       <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</title>
-      <link>/blog/paopaotang/</link>
+      <link>/post/paopaotang/</link>
       <pubDate>Sat, 08 May 2021 11:09:51 +0800</pubDate>
       
-      <guid>/blog/paopaotang/</guid>
+      <guid>/post/paopaotang/</guid>
       <description>介绍 本项目是一个很久以前的实训周项目，当时花费了两天左右时间，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功</description>
     </item>
     
     <item>
       <title>从零开始搭建个人网站（win10,Github,Hugo）</title>
-      <link>/blog/2021-2-18-2/</link>
+      <link>/post/2021-2-18-2/</link>
       <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
       
-      <guid>/blog/2021-2-18-2/</guid>
+      <guid>/post/2021-2-18-2/</guid>
       <description>准备工作 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分） 补充：Github 是一个代码托管平台（</description>
     </item>
     
@@ -144,10 +144,10 @@
     
     <item>
       <title>“十分钟”创建个人网站（Linux环境、Hugo、Gitee)</title>
-      <link>/blog/2021-1-2/</link>
+      <link>/post/2021-1-2/</link>
       <pubDate>Sat, 02 Jan 2021 02:27:58 +0800</pubDate>
       
-      <guid>/blog/2021-1-2/</guid>
+      <guid>/post/2021-1-2/</guid>
       <description>首先要注意的是，“十分钟”是因人而已，受环境影响的。不过这无关紧要，本篇文章的主要目的是讲述建立一个静态的个人网站是一件多容易、多好玩的事情</description>
     </item>
     
@@ -171,10 +171,10 @@
     
     <item>
       <title>Linux 不同发行版的选择</title>
-      <link>/blog/2020-12-26/</link>
+      <link>/post/2020-12-26/</link>
       <pubDate>Sat, 26 Dec 2020 22:33:13 +0800</pubDate>
       
-      <guid>/blog/2020-12-26/</guid>
+      <guid>/post/2020-12-26/</guid>
       <description>如果你对 Linux 感兴趣但还不了解，想知道 Linux 的不同发行版之间的区别，我的这些经历应该对你有帮助。 我最初使用的是 Ubuntu，它以前经常被推荐为 Linux 入门</description>
     </item>
     
@@ -198,10 +198,10 @@
     
     <item>
       <title>String 类真的不可以改变吗？</title>
-      <link>/blog/2020-12-15-2/</link>
+      <link>/post/2020-12-15-2/</link>
       <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
       
-      <guid>/blog/2020-12-15-2/</guid>
+      <guid>/post/2020-12-15-2/</guid>
       <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引</description>
     </item>
     

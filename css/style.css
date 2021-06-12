@@ -205,12 +205,13 @@ body {
   max-width: 400px;
   text-align: center;
   align-content: center;
+  background: #fff5eb;
+
 }
 .masthead .menu ul{
   border-radius: 5px;
   text-align: center;
   padding: 10px;
-  background: #fff;
 }
 
 .masthead .menu a {
@@ -280,7 +281,7 @@ thead, tfoot, tr:nth-child(even) {
 
 .archive {
   padding: 20px;
-  background: #fff;
+  background: #ffd8cc;
   border-radius: 5px;
 }
 
@@ -360,7 +361,7 @@ thead, tfoot, tr:nth-child(even) {
 
 }
 body {
-  background: #f5eee6;
+  background: #ffeedb;
   /* background: url("/images/bg2.png"); */
   background-repeat: no-repeat;
   background-position: center;
@@ -370,7 +371,7 @@ body {
   /* background: #d6e6f2; */
   background-repeat: no-repeat;
   background-position: center;
-  background: #fff;
+  background: #ffd8cc;
   border-radius: 5px;
 }
 /* .home-ul {
@@ -393,11 +394,11 @@ body {
   display: inline-block;
   padding: 5px 10px;
   background: #444;
-  color: #fff;
+  color: #fff5eb;
   border-radius: 5px;
 }
 .masthead .menu .active a {
-  background: #fff;
+  background: #fff5eb;
   border: 1px solid #444;
   color: #000;
 }
