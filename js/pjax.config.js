@@ -1,5 +1,4 @@
 $(function(){
-
 	$.pjax({
 		selector: 'a',
 		container: '#pjax-content', //被替换的容器
@@ -27,5 +26,4 @@ $(function(){
 				} catch (e) { }
 		}
 	}
-  
 });

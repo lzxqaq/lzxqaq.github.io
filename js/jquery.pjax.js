@@ -260,7 +260,9 @@
 			}
 			document.title = title;
 			if(pjax.options._container.length>0){
-				data = $(data).find(pjax.options._container).html();
+                var txt = document.createElement("div");
+                txt.innerHTML = data;
+				data = $(txt).find(pjax.options._container).html();
 			}
 			if ((data || '').indexOf('<html') != -1) {
 				pjax.options.callback && pjax.options.callback.call(pjax.options.element, {
