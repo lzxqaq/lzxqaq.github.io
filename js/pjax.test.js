@@ -19,6 +19,9 @@ $(function(){
             type:'GET',
             url:location.href,
             success:function(data){
+                var txt = document.createElement("div");
+                txt.innerHTML = data;
+                data = $(txt).find("#pjax-content").html();
                 $('#pjax-content').html(data);
             }
         });										
