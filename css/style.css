@@ -416,3 +416,6 @@ body {
 .home blockquote {
   border-left-color: transparent;
 }
+footer {
+  text-align: center;
+}
