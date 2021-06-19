@@ -34,11 +34,8 @@
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 <link rel="stylesheet" href="/css/music.css" />
+<link rel="stylesheet" href="/css/fonts.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="/js/jquery.pjax.js"></script>
-<script src="/js/pjax.config.js"></script>
-<script src="/js/menu.js"></script>
 
 
 
@@ -54,6 +51,8 @@
 
   
   <body class="post">
+    
+    <div id="pjax-content">
     <header class="masthead">
       <div class="masthead-top">
         
@@ -85,17 +84,17 @@
       </div>
     </header>
 
-    <article class="main" id="pjax-content">
+    <article class="main">
       <header class="title">
       
-<div class = "title">
+<div class="head-title">
 <h1>【规约】 MySQL 数据库篇</h1>
 
 <h3>
   2021-05-28</h3>
-<hr>
-</div>
 
+</div>
+<hr>
 
 
       </header>
@@ -165,8 +164,13 @@
   
 
   </article>
+  </div>
   <footer>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/js/jquery.pjax.js"></script>
+<script src="/js/pjax.config.js"></script>
+
     <div class="music">
     <div class="music-container" id="music-container">
         
@@ -212,7 +216,16 @@ const title = document.getElementById("music-title")
 var songs = new Array();
 
 
-musicObj = {"name":"永远同在", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/永远同在.mp3"}
+musicObj = {"name":"宗次郎 - いつも何度でも", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/宗次郎%20-%20いつも何度でも.mp3"}
+songs.push(musicObj);
+
+musicObj = {"name":"岁月", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/岁月.mp3"}
+songs.push(musicObj);
+
+musicObj = {"name":"张雨生 - 我的未来不是梦", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/张雨生 - 我的未来不是梦.mp3"}
+songs.push(musicObj);
+
+musicObj = {"name":"自然卷 - How much", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/自然卷%20-%20How%20much.mp3"}
 songs.push(musicObj);
 
 
@@ -325,9 +338,18 @@ if(songs.length > 0) {
 
 </script>
 
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
   
   <hr>
-  <div class="copyright">© <a href="/">狂人笔记</a> 2020 - 2021</div>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
   
   </footer>
   </body>

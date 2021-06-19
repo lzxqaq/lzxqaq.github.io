@@ -157,23 +157,6 @@ body {
   margin: 0 auto;
 }
 
-.masthead {
-  /* float: none;
-  text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-bottom: 3px solid black; */
-  
-  display: flex;
-  align-items: center; /*定义body的元素垂直居中*/
-  justify-content: center; /*定义body的里的元素水平居中*/
-  flex-direction:column;
-
-  height: 100vh;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .main {
   width: auto;
   padding: 10px;
@@ -185,8 +168,41 @@ body {
 }
 
 /* Masthead */
+.masthead {
+  display: flex;
+  align-items: center; /*定义body的元素垂直居中*/
+  justify-content: center; /*定义body的里的元素水平居中*/
+  flex-direction:column;
 
-.masthead h1 {
+  height: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.masthead-top {
+  padding-top: 0px;
+}
+.masthead-bottom {
+  padding-top: 0px;
+}
+.masthead-home {
+  display: flex;
+  align-items: center; /*定义body的元素垂直居中*/
+  justify-content: center; /*定义body的里的元素水平居中*/
+  flex-direction:column;
+
+  height: 100vh;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.masthead-top-home  {
+  padding-top: 25vh;
+}
+.masthead-bottom-home  {
+  margin-top: auto;
+  margin-bottom: 30px;
+}
+
+.masthead h1, .masthead-home h1 {
   margin-top: 0;
   margin-bottom: 0px;
   padding: 0;
@@ -195,16 +211,16 @@ body {
   line-height: 58px;
 }
 
-.masthead h1 a {
+.masthead h1 a, .masthead-home h1 a{
   border-bottom: none;
 }
 
-.masthead .tagline {
+.masthead .tagline, .masthead-home .tagline {
   font-style: italic;
   text-align: right;
 }
 
-.masthead .menu {
+.masthead .menu, .masthead-home .menu{
 /* 　display: flex;
 　justify-content: center;
 　align-items: center; */
@@ -219,23 +235,23 @@ body {
 
 
 }
-.masthead .menu ul{
+.masthead .menu ul, .masthead-home .menu ul{
   border-radius: 5px;
   text-align: center;
   padding: 10px;
 }
 
-.masthead .menu a {
+.masthead .menu a, .masthead-home .menu a {
   direction: ltr;
 }
 
-.masthead .menu ul ul {
+.masthead .menu ul ul, .masthead-home .menu ul ul {
   margin-left: 10px;
   margin-right: 10px;
 
 }
 
-.masthead .menu li li::before {
+.masthead .menu li li::before, .masthead-home .menu li li::before {
   content: "•\00a\000a0\00a0"
 }
 
@@ -381,28 +397,39 @@ body {
   padding: 20px;
   background-repeat: no-repeat;
   background-position: center;
-  background: rgba(255, 255, 255, 0.9);;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
 }
 .archive {
   padding: 20px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
 }
+.archive-ul {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+}
+.archive-ul ul {
+  margin: 20px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0);
 
-.masthead .menu a {
+}
+
+.masthead .menu a, .masthead-home .menu a {
   display: inline-block;
-  background: #A8E6CF;
+  background: #0cdae9;
   color: #fff5eb;
   border-radius: 5px;
   padding: 20px 20px 20px 20px;
 }
-.masthead .menu .active a {
+.masthead .menu .active a, .masthead-home .menu .active a {
   background: #fff5eb;
-  border: 1px solid #A8E6CF;
-  color: #A8E6CF;
+  border: 1px solid #0cdae9;
+  color: #0cdae9;
 }
-.masthead .menu li, .masthead .menu li:first-child {
+.masthead .menu li, .masthead .menu li:first-child, .masthead-home .menu li, .masthead-home .menu li:first-child {
   border: none;
   display: inline-block;
   margin-top: 5px;
@@ -410,9 +437,10 @@ body {
 
 .panel { order: inherit; }
 .label { width: 100%; }
-.masthead img {
+.masthead img, .masthead-home img {
   max-width: 100%;
 }
+
 .home blockquote {
   border-left-color: transparent;
 }
@@ -421,9 +449,9 @@ footer {
   padding: 10px 10px 40px 10px;
 }
 
-.masthead-top {
-  padding-top: 40vh;
-}
-.masthead-bottom {
-  margin-top: auto;
+
+.head-title {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  padding: 50px 20px 20px 20px;
 }
