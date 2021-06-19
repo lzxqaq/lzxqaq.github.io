@@ -17,6 +17,7 @@
     
 
 
+
     
 
     
@@ -25,23 +26,29 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
+<link rel="stylesheet" href="/css/music.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="/js/jquery.pjax.js"></script>
 <script src="/js/pjax.config.js"></script>
 <script src="/js/menu.js"></script>
+
 
   </head>
 
   
   <body class="note">
     <header class="masthead">
-      
+      <div class="masthead-top">
+        
 
-<h1><a href="/"><img src="/images/logo.png" alt="狂人笔记" /></a></h1>
+<h1><a href="/"><img src="/images/logo2.png" alt="狂人笔记" /></a></h1>
 
 
 
-      <nav class="menu">
+      </div>
+      <div class="masthead-bottom">
+        <nav class="menu">
   <ul>
   
   
@@ -59,6 +66,7 @@
   </ul>
 </nav>
 
+      </div>
     </header>
 
     <article class="main" id="pjax-content">
@@ -100,13 +108,170 @@
 
   </article>
   <footer>
-  <iframe class="music" allowTransparency="true" frameborder="no" align="middle" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=480353&auto=0&height=66"></iframe>
+  
+    <div class="music">
+    <div class="music-container" id="music-container">
+        
+        <div class="music-info">
+            
+            <span id="music-title"></span>
+            
+            <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+    
+        
+        <audio src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/永远同在.mp3" id="audio"></audio>
+    
+        
+        <div class="music-control">
+            <button id="prev" class="action-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+const musicContainer = document.getElementById("music-container")
+const playBtn = document.getElementById("play")
+const prevBtn = document.getElementById("prev")
+const nextBtn = document.getElementById("next")
+
+const audio = document.getElementById("audio")
+const progress = document.getElementById("progress")
+const progressContainer = document.getElementById("progress-container")
+const title = document.getElementById("music-title")
+
+
+var songs = new Array();
+
+
+musicObj = {"name":"永远同在", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/永远同在.mp3"}
+songs.push(musicObj);
+
+
+console.log(songs);
+if(songs.length > 0) {
+    
+    let songIndex = 0;
+    
+
+    loadSong(songIndex)
+
+    
+    function loadSong(songIndex) {
+        title.innerHTML = songs[songIndex].name;
+        audio.src = songs[songIndex].url;      
+    }
+
+    
+    function playSong() {
+        
+        musicContainer.classList.add("play")
+        playBtn.querySelector('i.fas').classList.remove('fa-play')
+        playBtn.querySelector('i.fas').classList.add('fa-pause')
+
+        audio.play()
+    }
+
+    
+    function pauseSong() {
+        musicContainer.classList.remove('play');
+        playBtn.querySelector('i.fas').classList.add('fa-play');
+        playBtn.querySelector('i.fas').classList.remove('fa-pause');
+
+        audio.pause();
+    }
+
+    
+    function prevSong() {
+        songIndex--
+        if (songIndex < 0) {
+            songIndex = songs.length - 1
+        }
+        
+        loadSong(songIndex)
+        playSong()
+    }
+    
+    function  nextSong() {
+        songIndex++;
+
+        if (songIndex > songs.length - 1) {
+            songIndex = 0;
+        }
+
+        loadSong(songIndex);
+
+        playSong();
+    }
+
+    
+    function updateProgress(e) {
+        
+        
+        
+        const {
+            duration,
+            currentTime
+        } = e.target;
+        
+        
+        
+        
+        const progressPercent = (currentTime / duration) * 100
+        
+        progress.style.width = `${progressPercent}%`
+    }
+    
+    function setProgress(e) {
+        
+        const width = thzis.clientWidth
+        
+        const clickX = e.offsetX
+
+        
+        const duration = audio.duration
+
+        
+        audio.currentTime = (clickX / width) * duration
+    }
+    
+    
+    playBtn.onclick = function () {
+        
+        musicContainer.classList.contains('play') ? pauseSong() : playSong()
+    }
+    
+    prevBtn.onclick = prevSong
+    nextBtn.onclick = nextSong
+
+    
+    
+    progressContainer.onclick = setProgress
+    
+    audio.ontimeupdate = updateProgress
+    
+    audio.onended = nextSong
+}
+
+
+
+</script>
+
   
   <hr>
   <div class="copyright">© <a href="/">狂人笔记</a> 2020 - 2021</div>
   
   </footer>
-  
   </body>
 </html>
 

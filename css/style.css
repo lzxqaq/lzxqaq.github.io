@@ -5,6 +5,12 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   box-sizing: border-box;
+
+  background: url("/images/bg5.jpg");
+  background-size:cover;
+  background-position: center;
+  background-attachment: fixed;
+
 }
 
 *, *:before, *:after {
@@ -61,7 +67,9 @@ blockquote {
   padding: 0 2em;
   border-left: 3px solid #ddd;
 }
-
+.home blockquote {
+  border-left-color: transparent;
+}
 /* Code */
 
 pre, code {
@@ -122,6 +130,7 @@ hr {
   margin: 50px auto;
   padding: 0;
   max-width: 360px;
+  color: #ffffff;
 }
 
 .copyright {
@@ -152,22 +161,28 @@ hr {
 body {
   width: 960px;
   margin: 0 auto;
-  padding: 10px 0;
 }
 
 .masthead {
-  width: auto;
-  float: none;
-  padding: 10px 0 10px;
+  /* float: none;
   text-align: center;
   margin-left: 10px;
   margin-right: 10px;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid black; */
+  
+  display: flex;
+  align-items: center; /*定义body的元素垂直居中*/
+  justify-content: center; /*定义body的里的元素水平居中*/
+  flex-direction:column;
+
+  height: 100vh;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .main {
   width: auto;
-  padding: 45px 40px;
+  padding: 10px;
   margin-left: 0;
   border-left: none;
   min-height: auto;
@@ -205,7 +220,9 @@ body {
   max-width: 400px;
   text-align: center;
   align-content: center;
-  background: #ffd8cc;
+  background: rgba(255,255,255,.5);
+  border-radius: 15px;
+
 
 }
 .masthead .menu ul{
@@ -278,13 +295,15 @@ th, td {
 thead, tfoot, tr:nth-child(even) {
   background: #f8f8f8;
 }
-
-.archive {
-  padding: 20px;
-  background: #ffd8cc;
-  border-radius: 5px;
+.menu li:not([class]) a, a:hover, .copyright a {
+  border-bottom: none;
 }
-
+footer .copyright {
+  color: #ffffff;
+}
+footer .copyright a{
+  color: #ffffff;
+}
 /**
  * Utility Styles
  */
@@ -361,46 +380,33 @@ thead, tfoot, tr:nth-child(even) {
 
 }
 body {
-  background: #ffeedb;
-  /* background: url("/images/bg2.png"); */
   background-repeat: no-repeat;
   background-position: center;
 }
 .content {
   padding: 20px;
-  /* background: #d6e6f2; */
   background-repeat: no-repeat;
   background-position: center;
-  background: #ffd8cc;
+  background: rgba(255, 255, 255, 0.9);;
   border-radius: 5px;
 }
-/* .home-ul {
-  padding: 0px;
-}
-.home-li {
+.archive {
   padding: 20px;
-  border-radius: 25px;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: #ffffff;
+  border-radius: 5px;
 }
-.home-li a{
-  font-size: 19px;
 
-}
-.home-li .date{
-  font-size: 16px;
-} */
 .masthead .menu a {
   display: inline-block;
-  padding: 5px 10px;
-  background: #444;
+  background: #A8E6CF;
   color: #fff5eb;
   border-radius: 5px;
+  padding: 20px 20px 20px 20px;
 }
 .masthead .menu .active a {
   background: #fff5eb;
-  border: 1px solid #444;
-  color: #000;
+  border: 1px solid #A8E6CF;
+  color: #A8E6CF;
 }
 .masthead .menu li, .masthead .menu li:first-child {
   border: none;
@@ -411,14 +417,19 @@ body {
 .panel { order: inherit; }
 .label { width: 100%; }
 .masthead img {
-  max-width: 80px;
+  max-width: 100%;
 }
 .home blockquote {
   border-left-color: transparent;
 }
 footer {
   text-align: center;
+  padding: 10px 10px 40px 10px;
 }
-.music {
-  background-color: #ffeedb;
+
+.masthead-top {
+  padding-top: 40vh;
+}
+.masthead-bottom {
+  margin-top: auto;
 }
