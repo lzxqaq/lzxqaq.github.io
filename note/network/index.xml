@@ -5,25 +5,6 @@
     <link>/note/network/</link>
     <description>Recent content in 计算机网络 on 狂人笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Jan 2021 15:25:54 +0800</lastBuildDate><atom:link href="/note/network/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>HTTP</title>
-      <link>/note/network/http/</link>
-      <pubDate>Thu, 07 Jan 2021 15:25:54 +0800</pubDate>
-      
-      <guid>/note/network/http/</guid>
-      <description>一、基础概念 请求和响应报文 客户端发送一个请求报文给服务器，服务器根据请求报文中的信息进行处理，并将处理结果放入响应报文中返回给客户端。 请求报</description>
-    </item>
-    
-    <item>
-      <title>概述</title>
-      <link>/note/network/summary/</link>
-      <pubDate>Thu, 07 Jan 2021 14:56:42 +0800</pubDate>
-      
-      <guid>/note/network/summary/</guid>
-      <description>网络的网络 网络把主机连接起来，而互连网（internet）是把多种不同的网络连接起来，因此互连网是网络的网络。而互联网（Internet）是</description>
-    </item>
-    
+    <language>zh-cn</language><atom:link href="/note/network/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

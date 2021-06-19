@@ -5,43 +5,6 @@
     <link>/note/operatingsystem/</link>
     <description>Recent content in 计算机操作系统 on 狂人笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Jan 2021 10:48:45 +0800</lastBuildDate><atom:link href="/note/operatingsystem/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>内存管理</title>
-      <link>/note/operatingsystem/memorymanagement/</link>
-      <pubDate>Thu, 07 Jan 2021 10:48:45 +0800</pubDate>
-      
-      <guid>/note/operatingsystem/memorymanagement/</guid>
-      <description>虚拟内存 虚拟内存的目的是为了让物理内存扩充成更大的逻辑内存，从而让程序获得更多的可用内存。 为了更好的管理内存，操作系统将内存抽象成地址空间。</description>
-    </item>
-    
-    <item>
-      <title>死锁</title>
-      <link>/note/operatingsystem/deadlock/</link>
-      <pubDate>Thu, 07 Jan 2021 10:00:08 +0800</pubDate>
-      
-      <guid>/note/operatingsystem/deadlock/</guid>
-      <description>必要条件 互斥：每个资源要么已经分配给了一个进程，要么就是不可用的。 占有和等待：已经得到了某个资源的进程可以再请求心的资源。 不可抢占：已经分配</description>
-    </item>
-    
-    <item>
-      <title>进程管理</title>
-      <link>/note/operatingsystem/processmanagement/</link>
-      <pubDate>Tue, 05 Jan 2021 21:50:53 +0800</pubDate>
-      
-      <guid>/note/operatingsystem/processmanagement/</guid>
-      <description>进程与线程 1.进程 进程是资源分配的基本单位。 进程控制块（Process Control Block,PCB)描述进程的基本信息和运行状态，所谓的创建进程和撤</description>
-    </item>
-    
-    <item>
-      <title>概述</title>
-      <link>/note/operatingsystem/summary/</link>
-      <pubDate>Tue, 05 Jan 2021 16:28:30 +0800</pubDate>
-      
-      <guid>/note/operatingsystem/summary/</guid>
-      <description>接本特征 1.并发 并发是指宏观上在一段时间内能同时运行多个程序，而并行则指同一时刻能运行多个指令。 并行需要硬件支持，如多流水线、多核处理器或者</description>
-    </item>
-    
+    <language>zh-cn</language><atom:link href="/note/operatingsystem/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

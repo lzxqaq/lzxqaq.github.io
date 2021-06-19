@@ -5,52 +5,6 @@
     <link>/note/java/</link>
     <description>Recent content in Java on 狂人笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Tue, 12 Jan 2021 08:46:08 +0800</lastBuildDate><atom:link href="/note/java/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Java I/O</title>
-      <link>/note/java/io/</link>
-      <pubDate>Tue, 12 Jan 2021 08:46:08 +0800</pubDate>
-      
-      <guid>/note/java/io/</guid>
-      <description>一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc</description>
-    </item>
-    
-    <item>
-      <title>Java 并发</title>
-      <link>/note/java/concurrent/</link>
-      <pubDate>Sat, 09 Jan 2021 10:50:16 +0800</pubDate>
-      
-      <guid>/note/java/concurrent/</guid>
-      <description>一、使用线程 有三种使用线程的方法： 实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类； 实现 Runnable 接口 需要实现接口中的 run() 方法。 public class MyRunnable implements Runnable { @Override public void run(){ // ...</description>
-    </item>
-    
-    <item>
-      <title>Java 虚拟机</title>
-      <link>/note/java/jvm/</link>
-      <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
-      
-      <guid>/note/java/jvm/</guid>
-      <description>参考自 CyC2018/CS-Notes 一、运行时数据区域 程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存 二、垃圾收集 判断一个对象是否可被回收 引用类型 垃圾收集算法</description>
-    </item>
-    
-    <item>
-      <title>Java 容器</title>
-      <link>/note/java/collection/</link>
-      <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
-      
-      <guid>/note/java/collection/</guid>
-      <description>参考自 CyC2018/CS-Notes 一、概览 Collection Map 一、概览 容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。 Collection 1.Set TreeSet: 基</description>
-    </item>
-    
-    <item>
-      <title>Java 基础</title>
-      <link>/note/java/base/</link>
-      <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
-      
-      <guid>/note/java/base/</guid>
-      <description>参考自 CyC2018/CS-Notes 一、数据类型 基本类型 包装类型 缓存池 二、String 概述 不可变的好处 String,StringBuffer and StringBuilder StringPoll new String(&amp;ldquo;abc&amp;rdquo;) 三、运算 参数传递 float与double 隐式类型转换 switch</description>
-    </item>
-    
+    <language>zh-cn</language><atom:link href="/note/java/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

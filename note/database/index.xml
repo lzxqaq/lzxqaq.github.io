@@ -5,25 +5,6 @@
     <link>/note/database/</link>
     <description>Recent content in 数据库 on 狂人笔记</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Thu, 31 Dec 2020 10:12:55 +0800</lastBuildDate><atom:link href="/note/database/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>数据库系统原理</title>
-      <link>/note/database/databasetheory/</link>
-      <pubDate>Thu, 31 Dec 2020 10:12:55 +0800</pubDate>
-      
-      <guid>/note/database/databasetheory/</guid>
-      <description>一、事务 概念 ACID AUTOCOMMIT 二、并发一致性问题 丢失修改 读脏数据 不可重复读 幻影读 三、封锁 封锁粒度 封锁类型 封锁协议 MySQL 隐式与显示锁定 四、隔离级别 未提交读（RE</description>
-    </item>
-    
-    <item>
-      <title>SQL 语法</title>
-      <link>/note/database/sql/</link>
-      <pubDate>Thu, 31 Dec 2020 10:12:40 +0800</pubDate>
-      
-      <guid>/note/database/sql/</guid>
-      <description>一、基础 二、创建表 三、修改表 四、插入 五、更新 六、删除 七、查询 DISTINCT LIMIT 八、排序 九、过滤 十、通配符 十一、计算字段 十二、函数 汇总 文本处理 日期和时间处理</description>
-    </item>
-    
+    <language>zh-cn</language><atom:link href="/note/database/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
