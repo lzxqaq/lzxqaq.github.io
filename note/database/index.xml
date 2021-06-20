@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>数据库 on 狂人笔记</title>
+    <title>数据库 on 人类生活见闻录</title>
     <link>/note/database/</link>
-    <description>Recent content in 数据库 on 狂人笔记</description>
+    <description>Recent content in 数据库 on 人类生活见闻录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="/note/database/index.xml" rel="self" type="application/rss+xml" />
   </channel>
