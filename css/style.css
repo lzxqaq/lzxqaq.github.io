@@ -129,6 +129,19 @@ hr {
 .copyright {
   text-align: center;
 }
+.site_record {
+  text-align: center;
+}
+.site_record a {
+  border-bottom: none;
+  font-size: 15px;
+}
+footer .site_record {
+  color: #ffffff;
+}
+footer .site_record a{
+  color: #ffffff;
+}
 
 .post-nav {
   display: flex;
