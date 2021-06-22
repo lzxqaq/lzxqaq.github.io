@@ -109,7 +109,7 @@
         if (!options.container || !options.selector) {
             throw new Error('selector & container options must be set');
         }
-        $('body').delegate(options.selector, 'click', function (event) {
+        $(pjax.options.container).delegate(options.selector, 'click', function (event) {
             if (event.which > 1 || event.metaKey) {
                 return true;
             }
