@@ -419,6 +419,8 @@ footer .site_record a{
 
   body {
     font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   h1 {
@@ -444,10 +446,7 @@ footer .site_record a{
     padding: 10px 10px 10px 10px;
   }
 }
-body {
-  /* background-repeat: no-repeat; */
-  /* background-position: center; */
-}
+
 .content {
   padding: 20px;
   background-repeat: no-repeat;
