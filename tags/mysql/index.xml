@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MySQL on 人类生活见闻录</title>
+    <title>MySQL on 闻道书斋</title>
     <link>/tags/mysql/</link>
-    <description>Recent content in MySQL on 人类生活见闻录</description>
+    <description>Recent content in MySQL on 闻道书斋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 28 May 2021 09:03:51 +0800</lastBuildDate><atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml" />

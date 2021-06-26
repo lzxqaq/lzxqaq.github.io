@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>作品 - 人类生活见闻录</title>
-    <meta property="og:title" content="作品 - 人类生活见闻录">
+    <title>作品 - 闻道书斋</title>
+    <meta property="og:title" content="作品 - 闻道书斋">
     
 
     
@@ -21,7 +21,7 @@
     
 
     
-    <link href="/work/index.xml" rel="alternate" type="application/rss+xml" title="人类生活见闻录" />
+    <link href="/work/index.xml" rel="alternate" type="application/rss+xml" title="闻道书斋" />
     
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -108,7 +108,7 @@
         </div>
     
         
-        <audio src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/永远同在.mp3" id="audio"></audio>
+        <audio id="audio"></audio>
     
         
         <div class="music-control">
@@ -140,22 +140,33 @@ const title = document.getElementById("music-title")
 var songs = new Array();
 
 
-musicObj = {"name":"宗次郎 - いつも何度でも", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/1.mp3"}
+musicObj = {"name":"Shakira - Try Everything", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Shakira_Try_Everything.mp3"}
 songs.push(musicObj);
 
-musicObj = {"name":"岁月", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/2.mp3"}
+musicObj = {"name":"周杰伦 - 爱的飞行日记", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/周杰伦_爱的飞行日记.mp3"}
 songs.push(musicObj);
 
-musicObj = {"name":"真的汉子", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/6.mp3"}
+musicObj = {"name":"王菲 - 当时的月亮", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/王菲_当时的月亮.mp3"}
 songs.push(musicObj);
 
-musicObj = {"name":"张雨生 - 我的未来不是梦", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/5.mp3"}
+musicObj = {"name":"アルプスの少女ハイジ - OP", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/HD_アルプスの少女ハイジ_OP.mp3"}
 songs.push(musicObj);
 
-musicObj = {"name":"自然卷 - How much", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/4.mp3"}
+musicObj = {"name":"林子祥 - 男儿当自强", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/林子祥_男儿当自强.mp3"}
+songs.push(musicObj);
+
+musicObj = {"name":"张国荣 - 春夏秋冬", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/张国荣_春夏秋冬.mp3"}
+songs.push(musicObj);
+
+musicObj = {"name":"Frozen - Love is an Open Door", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Frozen-Love_is_an_Open_Door.mp3"}
 songs.push(musicObj);
 
 
+function randomsort(a, b) {
+    
+    return Math.random()>.5 ? -1 : 1;
+}
+songs.sort(randomsort);
 if(songs.length > 0) {
     
     let songIndex = 0;
