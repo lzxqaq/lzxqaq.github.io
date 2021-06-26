@@ -129,19 +129,7 @@ hr {
 .copyright {
   text-align: center;
 }
-.site_record {
-  text-align: center;
-}
-.site_record a {
-  border-bottom: none;
-  font-size: 15px;
-}
-footer .site_record {
-  color: #ffffff;
-}
-footer .site_record a{
-  color: #ffffff;
-}
+
 
 .post-nav {
   display: flex;
@@ -167,7 +155,8 @@ footer .site_record a{
 body {
   width: 960px;
   margin: 0 auto;
-}
+  }
+
 body:before {
   content: '';
   position: fixed;
@@ -200,7 +189,7 @@ body{
   justify-content: center; /*定义body的里的元素水平居中*/
   flex-direction:column;
 
-  height: auto;
+  /* height: auto; */
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -229,12 +218,12 @@ body{
 }
 
 .masthead h1, .masthead-home h1 {
-  margin-top: 0;
+  margin-top: 20px;
   margin-bottom: 0px;
   padding: 0;
   /* text-align: right; */
-  font-size: 46px;
-  line-height: 58px;
+  /* font-size: 46px; */
+  /* line-height: 58px; */
 }
 
 .masthead h1 a, .masthead-home h1 a{
@@ -284,12 +273,12 @@ body{
 .masthead .menu a, .masthead-home .menu a {
   display: inline-block;
   background: #0cdae9;
-  color: #fff5eb;
+  color: #ffffff;
   border-radius: 5px;
   padding: 20px 20px 20px 20px;
 }
 .masthead .menu .active a, .masthead-home .menu .active a {
-  background: #fff5eb;
+  background: #ffffff;
   border: 1px solid #0cdae9;
   color: #0cdae9;
 }
@@ -357,10 +346,22 @@ thead, tfoot, tr:nth-child(even) {
   border-bottom: none;
 }
 footer .copyright {
-  color: #ffffff;
+  color: #0cdae9;
 }
 footer .copyright a{
-  color: #ffffff;
+  color: #0cdae9;
+}
+.site_record {
+  text-align: center;
+}
+.site_record a {
+  border-bottom: none;
+}
+footer .site_record {
+  color: #0cdae9;
+}
+footer .site_record a{
+  color: #0cdae9;
 }
 /**
  * Utility Styles
@@ -438,14 +439,14 @@ footer .copyright a{
   .masthead .menu a, .masthead-home .menu a {
     display: inline-block;
     background: #0cdae9;
-    color: #fff5eb;
+    color: #ffffff;
     border-radius: 5px;
     padding: 10px 10px 10px 10px;
   }
 }
 body {
-  background-repeat: no-repeat;
-  background-position: center;
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
 }
 .content {
   padding: 20px;

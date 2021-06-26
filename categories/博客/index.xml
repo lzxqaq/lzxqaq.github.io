@@ -25,14 +25,5 @@
       <description>准备工作 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分） 补充：Github 是一个代码托管平台（</description>
     </item>
     
-    <item>
-      <title>“十分钟”创建个人网站（Linux环境、Hugo、Gitee)</title>
-      <link>/post/2021-1-2/</link>
-      <pubDate>Sat, 02 Jan 2021 02:27:58 +0800</pubDate>
-      
-      <guid>/post/2021-1-2/</guid>
-      <description>首先要注意的是，“十分钟”是因人而已，受环境影响的。不过这无关紧要，本篇文章的主要目的是讲述建立一个静态的个人网站是一件多容易、多好玩的事情</description>
-    </item>
-    
   </channel>
 </rss>
