@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>计算机操作系统 on 闻道书斋</title>
     <link>/note/operatingsystem/</link>
     <description>Recent content in 计算机操作系统 on 闻道书斋</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="/note/operatingsystem/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <atom:link href="/note/operatingsystem/" rel="self" type="application/rss+xml" />
+    
   </channel>
 </rss>

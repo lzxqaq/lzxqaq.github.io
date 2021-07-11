@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>从零开始搭建个人网站（win10,Github,Hugo） - 狂人笔记</title>
-    <meta property="og:title" content="从零开始搭建个人网站（win10,Github,Hugo） - 狂人笔记">
+    <title>从零开始搭建个人网站（win10,Github,Hugo） - 闻道书斋</title>
+    <meta property="og:title" content="从零开始搭建个人网站（win10,Github,Hugo） - 闻道书斋">
     
+    <meta name="twitter:card" content="summary">
 
     
       
@@ -25,22 +26,38 @@
       
     
 
-
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
     
 
     
+
+    
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">  
 
   </head>
 
   
   <body class="blog">
+    <div id="pjax-content">
     <header class="masthead">
       
 
-<h1><a href="/"><img src="/images/logo.png" alt="狂人笔记" /></a></h1>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
 
 
@@ -59,6 +76,7 @@
   <li><a href="/work/">作品</a></li>
   
   
+
   </ul>
 </nav>
 
@@ -67,23 +85,20 @@
     <article class="main">
       <header class="title">
       
-<div class = "title">
 <h1>从零开始搭建个人网站（win10,Github,Hugo）</h1>
 
-<h3>罗泽勋
-  /  2021-02-18</h3>
-<hr>
-</div>
 
+<h3>罗泽勋 / 
+2021-02-18</h3>
+
+<hr>
 
 
       </header>
 
 
 
-
-<div class = "content">
-    <h3 id="准备工作">准备工作</h3>
+<h3 id="准备工作">准备工作</h3>
 <p>1.注册 Github 帐号。前往 <a href="https://github.com/" target="_blank">github.com</a> 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）</p>
 <p>补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。</p>
 <p>2.准备Git。</p>
@@ -116,25 +131,104 @@ git push --set-upstream origin master
 <p>（2）配置。访问 github.com 网站，进入你的仓库，在 setting 中找到 Github Pages，在 Custom domain 输入框中输入你的域名，保存。</p>
 <p>（3）测试。访问你的域名。</p>
 
-</div>
-  
 
+  
+  <nav class="post-nav">
+    <span class="nav-prev">&larr; <a href="/blog/2020-12-26/">Linux 不同发行版的选择</a></span>
+    <span class="nav-next"><a href="/blog/paopaotang/">[做点有趣的]Java开发泡泡堂游戏（MVC架构）</a> &rarr;</span>
+  </nav>
+  <script type="text/javascript">
+  document.addEventListener('keyup', function(e) {
+    if (e.target.nodeName.toUpperCase() != 'BODY') return;
+    var url = false;
+    if (e.which == 37) {  
+      
+      url = '\/blog\/2020-12-26\/';
+      
+    } else if (e.which == 39) {  
+      
+      url = '\/blog\/paopaotang\/';
+      
+    }
+    if (url) window.location = url;
+  });
+  </script>
+  
+  </article>
+  </div>
   <footer>
   
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/blog/2021-1-2/">“十分钟”创建个人网站（Linux环境、Hugo、Gitee)</a></span>
-  <span class="nav-next"><a href="/blog/paopaotang/">[做点有趣的]Java开发泡泡堂游戏（MVC架构）</a> &rarr;</span>
-</nav>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/js/jquery.pjax.js"></script>
+<script src="/js/pjax.config.js"></script>
+
+<div class="music">
+<div id="player" class="aplayer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>  
+
+<script type="text/javascript">
+const ap = new APlayer({
+    container: document.getElementById('player'),
+    order: 'random',
+    audio: [{
+        name: '当时的月亮',
+        artist: '王菲',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_当时的月亮.mp3',
+    }
+
+  ]
+});
+</script>
 
 
-<script async src="//yihui.org/js/center-img.js"></script>
+
+
+
+<script async src="/js/fix-toc.js"></script>
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/no-highlight.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
-  <div class="copyright">© <a href="/">狂人笔记</a> 2020 - 2021</div>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
   
   </footer>
-  </article>
   
   </body>
 </html>

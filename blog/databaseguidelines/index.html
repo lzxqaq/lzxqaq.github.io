@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>【规约】 MySQL 数据库篇 - 狂人笔记</title>
-    <meta property="og:title" content="【规约】 MySQL 数据库篇 - 狂人笔记">
+    <title>【规约】 MySQL 数据库篇 - 闻道书斋</title>
+    <meta property="og:title" content="【规约】 MySQL 数据库篇 - 闻道书斋">
     
+    <meta name="twitter:card" content="summary">
 
     
       
@@ -25,22 +26,33 @@
       
     
 
-
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
     
 
     
+
+    
+    
+
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">  
 
   </head>
 
   
   <body class="blog">
+    <div id="pjax-content">
     <header class="masthead">
       
 
-<h1><a href="/"><img src="/images/logo.png" alt="狂人笔记" /></a></h1>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
 
 
@@ -59,6 +71,7 @@
   <li><a href="/work/">作品</a></li>
   
   
+
   </ul>
 </nav>
 
@@ -67,23 +80,20 @@
     <article class="main">
       <header class="title">
       
-<div class = "title">
 <h1>【规约】 MySQL 数据库篇</h1>
 
-<h3>
-  2021-05-28</h3>
-<hr>
-</div>
 
+<h3>
+2021-05-28</h3>
+
+<hr>
 
 
       </header>
 
 
 
-
-<div class = "content">
-    <h3 id="前言">前言</h3>
+<h3 id="前言">前言</h3>
 <p>“码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。</p>
 <h3 id="一建表规约">(一)建表规约</h3>
 <p>1.【强制】表达是与否概念的字段，必须使用 is_xxx 的方式命名，数据类型是 unsigned tinying(1 表示是，0 表示否)。<br>
@@ -134,25 +144,89 @@
 说明：外键与级联更新使用于单机低并发，不适合分布式、高并发集群；级联更新时强阻塞，存在数据库过呢更新风暴的风险；外键影响数据库的插入速度。</p>
 <p>4.【推荐】尽量避免 in 操作，若使用也需评估 in 后边的集合元素数量，控制在 1000 个之内。</p>
 
-</div>
-  
 
+  
+  <nav class="post-nav">
+    <span class="nav-prev">&larr; <a href="/blog/zxhan/">[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</a></span>
+    <span class="nav-next"><a href="/blog/javacodingguidelines/">【规约】 Java 编程篇</a> &rarr;</span>
+  </nav>
+  <script type="text/javascript">
+  document.addEventListener('keyup', function(e) {
+    if (e.target.nodeName.toUpperCase() != 'BODY') return;
+    var url = false;
+    if (e.which == 37) {  
+      
+      url = '\/blog\/zxhan\/';
+      
+    } else if (e.which == 39) {  
+      
+      url = '\/blog\/javacodingguidelines\/';
+      
+    }
+    if (url) window.location = url;
+  });
+  </script>
+  
+  </article>
+  </div>
   <footer>
   
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/blog/zxhan/">[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</a></span>
-  <span class="nav-next"><a href="/blog/javacodingguidelines/">【规约】 Java 编程篇</a> &rarr;</span>
-</nav>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/js/jquery.pjax.js"></script>
+<script src="/js/pjax.config.js"></script>
+
+<div class="music">
+<div id="player" class="aplayer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>  
+
+<script type="text/javascript">
+const ap = new APlayer({
+    container: document.getElementById('player'),
+    order: 'random',
+    audio: [{
+        name: '当时的月亮',
+        artist: '王菲',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_当时的月亮.mp3',
+    }
+
+  ]
+});
+</script>
 
 
-<script async src="//yihui.org/js/center-img.js"></script>
+
+
+
+<script async src="/js/fix-toc.js"></script>
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/no-highlight.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+
+
+  
 
   
   <hr>
-  <div class="copyright">© <a href="/">狂人笔记</a> 2020 - 2021</div>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
   
   </footer>
-  </article>
   
   </body>
 </html>

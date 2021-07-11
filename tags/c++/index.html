@@ -7,6 +7,7 @@
     <title>C&#43;&#43; - 闻道书斋</title>
     <meta property="og:title" content="C&#43;&#43; - 闻道书斋">
     
+    <meta name="twitter:card" content="summary">
 
     
       
@@ -16,36 +17,39 @@
       
     
 
-
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
 
     
 
     
     <link href="/tags/c&#43;&#43;/index.xml" rel="alternate" type="application/rss+xml" title="闻道书斋" />
     
+    
+
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/music.css" />
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">  
 
-
-    <style>body:before {background: url("https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/bg.jpg");}</style>
   </head>
 
   
-  <body class="tags" >
+  <body class="tags">
     <div id="pjax-content">
     <header class="masthead">
-      <div class="masthead-top">
-        
+      
 
-<h1><a href="/"><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/logo.png" alt="狂人笔记" /></a></h1>
-
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
 
-      </div>
-      <div class="masthead-bottom">
-        <nav class="menu">
+
+      <nav class="menu">
   <ul>
   
   
@@ -53,34 +57,34 @@
   
   <li><a href="/about/">关于</a></li>
   
-  <li><a href="/post/">日志</a></li>
+  <li><a href="/blog/">日志</a></li>
   
   <li><a href="/note/">笔记</a></li>
   
   <li><a href="/work/">作品</a></li>
   
   
+
   </ul>
 </nav>
 
-      </div>
     </header>
 
     <article class="main">
       <header class="title">
       
+<h1>C&#43;&#43;</h1>
+
+
+<hr>
+
 
       </header>
 
 
 
 
-
-
-
-
 <div class="archive">
-  
 
   
   <h2 class="archive-title">2021</h2>
@@ -88,14 +92,14 @@
   
   <p>
     <span>2021-05-28</span>
-    <a href="/post/c&#43;&#43;codingguidelines/">【规约】 C&#43;&#43; 编程篇</a>
+    <a href="/blog/c&#43;&#43;codingguidelines/">【规约】 C&#43;&#43; 编程篇</a>
   </p>
   
   
   
   <p>
     <span>2021-05-25</span>
-    <a href="/post/zxhan/">[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</a>
+    <a href="/blog/zxhan/">[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</a>
   </p>
   
   
@@ -105,211 +109,85 @@
 </div>
 
 
+  
+  <nav class="post-nav">
+    <span class="nav-prev"></span>
+    <span class="nav-next"></span>
+  </nav>
+  <script type="text/javascript">
+  document.addEventListener('keyup', function(e) {
+    if (e.target.nodeName.toUpperCase() != 'BODY') return;
+    var url = false;
+    if (e.which == 37) {  
+      
+    } else if (e.which == 39) {  
+      
+    }
+    if (url) window.location = url;
+  });
+  </script>
+  
   </article>
   </div>
   <footer>
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/js/jquery.pjax.js"></script>
 <script src="/js/pjax.config.js"></script>
 
-    <div class="music">
-    <div class="music-container" id="music-container">
-        
-        <div class="music-info">
-            
-            <span id="music-title"></span>
-            
-            <div class="progress-container" id="progress-container">
-                <div class="progress" id="progress"></div>
-            </div>
-        </div>
-    
-        
-        <audio id="audio"></audio>
-    
-        
-        <div class="music-control">
-            <button id="prev" class="action-btn">
-                <i class="fas fa-backward"></i>
-            </button>
-            <button id="play" class="action-btn action-btn-big">
-                <i class="fas fa-play"></i>
-            </button>
-            <button id="next" class="action-btn">
-                <i class="fas fa-forward"></i>
-            </button>
-        </div>
-    </div>
+<div class="music">
+<div id="player" class="aplayer"></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>  
 
-<script>
-const musicContainer = document.getElementById("music-container")
-const playBtn = document.getElementById("play")
-const prevBtn = document.getElementById("prev")
-const nextBtn = document.getElementById("next")
-
-const audio = document.getElementById("audio")
-const progress = document.getElementById("progress")
-const progressContainer = document.getElementById("progress-container")
-const title = document.getElementById("music-title")
-
-
-var songs = new Array();
-
-
-musicObj = {"name":"Shakira - Try Everything", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Shakira_Try_Everything.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"周杰伦 - 爱的飞行日记", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/周杰伦_爱的飞行日记.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"王菲 - 当时的月亮", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/王菲_当时的月亮.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"アルプスの少女ハイジ - OP", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/HD_アルプスの少女ハイジ_OP.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"林子祥 - 男儿当自强", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/林子祥_男儿当自强.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"张国荣 - 春夏秋冬", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/张国荣_春夏秋冬.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"Frozen - Love is an Open Door", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Frozen-Love_is_an_Open_Door.mp3"}
-songs.push(musicObj);
-
-
-function randomsort(a, b) {
-    
-    return Math.random()>.5 ? -1 : 1;
-}
-songs.sort(randomsort);
-if(songs.length > 0) {
-    
-    let songIndex = 0;
-    
-
-    loadSong(songIndex)
-
-    
-    function loadSong(songIndex) {
-        title.innerHTML = songs[songIndex].name;
-        audio.src = songs[songIndex].url;      
+<script type="text/javascript">
+const ap = new APlayer({
+    container: document.getElementById('player'),
+    order: 'random',
+    audio: [{
+        name: '当时的月亮',
+        artist: '王菲',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_当时的月亮.mp3',
     }
 
-    
-    function playSong() {
-        
-        musicContainer.classList.add("play")
-        playBtn.querySelector('i.fas').classList.remove('fa-play')
-        playBtn.querySelector('i.fas').classList.add('fa-pause')
-
-        audio.play()
-    }
-
-    
-    function pauseSong() {
-        musicContainer.classList.remove('play');
-        playBtn.querySelector('i.fas').classList.add('fa-play');
-        playBtn.querySelector('i.fas').classList.remove('fa-pause');
-
-        audio.pause();
-    }
-
-    
-    function prevSong() {
-        songIndex--
-        if (songIndex < 0) {
-            songIndex = songs.length - 1
-        }
-        
-        loadSong(songIndex)
-        playSong()
-    }
-    
-    function  nextSong() {
-        songIndex++;
-
-        if (songIndex > songs.length - 1) {
-            songIndex = 0;
-        }
-
-        loadSong(songIndex);
-
-        playSong();
-    }
-
-    
-    function updateProgress(e) {
-        
-        
-        
-        const {
-            duration,
-            currentTime
-        } = e.target;
-        
-        
-        
-        
-        const progressPercent = (currentTime / duration) * 100
-        
-        progress.style.width = `${progressPercent}%`
-    }
-    
-    function setProgress(e) {
-        
-        const width = thzis.clientWidth
-        
-        const clickX = e.offsetX
-
-        
-        const duration = audio.duration
-
-        
-        audio.currentTime = (clickX / width) * duration
-    }
-    
-    
-    playBtn.onclick = function () {
-        
-        musicContainer.classList.contains('play') ? pauseSong() : playSong()
-    }
-    
-    prevBtn.onclick = prevSong
-    nextBtn.onclick = nextSong
-
-    
-    
-    progressContainer.onclick = setProgress
-    
-    audio.ontimeupdate = updateProgress
-    
-    audio.onended = nextSong
-}
-
-
-
+  ]
+});
 </script>
 
 
 
+
+
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/no-highlight.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+
+
+  
+
+  
   <hr>
-
-  
-  <div class="site_record"> <a href="https://beian.miit.gov.cn">粤ICP备 2021000668 号</a></div>
-  
-
-  
-
-  <div class="copyright">
-    © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </div>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
   
   </footer>
+  
   </body>
 </html>
 

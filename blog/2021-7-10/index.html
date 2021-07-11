@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>404 Page not found - 闻道书斋</title>
-    <meta property="og:title" content="404 Page not found - 闻道书斋">
+    <title>vim 操作备忘 - 闻道书斋</title>
+    <meta property="og:title" content="vim 操作备忘 - 闻道书斋">
     
     <meta name="twitter:card" content="summary">
 
@@ -38,7 +38,7 @@
   </head>
 
   
-  <body class="/404.html">
+  <body class="blog">
     <div id="pjax-content">
     <header class="masthead">
       
@@ -71,8 +71,11 @@
     <article class="main">
       <header class="title">
       
-<h1>404 Page not found</h1>
+<h1>vim 操作备忘</h1>
 
+
+<h3>
+2021-07-10</h3>
 
 <hr>
 
@@ -80,14 +83,59 @@
       </header>
 
 
-<p>The page at <code>
-<script>
-document.write(location.href);
-</script>
-</code> was not found. Feel confused? Please go ahead and leave a message below to notify me. It will be great if you could tell me the URL of the page and where/how you got this URL. Thanks!</p>
 
-<p><img src="https://slides.yihui.org/gif/elevator.gif" alt="404 not found" /></p>
+<h3 id="一存活">一、存活</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">i</td>
+<td style="text-align:left">Insert 模式，按 ESC 回到 Normal 模式。</td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:left">删除当前光标所在的一个字符。</td>
+</tr>
+<tr>
+<td style="text-align:left">:wq</td>
+<td style="text-align:left">保存退出</td>
+</tr>
+<tr>
+<td style="text-align:left">dd</td>
+<td style="text-align:left">删除当前行，并存到剪切板</td>
+</tr>
+<tr>
+<td style="text-align:left">p</td>
+<td style="text-align:left">粘贴剪切板</td>
+</tr>
+</tbody>
+</table>
 
+
+  
+  <nav class="post-nav">
+    <span class="nav-prev">&larr; <a href="/blog/2021-6-1/">从零开始搭建个人网站——小白篇</a></span>
+    <span class="nav-next"></span>
+  </nav>
+  <script type="text/javascript">
+  document.addEventListener('keyup', function(e) {
+    if (e.target.nodeName.toUpperCase() != 'BODY') return;
+    var url = false;
+    if (e.which == 37) {  
+      
+      url = '\/blog\/2021-6-1\/';
+      
+    } else if (e.which == 39) {  
+      
+    }
+    if (url) window.location = url;
+  });
+  </script>
   
   </article>
   </div>

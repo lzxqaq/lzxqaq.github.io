@@ -1,4 +1,5 @@
 /* Micro Reset */
+
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
@@ -60,9 +61,7 @@ blockquote {
   padding: 0 2em;
   border-left: 3px solid #ddd;
 }
-.home blockquote {
-  border-left-color: transparent;
-}
+
 /* Code */
 
 pre, code {
@@ -122,14 +121,12 @@ hr {
   border-top: 1px solid;
   margin: 50px auto;
   padding: 0;
-  max-width: 360px;
-  color: #ffffff;
+  max-width: 300px;
 }
 
 .copyright {
   text-align: center;
 }
-
 
 .post-nav {
   display: flex;
@@ -155,143 +152,62 @@ hr {
 body {
   width: 960px;
   margin: 0 auto;
-  }
-
-body:before {
-  content: '';
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  padding: 30px 0;
 }
-body{
-  display: block;
-  top: 0;
-  z-index: 10;
+
+.masthead {
+  width: 260px;
+  padding: 20px 50px 20px 10px;
+  float: left;
 }
 
 .main {
-  width: auto;
-  padding: 10px;
-  margin-left: 0;
-  border-left: none;
-  min-height: auto;
-
-  /* min-height: calc(100vh - 60px); */
+  width: 700px;
+  padding: 32px 10px 20px 50px;
+  margin-left: 260px;
+  border-left: 3px solid black;
+  min-height: calc(100vh - 60px);
 }
 
 /* Masthead */
-.masthead {
-  display: flex;
-  align-items: center; /*定义body的元素垂直居中*/
-  justify-content: center; /*定义body的里的元素水平居中*/
-  flex-direction:column;
 
-  /* height: auto; */
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.masthead-top {
-  padding-top: 0px;
-}
-.masthead-bottom {
-  padding-top: 0px;
-}
-.masthead-home {
-  display: flex;
-  align-items: center; /*定义body的元素垂直居中*/
-  justify-content: center; /*定义body的里的元素水平居中*/
-  flex-direction:column;
-
-  height: 100vh;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.masthead-top-home  {
-  padding-top: 25vh;
-}
-.masthead-bottom-home  {
-  margin-top: auto;
-  margin-bottom: 30px;
-}
-
-.masthead h1, .masthead-home h1 {
-  margin-top: 20px;
-  margin-bottom: 0px;
+.masthead h1 {
+  margin-top: 0;
+  margin-bottom: 34px;
   padding: 0;
-  /* text-align: right; */
-  /* font-size: 46px; */
-  /* line-height: 58px; */
+  text-align: right;
+  font-size: 46px;
+  line-height: 58px;
 }
 
-.masthead h1 a, .masthead-home h1 a{
+.masthead h1 a {
   border-bottom: none;
 }
 
-.masthead .tagline, .masthead-home .tagline {
+.masthead .tagline {
   font-style: italic;
   text-align: right;
 }
 
-.masthead .menu, .masthead-home .menu{
-/* 　display: flex;
-　justify-content: center;
-　align-items: center; */
-  margin-left: auto;
-  margin-right: auto;
-  width: fit-content;
-  max-width: 400px;
-  text-align: center;
-  align-content: center;
-  background: rgba(255,255,255,.5);
-  border-radius: 15px;
-
-
-}
-.masthead .menu ul, .masthead-home .menu ul{
-  border-radius: 5px;
-  text-align: center;
-  padding: 10px;
+.masthead .menu {
+  margin-right: 20px;
+  direction: rtl;
 }
 
-.masthead .menu a, .masthead-home .menu a {
+.masthead .menu a {
   direction: ltr;
 }
 
-.masthead .menu ul ul, .masthead-home .menu ul ul {
+.masthead .menu ul ul {
+  list-style: none;
   margin-left: 10px;
   margin-right: 10px;
-
 }
 
-.masthead .menu li li::before, .masthead-home .menu li li::before {
+.masthead .menu li li::before {
   content: "•\00a\000a0\00a0"
 }
 
-.masthead .menu a, .masthead-home .menu a {
-  display: inline-block;
-  background: #0cdae9;
-  color: #ffffff;
-  border-radius: 5px;
-  padding: 20px 20px 20px 20px;
-}
-.masthead .menu .active a, .masthead-home .menu .active a {
-  background: #ffffff;
-  border: 1px solid #0cdae9;
-  color: #0cdae9;
-}
-.masthead .menu li, .masthead .menu li:first-child, .masthead-home .menu li, .masthead-home .menu li:first-child {
-  border: none;
-  display: inline-block;
-}
-
-.panel { order: inherit; }
-.label { width: 100%; }
-.masthead img, .masthead-home img {
-  max-width: 100%;
-}
 #menu-check {
   display: none;
 }
@@ -342,27 +258,7 @@ th, td {
 thead, tfoot, tr:nth-child(even) {
   background: #f8f8f8;
 }
-.menu li:not([class]) a, a:hover, .copyright a {
-  border-bottom: none;
-}
-footer .copyright {
-  color: #0cdae9;
-}
-footer .copyright a{
-  color: #0cdae9;
-}
-.site_record {
-  text-align: center;
-}
-.site_record a {
-  border-bottom: none;
-}
-footer .site_record {
-  color: #0cdae9;
-}
-footer .site_record a{
-  color: #0cdae9;
-}
+
 /**
  * Utility Styles
  */
@@ -405,7 +301,128 @@ footer .site_record a{
     max-width: 700px;
   }
 
-  
+  .masthead {
+    width: auto;
+    float: none;
+    padding: 20px 0 60px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: 3px solid black;
+  }
+
+  .main {
+    width: auto;
+    padding: 40px 10px;
+    margin-left: 0;
+    border-left: none;
+    min-height: auto;
+  }
+
+  .masthead h1 {
+    text-align: center;
+  }
+
+  .masthead .tagline {
+    text-align: center;
+  }
+
+  .masthead .menu {
+    direction: ltr;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .masthead .menu ul {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+  }
+
+  .masthead .menu ul ul {
+    margin: 0;
+  }
+
+  .masthead .menu li {
+    border-bottom: 1px solid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .masthead .menu li:first-child {
+    border-top: 1px solid;
+  }
+
+  .masthead .menu li li:last-child {
+    border-bottom: none;
+  }
+
+  .masthead .menu a {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: none;
+  }
+
+  .masthead .menu li li a {
+    padding-left: 30px;
+  }
+
+  .masthead .menu li li::before {
+    content: none;
+  }
+
+  .masthead .menu li li a::before {
+    content: "•\00a0\00a0\00a0";
+  }
+
+  #menu-label {
+    display: inline-block;
+    padding: 0 20px;
+    height: 50px;
+    border: 1px solid;
+    cursor: pointer;
+    line-height: 50px;
+    color: #333;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  #menu-label:hover, #menu-label:focus {
+    border: 1px solid #888;
+  }
+
+  #menu-label .icon {
+    padding-right: 8px;
+    width: 30px;
+  }
+
+  #menu-check ~ label .close-icon {
+    display: none;
+  }
+
+  #menu-check ~ label .open-icon {
+    display: inline-block;
+  }
+
+  #menu-check:checked ~ label .close-icon {
+    display: inline-block;
+  }
+
+  #menu-check:checked ~ label .open-icon {
+    display: none;
+  }
+
+  #menu-check ~ ul {
+    display: none;
+  }
+
+  #menu-check:checked ~ ul {
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
 }
 
 /* Landscape phone screens and smaller */
@@ -419,8 +436,6 @@ footer .site_record a{
 
   body {
     font-size: 16px;
-    padding-left: 10px;
-    padding-right: 10px;
   }
 
   h1 {
@@ -438,51 +453,9 @@ footer .site_record a{
   pre, code {
     font-size: 12px;
   }
-  .masthead .menu a, .masthead-home .menu a {
-    display: inline-block;
-    background: #0cdae9;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 10px 10px 10px 10px;
+
+  .masthead {
+    padding-top: 0;
   }
-}
 
-.content {
-  padding: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 5px;
-}
-.archive {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 5px;
-}
-.archive-ul {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 5px;
-}
-.archive-ul ul {
-  margin: 20px;
-  padding: 0;
-  background: rgba(255, 255, 255, 0);
-
-}
-
-
-.home blockquote {
-  border-left-color: transparent;
-}
-footer {
-  text-align: center;
-  padding: 10px 10px 40px 10px;
-}
-
-
-.head-title {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 5px;
-  padding: 50px 20px 20px 20px;
 }

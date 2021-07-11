@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>【规约】 Java 编程篇 - 狂人笔记</title>
-    <meta property="og:title" content="【规约】 Java 编程篇 - 狂人笔记">
+    <title>【规约】 Java 编程篇 - 闻道书斋</title>
+    <meta property="og:title" content="【规约】 Java 编程篇 - 闻道书斋">
     
+    <meta name="twitter:card" content="summary">
 
     
       
@@ -21,22 +22,38 @@
       
     
 
-
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
     
 
     
+
+    
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/custom.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">  
 
   </head>
 
   
   <body class="blog">
+    <div id="pjax-content">
     <header class="masthead">
       
 
-<h1><a href="/"><img src="/images/logo.png" alt="狂人笔记" /></a></h1>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
 
 
@@ -55,6 +72,7 @@
   <li><a href="/work/">作品</a></li>
   
   
+
   </ul>
 </nav>
 
@@ -63,23 +81,20 @@
     <article class="main">
       <header class="title">
       
-<div class = "title">
 <h1>【规约】 Java 编程篇</h1>
 
-<h3>
-  2021-05-28</h3>
-<hr>
-</div>
 
+<h3>
+2021-05-28</h3>
+
+<hr>
 
 
       </header>
 
 
 
-
-<div class = "content">
-    <h3 id="前言">前言</h3>
+<h3 id="前言">前言</h3>
 <p>“码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。</p>
 <h3 id="一命名风格">（一）命名风格</h3>
 <p>1.【强制】类名使用 UpperCamelCase风格，但以下情形例外：DO  /  BO  /  DTO  /  VO  /  AO  /  PO  /  UID等。
@@ -135,25 +150,102 @@ B）领域模型命名规约<br>
             System.out.printLn(&quot;ok&quot;);
         }
     }</code></pre>
-</div>
-  
 
+  
+  <nav class="post-nav">
+    <span class="nav-prev">&larr; <a href="/blog/databaseguidelines/">【规约】 MySQL 数据库篇</a></span>
+    <span class="nav-next"><a href="/blog/c&#43;&#43;codingguidelines/">【规约】 C&#43;&#43; 编程篇</a> &rarr;</span>
+  </nav>
+  <script type="text/javascript">
+  document.addEventListener('keyup', function(e) {
+    if (e.target.nodeName.toUpperCase() != 'BODY') return;
+    var url = false;
+    if (e.which == 37) {  
+      
+      url = '\/blog\/databaseguidelines\/';
+      
+    } else if (e.which == 39) {  
+      
+      url = '\/blog\/c\u002b\u002bcodingguidelines\/';
+      
+    }
+    if (url) window.location = url;
+  });
+  </script>
+  
+  </article>
+  </div>
   <footer>
   
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/blog/databaseguidelines/">【规约】 MySQL 数据库篇</a></span>
-  <span class="nav-next"><a href="/blog/c&#43;&#43;codingguidelines/">【规约】 C&#43;&#43; 编程篇</a> &rarr;</span>
-</nav>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/js/jquery.pjax.js"></script>
+<script src="/js/pjax.config.js"></script>
+
+<div class="music">
+<div id="player" class="aplayer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>  
+
+<script type="text/javascript">
+const ap = new APlayer({
+    container: document.getElementById('player'),
+    order: 'random',
+    audio: [{
+        name: '当时的月亮',
+        artist: '王菲',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_当时的月亮.mp3',
+    }
+
+  ]
+});
+</script>
 
 
-<script async src="//yihui.org/js/center-img.js"></script>
+
+
+
+<script async src="/js/fix-toc.js"></script>
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/no-highlight.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
-  <div class="copyright">© <a href="/">狂人笔记</a> 2020 - 2021</div>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
   
   </footer>
-  </article>
   
   </body>
 </html>
