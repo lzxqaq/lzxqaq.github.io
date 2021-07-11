@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>笔记 - 闻道书斋</title>
-    <meta property="og:title" content="笔记 - 闻道书斋">
+    <title>笔记收藏 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="笔记收藏 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,9 +15,9 @@
 
     
       
-      <meta property="description" content="本部分为本人的学习记录，内容来源于书籍、互联网，文中开头会有相关信息。需要注意的是，本人可能对文中内容加以改动，并不一定保证其正确性。如果你对其中某些内容存在异议，请联系我。
+      <meta property="description" content="本部分为本人的收藏和笔记，内容来源于书籍、互联网，文中开头会有相关信息。需要注意的是，本人可能对文中内容加以改动，并不一定保证其正确性。如果你对其中某些内容存在异议，请联系我。
 ">
-      <meta property="og:description" content="本部分为本人的学习记录，内容来源于书籍、互联网，文中开头会有相关信息。需要注意的是，本人可能对文中内容加以改动，并不一定保证其正确性。如果你对其中某些内容存在异议，请联系我。
+      <meta property="og:description" content="本部分为本人的收藏和笔记，内容来源于书籍、互联网，文中开头会有相关信息。需要注意的是，本人可能对文中内容加以改动，并不一定保证其正确性。如果你对其中某些内容存在异议，请联系我。
 ">
       
     
@@ -32,7 +32,7 @@
     
 
     
-    <link href="/note/index.xml" rel="alternate" type="application/rss+xml" title="闻道书斋" />
+    <link href="/note/index.xml" rel="alternate" type="application/rss+xml" title="Zexun Luo | 罗泽勋" />
     
     
 
@@ -64,9 +64,13 @@
   
   <li><a href="/blog/">日志</a></li>
   
+  <li><a href="/post/">技术</a></li>
+  
   <li class="active"><a href="/note/">笔记</a></li>
   
   <li><a href="/work/">作品</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
   
   
 
@@ -74,11 +78,10 @@
 </nav>
 
     </header>
-
     <article class="main">
       <header class="title">
       
-<h1>笔记</h1>
+<h1>笔记收藏</h1>
 
 
 <hr>
@@ -87,7 +90,7 @@
       </header>
 
 
-<p>本部分为本人的学习记录，内容来源于书籍、互联网，文中开头会有相关信息。需要注意的是，本人可能对文中内容加以改动，并不一定保证其正确性。如果你对其中某些内容存在异议，请<a href="/about">联系</a>我。</p>
+<p>本部分为本人的收藏和笔记，内容来源于书籍、互联网，文中开头会有相关信息。需要注意的是，本人可能对文中内容加以改动，并不一定保证其正确性。如果你对其中某些内容存在异议，请<a href="/about">联系</a>我。</p>
 
 
 
@@ -157,16 +160,48 @@
 const ap = new APlayer({
     container: document.getElementById('player'),
     order: 'random',
-    audio: [{
-        name: '当时的月亮',
+    listFolded: true,
+    listMaxHeight: 90,
+    theme:	'#b7daff',
+    audio: [
+      {
+        name: 'Forrest Gump Suite',
+        artist: 'Alan Silvestri',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/Alan_Silvestri_Forrest_Gump_Suite2.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/Alan_Silvestri_Forrest_Gump_Suite.jpeg'
+      },{
+        name: 'おしえて',
+        artist: '伊集加代子',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/HD_アルプスの少女ハイジ_OP.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/HD_アルプスの少女ハイジ_OP.png'
+      },
+      {
+        name: '堕落',
         artist: '王菲',
-        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_当时的月亮.mp3',
-    }
-
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_堕落.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/王菲_堕落.jpg'
+      },
+      {
+        name: '男儿当自强',
+        artist: '林子祥',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/林子祥_男儿当自强.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/林子祥_男儿当自强.jpg'
+      },
+      {
+        name: "Mariage d' Amour",
+        artist: 'George Davidson',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/George_Davidson_Mariage_D_Amour2.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/George_Davidson_Mariage_D_Amour.jpg'
+      },
+      {
+        name: 'Try Everything',
+        artist: 'Shakira',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/Shakira_Try_Everything.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/Shakira_Try_Everything.jpeg'
+      }
   ]
 });
 </script>
-
 
 
 
@@ -188,7 +223,6 @@ const ap = new APlayer({
 <script async src="/js/alt-title.js"></script>
 
 <script async src="/js/header-link.js"></script>
-
 
 
 

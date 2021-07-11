@@ -1,17 +1,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on 闻道书斋</title>
+    <title>Home on Zexun Luo | 罗泽勋</title>
     <link>/</link>
-    <description>Recent content in Home on 闻道书斋</description>
+    <description>Recent content in Home on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 10 Jul 2021 10:35:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jul 2021 21:27:45 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>日志</title>
+      <title>生活日志</title>
       <link>/blog/</link>
-      <pubDate>Sat, 10 Jul 2021 10:35:46 +0800</pubDate>
+      <pubDate>Sat, 10 Jul 2021 21:27:45 +0800</pubDate>
       
       <guid>/blog/</guid>
       <description>
@@ -23,11 +23,39 @@
     </item>
     
     <item>
-      <title>作品</title>
+      <title>技术文章</title>
+      <link>/post/</link>
+      <pubDate>Sat, 10 Jul 2021 10:35:46 +0800</pubDate>
+      
+      <guid>/post/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>个人作品</title>
       <link>/work/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/work/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>作品</title>
+      <link>/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cv/</guid>
       <description>
         <![CDATA[
         
@@ -45,15 +73,14 @@
       <description>
         <![CDATA[
         <h1 id="我是谁">我是谁</h1>
-<p>我是一名95后男生，家住广东广州，毕业于华南师范大学软件学院，现在从事软件开发工作。平时喜欢折腾网站，动手做一些小东西。我在广东成长、生活，钟爱粤语歌，喜欢张国荣、林子祥、王菲。在运动上，我喜欢打羽毛球，它也占据了我大部分的运动时间，另外，也喜欢跑步、打篮球。</p>
+<p>我，95后，家在广东广州，毕业于华南师范大学软件学院，现在从事软件开发工作。平时喜欢折腾网站，动手做一些小东西。我在广东长大，钟爱粤语歌，喜欢张国荣、林子祥。在运动爱好上，我喜欢打羽毛球，它也占据了我大部分的运动时间，另外，也喜欢跑步、篮球、骑行。</p>
 <h1 id="本站架构">本站架构</h1>
-<p>本站目前采用 <a href="https://gohugo.io/">Hugo</a>（静态网站生成器）作为后台系统，目前网站资源放在华为云服务器上，同时网站所有源代码托管在 <a href="https://gitee.com/lzxqaq/blog_source">Gitee</a> 上。本站所用主题是 <a href="https://github.com/lzxqaq/hugo-lzx">hugo-lzx</a>，这是我从另一个主题 <a href="https://github.com/yihui/hugo-ivyv">hugo-ivy</a> 中修改而来的。hugo-ivy 非常简洁美观，我想尝试在里面一些个性化的元素。</p>
+<p>本站目前采用 Hugo（一个静态网站生成器）作为后台系统，目前网站资源放在华为云服务器，源码托管在 <a href="https://gitee.com/lzxqaq/source.git">Gitee</a> 上。本站主题采用是 <a href="https://github.com/yihui/hugo-ivy">hugo-ivy</a>，作者 <a href="https://yihui.org/">Yihui Xie</a>。正是许多年前无意中发现了作者的个人主页，被它的简洁之美吸引，我才开始了建站之旅（<del>抄袭之旅</del>），中途更换过其他后台系统和主题，也曾荒废许久。现在重回最初的样子，同时也希望这是最后一站。</p>
 <h1 id="其他链接">其他链接</h1>
 <ul>
-<li><a href="http://lzxqaq.com">生活见闻录</a> ：这是我记录生活的地方。</li>
-<li><a href="https://github.com/lzxqaq">Github</a> ：这是我的 Github 仓库地址，最近越发感觉 Github 访问不便，无奈只能转移到国内的码云了。</li>
-<li><a href="https://gitee.com/lzxqaq">码云</a> ：这是我的 Gitee 仓库地址，Github 打不开时可以用这个。</li>
-<li><a href="https://space.bilibili.com/404289432">哔哩哔哩</a> ：这是我的哔哩哔哩主页。</li>
+<li><a href="https://github.com/lzxqaq">Github</a> ：这是我的 Github 仓库地址。</li>
+<li><a href="https://gitee.com/lzxqaq">Gitee</a> ：这是我的 Gitee 仓库地址。</li>
+<li><a href="https://space.bilibili.com/404289432">哔哩哔哩</a> ：这是我的哔哩哔哩个人空间。</li>
 </ul>
 <h1 id="联系我">联系我</h1>
 <ul>
@@ -68,14 +95,14 @@
     </item>
     
     <item>
-      <title>笔记</title>
+      <title>笔记收藏</title>
       <link>/note/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/note/</guid>
       <description>
         <![CDATA[
-        <p>本部分为本人的学习记录，内容来源于书籍、互联网，文中开头会有相关信息。需要注意的是，本人可能对文中内容加以改动，并不一定保证其正确性。如果你对其中某些内容存在异议，请<a href="/about">联系</a>我。</p>
+        <p>本部分为本人的收藏和笔记，内容来源于书籍、互联网，文中开头会有相关信息。需要注意的是，本人可能对文中内容加以改动，并不一定保证其正确性。如果你对其中某些内容存在异议，请<a href="/about">联系</a>我。</p>
 
         
         ]]>

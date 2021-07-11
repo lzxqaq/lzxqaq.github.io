@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>简历 - 人类生活见闻录</title>
-    <meta property="og:title" content="简历 - 人类生活见闻录">
+    <title>作品 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="作品 - Zexun Luo | 罗泽勋">
     
+    <meta name="twitter:card" content="summary">
 
     
       
@@ -16,49 +17,39 @@
       
     
 
-
-
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
     
 
     
-    <link href="/cv/index.xml" rel="alternate" type="application/rss+xml" title="人类生活见闻录" />
+
     
+    <link href="/cv/index.xml" rel="alternate" type="application/rss+xml" title="Zexun Luo | 罗泽勋" />
+    
+    
+
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/music.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">  
 
-
-
-    <style>
-      html {
-        width: 100%;
-        height: 100vh;
-
-        background: url("https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/bg5.jpg");
-        background-size:cover;
-        background-position: center center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-      }
-    </style>
   </head>
 
   
   <body class="cv">
-    
     <div id="pjax-content">
     <header class="masthead">
-      <div class="masthead-top">
-        
+      
 
-<h1><a href="/"><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/logo2.png" alt="狂人笔记" /></a></h1>
-
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
 
-      </div>
-      <div class="masthead-bottom">
-        <nav class="menu">
+
+      <nav class="menu">
   <ul>
   
   
@@ -66,231 +57,154 @@
   
   <li><a href="/about/">关于</a></li>
   
-  <li><a href="/post/">日志</a></li>
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">技术</a></li>
   
   <li><a href="/note/">笔记</a></li>
   
   <li><a href="/work/">作品</a></li>
   
+  <li class="active"><a href="/cv/">简历</a></li>
   
+  
+
   </ul>
 </nav>
 
-      </div>
     </header>
-
     <article class="main">
       <header class="title">
       
+<h1>作品</h1>
+
+
+<hr>
+
 
       </header>
 
 
 
 
-<div class = "content">
-  <h1 id="某某某">某某某</h1>
-<h2 id="联系方式">联系方式</h2>
+<div class="archive">
+
+  
+
 
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
+  
+  <nav class="post-nav">
+    <span class="nav-prev"></span>
+    <span class="nav-next"></span>
+  </nav>
+  <script type="text/javascript">
+  document.addEventListener('keyup', function(e) {
+    if (e.target.nodeName.toUpperCase() != 'BODY') return;
+    var url = false;
+    if (e.which == 37) {  
+      
+    } else if (e.which == 39) {  
+      
+    }
+    if (url) window.location = url;
+  });
+  </script>
+  
   </article>
   </div>
   <footer>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/js/jquery.pjax.js"></script>
 <script src="/js/pjax.config.js"></script>
 
-    <div class="music">
-    <div class="music-container" id="music-container">
-        
-        <div class="music-info">
-            
-            <span id="music-title"></span>
-            
-            <div class="progress-container" id="progress-container">
-                <div class="progress" id="progress"></div>
-            </div>
-        </div>
-    
-        
-        <audio src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/永远同在.mp3" id="audio"></audio>
-    
-        
-        <div class="music-control">
-            <button id="prev" class="action-btn">
-                <i class="fas fa-backward"></i>
-            </button>
-            <button id="play" class="action-btn action-btn-big">
-                <i class="fas fa-play"></i>
-            </button>
-            <button id="next" class="action-btn">
-                <i class="fas fa-forward"></i>
-            </button>
-        </div>
-    </div>
+<div class="music">
+<div id="player" class="aplayer"></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>  
 
-<script>
-const musicContainer = document.getElementById("music-container")
-const playBtn = document.getElementById("play")
-const prevBtn = document.getElementById("prev")
-const nextBtn = document.getElementById("next")
-
-const audio = document.getElementById("audio")
-const progress = document.getElementById("progress")
-const progressContainer = document.getElementById("progress-container")
-const title = document.getElementById("music-title")
-
-
-var songs = new Array();
-
-
-musicObj = {"name":"宗次郎 - いつも何度でも", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/宗次郎%20-%20いつも何度でも.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"岁月", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/岁月.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"张雨生 - 我的未来不是梦", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/张雨生 - 我的未来不是梦.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"自然卷 - How much", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/自然卷%20-%20How%20much.mp3"}
-songs.push(musicObj);
-
-
-console.log(songs);
-if(songs.length > 0) {
-    
-    let songIndex = 0;
-    
-
-    loadSong(songIndex)
-
-    
-    function loadSong(songIndex) {
-        title.innerHTML = songs[songIndex].name;
-        audio.src = songs[songIndex].url;      
-    }
-
-    
-    function playSong() {
-        
-        musicContainer.classList.add("play")
-        playBtn.querySelector('i.fas').classList.remove('fa-play')
-        playBtn.querySelector('i.fas').classList.add('fa-pause')
-
-        audio.play()
-    }
-
-    
-    function pauseSong() {
-        musicContainer.classList.remove('play');
-        playBtn.querySelector('i.fas').classList.add('fa-play');
-        playBtn.querySelector('i.fas').classList.remove('fa-pause');
-
-        audio.pause();
-    }
-
-    
-    function prevSong() {
-        songIndex--
-        if (songIndex < 0) {
-            songIndex = songs.length - 1
-        }
-        
-        loadSong(songIndex)
-        playSong()
-    }
-    
-    function  nextSong() {
-        songIndex++;
-
-        if (songIndex > songs.length - 1) {
-            songIndex = 0;
-        }
-
-        loadSong(songIndex);
-
-        playSong();
-    }
-
-    
-    function updateProgress(e) {
-        
-        
-        
-        const {
-            duration,
-            currentTime
-        } = e.target;
-        
-        
-        
-        
-        const progressPercent = (currentTime / duration) * 100
-        
-        progress.style.width = `${progressPercent}%`
-    }
-    
-    function setProgress(e) {
-        
-        const width = thzis.clientWidth
-        
-        const clickX = e.offsetX
-
-        
-        const duration = audio.duration
-
-        
-        audio.currentTime = (clickX / width) * duration
-    }
-    
-    
-    playBtn.onclick = function () {
-        
-        musicContainer.classList.contains('play') ? pauseSong() : playSong()
-    }
-    
-    prevBtn.onclick = prevSong
-    nextBtn.onclick = nextSong
-
-    
-    
-    progressContainer.onclick = setProgress
-    
-    audio.ontimeupdate = updateProgress
-    
-    audio.onended = nextSong
-}
-
-
-
+<script type="text/javascript">
+const ap = new APlayer({
+    container: document.getElementById('player'),
+    order: 'random',
+    listFolded: true,
+    listMaxHeight: 90,
+    theme:	'#b7daff',
+    audio: [
+      {
+        name: 'Forrest Gump Suite',
+        artist: 'Alan Silvestri',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/Alan_Silvestri_Forrest_Gump_Suite2.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/Alan_Silvestri_Forrest_Gump_Suite.jpeg'
+      },{
+        name: 'おしえて',
+        artist: '伊集加代子',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/HD_アルプスの少女ハイジ_OP.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/HD_アルプスの少女ハイジ_OP.png'
+      },
+      {
+        name: '堕落',
+        artist: '王菲',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_堕落.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/王菲_堕落.jpg'
+      },
+      {
+        name: '男儿当自强',
+        artist: '林子祥',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/林子祥_男儿当自强.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/林子祥_男儿当自强.jpg'
+      },
+      {
+        name: "Mariage d' Amour",
+        artist: 'George Davidson',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/George_Davidson_Mariage_D_Amour2.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/George_Davidson_Mariage_D_Amour.jpg'
+      },
+      {
+        name: 'Try Everything',
+        artist: 'Shakira',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/Shakira_Try_Everything.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/Shakira_Try_Everything.jpeg'
+      }
+  ]
+});
 </script>
 
 
+
+
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/no-highlight.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
 <script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+
+  
 
   
   <hr>
   <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
   
   </footer>
+  
   </body>
 </html>
 

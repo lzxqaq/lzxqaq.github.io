@@ -1,12 +1,12 @@
 @media screen and (min-width: 961px) {
   .masthead {
-    position: sticky;
     top: 0;
     min-height: 100vh;
     border-right: 3px solid #ddd;
     background: #fafafa;
     width: 200px;
     padding: 2em 1em;
+    position:fixed;
   }
   .main {
     margin-left: calc(50% - 250px);
@@ -197,7 +197,12 @@ img[src$="#border"] {
   }
 }
 
+
 .music {
   max-width: 300px; 
   margin: 0 auto;
+}
+
+.copyright {
+  margin: 30px 0 30px;
 }

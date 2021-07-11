@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构） - 闻道书斋</title>
-    <meta property="og:title" content="[做点有趣的]Java开发泡泡堂游戏（MVC架构） - 闻道书斋">
+    <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构） - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="[做点有趣的]Java开发泡泡堂游戏（MVC架构） - Zexun Luo | 罗泽勋">
     
+    <meta name="twitter:card" content="summary">
 
     
       
@@ -23,34 +24,38 @@
       
     
 
-
-
+    
+    
+    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade@master/images/CrazyArcade.png">
+    
+    
+    
     
 
     
+
+    
+    
+
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/music.css" />
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">  
 
-
-    <style>body:before {background: url("https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/bg.jpg");}</style>
   </head>
 
   
-  <body class="post" >
+  <body class="post">
     <div id="pjax-content">
     <header class="masthead">
-      <div class="masthead-top">
-        
+      
 
-<h1><a href="/"><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/logo.png" alt="狂人笔记" /></a></h1>
-
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
 
-      </div>
-      <div class="masthead-bottom">
-        <nav class="menu">
+
+      <nav class="menu">
   <ul>
   
   
@@ -58,29 +63,31 @@
   
   <li><a href="/about/">关于</a></li>
   
-  <li><a href="/post/">日志</a></li>
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">技术</a></li>
   
   <li><a href="/note/">笔记</a></li>
   
   <li><a href="/work/">作品</a></li>
   
+  <li><a href="/cv/">简历</a></li>
   
+  
+
   </ul>
 </nav>
 
-      </div>
     </header>
-
     <article class="main">
       <header class="title">
       
-<div class="head-title">
 <h1>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</h1>
 
-<h3>
-  2021-05-08</h3>
 
-</div>
+<h3>
+2021-05-08</h3>
+
 <hr>
 
 
@@ -88,9 +95,7 @@
 
 
 
-
-<div class = "content">
-    <h3 id="介绍">介绍</h3>
+<h3 id="介绍">介绍</h3>
 <p>本项目是一个很久以前的实训周项目，当时花费了两天左右时间，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功夫。本项目仍存在一些不足的地方，后续可能会进行优化，现在我将项目源代码和一些实现思路开源公布。</p>
 <p>源代码：<a href="https://gitee.com/lzxqaq/CrazyArcade">https://gitee.com/lzxqaq/CrazyArcade</a></p>
 <p>文章介绍：<a href="https://lzxqaq.com/post/java/paopaotang/">https://lzxqaq.com/post/java/paopaotang/</a></p>
@@ -127,220 +132,121 @@
 <h3 id="后续">后续</h3>
 <p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
 
-    
-    <nav class="post-nav">
+
+  
+  <nav class="post-nav">
     <span class="nav-prev">&larr; <a href="/post/2021-2-18-2/">从零开始搭建个人网站（win10,Github,Hugo）</a></span>
     <span class="nav-next"><a href="/post/zxhan/">[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</a> &rarr;</span>
-    </nav>
-    
-</div>
+  </nav>
+  <script type="text/javascript">
+  document.addEventListener('keyup', function(e) {
+    if (e.target.nodeName.toUpperCase() != 'BODY') return;
+    var url = false;
+    if (e.which == 37) {  
+      
+      url = '\/post\/2021-2-18-2\/';
+      
+    } else if (e.which == 39) {  
+      
+      url = '\/post\/zxhan\/';
+      
+    }
+    if (url) window.location = url;
+  });
+  </script>
   
-
   </article>
   </div>
   <footer>
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/js/jquery.pjax.js"></script>
 <script src="/js/pjax.config.js"></script>
 
-    <div class="music">
-    <div class="music-container" id="music-container">
-        
-        <div class="music-info">
-            
-            <span id="music-title"></span>
-            
-            <div class="progress-container" id="progress-container">
-                <div class="progress" id="progress"></div>
-            </div>
-        </div>
-    
-        
-        <audio id="audio"></audio>
-    
-        
-        <div class="music-control">
-            <button id="prev" class="action-btn">
-                <i class="fas fa-backward"></i>
-            </button>
-            <button id="play" class="action-btn action-btn-big">
-                <i class="fas fa-play"></i>
-            </button>
-            <button id="next" class="action-btn">
-                <i class="fas fa-forward"></i>
-            </button>
-        </div>
-    </div>
+<div class="music">
+<div id="player" class="aplayer"></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>  
 
-<script>
-const musicContainer = document.getElementById("music-container")
-const playBtn = document.getElementById("play")
-const prevBtn = document.getElementById("prev")
-const nextBtn = document.getElementById("next")
-
-const audio = document.getElementById("audio")
-const progress = document.getElementById("progress")
-const progressContainer = document.getElementById("progress-container")
-const title = document.getElementById("music-title")
-
-
-var songs = new Array();
-
-
-musicObj = {"name":"Shakira - Try Everything", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Shakira_Try_Everything.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"周杰伦 - 爱的飞行日记", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/周杰伦_爱的飞行日记.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"王菲 - 当时的月亮", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/王菲_当时的月亮.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"アルプスの少女ハイジ - OP", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/HD_アルプスの少女ハイジ_OP.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"林子祥 - 男儿当自强", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/林子祥_男儿当自强.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"张国荣 - 春夏秋冬", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/张国荣_春夏秋冬.mp3"}
-songs.push(musicObj);
-
-musicObj = {"name":"Frozen - Love is an Open Door", "url":"https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Frozen-Love_is_an_Open_Door.mp3"}
-songs.push(musicObj);
-
-
-function randomsort(a, b) {
-    
-    return Math.random()>.5 ? -1 : 1;
-}
-songs.sort(randomsort);
-if(songs.length > 0) {
-    
-    let songIndex = 0;
-    
-
-    loadSong(songIndex)
-
-    
-    function loadSong(songIndex) {
-        title.innerHTML = songs[songIndex].name;
-        audio.src = songs[songIndex].url;      
-    }
-
-    
-    function playSong() {
-        
-        musicContainer.classList.add("play")
-        playBtn.querySelector('i.fas').classList.remove('fa-play')
-        playBtn.querySelector('i.fas').classList.add('fa-pause')
-
-        audio.play()
-    }
-
-    
-    function pauseSong() {
-        musicContainer.classList.remove('play');
-        playBtn.querySelector('i.fas').classList.add('fa-play');
-        playBtn.querySelector('i.fas').classList.remove('fa-pause');
-
-        audio.pause();
-    }
-
-    
-    function prevSong() {
-        songIndex--
-        if (songIndex < 0) {
-            songIndex = songs.length - 1
-        }
-        
-        loadSong(songIndex)
-        playSong()
-    }
-    
-    function  nextSong() {
-        songIndex++;
-
-        if (songIndex > songs.length - 1) {
-            songIndex = 0;
-        }
-
-        loadSong(songIndex);
-
-        playSong();
-    }
-
-    
-    function updateProgress(e) {
-        
-        
-        
-        const {
-            duration,
-            currentTime
-        } = e.target;
-        
-        
-        
-        
-        const progressPercent = (currentTime / duration) * 100
-        
-        progress.style.width = `${progressPercent}%`
-    }
-    
-    function setProgress(e) {
-        
-        const width = thzis.clientWidth
-        
-        const clickX = e.offsetX
-
-        
-        const duration = audio.duration
-
-        
-        audio.currentTime = (clickX / width) * duration
-    }
-    
-    
-    playBtn.onclick = function () {
-        
-        musicContainer.classList.contains('play') ? pauseSong() : playSong()
-    }
-    
-    prevBtn.onclick = prevSong
-    nextBtn.onclick = nextSong
-
-    
-    
-    progressContainer.onclick = setProgress
-    
-    audio.ontimeupdate = updateProgress
-    
-    audio.onended = nextSong
-}
-
-
-
+<script type="text/javascript">
+const ap = new APlayer({
+    container: document.getElementById('player'),
+    order: 'random',
+    listFolded: true,
+    listMaxHeight: 90,
+    theme:	'#b7daff',
+    audio: [
+      {
+        name: 'Forrest Gump Suite',
+        artist: 'Alan Silvestri',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/Alan_Silvestri_Forrest_Gump_Suite2.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/Alan_Silvestri_Forrest_Gump_Suite.jpeg'
+      },{
+        name: 'おしえて',
+        artist: '伊集加代子',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/HD_アルプスの少女ハイジ_OP.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/HD_アルプスの少女ハイジ_OP.png'
+      },
+      {
+        name: '堕落',
+        artist: '王菲',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_堕落.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/王菲_堕落.jpg'
+      },
+      {
+        name: '男儿当自强',
+        artist: '林子祥',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/林子祥_男儿当自强.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/林子祥_男儿当自强.jpg'
+      },
+      {
+        name: "Mariage d' Amour",
+        artist: 'George Davidson',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/George_Davidson_Mariage_D_Amour2.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/George_Davidson_Mariage_D_Amour.jpg'
+      },
+      {
+        name: 'Try Everything',
+        artist: 'Shakira',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/Shakira_Try_Everything.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/Shakira_Try_Everything.jpeg'
+      }
+  ]
+});
 </script>
 
 
 
+
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/no-highlight.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+
+  
+
+  
   <hr>
-
-  
-  <div class="site_record"> <a href="https://beian.miit.gov.cn">粤ICP备 2021000668 号</a></div>
-  
-
-  
-
-  <div class="copyright">
-    © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </div>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
   
   </footer>
+  
   </body>
 </html>
 

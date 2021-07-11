@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C&#43;&#43; on 闻道书斋</title>
+    <title>C&#43;&#43; on Zexun Luo | 罗泽勋</title>
     <link>/tags/c&#43;&#43;/</link>
-    <description>Recent content in C&#43;&#43; on 闻道书斋</description>
+    <description>Recent content in C&#43;&#43; on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 28 May 2021 11:46:44 +0800</lastBuildDate>
@@ -10,10 +10,10 @@
     
     <item>
       <title>【规约】 C&#43;&#43; 编程篇</title>
-      <link>/blog/c&#43;&#43;codingguidelines/</link>
+      <link>/post/c&#43;&#43;codingguidelines/</link>
       <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
       
-      <guid>/blog/c&#43;&#43;codingguidelines/</guid>
+      <guid>/post/c&#43;&#43;codingguidelines/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -72,10 +72,10 @@ int delete_user( BYTE *user_name);</p>
     
     <item>
       <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
-      <link>/blog/zxhan/</link>
+      <link>/post/zxhan/</link>
       <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
       
-      <guid>/blog/zxhan/</guid>
+      <guid>/post/zxhan/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>

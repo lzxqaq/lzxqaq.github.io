@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>简历 on 人类生活见闻录</title>
+    <title>作品 on Zexun Luo | 罗泽勋</title>
     <link>/cv/</link>
-    <description>Recent content in 简历 on 人类生活见闻录</description>
+    <description>Recent content in 作品 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="/cv/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <atom:link href="/cv/" rel="self" type="application/rss+xml" />
+    
   </channel>
 </rss>

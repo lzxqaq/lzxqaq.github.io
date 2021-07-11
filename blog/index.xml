@@ -1,52 +1,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>日志 on 闻道书斋</title>
+    <title>生活日志 on Zexun Luo | 罗泽勋</title>
     <link>/blog/</link>
-    <description>Recent content in 日志 on 闻道书斋</description>
+    <description>Recent content in 生活日志 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 10 Jul 2021 10:35:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jul 2021 21:27:45 +0800</lastBuildDate>
     <atom:link href="/blog/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>vim 操作备忘</title>
+      <title>《球场快乐指南》</title>
+      <link>/blog/2021-7-10-2/</link>
+      <pubDate>Sat, 10 Jul 2021 21:27:45 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-7-10-2/</guid>
+      <description>
+        <![CDATA[
+        <p>前段时间，我又有了新的伙伴——小橙！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-7-10/3.jpg" alt="小橙"></p>
+<p>它还转过去了。别看它背面黑不溜秋的，头顶却长着一撮橙色的头发。而且它可是有着不少巧妙的设计，顶部有开口可以放羽毛球拍，夹层刚好可以放我 13 寸的 matebook。身材不大不小刚刚好。</p>
+<p>这张图片是我今天打球去早了，等人的时候给它拍的。也有一段时间没和我的高中伙伴打球了，时间改变了许多事，唯独没变的是，他还记着提醒我不要忘记场地和时间！是的，以前我是一个“咕咕咕”，还是那种“你觉得我会鸽，然后我还真的鸽了……”。</p>
+<p>回到今天的主题，羽毛球是一项老少咸宜的运动，不仅能强身健体，还可以和朋友放松交流，而且还能减肥～接下来就聊聊我和羽毛球的一些有趣过往。</p>
+<p>我从高一开始接触羽毛球，那时候，学校羽毛球场特别多，但玩的人也特别多。所以每当放学铃声响起的时候，都要“biu”的一声，冲出教室，去到球场上占着。当时，教学楼外就有几个球场，那就是我们的主战场，我们从教室的窗户上可以轻易地看到下面球场的情况。虽然是室外的场地，有时候也会受到风的影响，不过我们也没那么多讲究，一伙人打着玩。那会，我算是球场熟面孔了。去到那里不管有没有认识的，能加队就一起玩了。我还记得一个初中部的小伙子。时常找我搭伙加双打。虽然那会技术上没什么长进，但就很快乐。后来分班了，我发现新同学里有两位（开头所说高中伙伴便是其一）打羽毛球很厉害，我觉得很酷，就经常和他们打球，边打边学，很有意思。</p>
+<p>羽毛球让我结识了许多朋友，在他们身上，在羽毛球这项运动上，我也学到许多东西。特别记得，我的第一位羽毛球老师，他在第一节课里，言行身教地教我们羽毛球必须遵守的原则和羽毛球必胜诀窍。前者是：尊重你的对手、尊重这项运动，后者是找到并针对对手的弱点。</p>
+<p>这是一个数十年球场经验的前辈总结出来的道理，开始我以为这很简单，慢慢的，我很庆幸曾受过他的教导。为了让前辈的球场哲学让更多的人知晓，我在前辈的基础上编写了《球场快乐指南》，望与诸君共勉。</p>
+<h2 id="球场快乐指南">《球场快乐指南》</h2>
+<ul>
+<li>（强制）尊重你的对手</li>
+<li>（强制）尊重该运动</li>
+<li>（建议）对手亦好友，且行且珍惜。</li>
+</ul>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>莓莓酸奶冰</title>
       <link>/blog/2021-7-10/</link>
-      <pubDate>Sat, 10 Jul 2021 10:35:46 +0800</pubDate>
-      
+      <pubDate>Sat, 10 Jul 2021 20:10:36 +0800</pubDate>
+      <author>罗泽勋</author>
       <guid>/blog/2021-7-10/</guid>
       <description>
         <![CDATA[
-        <h3 id="一存活">一、存活</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">操作</th>
-<th style="text-align:left">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">i</td>
-<td style="text-align:left">Insert 模式，按 ESC 回到 Normal 模式。</td>
-</tr>
-<tr>
-<td style="text-align:left">x</td>
-<td style="text-align:left">删除当前光标所在的一个字符。</td>
-</tr>
-<tr>
-<td style="text-align:left">:wq</td>
-<td style="text-align:left">保存退出</td>
-</tr>
-<tr>
-<td style="text-align:left">dd</td>
-<td style="text-align:left">删除当前行，并存到剪切板</td>
-</tr>
-<tr>
-<td style="text-align:left">p</td>
-<td style="text-align:left">粘贴剪切板</td>
-</tr>
-</tbody>
-</table>
+        <p>前段时间，我决定制作一些夏日饮品，为这沉闷而又炽热的夏日增添一些色彩。说做就做，先看成品。</p>
+<h3 id="1莓莓酸奶冰不可描述的食物">1.莓莓酸奶冰(<del>不可描述的食物</del>)</h3>
+<p>材料：草莓、蓝莓、金桔柠檬、鲜牛奶</p>
+<p>灵感源自《明日之后》的草莓酸奶冰（草莓、蜂蜜、牛奶、冰块），我用鲜牛奶替代了酸奶，
+加了蓝莓，没有蜂蜜，最黑暗的是，为了达到一点酸的效果，正常人应该会想到加柠檬,
+但是我加了酸中带涩的金桔柠檬……还有，原本刚做好的时候还是挺好看的，结果我拿去冰冻之后，
+成了这个样子……</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-7-10/0.jpg" alt="莓莓酸奶冰"></p>
+<h3 id="2草莓奶昔">2.草莓奶昔</h3>
+<p>材料：草莓、鲜牛奶</p>
+<p>有了上面的教训，这次终于正常点了。美中不足的是草莓籽太多了，甜度不够，还有因为没有加水，感觉有些稠。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-7-10/1.jpg" alt="草莓奶昔"></p>
+<p>3.火龙果奶昔</p>
+<p>材料：火龙果、鲜牛奶</p>
+<p>这个也是拿去冷冻之后的样子，味道有些古怪，这个搭配要再斟酌斟酌……</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-7-10/2.jpg" alt="火龙果奶昔"></p>
 
         
         ]]>
@@ -54,45 +67,20 @@
     </item>
     
     <item>
-      <title>从零开始搭建个人网站——小白篇</title>
-      <link>/blog/2021-6-1/</link>
-      <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
+      <title>瞎嚷嚷</title>
+      <link>/blog/2021-7-7/</link>
+      <pubDate>Wed, 07 Jul 2021 01:10:46 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/blog/2021-6-1/</guid>
+      <guid>/blog/2021-7-7/</guid>
       <description>
         <![CDATA[
-        <h3 id="前言">前言</h3>
-<p>小白篇和前面<a href="../2021-2-18-2/">正经篇</a>的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的<a href="https://gitee.com/lzxqaq/demosite.git">示例网站</a>，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。</p>
-<h3 id="准备工作与前篇一致">准备工作（与前篇一致）</h3>
-<p>1.注册 Github 帐号。前往 <a href="https://github.com/" target="_blank">github.com</a> 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是你网站网址的一部分）</p>
-<p>补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。</p>
-<p>2.准备Git。</p>
-<p>（1）下载安装。前往 <a href="https://git-scm.com/download/win" target="_blank">这里</a> ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。</p>
-<p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
-<p>3.安装 Hugo。（官方教程可看<a href="https://www.gohugo.org/doc/tutorials/installing-on-windows/" target="_blank">这里</a>)</p>
-<p>（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。</p>
-<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
-<p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
-<p>（4）配置环境变量。方法1:在 win10 搜索 cmd，右键<strong>以管理员身份打开</strong>命令提示符，将 <code>setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m </code>复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
-<p>（5）验证。重新打开命令提示符（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到 hugo 的帮助文档，就验证成功，否则检查上述步骤是否出错。</p>
-<h3 id="开始">开始</h3>
-<p>1.建立博客网站</p>
-<p>（1）下载示例网站。打开命令提示符，执行 <code>D:</code> 切换 D 盘，然后执行 <code>cd D:\Hugo\sites</code> 进入 D:\Hugo\sites 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在文本最左输入 <code>cmd </code> 加空格，回车），执行命令 <code>git clone https://gitee.com/lzxqaq/demosite.git</code> ，如最后出现 <code>** 100% ** 完成</code> 则成功。（此时可在文件资源管理器中查看下载的文件夹 <code>demosite</code>）</p>
-<p>（2）预览。紧接上一步，在命令提示符中执行 <code>cd demosite</code> 进入 demosite 目录，先执行 <code>hugo</code> ，再执行 <code>hugo server</code>。打开浏览器，输入网址访问 localhost:1313。</p>
-<p>2.将网站展示文件存放到 Github 远程仓库。</p>
-<p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置中检查 Github Pages。</p>
-<p>（2）打开命令提示符，进入 demosite\public 目录，分别执行</p>
-<pre><code>git init 
-git add .
-git commit -m &quot;first commit&quot;
-git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
-git push --set-upstream origin master
-</code></pre><p>输入账号名，密码，完成上传。</p>
-<p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，打开网址 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
-<p>3.自定义域名（可选、需要一定的时间）</p>
-<p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
-<p>（2）配置。访问 github.com 网站，进入你的仓库，在 setting 中找到 Github Pages，在 Custom domain 输入框中输入你的域名，保存。</p>
-<p>（3）测试。访问你的域名。</p>
+        <p>最近到处都可以看到中国共产党建党100周年的口号标语，本来这些和我一个(<del>吃瓜</del>)群众毫无关系，但是今天在单位被拉去凑人头参加活动。完了憋不住，想来这里瞎嚷嚷两句。</p>
+<p>参加的活动是玩得很开心，领导的讲话也很振奋人心。但我总觉得哪里不对。噢，原来是没听到习大大的“不忘初心，牢记使命”。不对啊，现在不兴喊这个了吗？我赶紧看了看最初的《中国共产党宣言》，不看不知道，一看吓一跳。上面怎么写着马云、马化腾的名字，是因为他们去中南海议政了吗？啊，怎么还有我的名字！我只是一个工地搬砖的，可不敢写在上面污人眼睛啊。赶紧擦了擦。噢，原来是看错了，上面写的是“资本家”和“无产阶级”……哎，眼睛蒙得太厉害了。</p>
+<p>另外，说一个最近的倒霉事。因为我发现最近 Github Pages 经常打不开（本网站就挂在上面），考虑到最近的政治趋势，国内封杀国外资源是迟早的事，所以趁着华为云 618 活动，我买了一年华为云对象存储服务。但是，用它之后访问资源的速度居然比不过免费的 Github + jsDriver ！除非我再来一个华为云 CDN 加速服务，但是这个高昂的价格劝退了我。还好，我的华为云服务器还有两年，还能撑一撑。</p>
+<blockquote>
+<p>“华为牛掰！支持华为！华为万岁！”</p>
+<p>“你买华为什么东西了，用脚支持吗？这样喊两句，华为的东西能便宜点吗？没有你瞎嚷嚷啥呢！”</p>
+</blockquote>
 
         
         ]]>
@@ -100,280 +88,31 @@ git push --set-upstream origin master
     </item>
     
     <item>
-      <title>【规约】 C&#43;&#43; 编程篇</title>
-      <link>/blog/c&#43;&#43;codingguidelines/</link>
-      <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
-      
-      <guid>/blog/c&#43;&#43;codingguidelines/</guid>
+      <title>罗小黑和罗小白</title>
+      <link>/blog/2021-7-3/</link>
+      <pubDate>Sat, 03 Jul 2021 08:38:33 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-7-3/</guid>
       <description>
         <![CDATA[
-        <h3 id="前言">前言</h3>
-<p>“码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。</p>
-<h3 id="一排版">（一）排版</h3>
-<p>1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。<br>
-2.相对独立的程序块之间、变量说明之后必须加空行。<br>
-3.较长的语句（&gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。<br>
-4.if、for、do、while、case、switch、default 等语句自占一行，且执行语句部分无论多少都要加括号 {}。</p>
-<h3 id="二注释">（二）注释</h3>
-<p>1.一般情况下，源程序有效注释量必须在 20% 以上。<br>
-2.说明性文件（如头文件 .h 文件、.inc 文件、.def 文件等）头部应进行注释，注释必须列出：版权说明、版本号、生成日期、作者、内容、功能、与其他头文件关系、修改日志等，头文件注释中还应有函数功能简要说明。<br>
-3.源文件头部应进行注释，列出：版权说明、版本号、生成日期、作者、模块目的/功能、主要函数及其功能、修改日志等。<br>
-4.函数头部应进行注释，列出：函数的目的/功能、输入参数、输出参数、返回值、调用关系（函数、表）等。<br>
-5.边写代码边注释，修改代码同时修改响应的注释。不再有用的注释 要删除。<br>
-6.注释格式尽量统一，建议使用“/<em>…………</em>/”。<br>
-7.注释应考虑程序易读性，建议使用中文。</p>
-<h3 id="三标识符命名">（三）标识符命名</h3>
-<p>1.命名规范必须与所使用的系统风格保持一致，并在同一项目中统一，比如采用 UNIX 的全小写加下划线风格或大小写混排的方式，不要将两种方式混合使用。用作特殊标识如标识成员变量或全局变量的 m_ 和 g_，其后加上大小写混排的方式是允许的。<br>
-示例：Add_User 不允许，add_user、AddUser、m_AddUser允许。</p>
-<p>2.用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。<br>
-说明：以下是一些在软件中常用的反义词组。<br>
-add / remove    begin / end    create / destroy<br>
-insert /delete    first / last    get / release<br>
-increment / decrement    put / get<br>
-add /delete    lock unlock    open /close<br>
-min / max    old /new     stat / stop<br>
-next /previous    source / target    show / hide<br>
-send / receive    source / destination <br>
-cut /paste    up / down<br>
-示例：<br>
-int min_sum;<br>
-int max_sum;<br>
-int add_user( BYTE *user_name );<br>
-int delete_user( BYTE *user_name);</p>
-<h3 id="四可测性">（四）可测性</h3>
-<p>1.使用断言来发现软件问题，提高代码可测性。</p>
-<h3 id="五程序效率">（五）程序效率</h3>
-<p>1.多重循环中，应将最忙的循环放在最内层。<br>
-2.尽量减少循环嵌套层次。<br>
-3.尽量使用乘法或其他方法代替除法特别是浮点运算中的除法（占用较多 CPU 资源）。</p>
-<h3 id="六质量保证">（六）质量保证</h3>
-<p>1.防止引用已经释放的内存空间。<br>
-2.过程/函数中分配的内存，在过程/函数退出之前要释放。<br>
-3.过程/函数中申请的（为打开文件而使用的）文件句柄，在过程/函数退出之前要关闭。<br>
-4.防止内存操作越界。<br>
-5.编程时，要防止差 1 错误。（&lt;=、&lt;等注意）<br>
-6.if 语句尽量加上 else 分支，switch 语句必须有 default 分支。<br>
-7.Unix 下，多线程的子线程退出必需采用主动退出的方式，即子线程应 return 出口。<br>
-8.时刻注意表达式是否会上溢、下溢。使用变量时要注意其边界值的情况。</p>
-
-        
-        ]]>
-      </description>
-    </item>
-    
-    <item>
-      <title>【规约】 Java 编程篇</title>
-      <link>/blog/javacodingguidelines/</link>
-      <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
-      
-      <guid>/blog/javacodingguidelines/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="前言">前言</h3>
-<p>“码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。</p>
-<h3 id="一命名风格">（一）命名风格</h3>
-<p>1.【强制】类名使用 UpperCamelCase风格，但以下情形例外：DO  /  BO  /  DTO  /  VO  /  AO  /  PO  /  UID等。
-正例：MarcoPolo  /  UserDO  /  XmlService  /  TcpUdpDeal  /TaPromotion</p>
-<p>2.【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。<br>
-正例：localValue  /  getHttpMessage()  /  inputUserId</p>
-<p>3.【强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。<br>
-正例：MAX_STOCK_COUNT</p>
-<p>4.【强制】抽象类命名使用 Abstract 或 Base 开头；异常类命名使用 Exception 结尾；测试类命名以它要测试的类的名称开始，以 Test 结尾。</p>
-<p>5.【强制】类型与中括号紧挨起来表示数组。<br>
-正例：int[] arrayDemo;</p>
-<p>6.【强制】POJO 类中布尔类型的变量，都不要加 is 前缀。</p>
-<p>7.【强制】包名统一使用小写，点分隔符之间有且只有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。<br>
-正例：应用工具类包名为 com.alibaba.ai.util、类名为 MessageUtils。</p>
-<p>8.【强制】杜绝完全不规范的缩写，任何自定义编程元素在命名时，使用尽量完整的单词组合来表达其意。</p>
-<p>9.【推荐】如果模块、接口、类、方法使用了设计模式，在命名时需体系那具体模式。</p>
-<p>10.【推荐】接口类的方法和属性不要加任何修饰符号（public 也不要加），保持代码整洁，并加上有效的 Javadoc 注释。</p>
-<p>11.【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的一定时接口，内部的实现类用 Impl 的后缀与接口区别。<br>
-正例：CacheServiceImpl 实现 CacheService。</p>
-<p>12.【参考】各层命名规约：
-A）Service/DAO 层方法命名规约<br>
-1）获取单个对象的方法用 get 做前缀。<br>
-2）获取多个对象的方法用 list 做前缀，复数形式结尾如： listObjects。<br>
-3）获取统计值的方法用 count 做前缀。<br>
-4）插入的方法用 save/insert 做前缀<br>
-5）删除的方法用 remove/delete 做前缀<br>
-6）修改的方法用 update 做前缀<br>
-B）领域模型命名规约<br>
-1）数据对象：xxxDO，xxx 即为数据表名。<br>
-2）数据传输对象：xxxDTO，xxx 为业务领域相关的名称。<br>
-3）展示对象：xxxVO，xxx 一般为网页名称。<br>
-4) POJO 是 DO/DTO/BO/VO 的统称，禁止命名为 xxxPOJO。</p>
-<p>13.【强制】不允许任何魔法值（即未经预先i当以的常量）出现在代码中。<br>
-反例：String key = &ldquo;ID#taobao_&rdquo; + tradeId;</p>
-<p>14.【强制】代码格式，具体见下面正例。
-正例：</p>
-<pre><code>    public static void main(String[] args) {
-        // 缩进4个空格，注释内空1格
-        String say = &quot;hello&quot;;
-        // 运算符左右必须有一个空格
-        int flag = 0;
-        // 关键词 if 与括号之间必须有一个空格
-        if (flag == 0) {
-            System.out.println(say);
-        }
-
-        // 左大括号前加空格且不换行，左大括号后换行。
-        if (flag == 0) {
-            System.out.println(&quot;world&quot;);
-        //  右大括号前换行，右大括号后有 else，不用换行、
-        }
-        else {
-            System.out.printLn(&quot;ok&quot;);
-        }
-    }</code></pre>
-        
-        ]]>
-      </description>
-    </item>
-    
-    <item>
-      <title>【规约】 MySQL 数据库篇</title>
-      <link>/blog/databaseguidelines/</link>
-      <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
-      
-      <guid>/blog/databaseguidelines/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="前言">前言</h3>
-<p>“码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。</p>
-<h3 id="一建表规约">(一)建表规约</h3>
-<p>1.【强制】表达是与否概念的字段，必须使用 is_xxx 的方式命名，数据类型是 unsigned tinying(1 表示是，0 表示否)。<br>
-说明：任何字段如果为非负数，必须是 unsigned。<br>
-注意：POJO 类中任何布尔类型的变量，都不要加 is 前缀，所以，需要在 <resultMap> 设置从 is_xxx 到 Xxx 的映射关系。数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的命名方式是为了明确其取值含义与范围。<br>
-正例：表达逻辑删除的字段名 is_deleted，1 表示删除，0 表示未删除。</p>
-<p>2.【强制】表名、字段名必须使用小写字母或数字，禁止出现数字开头，禁止两个下划线中间只出现数字。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑。<br>
-说明:MySQL 在 Windows 下不区分大小写，但在 Linux 下默认是区分大小写。因此，数据库名、表名、字段名，都不允许出现任何大小写字母，避免节外生枝。<br>
-正例：aliyun_admin, rdc_config, level3_name
-反例：AliyunAdmin, rdcConfig, level_3_name</p>
-<p>3.【强制】表明不使用复数名词。
-说明：表名应该仅仅表示表里面的实体内容，不应该表示实体数量，对应于 DO 类名也是单数形式，符合表达习惯。</p>
-<p>4.【强制】主键索引名为 pk_字段名；唯一索引名为 uk_字段名；普通索引名则为 idx_字段名。<br>
-说明：pk_ 即 primary key；uk_ 即 unique key；idx_ 即 index 的简称。</p>
-<p>5.【小数类型】为 decimal，禁止使用 float 和 double。<br>
-说明：float 和 double 在存储的时候，存在精度损失的问题，很可能在值的比较时，得不到正确的结果。如果存储的数据范围超 decimal 的范围，建议将数据拆成整数和小数分开存储。</p>
-<p>6.【强制】如果存储的字符串长度几乎相等，使用 char 定长字符串类型。</p>
-<p>7.【强制】varchar 是可变字符串，不与先分配存储控件，长度不要超过 5000，如果存储长度大于此值，定义字段类型为 text,独立出来一张表，用主键来对应，避免影响其他字段索引效率。</p>
-<p>8.【强制】表必备三字段：id, gmt_create, gmt_modified。<br>
-说明：其中 id 必为主键，类型为 bigint unsigned、单表自增、步长为 1。gmt_create，gmt_modified 的类型均为 datetime 类型，前者现在时表示主动创建，后者过去分词表示被动更新。</p>
-<p>9.【推荐】表的命名最好是加上”业务名称_表的作用“。<br>
-正例：alipay_task   /   force_project   /   trade_config</p>
-<p>10.【推荐】库名与应用名称尽量一致。</p>
-<p>11.【推荐】字段允许适当冗余，以提高查询性能，但必须考虑数据一致。冗余字段应遵循：<br>
-1）不是频繁修改的字段。<br>
-2）不是 varchar 超长字段，更不能是 text 字段。<br>
-正例：商品类目名称使用频率高，字段长度短，名称基本一成不变，可在相关联的表中冗余存储类目名称，避免关联查询。</p>
-<p>12.【参考】合适的字符存储长度，不但节约数据库表空间、节约索引存储，更重要的是提升检索速度。<br>
-正例：  人  150岁之内   tinyint unsigned    1字节   无符号值：0 到 255<br>
-龟  数百岁  smallint unsigned   2字节   无符号值：0 到65535</p>
-<h3 id="二索引规约">（二）索引规约</h3>
-<p>1.【强制】业务上具有唯一特性的字段，即使是多个字段的组合，也必须建成唯一索引。<br>
-说明：不要以为唯一索引影响了 insert 速度，这个速度的损耗可以忽略，但提高查找速度是明显的；另外，只要没有唯一索引，必定有脏数据产生（墨菲定律）。</p>
-<p>2.【强制】超过三个表禁止 join。需要 join 的字段，数据类型必须绝对一致；多表关联查询时，保证被关联的字段有索引。<br>
-说明：join 需要注意表索引、SQL 性能。</p>
-<p>3.【强制】在 varchar 字段上建立索引时，必须根据文本区分度指定索引长度。</p>
-<p>4.【强制】页面搜索严禁左模糊或者全模糊，如果需要请走搜索引擎来解决。<br>
-说明：索引文件具有 B-Tree 的最左前缀匹配特性，如果左边的值未确定，那么无法使用此索引。</p>
-<p>5.【推荐】利用覆盖索引来进行查询操作，避免回表。</p>
-<p>6.【参考】创建索引时避免有如下极端误解：<br>
-1）宁滥勿缺。认为一个查询就需要建一个索引。<br>
-2）宁缺毋滥。认为索引会消耗空间、严重拖慢更新和新增速度。<br>
-3）抵制唯一索引。认为业务的唯一性一律需要在应用层通过”先查后插“方式解决。</p>
-<h3 id="三sql-语句">（三）SQL 语句</h3>
-<p>1.【强制】不要使用 count(列名) 或 count(常量) 来替代 count(*)。</p>
-<p>2.【强制】使用 ISNULL() 来判断是否为 NULL 值。</p>
-<p>3.【强制】不得使用外键和级联，一切外键概念不必在应用层解决。
-说明：外键与级联更新使用于单机低并发，不适合分布式、高并发集群；级联更新时强阻塞，存在数据库过呢更新风暴的风险；外键影响数据库的插入速度。</p>
-<p>4.【推荐】尽量避免 in 操作，若使用也需评估 in 后边的集合元素数量，控制在 1000 个之内。</p>
-
-        
-        ]]>
-      </description>
-    </item>
-    
-    <item>
-      <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
-      <link>/blog/zxhan/</link>
-      <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
-      
-      <guid>/blog/zxhan/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="前言">前言</h3>
-<p>这是以前的一个实训周作业，核心是哈夫曼编码和解码，软件界面由 QT 实现。代码量很小，比较简单。</p>
-<p>源代码： <a href="https://gitee.com/lzxqaq/zxhan.git">https://gitee.com/lzxqaq/zxhan.git</a></p>
-<p>介绍：<a href="https://lzxqaq.com/post/zxhan/">https://lzxqaq.com/post/zxhan/</a></p>
-<p>算法参考：<a href="https://blog.csdn.net/small_hacker/article/details/52843738">Huffman压缩真正的C++实现</a></p>
-<p>运行环境：Linux 系统（Windows系统下运行尚有 bug ),开发环境为 QT Creator。</p>
-<p>运行截图：</p>
-<div  align="center">    
- <img src="https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png" width = "500" height = "200" alt="图片名称" align=center /></div>
-<!-- ![img](https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png) -->
-<h3 id="核心实现">核心实现</h3>
-<pre><code>void create_node_array();//构造包含字符及其频率的数组
-void create_pq();//构造优先级队列
-void create_huffman_tree();//构造哈夫曼树
-void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表
-bool calculate_huffman_codes();//计算哈夫曼编码
-bool do_compress();//开始压缩
-bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树
-void decode_huffman();//根据重构的哈夫曼树解码文件
-
-</code></pre><h3 id="后续">后续</h3>
-<p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
-
-        
-        ]]>
-      </description>
-    </item>
-    
-    <item>
-      <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</title>
-      <link>/blog/paopaotang/</link>
-      <pubDate>Sat, 08 May 2021 11:09:51 +0800</pubDate>
-      
-      <guid>/blog/paopaotang/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="介绍">介绍</h3>
-<p>本项目是一个很久以前的实训周项目，当时花费了两天左右时间，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功夫。本项目仍存在一些不足的地方，后续可能会进行优化，现在我将项目源代码和一些实现思路开源公布。</p>
-<p>源代码：<a href="https://gitee.com/lzxqaq/CrazyArcade">https://gitee.com/lzxqaq/CrazyArcade</a></p>
-<p>文章介绍：<a href="https://lzxqaq.com/post/java/paopaotang/">https://lzxqaq.com/post/java/paopaotang/</a></p>
-<p>程序运行： 在终端下进入执行程序所在目录，执行 <code>java -jar CrazyArcade.jar</code> 或者双击 <code>CrazyArcade.jar</code>，或者在开发环境中打开源代码，运行 <code>GameStart.java</code>的 <code>main</code> 方法。</p>
-<p>运行环境：Linux、Windows均可。开发环境：IDEA。</p>
-<p>演示视频：</p>
-<p>运行截图：</p>
-<div  align="center">    
- <img src="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade@master/images/CrazyArcade.png" width = "500" height = "200" alt="图片1" align=center />
- <br/>
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade/images/2.png" width = "500" height = "200" alt="图片2" align=center />
- </div>
-<h3 id="功能">功能</h3>
-<p>本项目实现的功能如下：</p>
+        <p>小黑是我的雨伞。前段时间，小黑同学不见了。当我意识到这点的时候，它已经从我的世界上消失了，我怎么也找不到它。在它不见的那段时间里，我很伤心，然后就有了——大黑。直到两个星期之后，它就那么突然地出现在我的面前。原来，它在我背包里……很好，我的战友，又回来了。</p>
+<p>小白是我家的新成员——一只白色的宠物狗。第一次和它见面时，它就往我身上扑。我看它身上脏兮兮的，而我穿着白衣服，但犹豫了一下，还是没有躲开。它很聪明，非常爱玩。不过我爸妈不怎么喜欢它，因为它经常会在房间里大小便（这可能是因为没人管它）。在多数时间里，它总趴在地上发呆，而且它的姿势有些奇特，要么是两手前伸搭在门沿，头枕在手上，要么像乌龟那样，四肢伸开，头侧在一边。每当有客人来的时候，它就很兴奋，到处瞎跑，往人身上扑。没人搭理它的时候，它就自个趴着发呆。它不喜欢自己待着，每次我回家的时候，它总会来我房间。我看电脑的时候，它在旁边趴着；我睡觉的时候，它也在旁边趴着。哎，也不知道为何你的前主人、前前主人都抛弃了你，也不知道你的家人是否尚在，是否挂念着你。不过无论如何，要快乐、充实地活着！</p>
+<p>说说近况，这周回家，我妈说我胖了好多。这句话很少见，但确实我也感觉到最近胖了不少。究其原因，一是饮食问题，二是缺少运动，二者关系密切。变胖原因一：自从上次我哥过来看我，给我带来了一个小冰箱、一个电磁炉和一些厨具，我自以为可以在厨房里大展拳脚了，结果真是一言难尽。从买菜、下厨到清洁收拾，花费的时间比较多，更关键的是，做出来的味道效果不太理想，这就很打击。而且因为买菜（特别是肉类）不好买太少，所以经常是：好不容易做出来的，含着泪也要吃完（肥胖++）……变胖原因二：晚上忙完厨房的时候，已经身心疲惫了。这个时候，运动的事情只能妥协了。</p>
+<p>近期计划：</p>
 <ul>
-<li>绘制游戏启动界面、结束界面、地图、主角、道具</li>
-<li>实现泡泡爆炸</li>
-<li>实现双主角PK（积分制）</li>
-<li>实现道具掉落和相应属性加成</li>
-<li>实现游戏音效和背景音乐</li>
+<li>
+<p>尽量减少厨房事务，认清事实，以后闲下来的时候再好好学厨艺吧！</p>
+</li>
+<li>
+<p>坚持运动，每天至少半小时。</p>
+</li>
+<li>
+<p>茶艺计划。是的，厨艺不行转投茶艺～计划学着做一些果汁、柠檬茶、奶茶之类的。结果估计在下一篇文章见晓。期待^_^</p>
+</li>
+<li>
+<p>时间管理。保证每天足够的代码实践啊（着急：），以后还要加上阅读的时间。我没有时间了！</p>
+</li>
 </ul>
-<p>其中我们对游戏玩法做了调整，大致如下:</p>
-<p>我们把游戏设计为双人pk积分赛模式，在这个模式里面，玩家只要率先达到一定分数既可以赢得比赛。玩家可以通过炸箱子可以得到少量的分数，也可以通过炸掉对手然后戳破包围对手的水泡得到大量分数。而玩家如果被泡泡爆炸击中，会被泡泡包裹一段时间，在这段时间内不可以移动和放泡泡，需要等时间过去或者被对手戳破水泡才能获得自由。但如果玩家被自己放的泡泡炸中，会扣一定的分数。</p>
-<h3 id="思路和架构">思路和架构</h3>
-<p>整个项目采用 MVC 架构，将项目整体分为数据模型层（M）、视图层（V）、控制层（C）。M层负责元素的创建、存储、管理，V层负责所有元素的显示（24帧/秒），C层负责交互（监听用户的操作），同时负责控制游戏的进程。</p>
-<p>选择MVC架构最主要的原因是让这个游戏项目具有良好的可扩展性和更新功能，当然了，一个好的游戏也需要良好的交互功能，漂亮的UI设计。</p>
-<p>架构设计图：</p>
-<div  align="center">    
- <img src="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade@master/images/design.png" width = "500" height = "200" alt="图片名称" align=center /></div>
-<h3 id="包结构">包结构</h3>
-<p>未完待续……</p>
-<h3 id="核心实现">核心实现</h3>
-<p>未完待续……</p>
-<h3 id="后续">后续</h3>
-<p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
 
         
         ]]>
@@ -381,45 +120,19 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
     </item>
     
     <item>
-      <title>从零开始搭建个人网站（win10,Github,Hugo）</title>
-      <link>/blog/2021-2-18-2/</link>
-      <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
+      <title>做咩啊</title>
+      <link>/blog/2021-6-12/</link>
+      <pubDate>Sat, 12 Jun 2021 00:38:48 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/blog/2021-2-18-2/</guid>
+      <guid>/blog/2021-6-12/</guid>
       <description>
         <![CDATA[
-        <h3 id="准备工作">准备工作</h3>
-<p>1.注册 Github 帐号。前往 <a href="https://github.com/" target="_blank">github.com</a> 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）</p>
-<p>补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。</p>
-<p>2.准备Git。</p>
-<p>（1）下载安装。前往 <a href="https://git-scm.com/download/win" target="_blank">这里</a> ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。</p>
-<p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
-<p>3.安装 Hugo。（官方教程可看<a href="https://www.gohugo.org/doc/tutorials/installing-on-windows/" target="_blank">这里</a>)</p>
-<p>（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。</p>
-<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
-<p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
-<p>（4）配置环境变量。方法1:在 win10 搜索 cmd，右键<strong>以管理员身份打开</strong>命令提示符，将 <code>setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m </code>复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
-<p>（5）验证。重新打开命令提示符（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到 hugo 的帮助文档，就验证成功，否则检查上述步骤是否出错。</p>
-<h3 id="开始">开始</h3>
-<p>1.建立博客网站</p>
-<p>（1）使用 Hugo 建立网站。打开命令提示符，执行 <code>D:</code> 切换 D 盘，然后执行 <code>cd D:\Hugo\sites</code> 进入 D:\Hugo\sites 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 <code>cmd </code> 加空格，回车），执行命令 <code>hugo new site blog</code> ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件）</p>
-<p>（2）下载主题模板（以 Hugo.386 为例）。接上述步骤，在命令提示符中 执行 <code>git clone https://gitlab.com/maxlefou/hugo.386 themes/hugo.386 </code>来下载 hugo.386 主题。</p>
-<p>（3）配置。将 hugo.386\exampleSite 文件夹中的 theme.toml 文件复制到文件夹 blog 中，替换原本的。根据需要修改其中的内容。</p>
-<p>（4）预览。命令提示符进入 blog 目录，先执行 <code>hugo</code> ，再执行 <code>hugo server</code>。打开浏览器，访问 localhost:1313。</p>
-<p>2.将网站展示文件存放到 Github 远程仓库。</p>
-<p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置 setting 中检查 Github Pages。</p>
-<p>（2）打开命令提示符，进入 blog\public 目录，分别执行</p>
-<pre><code>git init 
-git add .
-git commit -m &quot;first commit&quot;
-git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
-git push --set-upstream origin master
-</code></pre><p>输入账号名，密码，完成上传。</p>
-<p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
-<p>3.自定义域名（可选、需要一定的时间）</p>
-<p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
-<p>（2）配置。访问 github.com 网站，进入你的仓库，在 setting 中找到 Github Pages，在 Custom domain 输入框中输入你的域名，保存。</p>
-<p>（3）测试。访问你的域名。</p>
+        <blockquote>
+<p>“嗰個人嘅樣好怪啊”<br>
+“我都見到，好似隻狗咁哦”</p>
+</blockquote>
+<p>刚刚做了个噩梦，梦到火烧到了脚，但是眼睛却怎么也挣不开，慌张之时我在心头默念：“我一定要醒来”，两下之后，眼睛猛地睁开了。只见墙上映着一道微弱的光，忽闪忽闪。</p>
+<p>字数有点少了不好看，那就拿来凑个数吧，<a href="https://yihui.org/cn/2005/01/20-13-00/">《人生啊，就是这么无常……》</a></p>
 
         
         ]]>
@@ -427,19 +140,25 @@ git push --set-upstream origin master
     </item>
     
     <item>
-      <title>Linux 不同发行版的选择</title>
-      <link>/blog/2020-12-26/</link>
-      <pubDate>Sat, 26 Dec 2020 22:33:13 +0800</pubDate>
+      <title>网站搭建一二事</title>
+      <link>/blog/2021-6-10/</link>
+      <pubDate>Thu, 10 Jun 2021 13:39:39 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/blog/2020-12-26/</guid>
+      <guid>/blog/2021-6-10/</guid>
       <description>
         <![CDATA[
-        <p>如果你对 Linux 感兴趣但还不了解，想知道 Linux 的不同发行版之间的区别，我的这些经历应该对你有帮助。</p>
-<p>我最初使用的是 Ubuntu，它以前经常被推荐为 Linux 入门选择。用了很长一段时间，它给我最大的感受是不稳定和笨重。会经常收到系统内部崩溃的通知，而且另一个问题是装其他显卡驱动时很艰难（做深度学习、玩游戏等等会用到），令我几度崩溃 T_T 。所以，我认为 Ubuntu 对新手非常不友好；</p>
-<p>后来我开始尝试 Deepin 系统，这是一款由国内深之度公司推出的发行版，预装软件最符合国人习惯，而且上手简单，系统不需要怎么配置就能拥有漂亮的界面。但是很快我就不能忍受它的软件源的落后。软件获取、维护便捷本该是 Linux 系统的一大优点，它可以为很多工作带来便利。</p>
-<p>接着我来到 Arch 的世界。遗憾的是 Arch Linux 我在尝试的中途便放弃了。它确实很棒，从零开始定制操作系统很诱人，但是因为时间关系，我需要的是能快速上手，成为主力的操作系统。</p>
-<p>最后，我接触到了很多人推荐的 Manjaro，它是为了让用户更方便使用的 Arch 衍生版。安装之后确实让我很惊喜，它完美符合我对操作系统的需求：上手简单、使用高效、美。而且尝试过后我才知道 Arch 系的软件仓库 AUR 有多强大。AUR 是一个社区维护的软件包仓库，有了它，你可以轻易获取到很多想要的软件。因此我很推荐使用 Manjaro。</p>
-<p>（顺便提一下最稳定发行版之一的 CentOS。当我想在服务器上尝试它时，它就被官宣抛弃了……）</p>
+        <blockquote>
+<p>“30°C，依旧是骑着 BWM 上班的一天，虽然它是山寨的，虽然兜里只有十块钱，但听着周杰伦的《超人不会飞》，就感觉自己也超屌的~”</p>
+</blockquote>
+<p>前两天在哔哩哔哩投了两个<a href="https://www.bilibili.com/video/BV1dQ4y197C8">视频</a>，其中一个是关于网站搭建的。这个视频从计划到完成耗时两周（其实实际动手只花了两天），再次验证了计划在脑海里没有行动，就永远是空想。</p>
+<p>其实今年一月初我也做过这样的<a href="https://www.bilibili.com/video/BV1ha4y1n7Zs">视频</a>，当时主要是自己搭建网站的操作演示，因为用的环境是 Linux ，可能不适合大众。那个视频的播放量也是挺少，远没有我当时另一个介绍 Manjaro 的视频高（估计大多数人是冲着视频配图来的，后来我把视频删了）。</p>
+<p>为什么我对这件事这么热衷呢？其实我做完第一期视频之后，就不打算再续作了，但<a href="http://lzxqaq.top/blog/2021-5-4/">前段时间</a>我意外发现本站一个读者，看到我那些个教程，也跟着搭网站，甚至把我的网站源码也复制过去了（其实我最初也是这么干的）。不过因为我把原主题改得乱七八糟了，可能会对他搭建网站造成一定的影响，所以我把自己网站整理之后给他发了一个邮件致歉，同时也给出了修改后的<a href="https://gitee.com/lzxqaq/demosite.git">示例网站</a>。也正是这个读者激发了我创作第二期教程的动力，不过现在看来效果依旧不好啊。</p>
+<p>实际上，我不仅写了文章，投了视频，还向身边的一些朋友推荐过，但是可惜的是并没有人感兴趣。可能也是自己太急功近利了些。是的，我做这些是有目的的。它来源于我脑海里的一个想法，不过目前尚没有实现的条件，就不说出来惊扰大家了。（<del>读者还没有几个，你瞎操啥心</del>）。</p>
+<p>是吧，现在自己最大的问题就是太沉不住气了，还是要脚踏实地做事啊。唉，自己的话影响力不高，那就借用<a href="https://yihui.org">益辉</a>他老人家的话结尾吧：“我不和没有个人主页的人说话”。</p>
+<blockquote>
+<p>益辉：“我没有说过，别瞎说，别赖我！”<br>
+我：“我说你有你就有！”</p>
+</blockquote>
 
         
         ]]>
@@ -447,61 +166,584 @@ git push --set-upstream origin master
     </item>
     
     <item>
-      <title>String 类真的不可以改变吗？</title>
-      <link>/blog/2020-12-15-2/</link>
-      <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
+      <title>只爱陌生人</title>
+      <link>/blog/2021-5-25/</link>
+      <pubDate>Tue, 25 May 2021 23:32:47 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/blog/2020-12-15-2/</guid>
+      <guid>/blog/2021-5-25/</guid>
       <description>
         <![CDATA[
-        <p>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。</p>
-<p>然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。</p>
-<p>事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：</p>
-<pre><code>    //实验1
-    String s1 = &quot;1&quot;;
-    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
-    valueField.setAccessible(true);
-    char[] value = (char[]) valueField.get(s1);
-    value[0] = '2';
-    System.out.println(s1);                 //2
-    System.out.println((s1 == &quot;1&quot;));        //true
-</code></pre><p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
-<pre><code>    //实验2
-    String s2 = new String(&quot;1&quot;);
-    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
-    valueField.setAccessible(true);
-    char[] value2 = (char[]) valueField.get(s2);
-    value2[0] = '2';
-    System.out.println(s2);                //2
-    System.out.println((s2 == &quot;1&quot;));       //false
-</code></pre><p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
-<p>到这里，可以停一会了。很多技术文章中都做过类似上面的实验（通过比较创建方式的区别、反射修改等)，来分析 String 、String Pool 的原理和设计理念。但我总觉得以此说明最终的结论还不够严谨、或者说还不够直观。接下来请看——魔鬼实验：</p>
-<pre><code>    //实验3 
-    String s1 = &quot;1&quot;;
-    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
-    valueField.setAccessible(true);
-    char[] value = (char[]) valueField.get(s1);
-    value[0] = '2';
-    System.out.println(s1);                 //2
-    System.out.println((s1 == &quot;1&quot;));        //true
-    System.out.println(&quot;1&quot;);                //2
-</code></pre><p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
-<pre><code>    //实验4
-    String s2 = new String(&quot;1&quot;);
-    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
-    valueField.setAccessible(true);
-    char[] value2 = (char[]) valueField.get(s2);
-    value2[0] = '2';
-    System.out.println(s2);                 //2
-    System.out.println((s2 == &quot;1&quot;));        //false
-    System.out.println(&quot;1&quot;);                //2
-</code></pre><p>同样的，上述实验 4 只是在实验 2 的基础上输出了 <code>&quot;1&quot;</code> 的值。结果 <code>&quot;1&quot;</code> 的值还是 2。</p>
-<p><strong>结论：</strong><br>
-基于对 String 类和字符串常量池（String Pool） 的了解，我对以上实验作出解释（详细理论下回贴出）:</p>
-<p>实验 3 中 字符串 <code>s1</code> 通过直接赋值字符串常量 <code>&quot;1&quot;</code> 的方式创建，因此 <strong><code>s1</code> 会直接引用字符串常量池中 <code>&quot;1&quot;</code> 对应的对象</strong>。对 <code>s1</code> 的修改，也就是对常量池中 <code>&quot;1&quot;</code> 对象的修改，因此 <code>s1</code> 和 <code>&quot;1&quot;</code> 的值都是修改后的 2，而 <code>s1 == &quot;1&quot;</code> 也是 <code>true</code>,因为它们是同一个对象的引用。</p>
-<p>实验 4 中 字符串 <code>s2</code> 通过 <code>new String(&quot;1&quot;)</code>的方式创建，因此，<strong><code>s2</code> 会被新建在堆中，并且，<code>s2</code> 的 <code>char</code> 数组变量会直接引用字符串常量池中 &ldquo;1&quot;对象的 <code>char</code> 数组</strong>，也就是说虽然 <code>s2</code> 是新创建的对象，但是 <code>s2</code> 里存储字符的 <code>char</code> 数组是创建时传进来的字符串常量 <code>&quot;1&quot;</code> 的 <code>char</code> 数组。因此，<code>s2</code> 修改 <code>char</code> 数组,<code>&quot;1&quot;</code> 的也会变。<code>s2</code> 和 <code>&quot;1&quot;</code> 的值都是修改后的 2 。而 <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 的，因为它们引用的不是同一个对象。</p>
-<p>最终结论，String 类真的是“不可以”变的！因为这不仅仅是它的特点，更是它的设计初衷。（<del>任何想通过反射修改它的人都应该被拉去祭天</del>)</p>
-<p>如果你发现任何问题，请<a href="/about">联系</a>我。</p>
+        <blockquote>
+<p>我的天空 为何挂满 湿的泪<br>
+我的天空 为何总 灰的脸<br>
+《天空》</p>
+</blockquote>
+<p>今天看到王菲的一张专辑，名叫《只爱陌生人》，感觉很有意思。</p>
+<p>时间总是悄悄溜走，写上篇文章的情形还历历在目，恍惚昨日。</p>
+<p>先说一下我的近况吧。也许是这些日里都没有好好睡午觉，今天中午趴在桌子睡了一阵，起来瞬间感觉头似千斤重，整个下午都昏昏沉沉，脑袋隐隐作痛。所以一下班我就早早走了，也不知道领导有没有记到小本本上。</p>
+<p>回到住处，煮些东西，吃完就听着音乐躺下睡了。然而终究思绪万千，难梦难醒。约莫一个小时，还是觉得头痛难忍，于是就决定去附近的篮球场打会球。最近我每天都会去那里打球，好像哪天不去，这一天都过得不真实。不过今天确实有些晚了，平时在那儿玩闹的小孩都不见了踪影。于是我只能压低声音投球，免得扰人清梦。</p>
+<p>最后说一下近期的计划吧。首先就是好好上班了（生活所迫啊），然后多交一些朋友（长期目标），最后，把我手头上做的事情做完。最近我有个想法，把大学几年里做过的、尚有意义的东西，整理出来。说来也是惭愧啊，从大一的第一个控制台程序，到最后的毕业设计项目，都不尽如意。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>《一小时人生》</title>
+      <link>/blog/2021-5-9-2/</link>
+      <pubDate>Sun, 09 May 2021 10:34:35 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-5-9-2/</guid>
+      <description>
+        <![CDATA[
+        <p>一小时，体验人生百态。</p>
+<p>最近在玩一款名叫《一小时人生》的游戏，国内手机移植版名为&quot;希望之村&quot;，有兴趣可以查查这游戏的来历，很有意思。作为一个游戏老玩家，我玩过很多游戏，但说让我印象深刻的还是要提到它。</p>
+<p>首先介绍一下游戏基本的设定。《一小时人生》，游戏开始，玩家将会以“夏娃”（成年女性，开创者）或者“婴儿”（幼年期无生存能力，必须由他人抚养）的身份诞生在一个原始世界，成年女性会在某个不确定的时间诞生“婴儿”，在老年的时候就会失去生育能力。在游戏里，玩家每分钟会成长一岁，最高寿命为60岁，期间可能会因为饥饿、野兽袭击或疾病等原因致死而结束游戏。</p>
+<p>既然说人生百态，目标不同，那这人生的玩法就很多了，具体怎么玩我就不多说了，有兴趣可以自行体验。下面分享一些我在游戏中遇到的趣事。（注：下列故事出现的人物称呼均为游戏中玩家关系）。</p>
+<h3 id="一">一</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-5-9-2/2.jpg" alt="img"></p>
+<p>这张图片的背景是：我作为夏娃的儿子诞生，能下地走路独自进食后，我便开始忙于生计，制造各种农具，种植果树。但因为环境恶劣，也或许是能力不足的缘故，随着人口的增多，我的兄弟姐妹在接下来的几次饥荒中丧生，母亲也化为了白骨。时间流逝，我渐渐意识到，这个世界仅剩我一人，在我死后这个世界便再也没有人记得曾有过这样一个家族，我的工作也便没有了价值。于是我放弃了工作，靠着附近的野果度日。最后，白发苍苍的我，忍受了漫长的孤寂，站在母亲的白骨前，等待死亡（我连埋葬都不会）……</p>
+<h3 id="二">二</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-5-9-2/7.jpg" alt="img"></p>
+<p>为了免受饥饿的困扰，我刻意到人少的地方作为夏娃诞生，苦练种植技术。当积累了足够经验后，因饥荒而导致种族灭绝的情况已经得到改善。然而环境探索和资源采集的过程中，自己或亲人时常被野兽袭击，因为缺乏医疗手段，鲜活的生命转瞬便消失在眼前。于是，我决定奋起反抗，用武器与热血对抗大自然的冰冷。同时也考虑到整个家族的生存大计，我选择在农业发展到一定阶段，自己也不能为家族创造更多价值的时候，拿起早已准备好的武器，向大自然最凶恶的野兽-巨熊，发起挑战！但即使是青壮年面对野兽，也需要足够多的勇气与体魄，更何况垂垂老矣的我，结局不言而喻……</p>
+<h3 id="三">三</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image//2021-5-9-2/6.jpg" alt="img">
+<img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-5-9-2/8.jpg" alt="img"></p>
+<p>这是一个情节复杂，值得思考的故事，光看图片可能不能理解，且听我细细讲来。</p>
+<p>这一世我作为夏娃的女儿诞生，但当我睁开眼之后，便吓出一身冷汗！原来我诞生在一个香蕉地，附近有一地的香蕉皮，在旁边还有一位刚能走动的姐姐（她也是一位传奇人物，后面会讲述她的故事）。</p>
+<p>显然，这位母亲是一位流浪者，俗称香蕉人，即到处流浪，靠食野果为生。她的生平经历，我无从得知，她的所思所感，我亦无暇顾及。只知道她在我诞生后便放弃了自己的生命，是姐姐靠采摘附近的香蕉把我养大。但是资源终究会消耗完，这样的生活注定不能长久，我们不能让后代延续这样的悲剧。于是，我和姐姐同时做了一个决定，离开这里！我们相约到一个合适的地方共建家园，但是，显然幸运女神没有怜顾我们，我们迷路分离了。这也是流浪者后代的悲剧，在野外恶劣环境下，没有路引，迷失是注定的命运。</p>
+<p>令我宽慰的是，在分开不远处我便找到一个环境不错的地方，同时找到了一些珍稀的果树——覆盘子，这也算是不幸中的万幸。于是我就地开展工作，开启了农耕时代。忙碌一生之后，我凭借附近的丰富资源，建立了一片果园，可以维持后代一定人口的生计。</p>
+<p>然而，这看似美好的结局，其中的经历却骇人听闻。</p>
+<p>看回第一张照片，我的三位儿子全部饿死，而其中一位，更是我亲手杀死。是的，我是那刽子手，但假如重来一次，我可能还是会作出同样的选择。在那时，我正全身心投入果园的建设之中，然而果园尚无产出，附近的野果资源却已经消耗殆尽了，饥荒迫在眉睫。这时，他诞生了。当然，我可以带着他离开这里，和我的母亲一样，去当一段时间的流浪者、香蕉人。但是，饥荒不会与你讲述人间的伦理道德，它会在到来的一瞬间夺取整个家族的命脉，让整个家族从此分崩离析，尸横遍野。于是，我把他放在了野外，加紧投身果园的工作中……</p>
+<p>这仅仅只是一次饥荒的缩影，在我的众多儿女，只有一位能颐养天年，长寿而死（图二死于年老者，她也肩起繁衍大任，延续了家族的命脉），其余大都死于饥荒的侵袭。在这些死于饥荒的人中，有一位令我心中有愧，不得不提。他诞生之时，同样面临着饥饿的局面。在我准备再当一次刽子手时，我在他眼中看到了生命的执着。于是，我对他说，“以后要努力工作”，他被留下了。后来，他造农具，搜集资源，忙活一生，最后年迈时饥饿而死，而死前的遗言是：“娘养了我，已经报答完了……”。</p>
+<p>我终究还是免不了归于尘土，是非对错对我来说已无半毫关系，只留在历史长河中成为后人评判的谈资。但令我感动的是，在我故去之后，我那位女儿在晚年时，仍纪念着我，拜托她的子孙帮我立碑……</p>
+<p>历史人物终究受限于时代背景，从而带上了一些悲剧色彩，我那位传奇的姐姐也不外如是。在那些年里，我一直放不下寻找姐姐的执念。到了晚年的时候，子孙已经可以肩负大任，果园也已经健康运作，我交代完工作后，便开始在四周扩散寻找。一天，儿子突然跟我说，“带上吃的，快跟我来”。我跟着他，穿过一片没有食物资源的“生命禁区”，来到了他口中所说的“遗迹”。那里是一个荒废的营地，种植着稀少衰败的果树，四周散落着破旧的农具，以及大量的狩猎工具。地上还有一具白骨，儿子很高兴，他说可以狩猎了。而我却顿时眼中泛泪，说：“这是我姐姐建造的家，地上的是你表哥“。是的，凭借对血脉的感应，我认出了那一具白骨是姐姐的儿子，这荒废的营地就是姐姐建造的家园。虽然我没有亲眼所见，但这里发生的一幕，我却感到无比熟悉……回顾姐姐的一生，为了延续生命，她乐观、执着、坚强，面对恶劣的生存环境，她走向了一条不一样的道路——狩猎。她也许比我更具智慧与勇气，但命运没有眷顾她……</p>
+<h3 id="未完待续">未完待续</h3>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>打脸</title>
+      <link>/blog/2021-5-9/</link>
+      <pubDate>Sun, 09 May 2021 00:53:14 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-5-9/</guid>
+      <description>
+        <![CDATA[
+        <p>现在是 5 月 9 日 12 时 55 分。刚刚十一点左右回到住处，躺了一会，发现肚子不太舒服。不知道是刚吃的香辣鸡肉卷的锅，还是奶茶太冰的原因，或者是今天坐七八个小时公交影响。不过不管是哪个原因，经过慎重考虑（？），本人郑重立 flag：</p>
+<ul>
+<li>奶茶少冰</li>
+<li>拒绝某汉堡店</li>
+<li>不再吃辣</li>
+</ul>
+<p>想到这里，不由地想起前面写的一篇文章，<a href="../2020-12-15">《追》</a>。哈哈哈，开篇的信誓旦旦，现在竟成了赤裸裸的打脸现场。难搞。</p>
+<p>人生就是不断打脸的过程，下一秒的我，可长点记性吧。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>失眠</title>
+      <link>/blog/2021-5-5/</link>
+      <pubDate>Wed, 05 May 2021 23:53:33 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-5-5/</guid>
+      <description>
+        <![CDATA[
+        <blockquote>
+<p>从明天开始，做一个幸福的人<br>
+喂马、劈柴，周游世界<br>
+从明天开始，关心粮食和蔬菜<br>
+《面朝大海，春暖花开》</p>
+</blockquote>
+<p>我刚刚躺在床上胡思乱想的时候，脑海里冒出一些东西。</p>
+<p>我终于意识到为何对这房子墙壁的粉刷配色感到熟悉了。是它，《Dark Season》。这个电影多次出现用小孩做残忍实验的片段，所用密闭房间就和我的房间很像。有点慌，怎么办，窗户那边一直传来莫名响动。我要不要睁开眼看一看？</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>新生活</title>
+      <link>/blog/2021-5-4/</link>
+      <pubDate>Tue, 04 May 2021 23:08:53 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-5-4/</guid>
+      <description>
+        <![CDATA[
+        <p>很长一段时间没来更新了，这期间并非无事可写，而是诸多事宜终究只能留于心底，随时光消散。</p>
+<p>值得一提的是，前段时间突然发现我 Github 帐号多了一个粉丝，这可是一件稀奇事。查探一番后，惊讶的发现，他也在使用 hugo-ivy 这个主题搭建博客。原来，他应该是看到我那篇完成了一半的<a href="https://lzxqaq.com/post/2021-1-2/">博客搭建教程</a>（现在补充完整了）……真是尴尬，我当时只写了个大概，然后就直接鸽了……不得不说，虽然有些意外，但是还是有些开心。</p>
+<p>回到当下，今天要开始独自租房生活了，值得纪念。同时，这也注定了今晚是一个难眠夜啊。从今天开始，就要独自居住在一个陌生的地方生活。过去不再有，前途飘忽不定。这样的画面，换作很多年前的我，想必是开心的吧。多年期盼终成真，然而人却不再是。任何事都会有代价，选择了，就要去承担。</p>
+<p>不管怎么样，当我写到这里，新的一天已经到来。而明天，是未知，也是希望。</p>
+<blockquote>
+<p>“好好完成工作，好好度过每一天。蒙德的生活不就是如此吗？”</p>
+</blockquote>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>晚</title>
+      <link>/blog/2021-2-18-3/</link>
+      <pubDate>Thu, 18 Feb 2021 23:33:16 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-2-18-3/</guid>
+      <description>
+        <![CDATA[
+        <blockquote>
+<p>去年,
+不曾有过什么事，<br>
+前年,
+不曾有过什么事，<br>
+大前年,
+也不曾有过什么事。<br>
+《斜阳》</p>
+</blockquote>
+<p>今天手机又坏了，这足以让我心情胸沉闷到整晚睡不着。:)</p>
+<p>忽然想起很多年前的一个朋友，她有时会在晚修的时候跟我开玩笑说，“白天我是女神，晚上呢，是女神经”。我开始不是很懂，但感觉她很聪明，所以也很佩服她。</p>
+<p>人是多么奇怪的生物啊，其实我对人一点也不懂。我不知道别人脑海真正的想法是什么。我在想，应该怎么样才能和另一颗心交流呢？</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>万恶之源——“瘟痘死”</title>
+      <link>/blog/2021-2-18/</link>
+      <pubDate>Thu, 18 Feb 2021 00:33:32 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-2-18/</guid>
+      <description>
+        <![CDATA[
+        <p>最近我打算在 Windows 上录些视频，考虑过后决定重新装一下 Windows 10。</p>
+<p>距离上次决心完全抛弃 Windows 已经过去大半年了，除了开始时遇到很多问题，之后的心情一直欢乐无比。然而这两天重装 Windows 的经历却再次让我抓狂。</p>
+<p>本以为有着丰富的安装操作系统经验（<del>惨痛经历</del>）的我，装个 Windows 还不是小菜一碟～但，事实上我又被狠狠打脸了。从一个非 Windows 环境装 Windows 系统遭遇的问题之多，让我没办法淡定了……</p>
+<p>整个过程遇到问题很多，最恶心也是最常见的就是装 Windows 的时候，会破坏原有其他操作系统的引导。我想流氓软件里 Windows 也算老大了吧。另外还有差点让我气笑了，微软官网检测到我当前用的不是 Windows 系统，居然不让我下载装 Windows 需要的工具安装包，美名其曰：“怕我下载错了”。这是玩霸道总裁还是别有用心？绝了！</p>
+<p>这次之后，奇怪的知识增加了，而且装系统用的U盘也倍增了，以后应该不会再有类似这样的窘境了。</p>
+<blockquote>
+<p>“好像，你上次也是这样说的？”</p>
+</blockquote>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>奈落之底</title>
+      <link>/blog/2021-1-7/</link>
+      <pubDate>Thu, 07 Jan 2021 08:57:26 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-1-7/</guid>
+      <description>
+        <![CDATA[
+        <blockquote>
+<p>“一切的答案，都在奈落之底。”
+《来自深渊》</p>
+</blockquote>
+<p>人类从未停止对未知事物的探寻。对内，不断剖析人的身体构造、思想信仰；对外，不断探索宇宙的边际，寻找那遥远处的未知。人从哪里来，往哪里去。如果不能解答这些问题，就不能认识到自身的存在意义。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>飞蛾扑火——命运</title>
+      <link>/blog/2021-1-3/</link>
+      <pubDate>Sun, 03 Jan 2021 19:19:51 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-1-3/</guid>
+      <description>
+        <![CDATA[
+        <blockquote>
+<p>从前 现在 过去了 再不来<br>
+红红落叶 长埋 尘土内 <br>
+开始 终结 总是 没变改<br>
+天边的你 漂泊 白云外<br>
+《一生所爱》</p>
+</blockquote>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>事“故”</title>
+      <link>/blog/2021-1-2-2/</link>
+      <pubDate>Sat, 02 Jan 2021 02:37:19 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-1-2-2/</guid>
+      <description>
+        <![CDATA[
+        <p>现在是凌晨两点半。</p>
+<p>在刚刚写好上一篇文章的时候，突然恶心呕吐……应该是今天吃的东西的锅。今天蒸了网购的腊肠，吃完就感觉隐隐不舒服，只是没想到后来越来越严重。</p>
+<p>万一我挂了，这要归咎于朴朴上那些黑心的商家，望后来者哀之而鉴之……</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>2021 年的开始</title>
+      <link>/blog/2021-1-1/</link>
+      <pubDate>Fri, 01 Jan 2021 00:38:48 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2021-1-1/</guid>
+      <description>
+        <![CDATA[
+        <p>现在，2020 年已成为过去。在这里我不想总结过去，也不想展望未来，而是记录此刻的想法。</p>
+<p>我的记忆力和我的听力一样不靠谱，这个问题由来已久。有得就有失，选择性遗忘有时候是保护自己的一种方式，但也有着它的代价。因此，这也是我一直以来想用文字来记录的原因。人生无常且短暂，无论是积极的、愉悦的，还是负面的、痛苦的事物、想法，都应该被记录下来。</p>
+<p>昨天是在单位实习的最后一天。在这期间我遇到不少很棒的人，有许多很照顾我的朋友。是啊，刚出来社会都会有许多困惑。对我来说可能最困扰的应该是：人为什么而活？这个问题由来已久，对我来说可以追溯到……好吧，具体时间已经忘记了，但是我还记得当时的情形：我坐在一个石板上，时不时抬头望天空（小时候对神秘的宇宙真的很感兴趣）。显然当时的我不可能得出答案，不过却引起了一个子问题的思考:死亡是什么？当时我得出了一个结论，这个结论到现在我也认同：死亡会令你失去感知能力和思考能力。没办法感知这世界，感知身边的喜怒哀乐，没办法去思考。这是多可惜、多令人害怕的事情。</p>
+<p>现在，我期望家人朋友都平安快乐地生活。同时人生不容易，我总得在世界上留下自己的声音。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>大恐怖</title>
+      <link>/blog/2020-12-25/</link>
+      <pubDate>Fri, 25 Dec 2020 08:56:19 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2020-12-25/</guid>
+      <description>
+        <![CDATA[
+        <p>是夜，黑暗逐渐笼罩大地，劳累了一天的人们也逐渐睡去。然而，在一个狭窄凌乱的房间里，还泛着些许微光。他坐在书桌前，浑然不觉窗外传来的阵阵寒意，只因思绪沉浸在先前发生的一幕……</p>
+<p>时间回到傍晚时分，他从单位回到了住处。那是一个旧小区，狭窄昏暗的楼梯，忽闪忽闪的楼道灯光，仿佛在陈述着它久远的历史。与往常一样，他翻了翻手机未读信息，便倒睡在床上。枕着按摩枕，戴上热敷眼罩，再给耳朵塞上耳机，最后躺在床上，仿佛在仙境一般舒适，全然忘记了白天的劳累。渐渐地，伴着歌声的旋律，逐渐进入了一种半梦半醒的状态……梦中不知时间流逝，恍惚之间，他从这种状态中醒来。下床，然后走到浴室。忽然，他觉察到某个地方不对劲。猛地低头，发现鞋子有了异样……</p>
+<p>显然，这并非他的鞋子。问题是，它从什么时候出现在他的脚下，或者说什么时候出现在他的床边……未知的诡异感让他一下子清醒，多年的侦探思维派上用场。压下心头思绪，他将它放回室友的鞋架位置，仿佛当做无事发生，而实则开始暗自思索。“刚回来时便穿错了？不对，根据平时放鞋的习惯位置和鞋子的明显差异，可能很小。”“那它从一开始就在那里了？还是，在他睡觉的时候……”</p>
+<p>不寻常的事物从不单独出现，他开始联想最近发生的不平常的事件。“最近深夜无人的客厅常常传来响动、室友某天早起出门后便再没回来……”细细琢磨，平日里安静的环境里隐藏着许多未知的事物。到底发生了什么，又是因何而起，这一切是道德的沦丧还是人性的泯灭……等等！啊，他明白了，猛地转身。原来，这诡异的根源，这诡异的根源，就在他的背后……</p>
+<blockquote>
+<p>“什么，精神损失费？放心，我会在夜深的时候去送给你的……”</p>
+</blockquote>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>开心</title>
+      <link>/blog/2020-12-17/</link>
+      <pubDate>Thu, 17 Dec 2020 08:14:26 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2020-12-17/</guid>
+      <description>
+        <![CDATA[
+        <p>晚上不开心，就会睡不好，睡不好早上就会早早起床，早起本身和它带来的结果（如吃上热腾腾的早餐）又会让人开心。</p>
+<p>晚上很开心，就会睡得香，睡得香早上就不愿意起床，赖床本身和它带来的结果（如迟到）又会让人不开心。</p>
+<p>所以，在晚上的时候要开心好，还是不开心好？</p>
+<blockquote>
+<p>“唉，我看你是想找不开心！”</p>
+</blockquote>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>卖火柴的小女孩</title>
+      <link>/blog/2020-12-16/</link>
+      <pubDate>Wed, 16 Dec 2020 00:24:46 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2020-12-16/</guid>
+      <description>
+        <![CDATA[
+        <p>今年的冬天也是格外的冷。</p>
+<p>有时候讨厌冬天，因为自身仿佛不会发热，所以总感觉冷。有时候喜欢冬天，寒冷时刻刺激着大脑，提醒着要清醒。</p>
+<p>今天晚上吃了两根玉米，本以为清水一煮，简单了事。结果，还是吃着还是生的，但是已经不想再动手煮了。</p>
+<p>此情此景，我想起了那个卖火柴的小女孩。在那时候，想必她也没那么容易睡着吧，她会想些什么呢？是在想她爱的人还是爱她的人呢？</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>追</title>
+      <link>/blog/2020-12-15/</link>
+      <pubDate>Tue, 15 Dec 2020 00:27:32 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2020-12-15/</guid>
+      <description>
+        <![CDATA[
+        <blockquote>
+<p>这一生也在进取<br>
+这分钟却挂念谁<br>
+我会说是唯独你不可失去<br>
+《追》</p>
+</blockquote>
+<p>今天没签单位的就业协议。我在想什么呢？到底什么是我想要的呢？</p>
+<blockquote>
+<h2 id="你为生存做些什么我不关心--a-name1a">你为生存做些什么，我不关心  <a name="1"></a></h2>
+<p>——〔加拿大〕 <a href="http://www.oriah.org/index.php">Oriah</a>（译者：<a href="https://www.douban.com/group/topic/20286000/">野竹林</a>）</p>
+</blockquote>
+<blockquote>
+<p>你为生存做了些什么，我不关心；<br>
+我想知道，<br>
+你的追求，<br>
+你是否敢于梦想去触碰你那内心的渴望。</p>
+</blockquote>
+<blockquote>
+<p>你的年龄多大，我不关心；<br>
+我想知道，<br>
+你是否愿意像傻瓜一样不顾风险，<br>
+为了爱，梦想还有活着就该有的冒险。</p>
+</blockquote>
+<blockquote>
+<p>我不关心，是什么行星牵引着你的月亮，<br>
+我想知道，<br>
+你是否已触及自己悲伤的中心，<br>
+是否因生活的种种背叛而心胸开阔，<br>
+抑或因为害怕更大的痛苦而消沉封闭！</p>
+</blockquote>
+<blockquote>
+<p>我想知道，<br>
+你是否能面对痛苦——我的或者你自己的，<br>
+而不必去隐藏、涂抹或修饰。</p>
+</blockquote>
+<blockquote>
+<p>我想知道，<br>
+你是否能享受快乐——我的或者你自己的，<br>
+你是否能充满野性地舞蹈，让你从指端到足尖都被狂喜所充满，<br>
+而不会告诫我们要小心、要现实、要记住做人的禁忌。</p>
+</blockquote>
+<blockquote>
+<p>我并不关心你告诉我的故事是否真实，<br>
+我想知道，<br>
+你是否能为了真实地对待自己而不怕别人失望，<br>
+你是否能承受背叛的指责而不出卖自己的灵魂。<br>
+我想知道，你是否能抛弃曾经的信念，而因此值得信赖。</p>
+</blockquote>
+<blockquote>
+<p>我想知道，<br>
+你是否能发现美，即使它每天都不漂亮，<br>
+你是否能从它的存在中追寻你自己生命的源头。</p>
+</blockquote>
+<blockquote>
+<p>我想知道，<br>
+你是否能与失败相伴——你的和我的，<br>
+却依然可以站立在湖边对着银色的满月放生大喊<br>
+“是的，就是这样！”</p>
+</blockquote>
+<blockquote>
+<p>我不关心你在哪里生活或者你拥有多少金钱，<br>
+我想知道，<br>
+在一个悲伤、绝望、厌世和痛彻骨髓的夜晚之后，<br>
+你是否能起床，为养育孩子做那些需要的事情。</p>
+</blockquote>
+<blockquote>
+<p>我不关心你是谁，你是如何来到这里，<br>
+我想知道，你是否愿同我一起站在烈焰的中心，毫不退缩。</p>
+</blockquote>
+<blockquote>
+<p>我不关心你在哪里受到教育、你学了什么或者你同谁一起学习，<br>
+我想知道，<br>
+当一切都背叛了你，是什么在内心支撑着你前行。</p>
+</blockquote>
+<blockquote>
+<p>我想知道，<br>
+你是否能孤独地面对你自己，<br>
+你是否真正喜欢那个你独自一人时交谈的声音。</p>
+</blockquote>
+<h2 id="the-invitation-a-name2a">The Invitation <a name="2"></a></h2>
+<blockquote>
+<p>It doesn&rsquo;t interest me<br>
+what you do for a living.<br>
+I want to know<br>
+what you ache for<br>
+and if you dare to dream<br>
+of meeting your heart&rsquo;s longing.</p>
+</blockquote>
+<blockquote>
+<p>It doesn&rsquo;t interest me<br>
+how old you are.<br>
+I want to know<br>
+if you will risk<br>
+looking like a fool<br>
+for love<br>
+for your dream<br>
+for the adventure of being alive.</p>
+</blockquote>
+<blockquote>
+<p>It doesn&rsquo;t interest me<br>
+what planets are<br>
+squaring your moon&hellip;<br>
+I want to know<br>
+if you have touched<br>
+the centre of your own sorrow<br>
+if you have been opened<br>
+by life&rsquo;s betrayals<br>
+or have become shrivelled and closed<br>
+from fear of further pain.</p>
+</blockquote>
+<blockquote>
+<p>I want to know
+if you can sit with pain
+mine or your own<br>
+without moving to hide it<br>
+or fade it<br>
+or fix it.</p>
+</blockquote>
+<blockquote>
+<p>I want to know<br>
+if you can be with joy<br>
+mine or your own<br>
+if you can dance with wildness <br>
+and let the ecstasy fill you<br>
+to the tips of your fingers and toes<br>
+without cautioning us<br>
+to be careful<br>
+to be realistic<br>
+to remember the limitations<br>
+of being human.</p>
+</blockquote>
+<blockquote>
+<p>It doesn&rsquo;t interest me<br>
+if the story you are telling me<br>
+is true.<br>
+I want to know if you can<br>
+disappoint another<br>
+to be true to yourself.<br>
+If you can bear<br>
+the accusation of betrayal<br>
+and not betray your own soul.<br>
+If you can be faithless<br>
+and therefore trustworthy.</p>
+</blockquote>
+<blockquote>
+<p>I want to know if you can see Beauty<br>
+even when it is not pretty<br>
+every day.<br>
+And if you can source your own life<br>
+from its presence.</p>
+</blockquote>
+<blockquote>
+<p>I want to know<br>
+if you can live with failure<br>
+yours and mine
+and still stand at the edge of the lake<br>
+and shout to the silver of the full moon,<br>
+&ldquo;Yes.&rdquo;</p>
+</blockquote>
+<blockquote>
+<p>It doesn&rsquo;t interest me<br>
+to know where you live<br>
+or how much money you have.<br>
+I want to know if you can get up
+after the night of grief and despair<br>
+weary and bruised to the bone<br>
+and do what needs to be done<br>
+to feed the children.</p>
+</blockquote>
+<blockquote>
+<p>It doesn&rsquo;t interest me<br>
+who you know<br>
+or how you came to be here.<br>
+I want to know if you will stand<br>
+in the centre of the fire<br>
+with me<br>
+and not shrink back.</p>
+</blockquote>
+<blockquote>
+<p>It doesn&rsquo;t interest me<br>
+where or what or with whom<br>
+you have studied.<br>
+I want to know<br>
+what sustains you<br>
+from the inside<br>
+when all else falls away.</p>
+</blockquote>
+<blockquote>
+<p>I want to know<br>
+if you can be alone<br>
+with yourself<br>
+and if you truly like<br>
+the company you keep<br>
+in the empty moments.</p>
+</blockquote>
+<p>黑暗，总会如期而至。闭上眼之后的每一秒都是未知，而未知容易让人恐惧。<br>
+但转念一想，未知不正是活着的证据，人生的乐趣吗？</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>飞蛾扑火——缘起</title>
+      <link>/blog/2020-12-14/</link>
+      <pubDate>Mon, 14 Dec 2020 01:07:07 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2020-12-14/</guid>
+      <description>
+        <![CDATA[
+        <blockquote>
+<p>明明知道烈焰焚身的痛苦，<br>
+明明知道短暂的光芒过后，<br>
+仍是无尽的黑暗，<br>
+为何你还是，<br>
+一心向前？</p>
+</blockquote>
+<blockquote>
+<p>是火焰的温暖给予你力量，<br>
+还是黑夜的漫长令你恐慌？</p>
+</blockquote>
+<blockquote>
+<p>我想知道，<br>
+当灰烬落地，<br>
+你是否找到心中的答案？<br>
+我想知道，<br>
+当火花再次摇晃，<br>
+你是否还会煽动翅膀？</p>
+</blockquote>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    <item>
+      <title>过去与未来</title>
+      <link>/blog/2020-12-10/</link>
+      <pubDate>Thu, 10 Dec 2020 23:14:51 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/blog/2020-12-10/</guid>
+      <description>
+        <![CDATA[
+        <blockquote>
+<p>我 回头再望某年，<br>
+象失色照片 乍现眼前。<br>
+—— 《风再起时》</p>
+</blockquote>
+<p>刚看完《寻找失去的未来》。啊，我是谁，我在哪,我昨天都做了什么？</p>
+<p>在未来的一天，过去的所有都被遗忘，欢乐和痛苦终化为岁月的尘埃。只是，那时的我，又会变成什么样呢？现在的我，又是什么呢，现在的我，又在追求什么呢？</p>
+<p>“没有未来的未来，不是我想要的未来~”可惜我不是那神原秋人，未来也不知道有没有“未来”。既然未来不可言，那我便讲述一下过去吧。</p>
+<p>相较于“网瘾少年”，我更愿意把小时候的我称为“网上冲浪者”。那时候，最喜欢做的事情就是自个在某个地方，用一部能上网的手机，进入各种游戏聊天室、论坛。在那里，可以接触五湖四海的人们，跟不同的人交流，了解别人。当然，与之而来的苦恼就是每个月的流量费用。</p>
+<p>说起网瘾少年，另一个词也不得不提，那就是“中二病”。和很多患者一样，以前的我总认为自己拥有一种超能力，它就像《冰海战记》里的阿谢拉特那样，看一眼就能“知其人”的能力。</p>
+<blockquote>
+<p>“嗯？你不是一直都是近视眼吗？”</p>
+</blockquote>
+<blockquote>
+<p>“因为看淡了世间事，所以模糊了双眼。&quot;</p>
+</blockquote>
+<blockquote>
+<p>“喂，120 吗，这里有个病人需要抢救一下。”</p>
+</blockquote>
 
         
         ]]>

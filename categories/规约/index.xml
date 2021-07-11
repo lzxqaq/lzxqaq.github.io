@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>规约 on 闻道书斋</title>
+    <title>规约 on Zexun Luo | 罗泽勋</title>
     <link>/categories/%E8%A7%84%E7%BA%A6/</link>
-    <description>Recent content in 规约 on 闻道书斋</description>
+    <description>Recent content in 规约 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 28 May 2021 11:46:44 +0800</lastBuildDate>
@@ -10,10 +10,10 @@
     
     <item>
       <title>【规约】 C&#43;&#43; 编程篇</title>
-      <link>/blog/c&#43;&#43;codingguidelines/</link>
+      <link>/post/c&#43;&#43;codingguidelines/</link>
       <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
       
-      <guid>/blog/c&#43;&#43;codingguidelines/</guid>
+      <guid>/post/c&#43;&#43;codingguidelines/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -72,10 +72,10 @@ int delete_user( BYTE *user_name);</p>
     
     <item>
       <title>【规约】 Java 编程篇</title>
-      <link>/blog/javacodingguidelines/</link>
+      <link>/post/javacodingguidelines/</link>
       <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
       
-      <guid>/blog/javacodingguidelines/</guid>
+      <guid>/post/javacodingguidelines/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -141,10 +141,10 @@ B）领域模型命名规约<br>
     
     <item>
       <title>【规约】 MySQL 数据库篇</title>
-      <link>/blog/databaseguidelines/</link>
+      <link>/post/databaseguidelines/</link>
       <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
       
-      <guid>/blog/databaseguidelines/</guid>
+      <guid>/post/databaseguidelines/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>

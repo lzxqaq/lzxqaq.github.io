@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MySQL on 闻道书斋</title>
+    <title>MySQL on Zexun Luo | 罗泽勋</title>
     <link>/tags/mysql/</link>
-    <description>Recent content in MySQL on 闻道书斋</description>
+    <description>Recent content in MySQL on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 28 May 2021 09:03:51 +0800</lastBuildDate>
@@ -10,10 +10,10 @@
     
     <item>
       <title>【规约】 MySQL 数据库篇</title>
-      <link>/blog/databaseguidelines/</link>
+      <link>/post/databaseguidelines/</link>
       <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
       
-      <guid>/blog/databaseguidelines/</guid>
+      <guid>/post/databaseguidelines/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>

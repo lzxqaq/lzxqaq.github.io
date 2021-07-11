@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>闻道书斋</title>
-    <meta property="og:title" content="闻道书斋">
+    <title>Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="Zexun Luo | 罗泽勋">
     <meta property="og:type" content="website">
     
     <meta name="twitter:card" content="summary">
@@ -29,7 +29,7 @@
     
 
     
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="闻道书斋" />
+    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Zexun Luo | 罗泽勋" />
     
     
 
@@ -64,9 +64,13 @@
   
   <li><a href="/blog/">日志</a></li>
   
+  <li><a href="/post/">技术</a></li>
+  
   <li><a href="/note/">笔记</a></li>
   
   <li><a href="/work/">作品</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
   
   
 
@@ -74,7 +78,6 @@
 </nav>
 
     </header>
-
     <article class="main">
       <header class="title">
       
@@ -83,49 +86,30 @@
 
 
 
-<p>你好！</p>
-<p>我是罗泽勋，现在从事软件开发工作。喜欢折腾网站和一些乱七八糟的东西，支持开源，玩 Linux，目前使用的发行版是 Manjaro。敝人所学尚浅，本站所述内容若有疏漏和谬误之处，还望各位不吝赐教。下面奉上一首散文诗：《邀请》（作者：<a href="http://www.oriah.org/index.php">Oriah</a>，译者：<a href="https://www.douban.com/group/topic/20286000/">野竹林</a> ）：</p>
 <blockquote>
-<p>你为生存做了些什么，我不关心；
-我想知道，
-你的追求，
+<h3 id="邀请">邀请</h3>
+</blockquote>
+<blockquote>
+<p>你为生存做了些什么，我不关心；<br>
+我想知道，<br>
+你的追求，<br>
 你是否敢于梦想去触碰你那内心的渴望。</p>
 </blockquote>
 <blockquote>
-<p>你的年龄多大，我不关心；
-我想知道，
-你是否愿意像傻瓜一样不顾风险，
-为了爱，梦想还有活着就该有的冒险。</p>
+<p>你的年龄多大，我不关心；<br>
+我想知道，<br>
+你是否愿意像傻瓜一样不顾风险，<br>
+为了爱，梦想活着就该有的冒险。</p>
 </blockquote>
 <blockquote>
-<p>我想知道，
-你是否能面对痛苦——我的或者你自己的，
-而不必去隐藏、涂抹或修饰。</p>
-</blockquote>
-<blockquote>
-<p>我想知道，
-你是否能享受快乐——我的或者你自己的，
-你是否能充满野性地舞蹈，让你从指端到足尖都被狂喜所充满，
+<p>我想知道，<br>
+你是否能享受快乐——我的或者你自己的，<br>
+你是否能充满野性地舞蹈，让你从指端到足尖都被狂喜所充满，<br>
 而不会告诫我们要小心、要现实、要记住做人的禁忌。</p>
 </blockquote>
 <blockquote>
-<p>我想知道，
-你是否能与失败相伴——你的和我的，
-却依然可以站立在湖边对着银色的满月放生大喊
-“是的，就是这样！”</p>
-</blockquote>
-<blockquote>
-<p>我不关心你是谁，你是如何来到这里，
-我想知道，你是否愿同我一起站在烈焰的中心，毫不退缩。</p>
-</blockquote>
-<blockquote>
-<p>我不关心你在哪里受到教育、你学了什么或者你同谁一起学习，
-我想知道，
-当一切都背叛了你，是什么在内心支撑着你前行。</p>
-</blockquote>
-<blockquote>
-<p>我想知道，
-你是否能孤独地面对你自己，
+<p>我想知道，<br>
+你是否能孤独地面对你自己，<br>
 你是否真正喜欢那个你独自一人时交谈的声音。</p>
 </blockquote>
 
@@ -150,16 +134,48 @@
 const ap = new APlayer({
     container: document.getElementById('player'),
     order: 'random',
-    audio: [{
-        name: '当时的月亮',
+    listFolded: true,
+    listMaxHeight: 90,
+    theme:	'#b7daff',
+    audio: [
+      {
+        name: 'Forrest Gump Suite',
+        artist: 'Alan Silvestri',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/Alan_Silvestri_Forrest_Gump_Suite2.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/Alan_Silvestri_Forrest_Gump_Suite.jpeg'
+      },{
+        name: 'おしえて',
+        artist: '伊集加代子',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/HD_アルプスの少女ハイジ_OP.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/HD_アルプスの少女ハイジ_OP.png'
+      },
+      {
+        name: '堕落',
         artist: '王菲',
-        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_当时的月亮.mp3',
-    }
-
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/王菲_堕落.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/王菲_堕落.jpg'
+      },
+      {
+        name: '男儿当自强',
+        artist: '林子祥',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/林子祥_男儿当自强.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/林子祥_男儿当自强.jpg'
+      },
+      {
+        name: "Mariage d' Amour",
+        artist: 'George Davidson',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/George_Davidson_Mariage_D_Amour2.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/George_Davidson_Mariage_D_Amour.jpg'
+      },
+      {
+        name: 'Try Everything',
+        artist: 'Shakira',
+        url: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/music/Shakira_Try_Everything.mp3',
+        cover: 'https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/Shakira_Try_Everything.jpeg'
+      }
   ]
 });
 </script>
-
 
 
 
@@ -181,7 +197,6 @@ const ap = new APlayer({
 <script async src="/js/alt-title.js"></script>
 
 <script async src="/js/header-link.js"></script>
-
 
 
 
