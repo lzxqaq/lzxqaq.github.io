@@ -1,0 +1,92 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on (๑•̀ㅂ•́) ✧ 罗泽勋</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on (๑•̀ㅂ•́) ✧ 罗泽勋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 01 Jun 2021 06:16:32 +0800</lastBuildDate>
+    <atom:link href="/tags/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo</title>
+      <link>/tags/hugo/</link>
+      <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
+      
+      <guid>/tags/hugo/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>/tags/c&#43;&#43;/</link>
+      <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
+      
+      <guid>/tags/c&#43;&#43;/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Java</title>
+      <link>/tags/java/</link>
+      <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
+      
+      <guid>/tags/java/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>MySQL</title>
+      <link>/tags/mysql/</link>
+      <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
+      
+      <guid>/tags/mysql/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Sat, 26 Dec 2020 22:33:13 +0800</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+  </channel>
+</rss>

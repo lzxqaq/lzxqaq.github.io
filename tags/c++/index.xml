@@ -1,0 +1,114 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on (๑•̀ㅂ•́) ✧ 罗泽勋</title>
+    <link>/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on (๑•̀ㅂ•́) ✧ 罗泽勋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 28 May 2021 11:46:44 +0800</lastBuildDate>
+    <atom:link href="/tags/c&#43;&#43;/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【规约】 C&#43;&#43; 编程篇</title>
+      <link>/post/c&#43;&#43;codingguidelines/</link>
+      <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
+      
+      <guid>/post/c&#43;&#43;codingguidelines/</guid>
+      <description>
+        <![CDATA[
+        <h3 id="前言">前言</h3>
+<p>“码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。</p>
+<h3 id="一排版">（一）排版</h3>
+<p>1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。<br>
+2.相对独立的程序块之间、变量说明之后必须加空行。<br>
+3.较长的语句（&gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。<br>
+4.if、for、do、while、case、switch、default 等语句自占一行，且执行语句部分无论多少都要加括号 {}。</p>
+<h3 id="二注释">（二）注释</h3>
+<p>1.一般情况下，源程序有效注释量必须在 20% 以上。<br>
+2.说明性文件（如头文件 .h 文件、.inc 文件、.def 文件等）头部应进行注释，注释必须列出：版权说明、版本号、生成日期、作者、内容、功能、与其他头文件关系、修改日志等，头文件注释中还应有函数功能简要说明。<br>
+3.源文件头部应进行注释，列出：版权说明、版本号、生成日期、作者、模块目的/功能、主要函数及其功能、修改日志等。<br>
+4.函数头部应进行注释，列出：函数的目的/功能、输入参数、输出参数、返回值、调用关系（函数、表）等。<br>
+5.边写代码边注释，修改代码同时修改响应的注释。不再有用的注释 要删除。<br>
+6.注释格式尽量统一，建议使用“/<em>…………</em>/”。<br>
+7.注释应考虑程序易读性，建议使用中文。</p>
+<h3 id="三标识符命名">（三）标识符命名</h3>
+<p>1.命名规范必须与所使用的系统风格保持一致，并在同一项目中统一，比如采用 UNIX 的全小写加下划线风格或大小写混排的方式，不要将两种方式混合使用。用作特殊标识如标识成员变量或全局变量的 m_ 和 g_，其后加上大小写混排的方式是允许的。<br>
+示例：Add_User 不允许，add_user、AddUser、m_AddUser允许。</p>
+<p>2.用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。<br>
+说明：以下是一些在软件中常用的反义词组。<br>
+add / remove    begin / end    create / destroy<br>
+insert /delete    first / last    get / release<br>
+increment / decrement    put / get<br>
+add /delete    lock unlock    open /close<br>
+min / max    old /new     stat / stop<br>
+next /previous    source / target    show / hide<br>
+send / receive    source / destination <br>
+cut /paste    up / down<br>
+示例：<br>
+int min_sum;<br>
+int max_sum;<br>
+int add_user( BYTE *user_name );<br>
+int delete_user( BYTE *user_name);</p>
+<h3 id="四可测性">（四）可测性</h3>
+<p>1.使用断言来发现软件问题，提高代码可测性。</p>
+<h3 id="五程序效率">（五）程序效率</h3>
+<p>1.多重循环中，应将最忙的循环放在最内层。<br>
+2.尽量减少循环嵌套层次。<br>
+3.尽量使用乘法或其他方法代替除法特别是浮点运算中的除法（占用较多 CPU 资源）。</p>
+<h3 id="六质量保证">（六）质量保证</h3>
+<p>1.防止引用已经释放的内存空间。<br>
+2.过程/函数中分配的内存，在过程/函数退出之前要释放。<br>
+3.过程/函数中申请的（为打开文件而使用的）文件句柄，在过程/函数退出之前要关闭。<br>
+4.防止内存操作越界。<br>
+5.编程时，要防止差 1 错误。（&lt;=、&lt;等注意）<br>
+6.if 语句尽量加上 else 分支，switch 语句必须有 default 分支。<br>
+7.Unix 下，多线程的子线程退出必需采用主动退出的方式，即子线程应 return 出口。<br>
+8.时刻注意表达式是否会上溢、下溢。使用变量时要注意其边界值的情况。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
+      <link>/post/zxhan/</link>
+      <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
+      
+      <guid>/post/zxhan/</guid>
+      <description>
+        <![CDATA[
+        <h3 id="前言">前言</h3>
+<p>这是以前的一个实训周作业，核心是哈夫曼编码和解码，软件界面由 QT 实现。代码量很小，比较简单。</p>
+<p>源代码： <a href="https://gitee.com/lzxqaq/zxhan.git">https://gitee.com/lzxqaq/zxhan.git</a></p>
+<p>介绍：<a href="https://lzxqaq.com/post/zxhan/">https://lzxqaq.com/post/zxhan/</a></p>
+<p>算法参考：<a href="https://blog.csdn.net/small_hacker/article/details/52843738">Huffman压缩真正的C++实现</a></p>
+<p>运行环境：Linux 系统（Windows系统下运行尚有 bug ),开发环境为 QT Creator。</p>
+<p>运行截图：</p>
+<div  align="center">    
+ <img src="https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png" width = "500" height = "200" alt="图片名称" align=center /></div>
+<!-- ![img](https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png) -->
+<h3 id="核心实现">核心实现</h3>
+<pre tabindex="0"><code>void create_node_array();//构造包含字符及其频率的数组
+void create_pq();//构造优先级队列
+void create_huffman_tree();//构造哈夫曼树
+void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表
+bool calculate_huffman_codes();//计算哈夫曼编码
+bool do_compress();//开始压缩
+bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树
+void decode_huffman();//根据重构的哈夫曼树解码文件
+
+</code></pre><h3 id="后续">后续</h3>
+<p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+  </channel>
+</rss>

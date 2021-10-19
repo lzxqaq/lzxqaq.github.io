@@ -1,0 +1,190 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on (๑•̀ㅂ•́) ✧ 罗泽勋</title>
+    <link>/</link>
+    <description>Recent content in Home on (๑•̀ㅂ•́) ✧ 罗泽勋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 13 Oct 2021 07:01:19 +0800</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>技术文章</title>
+      <link>/post/</link>
+      <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
+      
+      <guid>/post/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>生活日志</title>
+      <link>/blog/</link>
+      <pubDate>Tue, 28 Sep 2021 12:56:24 +0800</pubDate>
+      
+      <guid>/blog/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>个人作品</title>
+      <link>/work/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/work/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>作品</title>
+      <link>/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cv/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>关于</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>
+        <![CDATA[
+        <h1 id="我是谁">我是谁</h1>
+<p>我是一名95后，家在广东广州，毕业于华南师范大学软件学院，现在从事软件开发工作。我平时喜欢折腾网站，动手做一些小项目。我在广东长大，钟爱粤语歌。在运动爱好上，我喜欢打羽毛球，它也占据了我大部分的运动时间，另外，也喜欢跑步、篮球、骑行。我喜欢一些动画，它们对我的影响很大，比如《来自深渊》里那个名为“阿比斯”的深渊令我着迷；《阿尔卑斯山的少女》和《佩琳物语》让我深深感动；《红发少女安妮》，好喜欢那个哭着长大的女孩儿！</p>
+<h1 id="本站架构">本站架构</h1>
+<p>本站目前采用 Hugo（一个静态网站生成器）作为后台系统，使用 Github Pages 服务，源码托管在 <a href="https://github.com/lzxqaq/source_lzxqaq.git">Github</a> 上。本站主题采用是 <a href="https://github.com/yihui/hugo-ivy">hugo-ivy</a>，作者 <a href="https://yihui.org/">Yihui Xie</a>，这是一个简洁却不简单的主题，我在它的基础上加了音乐支持。正是许多年前无意中进入作者的个人主页，被它的简洁之美吸引，我才开始了建站之旅（<del>抄袭之旅</del>），中途更换过其他博客后台和主题，也曾荒废许久。现在重回最初的样子，同时也希望这是最后一站。</p>
+<p>(iOS 系统下本站音乐全局播放失效了，这个问题很诡异，猜测和我用的 PJAX 有关，头疼，暂时不处理了）</p>
+<p>本站不设评论，也不作 RSS 支持。如果你想和我交流，劳请直接与我联系。如果有必要，我会将交流的内容放在本站。另外，本站内容大多不具有时效性价值，不必订阅及时浏览。</p>
+<p>如果你也打算建立这样的博客网站，但是不知道从哪里开始，欢迎与我联系。为此，你需要一个能上互联网的电脑以及一个足够坚定的念头，不用担心网站搭建的产生费用。因为，这世界上总有一些人为了他人而努力，并且充满热情。</p>
+<h1 id="其他链接">其他链接</h1>
+<ul>
+<li><a href="https://github.com/lzxqaq">Github</a> ：这是我的 Github 仓库地址。</li>
+<li><a href="https://gitee.com/lzxqaq">Gitee</a> ：这是我的 Gitee 仓库地址。</li>
+<li><a href="https://space.bilibili.com/404289432">哔哩哔哩</a> ：这是我的哔哩哔哩个人空间。</li>
+</ul>
+<h1 id="联系我">联系我</h1>
+<p>我不喜欢微信，虽然很多时候我没法离开它。如果可能的话，可以通过邮件或者电话的方式联系我。</p>
+<ul>
+<li>微信号：BaiGei-Wan</li>
+<li>邮箱：<a href="mailto:lzx@lzxqaq.com">lzx@lzxqaq.com</a>  期待来信~</li>
+<li>手机号： <!--15820211446-->就在这里哦！为什么你看不到？因为它被注释了(≖ ‿ ≖)✧</li>
+</ul>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>笔记收藏</title>
+      <link>/note/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/note/</guid>
+      <description>
+        <![CDATA[
+        <p>本部分为本人的收藏和笔记，内容来源于书籍、互联网，文中开头会有相关信息。需要注意的是，本人可能对文中内容加以改动，并不一定保证其正确性。如果你对其中某些内容存在异议，请<a href="/about">联系</a>我。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>邀请</title>
+      <link>/friend/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/friend/</guid>
+      <description>
+        <![CDATA[
+        <p align="right">—— <a href="http://www.oriah.org/index.php">Oriah</a>（译者：<a href="https://www.douban.com/group/topic/20286000/">野竹林</a>)</p>
+<p>你为生存做了些什么，我不关心；
+我想知道，
+你的追求，
+你是否敢于梦想去触碰你那内心的渴望。</p>
+<p>你的年龄多大，我不关心；
+我想知道，
+你是否愿意像傻瓜一样不顾风险，
+为了爱，梦想还有活着就该有的冒险。</p>
+<p>我不关心，是什么行星牵引着你的月亮，
+我想知道，
+你是否已触及自己悲伤的中心，
+是否因生活的种种背叛而心胸开阔，
+抑或因为害怕更大的痛苦而消沉封闭！</p>
+<p>我想知道，
+你是否能面对痛苦——我的或者你自己的，
+而不必去隐藏、涂抹或修饰。</p>
+<p>我想知道，
+你是否能享受快乐——我的或者你自己的，
+你是否能充满野性地舞蹈，让你从指端到足尖都被狂喜所充满，
+而不会告诫我们要小心、要现实、要记住做人的禁忌。</p>
+<p>我并不关心你告诉我的故事是否真实，
+我想知道，
+你是否能为了真实地对待自己而不怕别人失望，
+你是否能承受背叛的指责而不出卖自己的灵魂。
+我想知道，你是否能抛弃曾经的信念，而因此值得信赖。</p>
+<p>我想知道，
+你是否能发现美，即使它每天都不漂亮，
+你是否能从它的存在中追寻你自己生命的源头。</p>
+<p>我想知道，
+你是否能与失败相伴——你的和我的，
+却依然可以站立在湖边对着银色的满月放生大喊
+“是的，就是这样！”</p>
+<p>我不关心你在哪里生活或者你拥有多少金钱，
+我想知道，
+在一个悲伤、绝望、厌世和痛彻骨髓的夜晚之后，
+你是否能起床，为养育孩子做那些需要的事情。</p>
+<p>我不关心你是谁，你是如何来到这里，
+我想知道，你是否愿同我一起站在烈焰的中心，毫不退缩。</p>
+<p>我不关心你在哪里受到教育、你学了什么或者你同谁一起学习，
+我想知道，
+当一切都背叛了你，是什么在内心支撑着你前行。</p>
+<p>我想知道，
+你是否能孤独地面对你自己，
+你是否真正喜欢那个你独自一人时交谈的声音。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+  </channel>
+</rss>
