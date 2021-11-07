@@ -5,16 +5,16 @@
     <description>Recent content in Home on (๑•̀ㅂ•́) ✧ 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 13 Oct 2021 07:01:19 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Nov 2021 23:27:25 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>技术文章</title>
-      <link>/post/</link>
-      <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
+      <title>生活日志</title>
+      <link>/blog/</link>
+      <pubDate>Sun, 07 Nov 2021 23:27:25 +0800</pubDate>
       
-      <guid>/post/</guid>
+      <guid>/blog/</guid>
       <description>
         <![CDATA[
         
@@ -26,11 +26,11 @@
     
     
     <item>
-      <title>生活日志</title>
-      <link>/blog/</link>
-      <pubDate>Tue, 28 Sep 2021 12:56:24 +0800</pubDate>
+      <title>技术文章</title>
+      <link>/post/</link>
+      <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
       
-      <guid>/blog/</guid>
+      <guid>/post/</guid>
       <description>
         <![CDATA[
         
