@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>SQL 语法 - (๑•̀ㅂ•́) ✧ 罗泽勋</title>
+    <meta property="og:title" content="SQL 语法 - (๑•̀ㅂ•́) ✧ 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="模式定义了数据如何存储、存储怎么样的数据以及数据如何分解等信息，数据库和表都有模式。
+主键的值不允许修改，也不允许复用（不能将已经删除的主键值赋给新数据行的主键）。
+SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。
+SQL 语句不区 &amp;hellip;">
+      <meta property="og:description" content="模式定义了数据如何存储、存储怎么样的数据以及数据如何分解等信息，数据库和表都有模式。
+主键的值不允许修改，也不允许复用（不能将已经删除的主键值赋给新数据行的主键）。
+SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。
+SQL 语句不区 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/series/">系列</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/friend/">邀请</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>SQL 语法</h1>
+
+
+<h3>罗泽勋 / 
+2020-12-31</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+<ul>
+<li><a href="#1">一、基础</a></li>
+<li><a href="#2">二、创建表</a></li>
+<li><a href="#3">三、修改表</a></li>
+<li><a href="#4">四、插入</a></li>
+<li><a href="#5">五、更新</a></li>
+<li><a href="#6">六、删除</a></li>
+<li><a href="#7">七、查询</a>
+<ul>
+<li><a href="#7.1">DISTINCT</a></li>
+<li><a href="#7.2">LIMIT</a></li>
+</ul>
+</li>
+<li><a href="#8">八、排序</a></li>
+<li><a href="#9">九、过滤</a></li>
+<li><a href="#10">十、通配符</a></li>
+<li><a href="#11">十一、计算字段</a></li>
+<li><a href="#12">十二、函数</a>
+<ul>
+<li><a href="#12.1">汇总</a></li>
+<li><a href="#12.2">文本处理</a></li>
+<li><a href="#12.3">日期和时间处理</a></li>
+<li><a href="#12.4">数值处理</a></li>
+</ul>
+</li>
+<li><a href="#13">十三、分组</a></li>
+<li><a href="#14">十四、子查询</a></li>
+<li><a href="#15">十五、连接</a>
+<ul>
+<li><a href="#15.1">内连接</a></li>
+<li><a href="#15.2">自连接</a></li>
+<li><a href="#15.3">自然连接</a></li>
+<li><a href="#15.4">外连接</a></li>
+</ul>
+</li>
+<li><a href="#16">十六、组合查询</a></li>
+<li><a href="#17">十七、视图</a></li>
+<li><a href="#18">十八、存储过程</a></li>
+<li><a href="#19">十九、游标</a></li>
+<li><a href="#20">二十、触发器</a></li>
+<li><a href="#21">二十一、事务管理</a></li>
+<li><a href="#22">二十二、字符集</a></li>
+<li><a href="#23">二十三、权限管理</a></li>
+</ul>
+<h3 id="一基础a-name1a">一、基础<a name="1"></a></h3>
+<p>模式定义了数据如何存储、存储怎么样的数据以及数据如何分解等信息，数据库和表都有模式。</p>
+<p>主键的值不允许修改，也不允许复用（不能将已经删除的主键值赋给新数据行的主键）。</p>
+<p>SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。</p>
+<p>SQL 语句不区分大小写，但是数据库表名、列名和值是否区分依赖于具体的 DBMS 以及配置。</p>
+<p>SQL 支持以下三种注释：</p>
+<pre tabindex="0"><code>### 注释
+SELECT * FROM mytable; -- 注释
+/* 注释1
+   注释2 */
+
+</code></pre><p>数据库创建与使用：</p>
+<pre tabindex="0"><code>CREATE DATABASE test;
+USE test;
+</code></pre><h3 id="二创建表a-name2a">二、创建表<a name="2"></a></h3>
+<pre tabindex="0"><code>CREATE TABLE mytable (
+    # int 类型，不为空，自增
+    id INT NOT NULL AUTO_INCREMENT,
+    # int 类型，不可为空，默认值为1，不为空
+    col1 INT NOT NULL DEFAULT 1,
+    # 变长字符串类型，最常为 45 个字符，可以为空
+    col2 VARCHAR(45) NULL,
+    # 日期类型，可为空
+    col3 DATE NULL,
+    # 设置主健为 id
+    PRIMARY KEY (`id`)
+);
+</code></pre><h3 id="三修改表">三、修改表</h3>
+<p>添加列</p>
+<pre tabindex="0"><code>ALTER TABLE mytable
+ADD col CHAR(20);
+</code></pre><p>删除列</p>
+<pre tabindex="0"><code>ALTER TABLE mytable
+DROP COLUMN col;
+</code></pre><p>删除表</p>
+<pre tabindex="0"><code>DROP TABLE mytable;
+</code></pre><h3 id="四插入">四、插入</h3>
+<p>普通插入</p>
+<pre tabindex="0"><code>INSERT INTO mytable(col1, col2)
+VALUES(val1,val2);
+</code></pre><p>插入检索出来的数据</p>
+<pre tabindex="0"><code>INSERT INTO mytable1(col1, col2)
+SELECT col1, col2
+FROM mytable2;
+</code></pre><p>将一个表的内容插入到一个新表</p>
+<pre tabindex="0"><code>CREATE TABLE newtable AS 
+SELECT * FROM mytable;
+</code></pre><h3 id="五更新">五、更新</h3>
+<pre tabindex="0"><code>UPDATE mytable
+SET col = val 
+WHERE id = 1;
+</code></pre><h3 id="六删除">六、删除</h3>
+<pre tabindex="0"><code>DELETE FROM mytable
+WHERE id = 1;
+</code></pre><p>TRUNCATE TABLE table 可以清空表，也就是删除所有行。</p>
+<pre tabindex="0"><code>TRUNCATE TABLE mytable;
+</code></pre><p>使用更新和删除操作时一定要用 WHERE 字句，不然会把整张表的数据都损坏。用 SELECT 语句进行测试，防止错误删除。</p>
+<h3 id="七查询">七、查询</h3>
+<p>DISTINCT
+相同值只会出现一次。它作用与所有列，也就是说所有列的值都想同时才算相同。</p>
+<pre tabindex="0"><code>SELECT DISTINCT col1, col2
+FROM mytable;
+</code></pre><p>LIMIT
+限制返回的行数。可以有两个参数，第一个参数为起始行，从 0 开始；第二个参数为返回的总行数。<br>
+返回前五行：</p>
+<pre tabindex="0"><code>SELECT * 
+FROM mytable
+LIMIT 5;
+</code></pre><pre tabindex="0"><code>SELECT *
+FROM mytable
+LIMIT 0, 5;
+</code></pre><p>返回第3～5行：</p>
+<pre tabindex="0"><code>SELECT *
+FROM mytable
+LIMIT 2, 3;
+</code></pre><h3 id="八排序">八、排序</h3>
+<ul>
+<li>ASC：升序（默认）</li>
+<li>DESC：降序
+可以按多个列进行排序，并且为每个列指定不同的排序方式：</li>
+</ul>
+<pre tabindex="0"><code>SELECT *
+FROM mytable
+ORDER BY col1 DESC, col2 ASC;
+</code></pre><h3 id="九过滤">九、过滤</h3>
+<p>不进行过滤的数据非常大，导致通过网络传输了多余的数据，从而浪费了网络带宽。因此尽量使用 SQL 语句来过滤不必要的数据，而不是传输所有的数据到客户端中然后由客户端进行过滤。</p>
+<pre tabindex="0"><code>SELECT * 
+FROM mytable
+WHERE col IS NULL;
+</code></pre><p>下表显示了 WHERE 字句可用的操作符。</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&lt;&gt;!=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>&lt;=!&gt;</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>&gt;=!=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>在两个值之间</td>
+</tr>
+<tr>
+<td>IS NULL</td>
+<td>为 NULL 值</td>
+</tr>
+</tbody>
+</table>
+<p>应该注意到，NULL 和 0、空字符串都不同。</p>
+<p>AND 和 OR 用于连接多个过滤条件。优先处理 AND，当一个过滤表达式涉及到多个 AND 和 OR 时，可以使用（）来决定优先级，时的优先级关系更清晰。</p>
+<p>IN 操作符用于匹配一组值，其后也可以接一个 SELECT 子句，从而匹配子查询得到的一组值。</p>
+<p>NOT 操作符用于否定一个条件。</p>
+<h3 id="十通配符">十、通配符</h3>
+<p>通配符也是用在过滤语句中，但它只能用于文本字段。</p>
+<ul>
+<li>% 匹配 &gt;=0 个任意字符；</li>
+<li>_ 匹配 ==1 个任意字符；</li>
+<li>[] 可以匹配集合内的字符，例如 [ab]将匹配字符 a 或者 b。用脱字符 ^ 可以对其进行否定，也就是不匹配集合内的字符。<br>
+使用 LIKE 来进行通配符匹配。</li>
+</ul>
+<pre tabindex="0"><code>SELECT *
+FROM mytable
+WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
+</code></pre><p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
+
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2020-12-26/">Linux 不同发行版的选择</a></span>
+  <span class="nav-next"><a href="/post/concurrent/">Java 并发</a> &rarr;</span>
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2020-12-26\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/post\/concurrent\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+<script async src="/js/fix-toc.js"></script>
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/no-highlight.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

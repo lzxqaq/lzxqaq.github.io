@@ -1,0 +1,209 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on (๑•̀ㅂ•́) ✧ 罗泽勋</title>
+    <link>/categories/vim/</link>
+    <description>Recent content in vim on (๑•̀ㅂ•́) ✧ 罗泽勋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 10 Jul 2021 10:35:46 +0800</lastBuildDate>
+    <atom:link href="/categories/vim/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vim 操作备忘</title>
+      <link>/post/2021-7-10/</link>
+      <pubDate>Sat, 10 Jul 2021 10:35:46 +0800</pubDate>
+      
+      <guid>/post/2021-7-10/</guid>
+      <description>
+        <![CDATA[
+        <h3 id="一存活">一、存活</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">i</td>
+<td style="text-align:left">Insert 模式，按 ESC 回到 Normal 模式。</td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:left">删除当前光标所在的一个字符。</td>
+</tr>
+<tr>
+<td style="text-align:left">:wq</td>
+<td style="text-align:left">保存退出</td>
+</tr>
+<tr>
+<td style="text-align:left">dd</td>
+<td style="text-align:left">删除当前行，并存到剪切板</td>
+</tr>
+<tr>
+<td style="text-align:left">p</td>
+<td style="text-align:left">粘贴剪切板</td>
+</tr>
+<tr>
+<td style="text-align:left">hjkl</td>
+<td style="text-align:left">左下上右</td>
+</tr>
+<tr>
+<td style="text-align:left">:help <command></td>
+<td style="text-align:left">显示相关命令的帮助</td>
+</tr>
+</tbody>
+</table>
+<h3 id="二感觉良好">二、感觉良好</h3>
+<p>1.各种插入模式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">在光标后插入</td>
+</tr>
+<tr>
+<td style="text-align:left">o</td>
+<td style="text-align:left">在当前行后插入一个新行</td>
+</tr>
+<tr>
+<td style="text-align:left">O</td>
+<td style="text-align:left">在当前行前插入一个新行</td>
+</tr>
+<tr>
+<td style="text-align:left">cw</td>
+<td style="text-align:left">替换从光标所在位置到一个单词结尾的字符</td>
+</tr>
+</tbody>
+</table>
+<p>2.简单的光标移动</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">数字零，到行头</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left">到本行第一个不是 blank 字符的位置（blank 字符就是空格、tab、换行、回车等）</td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left">到本行行尾</td>
+</tr>
+<tr>
+<td style="text-align:left">g_</td>
+<td style="text-align:left">到本行最后一个不是 blank 字符的位置</td>
+</tr>
+<tr>
+<td style="text-align:left">/pattern</td>
+<td style="text-align:left">搜索 pattern 的字符串（多个匹配时，按 n 到下一个）</td>
+</tr>
+</tbody>
+</table>
+<p>3.拷贝/粘贴</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p</td>
+<td style="text-align:left">粘贴</td>
+</tr>
+<tr>
+<td style="text-align:left">yy</td>
+<td style="text-align:left">拷贝当前行</td>
+</tr>
+</tbody>
+</table>
+<p>4.撤销反撤销</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">u</td>
+<td style="text-align:left">撤销</td>
+</tr>
+<tr>
+<td style="text-align:left">ctrl-r</td>
+<td style="text-align:left">反撤销</td>
+</tr>
+</tbody>
+</table>
+<p>5.打开/保存/退出/改变文件（Buffer)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:e &lt;path/to/file&gt;</td>
+<td style="text-align:left">打开一个文件</td>
+</tr>
+<tr>
+<td style="text-align:left">:w</td>
+<td style="text-align:left">保存</td>
+</tr>
+<tr>
+<td style="text-align:left">:saveas &lt;path/to/file&gt;</td>
+<td style="text-align:left">另存为</td>
+</tr>
+<tr>
+<td style="text-align:left">:x, ZZ 或 :wq</td>
+<td style="text-align:left">保存并退出(:x仅在需要时保存)</td>
+</tr>
+<tr>
+<td style="text-align:left">:q!</td>
+<td style="text-align:left">退出不保存</td>
+</tr>
+<tr>
+<td style="text-align:left">:qa!</td>
+<td style="text-align:left">强行退出所有正在编辑的文件</td>
+</tr>
+<tr>
+<td style="text-align:left">:n， :bn</td>
+<td style="text-align:left">下一个文件</td>
+</tr>
+<tr>
+<td style="text-align:left">:bp</td>
+<td style="text-align:left">上一个文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="三更好更强更快">三、更好、更强、更快</h3>
+<h3 id="未完待续">未完待续</h3>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+  </channel>
+</rss>

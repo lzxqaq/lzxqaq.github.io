@@ -65,7 +65,9 @@
   
   <li><a href="/blog/">日志</a></li>
   
-  <li><a href="/post/">技术</a></li>
+  <li><a href="/series/">系列</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
   
   <li><a href="/friend/">邀请</a></li>
   
@@ -146,8 +148,8 @@
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev"></span>
-  <span class="nav-next"><a href="/post/2020-12-26/">Linux 不同发行版的选择</a> &rarr;</span>
+  <span class="nav-prev">&larr; <a href="/post/base/">Java 基础</a></span>
+  <span class="nav-next"><a href="/post/collection/">Java 容器</a> &rarr;</span>
 </nav>
 <script type="text/javascript">
 document.addEventListener('keyup', function(e) {
@@ -155,9 +157,11 @@ document.addEventListener('keyup', function(e) {
   var url = false;
   if (e.which == 37) {  
     
+    url = '\/post\/base\/';
+    
   } else if (e.which == 39) {  
     
-    url = '\/post\/2020-12-26\/';
+    url = '\/post\/collection\/';
     
   }
   if (url) window.location = url;
