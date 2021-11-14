@@ -3,7 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2021-10-13T07:01:19+08:00</lastmod>
+    <lastmod>2021-11-14T20:57:13+08:00</lastmod>
+  </url><url>
+    <loc>/series/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E4%B9%8B%E6%97%85/</loc>
+    <lastmod>2021-11-14T20:57:13+08:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2021-11-14T20:57:13+08:00</lastmod>
+  </url><url>
+    <loc>/categories/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99/</loc>
+    <lastmod>2021-11-14T20:57:13+08:00</lastmod>
+  </url><url>
+    <loc>/post/2021-11-14/</loc>
+    <lastmod>2021-11-14T20:57:13+08:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2021-11-14T20:57:13+08:00</lastmod>
+  </url><url>
+    <loc>/series/</loc>
+    <lastmod>2021-11-14T20:57:13+08:00</lastmod>
+  </url><url>
+    <loc>/blog/2021-11-14/</loc>
+    <lastmod>2021-11-14T20:50:29+08:00</lastmod>
+  </url><url>
+    <loc>/blog/</loc>
+    <lastmod>2021-11-14T20:50:29+08:00</lastmod>
   </url><url>
     <loc>/categories/qt/</loc>
     <lastmod>2021-10-13T07:01:19+08:00</lastmod>
@@ -14,16 +38,7 @@
     <loc>/post/2021-10-13-2/</loc>
     <lastmod>2021-10-13T07:01:19+08:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
-    <lastmod>2021-10-13T07:01:19+08:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
-    <lastmod>2021-10-13T07:01:19+08:00</lastmod>
-  </url><url>
     <loc>/blog/2021-9-28/</loc>
-    <lastmod>2021-09-28T12:56:24+08:00</lastmod>
-  </url><url>
-    <loc>/blog/</loc>
     <lastmod>2021-09-28T12:56:24+08:00</lastmod>
   </url><url>
     <loc>/blog/2021-9-23/</loc>
@@ -199,8 +214,6 @@
     <loc>/cv/</loc>
   </url><url>
     <loc>/about/</loc>
-  </url><url>
-    <loc>/series/</loc>
   </url><url>
     <loc>/friend/</loc>
   </url>
