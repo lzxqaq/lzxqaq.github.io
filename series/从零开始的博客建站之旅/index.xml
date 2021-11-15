@@ -5,8 +5,47 @@
     <description>Recent content in 从零开始的博客建站之旅 on (๑•̀ㅂ•́) ✧ 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 14 Nov 2021 20:57:13 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Nov 2021 12:26:45 +0800</lastBuildDate>
     <atom:link href="/series/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E4%B9%8B%E6%97%85/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>准备</title>
+      <link>/post/2021-11-15/</link>
+      <pubDate>Mon, 15 Nov 2021 12:26:45 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/post/2021-11-15/</guid>
+      <description>
+        <![CDATA[
+        <h3 id="一注册-github-帐号">一、注册 Github 帐号</h3>
+<p>简单介绍：</p>
+<p>Github 是世界上最大的一个托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会帮你把网站运行起来并提供一个链接，使互联网上的人都能访问你的网站。</p>
+<p>具体步骤：</p>
+<p>1.前往 <a href="https://github.com/">github.com</a> 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）</p>
+<h3 id="二安装-git">二、安装 Git</h3>
+<p>简单介绍：</p>
+<p>我们会用 Git 来管理我们的网站源文件，比如将本地的网页文件上传到 Github，或者从 Github 下载到本地。</p>
+<p>具体步骤：</p>
+<p>（1）下载安装。前往 <a href="https://git-scm.com/download/win" target="_blank">这里</a> ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。</p>
+<p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
+<h3 id="三安装-hugo">三、安装 Hugo</h3>
+<p>简单介绍：</p>
+<p>Hugo 是一个非常好用的网站生成器，可以帮我们生成网站的文件。</p>
+<p>具体步骤：</p>
+<p>（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 site两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。</p>
+<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
+<p>（4）配置环境变量。</p>
+<p>方法1：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
+<p>方法2:在 win10 搜索 cmd，右键<strong>以管理员身份打开</strong>命令提示符，将 <code>setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m </code>复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。</p>
+<p>（5）验证。重新打开命令提示符（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到 hugo 的帮助文档，就验证成功，否则检查上述步骤是否出错。</p>
+<h3 id="图片待续">图片待续&hellip;</h3>
+
+        
+        ]]>
+      </description>
+    </item>
+    
     
     
     <item>
