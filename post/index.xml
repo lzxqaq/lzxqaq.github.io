@@ -5,8 +5,58 @@
     <description>Recent content in 技术文章 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 15 Nov 2021 12:26:45 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 17 Nov 2021 19:38:06 +0800</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>搭建</title>
+      <link>/post/2021-11-17/</link>
+      <pubDate>Wed, 17 Nov 2021 19:38:06 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/post/2021-11-17/</guid>
+      <description>
+        <![CDATA[
+        <h3 id="一在本地创建网站">一、在本地创建网站</h3>
+<p>（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 <code>cmd </code> 加空格，回车），执行命令 <code>hugo new site blog</code> ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件）
+<img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/1.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/2.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/3.png" alt="img"></p>
+<h3 id="二下载主题模板">二、下载主题模板</h3>
+<p>（1）接着回到刚刚的命令窗口，输入执行 <code>cd blog\themes</code> 进入 themes 目录。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/4.png" alt="img"></p>
+<p>（2）下载主题模板（以 hugo-ivy 为例）。接上述步骤，在命令提示符中 执行 <code>git clone https://github.com/yihui/hugo-ivy.git</code> 来下载 hugo.386 主题。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/6.png" alt="img"></p>
+<h3 id="三修改网站配置">三、修改网站配置</h3>
+<p>将 hugo.386\exampleSite 文件夹中的 theme.toml 文件复制到文件夹 blog 中，替换原本的。根据需要修改其中的内容。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/7.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/8.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/8.png" alt="img"></p>
+<h3 id="四网站预览">四、网站预览</h3>
+<p>命令提示符进入 blog 目录，先执行 <code>hugo</code> ，再执行 <code>hugo server</code>。打开浏览器，访问 localhost:1313。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/11.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/12.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/10.png" alt="img"></p>
+<h3 id="五将网站推送到-github-平台">五、将网站推送到 Github 平台</h3>
+<p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/15.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/16.png" alt="img"></p>
+<p>（2）打开命令提示符，进入 blog\public 目录，分别执行</p>
+<pre tabindex="0"><code>git init 
+git add .
+git commit -m &quot;first commit&quot;
+git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
+git push --set-upstream origin master
+</code></pre><p>输入账号名，密码，完成上传。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/13.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/14.png" alt="img"></p>
+<p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
     
     
     <item>
@@ -27,19 +77,23 @@
 <p>我们会用 Git 来管理我们的网站源文件，比如将本地的网页文件上传到 Github，或者从 Github 下载到本地。</p>
 <p>具体步骤：</p>
 <p>（1）下载安装。前往 <a href="https://git-scm.com/download/win" target="_blank">这里</a> ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。</p>
-<p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/0.png" alt="img">
+（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/1.png" alt="img">
+<img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/2.png" alt="img"></p>
 <h3 id="三安装-hugo">三、安装 Hugo</h3>
 <p>简单介绍：</p>
 <p>Hugo 是一个非常好用的网站生成器，可以帮我们生成网站的文件。</p>
 <p>具体步骤：</p>
 <p>（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 site两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。</p>
-<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/3.png" alt="img"></p>
 <p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
-<p>（4）配置环境变量。</p>
-<p>方法1：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
-<p>方法2:在 win10 搜索 cmd，右键<strong>以管理员身份打开</strong>命令提示符，将 <code>setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m </code>复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。</p>
+<p>（4）配置环境变量。在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/4.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/5.png" alt="img"></p>
 <p>（5）验证。重新打开命令提示符（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到 hugo 的帮助文档，就验证成功，否则检查上述步骤是否出错。</p>
-<h3 id="图片待续">图片待续&hellip;</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/6.png" alt="img"></p>
 
         
         ]]>
@@ -554,7 +608,7 @@ DISPLAY=:1 make -k -j1 check
 <p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
 <p>3.安装 Hugo。（官方教程可看<a href="https://www.gohugo.org/doc/tutorials/installing-on-windows/" target="_blank">这里</a>)</p>
 <p>（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。</p>
-<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
 <p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
 <p>（4）配置环境变量。方法1:在 win10 搜索 cmd，右键<strong>以管理员身份打开</strong>命令提示符，将 <code>setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m </code>复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
 <p>（5）验证。重新打开命令提示符（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到 hugo 的帮助文档，就验证成功，否则检查上述步骤是否出错。</p>
@@ -891,7 +945,7 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
 <p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
 <p>3.安装 Hugo。（官方教程可看<a href="https://www.gohugo.org/doc/tutorials/installing-on-windows/" target="_blank">这里</a>)</p>
 <p>（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。</p>
-<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
 <p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
 <p>（4）配置环境变量。方法1:在 win10 搜索 cmd，右键<strong>以管理员身份打开</strong>命令提示符，将 <code>setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m </code>复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
 <p>（5）验证。重新打开命令提示符（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到 hugo 的帮助文档，就验证成功，否则检查上述步骤是否出错。</p>
