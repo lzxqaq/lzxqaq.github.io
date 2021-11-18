@@ -5,8 +5,58 @@
     <description>Recent content in 从零开始的博客建站之旅 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 17 Nov 2021 19:38:06 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Nov 2021 18:36:33 +0800</lastBuildDate>
     <atom:link href="/series/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E4%B9%8B%E6%97%85/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>修改菜单栏和文章创作</title>
+      <link>/post/2021-11-18/</link>
+      <pubDate>Thu, 18 Nov 2021 18:36:33 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/post/2021-11-18/</guid>
+      <description>
+        <![CDATA[
+        <h3 id="前情提要">前情提要</h3>
+<p>完成前面的工作后，我们的网站是下图这样的，非常符合极简之美。不过空荡荡的网站不是我们想要的，接下来我们就开始最核心的部分：创作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/0.png" alt="img"></p>
+<h3 id="一准备文本编辑工具">一、准备文本编辑工具</h3>
+<p>（1）下载文本编辑工具。创作当然离不开文本的编辑，那么一款高效好用的文本编辑工具就非常重要了。这里我强烈推荐一个常用的工具 Visual Studio Code，它可以多文件管理。点击 <a href="https://code.visualstudio.com/Download">这里</a> 可以直达官网下载。接下来的讲述会使用到 VSCode，如果你选择其他文本编辑器，也无妨，找到对应的文件修改即可。</p>
+<p>（2）用 VSCode 打开 blog 文件夹。打开 VSCode 后，点击左上角文件菜单，然后点击打开文件夹，选择 D:/hugo/site/blog 文件夹。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/1.png" alt="img"></p>
+<p>（3）我们需要关注 content 文件夹、public 文件夹和 config.yaml 文件即可。content 存放网站的所有内容，我们平时写文章会在里面创建；public 存放网站的源代码，我们使用 hugo 命令时它会自动生成，我们需要做的就是将它上传到 Github，而我们所用的 Github Pages 服务会帮我们把网站跑起来;config.yaml 是网站的配置文件，我们网站的基本信息都会在里面配置。</p>
+<h3 id="二网站预览">二、网站预览</h3>
+<p>用命令窗口进入网站根 blog 目录，先执行 <code>hugo</code> ，再执行 <code>hugo server</code>。打开浏览器，访问 localhost:1313。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/11.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/12.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/10.png" alt="img"></p>
+<h3 id="三创建菜单栏">三、创建菜单栏</h3>
+<p>可以看到我们的网站现在有五个菜单，如果你前面在网站配置把菜单改成中文的话，那么将是[主页]、[关于]、[分类]、[标签]、[订阅]。[主页]不用多说了，[分类]、[标签]、[订阅]是自动管理的，如果不需要的话可以在网站目录的 config.yaml 里删掉，[关于]现在点击的话，是访问不了的，因为我们还没有创建对应的文件夹或文件。</p>
+<p>（1）打开 themes -&gt; hugo-ivy -&gt; exampleSite 文件夹，这是 hugo-ivy 主题作者提供的示例网站。复制其中的 content 文件夹下的所有文件和文件夹，放到我们网站根目录下的 content文件夹下面。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/2.png" alt="img"></p>
+<p>（2）修改 config.yaml 文件，添加文章和记录两个菜单。对应的文件夹是 post 和 note。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/3.png" alt="img"></p>
+<p>（3）这样，再回到浏览器上看。因为我们把示例的文章也复制过来了，所以网站已经有文章显示了。而我们添加的[文章]和[记录]文章也完成了。如果你需要添加其他菜单，可以照原本的来做，在 content 文件夹下新建文件夹，然后在 config.yaml 文件中添加修改。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/4.png" alt="img"></p>
+<h3 id="四新建文章">四、新建文章</h3>
+<p>我们可以复制 content/post 或者 content/note 下的文件，然后修改里面的标题、作者、日期、分类、标签等等，因为我们使用 hugo server 预览网站，所以可以在浏览器上 localhost:1313 实时查看修改后的效果。不过更常见的做法是通过命令的方式来创建，下面演示在[文章]菜单下创建一篇文章。</p>
+<p>（1）同样，在重新打开一个 cmd 命令窗口，进入网站根目录（blog)。和之前的做法一样这里就不贴图片了。</p>
+<p>(2)执行 <code>hugo new post/2021-11-18.md</code> 命令，post 是存放的目标文件夹，2021-11-18.md 是将要生成的文件，文件名可以随意，注意不要使用中文。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/5.png" alt="img"></p>
+<p>(3)在 VSCode 里面修改文件内容。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/6.png" alt="img"></p>
+<h3 id="五推送到-github-平台">五、推送到 Github 平台</h3>
+<p>（1）在 cmd 窗口，在网站根目录（blog）下先执行 <code>hugo</code>，生成网站源代码到 public 目录，然后执行 <code>cd pulic</code> 进入 public 目录。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/7.png" alt="img"></p>
+<p>（2）分别执行 <code>git add .</code> 和 <code>git commit -m &quot;update&quot;</code> 和 <code>git push</code>完成上传。</p>
+<h3 id="六完成">六、完成</h3>
+<p>上传成功后，等一小会就可以通过 *.github.io 域名访问你的网站啦。到这里，基本的流程已经讲完了，可以自行探索了！如果有问题的话可以联系我，在 <a href="https://lzxqaq.com">www.lzxqaq.com</a> [关于]页有我的联系方式。后续可能会补充更多内容，祝愉快~</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
     
     
     <item>
@@ -28,12 +78,12 @@
 <p>（2）下载主题模板（以 hugo-ivy 为例）。接上述步骤，在命令提示符中 执行 <code>git clone https://github.com/yihui/hugo-ivy.git</code> 来下载 hugo.386 主题。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/6.png" alt="img"></p>
 <h3 id="三修改网站配置">三、修改网站配置</h3>
-<p>将 hugo.386\exampleSite 文件夹中的 theme.toml 文件复制到文件夹 blog 中，替换原本的。根据需要修改其中的内容。</p>
+<p>将 themes -&gt; hugo-ivy -&gt; exampleSite 文件夹中的 config.yaml 文件复制到文件夹 blog 中，替换原本的。根据需要修改其中的内容。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/7.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/8.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/8.png" alt="img"></p>
 <h3 id="四网站预览">四、网站预览</h3>
-<p>命令提示符进入 blog 目录，先执行 <code>hugo</code> ，再执行 <code>hugo server</code>。打开浏览器，访问 localhost:1313。</p>
+<p>命令提示符进入 blog 目录，先执行 <code>hugo</code> ，再执行 <code>hugo server</code>。打开浏览器，访问 localhost:1313。（注意，这个命令窗口需要保持到你不需要预览网站的时候，届时可以用两次 Ctrl + c 停止，或者直接关闭窗口）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/11.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/12.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/10.png" alt="img"></p>

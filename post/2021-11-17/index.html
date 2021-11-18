@@ -104,12 +104,12 @@
 <p>（2）下载主题模板（以 hugo-ivy 为例）。接上述步骤，在命令提示符中 执行 <code>git clone https://github.com/yihui/hugo-ivy.git</code> 来下载 hugo.386 主题。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/6.png" alt="img"></p>
 <h3 id="三修改网站配置">三、修改网站配置</h3>
-<p>将 hugo.386\exampleSite 文件夹中的 theme.toml 文件复制到文件夹 blog 中，替换原本的。根据需要修改其中的内容。</p>
+<p>将 themes -&gt; hugo-ivy -&gt; exampleSite 文件夹中的 config.yaml 文件复制到文件夹 blog 中，替换原本的。根据需要修改其中的内容。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/7.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/8.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/8.png" alt="img"></p>
 <h3 id="四网站预览">四、网站预览</h3>
-<p>命令提示符进入 blog 目录，先执行 <code>hugo</code> ，再执行 <code>hugo server</code>。打开浏览器，访问 localhost:1313。</p>
+<p>命令提示符进入 blog 目录，先执行 <code>hugo</code> ，再执行 <code>hugo server</code>。打开浏览器，访问 localhost:1313。（注意，这个命令窗口需要保持到你不需要预览网站的时候，届时可以用两次 Ctrl + c 停止，或者直接关闭窗口）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/11.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/12.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/10.png" alt="img"></p>
@@ -134,7 +134,7 @@ git push --set-upstream origin master
   
 <nav class="post-nav">
   <span class="nav-prev">&larr; <a href="/post/2021-11-15/">准备</a></span>
-  <span class="nav-next"></span>
+  <span class="nav-next"><a href="/post/2021-11-18/">修改菜单栏和文章创作</a> &rarr;</span>
 </nav>
 <script type="text/javascript">
 document.addEventListener('keyup', function(e) {
@@ -145,6 +145,8 @@ document.addEventListener('keyup', function(e) {
     url = '\/post\/2021-11-15\/';
     
   } else if (e.which == 39) {  
+    
+    url = '\/post\/2021-11-18\/';
     
   }
   if (url) window.location = url;
