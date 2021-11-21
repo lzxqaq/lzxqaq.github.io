@@ -947,7 +947,7 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
       <description>
         <![CDATA[
         <h3 id="介绍">介绍</h3>
-<p>本项目是一个很久以前的实训周项目，当时花费了两天左右时间，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功夫。本项目仍存在一些不足的地方，后续可能会进行优化，现在我将项目源代码和一些实现思路开源公布。</p>
+<p>本项目是一个很久以前的实训周项目，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功夫。本项目仍存在一些不足的地方，后续可能会进行优化，现在我将项目源代码和一些实现思路开源公布。</p>
 <p>源代码：<a href="https://gitee.com/lzxqaq/CrazyArcade">https://gitee.com/lzxqaq/CrazyArcade</a></p>
 <p>文章介绍：<a href="https://lzxqaq.com/post/java/paopaotang/">https://lzxqaq.com/post/java/paopaotang/</a></p>
 <p>程序运行： 在终端下进入执行程序所在目录，执行 <code>java -jar CrazyArcade.jar</code> 或者双击 <code>CrazyArcade.jar</code>，或者在开发环境中打开源代码，运行 <code>GameStart.java</code>的 <code>main</code> 方法。</p>
