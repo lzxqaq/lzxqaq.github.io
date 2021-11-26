@@ -3,37 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>【规约】 MySQL 数据库篇 - Zexun Luo | 罗泽勋</title>
-    <meta property="og:title" content="【规约】 MySQL 数据库篇 - Zexun Luo | 罗泽勋">
-    
-    <meta name="twitter:card" content="summary">
-
-    
-      
-    
-
-    
-      
-      <meta property="description" content="“码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。
-[&amp;hellip;] 1.【强制】表达是与否概念的字段，必须使用 is_xxx 的方式命名，数据类型是 unsigned tinying(1 表示是，0 表示否)。
-说明：任何字段如果为非负数，必须是 unsigned。
-注意：POJO 类中任何布尔类型的变量，都不要加 is 前 &amp;hellip;">
-      <meta property="og:description" content="“码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。
-[&amp;hellip;] 1.【强制】表达是与否概念的字段，必须使用 is_xxx 的方式命名，数据类型是 unsigned tinying(1 表示是，0 表示否)。
-说明：任何字段如果为非负数，必须是 unsigned。
-注意：POJO 类中任何布尔类型的变量，都不要加 is 前 &amp;hellip;">
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
+    <title>【规约】 MySQL 数据库篇 | Zexun Luo | 罗泽勋</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -41,56 +11,35 @@
 
   </head>
 
-  
-  <body class="post">
-    <header class="masthead">
+  <body>
+    <nav>
+    <ul class="menu">
       
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/series/">系列</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/note/">抄录</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-
-    <article class="main">
-      <header class="title">
+      <li><a href="/">主页</a></li>
       
-<h1>【规约】 MySQL 数据库篇</h1>
+      <li><a href="/about/">关于</a></li>
+      
+      <li><a href="/blog/">日志</a></li>
+      
+      <li><a href="/post/">编程</a></li>
+      
+      <li><a href="/series/">系列</a></li>
+      
+      <li><a href="/categories/">分类</a></li>
+      
+      <li><a href="/note/">抄录</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
 
+<div class="article-meta">
+<h1><span class="title">【规约】 MySQL 数据库篇</span></h1>
 
-<h3>
-2021-05-28</h3>
+<h2 class="date">2021/05/28</h2>
+</div>
 
-<hr>
-
-
-      </header>
-
-
-
-
-
+<main>
 <h3 id="前言">前言</h3>
 <p>“码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。</p>
 <h3 id="一建表规约">(一)建表规约</h3>
@@ -142,7 +91,7 @@
 说明：外键与级联更新使用于单机低并发，不适合分布式、高并发集群；级联更新时强阻塞，存在数据库过呢更新风暴的风险；外键影响数据库的插入速度。</p>
 <p>4.【推荐】尽量避免 in 操作，若使用也需评估 in 后边的集合元素数量，控制在 1000 个之内。</p>
 
-
+</main>
 
   <footer>
   
@@ -207,14 +156,10 @@ async>
 
 
   
-
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2021
   
   </footer>
-  </article>
-  
   </body>
 </html>
 

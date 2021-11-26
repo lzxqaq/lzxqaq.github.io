@@ -3,42 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Qt单元测试基础笔记 - Zexun Luo | 罗泽勋</title>
-    <meta property="og:title" content="Qt单元测试基础笔记 - Zexun Luo | 罗泽勋">
-    
-    <meta name="twitter:card" content="summary">
-
-    
-      
-    
-
-    
-      
-      <meta property="description" content="构建时添加 QT &#43;= testlib 。
-[&amp;hellip;] 测试类必须从 QObject 继承，头文件 include &amp;lt;QTest&amp;gt; ，并将测试函数声明 private slot
-[&amp;hellip;] 检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。
-如果需要在测试失败报告中加入附加信息， &amp;hellip;">
-      <meta property="og:description" content="构建时添加 QT &#43;= testlib 。
-[&amp;hellip;] 测试类必须从 QObject 继承，头文件 include &amp;lt;QTest&amp;gt; ，并将测试函数声明 private slot
-[&amp;hellip;] 检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。
-如果需要在测试失败报告中加入附加信息， &amp;hellip;">
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
-
+    <title>Qt单元测试基础笔记 | Zexun Luo | 罗泽勋</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -46,56 +11,35 @@
 
   </head>
 
-  
-  <body class="post">
-    <header class="masthead">
+  <body>
+    <nav>
+    <ul class="menu">
       
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/series/">系列</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/note/">抄录</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-
-    <article class="main">
-      <header class="title">
+      <li><a href="/">主页</a></li>
       
-<h1>Qt单元测试基础笔记</h1>
+      <li><a href="/about/">关于</a></li>
+      
+      <li><a href="/blog/">日志</a></li>
+      
+      <li><a href="/post/">编程</a></li>
+      
+      <li><a href="/series/">系列</a></li>
+      
+      <li><a href="/categories/">分类</a></li>
+      
+      <li><a href="/note/">抄录</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
 
+<div class="article-meta">
+<h1><span class="title">Qt单元测试基础笔记</span></h1>
+<h2 class="author">罗泽勋</h2>
+<h2 class="date">2021/10/13</h2>
+</div>
 
-<h3>罗泽勋 / 
-2021-10-13</h3>
-
-<hr>
-
-
-      </header>
-
-
-
-
-
+<main>
 <h3 id="一构建">一、构建</h3>
 <p>构建时添加 <code>QT += testlib</code> 。</p>
 <h3 id="二测试类">二、测试类</h3>
@@ -113,7 +57,7 @@
 <pre tabindex="0"><code>QTEST_MAIN(YourClassName)
 #include &quot;yourfilename.moc&quot;
 </code></pre>
-
+</main>
 
   <footer>
   
@@ -178,27 +122,10 @@ async>
 
 
   
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
-
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2021
   
   </footer>
-  </article>
-  
   </body>
 </html>
 

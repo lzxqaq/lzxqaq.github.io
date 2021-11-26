@@ -3,39 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>搭建 - Zexun Luo | 罗泽勋</title>
-    <meta property="og:title" content="搭建 - Zexun Luo | 罗泽勋">
-    
-    <meta name="twitter:card" content="summary">
-
-    
-      
-    
-
-    
-      
-      <meta property="description" content="（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 cmd  加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 hugo new site blog ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一 &amp;hellip;">
-      <meta property="og:description" content="（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 cmd  加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 hugo new site blog ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一 &amp;hellip;">
-      
-    
-
-    
-    
-    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/1.png">
-    
-    
-
-    
-
-    
-    
-
-
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
-
+    <title>搭建 | Zexun Luo | 罗泽勋</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -43,56 +11,35 @@
 
   </head>
 
-  
-  <body class="post">
-    <header class="masthead">
+  <body>
+    <nav>
+    <ul class="menu">
       
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/series/">系列</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/note/">抄录</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-
-    <article class="main">
-      <header class="title">
+      <li><a href="/">主页</a></li>
       
-<h1>搭建</h1>
+      <li><a href="/about/">关于</a></li>
+      
+      <li><a href="/blog/">日志</a></li>
+      
+      <li><a href="/post/">编程</a></li>
+      
+      <li><a href="/series/">系列</a></li>
+      
+      <li><a href="/categories/">分类</a></li>
+      
+      <li><a href="/note/">抄录</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
 
+<div class="article-meta">
+<h1><span class="title">搭建</span></h1>
+<h2 class="author">罗泽勋</h2>
+<h2 class="date">2021/11/17</h2>
+</div>
 
-<h3>罗泽勋 / 
-2021-11-17</h3>
-
-<hr>
-
-
-      </header>
-
-
-
-
-
+<main>
 <h3 id="一在本地创建网站">一、在本地创建网站</h3>
 <p>（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 <code>cmd </code> 加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 <code>hugo new site blog</code> ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一个文件夹名字，但为了方便教程工作，请统一）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/1.png" alt="img"></p>
@@ -125,7 +72,7 @@ git push --set-upstream origin master
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/14.png" alt="img"></p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
 
-
+</main>
 
   <footer>
   
@@ -190,27 +137,10 @@ async>
 
 
   
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
-
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2021
   
   </footer>
-  </article>
-  
   </body>
 </html>
 

@@ -3,38 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Qt测试最佳实践（Qt文档） - Zexun Luo | 罗泽勋</title>
-    <meta property="og:title" content="Qt测试最佳实践（Qt文档） - Zexun Luo | 罗泽勋">
-    
-    <meta name="twitter:card" content="summary">
-
-    
-      
-    
-
-    
-      
-      <meta property="description" content="我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表现出错误，并在修复之后通过。在开发新功能时，添加测试以验证它们是否按预期工作。
-符合一组编码标准将使 Qt 自动测试更有可能在所有环境中可靠地工作。例如，有些测试需要从磁盘读取数据。如果没有为如何完成设置标准，则某些测试将无法移植。例如，假设其测试数据文件位于当前工作 &amp;hellip;">
-      <meta property="og:description" content="我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表现出错误，并在修复之后通过。在开发新功能时，添加测试以验证它们是否按预期工作。
-符合一组编码标准将使 Qt 自动测试更有可能在所有环境中可靠地工作。例如，有些测试需要从磁盘读取数据。如果没有为如何完成设置标准，则某些测试将无法移植。例如，假设其测试数据文件位于当前工作 &amp;hellip;">
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
-
+    <title>Qt测试最佳实践（Qt文档） | Zexun Luo | 罗泽勋</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -42,56 +11,35 @@
 
   </head>
 
-  
-  <body class="post">
-    <header class="masthead">
+  <body>
+    <nav>
+    <ul class="menu">
       
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/series/">系列</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/note/">抄录</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-
-    <article class="main">
-      <header class="title">
+      <li><a href="/">主页</a></li>
       
-<h1>Qt测试最佳实践（Qt文档）</h1>
+      <li><a href="/about/">关于</a></li>
+      
+      <li><a href="/blog/">日志</a></li>
+      
+      <li><a href="/post/">编程</a></li>
+      
+      <li><a href="/series/">系列</a></li>
+      
+      <li><a href="/categories/">分类</a></li>
+      
+      <li><a href="/note/">抄录</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
 
+<div class="article-meta">
+<h1><span class="title">Qt测试最佳实践（Qt文档）</span></h1>
+<h2 class="author">罗泽勋</h2>
+<h2 class="date">2021/10/13</h2>
+</div>
 
-<h3>罗泽勋 / 
-2021-10-13</h3>
-
-<hr>
-
-
-      </header>
-
-
-
-
-
+<main>
 <h2 id="qt-测试最佳实践">Qt 测试最佳实践</h2>
 <p>我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表现出错误，并在修复之后通过。在开发新功能时，添加测试以验证它们是否按预期工作。</p>
 <p>符合一组编码标准将使 Qt 自动测试更有可能在所有环境中可靠地工作。例如，有些测试需要从磁盘读取数据。如果没有为如何完成设置标准，则某些测试将无法移植。例如，假设其测试数据文件位于当前工作目录中的测试仅适用于源代码构建。在影子构建中（在源目录之外），测试将无法找到其数据。</p>
@@ -252,7 +200,7 @@ DISPLAY=:1 make -k -j1 check
 <p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>
 <p>注意： Tab Window Manager 不适合运行完整的 Qt 自动测试套件，因为tst_gestures自动测试会导致它忘记其配置并恢复到手动窗口放置。</p>
 
-
+</main>
 
   <footer>
   
@@ -317,27 +265,10 @@ async>
 
 
   
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
-
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2021
   
   </footer>
-  </article>
-  
   </body>
 </html>
 
