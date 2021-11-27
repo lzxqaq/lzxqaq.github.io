@@ -11,10 +11,10 @@
     
     <item>
       <title>修改菜单栏和文章创作</title>
-      <link>/post/2021-11-18/</link>
+      <link>/post/2021/11/18/%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%92%8C%E6%96%87%E7%AB%A0%E5%88%9B%E4%BD%9C/</link>
       <pubDate>Thu, 18 Nov 2021 18:36:33 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-18/</guid>
+      <guid>/post/2021/11/18/%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%92%8C%E6%96%87%E7%AB%A0%E5%88%9B%E4%BD%9C/</guid>
       <description>
         <![CDATA[
         <h3 id="前情提要">前情提要</h3>
@@ -61,10 +61,10 @@
     
     <item>
       <title>搭建</title>
-      <link>/post/2021-11-17/</link>
+      <link>/post/2021/11/17/%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Wed, 17 Nov 2021 19:38:06 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-17/</guid>
+      <guid>/post/2021/11/17/%E6%90%AD%E5%BB%BA/</guid>
       <description>
         <![CDATA[
         <h3 id="一在本地创建网站">一、在本地创建网站</h3>
@@ -89,12 +89,13 @@
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/10.png" alt="img"></p>
 <h3 id="五将网站推送到-github-平台">五、将网站推送到 Github 平台</h3>
 <p>（2）打开命令窗口，进入 blog\public 目录，分别执行</p>
-<pre tabindex="0"><code>git init 
+<pre><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre><p>输入 Github 账号名，密码，完成上传。</p>
+</code></pre>
+<p>输入 Github 账号名，密码，完成上传。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/13.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/14.png" alt="img"></p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
@@ -108,10 +109,10 @@ git push --set-upstream origin master
     
     <item>
       <title>准备工作</title>
-      <link>/post/2021-11-15/</link>
+      <link>/post/2021/11/15/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</link>
       <pubDate>Mon, 15 Nov 2021 12:26:45 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-15/</guid>
+      <guid>/post/2021/11/15/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</guid>
       <description>
         <![CDATA[
         <h3 id="一注册-github-帐号">一、注册 Github 帐号</h3>
@@ -146,10 +147,10 @@ git push --set-upstream origin master
     
     <item>
       <title>基础概念</title>
-      <link>/post/2021-11-14-2/</link>
+      <link>/post/2021/11/14/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-14-2/</guid>
+      <guid>/post/2021/11/14/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</guid>
       <description>
         <![CDATA[
         <p>教程开始前，先来介绍一下最终的成果，以便确认是否符合你的需求。本篇教程以 Hugo 和 Github Pages 为基础，创建一个静态的网站。这个过程仅需要一台联网的电脑，不需要其他花费（注意：如果你想自定义域名，则需要自行购买域名，后面会有相关介绍）。下文提到的概念理论只需要有一个模糊的认识就足够了，不需要理解透彻，因为在后续文章中会具体介绍其用法，届时就会有更直观的认识了。</p>
@@ -169,10 +170,10 @@ git push --set-upstream origin master
     
     <item>
       <title>开篇</title>
-      <link>/post/2021-11-14/</link>
+      <link>/post/2021/11/14/%E5%BC%80%E7%AF%87/</link>
       <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-14/</guid>
+      <guid>/post/2021/11/14/%E5%BC%80%E7%AF%87/</guid>
       <description>
         <![CDATA[
         <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-14/0.jpg" alt="img"></p>
@@ -194,10 +195,10 @@ git push --set-upstream origin master
     
     <item>
       <title>Qt单元测试基础笔记</title>
-      <link>/post/2021-10-13-1/</link>
+      <link>/post/2021/10/13/qt%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-10-13-1/</guid>
+      <guid>/post/2021/10/13/qt%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</guid>
       <description>
         <![CDATA[
         <h3 id="一构建">一、构建</h3>
@@ -214,9 +215,10 @@ git push --set-upstream origin master
 <p>对于你自己的类，你可以使用 <code>QTest::toString ()</code> 来格式化输出到测试日志中的值。具体可参考 <a href="https://doc.qt.io/qt-6/qtest.html#QCOMPARE">Qt 文档</a>;</p>
 <h3 id="五可执行文件">五、可执行文件</h3>
 <p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
-<pre tabindex="0"><code>QTEST_MAIN(YourClassName)
+<pre><code>QTEST_MAIN(YourClassName)
 #include &quot;yourfilename.moc&quot;
 </code></pre>
+
         
         ]]>
       </description>
@@ -226,10 +228,10 @@ git push --set-upstream origin master
     
     <item>
       <title>Qt测试最佳实践（Qt文档）</title>
-      <link>/post/2021-10-13-2/</link>
+      <link>/post/2021/10/13/qt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5qt%E6%96%87%E6%A1%A3/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-10-13-2/</guid>
+      <guid>/post/2021/10/13/qt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5qt%E6%96%87%E6%A1%A3/</guid>
       <description>
         <![CDATA[
         <h2 id="qt-测试最佳实践">Qt 测试最佳实践</h2>
@@ -296,8 +298,9 @@ git push --set-upstream origin master
 <p>使用QSKIP () 来处理在运行时发现整个测试函数在当前测试环境中不适用的情况。当只跳过测试函数的一部分时，可以使用条件语句，可选择qDebug()调用以报告跳过不适用部分的原因。</p>
 <p>数据驱动测试的测试功能或数据行可以限于特定平台，或使用#if. 但是，在使用跳过测试功能时要注意moc限制#if。该moc预处理器不具备访问所有builtin被经常用于编译器的特征检测编译器的宏。因此，moc预处理器条件的结果可能与其余代码看到的结果不同。这可能会导致moc为实际编译器跳过的测试槽生成元数据，或省略实际编译到类中的测试槽的元数据。在第一种情况下，测试将尝试运行未实现的插槽。在第二种情况下，即使应该尝试运行测试槽，测试也不会尝试。</p>
 <p>如果整个测试程序不适用于特定平台或除非启用了特定功能，最好的方法是使用父目录的.pro文件来避免构建测试。例如，如果tests/auto/gui/someclass测试对 macOS 无效，请将以下行添加到tests/auto/gui.pro：</p>
-<pre tabindex="0"><code>mac*: SUBDIRS -= someclass
-</code></pre><h3 id="避免q_assert">避免Q_ASSERT</h3>
+<pre><code>mac*: SUBDIRS -= someclass
+</code></pre>
+<h3 id="避免q_assert">避免Q_ASSERT</h3>
 <p>该Q_ASSERT宏将导致程序中止时断言的情况false，但前提是软件始建于调试模式。在 release 和 debug-and-release 版本中，Q_ASSERT什么都不做。</p>
 <p>Q_ASSERT 应该避免，因为它使测试的行为取决于是否正在测试调试版本，并且因为它会导致测试立即中止，跳过所有剩余的测试函数并返回不完整或格式错误的测试结果。</p>
 <p>它还会跳过本应在测试结束时进行的任何拆卸或整理，因此可能会使工作区处于不整洁状态，这可能会导致进一步测试的复杂化。</p>
@@ -376,18 +379,21 @@ git push --set-upstream origin master
 <p>某些测试使用测试机器的显示器、鼠标和键盘，因此如果机器同时用于其他用途或并行运行多个测试，则可能会失败。</p>
 <p>CI 系统使用专用测试机来避免此问题，但如果您没有专用测试机，则可以通过在第二台显示器上运行测试来解决此问题。</p>
 <p>在 Unix 上，还可以在嵌套或虚拟 X 服务器上运行测试，例如 Xephyr。例如，要在 Xephyr 上运行整套测试，请执行以下命令：</p>
-<pre tabindex="0"><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
+<pre><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
 sleep 5
 DISPLAY=:1 icewm &gt;/dev/null 2&gt;&amp;1 &amp;
 cd tests/auto
 make
 DISPLAY=:1 make -k -j1 check
-</code></pre><p>NVIDIA 二进制驱动程序的用户应该注意 Xephyr 可能无法提供 GLX 扩展。强制 Mesa libGL 可能会有所帮助：</p>
-<pre tabindex="0"><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
-</code></pre><p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
+</code></pre>
+<p>NVIDIA 二进制驱动程序的用户应该注意 Xephyr 可能无法提供 GLX 扩展。强制 Mesa libGL 可能会有所帮助：</p>
+<pre><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
+</code></pre>
+<p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
 <p>或者，使用屏幕外插件：</p>
-<pre tabindex="0"><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
-</code></pre><h3 id="窗口管理器">窗口管理器</h3>
+<pre><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
+</code></pre>
+<h3 id="窗口管理器">窗口管理器</h3>
 <p>在 Unix 上，至少有两个自动测试（tst_examples和tst_gestures）需要运行窗口管理器。因此，如果在嵌套的 X-server 下运行这些测试，您还必须在该 X-server 中运行窗口管理器。</p>
 <p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>
 <p>注意： Tab Window Manager 不适合运行完整的 Qt 自动测试套件，因为tst_gestures自动测试会导致它忘记其配置并恢复到手动窗口放置。</p>
@@ -401,10 +407,10 @@ DISPLAY=:1 make -k -j1 check
     
     <item>
       <title>开发指南-未完待续</title>
-      <link>/post/2021-7-16/</link>
+      <link>/post/2021/07/16/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</link>
       <pubDate>Fri, 16 Jul 2021 14:24:34 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-7-16/</guid>
+      <guid>/post/2021/07/16/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</guid>
       <description>
         <![CDATA[
         <p>提高质量和生产率是软件工程要解决的核心问题。</p>
@@ -456,10 +462,10 @@ DISPLAY=:1 make -k -j1 check
     
     <item>
       <title>vim 操作备忘</title>
-      <link>/post/2021-7-10/</link>
+      <link>/post/2021/07/10/vim-%E6%93%8D%E4%BD%9C%E5%A4%87%E5%BF%98/</link>
       <pubDate>Sat, 10 Jul 2021 10:35:46 +0800</pubDate>
       
-      <guid>/post/2021-7-10/</guid>
+      <guid>/post/2021/07/10/vim-%E6%93%8D%E4%BD%9C%E5%A4%87%E5%BF%98/</guid>
       <description>
         <![CDATA[
         <h3 id="一存活">一、存活</h3>
@@ -653,10 +659,10 @@ DISPLAY=:1 make -k -j1 check
     
     <item>
       <title>从零开始搭建个人网站——小白篇</title>
-      <link>/post/2021-6-1/</link>
+      <link>/post/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%B0%8F%E7%99%BD%E7%AF%87/</link>
       <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-6-1/</guid>
+      <guid>/post/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%B0%8F%E7%99%BD%E7%AF%87/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -680,12 +686,13 @@ DISPLAY=:1 make -k -j1 check
 <p>2.将网站展示文件存放到 Github 远程仓库。</p>
 <p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置中检查 Github Pages。</p>
 <p>（2）打开命令提示符，进入 demosite\public 目录，分别执行</p>
-<pre tabindex="0"><code>git init 
+<pre><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre><p>输入账号名，密码，完成上传。</p>
+</code></pre>
+<p>输入账号名，密码，完成上传。</p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，打开网址 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
 <p>3.自定义域名（可选、需要一定的时间）</p>
 <p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
@@ -701,10 +708,10 @@ git push --set-upstream origin master
     
     <item>
       <title>【规约】 C&#43;&#43; 编程篇</title>
-      <link>/post/c&#43;&#43;codingguidelines/</link>
+      <link>/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/</link>
       <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
       
-      <guid>/post/c&#43;&#43;codingguidelines/</guid>
+      <guid>/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -765,10 +772,10 @@ int delete_user( BYTE *user_name);</p>
     
     <item>
       <title>【规约】 Java 编程篇</title>
-      <link>/post/javacodingguidelines/</link>
+      <link>/post/2021/05/28/%E8%A7%84%E7%BA%A6-java-%E7%BC%96%E7%A8%8B%E7%AF%87/</link>
       <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
       
-      <guid>/post/javacodingguidelines/</guid>
+      <guid>/post/2021/05/28/%E8%A7%84%E7%BA%A6-java-%E7%BC%96%E7%A8%8B%E7%AF%87/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -808,7 +815,7 @@ B）领域模型命名规约<br>
 反例：String key = &ldquo;ID#taobao_&rdquo; + tradeId;</p>
 <p>14.【强制】代码格式，具体见下面正例。
 正例：</p>
-<pre tabindex="0"><code>    public static void main(String[] args) {
+<pre><code>    public static void main(String[] args) {
         // 缩进4个空格，注释内空1格
         String say = &quot;hello&quot;;
         // 运算符左右必须有一个空格
@@ -827,6 +834,7 @@ B）领域模型命名规约<br>
             System.out.printLn(&quot;ok&quot;);
         }
     }</code></pre>
+
         
         ]]>
       </description>
@@ -836,10 +844,10 @@ B）领域模型命名规约<br>
     
     <item>
       <title>【规约】 MySQL 数据库篇</title>
-      <link>/post/databaseguidelines/</link>
+      <link>/post/2021/05/28/%E8%A7%84%E7%BA%A6-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AF%87/</link>
       <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
       
-      <guid>/post/databaseguidelines/</guid>
+      <guid>/post/2021/05/28/%E8%A7%84%E7%BA%A6-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AF%87/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -902,10 +910,10 @@ B）领域模型命名规约<br>
     
     <item>
       <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
-      <link>/post/zxhan/</link>
+      <link>/post/2021/05/25/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84c-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%93%88%E5%A4%AB%E6%9B%BC%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6/</link>
       <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
       
-      <guid>/post/zxhan/</guid>
+      <guid>/post/2021/05/25/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84c-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%93%88%E5%A4%AB%E6%9B%BC%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -919,7 +927,7 @@ B）领域模型命名规约<br>
  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png" width = "500" height = "200" alt="图片名称" align=center /></div>
 <!-- ![img](https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png) -->
 <h3 id="核心实现">核心实现</h3>
-<pre tabindex="0"><code>void create_node_array();//构造包含字符及其频率的数组
+<pre><code>void create_node_array();//构造包含字符及其频率的数组
 void create_pq();//构造优先级队列
 void create_huffman_tree();//构造哈夫曼树
 void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表
@@ -928,7 +936,8 @@ bool do_compress();//开始压缩
 bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树
 void decode_huffman();//根据重构的哈夫曼树解码文件
 
-</code></pre><h3 id="后续">后续</h3>
+</code></pre>
+<h3 id="后续">后续</h3>
 <p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
 
         
@@ -940,10 +949,10 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
     
     <item>
       <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</title>
-      <link>/post/paopaotang/</link>
+      <link>/post/2021/05/08/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84java%E5%BC%80%E5%8F%91%E6%B3%A1%E6%B3%A1%E5%A0%82%E6%B8%B8%E6%88%8Fmvc%E6%9E%B6%E6%9E%84/</link>
       <pubDate>Sat, 08 May 2021 11:09:51 +0800</pubDate>
       
-      <guid>/post/paopaotang/</guid>
+      <guid>/post/2021/05/08/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84java%E5%BC%80%E5%8F%91%E6%B3%A1%E6%B3%A1%E5%A0%82%E6%B8%B8%E6%88%8Fmvc%E6%9E%B6%E6%9E%84/</guid>
       <description>
         <![CDATA[
         <h3 id="介绍">介绍</h3>
@@ -992,10 +1001,10 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
     
     <item>
       <title>从零开始搭建个人网站（win10,Github,Hugo）</title>
-      <link>/post/2021-2-18-2/</link>
+      <link>/post/2021/02/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99win10githubhugo/</link>
       <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-2-18-2/</guid>
+      <guid>/post/2021/02/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99win10githubhugo/</guid>
       <description>
         <![CDATA[
         <h3 id="准备工作">准备工作</h3>
@@ -1019,12 +1028,13 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
 <p>2.将网站展示文件存放到 Github 远程仓库。</p>
 <p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置 setting 中检查 Github Pages。</p>
 <p>（2）打开命令提示符，进入 blog\public 目录，分别执行</p>
-<pre tabindex="0"><code>git init 
+<pre><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre><p>输入账号名，密码，完成上传。</p>
+</code></pre>
+<p>输入账号名，密码，完成上传。</p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
 <p>3.自定义域名（可选、需要一定的时间）</p>
 <p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
@@ -1040,10 +1050,10 @@ git push --set-upstream origin master
     
     <item>
       <title>Java I/O</title>
-      <link>/post/io/</link>
+      <link>/post/2021/01/12/java-i/o/</link>
       <pubDate>Tue, 12 Jan 2021 08:46:08 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/io/</guid>
+      <guid>/post/2021/01/12/java-i/o/</guid>
       <description>
         <![CDATA[
         <h3 id="一概览">一、概览</h3>
@@ -1058,7 +1068,7 @@ git push --set-upstream origin master
 <h3 id="二磁盘操作">二、磁盘操作</h3>
 <p>File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。
 递归地列出一个目录的所有文件：</p>
-<pre tabindex="0"><code>public static void listAllFiles(File dir){
+<pre><code>public static void listAllFiles(File dir){
     if(dir == null || !dir.exists()){
         return ;
     }
@@ -1070,10 +1080,11 @@ git push --set-upstream origin master
         listAllFiles(file);
     }
 }
-</code></pre><p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
+</code></pre>
+<p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
 <h3 id="三字节操作">三、字节操作</h3>
 <h4 id="实现文件复制">实现文件复制</h4>
-<pre tabindex="0"><code>public static void copuFile(String src, String dist) throws IOException {
+<pre><code>public static void copuFile(String src, String dist) throws IOException {
     FileInputStream in = new FileInputStream(src);
     FileOutputStream out = new FileOutStream(dist);
 
@@ -1089,7 +1100,8 @@ git push --set-upstream origin master
     in.close();
     out.close();
 }
-</code></pre><h4 id="装饰者模式">装饰者模式</h4>
+</code></pre>
+<h4 id="装饰者模式">装饰者模式</h4>
 <p>Java I/O 使用了装饰者模式来实现。</p>
 <p>实例化一个具有缓存功能的字节流对象时，只需要在 FileInputStream 对象上再套一层 BufferedInputStream 对象即可。</p>
 <h3 id="七nio">七、NIO</h3>
@@ -1104,10 +1116,10 @@ git push --set-upstream origin master
     
     <item>
       <title>Java 并发</title>
-      <link>/post/concurrent/</link>
+      <link>/post/2021/01/09/java-%E5%B9%B6%E5%8F%91/</link>
       <pubDate>Sat, 09 Jan 2021 10:50:16 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/concurrent/</guid>
+      <guid>/post/2021/01/09/java-%E5%B9%B6%E5%8F%91/</guid>
       <description>
         <![CDATA[
         <h3 id="一使用线程">一、使用线程</h3>
@@ -1119,45 +1131,51 @@ git push --set-upstream origin master
 </ul>
 <h4 id="实现-runnable-接口">实现 Runnable 接口</h4>
 <p>需要实现接口中的 run() 方法。</p>
-<pre tabindex="0"><code>public class MyRunnable implements Runnable {
+<pre><code>public class MyRunnable implements Runnable {
     @Override
     public void run(){
         // ...
     }
 }
-</code></pre><p>使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。</p>
-<pre tabindex="0"><code>public static void main(String[] args){
+</code></pre>
+<p>使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。</p>
+<pre><code>public static void main(String[] args){
     MyRunnable instance = new MyRunnable();
     Thread thread = new Thread(instance);
     thread.start();
 }
-</code></pre><h4 id="实现-callable-接口">实现 Callable 接口</h4>
+</code></pre>
+<h4 id="实现-callable-接口">实现 Callable 接口</h4>
 <p>与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。</p>
-<pre tabindex="0"><code>public class MyCallable implements Callable&lt;Integer&gt; {
+<pre><code>public class MyCallable implements Callable&lt;Integer&gt; {
     public Integer call(){
         return 123;
     }
 }
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) throws ExecutionException,InterruptedException {
+</code></pre>
+<pre><code>public static void main(String[] args) throws ExecutionException,InterruptedException {
     MyCallable mc = new MyCallble();
     FutureTask&lt;Integer&gt; ft = new FutureTask&lt;&gt;(mc);
     Thread thread = new Thread(ft);
     thread.start();
     System.out.println(ft.get());
 }
-</code></pre><h3 id="继承-thread-类">继承 Thread 类</h3>
+</code></pre>
+<h3 id="继承-thread-类">继承 Thread 类</h3>
 <p>同样也是需要实现 run() 方法，因为 Thread 类也实现了 Runnable 接口。</p>
 <p>当调用 start() 方法启动一个线程时，虚拟机会将该线程放入就绪队列中等待被调度，当一个线程被调度时会执行该线程的 run() 方法。</p>
-<pre tabindex="0"><code>public class MyThread extends Thread {
+<pre><code>public class MyThread extends Thread {
     public void run() {
         // ...
     }
 }
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
+</code></pre>
+<pre><code>public static void main(String[] args) {
     MyThread mt = new MyThread();
     mt.start();
 }
-</code></pre><h3 id="实现接口-vs-继承-thread">实现接口 VS 继承 Thread</h3>
+</code></pre>
+<h3 id="实现接口-vs-继承-thread">实现接口 VS 继承 Thread</h3>
 <p>实现接口会更好一些，因为：</p>
 <ul>
 <li>Java 不支持多重继承，可以实现多个接口。</li>
@@ -1167,14 +1185,15 @@ git push --set-upstream origin master
 <p>Java 提供了两种锁机制来控制多个线程对共享资源的互斥访问，第一个是 JVM 实现的 synchronized，而另一个是 JDK 实现的 ReentrantLock。</p>
 <h4 id="synchronized">synchronized</h4>
 <h5 id="1同步一个代码块">1.同步一个代码块</h5>
-<pre tabindex="0"><code>public void func() {
+<pre><code>public void func() {
     synchronized (this) {
         // ...
     }
 }
-</code></pre><p>它只作用于同一个对象，如果调用两个对象上的同步代码块，就不会进行同步。</p>
+</code></pre>
+<p>它只作用于同一个对象，如果调用两个对象上的同步代码块，就不会进行同步。</p>
 <p>对于以下代码，使用 ExecutorService 执行了两个线程，由于调用的是同一个对象的同步代码块，因此这两个线程会进行同步，当一个线程进入同步语句块时，另一个线程就必须等待。</p>
-<pre tabindex="0"><code>public class SynchronizedExample {
+<pre><code>public class SynchronizedExample {
 
     public void func1() {
         synchronized (this) {
@@ -1184,35 +1203,42 @@ git push --set-upstream origin master
         }
     }
 }
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
+</code></pre>
+<pre><code>public static void main(String[] args) {
     SynchronizedExample e1 = new SynchronizedExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; e1.func1());
     executorService.execute(() -&gt; e1.func1());
 }
-</code></pre><pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
-</code></pre><p>对于以下代码，两个线程调用了不同对象的同步代码块，因此这两个线程就不需要同步。从输出结果可以看出，两个线程交叉执行。</p>
-<pre tabindex="0"><code>public static void main(String[] args) {
+</code></pre>
+<pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre>
+<p>对于以下代码，两个线程调用了不同对象的同步代码块，因此这两个线程就不需要同步。从输出结果可以看出，两个线程交叉执行。</p>
+<pre><code>public static void main(String[] args) {
     SynchronizedExample e1 = new SynchronizedExample();
     SynchronizedExample e2 = new SynchronizedExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; e1.func1());
     executorService.execute(() -&gt; e2.func1());
 }
-</code></pre><pre tabindex="0"><code>0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
-</code></pre><h5 id="2同步一个方法">2.同步一个方法</h5>
-<pre tabindex="0"><code>public synchronized void func() {
+</code></pre>
+<pre><code>0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
+</code></pre>
+<h5 id="2同步一个方法">2.同步一个方法</h5>
+<pre><code>public synchronized void func() {
     // ...
 }
-</code></pre><p>它和同步代码块一样，作用于同一个对象</p>
+</code></pre>
+<p>它和同步代码块一样，作用于同一个对象</p>
 <h5 id="3同步一个类">3.同步一个类</h5>
-<pre tabindex="0"><code>public void func() {
+<pre><code>public void func() {
     synchronized (SynchronizedExample.class) {
         // ...
     }
 }
-</code></pre><p>作用于整个类，也就是说两个线程调用同一个类的不同对象上的这种同步语句块，也会进行同步。</p>
-<pre tabindex="0"><code>public class SynchronizedExample {
+</code></pre>
+<p>作用于整个类，也就是说两个线程调用同一个类的不同对象上的这种同步语句块，也会进行同步。</p>
+<pre><code>public class SynchronizedExample {
 
     public void func2() {
         synchronized (SynchronizedExample.class) {
@@ -1222,22 +1248,26 @@ git push --set-upstream origin master
         }
     }
 }
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
+</code></pre>
+<pre><code>public static void main(String[] args) {
     SynchronizedExample e1 = new SynchronizedExample();
     SynchronizedExample e2 = new SynchronizedExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; e1.func2());
     executorService.execute(() -&gt; e2.func2());
 }
-</code></pre><pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
-</code></pre><h5 id="4同步一个静态方法">4.同步一个静态方法</h5>
-<pre tabindex="0"><code>public synchronized static void fun() {
+</code></pre>
+<pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre>
+<h5 id="4同步一个静态方法">4.同步一个静态方法</h5>
+<pre><code>public synchronized static void fun() {
     // ...
 }
-</code></pre><p>作用于整个类。</p>
+</code></pre>
+<p>作用于整个类。</p>
 <h4 id="reentrantlock">ReentrantLock</h4>
 <p>ReentrantLock 是 java.util.concurrent（J.U.C)包中的锁。</p>
-<pre tabindex="0"><code>public class LockExample {
+<pre><code>public class LockExample {
 
     private Lock lock = new ReentrantLock();
 
@@ -1253,14 +1283,17 @@ git push --set-upstream origin master
     }
 }
 
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
+</code></pre>
+<pre><code>public static void main(String[] args) {
     LockExample lockExample = new LockExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; lockExample.func());
     executorService.execute(() -&gt; lockExample.func());
 }
-</code></pre><pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
-</code></pre><h5 id="使用选择">使用选择</h5>
+</code></pre>
+<pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre>
+<h5 id="使用选择">使用选择</h5>
 <p>除非需要使用 ReentrantLock 的高级功能，否则优先使用 synchronized。这是因为 synchronized 是 JVM 实现的一种锁机制，JVM 原生地支持它，而 ReentrantLock 不是所有的 JDK 版本都支持。并且使用 synchronized 不用担心没有释放锁而导致死锁问题，因为 JVM 会确保锁的释放。</p>
 <h3 id="六线程状态">六、线程状态</h3>
 <h4 id="新建">新建</h4>
@@ -1278,10 +1311,10 @@ git push --set-upstream origin master
     
     <item>
       <title>SQL 语法</title>
-      <link>/post/sql/</link>
+      <link>/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Thu, 31 Dec 2020 10:12:40 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/sql/</guid>
+      <guid>/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/</guid>
       <description>
         <![CDATA[
         <ul>
@@ -1334,16 +1367,18 @@ git push --set-upstream origin master
 <p>SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。</p>
 <p>SQL 语句不区分大小写，但是数据库表名、列名和值是否区分依赖于具体的 DBMS 以及配置。</p>
 <p>SQL 支持以下三种注释：</p>
-<pre tabindex="0"><code>### 注释
+<pre><code>### 注释
 SELECT * FROM mytable; -- 注释
 /* 注释1
    注释2 */
 
-</code></pre><p>数据库创建与使用：</p>
-<pre tabindex="0"><code>CREATE DATABASE test;
+</code></pre>
+<p>数据库创建与使用：</p>
+<pre><code>CREATE DATABASE test;
 USE test;
-</code></pre><h3 id="二创建表a-name2a">二、创建表<a name="2"></a></h3>
-<pre tabindex="0"><code>CREATE TABLE mytable (
+</code></pre>
+<h3 id="二创建表a-name2a">二、创建表<a name="2"></a></h3>
+<pre><code>CREATE TABLE mytable (
     # int 类型，不为空，自增
     id INT NOT NULL AUTO_INCREMENT,
     # int 类型，不可为空，默认值为1，不为空
@@ -1355,69 +1390,85 @@ USE test;
     # 设置主健为 id
     PRIMARY KEY (`id`)
 );
-</code></pre><h3 id="三修改表">三、修改表</h3>
+</code></pre>
+<h3 id="三修改表">三、修改表</h3>
 <p>添加列</p>
-<pre tabindex="0"><code>ALTER TABLE mytable
+<pre><code>ALTER TABLE mytable
 ADD col CHAR(20);
-</code></pre><p>删除列</p>
-<pre tabindex="0"><code>ALTER TABLE mytable
+</code></pre>
+<p>删除列</p>
+<pre><code>ALTER TABLE mytable
 DROP COLUMN col;
-</code></pre><p>删除表</p>
-<pre tabindex="0"><code>DROP TABLE mytable;
-</code></pre><h3 id="四插入">四、插入</h3>
+</code></pre>
+<p>删除表</p>
+<pre><code>DROP TABLE mytable;
+</code></pre>
+<h3 id="四插入">四、插入</h3>
 <p>普通插入</p>
-<pre tabindex="0"><code>INSERT INTO mytable(col1, col2)
+<pre><code>INSERT INTO mytable(col1, col2)
 VALUES(val1,val2);
-</code></pre><p>插入检索出来的数据</p>
-<pre tabindex="0"><code>INSERT INTO mytable1(col1, col2)
+</code></pre>
+<p>插入检索出来的数据</p>
+<pre><code>INSERT INTO mytable1(col1, col2)
 SELECT col1, col2
 FROM mytable2;
-</code></pre><p>将一个表的内容插入到一个新表</p>
-<pre tabindex="0"><code>CREATE TABLE newtable AS 
+</code></pre>
+<p>将一个表的内容插入到一个新表</p>
+<pre><code>CREATE TABLE newtable AS 
 SELECT * FROM mytable;
-</code></pre><h3 id="五更新">五、更新</h3>
-<pre tabindex="0"><code>UPDATE mytable
+</code></pre>
+<h3 id="五更新">五、更新</h3>
+<pre><code>UPDATE mytable
 SET col = val 
 WHERE id = 1;
-</code></pre><h3 id="六删除">六、删除</h3>
-<pre tabindex="0"><code>DELETE FROM mytable
+</code></pre>
+<h3 id="六删除">六、删除</h3>
+<pre><code>DELETE FROM mytable
 WHERE id = 1;
-</code></pre><p>TRUNCATE TABLE table 可以清空表，也就是删除所有行。</p>
-<pre tabindex="0"><code>TRUNCATE TABLE mytable;
-</code></pre><p>使用更新和删除操作时一定要用 WHERE 字句，不然会把整张表的数据都损坏。用 SELECT 语句进行测试，防止错误删除。</p>
+</code></pre>
+<p>TRUNCATE TABLE table 可以清空表，也就是删除所有行。</p>
+<pre><code>TRUNCATE TABLE mytable;
+</code></pre>
+<p>使用更新和删除操作时一定要用 WHERE 字句，不然会把整张表的数据都损坏。用 SELECT 语句进行测试，防止错误删除。</p>
 <h3 id="七查询">七、查询</h3>
 <p>DISTINCT
 相同值只会出现一次。它作用与所有列，也就是说所有列的值都想同时才算相同。</p>
-<pre tabindex="0"><code>SELECT DISTINCT col1, col2
+<pre><code>SELECT DISTINCT col1, col2
 FROM mytable;
-</code></pre><p>LIMIT
+</code></pre>
+<p>LIMIT
 限制返回的行数。可以有两个参数，第一个参数为起始行，从 0 开始；第二个参数为返回的总行数。<br>
 返回前五行：</p>
-<pre tabindex="0"><code>SELECT * 
+<pre><code>SELECT * 
 FROM mytable
 LIMIT 5;
-</code></pre><pre tabindex="0"><code>SELECT *
+</code></pre>
+<pre><code>SELECT *
 FROM mytable
 LIMIT 0, 5;
-</code></pre><p>返回第3～5行：</p>
-<pre tabindex="0"><code>SELECT *
+</code></pre>
+<p>返回第3～5行：</p>
+<pre><code>SELECT *
 FROM mytable
 LIMIT 2, 3;
-</code></pre><h3 id="八排序">八、排序</h3>
+</code></pre>
+<h3 id="八排序">八、排序</h3>
 <ul>
 <li>ASC：升序（默认）</li>
 <li>DESC：降序
 可以按多个列进行排序，并且为每个列指定不同的排序方式：</li>
 </ul>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable
 ORDER BY col1 DESC, col2 ASC;
-</code></pre><h3 id="九过滤">九、过滤</h3>
+</code></pre>
+<h3 id="九过滤">九、过滤</h3>
 <p>不进行过滤的数据非常大，导致通过网络传输了多余的数据，从而浪费了网络带宽。因此尽量使用 SQL 语句来过滤不必要的数据，而不是传输所有的数据到客户端中然后由客户端进行过滤。</p>
-<pre tabindex="0"><code>SELECT * 
+<pre><code>SELECT * 
 FROM mytable
 WHERE col IS NULL;
-</code></pre><p>下表显示了 WHERE 字句可用的操作符。</p>
+</code></pre>
+<p>下表显示了 WHERE 字句可用的操作符。</p>
 <table>
 <thead>
 <tr>
@@ -1472,10 +1523,11 @@ WHERE col IS NULL;
 <li>[] 可以匹配集合内的字符，例如 [ab]将匹配字符 a 或者 b。用脱字符 ^ 可以对其进行否定，也就是不匹配集合内的字符。<br>
 使用 LIKE 来进行通配符匹配。</li>
 </ul>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable
 WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
-</code></pre><p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
+</code></pre>
+<p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
 
         
         ]]>
@@ -1486,10 +1538,10 @@ WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
     
     <item>
       <title>Linux 不同发行版的选择</title>
-      <link>/post/2020-12-26/</link>
+      <link>/post/2020/12/26/linux-%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E9%80%89%E6%8B%A9/</link>
       <pubDate>Sat, 26 Dec 2020 22:33:13 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2020-12-26/</guid>
+      <guid>/post/2020/12/26/linux-%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E9%80%89%E6%8B%A9/</guid>
       <description>
         <![CDATA[
         <p>如果你对 Linux 感兴趣但还不了解，想知道 Linux 的不同发行版之间的区别，我的这些经历应该对你有帮助。</p>
@@ -1508,10 +1560,10 @@ WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
     
     <item>
       <title>Java 虚拟机</title>
-      <link>/post/jvm/</link>
+      <link>/post/2020/12/25/java-%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
       <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/jvm/</guid>
+      <guid>/post/2020/12/25/java-%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
       <description>
         <![CDATA[
         <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA.md">CyC2018/CS-Notes</a></p>
@@ -1560,8 +1612,9 @@ WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
 <h4 id="java-虚拟机栈-a-name12a">Java 虚拟机栈 <a name="1.2"></a></h4>
 <p>每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。</p>
 <p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</p>
-<pre tabindex="0"><code>java -Xss2M HaskTheJava
-</code></pre><p>该区域可能抛出以下异常：</p>
+<pre><code>java -Xss2M HaskTheJava
+</code></pre>
+<p>该区域可能抛出以下异常：</p>
 <ul>
 <li>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；</li>
 <li>栈进行动态扩展的时如果无法申请到足够的内存，会抛出 OutofMemoryError 异常。</li>
@@ -1578,8 +1631,9 @@ WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
 </ul>
 <p>堆不需要连续内存，并且可以动态增加其内存，增加失败会抛出 OutOfMemoryError 异常。</p>
 <p>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。</p>
-<pre tabindex="0"><code>java -Xms1M -Xmx2M HackTheJava
-</code></pre><h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
+<pre><code>java -Xms1M -Xmx2M HackTheJava
+</code></pre>
+<h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
 <p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
 <p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 OutOfMemoryError 异常。</p>
 <p>对这块区域进行垃圾回收的主要目标是对常量池的回收和对类的卸载，但是一般比较难实现。</p>
@@ -1651,10 +1705,10 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     
     <item>
       <title>Java 容器</title>
-      <link>/post/collection/</link>
+      <link>/post/2020/12/24/java-%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/collection/</guid>
+      <guid>/post/2020/12/24/java-%E5%AE%B9%E5%99%A8/</guid>
       <description>
         <![CDATA[
         <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%AE%B9%E5%99%A8.md">CyC2018/CS-Notes</a></p>
@@ -1715,16 +1769,16 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     
     <item>
       <title>String 类真的不可以改变吗？</title>
-      <link>/post/2020-12-15-2/</link>
+      <link>/post/2020/12/15/string-%E7%B1%BB%E7%9C%9F%E7%9A%84%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E5%90%97/</link>
       <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2020-12-15-2/</guid>
+      <guid>/post/2020/12/15/string-%E7%B1%BB%E7%9C%9F%E7%9A%84%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E5%90%97/</guid>
       <description>
         <![CDATA[
         <p>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。</p>
 <p>然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。</p>
 <p>事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：</p>
-<pre tabindex="0"><code>    //实验1
+<pre><code>    //实验1
     String s1 = &quot;1&quot;;
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -1732,8 +1786,9 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     value[0] = '2';
     System.out.println(s1);                 //2
     System.out.println((s1 == &quot;1&quot;));        //true
-</code></pre><p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
-<pre tabindex="0"><code>    //实验2
+</code></pre>
+<p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
+<pre><code>    //实验2
     String s2 = new String(&quot;1&quot;);
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -1741,9 +1796,10 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     value2[0] = '2';
     System.out.println(s2);                //2
     System.out.println((s2 == &quot;1&quot;));       //false
-</code></pre><p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
+</code></pre>
+<p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
 <p>到这里，可以停一会了。很多技术文章中都做过类似上面的实验（通过比较创建方式的区别、反射修改等)，来分析 String 、String Pool 的原理和设计理念。但我总觉得以此说明最终的结论还不够严谨、或者说还不够直观。接下来请看——魔鬼实验：</p>
-<pre tabindex="0"><code>    //实验3 
+<pre><code>    //实验3 
     String s1 = &quot;1&quot;;
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -1752,8 +1808,9 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     System.out.println(s1);                 //2
     System.out.println((s1 == &quot;1&quot;));        //true
     System.out.println(&quot;1&quot;);                //2
-</code></pre><p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
-<pre tabindex="0"><code>    //实验4
+</code></pre>
+<p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
+<pre><code>    //实验4
     String s2 = new String(&quot;1&quot;);
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -1762,7 +1819,8 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     System.out.println(s2);                 //2
     System.out.println((s2 == &quot;1&quot;));        //false
     System.out.println(&quot;1&quot;);                //2
-</code></pre><p>同样的，上述实验 4 只是在实验 2 的基础上输出了 <code>&quot;1&quot;</code> 的值。结果 <code>&quot;1&quot;</code> 的值还是 2。</p>
+</code></pre>
+<p>同样的，上述实验 4 只是在实验 2 的基础上输出了 <code>&quot;1&quot;</code> 的值。结果 <code>&quot;1&quot;</code> 的值还是 2。</p>
 <p><strong>结论：</strong><br>
 基于对 String 类和字符串常量池（String Pool） 的了解，我对以上实验作出解释（详细理论下回贴出）:</p>
 <p>实验 3 中 字符串 <code>s1</code> 通过直接赋值字符串常量 <code>&quot;1&quot;</code> 的方式创建，因此 <strong><code>s1</code> 会直接引用字符串常量池中 <code>&quot;1&quot;</code> 对应的对象</strong>。对 <code>s1</code> 的修改，也就是对常量池中 <code>&quot;1&quot;</code> 对象的修改，因此 <code>s1</code> 和 <code>&quot;1&quot;</code> 的值都是修改后的 2，而 <code>s1 == &quot;1&quot;</code> 也是 <code>true</code>,因为它们是同一个对象的引用。</p>
@@ -1779,10 +1837,10 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     
     <item>
       <title>Java 基础</title>
-      <link>/post/base/</link>
+      <link>/post/2020/12/15/java-%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/base/</guid>
+      <guid>/post/2020/12/15/java-%E5%9F%BA%E7%A1%80/</guid>
       <description>
         <![CDATA[
         <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md">CyC2018/CS-Notes</a></p>
@@ -1855,33 +1913,37 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
 <p>boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</p>
 <h4 id="包装类型-a-name12a">包装类型 <a name="1.2"></a></h4>
 <p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱和拆箱完成。</p>
-<pre tabindex="0"><code>Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
+<pre><code>Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
 int y = x;  //  拆箱 调用了 x.intValue()
-</code></pre><h4 id="缓存池-a-name13a">缓存池 <a name="1.3"></a></h4>
+</code></pre>
+<h4 id="缓存池-a-name13a">缓存池 <a name="1.3"></a></h4>
 <p>new Integer(123) 与 Integer.valueOf(123)的区别在于：</p>
 <ul>
 <li>new Integer(123) 每次都会创建一个对象；</li>
 <li>Integer.valueOf(123) 会使用缓存池中的对象，调用会取得同一个对象的引用。</li>
 </ul>
-<pre tabindex="0"><code>Integer x = new Integer(123);
+<pre><code>Integer x = new Integer(123);
 Integer y = new Integer(123);
 System.out.println(x == y);     //false
 Integer z = Integer.valueOf(123);
 Integer k = Integer.valueOf(123);
 System.out.println(z == k);     //true
-</code></pre><p>valueOf() 方法的实现，就是先判断值是否存在缓存池中，如果在的话就直接返回缓存池的内容。</p>
-<pre tabindex="0"><code>public static Integer valueOf(int i){
+</code></pre>
+<p>valueOf() 方法的实现，就是先判断值是否存在缓存池中，如果在的话就直接返回缓存池的内容。</p>
+<pre><code>public static Integer valueOf(int i){
     if(i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high){
         return IntegerCache.cache[i + (-IntegerCache.low)];
         return new Integer(i);
     }
 }
-</code></pre><p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
+</code></pre>
+<p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
 <p>编译器会在自动装箱过程中调用 valueOf()方法，因此多个值相同且值在缓存池范围内的 Integer 实例使用自动装箱来创建，那么就会引用相同的对象。</p>
-<pre tabindex="0"><code>Integer m = 123;
+<pre><code>Integer m = 123;
 Integer n = 123;
 System.out.priintln(m == n);    //true
-</code></pre><p>基本类型对应的缓冲池如下：</p>
+</code></pre>
+<p>基本类型对应的缓冲池如下：</p>
 <ul>
 <li>boolean values true and false</li>
 <li>all byte values</li>
@@ -1895,17 +1957,19 @@ System.out.priintln(m == n);    //true
 <h4 id="概览a-name21a">概览<a name="2.1"></a></h4>
 <p>String 被声明为 final,因此不可被继承。(Integer 等包装类也不能被继承)<br>
 在 Java 8 中，String 内部使用 char 数组存储数据。</p>
-<pre tabindex="0"><code>public final class String 
+<pre><code>public final class String 
     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
     private final char value[];   
 }
-</code></pre><p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用的编码。</p>
-<pre tabindex="0"><code>public final class String
+</code></pre>
+<p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用的编码。</p>
+<pre><code>public final class String
     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
         private final byte[] value;
         private final byte coder;
     }
-</code></pre><p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能在引用其他数组，并且 String 内部没有改变 value 数组的方法。这些表明 String 不能更改的约束规范。实际上可以通过反射来修改 String 内部 value 数组的值，但是这样的做法毫无意义，而且会引发错误。</p>
+</code></pre>
+<p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能在引用其他数组，并且 String 内部没有改变 value 数组的方法。这些表明 String 不能更改的约束规范。实际上可以通过反射来修改 String 内部 value 数组的值，但是这样的做法毫无意义，而且会引发错误。</p>
 <h4 id="不可变的好处a-name22a">不可变的好处<a name="2.2"></a></h4>
 <p>1.可以缓存 hash 值</p>
 <p>因为 String 的 hash 值经常被使用，例如 String 用做 HashMap 的 key。不可变的特性使得 hash 值也不可变，因此只需要进行一次计算。</p>
@@ -1930,17 +1994,19 @@ System.out.priintln(m == n);    //true
 <h4 id="string-poola-name24a">String Pool<a name="2.4"></a></h4>
 <p>字符串常量池(String Pool) 保存着所有字符串字面量(literal strings) ,这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool中。<br>
 当一个字符串调用 intern() 方法时，如果 String Pool 中已存在一个字符串和该字符串相等(使用 equals() 方法进行确定)，那么就会返回 String Pool 中字符串的引用；否则，就会在 String Poll 中添加一个新的字符串，并返回这个新字符串的引用。</p>
-<pre tabindex="0"><code>String s1 = new String(&quot;aaa&quot;);
+<pre><code>String s1 = new String(&quot;aaa&quot;);
 String s2 = new String(&quot;aaa&quot;);
 System.out.println(s1 == s2);    //false
 String s3 = s1.intern();
 String s4 = s2.intern();
 System.out.println(s3 == s4);   //true
-</code></pre><p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
-<pre tabindex="0"><code>String s5 = &quot;bbb&quot;;
+</code></pre>
+<p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
+<pre><code>String s5 = &quot;bbb&quot;;
 String s6 = &quot;bbb&quot;;
 System.out.println(s5 == s6);   //true
-</code></pre><p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+</code></pre>
+<p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
 <h4 id="new-stringabca-name25a">new String(&ldquo;abc&rdquo;)<a name="2.5"></a></h4>
 <p>使用这种方式一共会创建两个字符串对象（前提是 String Pool  中还没有 &ldquo;abc&rdquo; 字符串对象）。</p>
 <ul>
@@ -1948,13 +2014,14 @@ System.out.println(s5 == s6);   //true
 <li>而使用 new 的方式会在堆中创建一个字符串对象。<br>
 创建一个测试类，其 main 方法中使用这种方式来创建字符串对象。</li>
 </ul>
-<pre tabindex="0"><code>    public class NewStringTest {
+<pre><code>    public class NewStringTest {
         public static void main(String[] args){
             String s = new String(&quot;abc&quot;);
         }
     }
-</code></pre><p>使用 javap -verbose 进行反编译，得到以下内容：</p>
-<pre tabindex="0"><code>// ...
+</code></pre>
+<p>使用 javap -verbose 进行反编译，得到以下内容：</p>
+<pre><code>// ...
 Constant pool:
 // ...
    #2 = Class              #18            // java/lang/String
@@ -1975,16 +2042,18 @@ Constant pool:
          9: astore_1
 // ...
 
-</code></pre><p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
+</code></pre>
+<p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
 <p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
-<pre tabindex="0"><code>public String(String original){
+<pre><code>public String(String original){
     this.value = original.value;
     this.hash = original.hash;
 }
-</code></pre><h3 id="三运算a-name3a">三、运算<a name="3"></a></h3>
+</code></pre>
+<h3 id="三运算a-name3a">三、运算<a name="3"></a></h3>
 <h4 id="参数传递a-name31a">参数传递<a name="3.1"></a></h4>
 <p>以下代码中 Dog dog 的dog是一个指针，存储的是对象的地址。在将一个参数传入一个方法时，本质上是将对象的地址以值得方式传递到形参中。</p>
-<pre tabindex="0"><code>public class Dog {
+<pre><code>public class Dog {
     
     String name;
 
@@ -2000,8 +2069,9 @@ Constant pool:
         return super.toString();
     }
 }
-</code></pre><p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
-<pre tabindex="0"><code>class PassByValueExample {
+</code></pre>
+<p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
+<pre><code>class PassByValueExample {
     public static void main(String[] args) {
         Dog dog = new Dog(&quot;A&quot;);
         func(dog);
@@ -2012,8 +2082,9 @@ Constant pool:
         dog.setName(&quot;B&quot;);
     }
 }
-</code></pre><p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
-<pre tabindex="0"><code>public class PassByValueExample {
+</code></pre>
+<p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
+<pre><code>public class PassByValueExample {
     public static void main(String[] args) {
         Dog dog = new Dog(&quot;A&quot;);
         System.out.println(dog.getObjectAddress()); // Dog@4554617c
@@ -2029,22 +2100,28 @@ Constant pool:
         System.out.println(dog.getName());          // B
     }
 }
-</code></pre><h4 id="float-与-doublea-name32a">float 与 double<a name="3.2"></a></h4>
+</code></pre>
+<h4 id="float-与-doublea-name32a">float 与 double<a name="3.2"></a></h4>
 <p>Java 不能隐式执行向下转型，因为这会使得精度降低。</p>
 <p>1.1 字面量属于 double 类型，不能直接将 1.1 直接赋值给 float 变量，因为这是向下转型。</p>
-<pre tabindex="0"><code>// float f = 1.1;
-</code></pre><p>1.1f 字面量才是 float 类型。</p>
-<pre tabindex="0"><code>float f = 1.1f;
-</code></pre><h4 id="隐式类型转换a-name33a">隐式类型转换<a name="3.3"></a></h4>
+<pre><code>// float f = 1.1;
+</code></pre>
+<p>1.1f 字面量才是 float 类型。</p>
+<pre><code>float f = 1.1f;
+</code></pre>
+<h4 id="隐式类型转换a-name33a">隐式类型转换<a name="3.3"></a></h4>
 <p>因为字面量 1 是 int 类型，它比 short 类型精度要高，因此不能隐式地将 int 类型向下转型为 short 类型。</p>
-<pre tabindex="0"><code>short s1 = 1;
+<pre><code>short s1 = 1;
 //s1 = s1 + 1;
-</code></pre><p>但是使用 += 或者 ++ 运算符会执行隐式类型转换。</p>
-<pre tabindex="0"><code>s1 += 1;
+</code></pre>
+<p>但是使用 += 或者 ++ 运算符会执行隐式类型转换。</p>
+<pre><code>s1 += 1;
 s1++;
-</code></pre><p>上面的语句相当于将 s1 + 1 的计算结果进行了向下转型：</p>
-<pre tabindex="0"><code>s1 = (short)(s1 + 1);
-</code></pre><h4 id="switcha-name34a">switch<a name="3.4"></a></h4>
+</code></pre>
+<p>上面的语句相当于将 s1 + 1 的计算结果进行了向下转型：</p>
+<pre><code>s1 = (short)(s1 + 1);
+</code></pre>
+<h4 id="switcha-name34a">switch<a name="3.4"></a></h4>
 <p>从 Java 7 开始，可以在 switch 条件判断语句中使用 String 对象。<br>
 switch 不支持 long、float、double，是因为 switch 的设计初衷是对那些只有少数几个值的类型进行等值判断，如果值过于复杂，那么还是用 if 比较合适。</p>
 <h3 id="四关键字a-name4a">四、关键字<a name="4"></a></h3>
@@ -2055,11 +2132,12 @@ switch 不支持 long、float、double，是因为 switch 的设计初衷是对�
 <li>对于基本类型，final 使数值不变；</li>
 <li>对于引用类型，final 使引用不变，也就不能引用其他对象，但是被引用的对象本身是可以修改的。</li>
 </ul>
-<pre tabindex="0"><code>final int x = 1;
+<pre><code>final int x = 1;
 //x = 3;    // cannot assign value to final variable 'x'
 final A y = new A();
 y.a = 1;
-</code></pre><p>2.<strong>方法</strong></p>
+</code></pre>
+<p>2.<strong>方法</strong></p>
 <p>声明方法不能被子类重写。<br>
 private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。</p>
 <p>3.<strong>类</strong>
@@ -2070,7 +2148,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 <li>静态变量： 又被称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</li>
 <li>实例变量： 每创建一个实例就会产生一个实例变量，它与该实例同生共死。</li>
 </ul>
-<pre tabindex="0"><code>public class A {
+<pre><code>public class A {
     private int x;          // 实例变量
     private static int y;   // 静态变量
 
@@ -2081,13 +2159,15 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         int y = A.y;
     }
 }
-</code></pre><p>2.<strong>静态方法</strong></p>
+</code></pre>
+<p>2.<strong>静态方法</strong></p>
 <p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</p>
-<pre tabindex="0"><code>public  abstract class A {
+<pre><code>public  abstract class A {
     public static void func1(){}
 }
-</code></pre><p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
-<pre tabindex="0"><code>public class A {
+</code></pre>
+<p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
+<pre><code>public class A {
     private static int x;
     private int y;
 
@@ -2097,9 +2177,10 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         // int b = this.y;  //'A.this' cannot be referenced from a static context
     }
 }
-</code></pre><p><strong>3.静态语句块</strong><br>
+</code></pre>
+<p><strong>3.静态语句块</strong><br>
 静态语句块在类初始化时运行一次。</p>
-<pre tabindex="0"><code>public class A {
+<pre><code>public class A {
     static {
         System.out.println(&quot;123&quot;);
     }
@@ -2109,10 +2190,12 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         A a2 = new A();
     }
 }
-</code></pre><pre tabindex="0"><code>123
-</code></pre><p><strong>4.静态内部类</strong><br>
+</code></pre>
+<pre><code>123
+</code></pre>
+<p><strong>4.静态内部类</strong><br>
 非静态内部类依赖于外部类的实例，也就是说需要先创建外部类的实例，才能用这个实例去创建非静态内部类。而静态内部类不需要。</p>
-<pre tabindex="0"><code>public class OuterClass {
+<pre><code>public class OuterClass {
     class InnerClass {
     }
     static class StaticInnerClass {
@@ -2124,24 +2207,30 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         StaticInnerClass staticInnerClass = new StaticInnerClass(); 
     }
 }
-</code></pre><p>静态内部类不能访问外部类的非静态的变量和方法。</p>
+</code></pre>
+<p>静态内部类不能访问外部类的非静态的变量和方法。</p>
 <p><strong>5.静态导包</strong>
 在使用静态变量和方法时不用再指明 ClassName,从而简化代码，但可读性大大降低。</p>
 <p><strong>6.初始化顺序</strong><br>
 静态变量和静态语句块优先于实例变量和普通语句块，静态变量和静态语句块的初始化顺序取决于它们在代码中的顺序。</p>
-<pre tabindex="0"><code>public static String staticField = &quot;静态变量&quot;;
-</code></pre><pre tabindex="0"><code>static {
+<pre><code>public static String staticField = &quot;静态变量&quot;;
+</code></pre>
+<pre><code>static {
     System.out.println(&quot;静态语句块&quot;);
 }
-</code></pre><pre tabindex="0"><code>public String field = &quot;实例变量&quot;;
-</code></pre><pre tabindex="0"><code>{
+</code></pre>
+<pre><code>public String field = &quot;实例变量&quot;;
+</code></pre>
+<pre><code>{
     System.out.println(&quot;普通语句块&quot;);
 }
-</code></pre><p>最后才是构造函数的初始化。</p>
-<pre tabindex="0"><code>public InitialOrderTest(){
+</code></pre>
+<p>最后才是构造函数的初始化。</p>
+<pre><code>public InitialOrderTest(){
     System.out.println(&quot;构造函数&quot;);
 }
-</code></pre><p>存在继承的情况下，初始化顺序为：</p>
+</code></pre>
+<p>存在继承的情况下，初始化顺序为：</p>
 <ul>
 <li>父类（静态变量、静态语句块）</li>
 <li>子类（静态变量、静态语句块）</li>
@@ -2152,7 +2241,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 </ul>
 <h3 id="五object-通用方法a-name5a">五、Object 通用方法<a name="5"></a></h3>
 <h4 id="概述a-name51a">概述<a name="5.1"></a></h4>
-<pre tabindex="0"><code>public native int hashCode()
+<pre><code>public native int hashCode()
 
 public boolean equals(Object obj)
 
@@ -2174,7 +2263,8 @@ public final void wait(long timeout, int nanos) throws InterruptedException
 
 public final void wait() throws InterruptedException
 
-</code></pre><h4 id="equalsa-name52a">equals()<a name="5.2"></a></h4>
+</code></pre>
+<h4 id="equalsa-name52a">equals()<a name="5.2"></a></h4>
 <p><strong>1.等价关系</strong><br>
 两个对象具有等价关系，需要满足以下五个条件：自反性、对称性、传递性、一致性、与 null 的比较（对任何不是 null 的对象 x 调用 x.equals(null) 结果都为flase)</p>
 <p><strong>2.等价于相等</strong></p>
@@ -2182,18 +2272,19 @@ public final void wait() throws InterruptedException
 <li>对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。</li>
 <li>对于引用类型，== 判断两个变量是否引用同一个对象，而 equals() 判断引用的对象是否等价。</li>
 </ul>
-<pre tabindex="0"><code>Integer x = new Integer(1);
+<pre><code>Integer x = new Integer(1);
 Integer y = new Integer(1);
 System.out.println(x.equals(y));    // true
 System.out.println(x == y);         // false
-</code></pre><p><strong>3.实现</strong></p>
+</code></pre>
+<p><strong>3.实现</strong></p>
 <ul>
 <li>检查是否为同一个对象的引用，如果是直接返回 true；</li>
 <li>检查是否是同一个类型，如果不是，直接返回 false；</li>
 <li>将 Object 对象进行转型；</li>
 <li>判断每个关键域是否相等</li>
 </ul>
-<pre tabindex="0"><code>public class EqualExample {
+<pre><code>public class EqualExample {
     private int x;
     private int y;
     private int z;
@@ -2216,19 +2307,21 @@ System.out.println(x == y);         // false
         return z == that.z;
     }
 }
-</code></pre><h4 id="hashcodea-name53a">hashCode()<a name="5.3"></a></h4>
+</code></pre>
+<h4 id="hashcodea-name53a">hashCode()<a name="5.3"></a></h4>
 <p>hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。<br>
 在覆盖 equals() 方法时应当总是覆盖 hashCode() 方法，保证等价的两个对象哈希值也相等。<br>
 HashSet 和 HashMap 等集合类使用了 hashCode() 方法来计算对象应该存储的位置，因此要将对象添加到这些集合类中，需要让对应的类实现 hashCode() 方法。<br>
 下面的代码中，新建了两个等价的对象，并将它们添加到 HashSet 中，我们希望将两个对象当成一样的，只在集合中添加一个对象。但是 EqualExample 没有实现 hashCode() 方法，因此两个对象的哈希值是不同的，最终导致集合添加了两个等价的对象。</p>
-<pre tabindex="0"><code>EqualExample e1 = new EqualExample(1,1,1);
+<pre><code>EqualExample e1 = new EqualExample(1,1,1);
 EqualExample e2 = new EqualExample(1,1,1);
 System.out.println(eq.equal(e2));   // true
 HashSet&lt;EqualExample&gt; set  = new HashSet&lt;&gt;();
 set.add(e1);
 set.add(e2);
 System.out.println(set.size());     // 2
-</code></pre><p>理想的哈希函数应当具有均匀性 ，即不相等的对象应当均匀分布到所有可能的哈希值上。这就要求了哈希函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。</p>
+</code></pre>
+<p>理想的哈希函数应当具有均匀性 ，即不相等的对象应当均匀分布到所有可能的哈希值上。这就要求了哈希函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。</p>
 <p>R 一般取 31，它是一个奇素数。</p>
 <h4 id="tostringa-name54a">toString()<a name="5.4"></a></h4>
 <p>默认返回 类名@十六进制数 这种形式，其中 @ 后面的数值为散列码的无符号十六进制表示。</p>

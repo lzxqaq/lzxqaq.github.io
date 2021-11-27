@@ -11,10 +11,10 @@
     
     <item>
       <title>SQL 语法</title>
-      <link>/post/sql/</link>
+      <link>/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Thu, 31 Dec 2020 10:12:40 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/sql/</guid>
+      <guid>/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/</guid>
       <description>
         <![CDATA[
         <ul>
@@ -67,16 +67,18 @@
 <p>SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。</p>
 <p>SQL 语句不区分大小写，但是数据库表名、列名和值是否区分依赖于具体的 DBMS 以及配置。</p>
 <p>SQL 支持以下三种注释：</p>
-<pre tabindex="0"><code>### 注释
+<pre><code>### 注释
 SELECT * FROM mytable; -- 注释
 /* 注释1
    注释2 */
 
-</code></pre><p>数据库创建与使用：</p>
-<pre tabindex="0"><code>CREATE DATABASE test;
+</code></pre>
+<p>数据库创建与使用：</p>
+<pre><code>CREATE DATABASE test;
 USE test;
-</code></pre><h3 id="二创建表a-name2a">二、创建表<a name="2"></a></h3>
-<pre tabindex="0"><code>CREATE TABLE mytable (
+</code></pre>
+<h3 id="二创建表a-name2a">二、创建表<a name="2"></a></h3>
+<pre><code>CREATE TABLE mytable (
     # int 类型，不为空，自增
     id INT NOT NULL AUTO_INCREMENT,
     # int 类型，不可为空，默认值为1，不为空
@@ -88,69 +90,85 @@ USE test;
     # 设置主健为 id
     PRIMARY KEY (`id`)
 );
-</code></pre><h3 id="三修改表">三、修改表</h3>
+</code></pre>
+<h3 id="三修改表">三、修改表</h3>
 <p>添加列</p>
-<pre tabindex="0"><code>ALTER TABLE mytable
+<pre><code>ALTER TABLE mytable
 ADD col CHAR(20);
-</code></pre><p>删除列</p>
-<pre tabindex="0"><code>ALTER TABLE mytable
+</code></pre>
+<p>删除列</p>
+<pre><code>ALTER TABLE mytable
 DROP COLUMN col;
-</code></pre><p>删除表</p>
-<pre tabindex="0"><code>DROP TABLE mytable;
-</code></pre><h3 id="四插入">四、插入</h3>
+</code></pre>
+<p>删除表</p>
+<pre><code>DROP TABLE mytable;
+</code></pre>
+<h3 id="四插入">四、插入</h3>
 <p>普通插入</p>
-<pre tabindex="0"><code>INSERT INTO mytable(col1, col2)
+<pre><code>INSERT INTO mytable(col1, col2)
 VALUES(val1,val2);
-</code></pre><p>插入检索出来的数据</p>
-<pre tabindex="0"><code>INSERT INTO mytable1(col1, col2)
+</code></pre>
+<p>插入检索出来的数据</p>
+<pre><code>INSERT INTO mytable1(col1, col2)
 SELECT col1, col2
 FROM mytable2;
-</code></pre><p>将一个表的内容插入到一个新表</p>
-<pre tabindex="0"><code>CREATE TABLE newtable AS 
+</code></pre>
+<p>将一个表的内容插入到一个新表</p>
+<pre><code>CREATE TABLE newtable AS 
 SELECT * FROM mytable;
-</code></pre><h3 id="五更新">五、更新</h3>
-<pre tabindex="0"><code>UPDATE mytable
+</code></pre>
+<h3 id="五更新">五、更新</h3>
+<pre><code>UPDATE mytable
 SET col = val 
 WHERE id = 1;
-</code></pre><h3 id="六删除">六、删除</h3>
-<pre tabindex="0"><code>DELETE FROM mytable
+</code></pre>
+<h3 id="六删除">六、删除</h3>
+<pre><code>DELETE FROM mytable
 WHERE id = 1;
-</code></pre><p>TRUNCATE TABLE table 可以清空表，也就是删除所有行。</p>
-<pre tabindex="0"><code>TRUNCATE TABLE mytable;
-</code></pre><p>使用更新和删除操作时一定要用 WHERE 字句，不然会把整张表的数据都损坏。用 SELECT 语句进行测试，防止错误删除。</p>
+</code></pre>
+<p>TRUNCATE TABLE table 可以清空表，也就是删除所有行。</p>
+<pre><code>TRUNCATE TABLE mytable;
+</code></pre>
+<p>使用更新和删除操作时一定要用 WHERE 字句，不然会把整张表的数据都损坏。用 SELECT 语句进行测试，防止错误删除。</p>
 <h3 id="七查询">七、查询</h3>
 <p>DISTINCT
 相同值只会出现一次。它作用与所有列，也就是说所有列的值都想同时才算相同。</p>
-<pre tabindex="0"><code>SELECT DISTINCT col1, col2
+<pre><code>SELECT DISTINCT col1, col2
 FROM mytable;
-</code></pre><p>LIMIT
+</code></pre>
+<p>LIMIT
 限制返回的行数。可以有两个参数，第一个参数为起始行，从 0 开始；第二个参数为返回的总行数。<br>
 返回前五行：</p>
-<pre tabindex="0"><code>SELECT * 
+<pre><code>SELECT * 
 FROM mytable
 LIMIT 5;
-</code></pre><pre tabindex="0"><code>SELECT *
+</code></pre>
+<pre><code>SELECT *
 FROM mytable
 LIMIT 0, 5;
-</code></pre><p>返回第3～5行：</p>
-<pre tabindex="0"><code>SELECT *
+</code></pre>
+<p>返回第3～5行：</p>
+<pre><code>SELECT *
 FROM mytable
 LIMIT 2, 3;
-</code></pre><h3 id="八排序">八、排序</h3>
+</code></pre>
+<h3 id="八排序">八、排序</h3>
 <ul>
 <li>ASC：升序（默认）</li>
 <li>DESC：降序
 可以按多个列进行排序，并且为每个列指定不同的排序方式：</li>
 </ul>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable
 ORDER BY col1 DESC, col2 ASC;
-</code></pre><h3 id="九过滤">九、过滤</h3>
+</code></pre>
+<h3 id="九过滤">九、过滤</h3>
 <p>不进行过滤的数据非常大，导致通过网络传输了多余的数据，从而浪费了网络带宽。因此尽量使用 SQL 语句来过滤不必要的数据，而不是传输所有的数据到客户端中然后由客户端进行过滤。</p>
-<pre tabindex="0"><code>SELECT * 
+<pre><code>SELECT * 
 FROM mytable
 WHERE col IS NULL;
-</code></pre><p>下表显示了 WHERE 字句可用的操作符。</p>
+</code></pre>
+<p>下表显示了 WHERE 字句可用的操作符。</p>
 <table>
 <thead>
 <tr>
@@ -205,10 +223,11 @@ WHERE col IS NULL;
 <li>[] 可以匹配集合内的字符，例如 [ab]将匹配字符 a 或者 b。用脱字符 ^ 可以对其进行否定，也就是不匹配集合内的字符。<br>
 使用 LIKE 来进行通配符匹配。</li>
 </ul>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable
 WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
-</code></pre><p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
+</code></pre>
+<p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
 
         
         ]]>

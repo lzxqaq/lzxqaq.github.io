@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qt单元测试基础笔记 | 罗泽勋</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">主页</a></li>
+      
+      <li><a href="/about/">关于</a></li>
+      
+      <li><a href="/blog/">日志</a></li>
+      
+      <li><a href="/post/">编程</a></li>
+      
+      <li><a href="/series/">系列</a></li>
+      
+      <li><a href="/categories/">分类</a></li>
+      
+      <li><a href="/note/">抄录</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Qt单元测试基础笔记</span></h1>
+<h2 class="author">罗泽勋</h2>
+<h2 class="date">2021/10/13</h2>
+</div>
+
+<main>
+<h3 id="一构建">一、构建</h3>
+<p>构建时添加 <code>QT += testlib</code> 。</p>
+<h3 id="二测试类">二、测试类</h3>
+<p>测试类必须从 QObject 继承，头文件 <code>include &lt;QTest&gt;</code> ，并将测试函数声明 <code>private slot</code></p>
+<h3 id="三qverifycondition-宏">三、QVERIFY(condition) 宏</h3>
+<p>检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。</p>
+<p>如果需要在测试失败报告中加入附加信息，可以使用 QVERIFY2(condition, message)。</p>
+<p>如果需要测试日志有更详细的输出，可以使用 QCOMPARE(actual, expected)。</p>
+<h3 id="四qcompareactual-expected宏">四、QCOMPARE(actual, expected)宏</h3>
+<p>使用相等运算符将 actual （实际值）与 expected （预期值）进行比较。如果实际和预期匹配，则继续执行。如果不是，则在测试日志中记录失败，并且测试函数返回而不尝试任何后续检查。</p>
+<p>如果比较失败，QCOMPARE() 会尝试输出值的内容，因此可以从测试日志中看到比较失败的原因。</p>
+<p>对于你自己的类，你可以使用 <code>QTest::toString ()</code> 来格式化输出到测试日志中的值。具体可参考 <a href="https://doc.qt.io/qt-6/qtest.html#QCOMPARE">Qt 文档</a>;</p>
+<h3 id="五可执行文件">五、可执行文件</h3>
+<p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
+<pre><code>QTEST_MAIN(YourClassName)
+#include &quot;yourfilename.moc&quot;
+</code></pre>
+
+</main>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/10/13/qt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5qt%E6%96%87%E6%A1%A3/">Qt测试最佳实践（Qt文档）</a></span>
+  <span class="nav-next"><a href="/post/2021/11/14/%E5%BC%80%E7%AF%87/">开篇</a> &rarr;</span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2021\/10\/13\/qt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5qt%E6%96%87%E6%A1%A3\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/post\/2021\/11\/14\/%E5%BC%80%E7%AF%87\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2021
+  
+  </footer>
+  </body>
+</html>
+

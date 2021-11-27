@@ -11,10 +11,10 @@
     
     <item>
       <title>修改菜单栏和文章创作</title>
-      <link>/post/2021-11-18/</link>
+      <link>/post/2021/11/18/%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%92%8C%E6%96%87%E7%AB%A0%E5%88%9B%E4%BD%9C/</link>
       <pubDate>Thu, 18 Nov 2021 18:36:33 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-18/</guid>
+      <guid>/post/2021/11/18/%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%92%8C%E6%96%87%E7%AB%A0%E5%88%9B%E4%BD%9C/</guid>
       <description>
         <![CDATA[
         <h3 id="前情提要">前情提要</h3>
@@ -61,10 +61,10 @@
     
     <item>
       <title>搭建</title>
-      <link>/post/2021-11-17/</link>
+      <link>/post/2021/11/17/%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Wed, 17 Nov 2021 19:38:06 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-17/</guid>
+      <guid>/post/2021/11/17/%E6%90%AD%E5%BB%BA/</guid>
       <description>
         <![CDATA[
         <h3 id="一在本地创建网站">一、在本地创建网站</h3>
@@ -89,12 +89,13 @@
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/10.png" alt="img"></p>
 <h3 id="五将网站推送到-github-平台">五、将网站推送到 Github 平台</h3>
 <p>（2）打开命令窗口，进入 blog\public 目录，分别执行</p>
-<pre tabindex="0"><code>git init 
+<pre><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre><p>输入 Github 账号名，密码，完成上传。</p>
+</code></pre>
+<p>输入 Github 账号名，密码，完成上传。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/13.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/14.png" alt="img"></p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
@@ -108,10 +109,10 @@ git push --set-upstream origin master
     
     <item>
       <title>准备工作</title>
-      <link>/post/2021-11-15/</link>
+      <link>/post/2021/11/15/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</link>
       <pubDate>Mon, 15 Nov 2021 12:26:45 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-15/</guid>
+      <guid>/post/2021/11/15/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</guid>
       <description>
         <![CDATA[
         <h3 id="一注册-github-帐号">一、注册 Github 帐号</h3>
@@ -146,10 +147,10 @@ git push --set-upstream origin master
     
     <item>
       <title>基础概念</title>
-      <link>/post/2021-11-14-2/</link>
+      <link>/post/2021/11/14/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-14-2/</guid>
+      <guid>/post/2021/11/14/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</guid>
       <description>
         <![CDATA[
         <p>教程开始前，先来介绍一下最终的成果，以便确认是否符合你的需求。本篇教程以 Hugo 和 Github Pages 为基础，创建一个静态的网站。这个过程仅需要一台联网的电脑，不需要其他花费（注意：如果你想自定义域名，则需要自行购买域名，后面会有相关介绍）。下文提到的概念理论只需要有一个模糊的认识就足够了，不需要理解透彻，因为在后续文章中会具体介绍其用法，届时就会有更直观的认识了。</p>
@@ -169,10 +170,10 @@ git push --set-upstream origin master
     
     <item>
       <title>开篇</title>
-      <link>/post/2021-11-14/</link>
+      <link>/post/2021/11/14/%E5%BC%80%E7%AF%87/</link>
       <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-11-14/</guid>
+      <guid>/post/2021/11/14/%E5%BC%80%E7%AF%87/</guid>
       <description>
         <![CDATA[
         <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-14/0.jpg" alt="img"></p>

@@ -11,10 +11,10 @@
     
     <item>
       <title>开发指南-未完待续</title>
-      <link>/post/2021-7-16/</link>
+      <link>/post/2021/07/16/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</link>
       <pubDate>Fri, 16 Jul 2021 14:24:34 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021-7-16/</guid>
+      <guid>/post/2021/07/16/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</guid>
       <description>
         <![CDATA[
         <p>提高质量和生产率是软件工程要解决的核心问题。</p>
@@ -66,10 +66,10 @@
     
     <item>
       <title>【规约】 C&#43;&#43; 编程篇</title>
-      <link>/post/c&#43;&#43;codingguidelines/</link>
+      <link>/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/</link>
       <pubDate>Fri, 28 May 2021 11:46:44 +0800</pubDate>
       
-      <guid>/post/c&#43;&#43;codingguidelines/</guid>
+      <guid>/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -130,10 +130,10 @@ int delete_user( BYTE *user_name);</p>
     
     <item>
       <title>【规约】 Java 编程篇</title>
-      <link>/post/javacodingguidelines/</link>
+      <link>/post/2021/05/28/%E8%A7%84%E7%BA%A6-java-%E7%BC%96%E7%A8%8B%E7%AF%87/</link>
       <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
       
-      <guid>/post/javacodingguidelines/</guid>
+      <guid>/post/2021/05/28/%E8%A7%84%E7%BA%A6-java-%E7%BC%96%E7%A8%8B%E7%AF%87/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -173,7 +173,7 @@ B）领域模型命名规约<br>
 反例：String key = &ldquo;ID#taobao_&rdquo; + tradeId;</p>
 <p>14.【强制】代码格式，具体见下面正例。
 正例：</p>
-<pre tabindex="0"><code>    public static void main(String[] args) {
+<pre><code>    public static void main(String[] args) {
         // 缩进4个空格，注释内空1格
         String say = &quot;hello&quot;;
         // 运算符左右必须有一个空格
@@ -192,6 +192,7 @@ B）领域模型命名规约<br>
             System.out.printLn(&quot;ok&quot;);
         }
     }</code></pre>
+
         
         ]]>
       </description>
@@ -201,10 +202,10 @@ B）领域模型命名规约<br>
     
     <item>
       <title>【规约】 MySQL 数据库篇</title>
-      <link>/post/databaseguidelines/</link>
+      <link>/post/2021/05/28/%E8%A7%84%E7%BA%A6-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AF%87/</link>
       <pubDate>Fri, 28 May 2021 09:03:51 +0800</pubDate>
       
-      <guid>/post/databaseguidelines/</guid>
+      <guid>/post/2021/05/28/%E8%A7%84%E7%BA%A6-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AF%87/</guid>
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Java 并发 | 罗泽勋</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">主页</a></li>
+      
+      <li><a href="/about/">关于</a></li>
+      
+      <li><a href="/blog/">日志</a></li>
+      
+      <li><a href="/post/">编程</a></li>
+      
+      <li><a href="/series/">系列</a></li>
+      
+      <li><a href="/categories/">分类</a></li>
+      
+      <li><a href="/note/">抄录</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Java 并发</span></h1>
+<h2 class="author">罗泽勋</h2>
+<h2 class="date">2021/01/09</h2>
+</div>
+
+<main>
+<h3 id="一使用线程">一、使用线程</h3>
+<p>有三种使用线程的方法：</p>
+<ul>
+<li>实现 Runnable 接口；</li>
+<li>实现 Callable接口；</li>
+<li>继承 Tread 类；</li>
+</ul>
+<h4 id="实现-runnable-接口">实现 Runnable 接口</h4>
+<p>需要实现接口中的 run() 方法。</p>
+<pre><code>public class MyRunnable implements Runnable {
+    @Override
+    public void run(){
+        // ...
+    }
+}
+</code></pre>
+<p>使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。</p>
+<pre><code>public static void main(String[] args){
+    MyRunnable instance = new MyRunnable();
+    Thread thread = new Thread(instance);
+    thread.start();
+}
+</code></pre>
+<h4 id="实现-callable-接口">实现 Callable 接口</h4>
+<p>与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。</p>
+<pre><code>public class MyCallable implements Callable&lt;Integer&gt; {
+    public Integer call(){
+        return 123;
+    }
+}
+</code></pre>
+<pre><code>public static void main(String[] args) throws ExecutionException,InterruptedException {
+    MyCallable mc = new MyCallble();
+    FutureTask&lt;Integer&gt; ft = new FutureTask&lt;&gt;(mc);
+    Thread thread = new Thread(ft);
+    thread.start();
+    System.out.println(ft.get());
+}
+</code></pre>
+<h3 id="继承-thread-类">继承 Thread 类</h3>
+<p>同样也是需要实现 run() 方法，因为 Thread 类也实现了 Runnable 接口。</p>
+<p>当调用 start() 方法启动一个线程时，虚拟机会将该线程放入就绪队列中等待被调度，当一个线程被调度时会执行该线程的 run() 方法。</p>
+<pre><code>public class MyThread extends Thread {
+    public void run() {
+        // ...
+    }
+}
+</code></pre>
+<pre><code>public static void main(String[] args) {
+    MyThread mt = new MyThread();
+    mt.start();
+}
+</code></pre>
+<h3 id="实现接口-vs-继承-thread">实现接口 VS 继承 Thread</h3>
+<p>实现接口会更好一些，因为：</p>
+<ul>
+<li>Java 不支持多重继承，可以实现多个接口。</li>
+<li>继承整个 Thread 类开销过大。</li>
+</ul>
+<h3 id="四互斥同步">四、互斥同步</h3>
+<p>Java 提供了两种锁机制来控制多个线程对共享资源的互斥访问，第一个是 JVM 实现的 synchronized，而另一个是 JDK 实现的 ReentrantLock。</p>
+<h4 id="synchronized">synchronized</h4>
+<h5 id="1同步一个代码块">1.同步一个代码块</h5>
+<pre><code>public void func() {
+    synchronized (this) {
+        // ...
+    }
+}
+</code></pre>
+<p>它只作用于同一个对象，如果调用两个对象上的同步代码块，就不会进行同步。</p>
+<p>对于以下代码，使用 ExecutorService 执行了两个线程，由于调用的是同一个对象的同步代码块，因此这两个线程会进行同步，当一个线程进入同步语句块时，另一个线程就必须等待。</p>
+<pre><code>public class SynchronizedExample {
+
+    public void func1() {
+        synchronized (this) {
+            for (int i = 0; i &lt; 10; i++) {
+                System.out.print(i + &quot; &quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<pre><code>public static void main(String[] args) {
+    SynchronizedExample e1 = new SynchronizedExample();
+    ExecutorService executorService = Executors.newCachedThreadPool();
+    executorService.execute(() -&gt; e1.func1());
+    executorService.execute(() -&gt; e1.func1());
+}
+</code></pre>
+<pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre>
+<p>对于以下代码，两个线程调用了不同对象的同步代码块，因此这两个线程就不需要同步。从输出结果可以看出，两个线程交叉执行。</p>
+<pre><code>public static void main(String[] args) {
+    SynchronizedExample e1 = new SynchronizedExample();
+    SynchronizedExample e2 = new SynchronizedExample();
+    ExecutorService executorService = Executors.newCachedThreadPool();
+    executorService.execute(() -&gt; e1.func1());
+    executorService.execute(() -&gt; e2.func1());
+}
+</code></pre>
+<pre><code>0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
+</code></pre>
+<h5 id="2同步一个方法">2.同步一个方法</h5>
+<pre><code>public synchronized void func() {
+    // ...
+}
+</code></pre>
+<p>它和同步代码块一样，作用于同一个对象</p>
+<h5 id="3同步一个类">3.同步一个类</h5>
+<pre><code>public void func() {
+    synchronized (SynchronizedExample.class) {
+        // ...
+    }
+}
+</code></pre>
+<p>作用于整个类，也就是说两个线程调用同一个类的不同对象上的这种同步语句块，也会进行同步。</p>
+<pre><code>public class SynchronizedExample {
+
+    public void func2() {
+        synchronized (SynchronizedExample.class) {
+            for (int i = 0; i &lt; 10; i++) {
+                System.out.print(i + &quot; &quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<pre><code>public static void main(String[] args) {
+    SynchronizedExample e1 = new SynchronizedExample();
+    SynchronizedExample e2 = new SynchronizedExample();
+    ExecutorService executorService = Executors.newCachedThreadPool();
+    executorService.execute(() -&gt; e1.func2());
+    executorService.execute(() -&gt; e2.func2());
+}
+</code></pre>
+<pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre>
+<h5 id="4同步一个静态方法">4.同步一个静态方法</h5>
+<pre><code>public synchronized static void fun() {
+    // ...
+}
+</code></pre>
+<p>作用于整个类。</p>
+<h4 id="reentrantlock">ReentrantLock</h4>
+<p>ReentrantLock 是 java.util.concurrent（J.U.C)包中的锁。</p>
+<pre><code>public class LockExample {
+
+    private Lock lock = new ReentrantLock();
+
+    public void func() {
+        lock.lock();
+        try {
+            for (int i = 0; i &lt; 10; i++) {
+                System.out.print(i + &quot; &quot;);
+            }
+        } finally {
+            lock.unlock(); // 确保释放锁，从而避免发生死锁。
+        }
+    }
+}
+
+</code></pre>
+<pre><code>public static void main(String[] args) {
+    LockExample lockExample = new LockExample();
+    ExecutorService executorService = Executors.newCachedThreadPool();
+    executorService.execute(() -&gt; lockExample.func());
+    executorService.execute(() -&gt; lockExample.func());
+}
+</code></pre>
+<pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre>
+<h5 id="使用选择">使用选择</h5>
+<p>除非需要使用 ReentrantLock 的高级功能，否则优先使用 synchronized。这是因为 synchronized 是 JVM 实现的一种锁机制，JVM 原生地支持它，而 ReentrantLock 不是所有的 JDK 版本都支持。并且使用 synchronized 不用担心没有释放锁而导致死锁问题，因为 JVM 会确保锁的释放。</p>
+<h3 id="六线程状态">六、线程状态</h3>
+<h4 id="新建">新建</h4>
+<h4 id="可运行">可运行</h4>
+<h4 id="阻塞">阻塞</h4>
+<h4 id="无限期等待">无限期等待</h4>
+<h4 id="死亡">死亡</h4>
+
+</main>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/">SQL 语法</a></span>
+  <span class="nav-next"><a href="/post/2021/01/12/java-i/o/">Java I/O</a> &rarr;</span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2020\/12\/31\/sql-%E8%AF%AD%E6%B3%95\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/post\/2021\/01\/12\/java-i\/o\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2021
+  
+  </footer>
+  </body>
+</html>
+
