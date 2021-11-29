@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/blog/2021-11-27/</loc>
-    <lastmod>2021-11-27T07:42:23+08:00</lastmod>
+    <loc>/note/1/01/01/%E4%BD%A0%E4%B8%BA%E7%94%9F%E5%AD%98%E5%81%9A%E4%BA%9B%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%85%B3%E5%BF%83/</loc>
+  </url><url>
+    <loc>/note/1/01/01/%E5%A4%A9%E9%BB%91%E4%BB%A5%E5%90%8E/</loc>
+  </url><url>
+    <loc>/note/1/01/01/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E6%AF%8D%E5%B7%A2%E4%B9%8B%E6%88%98/</loc>
+  </url><url>
+    <loc>/note/1/01/01/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E8%87%AA%E7%94%B1%E4%B9%8B%E7%BF%BC/</loc>
+  </url><url>
+    <loc>/note/1/01/01/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E8%99%AB%E7%BE%A4%E4%B9%8B%E5%BF%83/</loc>
+  </url><url>
+    <loc>/note/1/01/01/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E8%99%9A%E7%A9%BA%E4%B9%8B%E9%81%97/</loc>
   </url><url>
     <loc>/</loc>
+    <lastmod>2021-11-27T07:42:23+08:00</lastmod>
+  </url><url>
+    <loc>/blog/2021-11-27/</loc>
     <lastmod>2021-11-27T07:42:23+08:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
@@ -237,16 +249,8 @@
   </url><url>
     <loc>/cv/</loc>
   </url><url>
-    <loc>/note/1/01/01/%E4%BD%A0%E4%B8%BA%E7%94%9F%E5%AD%98%E5%81%9A%E4%BA%9B%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%85%B3%E5%BF%83/</loc>
-  </url><url>
     <loc>/about/</loc>
   </url><url>
-    <loc>/note/1/01/01/%E5%A4%A9%E9%BB%91%E4%BB%A5%E5%90%8E/</loc>
-  </url><url>
     <loc>/note/</loc>
-  </url><url>
-    <loc>/note/1/01/01/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E6%AF%8D%E5%B7%A2%E4%B9%8B%E6%88%98/</loc>
-  </url><url>
-    <loc>/note/1/01/01/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E6%AF%8D%E5%B7%A2%E4%B9%8B%E6%88%98/</loc>
   </url>
 </urlset>
