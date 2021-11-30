@@ -129,7 +129,7 @@ git push --set-upstream origin master
 <p>注意：这种方式打开命令窗口会默认进入 C 盘的用户目录。如果需要切换到其他目录，比如我们后面所用的 <code>D:/hugo/site/blog</code> 目录，则需要先执行 <code>D:</code> 切换盘符，然后执行 <code>cd hugo/site/blog</code>，其中 <code>cd</code> 就是进入目录的命令，后面是需要进入的文件夹，有时候我们需要返回上一层目录，则可以执行 <code>cd ..</code> 来完成。后面会有相关操作。</p>
 <h3 id="三安装-hugo">三、安装 Hugo</h3>
 <p>（1）首先在 D 盘创建一个新文件夹 hugo，然后在里面创建 bin 和 site 两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。</p>
-<p>（2）前往<a href="https://github.com/spf13/hugo/releases">https://github.com/spf13/hugo/releases</a>，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p>（2）前往<a href="https://github.com/spf13/hugo/releases">https://github.com/spf13/hugo/releases</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/3.png" alt="img"></p>
 <p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
 <p>（4）配置环境变量。在 win10 搜索环境变量，进去找到系统变量中的 Path，双击编辑，在弹出的界面点新建，然后将 <code>D:\hugo\bin</code> 复制进去，最后连续确定。</p>
