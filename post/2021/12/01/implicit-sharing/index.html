@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>Qt6 隐式共享 - 罗泽勋</title>
+    <meta property="og:title" content="Qt6 隐式共享 - 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Qt 中的许多 C&#43;&#43; 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。
+[&amp;hellip;] 共享类由指向共享数据块的指针组成，该共享数据块包含引用计数和数据。
+创建共享对象时，它将引用计数设置为 1。只要新对象引用共享数据，引用计数就会增加，而当对象取 &amp;hellip;">
+      <meta property="og:description" content="Qt 中的许多 C&#43;&#43; 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。
+[&amp;hellip;] 共享类由指向共享数据块的指针组成，该共享数据块包含引用计数和数据。
+创建共享对象时，它将引用计数设置为 1。只要新对象引用共享数据，引用计数就会增加，而当对象取 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="og:image" content="/images/logo.png">
+    
+    
+
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">主页</a></li>
+      
+      <li><a href="/about/">关于</a></li>
+      
+      <li><a href="/blog/">日志</a></li>
+      
+      <li><a href="/post/">编程</a></li>
+      
+      <li><a href="/series/">标签</a></li>
+      
+      <li><a href="/categories/">分类</a></li>
+      
+      <li><a href="/note/">抄录</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Qt6 隐式共享</span></h1>
+<h2 class="author">罗泽勋</h2>
+<h2 class="date">2021/12/01</h2>
+</div>
+
+<main>
+<p>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。</p>
+<h3 id="概述">概述</h3>
+<p>共享类由指向共享数据块的指针组成，该共享数据块包含引用计数和数据。</p>
+<p>创建共享对象时，它将引用计数设置为 1。只要新对象引用共享数据，引用计数就会增加，而当对象取消引用共享数据时，引用计数会减少。当引用计数变为零时，共享数据将被删除。</p>
+<p>在处理共享对象时，有两种方法可以复制对象。我们通常谈论深拷贝和浅拷贝。深拷贝意味着复制一个对象。浅拷贝是引用拷贝，即只是指向共享数据块的指针。就内存和 CPU 而言，进行深度复制的成本可能很高。制作浅拷贝非常快，因为它只涉及设置一个指针和增加引用计数。</p>
+<p>隐式共享对象的对象分配（使用 operator=()）是使用浅拷贝实现的。</p>
+<p>共享的好处是程序不需要不必要地复制数据，从而减少内存使用和数据复制。对象可以很容易地被赋值，作为函数参数发送，并从函数中返回。</p>
+<p>隐式共享大多发生在幕后；程序员很少需要担心它。但是，Qt 的容器迭代器与 STL 的容器迭代器具有不同的行为。阅读隐式共享迭代器问题。</p>
+<p>在多线程应用程序中，会发生隐式共享，如线程和隐式共享类中所述。</p>
+<p>在实现您自己的隐式共享类时，请使用QSharedData和QSharedDataPointer类。</p>
+<h3 id="详细的隐式共享">详细的隐式共享</h3>
+<p>如果对象即将更改并且引用计数大于 1，则隐式共享会自动将对象从共享块中分离。（这通常称为 copy-on-write 或者 value semantics。）</p>
+<p>隐式共享类可以控制其内部数据。在任何修改其数据的成员函数中，它会在修改数据之前自动分离。但是，请注意容器迭代器的特殊情况；请参阅隐式共享迭代器问题。</p>
+<blockquote>
+<p>警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。</p>
+</blockquote>
+<h3 id="示例">示例</h3>
+<pre><code>QPixmap p1, p2;
+p1.load(&quot;image.bmp&quot;);
+p2 = p1;                        // p1 and p2 share data
+
+QPainter paint;
+paint.begin(&amp;p2);               // cuts p2 loose from p1
+paint.drawText(0,50, &quot;Hi&quot;);
+paint.end();
+</code></pre>
+<p>在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</p>
+<h3 id="所有隐式共享的类">所有隐式共享的类</h3>
+<p>参见 <a href="https://doc.qt.io/qt-6/implicit-sharing.html">Qt 文档</a>。</p>
+
+</main>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/12/01/qt-containers/">Qt6 容器类-概述</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2021\/12\/01\/qt-containers\/';
+    
+  } else if (e.which == 39) {  
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/center-img.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2021
+  
+  </footer>
+  </body>
+</html>
+

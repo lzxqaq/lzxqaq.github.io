@@ -1,0 +1,150 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qt 容器类 on 罗泽勋</title>
+    <link>/series/qt-%E5%AE%B9%E5%99%A8%E7%B1%BB/</link>
+    <description>Recent content in Qt 容器类 on 罗泽勋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 01 Dec 2021 22:05:26 +0800</lastBuildDate>
+    <atom:link href="/series/qt-%E5%AE%B9%E5%99%A8%E7%B1%BB/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Qt6 容器类-概述</title>
+      <link>/post/2021/12/01/qt-containers/</link>
+      <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
+      
+      <guid>/post/2021/12/01/qt-containers/</guid>
+      <description>
+        <![CDATA[
+        <h3 id="介绍">介绍</h3>
+<p>Qt 库提供了一组通用的基于模板的容器类。这些类可用于存储制定类型的项。例如，您需要一个可调整大小的 QString 数组，请使用 QList<QString>。</p>
+<p>这些容器类被设计为比 STL 容器更轻、更安全且更易于使用。如果您不熟悉 STL，或者更喜欢“Qt 方式”实现，您可以使用这些类而不是 STL 类。</p>
+<p>容器类是 <a href="/post/2021/12/01/implicit-sharing/">隐式共享的</a>，它们是可重入的，并且它们针对速度、低内存消耗和最小的内联代码扩展进行了优化，从而产生更小的可执行文件。此外，在所有用于访问它们的线程将它们用作只读容器的情况下，它们是线程安全的。</p>
+<p>容器提供了遍历的迭代器。STL 样式的迭代器是最有效的迭代器，可以与 Qt 和 STL 的通用算法一起使用。提供 Java 风格的迭代器是为了向后兼容。</p>
+<h3 id="容器类">容器类</h3>
+<p>Qt 提供以下顺序容器：QList、QStack 和 QQueue。对于大多数应用程序，QList 是最好的类型。它提供了非常快速的追加。如果您确实需要链表，请使用 std::list。QStack 和 QQueue 是提供 LIFO 和 FIFO 语义的便利类。QList和QVector在 Qt 6 中被统一。两者都使用来自QVector的数据模型。QVector现在是QList的别名。</p>
+<p>Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet。“Multi”容器方便地支持与单个键关联的多个值。“散列”容器通过使用散列函数而不是对排序集的二分搜索来提供更快的查找。</p>
+<p>作为特殊情况，QCache 和 QContiguousCache 类在有限的缓存存储中提供了有效的对象散列查找。</p>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QList <T></td>
+<td>这是迄今为止最常用的容器类。它存储可以通过索引访问的给定类型 (T) 的值列表。在内部，它在内存中的相邻位置存储一组给定类型的值。在列表的前面或中间插入可能会很慢，因为它可能导致大量项目必须在内存中移动一个位置。</td>
+</tr>
+<tr>
+<td>QVarLengthArray &lt;T, Prealloc &gt;</td>
+<td>这提供了一个低级的可变长度数组。在速度特别重要的地方，它可以代替QList使用。</td>
+</tr>
+<tr>
+<td>QStack <T></td>
+<td>这是QList 的一个便利子类，提供“后进先出”(LIFO) 语义。它向QList 中已有的函数添加了以下函数：push ()、pop () 和top ()。</td>
+</tr>
+<tr>
+<td>QQueue <T></td>
+<td>这是QList的便利子类，提供“先进先出”(FIFO) 语义。它将以下函数添加到QList 中已经存在的函数中：enqueue ()、dequeue () 和head ()。</td>
+</tr>
+<tr>
+<td>QSet <T></td>
+<td>这提供了具有快速查找功能的单值数学集。</td>
+</tr>
+<tr>
+<td>QMap &lt;Key, T&gt;</td>
+<td>这提供了一个字典（关联数组），将 Key 类型的键映射到 T 类型的值。通常每个键都与单个值相关联。QMap以 Key 顺序存储其数据；如果顺序无关紧要QHash是一个更快的选择。</td>
+</tr>
+<tr>
+<td>QMultiMap &lt;Key, T&gt;</td>
+<td>这是QMap 的一个方便的子类，它为多值映射提供了一个很好的接口，即一个键可以与多个值相关联的映射。</td>
+</tr>
+<tr>
+<td>QHash &lt;Key, T&gt;</td>
+<td>这与QMap具有几乎相同的 API ，但提供了明显更快的查找。QHash以任意顺序存储其数据。</td>
+</tr>
+<tr>
+<td>QMultiHash &lt;Key, T&gt;</td>
+<td>这是QHash 的一个便利子类，它为多值散列提供了一个很好的接口。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="算法复杂性">算法复杂性</h3>
+<p>下表总结了顺序容器 QList 的算法复杂度。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>索引查找</th>
+<th>插入</th>
+<th>前置</th>
+<th>附加</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QList <T></td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>Amort.O(1)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>在表中，“Amort.”代表“摊销行为”。例如，“Amort.O(1)”意味着如果你只调用一次函数，你可能会得到 O(n) 的行为，但如果你多次调用它（例如，n 次），平均行为将是 O(1)。</p>
+</blockquote>
+<p>下表总结了 Qt 的关联容器和集合的算法复杂度：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>键查找-平均数</th>
+<th>键查找-最差的情况</th>
+<th>插入-平均数</th>
+<th>插入-最差的情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QMap&lt;Key, T&gt;</td>
+<td>O(log n )</td>
+<td>O(log n )</td>
+<td>O(log n )</td>
+<td>O(log n )</td>
+</tr>
+<tr>
+<td>QMultiMap&lt;Key, T&gt;</td>
+<td>O(log n )</td>
+<td>O(log n )</td>
+<td>O(log n )</td>
+<td>O(log n )</td>
+</tr>
+<tr>
+<td>QHash&lt;Key, T&gt;</td>
+<td>Amort.O(1)</td>
+<td>O( n )</td>
+<td>Amort.O(1)</td>
+<td>O( n )</td>
+</tr>
+<tr>
+<td>QSet<Key></td>
+<td>Amort.O(1)</td>
+<td>O( n )</td>
+<td>Amort.O(1)</td>
+<td>O( n )</td>
+</tr>
+</tbody>
+</table>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+  </channel>
+</rss>
