@@ -5,8 +5,34 @@
     <description>Recent content in 技术文章 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 01 Dec 2021 22:48:45 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Dec 2021 12:41:29 +0800</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Qt6 顺序容器 QList</title>
+      <link>/post/2021/12/02/qlist/</link>
+      <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/post/2021/12/02/qlist/</guid>
+      <description>
+        <![CDATA[
+        <h3 id="介绍">介绍</h3>
+<p>QList 类是提供动态数组的模板类。该类中的所有函数都是可重入的。另外两个常用的顺序容器 QStack 和 QQueue 继承自 Qlist。</p>
+<h3 id="详细说明">详细说明</h3>
+<p>QList<T> 是 Qt 的通用容器类之一。它将其项目存储在相邻的内存位置，并提供基于索引的快速访问。QVector <T> 在 Qt 5 中曾经是一个不同的类，但现在是 QList 的一个简单别名。</p>
+<p>QList<T> 和QVarLengthArray <T> 提供类似的 API 和功能。它们通常可以互换，但会产生性能后果。以下是用例的概述：</p>
+<ul>
+<li>QList 应该是您的默认首选。</li>
+<li>QVarLengthArray提供了一个在堆栈上保留空间的数组，但如果需要，可以动态地增长到堆上。用于通常较小的短寿命容器是很好的。</li>
+<li>如果您需要一个真正的链表，它保证在列表中间插入恒定时间并使用迭代器到项目而不是索引，请使用 std::list。</li>
+</ul>
+
+        
+        ]]>
+      </description>
+    </item>
+    
     
     
     <item>
@@ -58,7 +84,7 @@ paint.end();
       <title>Qt6 容器类-概述</title>
       <link>/post/2021/12/01/qt-containers/</link>
       <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
-      
+      <author>罗泽勋</author>
       <guid>/post/2021/12/01/qt-containers/</guid>
       <description>
         <![CDATA[
