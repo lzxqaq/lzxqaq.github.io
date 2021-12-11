@@ -64,3 +64,15 @@ thead, tfoot, tr:nth-child(even) { background: #eee; }
 .nav-prev {
   margin-right: 1em;
 }
+
+.container {
+  max-width: 375px;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.aplayer {
+  /* display: inline-block; */
+  max-width: 375px;
+}
