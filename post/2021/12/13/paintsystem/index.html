@@ -115,7 +115,7 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
 <p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo2.png" alt="demo2"></p>
 <h3 id="二坐标系">二、坐标系</h3>
-<p>坐标系由 QPainter 类控制。绘图设备的默认坐标系的原点位于左上角。 该 X 值增加向右和 Y 值向下增加。 默认单位在基于像素的设备上是一个像素，在打印机上是一个点（1/72 英寸）。</p>
+<p>坐标系由 QPainter 类控制。绘图设备的默认坐标系的原点位于左上角。 该 X 值增加向右和 Y 值向下增加。 默认单位在基于像素的设备上是一个像素，在打印机上是一个点（1/72 英寸）。注意：原点在 Widget 的左上角而不是正中心，并且每个 Widget 都有自己独立的坐标系。</p>
 <p>QPainter 的逻辑坐标到物理 QPaintDevice 坐标的映射由 QPainter 的转换矩阵、视口和“窗口”处理。 默认情况下，逻辑坐标系和物理坐标系是一致的。 QPainter 还支持坐标变换（例如旋转和缩放）。</p>
 <h4 id="渲染-逻辑表示">渲染 逻辑表示</h4>
 <p>图形基元的大小（宽度和高度）始终与其数学模型相对应，忽略绘制它的笔的宽度：</p>
@@ -129,7 +129,16 @@ painter.setWindow(QRect(-50, -50, 100, 100));
 <h3 id="三常用函数">三、常用函数</h3>
 <p>下图来自《C++ GUI Programming with Qt 4》，列出了 QPainter 常用的画图方法。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/Paint-Base-Draw-Methods.png" alt="Paint-Base-Draw-Methods"></p>
-<h3 id="四画线---drawline">四、画线 - drawLine()</h3>
+<h4 id="线---drawline">线 - drawLine()</h4>
+<h4 id="多线段---drawlines">多线段 - drawLines()</h4>
+<h4 id="折线---drawpolyline">折线 - drawPolyline()</h4>
+<h4 id="多边形---drawpolygon">多边形 - drawPolygon()</h4>
+<h4 id="矩形---drawrect">矩形 - drawRect()</h4>
+<h4 id="圆角矩形---drawroundrect--drawroundedrect">圆角矩形 - drawRoundRect() &amp; drawRoundedRect()</h4>
+<h4 id="圆椭圆---drawellipse">圆、椭圆 - drawEllipse()</h4>
+<h4 id="弧弦饼图---drawarcdrawchorddrawpie">弧、弦、饼图 - drawArc()、drawChord()、drawPie()</h4>
+<h4 id="绘制-qpixmap---drawpixmap">绘制 QPixmap - drawPixmap()</h4>
+<h4 id="绘制-qimage---drawimage">绘制 QImage - drawImage()</h4>
 
 </main>
 
@@ -137,7 +146,7 @@ painter.setWindow(QRect(-50, -50, 100, 100));
   
 <nav class="post-nav">
   <span class="nav-prev">&larr; <a href="/post/2021/12/13/object/">Qt6 对象模型</a></span>
-  <span class="nav-next"></span>
+  <span class="nav-next"><a href="/post/2021/12/15/cppbase/">C&#43;&#43; 语言基础总结</a> &rarr;</span>
 </nav>
 
 <script type="text/javascript">
@@ -149,6 +158,8 @@ document.addEventListener('keyup', function(e) {
     url = '\/post\/2021\/12\/13\/object\/';
     
   } else if (e.which == 39) {  
+    
+    url = '\/post\/2021\/12\/15\/cppbase\/';
     
   }
   if (url) window.location = url;
