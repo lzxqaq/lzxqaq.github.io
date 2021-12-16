@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>线性表 - 罗泽勋</title>
+    <meta property="og:title" content="线性表 - 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="线性表是最简单、最基本的一种线性结构。常用顺序存储和链式存储，主要的基本操作是插入、删除和查找。
+[&amp;hellip;] 线性表的顺序存储是指一组地址连续的存储单元依次存储线性表中的数据元素，从而使得逻辑上相邻的两个元素在物理位置上也相邻。
+优点：可以随机存取表中的元素。
+缺点：插入和删除操作需要移动元素。
+[&amp;hellip;] 线性表的链式存储是用通过指针链接起来的节点来存储数据元素。存储各数据元 &amp;hellip;">
+      <meta property="og:description" content="线性表是最简单、最基本的一种线性结构。常用顺序存储和链式存储，主要的基本操作是插入、删除和查找。
+[&amp;hellip;] 线性表的顺序存储是指一组地址连续的存储单元依次存储线性表中的数据元素，从而使得逻辑上相邻的两个元素在物理位置上也相邻。
+优点：可以随机存取表中的元素。
+缺点：插入和删除操作需要移动元素。
+[&amp;hellip;] 线性表的链式存储是用通过指针链接起来的节点来存储数据元素。存储各数据元 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="og:image" content="/images/logo.png">
+    
+    
+
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">主页</a></li>
+      
+      <li><a href="/about/">关于</a></li>
+      
+      <li><a href="/blog/">日志</a></li>
+      
+      <li><a href="/post/">编程</a></li>
+      
+      <li><a href="/series/">标签</a></li>
+      
+      <li><a href="/categories/">分类</a></li>
+      
+      <li><a href="/music/">音乐</a></li>
+      
+      <li><a href="/note/">抄录</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">线性表</span></h1>
+<h2 class="author">罗泽勋</h2>
+<h2 class="date">2021/12/16</h2>
+</div>
+
+<main>
+<p>线性表是最简单、最基本的一种线性结构。常用顺序存储和链式存储，主要的基本操作是插入、删除和查找。</p>
+<h3 id="存储结构">存储结构</h3>
+<h4 id="1线性表的顺序存储">1.线性表的顺序存储</h4>
+<p>线性表的顺序存储是指一组地址连续的存储单元依次存储线性表中的数据元素，从而使得逻辑上相邻的两个元素在物理位置上也相邻。</p>
+<p>优点：可以随机存取表中的元素。</p>
+<p>缺点：插入和删除操作需要移动元素。</p>
+<h4 id="2线性表的链式存储">2.线性表的链式存储</h4>
+<p>线性表的链式存储是用通过指针链接起来的节点来存储数据元素。存储各数据元素的节点的地址并不要求是连续的，因此存储数据元素的同时必须存储元素之间的逻辑关系。</p>
+<p>优点：插入和删除操作不需要移动元素</p>
+<p>缺点：不能对数据进行随机访问。</p>
+<p>根据节点中指针域的设置方式，可以分为：</p>
+<ul>
+<li>
+<p>线性链表（单向链表）。只有一个指针。</p>
+</li>
+<li>
+<p>双向链表。每个节点包含两个指针，分别指着当前元素的前一个元素和后一个元素。其特点是可以从两个方向遍历链表。</p>
+</li>
+<li>
+<p>循环链表。在单向链表或双向链表的基础上，令表中最后一个元素的指针指向链表中的第一个元素，构成循环链表。其特点是可以从表中的任意节点开始遍历整个链表。</p>
+</li>
+<li>
+<p>静态链表。借助数组来描述线性表的链式存储结构，用数组元素的下标表示元素所在节点的指针。</p>
+</li>
+</ul>
+
+</main>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/12/15/cppbase/">C&#43;&#43; 语言基础总结</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2021\/12\/15\/cppbase\/';
+    
+  } else if (e.which == 39) {  
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/center-img.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2021
+  
+  </footer>
+  </body>
+</html>
+

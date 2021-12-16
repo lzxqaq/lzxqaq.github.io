@@ -5,8 +5,49 @@
     <description>Recent content in 技术文章 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 Dec 2021 12:35:27 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Dec 2021 12:43:02 +0800</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>线性表</title>
+      <link>/post/2021/12/16/linearlist/</link>
+      <pubDate>Thu, 16 Dec 2021 12:43:02 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/post/2021/12/16/linearlist/</guid>
+      <description>
+        <![CDATA[
+        <p>线性表是最简单、最基本的一种线性结构。常用顺序存储和链式存储，主要的基本操作是插入、删除和查找。</p>
+<h3 id="存储结构">存储结构</h3>
+<h4 id="1线性表的顺序存储">1.线性表的顺序存储</h4>
+<p>线性表的顺序存储是指一组地址连续的存储单元依次存储线性表中的数据元素，从而使得逻辑上相邻的两个元素在物理位置上也相邻。</p>
+<p>优点：可以随机存取表中的元素。</p>
+<p>缺点：插入和删除操作需要移动元素。</p>
+<h4 id="2线性表的链式存储">2.线性表的链式存储</h4>
+<p>线性表的链式存储是用通过指针链接起来的节点来存储数据元素。存储各数据元素的节点的地址并不要求是连续的，因此存储数据元素的同时必须存储元素之间的逻辑关系。</p>
+<p>优点：插入和删除操作不需要移动元素</p>
+<p>缺点：不能对数据进行随机访问。</p>
+<p>根据节点中指针域的设置方式，可以分为：</p>
+<ul>
+<li>
+<p>线性链表（单向链表）。只有一个指针。</p>
+</li>
+<li>
+<p>双向链表。每个节点包含两个指针，分别指着当前元素的前一个元素和后一个元素。其特点是可以从两个方向遍历链表。</p>
+</li>
+<li>
+<p>循环链表。在单向链表或双向链表的基础上，令表中最后一个元素的指针指向链表中的第一个元素，构成循环链表。其特点是可以从表中的任意节点开始遍历整个链表。</p>
+</li>
+<li>
+<p>静态链表。借助数组来描述线性表的链式存储结构，用数组元素的下标表示元素所在节点的指针。</p>
+</li>
+</ul>
+
+        
+        ]]>
+      </description>
+    </item>
+    
     
     
     <item>
