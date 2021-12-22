@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>【转载】SQL 练习 - 罗泽勋</title>
+    <meta property="og:title" content="【转载】SQL 练习 - 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="https://leetcode.com/problems/big-countries/description/
+[&amp;hellip;] &#43;-----------------&#43;------------&#43;------------&#43;--------------&#43;---------------&#43; | name | continent | area | population | gdp | &amp;hellip;">
+      <meta property="og:description" content="https://leetcode.com/problems/big-countries/description/
+[&amp;hellip;] &#43;-----------------&#43;------------&#43;------------&#43;--------------&#43;---------------&#43; | name | continent | area | population | gdp | &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="og:image" content="/images/logo.png">
+    
+    
+
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">主页</a></li>
+      
+      <li><a href="/about/">关于</a></li>
+      
+      <li><a href="/blog/">日志</a></li>
+      
+      <li><a href="/post/">编程</a></li>
+      
+      <li><a href="/series/">标签</a></li>
+      
+      <li><a href="/categories/">分类</a></li>
+      
+      <li><a href="/music/">音乐</a></li>
+      
+      <li><a href="/note/">抄录</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">【转载】SQL 练习</span></h1>
+<h2 class="author">罗泽勋</h2>
+<h2 class="date">2021/12/22</h2>
+</div>
+
+<main>
+<h1 id="sql-练习">SQL 练习</h1>
+<!-- GFM-TOC -->
+<ul>
+<li><a href="#sql-%E7%BB%83%E4%B9%A0">SQL 练习</a>
+<ul>
+<li><a href="#595-big-countries">595. Big Countries</a></li>
+<li><a href="#627-swap-salary">627. Swap Salary</a></li>
+<li><a href="#620-not-boring-movies">620. Not Boring Movies</a></li>
+<li><a href="#596-classes-more-than-5-students">596. Classes More Than 5 Students</a></li>
+<li><a href="#182-duplicate-emails">182. Duplicate Emails</a></li>
+<li><a href="#196-delete-duplicate-emails">196. Delete Duplicate Emails</a></li>
+<li><a href="#175-combine-two-tables">175. Combine Two Tables</a></li>
+<li><a href="#181-employees-earning-more-than-their-managers">181. Employees Earning More Than Their Managers</a></li>
+<li><a href="#183-customers-who-never-order">183. Customers Who Never Order</a></li>
+<li><a href="#184-department-highest-salary">184. Department Highest Salary</a></li>
+<li><a href="#176-second-highest-salary">176. Second Highest Salary</a></li>
+<li><a href="#177-nth-highest-salary">177. Nth Highest Salary</a></li>
+<li><a href="#178-rank-scores">178. Rank Scores</a></li>
+<li><a href="#180-consecutive-numbers">180. Consecutive Numbers</a></li>
+<li><a href="#626-exchange-seats">626. Exchange Seats</a></li>
+</ul>
+</li>
+</ul>
+<!-- GFM-TOC -->
+<h2 id="595-big-countries">595. Big Countries</h2>
+<p><a href="https://leetcode.com/problems/big-countries/description/">https://leetcode.com/problems/big-countries/description/</a></p>
+<h3 id="description">Description</h3>
+<pre><code class="language-html">+-----------------+------------+------------+--------------+---------------+
+| name            | continent  | area       | population   | gdp           |
++-----------------+------------+------------+--------------+---------------+
+| Afghanistan     | Asia       | 652230     | 25500100     | 20343000      |
+| Albania         | Europe     | 28748      | 2831741      | 12960000      |
+| Algeria         | Africa     | 2381741    | 37100000     | 188681000     |
+| Andorra         | Europe     | 468        | 78115        | 3712000       |
+| Angola          | Africa     | 1246700    | 20609294     | 100990000     |
++-----------------+------------+------------+--------------+---------------+
+</code></pre>
+<p>查找面积超过 3,000,000 或者人口数超过 25,000,000 的国家。</p>
+<pre><code class="language-html">+--------------+-------------+--------------+
+| name         | population  | area         |
++--------------+-------------+--------------+
+| Afghanistan  | 25500100    | 652230       |
+| Algeria      | 37100000    | 2381741      |
++--------------+-------------+--------------+
+</code></pre>
+<h3 id="solution">Solution</h3>
+<pre><code class="language-sql">SELECT name,
+    population,
+    area
+FROM
+    World
+WHERE
+    area &gt; 3000000
+    OR population &gt; 25000000;
+</code></pre>
+<h3 id="sql-schema">SQL Schema</h3>
+<p>SQL Schema 用于在本地环境下创建表结构并导入数据，从而方便在本地环境调试。</p>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS World;
+CREATE TABLE World ( NAME VARCHAR ( 255 ), continent VARCHAR ( 255 ), area INT, population INT, gdp INT );
+INSERT INTO World ( NAME, continent, area, population, gdp )
+VALUES
+    ( 'Afghanistan', 'Asia', '652230', '25500100', '203430000' ),
+    ( 'Albania', 'Europe', '28748', '2831741', '129600000' ),
+    ( 'Algeria', 'Africa', '2381741', '37100000', '1886810000' ),
+    ( 'Andorra', 'Europe', '468', '78115', '37120000' ),
+    ( 'Angola', 'Africa', '1246700', '20609294', '1009900000' );
+</code></pre>
+<h2 id="627-swap-salary">627. Swap Salary</h2>
+<p><a href="https://leetcode.com/problems/swap-salary/description/">https://leetcode.com/problems/swap-salary/description/</a></p>
+<h3 id="description-1">Description</h3>
+<pre><code class="language-html">| id | name | sex | salary |
+|----|------|-----|--------|
+| 1  | A    | m   | 2500   |
+| 2  | B    | f   | 1500   |
+| 3  | C    | m   | 5500   |
+| 4  | D    | f   | 500    |
+</code></pre>
+<p>只用一个 SQL 查询，将 sex 字段反转。</p>
+<pre><code class="language-html">| id | name | sex | salary |
+|----|------|-----|--------|
+| 1  | A    | f   | 2500   |
+| 2  | B    | m   | 1500   |
+| 3  | C    | f   | 5500   |
+| 4  | D    | m   | 500    |
+</code></pre>
+<h3 id="solution-1">Solution</h3>
+<p>两个相等的数异或的结果为 0，而 0 与任何一个数异或的结果为这个数。</p>
+<p>sex  字段只有两个取值：&lsquo;f&rsquo; 和 &rsquo;m'，并且有以下规律：</p>
+<pre><code>'f' ^ ('m' ^ 'f') = 'm' ^ ('f' ^ 'f') = 'm'
+'m' ^ ('m' ^ 'f') = 'f' ^ ('m' ^ 'm') = 'f'
+</code></pre>
+<p>因此将 sex 字段和 &rsquo;m' ^ &lsquo;f&rsquo; 进行异或操作，最后就能反转 sex 字段。</p>
+<pre><code class="language-sql">UPDATE salary
+SET sex = CHAR ( ASCII(sex) ^ ASCII( 'm' ) ^ ASCII( 'f' ) );
+</code></pre>
+<h3 id="sql-schema-1">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS salary;
+CREATE TABLE salary ( id INT, NAME VARCHAR ( 100 ), sex CHAR ( 1 ), salary INT );
+INSERT INTO salary ( id, NAME, sex, salary )
+VALUES
+    ( '1', 'A', 'm', '2500' ),
+    ( '2', 'B', 'f', '1500' ),
+    ( '3', 'C', 'm', '5500' ),
+    ( '4', 'D', 'f', '500' );
+</code></pre>
+<h2 id="620-not-boring-movies">620. Not Boring Movies</h2>
+<p><a href="https://leetcode.com/problems/not-boring-movies/description/">https://leetcode.com/problems/not-boring-movies/description/</a></p>
+<h3 id="description-2">Description</h3>
+<pre><code class="language-html">+---------+-----------+--------------+-----------+
+|   id    | movie     |  description |  rating   |
++---------+-----------+--------------+-----------+
+|   1     | War       |   great 3D   |   8.9     |
+|   2     | Science   |   fiction    |   8.5     |
+|   3     | irish     |   boring     |   6.2     |
+|   4     | Ice song  |   Fantacy    |   8.6     |
+|   5     | House card|   Interesting|   9.1     |
++---------+-----------+--------------+-----------+
+</code></pre>
+<p>查找 id 为奇数，并且 description 不是 boring 的电影，按 rating 降序。</p>
+<pre><code class="language-html">+---------+-----------+--------------+-----------+
+|   id    | movie     |  description |  rating   |
++---------+-----------+--------------+-----------+
+|   5     | House card|   Interesting|   9.1     |
+|   1     | War       |   great 3D   |   8.9     |
++---------+-----------+--------------+-----------+
+</code></pre>
+<h3 id="solution-2">Solution</h3>
+<pre><code class="language-sql">SELECT
+    *
+FROM
+    cinema
+WHERE
+    id % 2 = 1
+    AND description != 'boring'
+ORDER BY
+    rating DESC;
+</code></pre>
+<h3 id="sql-schema-2">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS cinema;
+CREATE TABLE cinema ( id INT, movie VARCHAR ( 255 ), description VARCHAR ( 255 ), rating FLOAT ( 2, 1 ) );
+INSERT INTO cinema ( id, movie, description, rating )
+VALUES
+    ( 1, 'War', 'great 3D', 8.9 ),
+    ( 2, 'Science', 'fiction', 8.5 ),
+    ( 3, 'irish', 'boring', 6.2 ),
+    ( 4, 'Ice song', 'Fantacy', 8.6 ),
+    ( 5, 'House card', 'Interesting', 9.1 );
+</code></pre>
+<h2 id="596-classes-more-than-5-students">596. Classes More Than 5 Students</h2>
+<p><a href="https://leetcode.com/problems/classes-more-than-5-students/description/">https://leetcode.com/problems/classes-more-than-5-students/description/</a></p>
+<h3 id="description-3">Description</h3>
+<pre><code class="language-html">+---------+------------+
+| student | class      |
++---------+------------+
+| A       | Math       |
+| B       | English    |
+| C       | Math       |
+| D       | Biology    |
+| E       | Math       |
+| F       | Computer   |
+| G       | Math       |
+| H       | Math       |
+| I       | Math       |
++---------+------------+
+</code></pre>
+<p>查找有五名及以上 student 的 class。</p>
+<pre><code class="language-html">+---------+
+| class   |
++---------+
+| Math    |
++---------+
+</code></pre>
+<h3 id="solution-3">Solution</h3>
+<p>对 class 列进行分组之后，再使用 count 汇总函数统计每个分组的记录个数，之后使用 HAVING 进行筛选。HAVING  针对分组进行筛选，而 WHERE 针对每个记录（行）进行筛选。</p>
+<pre><code class="language-sql">SELECT
+    class
+FROM
+    courses
+GROUP BY
+    class
+HAVING
+    count( DISTINCT student ) &gt;= 5;
+</code></pre>
+<h3 id="sql-schema-3">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS courses;
+CREATE TABLE courses ( student VARCHAR ( 255 ), class VARCHAR ( 255 ) );
+INSERT INTO courses ( student, class )
+VALUES
+    ( 'A', 'Math' ),
+    ( 'B', 'English' ),
+    ( 'C', 'Math' ),
+    ( 'D', 'Biology' ),
+    ( 'E', 'Math' ),
+    ( 'F', 'Computer' ),
+    ( 'G', 'Math' ),
+    ( 'H', 'Math' ),
+    ( 'I', 'Math' );
+</code></pre>
+<h2 id="182-duplicate-emails">182. Duplicate Emails</h2>
+<p><a href="https://leetcode.com/problems/duplicate-emails/description/">https://leetcode.com/problems/duplicate-emails/description/</a></p>
+<h3 id="description-4">Description</h3>
+<p>邮件地址表：</p>
+<pre><code class="language-html">+----+---------+
+| Id | Email   |
++----+---------+
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
++----+---------+
+</code></pre>
+<p>查找重复的邮件地址：</p>
+<pre><code class="language-html">+---------+
+| Email   |
++---------+
+| a@b.com |
++---------+
+</code></pre>
+<h3 id="solution-4">Solution</h3>
+<p>对 Email 进行分组，如果并使用 COUNT 进行计数统计，结果大于等于 2 的表示 Email  重复。</p>
+<pre><code class="language-sql">SELECT
+    Email
+FROM
+    Person
+GROUP BY
+    Email
+HAVING
+    COUNT( * ) &gt;= 2;
+</code></pre>
+<h3 id="sql-schema-4">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS Person;
+CREATE TABLE Person ( Id INT, Email VARCHAR ( 255 ) );
+INSERT INTO Person ( Id, Email )
+VALUES
+    ( 1, 'a@b.com' ),
+    ( 2, 'c@d.com' ),
+    ( 3, 'a@b.com' );
+</code></pre>
+<h2 id="196-delete-duplicate-emails">196. Delete Duplicate Emails</h2>
+<p><a href="https://leetcode.com/problems/delete-duplicate-emails/description/">https://leetcode.com/problems/delete-duplicate-emails/description/</a></p>
+<h3 id="description-5">Description</h3>
+<p>邮件地址表：</p>
+<pre><code class="language-html">+----+---------+
+| Id | Email   |
++----+---------+
+| 1  | john@example.com |
+| 2  | bob@example.com |
+| 3  | john@example.com |
++----+---------+
+</code></pre>
+<p>删除重复的邮件地址：</p>
+<pre><code class="language-html">+----+------------------+
+| Id | Email            |
++----+------------------+
+| 1  | john@example.com |
+| 2  | bob@example.com  |
++----+------------------+
+</code></pre>
+<h3 id="solution-5">Solution</h3>
+<p>只保留相同 Email 中 Id 最小的那一个，然后删除其它的。</p>
+<p>连接查询：</p>
+<pre><code class="language-sql">DELETE p1
+FROM
+    Person p1,
+    Person p2
+WHERE
+    p1.Email = p2.Email
+    AND p1.Id &gt; p2.Id
+</code></pre>
+<p>子查询：</p>
+<pre><code class="language-sql">DELETE
+FROM
+    Person
+WHERE
+    id NOT IN (
+        SELECT id 
+        FROM ( 
+            SELECT min( id ) AS id 
+            FROM Person
+            GROUP BY email
+        ) AS m
+    );
+</code></pre>
+<p>应该注意的是上述解法额外嵌套了一个 SELECT 语句，如果不这么做，会出现错误：You can&rsquo;t specify target table &lsquo;Person&rsquo; for update in FROM clause。以下演示了这种错误解法。</p>
+<pre><code class="language-sql">DELETE
+FROM
+    Person
+WHERE
+    id NOT IN ( 
+        SELECT min( id ) AS id 
+        FROM Person 
+        GROUP BY email 
+    );
+</code></pre>
+<p>参考：<a href="https://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-table-for-update-in-from-clause">pMySQL Error 1093 - Can&rsquo;t specify target table for update in FROM clause</a></p>
+<h3 id="sql-schema-5">SQL Schema</h3>
+<p>与 182 相同。</p>
+<h2 id="175-combine-two-tables">175. Combine Two Tables</h2>
+<p><a href="https://leetcode.com/problems/combine-two-tables/description/">https://leetcode.com/problems/combine-two-tables/description/</a></p>
+<h3 id="description-6">Description</h3>
+<p>Person 表：</p>
+<pre><code class="language-html">+-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| PersonId    | int     |
+| FirstName   | varchar |
+| LastName    | varchar |
++-------------+---------+
+PersonId is the primary key column for this table.
+</code></pre>
+<p>Address 表：</p>
+<pre><code class="language-html">+-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| AddressId   | int     |
+| PersonId    | int     |
+| City        | varchar |
+| State       | varchar |
++-------------+---------+
+AddressId is the primary key column for this table.
+</code></pre>
+<p>查找 FirstName, LastName, City, State 数据，而不管一个用户有没有填地址信息。</p>
+<h3 id="solution-6">Solution</h3>
+<p>涉及到 Person 和 Address 两个表，在对这两个表执行连接操作时，因为要保留 Person 表中的信息，即使在 Address 表中没有关联的信息也要保留。此时可以用左外连接，将 Person 表放在 LEFT JOIN 的左边。</p>
+<pre><code class="language-sql">SELECT
+    FirstName,
+    LastName,
+    City,
+    State
+FROM
+    Person P
+    LEFT JOIN Address A
+    ON P.PersonId = A.PersonId;
+</code></pre>
+<h3 id="sql-schema-6">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS Person;
+CREATE TABLE Person ( PersonId INT, FirstName VARCHAR ( 255 ), LastName VARCHAR ( 255 ) );
+DROP TABLE
+IF
+    EXISTS Address;
+CREATE TABLE Address ( AddressId INT, PersonId INT, City VARCHAR ( 255 ), State VARCHAR ( 255 ) );
+INSERT INTO Person ( PersonId, LastName, FirstName )
+VALUES
+    ( 1, 'Wang', 'Allen' );
+INSERT INTO Address ( AddressId, PersonId, City, State )
+VALUES
+    ( 1, 2, 'New York City', 'New York' );
+</code></pre>
+<h2 id="181-employees-earning-more-than-their-managers">181. Employees Earning More Than Their Managers</h2>
+<p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/description/">https://leetcode.com/problems/employees-earning-more-than-their-managers/description/</a></p>
+<h3 id="description-7">Description</h3>
+<p>Employee 表：</p>
+<pre><code class="language-html">+----+-------+--------+-----------+
+| Id | Name  | Salary | ManagerId |
++----+-------+--------+-----------+
+| 1  | Joe   | 70000  | 3         |
+| 2  | Henry | 80000  | 4         |
+| 3  | Sam   | 60000  | NULL      |
+| 4  | Max   | 90000  | NULL      |
++----+-------+--------+-----------+
+</code></pre>
+<p>查找薪资大于其经理薪资的员工信息。</p>
+<h3 id="solution-7">Solution</h3>
+<pre><code class="language-sql">SELECT
+    E1.NAME AS Employee
+FROM
+    Employee E1
+    INNER JOIN Employee E2
+    ON E1.ManagerId = E2.Id
+    AND E1.Salary &gt; E2.Salary;
+</code></pre>
+<h3 id="sql-schema-7">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS Employee;
+CREATE TABLE Employee ( Id INT, NAME VARCHAR ( 255 ), Salary INT, ManagerId INT );
+INSERT INTO Employee ( Id, NAME, Salary, ManagerId )
+VALUES
+    ( 1, 'Joe', 70000, 3 ),
+    ( 2, 'Henry', 80000, 4 ),
+    ( 3, 'Sam', 60000, NULL ),
+    ( 4, 'Max', 90000, NULL );
+</code></pre>
+<h2 id="183-customers-who-never-order">183. Customers Who Never Order</h2>
+<p><a href="https://leetcode.com/problems/customers-who-never-order/description/">https://leetcode.com/problems/customers-who-never-order/description/</a></p>
+<h3 id="description-8">Description</h3>
+<p>Customers 表：</p>
+<pre><code class="language-html">+----+-------+
+| Id | Name  |
++----+-------+
+| 1  | Joe   |
+| 2  | Henry |
+| 3  | Sam   |
+| 4  | Max   |
++----+-------+
+</code></pre>
+<p>Orders 表：</p>
+<pre><code class="language-html">+----+------------+
+| Id | CustomerId |
++----+------------+
+| 1  | 3          |
+| 2  | 1          |
++----+------------+
+</code></pre>
+<p>查找没有订单的顾客信息：</p>
+<pre><code class="language-html">+-----------+
+| Customers |
++-----------+
+| Henry     |
+| Max       |
++-----------+
+</code></pre>
+<h3 id="solution-8">Solution</h3>
+<p>左外链接</p>
+<pre><code class="language-sql">SELECT
+    C.Name AS Customers
+FROM
+    Customers C
+    LEFT JOIN Orders O
+    ON C.Id = O.CustomerId
+WHERE
+    O.CustomerId IS NULL;
+</code></pre>
+<p>子查询</p>
+<pre><code class="language-sql">SELECT
+    Name AS Customers
+FROM
+    Customers
+WHERE
+    Id NOT IN ( 
+        SELECT CustomerId 
+        FROM Orders 
+    );
+</code></pre>
+<h3 id="sql-schema-8">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS Customers;
+CREATE TABLE Customers ( Id INT, NAME VARCHAR ( 255 ) );
+DROP TABLE
+IF
+    EXISTS Orders;
+CREATE TABLE Orders ( Id INT, CustomerId INT );
+INSERT INTO Customers ( Id, NAME )
+VALUES
+    ( 1, 'Joe' ),
+    ( 2, 'Henry' ),
+    ( 3, 'Sam' ),
+    ( 4, 'Max' );
+INSERT INTO Orders ( Id, CustomerId )
+VALUES
+    ( 1, 3 ),
+    ( 2, 1 );
+</code></pre>
+<h2 id="184-department-highest-salary">184. Department Highest Salary</h2>
+<p><a href="https://leetcode.com/problems/department-highest-salary/description/">https://leetcode.com/problems/department-highest-salary/description/</a></p>
+<h3 id="description-9">Description</h3>
+<p>Employee 表：</p>
+<pre><code class="language-html">+----+-------+--------+--------------+
+| Id | Name  | Salary | DepartmentId |
++----+-------+--------+--------------+
+| 1  | Joe   | 70000  | 1            |
+| 2  | Henry | 80000  | 2            |
+| 3  | Sam   | 60000  | 2            |
+| 4  | Max   | 90000  | 1            |
++----+-------+--------+--------------+
+</code></pre>
+<p>Department 表：</p>
+<pre><code class="language-html">+----+----------+
+| Id | Name     |
++----+----------+
+| 1  | IT       |
+| 2  | Sales    |
++----+----------+
+</code></pre>
+<p>查找一个 Department 中收入最高者的信息：</p>
+<pre><code class="language-html">+------------+----------+--------+
+| Department | Employee | Salary |
++------------+----------+--------+
+| IT         | Max      | 90000  |
+| Sales      | Henry    | 80000  |
++------------+----------+--------+
+</code></pre>
+<h3 id="solution-9">Solution</h3>
+<p>创建一个临时表，包含了部门员工的最大薪资。可以对部门进行分组，然后使用 MAX() 汇总函数取得最大薪资。</p>
+<p>之后使用连接找到一个部门中薪资等于临时表中最大薪资的员工。</p>
+<pre><code class="language-sql">SELECT
+    D.NAME Department,
+    E.NAME Employee,
+    E.Salary
+FROM
+    Employee E,
+    Department D,
+    ( SELECT DepartmentId, MAX( Salary ) Salary 
+     FROM Employee 
+     GROUP BY DepartmentId ) M
+WHERE
+    E.DepartmentId = D.Id
+    AND E.DepartmentId = M.DepartmentId
+    AND E.Salary = M.Salary;
+</code></pre>
+<h3 id="sql-schema-9">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE IF EXISTS Employee;
+CREATE TABLE Employee ( Id INT, NAME VARCHAR ( 255 ), Salary INT, DepartmentId INT );
+DROP TABLE IF EXISTS Department;
+CREATE TABLE Department ( Id INT, NAME VARCHAR ( 255 ) );
+INSERT INTO Employee ( Id, NAME, Salary, DepartmentId )
+VALUES
+    ( 1, 'Joe', 70000, 1 ),
+    ( 2, 'Henry', 80000, 2 ),
+    ( 3, 'Sam', 60000, 2 ),
+    ( 4, 'Max', 90000, 1 );
+INSERT INTO Department ( Id, NAME )
+VALUES
+    ( 1, 'IT' ),
+    ( 2, 'Sales' );
+</code></pre>
+<h2 id="176-second-highest-salary">176. Second Highest Salary</h2>
+<p><a href="https://leetcode.com/problems/second-highest-salary/description/">https://leetcode.com/problems/second-highest-salary/description/</a></p>
+<h3 id="description-10">Description</h3>
+<pre><code class="language-html">+----+--------+
+| Id | Salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+</code></pre>
+<p>查找工资第二高的员工。</p>
+<pre><code class="language-html">+---------------------+
+| SecondHighestSalary |
++---------------------+
+| 200                 |
++---------------------+
+</code></pre>
+<p>没有找到返回 null 而不是不返回数据。</p>
+<h3 id="solution-10">Solution</h3>
+<p>为了在没有查找到数据时返回 null，需要在查询结果外面再套一层 SELECT。</p>
+<pre><code class="language-sql">SELECT
+    ( SELECT DISTINCT Salary 
+     FROM Employee 
+     ORDER BY Salary DESC 
+     LIMIT 1, 1 ) SecondHighestSalary;
+</code></pre>
+<h3 id="sql-schema-10">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS Employee;
+CREATE TABLE Employee ( Id INT, Salary INT );
+INSERT INTO Employee ( Id, Salary )
+VALUES
+    ( 1, 100 ),
+    ( 2, 200 ),
+    ( 3, 300 );
+</code></pre>
+<h2 id="177-nth-highest-salary">177. Nth Highest Salary</h2>
+<h3 id="description-11">Description</h3>
+<p>查找工资第 N 高的员工。</p>
+<h3 id="solution-11">Solution</h3>
+<pre><code class="language-sql">CREATE FUNCTION getNthHighestSalary ( N INT ) RETURNS INT BEGIN
+
+SET N = N - 1;
+RETURN ( 
+    SELECT ( 
+        SELECT DISTINCT Salary 
+        FROM Employee 
+        ORDER BY Salary DESC 
+        LIMIT N, 1 
+    ) 
+);
+
+END
+</code></pre>
+<h3 id="sql-schema-11">SQL Schema</h3>
+<p>同 176。</p>
+<h2 id="178-rank-scores">178. Rank Scores</h2>
+<p><a href="https://leetcode.com/problems/rank-scores/description/">https://leetcode.com/problems/rank-scores/description/</a></p>
+<h3 id="description-12">Description</h3>
+<p>得分表：</p>
+<pre><code class="language-html">+----+-------+
+| Id | Score |
++----+-------+
+| 1  | 3.50  |
+| 2  | 3.65  |
+| 3  | 4.00  |
+| 4  | 3.85  |
+| 5  | 4.00  |
+| 6  | 3.65  |
++----+-------+
+</code></pre>
+<p>将得分排序，并统计排名。</p>
+<pre><code class="language-html">+-------+------+
+| Score | Rank |
++-------+------+
+| 4.00  | 1    |
+| 4.00  | 1    |
+| 3.85  | 2    |
+| 3.65  | 3    |
+| 3.65  | 3    |
+| 3.50  | 4    |
++-------+------+
+</code></pre>
+<h3 id="solution-12">Solution</h3>
+<p>要统计某个 score 的排名，只要统计大于等于该 score 的 score 数量。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Id</th>
+<th style="text-align:center">score</th>
+<th style="text-align:center">大于等于该 score 的 score 数量</th>
+<th style="text-align:center">排名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.3</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p>使用连接操作找到某个 score 对应的大于等于其值的记录：</p>
+<pre><code class="language-sql">SELECT
+	*
+FROM
+    Scores S1
+    INNER JOIN Scores S2
+    ON S1.score &lt;= S2.score
+ORDER BY
+    S1.score DESC, S1.Id;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">S1.Id</th>
+<th style="text-align:center">S1.score</th>
+<th style="text-align:center">S2.Id</th>
+<th style="text-align:center">S2.score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.3</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.3</td>
+</tr>
+</tbody>
+</table>
+<p>可以看到每个 S1.score 都有对应好几条记录，我们再进行分组，并统计每个分组的数量作为 &lsquo;Rank&rsquo;</p>
+<pre><code class="language-sql">SELECT
+    S1.score 'Score',
+    COUNT(*) 'Rank'
+FROM
+    Scores S1
+    INNER JOIN Scores S2
+    ON S1.score &lt;= S2.score
+GROUP BY
+    S1.id, S1.score
+ORDER BY
+    S1.score DESC, S1.Id;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">score</th>
+<th style="text-align:center">Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4.3</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<p>上面的解法看似没问题，但是对于以下数据，它却得到了错误的结果：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Id</th>
+<th style="text-align:center">score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">score</th>
+<th style="text-align:center">Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<p>而我们希望的结果为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">score</th>
+<th style="text-align:center">Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p>连接情况如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">S1.Id</th>
+<th style="text-align:center">S1.score</th>
+<th style="text-align:center">S2.Id</th>
+<th style="text-align:center">S2.score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.2</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.2</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4.2</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4.2</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.1</td>
+</tr>
+</tbody>
+</table>
+<p>我们想要的结果是，把分数相同的放在同一个排名，并且相同分数只占一个位置，例如上面的分数，Id=2 和 Id=3 的记录都有相同的分数，并且最高，他们并列第一。而 Id=1 的记录应该排第二名，而不是第三名。所以在进行 COUNT 计数统计时，我们需要使用 COUNT( DISTINCT S2.score ) 从而只统计一次相同的分数。</p>
+<pre><code class="language-sql">SELECT
+    S1.score 'Score',
+    COUNT( DISTINCT S2.score ) 'Rank'
+FROM
+    Scores S1
+    INNER JOIN Scores S2
+    ON S1.score &lt;= S2.score
+GROUP BY
+    S1.id, S1.score
+ORDER BY
+    S1.score DESC;
+</code></pre>
+<h3 id="sql-schema-12">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS Scores;
+CREATE TABLE Scores ( Id INT, Score DECIMAL ( 3, 2 ) );
+INSERT INTO Scores ( Id, Score )
+VALUES
+    ( 1, 4.1 ),
+    ( 2, 4.1 ),
+    ( 3, 4.2 ),
+    ( 4, 4.2 ),
+    ( 5, 4.3 ),
+    ( 6, 4.3 );
+</code></pre>
+<h2 id="180-consecutive-numbers">180. Consecutive Numbers</h2>
+<p><a href="https://leetcode.com/problems/consecutive-numbers/description/">https://leetcode.com/problems/consecutive-numbers/description/</a></p>
+<h3 id="description-13">Description</h3>
+<p>数字表：</p>
+<pre><code class="language-html">+----+-----+
+| Id | Num |
++----+-----+
+| 1  |  1  |
+| 2  |  1  |
+| 3  |  1  |
+| 4  |  2  |
+| 5  |  1  |
+| 6  |  2  |
+| 7  |  2  |
++----+-----+
+</code></pre>
+<p>查找连续出现三次的数字。</p>
+<pre><code class="language-html">+-----------------+
+| ConsecutiveNums |
++-----------------+
+| 1               |
++-----------------+
+</code></pre>
+<h3 id="solution-13">Solution</h3>
+<pre><code class="language-sql">SELECT
+    DISTINCT L1.num ConsecutiveNums
+FROM
+    Logs L1,
+    Logs L2,
+    Logs L3
+WHERE L1.id = l2.id - 1
+    AND L2.id = L3.id - 1
+    AND L1.num = L2.num
+    AND l2.num = l3.num;
+</code></pre>
+<h3 id="sql-schema-13">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS LOGS;
+CREATE TABLE LOGS ( Id INT, Num INT );
+INSERT INTO LOGS ( Id, Num )
+VALUES
+    ( 1, 1 ),
+    ( 2, 1 ),
+    ( 3, 1 ),
+    ( 4, 2 ),
+    ( 5, 1 ),
+    ( 6, 2 ),
+    ( 7, 2 );
+</code></pre>
+<h2 id="626-exchange-seats">626. Exchange Seats</h2>
+<p><a href="https://leetcode.com/problems/exchange-seats/description/">https://leetcode.com/problems/exchange-seats/description/</a></p>
+<h3 id="description-14">Description</h3>
+<p>seat 表存储着座位对应的学生。</p>
+<pre><code class="language-html">+---------+---------+
+|    id   | student |
++---------+---------+
+|    1    | Abbot   |
+|    2    | Doris   |
+|    3    | Emerson |
+|    4    | Green   |
+|    5    | Jeames  |
++---------+---------+
+</code></pre>
+<p>要求交换相邻座位的两个学生，如果最后一个座位是奇数，那么不交换这个座位上的学生。</p>
+<pre><code class="language-html">+---------+---------+
+|    id   | student |
++---------+---------+
+|    1    | Doris   |
+|    2    | Abbot   |
+|    3    | Green   |
+|    4    | Emerson |
+|    5    | Jeames  |
++---------+---------+
+</code></pre>
+<h3 id="solution-14">Solution</h3>
+<p>使用多个 union。</p>
+<pre><code class="language-sql">## 处理偶数 id，让 id 减 1
+## 例如 2,4,6,... 变成 1,3,5,...
+SELECT
+    s1.id - 1 AS id,
+    s1.student
+FROM
+    seat s1
+WHERE
+    s1.id MOD 2 = 0 UNION
+## 处理奇数 id，让 id 加 1。但是如果最大的 id 为奇数，则不做处理
+## 例如 1,3,5,... 变成 2,4,6,...
+SELECT
+    s2.id + 1 AS id,
+    s2.student
+FROM
+    seat s2
+WHERE
+    s2.id MOD 2 = 1
+    AND s2.id != ( SELECT max( s3.id ) FROM seat s3 ) UNION
+## 如果最大的 id 为奇数，单独取出这个数
+SELECT
+    s4.id AS id,
+    s4.student
+FROM
+    seat s4
+WHERE
+    s4.id MOD 2 = 1
+    AND s4.id = ( SELECT max( s5.id ) FROM seat s5 )
+ORDER BY
+    id;
+</code></pre>
+<h3 id="sql-schema-14">SQL Schema</h3>
+<pre><code class="language-sql">DROP TABLE
+IF
+    EXISTS seat;
+CREATE TABLE seat ( id INT, student VARCHAR ( 255 ) );
+INSERT INTO seat ( id, student )
+VALUES
+    ( '1', 'Abbot' ),
+    ( '2', 'Doris' ),
+    ( '3', 'Emerson' ),
+    ( '4', 'Green' ),
+    ( '5', 'Jeames' );
+</code></pre>
+
+</main>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/12/22/%E8%BD%AC%E8%BD%BDmysql/">【转载】Mysql</a></span>
+  <span class="nav-next"><a href="/post/2021/12/22/%E8%BD%AC%E8%BD%BDredis/">【转载】Redis</a> &rarr;</span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2021\/12\/22\/%E8%BD%AC%E8%BD%BDmysql\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/post\/2021\/12\/22\/%E8%BD%AC%E8%BD%BDredis\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/center-img.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2021
+  
+  </footer>
+  </body>
+</html>
+
