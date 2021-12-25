@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     
-    <title>【翻译】Qt6 绘制基础 - 罗泽勋</title>
-    <meta property="og:title" content="【翻译】Qt6 绘制基础 - 罗泽勋">
+    <title>【翻译】Qt6 绘制基础 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="【翻译】Qt6 绘制基础 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -25,52 +24,81 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
 
     
     
-    <meta name="og:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/paintsystem.png">
-    
-    
+    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/paintsystem.png">
     
     
 
     
+
+    
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    
+<link rel="stylesheet" href="/css/custom.css" />
 
   </head>
 
-  <body>
-    <nav>
-    <ul class="menu">
+  
+  <body class="post">
+    <header class="masthead">
       
-      <li><a href="/">主页</a></li>
-      
-      <li><a href="/about/">关于</a></li>
-      
-      <li><a href="/blog/">日志</a></li>
-      
-      <li><a href="/post/">编程</a></li>
-      
-      <li><a href="/series/">标签</a></li>
-      
-      <li><a href="/categories/">分类</a></li>
-      
-      <li><a href="/music/">音乐</a></li>
-      
-      <li><a href="/note/">抄录</a></li>
-      
-    </ul>
-    <hr/>
-    </nav>
 
-<div class="article-meta">
-<h1><span class="title">【翻译】Qt6 绘制基础</span></h1>
-<h2 class="author">罗泽勋</h2>
-<h2 class="date">2021/12/13</h2>
-</div>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
-<main>
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/music/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>【翻译】Qt6 绘制基础</h1>
+
+
+<h3>罗泽勋 / 
+2021-12-13</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
 <h3 id="绘制系统">绘制系统</h3>
 <p>Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。</p>
 <p>QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使用 了QPainter 和 的QPaintDevice ，除非他们创建自己的设备的种类从应用程序员隐藏。</p>
@@ -79,7 +107,7 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
 <h3 id="一绘图示例">一、绘图示例</h3>
 <p>通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。</p>
 <h4 id="示例1-直接绘制">示例1 直接绘制：</h4>
-<pre><code>MainWindow::MainWindow(QWidget *parent)
+<pre tabindex="0"><code>MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     QLabel *label = new QLabel(this);
@@ -100,19 +128,17 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
     this-&gt;resize(200, 200);
 }
 
-</code></pre>
-<p>运行结果：</p>
+</code></pre><p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo1.png" alt="demo1"></p>
 <h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制：</h4>
-<pre><code>void MainWindow::paintEvent(QPaintEvent *)
+<pre tabindex="0"><code>void MainWindow::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     painter.setPen(Qt::gray);
     painter.setBrush(Qt::green);
     painter.drawRect(10, 10, 50, 50);
 }
-</code></pre>
-<p>运行结果：</p>
+</code></pre><p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo2.png" alt="demo2"></p>
 <h3 id="二坐标系">二、坐标系</h3>
 <p>坐标系由 QPainter 类控制。绘图设备的默认坐标系的原点位于左上角。 该 X 值增加向右和 Y 值向下增加。 默认单位在基于像素的设备上是一个像素，在打印机上是一个点（1/72 英寸）。注意：原点在 Widget 的左上角而不是正中心，并且每个 Widget 都有自己独立的坐标系。</p>
@@ -122,10 +148,9 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/coordsys.png" alt="Paint-Base-Draw-Methods"></p>
 <h4 id="window-viewport-转换">Window-Viewport 转换</h4>
 <p>使用 Window-Viewport 转换，您可以使逻辑坐标系适合您的偏好。 该机制还可用于使绘图代码独立于绘图设备。 例如，您可以通过调用 ，使逻辑坐标从 (-50, -50) 扩展到 (50, 50)，以 (0, 0) 为中心 QPainter::setWindow () 函数 ：</p>
-<pre><code>QPainter painter(this);
+<pre tabindex="0"><code>QPainter painter(this);
 painter.setWindow(QRect(-50, -50, 100, 100));
-</code></pre>
-<p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
+</code></pre><p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
 <h3 id="三常用函数">三、常用函数</h3>
 <p>下图来自《C++ GUI Programming with Qt 4》，列出了 QPainter 常用的画图方法。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/Paint-Base-Draw-Methods.png" alt="Paint-Base-Draw-Methods"></p>
@@ -140,7 +165,7 @@ painter.setWindow(QRect(-50, -50, 100, 100));
 <h4 id="绘制-qpixmap---drawpixmap">绘制 QPixmap - drawPixmap()</h4>
 <h4 id="绘制-qimage---drawimage">绘制 QImage - drawImage()</h4>
 
-</main>
+
 
   <footer>
   
@@ -186,10 +211,46 @@ async>
 
 
 
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
 
 
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
 <script>
 var doNotTrack = false;
@@ -201,12 +262,6 @@ if (!doNotTrack) {
 }
 </script>
 
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </footer>
   </body>
 </html>
 

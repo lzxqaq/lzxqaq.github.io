@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     
-    <title>Java 基础 - 罗泽勋</title>
-    <meta property="og:title" content="Java 基础 - 罗泽勋">
+    <title>Java 基础 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="Java 基础 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -27,51 +26,78 @@
 
     
     
-    
-    <meta name="og:image" content="/images/logo.png">
-    
+
     
 
     
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    
+<link rel="stylesheet" href="/css/custom.css" />
 
   </head>
 
-  <body>
-    <nav>
-    <ul class="menu">
+  
+  <body class="post">
+    <header class="masthead">
       
-      <li><a href="/">主页</a></li>
-      
-      <li><a href="/about/">关于</a></li>
-      
-      <li><a href="/blog/">日志</a></li>
-      
-      <li><a href="/post/">编程</a></li>
-      
-      <li><a href="/series/">标签</a></li>
-      
-      <li><a href="/categories/">分类</a></li>
-      
-      <li><a href="/music/">音乐</a></li>
-      
-      <li><a href="/note/">抄录</a></li>
-      
-    </ul>
-    <hr/>
-    </nav>
 
-<div class="article-meta">
-<h1><span class="title">Java 基础</span></h1>
-<h2 class="author">罗泽勋</h2>
-<h2 class="date">2020/12/15</h2>
-</div>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
-<main>
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/music/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Java 基础</h1>
+
+
+<h3>罗泽勋 / 
+2020-12-15</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
 <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md">CyC2018/CS-Notes</a></p>
 <ul>
 <li><a href="#1">一、数据类型</a>
@@ -142,37 +168,33 @@
 <p>boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</p>
 <h4 id="包装类型-a-name12a">包装类型 <a name="1.2"></a></h4>
 <p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱和拆箱完成。</p>
-<pre><code>Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
+<pre tabindex="0"><code>Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
 int y = x;  //  拆箱 调用了 x.intValue()
-</code></pre>
-<h4 id="缓存池-a-name13a">缓存池 <a name="1.3"></a></h4>
+</code></pre><h4 id="缓存池-a-name13a">缓存池 <a name="1.3"></a></h4>
 <p>new Integer(123) 与 Integer.valueOf(123)的区别在于：</p>
 <ul>
 <li>new Integer(123) 每次都会创建一个对象；</li>
 <li>Integer.valueOf(123) 会使用缓存池中的对象，调用会取得同一个对象的引用。</li>
 </ul>
-<pre><code>Integer x = new Integer(123);
+<pre tabindex="0"><code>Integer x = new Integer(123);
 Integer y = new Integer(123);
 System.out.println(x == y);     //false
 Integer z = Integer.valueOf(123);
 Integer k = Integer.valueOf(123);
 System.out.println(z == k);     //true
-</code></pre>
-<p>valueOf() 方法的实现，就是先判断值是否存在缓存池中，如果在的话就直接返回缓存池的内容。</p>
-<pre><code>public static Integer valueOf(int i){
+</code></pre><p>valueOf() 方法的实现，就是先判断值是否存在缓存池中，如果在的话就直接返回缓存池的内容。</p>
+<pre tabindex="0"><code>public static Integer valueOf(int i){
     if(i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high){
         return IntegerCache.cache[i + (-IntegerCache.low)];
         return new Integer(i);
     }
 }
-</code></pre>
-<p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
+</code></pre><p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
 <p>编译器会在自动装箱过程中调用 valueOf()方法，因此多个值相同且值在缓存池范围内的 Integer 实例使用自动装箱来创建，那么就会引用相同的对象。</p>
-<pre><code>Integer m = 123;
+<pre tabindex="0"><code>Integer m = 123;
 Integer n = 123;
 System.out.priintln(m == n);    //true
-</code></pre>
-<p>基本类型对应的缓冲池如下：</p>
+</code></pre><p>基本类型对应的缓冲池如下：</p>
 <ul>
 <li>boolean values true and false</li>
 <li>all byte values</li>
@@ -186,19 +208,17 @@ System.out.priintln(m == n);    //true
 <h4 id="概览a-name21a">概览<a name="2.1"></a></h4>
 <p>String 被声明为 final,因此不可被继承。(Integer 等包装类也不能被继承)<br>
 在 Java 8 中，String 内部使用 char 数组存储数据。</p>
-<pre><code>public final class String 
+<pre tabindex="0"><code>public final class String 
     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
     private final char value[];   
 }
-</code></pre>
-<p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用的编码。</p>
-<pre><code>public final class String
+</code></pre><p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用的编码。</p>
+<pre tabindex="0"><code>public final class String
     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
         private final byte[] value;
         private final byte coder;
     }
-</code></pre>
-<p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能在引用其他数组，并且 String 内部没有改变 value 数组的方法。这些表明 String 不能更改的约束规范。实际上可以通过反射来修改 String 内部 value 数组的值，但是这样的做法毫无意义，而且会引发错误。</p>
+</code></pre><p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能在引用其他数组，并且 String 内部没有改变 value 数组的方法。这些表明 String 不能更改的约束规范。实际上可以通过反射来修改 String 内部 value 数组的值，但是这样的做法毫无意义，而且会引发错误。</p>
 <h4 id="不可变的好处a-name22a">不可变的好处<a name="2.2"></a></h4>
 <p>1.可以缓存 hash 值</p>
 <p>因为 String 的 hash 值经常被使用，例如 String 用做 HashMap 的 key。不可变的特性使得 hash 值也不可变，因此只需要进行一次计算。</p>
@@ -223,19 +243,17 @@ System.out.priintln(m == n);    //true
 <h4 id="string-poola-name24a">String Pool<a name="2.4"></a></h4>
 <p>字符串常量池(String Pool) 保存着所有字符串字面量(literal strings) ,这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool中。<br>
 当一个字符串调用 intern() 方法时，如果 String Pool 中已存在一个字符串和该字符串相等(使用 equals() 方法进行确定)，那么就会返回 String Pool 中字符串的引用；否则，就会在 String Poll 中添加一个新的字符串，并返回这个新字符串的引用。</p>
-<pre><code>String s1 = new String(&quot;aaa&quot;);
+<pre tabindex="0"><code>String s1 = new String(&quot;aaa&quot;);
 String s2 = new String(&quot;aaa&quot;);
 System.out.println(s1 == s2);    //false
 String s3 = s1.intern();
 String s4 = s2.intern();
 System.out.println(s3 == s4);   //true
-</code></pre>
-<p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
-<pre><code>String s5 = &quot;bbb&quot;;
+</code></pre><p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
+<pre tabindex="0"><code>String s5 = &quot;bbb&quot;;
 String s6 = &quot;bbb&quot;;
 System.out.println(s5 == s6);   //true
-</code></pre>
-<p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+</code></pre><p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
 <h4 id="new-stringabca-name25a">new String(&ldquo;abc&rdquo;)<a name="2.5"></a></h4>
 <p>使用这种方式一共会创建两个字符串对象（前提是 String Pool  中还没有 &ldquo;abc&rdquo; 字符串对象）。</p>
 <ul>
@@ -243,14 +261,13 @@ System.out.println(s5 == s6);   //true
 <li>而使用 new 的方式会在堆中创建一个字符串对象。<br>
 创建一个测试类，其 main 方法中使用这种方式来创建字符串对象。</li>
 </ul>
-<pre><code>    public class NewStringTest {
+<pre tabindex="0"><code>    public class NewStringTest {
         public static void main(String[] args){
             String s = new String(&quot;abc&quot;);
         }
     }
-</code></pre>
-<p>使用 javap -verbose 进行反编译，得到以下内容：</p>
-<pre><code>// ...
+</code></pre><p>使用 javap -verbose 进行反编译，得到以下内容：</p>
+<pre tabindex="0"><code>// ...
 Constant pool:
 // ...
    #2 = Class              #18            // java/lang/String
@@ -271,18 +288,16 @@ Constant pool:
          9: astore_1
 // ...
 
-</code></pre>
-<p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
+</code></pre><p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
 <p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
-<pre><code>public String(String original){
+<pre tabindex="0"><code>public String(String original){
     this.value = original.value;
     this.hash = original.hash;
 }
-</code></pre>
-<h3 id="三运算a-name3a">三、运算<a name="3"></a></h3>
+</code></pre><h3 id="三运算a-name3a">三、运算<a name="3"></a></h3>
 <h4 id="参数传递a-name31a">参数传递<a name="3.1"></a></h4>
 <p>以下代码中 Dog dog 的dog是一个指针，存储的是对象的地址。在将一个参数传入一个方法时，本质上是将对象的地址以值得方式传递到形参中。</p>
-<pre><code>public class Dog {
+<pre tabindex="0"><code>public class Dog {
     
     String name;
 
@@ -298,9 +313,8 @@ Constant pool:
         return super.toString();
     }
 }
-</code></pre>
-<p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
-<pre><code>class PassByValueExample {
+</code></pre><p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
+<pre tabindex="0"><code>class PassByValueExample {
     public static void main(String[] args) {
         Dog dog = new Dog(&quot;A&quot;);
         func(dog);
@@ -311,9 +325,8 @@ Constant pool:
         dog.setName(&quot;B&quot;);
     }
 }
-</code></pre>
-<p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
-<pre><code>public class PassByValueExample {
+</code></pre><p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
+<pre tabindex="0"><code>public class PassByValueExample {
     public static void main(String[] args) {
         Dog dog = new Dog(&quot;A&quot;);
         System.out.println(dog.getObjectAddress()); // Dog@4554617c
@@ -329,28 +342,22 @@ Constant pool:
         System.out.println(dog.getName());          // B
     }
 }
-</code></pre>
-<h4 id="float-与-doublea-name32a">float 与 double<a name="3.2"></a></h4>
+</code></pre><h4 id="float-与-doublea-name32a">float 与 double<a name="3.2"></a></h4>
 <p>Java 不能隐式执行向下转型，因为这会使得精度降低。</p>
 <p>1.1 字面量属于 double 类型，不能直接将 1.1 直接赋值给 float 变量，因为这是向下转型。</p>
-<pre><code>// float f = 1.1;
-</code></pre>
-<p>1.1f 字面量才是 float 类型。</p>
-<pre><code>float f = 1.1f;
-</code></pre>
-<h4 id="隐式类型转换a-name33a">隐式类型转换<a name="3.3"></a></h4>
+<pre tabindex="0"><code>// float f = 1.1;
+</code></pre><p>1.1f 字面量才是 float 类型。</p>
+<pre tabindex="0"><code>float f = 1.1f;
+</code></pre><h4 id="隐式类型转换a-name33a">隐式类型转换<a name="3.3"></a></h4>
 <p>因为字面量 1 是 int 类型，它比 short 类型精度要高，因此不能隐式地将 int 类型向下转型为 short 类型。</p>
-<pre><code>short s1 = 1;
+<pre tabindex="0"><code>short s1 = 1;
 //s1 = s1 + 1;
-</code></pre>
-<p>但是使用 += 或者 ++ 运算符会执行隐式类型转换。</p>
-<pre><code>s1 += 1;
+</code></pre><p>但是使用 += 或者 ++ 运算符会执行隐式类型转换。</p>
+<pre tabindex="0"><code>s1 += 1;
 s1++;
-</code></pre>
-<p>上面的语句相当于将 s1 + 1 的计算结果进行了向下转型：</p>
-<pre><code>s1 = (short)(s1 + 1);
-</code></pre>
-<h4 id="switcha-name34a">switch<a name="3.4"></a></h4>
+</code></pre><p>上面的语句相当于将 s1 + 1 的计算结果进行了向下转型：</p>
+<pre tabindex="0"><code>s1 = (short)(s1 + 1);
+</code></pre><h4 id="switcha-name34a">switch<a name="3.4"></a></h4>
 <p>从 Java 7 开始，可以在 switch 条件判断语句中使用 String 对象。<br>
 switch 不支持 long、float、double，是因为 switch 的设计初衷是对那些只有少数几个值的类型进行等值判断，如果值过于复杂，那么还是用 if 比较合适。</p>
 <h3 id="四关键字a-name4a">四、关键字<a name="4"></a></h3>
@@ -361,12 +368,11 @@ switch 不支持 long、float、double，是因为 switch 的设计初衷是对�
 <li>对于基本类型，final 使数值不变；</li>
 <li>对于引用类型，final 使引用不变，也就不能引用其他对象，但是被引用的对象本身是可以修改的。</li>
 </ul>
-<pre><code>final int x = 1;
+<pre tabindex="0"><code>final int x = 1;
 //x = 3;    // cannot assign value to final variable 'x'
 final A y = new A();
 y.a = 1;
-</code></pre>
-<p>2.<strong>方法</strong></p>
+</code></pre><p>2.<strong>方法</strong></p>
 <p>声明方法不能被子类重写。<br>
 private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。</p>
 <p>3.<strong>类</strong>
@@ -377,7 +383,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 <li>静态变量： 又被称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</li>
 <li>实例变量： 每创建一个实例就会产生一个实例变量，它与该实例同生共死。</li>
 </ul>
-<pre><code>public class A {
+<pre tabindex="0"><code>public class A {
     private int x;          // 实例变量
     private static int y;   // 静态变量
 
@@ -388,15 +394,13 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         int y = A.y;
     }
 }
-</code></pre>
-<p>2.<strong>静态方法</strong></p>
+</code></pre><p>2.<strong>静态方法</strong></p>
 <p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</p>
-<pre><code>public  abstract class A {
+<pre tabindex="0"><code>public  abstract class A {
     public static void func1(){}
 }
-</code></pre>
-<p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
-<pre><code>public class A {
+</code></pre><p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
+<pre tabindex="0"><code>public class A {
     private static int x;
     private int y;
 
@@ -406,10 +410,9 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         // int b = this.y;  //'A.this' cannot be referenced from a static context
     }
 }
-</code></pre>
-<p><strong>3.静态语句块</strong><br>
+</code></pre><p><strong>3.静态语句块</strong><br>
 静态语句块在类初始化时运行一次。</p>
-<pre><code>public class A {
+<pre tabindex="0"><code>public class A {
     static {
         System.out.println(&quot;123&quot;);
     }
@@ -419,12 +422,10 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         A a2 = new A();
     }
 }
-</code></pre>
-<pre><code>123
-</code></pre>
-<p><strong>4.静态内部类</strong><br>
+</code></pre><pre tabindex="0"><code>123
+</code></pre><p><strong>4.静态内部类</strong><br>
 非静态内部类依赖于外部类的实例，也就是说需要先创建外部类的实例，才能用这个实例去创建非静态内部类。而静态内部类不需要。</p>
-<pre><code>public class OuterClass {
+<pre tabindex="0"><code>public class OuterClass {
     class InnerClass {
     }
     static class StaticInnerClass {
@@ -436,30 +437,24 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         StaticInnerClass staticInnerClass = new StaticInnerClass(); 
     }
 }
-</code></pre>
-<p>静态内部类不能访问外部类的非静态的变量和方法。</p>
+</code></pre><p>静态内部类不能访问外部类的非静态的变量和方法。</p>
 <p><strong>5.静态导包</strong>
 在使用静态变量和方法时不用再指明 ClassName,从而简化代码，但可读性大大降低。</p>
 <p><strong>6.初始化顺序</strong><br>
 静态变量和静态语句块优先于实例变量和普通语句块，静态变量和静态语句块的初始化顺序取决于它们在代码中的顺序。</p>
-<pre><code>public static String staticField = &quot;静态变量&quot;;
-</code></pre>
-<pre><code>static {
+<pre tabindex="0"><code>public static String staticField = &quot;静态变量&quot;;
+</code></pre><pre tabindex="0"><code>static {
     System.out.println(&quot;静态语句块&quot;);
 }
-</code></pre>
-<pre><code>public String field = &quot;实例变量&quot;;
-</code></pre>
-<pre><code>{
+</code></pre><pre tabindex="0"><code>public String field = &quot;实例变量&quot;;
+</code></pre><pre tabindex="0"><code>{
     System.out.println(&quot;普通语句块&quot;);
 }
-</code></pre>
-<p>最后才是构造函数的初始化。</p>
-<pre><code>public InitialOrderTest(){
+</code></pre><p>最后才是构造函数的初始化。</p>
+<pre tabindex="0"><code>public InitialOrderTest(){
     System.out.println(&quot;构造函数&quot;);
 }
-</code></pre>
-<p>存在继承的情况下，初始化顺序为：</p>
+</code></pre><p>存在继承的情况下，初始化顺序为：</p>
 <ul>
 <li>父类（静态变量、静态语句块）</li>
 <li>子类（静态变量、静态语句块）</li>
@@ -470,7 +465,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 </ul>
 <h3 id="五object-通用方法a-name5a">五、Object 通用方法<a name="5"></a></h3>
 <h4 id="概述a-name51a">概述<a name="5.1"></a></h4>
-<pre><code>public native int hashCode()
+<pre tabindex="0"><code>public native int hashCode()
 
 public boolean equals(Object obj)
 
@@ -492,8 +487,7 @@ public final void wait(long timeout, int nanos) throws InterruptedException
 
 public final void wait() throws InterruptedException
 
-</code></pre>
-<h4 id="equalsa-name52a">equals()<a name="5.2"></a></h4>
+</code></pre><h4 id="equalsa-name52a">equals()<a name="5.2"></a></h4>
 <p><strong>1.等价关系</strong><br>
 两个对象具有等价关系，需要满足以下五个条件：自反性、对称性、传递性、一致性、与 null 的比较（对任何不是 null 的对象 x 调用 x.equals(null) 结果都为flase)</p>
 <p><strong>2.等价于相等</strong></p>
@@ -501,19 +495,18 @@ public final void wait() throws InterruptedException
 <li>对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。</li>
 <li>对于引用类型，== 判断两个变量是否引用同一个对象，而 equals() 判断引用的对象是否等价。</li>
 </ul>
-<pre><code>Integer x = new Integer(1);
+<pre tabindex="0"><code>Integer x = new Integer(1);
 Integer y = new Integer(1);
 System.out.println(x.equals(y));    // true
 System.out.println(x == y);         // false
-</code></pre>
-<p><strong>3.实现</strong></p>
+</code></pre><p><strong>3.实现</strong></p>
 <ul>
 <li>检查是否为同一个对象的引用，如果是直接返回 true；</li>
 <li>检查是否是同一个类型，如果不是，直接返回 false；</li>
 <li>将 Object 对象进行转型；</li>
 <li>判断每个关键域是否相等</li>
 </ul>
-<pre><code>public class EqualExample {
+<pre tabindex="0"><code>public class EqualExample {
     private int x;
     private int y;
     private int z;
@@ -536,21 +529,19 @@ System.out.println(x == y);         // false
         return z == that.z;
     }
 }
-</code></pre>
-<h4 id="hashcodea-name53a">hashCode()<a name="5.3"></a></h4>
+</code></pre><h4 id="hashcodea-name53a">hashCode()<a name="5.3"></a></h4>
 <p>hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。<br>
 在覆盖 equals() 方法时应当总是覆盖 hashCode() 方法，保证等价的两个对象哈希值也相等。<br>
 HashSet 和 HashMap 等集合类使用了 hashCode() 方法来计算对象应该存储的位置，因此要将对象添加到这些集合类中，需要让对应的类实现 hashCode() 方法。<br>
 下面的代码中，新建了两个等价的对象，并将它们添加到 HashSet 中，我们希望将两个对象当成一样的，只在集合中添加一个对象。但是 EqualExample 没有实现 hashCode() 方法，因此两个对象的哈希值是不同的，最终导致集合添加了两个等价的对象。</p>
-<pre><code>EqualExample e1 = new EqualExample(1,1,1);
+<pre tabindex="0"><code>EqualExample e1 = new EqualExample(1,1,1);
 EqualExample e2 = new EqualExample(1,1,1);
 System.out.println(eq.equal(e2));   // true
 HashSet&lt;EqualExample&gt; set  = new HashSet&lt;&gt;();
 set.add(e1);
 set.add(e2);
 System.out.println(set.size());     // 2
-</code></pre>
-<p>理想的哈希函数应当具有均匀性 ，即不相等的对象应当均匀分布到所有可能的哈希值上。这就要求了哈希函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。</p>
+</code></pre><p>理想的哈希函数应当具有均匀性 ，即不相等的对象应当均匀分布到所有可能的哈希值上。这就要求了哈希函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。</p>
 <p>R 一般取 31，它是一个奇素数。</p>
 <h4 id="tostringa-name54a">toString()<a name="5.4"></a></h4>
 <p>默认返回 类名@十六进制数 这种形式，其中 @ 后面的数值为散列码的无符号十六进制表示。</p>
@@ -615,7 +606,7 @@ System.out.println(set.size());     // 2
 <h3 id="十注解a-name10a">十、注解<a name="10"></a></h3>
 <h3 id="十一特性a-name11a">十一、特性<a name="11"></a></h3>
 
-</main>
+
 
   <footer>
   
@@ -659,10 +650,46 @@ async>
 
 
 
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
 
 
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
 <script>
 var doNotTrack = false;
@@ -674,12 +701,6 @@ if (!doNotTrack) {
 }
 </script>
 
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </footer>
   </body>
 </html>
 

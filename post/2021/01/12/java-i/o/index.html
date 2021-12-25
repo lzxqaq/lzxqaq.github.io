@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     
-    <title>Java I/O - 罗泽勋</title>
-    <meta property="og:title" content="Java I/O - 罗泽勋">
+    <title>Java I/O - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="Java I/O - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -27,51 +26,78 @@ public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ ret
 
     
     
-    
-    <meta name="og:image" content="/images/logo.png">
-    
+
     
 
     
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    
+<link rel="stylesheet" href="/css/custom.css" />
 
   </head>
 
-  <body>
-    <nav>
-    <ul class="menu">
+  
+  <body class="post">
+    <header class="masthead">
       
-      <li><a href="/">主页</a></li>
-      
-      <li><a href="/about/">关于</a></li>
-      
-      <li><a href="/blog/">日志</a></li>
-      
-      <li><a href="/post/">编程</a></li>
-      
-      <li><a href="/series/">标签</a></li>
-      
-      <li><a href="/categories/">分类</a></li>
-      
-      <li><a href="/music/">音乐</a></li>
-      
-      <li><a href="/note/">抄录</a></li>
-      
-    </ul>
-    <hr/>
-    </nav>
 
-<div class="article-meta">
-<h1><span class="title">Java I/O</span></h1>
-<h2 class="author">罗泽勋</h2>
-<h2 class="date">2021/01/12</h2>
-</div>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
-<main>
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/music/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Java I/O</h1>
+
+
+<h3>罗泽勋 / 
+2021-01-12</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
 <h3 id="一概览">一、概览</h3>
 <p>Java 的 I/O 大概可以分成以下几类：</p>
 <ul>
@@ -84,7 +110,7 @@ public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ ret
 <h3 id="二磁盘操作">二、磁盘操作</h3>
 <p>File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。
 递归地列出一个目录的所有文件：</p>
-<pre><code>public static void listAllFiles(File dir){
+<pre tabindex="0"><code>public static void listAllFiles(File dir){
     if(dir == null || !dir.exists()){
         return ;
     }
@@ -96,11 +122,10 @@ public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ ret
         listAllFiles(file);
     }
 }
-</code></pre>
-<p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
+</code></pre><p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
 <h3 id="三字节操作">三、字节操作</h3>
 <h4 id="实现文件复制">实现文件复制</h4>
-<pre><code>public static void copuFile(String src, String dist) throws IOException {
+<pre tabindex="0"><code>public static void copuFile(String src, String dist) throws IOException {
     FileInputStream in = new FileInputStream(src);
     FileOutputStream out = new FileOutStream(dist);
 
@@ -116,14 +141,13 @@ public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ ret
     in.close();
     out.close();
 }
-</code></pre>
-<h4 id="装饰者模式">装饰者模式</h4>
+</code></pre><h4 id="装饰者模式">装饰者模式</h4>
 <p>Java I/O 使用了装饰者模式来实现。</p>
 <p>实例化一个具有缓存功能的字节流对象时，只需要在 FileInputStream 对象上再套一层 BufferedInputStream 对象即可。</p>
 <h3 id="七nio">七、NIO</h3>
 <p>新的输入/输出（NIO）库是在 JDK1.4中引入的，弥补了原来的 I/O 的不足，提供了高速的、面向块的 I/O。</p>
 
-</main>
+
 
   <footer>
   
@@ -169,10 +193,46 @@ async>
 
 
 
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
 
 
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
 <script>
 var doNotTrack = false;
@@ -184,12 +244,6 @@ if (!doNotTrack) {
 }
 </script>
 
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </footer>
   </body>
 </html>
 

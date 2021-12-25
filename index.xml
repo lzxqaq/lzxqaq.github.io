@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on 罗泽勋</title>
+    <title>Home on Zexun Luo | 罗泽勋</title>
     <link>/</link>
-    <description>Recent content in Home on 罗泽勋</description>
+    <description>Recent content in Home on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 22 Dec 2021 23:41:54 +0800</lastBuildDate>
@@ -74,22 +74,6 @@
     
     
     <item>
-      <title>作品</title>
-      <link>/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/cv/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
       <title>关于</title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -111,7 +95,9 @@
 <li><a href="https://space.bilibili.com/404289432">哔哩哔哩</a> ：这是我的哔哩哔哩个人空间。</li>
 <li><a href="https://img.lzxqaq.com">相册</a> ：img.lzxqaq.com</li>
 <li><a href="https://music.lzxqaq.com">音乐</a> ：music.lzxqaq.com</li>
-<li><a href="https://piano.lzxqaq.com">钢琴</a> piano.lzxqaq.com</li>
+<li><a href="https://piano.lzxqaq.com">钢琴</a> : piano.lzxqaq.com</li>
+<li><a href="https://imged.lzxqaq.com">图片编辑</a> : imged.lzxqaq.com</li>
+<li><a href="https://night.lzxqaq.com">夜</a> : night.lzxqaq.com</li>
 </ul>
 <h1 id="联系我">联系我</h1>
 <ul>
@@ -136,6 +122,53 @@
       <description>
         <![CDATA[
         
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>简历</title>
+      <link>/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cv/</guid>
+      <description>
+        <![CDATA[
+        <h1 id="罗泽勋">罗泽勋</h1>
+<h2 id="联系方式">联系方式</h2>
+<p>Email：lzx@lzxqaq.com；主页：<a href="https://lzxqaq.com">https://lzxqaq.com</a>；现居住于广东省广州市增从化区</p>
+<h2 id="工作兴趣">工作兴趣</h2>
+<p>数据可视化，统计图形，交互式图形；统计计算；动态报告，可重复性研究</p>
+<h2 id="教育背景">教育背景</h2>
+<ul>
+<li>2017.09 ~ 2021.06 华南师范大学，软件工程专业，工学学士</li>
+</ul>
+<h2 id="工作经历">工作经历</h2>
+<h3 id="工作">工作</h3>
+<ol>
+<li>2021.07 至今，工业和信息化部电子第五研究所 软件工程师</li>
+</ol>
+<h3 id="实习">实习</h3>
+<ol>
+<li>2020.10 ~ 2021.06 工业和信息化部电子第五研究所 软件工程师</li>
+</ol>
+<h3 id="网站建设与管理">网站建设与管理</h3>
+<p>2019 年 至今</p>
+<h4 id="参与项目">参与项目</h4>
+<ul>
+<li>2021.05 至今 六性协同工作平台 国产化研发</li>
+</ul>
+<h2 id="核心能力">核心能力</h2>
+<ul>
+<li>数理基础 具备从事软件工程工作所需的数学、以及应用数学基础解决实际问题的能力</li>
+<li>软件工程理论及实践 具备从事软件系统分析、设计、开发、测试、管理和维护的能力</li>
+<li>管理与协作 具有项目组织管理能力、有效沟通和人际交往能力、以及团队合作能力</li>
+<li>可持续自我学习 具备宽广的国际视野、跨领域学习、以及适应发展的能力</li>
+</ul>
+
         
         ]]>
       </description>

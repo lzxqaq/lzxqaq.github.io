@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     
-    <title>Qt单元测试基础笔记 - 罗泽勋</title>
-    <meta property="og:title" content="Qt单元测试基础笔记 - 罗泽勋">
+    <title>Qt单元测试基础笔记 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="Qt单元测试基础笔记 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -29,51 +28,78 @@
 
     
     
-    
-    <meta name="og:image" content="/images/logo.png">
-    
+
     
 
     
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    
+<link rel="stylesheet" href="/css/custom.css" />
 
   </head>
 
-  <body>
-    <nav>
-    <ul class="menu">
+  
+  <body class="post">
+    <header class="masthead">
       
-      <li><a href="/">主页</a></li>
-      
-      <li><a href="/about/">关于</a></li>
-      
-      <li><a href="/blog/">日志</a></li>
-      
-      <li><a href="/post/">编程</a></li>
-      
-      <li><a href="/series/">标签</a></li>
-      
-      <li><a href="/categories/">分类</a></li>
-      
-      <li><a href="/music/">音乐</a></li>
-      
-      <li><a href="/note/">抄录</a></li>
-      
-    </ul>
-    <hr/>
-    </nav>
 
-<div class="article-meta">
-<h1><span class="title">Qt单元测试基础笔记</span></h1>
-<h2 class="author">罗泽勋</h2>
-<h2 class="date">2021/10/13</h2>
-</div>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
-<main>
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/music/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Qt单元测试基础笔记</h1>
+
+
+<h3>罗泽勋 / 
+2021-10-13</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
 <h3 id="一构建">一、构建</h3>
 <p>构建时添加 <code>QT += testlib</code> 。</p>
 <h3 id="二测试类">二、测试类</h3>
@@ -88,11 +114,10 @@
 <p>对于你自己的类，你可以使用 <code>QTest::toString ()</code> 来格式化输出到测试日志中的值。具体可参考 <a href="https://doc.qt.io/qt-6/qtest.html#QCOMPARE">Qt 文档</a>;</p>
 <h3 id="五可执行文件">五、可执行文件</h3>
 <p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
-<pre><code>QTEST_MAIN(YourClassName)
+<pre tabindex="0"><code>QTEST_MAIN(YourClassName)
 #include &quot;yourfilename.moc&quot;
 </code></pre>
 
-</main>
 
   <footer>
   
@@ -138,10 +163,46 @@ async>
 
 
 
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
 
 
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
 <script>
 var doNotTrack = false;
@@ -153,12 +214,6 @@ if (!doNotTrack) {
 }
 </script>
 
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </footer>
   </body>
 </html>
 

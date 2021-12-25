@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>编程规范 on 罗泽勋</title>
+    <title>编程规范 on Zexun Luo | 罗泽勋</title>
     <link>/categories/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</link>
-    <description>Recent content in 编程规范 on 罗泽勋</description>
+    <description>Recent content in 编程规范 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 16 Jul 2021 14:24:34 +0800</lastBuildDate>
@@ -173,7 +173,7 @@ B）领域模型命名规约<br>
 反例：String key = &ldquo;ID#taobao_&rdquo; + tradeId;</p>
 <p>14.【强制】代码格式，具体见下面正例。
 正例：</p>
-<pre><code>    public static void main(String[] args) {
+<pre tabindex="0"><code>    public static void main(String[] args) {
         // 缩进4个空格，注释内空1格
         String say = &quot;hello&quot;;
         // 运算符左右必须有一个空格
@@ -192,7 +192,6 @@ B）领域模型命名规约<br>
             System.out.printLn(&quot;ok&quot;);
         }
     }</code></pre>
-
         
         ]]>
       </description>

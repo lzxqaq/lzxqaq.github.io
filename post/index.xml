@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>技术文章 on 罗泽勋</title>
+    <title>技术文章 on Zexun Luo | 罗泽勋</title>
     <link>/post/</link>
-    <description>Recent content in 技术文章 on 罗泽勋</description>
+    <description>Recent content in 技术文章 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 22 Dec 2021 23:41:54 +0800</lastBuildDate>
@@ -63,36 +63,34 @@
 </ul>
 <p>以下 Person 类封装 name、gender、age 等属性，外界只能通过 get() 方法获取一个 Person 对象的 name 属性和 gender 属性，而无法获取 age 属性，但是 age 属性可以供 work() 方法使用。</p>
 <p>注意到 gender 属性使用 int 数据类型进行存储，封装使得用户注意不到这种实现细节。并且在需要修改 gender 属性使用的数据类型时，也可以在不影响客户端代码的情况下进行。</p>
-<pre><code class="language-java">public class Person {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
 
-    private String name;
-    private int gender;
-    private int age;
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> gender<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">;</span>
 
-    public String getName() {
-        return name;
-    }
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public String getGender() {
-        return gender == 0 ? &quot;man&quot; : &quot;woman&quot;;
-    }
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getGender</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> gender <span style="color:#f92672">==</span> 0 <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;man&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;woman&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public void work() {
-        if (18 &lt;= age &amp;&amp; age &lt;= 50) {
-            System.out.println(name + &quot; is working very hard!&quot;);
-        } else {
-            System.out.println(name + &quot; can't work any more!&quot;);
-        }
-    }
-}
-</code></pre>
-<h3 id="继承">继承</h3>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">work</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>18 <span style="color:#f92672">&lt;=</span> age <span style="color:#f92672">&amp;&amp;</span> age <span style="color:#f92672">&lt;=</span> 50<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; is working very hard!&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; can&#39;t work any more!&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="继承">继承</h3>
 <p>继承实现了   <strong>IS-A</strong>   关系，例如 Cat 和 Animal 就是一种 IS-A 关系，因此 Cat 可以继承自 Animal，从而获得 Animal 非 private 的属性和方法。</p>
 <p>继承应该遵循里氏替换原则，子类对象必须能够替换掉所有父类对象。</p>
 <p>Cat 可以当做 Animal 来使用，也就是说可以使用 Animal 引用 Cat 对象。父类引用指向子类对象称为   <strong>向上转型</strong>  。</p>
-<pre><code class="language-java">Animal animal = new Cat();
-</code></pre>
-<h3 id="多态">多态</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Animal animal <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
+</code></pre></div><h3 id="多态">多态</h3>
 <p>多态分为编译时多态和运行时多态：</p>
 <ul>
 <li>编译时多态主要指方法的重载</li>
@@ -105,48 +103,43 @@
 <li>向上转型</li>
 </ul>
 <p>下面的代码中，乐器类（Instrument）有两个子类：Wind 和 Percussion，它们都覆盖了父类的 play() 方法，并且在 main() 方法中使用父类 Instrument 来引用 Wind 和 Percussion 对象。在 Instrument 引用调用 play() 方法时，会执行实际引用对象所在类的 play() 方法，而不是 Instrument 类的方法。</p>
-<pre><code class="language-java">public class Instrument {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Instrument</span> <span style="color:#f92672">{</span>
 
-    public void play() {
-        System.out.println(&quot;Instument is playing...&quot;);
-    }
-}
-</code></pre>
-<pre><code class="language-java">public class Wind extends Instrument {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">play</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Instument is playing...&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Wind</span> <span style="color:#66d9ef">extends</span> Instrument <span style="color:#f92672">{</span>
 
-    public void play() {
-        System.out.println(&quot;Wind is playing...&quot;);
-    }
-}
-</code></pre>
-<pre><code class="language-java">public class Percussion extends Instrument {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">play</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Wind is playing...&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Percussion</span> <span style="color:#66d9ef">extends</span> Instrument <span style="color:#f92672">{</span>
 
-    public void play() {
-        System.out.println(&quot;Percussion is playing...&quot;);
-    }
-}
-</code></pre>
-<pre><code class="language-java">public class Music {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">play</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Percussion is playing...&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Music</span> <span style="color:#f92672">{</span>
 
-    public static void main(String[] args) {
-        List&lt;Instrument&gt; instruments = new ArrayList&lt;&gt;();
-        instruments.add(new Wind());
-        instruments.add(new Percussion());
-        for(Instrument instrument : instruments) {
-            instrument.play();
-        }
-    }
-}
-</code></pre>
-<pre><code>Wind is playing...
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        List<span style="color:#f92672">&lt;</span>Instrument<span style="color:#f92672">&gt;</span> instruments <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+        instruments<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Wind<span style="color:#f92672">());</span>
+        instruments<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Percussion<span style="color:#f92672">());</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Instrument instrument <span style="color:#f92672">:</span> instruments<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            instrument<span style="color:#f92672">.</span><span style="color:#a6e22e">play</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><pre tabindex="0"><code>Wind is playing...
 Percussion is playing...
-</code></pre>
-<h2 id="二类图">二、类图</h2>
+</code></pre><h2 id="二类图">二、类图</h2>
 <p>以下类图使用 <a href="https://www.planttext.com/">PlantUML</a> 绘制，更多语法及使用请参考：http://plantuml.com/ 。</p>
 <h3 id="泛化关系-generalization">泛化关系 (Generalization)</h3>
 <p>用来描述继承关系，在 Java 中使用 extends 关键字。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c0874e0a-dba3-467e-9c86-dd9313e0843e.jpg" width="180px"> </div><br>
-<pre><code class="language-text">@startuml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
 
 title Generalization
 
@@ -158,11 +151,10 @@ Vihical &lt;|-- Car
 Vihical &lt;|-- Trunck
 
 @enduml
-</code></pre>
-<h3 id="实现关系-realization">实现关系 (Realization)</h3>
+</code></pre></div><h3 id="实现关系-realization">实现关系 (Realization)</h3>
 <p>用来实现一个接口，在 Java 中使用 implements 关键字。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/83d466bd-946b-4430-854a-cf7b0696d4c8.jpg" width="170px"> </div><br>
-<pre><code class="language-text">@startuml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
 
 title Realization
 
@@ -174,11 +166,10 @@ MoveBehavior &lt;|.. Fly
 MoveBehavior &lt;|.. Run
 
 @enduml
-</code></pre>
-<h3 id="聚合关系-aggregation">聚合关系 (Aggregation)</h3>
+</code></pre></div><h3 id="聚合关系-aggregation">聚合关系 (Aggregation)</h3>
 <p>表示整体由部分组成，但是整体和部分不是强依赖的，整体不存在了部分还是会存在。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/a0ce43b7-afa8-4397-a96e-5c12a070f2ae.jpg" width="300px"> </div><br>
-<pre><code class="language-text">@startuml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
 
 title Aggregation
 
@@ -192,11 +183,10 @@ Computer o-- Mouse
 Computer o-- Screen
 
 @enduml
-</code></pre>
-<h3 id="组合关系-composition">组合关系 (Composition)</h3>
+</code></pre></div><h3 id="组合关系-composition">组合关系 (Composition)</h3>
 <p>和聚合不同，组合中整体和部分是强依赖的，整体不存在了部分也不存在了。比如公司和部门，公司没了部门就不存在了。但是公司和员工就属于聚合关系了，因为公司没了员工还在。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/6a88a398-c494-41f5-bb62-9f7fb811df7c.jpg" width="280px"> </div><br>
-<pre><code class="language-text">@startuml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
 
 title Composition
 
@@ -208,22 +198,20 @@ Company *-- DepartmentA
 Company *-- DepartmentB
 
 @enduml
-</code></pre>
-<h3 id="关联关系-association">关联关系 (Association)</h3>
+</code></pre></div><h3 id="关联关系-association">关联关系 (Association)</h3>
 <p>表示不同类对象之间有关联，这是一种静态关系，与运行过程的状态无关，在最开始就可以确定。因此也可以用 1 对 1、多对 1、多对多这种关联关系来表示。比如学生和学校就是一种关联关系，一个学校可以有很多学生，但是一个学生只属于一个学校，因此这是一种多对一的关系，在运行开始之前就可以确定。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/a3e4dc62-0da5-4d22-94f2-140078281812.jpg" width="200px"> </div><br>
-<pre><code class="language-text">@startuml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
 
 title Association
 
 class School
 class Student
 
-School &quot;1&quot; - &quot;n&quot; Student
+School &#34;1&#34; - &#34;n&#34; Student
 
 @enduml
-</code></pre>
-<h3 id="依赖关系-dependency">依赖关系 (Dependency)</h3>
+</code></pre></div><h3 id="依赖关系-dependency">依赖关系 (Dependency)</h3>
 <p>和关联关系不同的是，依赖关系是在运行过程中起作用的。A 类和 B 类是依赖关系主要有三种形式：</p>
 <ul>
 <li>A 类是 B 类方法的局部变量；</li>
@@ -231,7 +219,7 @@ School &quot;1&quot; - &quot;n&quot; Student
 <li>A 类向 B 类发送消息，从而影响 B 类发生变化。</li>
 </ul>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/379444c9-f1d1-45cd-b7aa-b0c18427d388.jpg" width="330px"> </div><br>
-<pre><code class="language-text">@startuml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
 
 title Dependency
 
@@ -243,15 +231,14 @@ interface MoveBehavior {
     move()
 }
 
-note &quot;MoveBehavior.move()&quot; as N
+note &#34;MoveBehavior.move()&#34; as N
 
 Vihicle ..&gt; MoveBehavior
 
 Vihicle .. N
 
 @enduml
-</code></pre>
-<h2 id="三设计原则">三、设计原则</h2>
+</code></pre></div><h2 id="三设计原则">三、设计原则</h2>
 <h3 id="solid">S.O.L.I.D</h3>
 <table>
 <thead>
@@ -521,131 +508,130 @@ Vihicle .. N
 <li>访问某个节点时，将其从原来的位置删除，并重新插入到链表头部。这样就能保证链表尾部存储的就是最近最久未使用的节点，当节点数量大于缓存最大空间时就淘汰链表尾部的节点。</li>
 <li>为了使删除操作时间复杂度为 O(1)，就不能采用遍历的方式找到某个节点。HashMap 存储着 Key 到节点的映射，通过 Key 就能以 O(1) 的时间得到节点，然后再以 O(1) 的时间将其从双向队列中删除。</li>
 </ul>
-<pre><code class="language-java">public class LRU&lt;K, V&gt; implements Iterable&lt;K&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LRU</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> V<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">implements</span> Iterable<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
 
-    private Node head;
-    private Node tail;
-    private HashMap&lt;K, Node&gt; map;
-    private int maxSize;
+    <span style="color:#66d9ef">private</span> Node head<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Node tail<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> HashMap<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> Node<span style="color:#f92672">&gt;</span> map<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> maxSize<span style="color:#f92672">;</span>
 
-    private class Node {
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span> <span style="color:#f92672">{</span>
 
-        Node pre;
-        Node next;
-        K k;
-        V v;
+        Node pre<span style="color:#f92672">;</span>
+        Node next<span style="color:#f92672">;</span>
+        K k<span style="color:#f92672">;</span>
+        V v<span style="color:#f92672">;</span>
 
-        public Node(K k, V v) {
-            this.k = k;
-            this.v = v;
-        }
-    }
-
-
-    public LRU(int maxSize) {
-
-        this.maxSize = maxSize;
-        this.map = new HashMap&lt;&gt;(maxSize * 4 / 3);
-
-        head = new Node(null, null);
-        tail = new Node(null, null);
-
-        head.next = tail;
-        tail.pre = head;
-    }
+        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">(</span>K k<span style="color:#f92672">,</span> V v<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">k</span> <span style="color:#f92672">=</span> k<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> v<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
 
-    public V get(K key) {
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LRU</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> maxSize<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-        if (!map.containsKey(key)) {
-            return null;
-        }
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">maxSize</span> <span style="color:#f92672">=</span> maxSize<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;(</span>maxSize <span style="color:#f92672">*</span> 4 <span style="color:#f92672">/</span> 3<span style="color:#f92672">);</span>
 
-        Node node = map.get(key);
-        unlink(node);
-        appendHead(node);
+        head <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+        tail <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
 
-        return node.v;
-    }
-
-
-    public void put(K key, V value) {
-
-        if (map.containsKey(key)) {
-            Node node = map.get(key);
-            unlink(node);
-        }
-
-        Node node = new Node(key, value);
-        map.put(key, node);
-        appendHead(node);
-
-        if (map.size() &gt; maxSize) {
-            Node toRemove = removeTail();
-            map.remove(toRemove.k);
-        }
-    }
+        head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> tail<span style="color:#f92672">;</span>
+        tail<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
 
-    private void unlink(Node node) {
+    <span style="color:#66d9ef">public</span> V <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>K key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-        Node pre = node.pre;
-        Node next = node.next;
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>key<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        pre.next = next;
-        next.pre = pre;
+        Node node <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+        unlink<span style="color:#f92672">(</span>node<span style="color:#f92672">);</span>
+        appendHead<span style="color:#f92672">(</span>node<span style="color:#f92672">);</span>
 
-        node.pre = null;
-        node.next = null;
-    }
-
-
-    private void appendHead(Node node) {
-        Node next = head.next;
-        node.next = next;
-        next.pre = node;
-        node.pre = head;
-        head.next = node;
-    }
+        <span style="color:#66d9ef">return</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">v</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
 
-    private Node removeTail() {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>K key<span style="color:#f92672">,</span> V value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-        Node node = tail.pre;
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>key<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            Node node <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+            unlink<span style="color:#f92672">(</span>node<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
 
-        Node pre = node.pre;
-        tail.pre = pre;
-        pre.next = tail;
+        Node node <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> value<span style="color:#f92672">);</span>
+        map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> node<span style="color:#f92672">);</span>
+        appendHead<span style="color:#f92672">(</span>node<span style="color:#f92672">);</span>
 
-        node.pre = null;
-        node.next = null;
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> maxSize<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            Node toRemove <span style="color:#f92672">=</span> removeTail<span style="color:#f92672">();</span>
+            map<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>toRemove<span style="color:#f92672">.</span><span style="color:#a6e22e">k</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-        return node;
-    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">unlink</span><span style="color:#f92672">(</span>Node node<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+        Node pre <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span><span style="color:#f92672">;</span>
+        Node next <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+
+        pre<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> next<span style="color:#f92672">;</span>
+        next<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> pre<span style="color:#f92672">;</span>
+
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
 
-    @Override
-    public Iterator&lt;K&gt; iterator() {
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">appendHead</span><span style="color:#f92672">(</span>Node node<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Node next <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> next<span style="color:#f92672">;</span>
+        next<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">;</span>
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+        head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-        return new Iterator&lt;K&gt;() {
-            private Node cur = head.next;
 
-            @Override
-            public boolean hasNext() {
-                return cur != tail;
-            }
+    <span style="color:#66d9ef">private</span> Node <span style="color:#a6e22e">removeTail</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 
-            @Override
-            public K next() {
-                Node node = cur;
-                cur = cur.next;
-                return node.k;
-            }
-        };
-    }
-}
-</code></pre>
-<h2 id="参考资料">参考资料</h2>
+        Node node <span style="color:#f92672">=</span> tail<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span><span style="color:#f92672">;</span>
+
+        Node pre <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span><span style="color:#f92672">;</span>
+        tail<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> pre<span style="color:#f92672">;</span>
+        pre<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> tail<span style="color:#f92672">;</span>
+
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">return</span> node<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Iterator<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">iterator</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Iterator<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">private</span> Node cur <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">return</span> cur <span style="color:#f92672">!=</span> tail<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> K <span style="color:#a6e22e">next</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                Node node <span style="color:#f92672">=</span> cur<span style="color:#f92672">;</span>
+                cur <span style="color:#f92672">=</span> cur<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">return</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">k</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="参考资料">参考资料</h2>
 <ul>
 <li>大规模分布式存储系统</li>
 <li><a href="https://tech.meituan.com/cache_about.html">缓存那些事</a></li>
@@ -791,18 +777,17 @@ Vihicle .. N
 </blockquote>
 <h3 id="string">STRING</h3>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/6019b2db-bc3e-4408-b6d8-96025f4481d6.png" width="400"/> </div><br>
-<pre><code class="language-html">&gt; set hello world
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; set hello world
 OK
 &gt; get hello
-&quot;world&quot;
+&#34;world&#34;
 &gt; del hello
 (integer) 1
 &gt; get hello
 (nil)
-</code></pre>
-<h3 id="list">LIST</h3>
+</code></pre></div><h3 id="list">LIST</h3>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/fb327611-7e2b-4f2f-9f5b-38592d408f07.png" width="400"/> </div><br>
-<pre><code class="language-html">&gt; rpush list-key item
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; rpush list-key item
 (integer) 1
 &gt; rpush list-key item2
 (integer) 2
@@ -810,23 +795,22 @@ OK
 (integer) 3
 
 &gt; lrange list-key 0 -1
-1) &quot;item&quot;
-2) &quot;item2&quot;
-3) &quot;item&quot;
+1) &#34;item&#34;
+2) &#34;item2&#34;
+3) &#34;item&#34;
 
 &gt; lindex list-key 1
-&quot;item2&quot;
+&#34;item2&#34;
 
 &gt; lpop list-key
-&quot;item&quot;
+&#34;item&#34;
 
 &gt; lrange list-key 0 -1
-1) &quot;item2&quot;
-2) &quot;item&quot;
-</code></pre>
-<h3 id="set">SET</h3>
+1) &#34;item2&#34;
+2) &#34;item&#34;
+</code></pre></div><h3 id="set">SET</h3>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/cd5fbcff-3f35-43a6-8ffa-082a93ce0f0e.png" width="400"/> </div><br>
-<pre><code class="language-html">&gt; sadd set-key item
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; sadd set-key item
 (integer) 1
 &gt; sadd set-key item2
 (integer) 1
@@ -836,9 +820,9 @@ OK
 (integer) 0
 
 &gt; smembers set-key
-1) &quot;item&quot;
-2) &quot;item2&quot;
-3) &quot;item3&quot;
+1) &#34;item&#34;
+2) &#34;item2&#34;
+3) &#34;item3&#34;
 
 &gt; sismember set-key item4
 (integer) 0
@@ -851,12 +835,11 @@ OK
 (integer) 0
 
 &gt; smembers set-key
-1) &quot;item&quot;
-2) &quot;item3&quot;
-</code></pre>
-<h3 id="hash">HASH</h3>
+1) &#34;item&#34;
+2) &#34;item3&#34;
+</code></pre></div><h3 id="hash">HASH</h3>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/7bd202a7-93d4-4f3a-a878-af68ae25539a.png" width="400"/> </div><br>
-<pre><code class="language-html">&gt; hset hash-key sub-key1 value1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; hset hash-key sub-key1 value1
 (integer) 1
 &gt; hset hash-key sub-key2 value2
 (integer) 1
@@ -864,10 +847,10 @@ OK
 (integer) 0
 
 &gt; hgetall hash-key
-1) &quot;sub-key1&quot;
-2) &quot;value1&quot;
-3) &quot;sub-key2&quot;
-4) &quot;value2&quot;
+1) &#34;sub-key1&#34;
+2) &#34;value1&#34;
+3) &#34;sub-key2&#34;
+4) &#34;value2&#34;
 
 &gt; hdel hash-key sub-key2
 (integer) 1
@@ -875,15 +858,14 @@ OK
 (integer) 0
 
 &gt; hget hash-key sub-key1
-&quot;value1&quot;
+&#34;value1&#34;
 
 &gt; hgetall hash-key
-1) &quot;sub-key1&quot;
-2) &quot;value1&quot;
-</code></pre>
-<h3 id="zset">ZSET</h3>
+1) &#34;sub-key1&#34;
+2) &#34;value1&#34;
+</code></pre></div><h3 id="zset">ZSET</h3>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/1202b2d6-9469-4251-bd47-ca6034fb6116.png" width="400"/> </div><br>
-<pre><code class="language-html">&gt; zadd zset-key 728 member1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; zadd zset-key 728 member1
 (integer) 1
 &gt; zadd zset-key 982 member0
 (integer) 1
@@ -891,14 +873,14 @@ OK
 (integer) 0
 
 &gt; zrange zset-key 0 -1 withscores
-1) &quot;member1&quot;
-2) &quot;728&quot;
-3) &quot;member0&quot;
-4) &quot;982&quot;
+1) &#34;member1&#34;
+2) &#34;728&#34;
+3) &#34;member0&#34;
+4) &#34;982&#34;
 
 &gt; zrangebyscore zset-key 0 800 withscores
-1) &quot;member1&quot;
-2) &quot;728&quot;
+1) &#34;member1&#34;
+2) &#34;728&#34;
 
 &gt; zrem zset-key member1
 (integer) 1
@@ -906,100 +888,95 @@ OK
 (integer) 0
 
 &gt; zrange zset-key 0 -1 withscores
-1) &quot;member0&quot;
-2) &quot;982&quot;
-</code></pre>
-<h2 id="三数据结构">三、数据结构</h2>
+1) &#34;member0&#34;
+2) &#34;982&#34;
+</code></pre></div><h2 id="三数据结构">三、数据结构</h2>
 <h3 id="字典">字典</h3>
 <p>dictht 是一个散列表结构，使用拉链法解决哈希冲突。</p>
-<pre><code class="language-c">/* This is our hash table structure. Every dictionary has two of this as we
- * implement incremental rehashing, for the old to the new table. */
-typedef struct dictht {
-    dictEntry **table;
-    unsigned long size;
-    unsigned long sizemask;
-    unsigned long used;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/* This is our hash table structure. Every dictionary has two of this as we
+</span><span style="color:#75715e"> * implement incremental rehashing, for the old to the new table. */</span>
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> dictht {
+    dictEntry <span style="color:#f92672">**</span>table;
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> size;
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> sizemask;
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> used;
 } dictht;
-</code></pre>
-<pre><code class="language-c">typedef struct dictEntry {
-    void *key;
-    union {
-        void *val;
-        uint64_t u64;
-        int64_t s64;
-        double d;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> dictEntry {
+    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>key;
+    <span style="color:#66d9ef">union</span> {
+        <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>val;
+        <span style="color:#66d9ef">uint64_t</span> u64;
+        <span style="color:#66d9ef">int64_t</span> s64;
+        <span style="color:#66d9ef">double</span> d;
     } v;
-    struct dictEntry *next;
+    <span style="color:#66d9ef">struct</span> dictEntry <span style="color:#f92672">*</span>next;
 } dictEntry;
-</code></pre>
-<p>Redis 的字典 dict 中包含两个哈希表 dictht，这是为了方便进行 rehash 操作。在扩容时，将其中一个 dictht 上的键值对 rehash 到另一个 dictht 上面，完成之后释放空间并交换两个 dictht 的角色。</p>
-<pre><code class="language-c">typedef struct dict {
-    dictType *type;
-    void *privdata;
-    dictht ht[2];
-    long rehashidx; /* rehashing not in progress if rehashidx == -1 */
-    unsigned long iterators; /* number of iterators currently running */
+</code></pre></div><p>Redis 的字典 dict 中包含两个哈希表 dictht，这是为了方便进行 rehash 操作。在扩容时，将其中一个 dictht 上的键值对 rehash 到另一个 dictht 上面，完成之后释放空间并交换两个 dictht 的角色。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> dict {
+    dictType <span style="color:#f92672">*</span>type;
+    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>privdata;
+    dictht ht[<span style="color:#ae81ff">2</span>];
+    <span style="color:#66d9ef">long</span> rehashidx; <span style="color:#75715e">/* rehashing not in progress if rehashidx == -1 */</span>
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> iterators; <span style="color:#75715e">/* number of iterators currently running */</span>
 } dict;
-</code></pre>
-<p>rehash 操作不是一次性完成，而是采用渐进方式，这是为了避免一次性执行过多的 rehash 操作给服务器带来过大的负担。</p>
+</code></pre></div><p>rehash 操作不是一次性完成，而是采用渐进方式，这是为了避免一次性执行过多的 rehash 操作给服务器带来过大的负担。</p>
 <p>渐进式 rehash 通过记录 dict 的 rehashidx 完成，它从 0 开始，然后每执行一次 rehash 都会递增。例如在一次 rehash 中，要把 dict[0] rehash 到 dict[1]，这一次会把 dict[0] 上 table[rehashidx] 的键值对 rehash 到 dict[1] 上，dict[0] 的 table[rehashidx] 指向 null，并令 rehashidx++。</p>
 <p>在 rehash 期间，每次对字典执行添加、删除、查找或者更新操作时，都会执行一次渐进式 rehash。</p>
 <p>采用渐进式 rehash 会导致字典中的数据分散在两个 dictht 上，因此对字典的查找操作也需要到对应的 dictht 去执行。</p>
-<pre><code class="language-c">/* Performs N steps of incremental rehashing. Returns 1 if there are still
- * keys to move from the old to the new hash table, otherwise 0 is returned.
- *
- * Note that a rehashing step consists in moving a bucket (that may have more
- * than one key as we use chaining) from the old to the new hash table, however
- * since part of the hash table may be composed of empty spaces, it is not
- * guaranteed that this function will rehash even a single bucket, since it
- * will visit at max N*10 empty buckets in total, otherwise the amount of
- * work it does would be unbound and the function may block for a long time. */
-int dictRehash(dict *d, int n) {
-    int empty_visits = n * 10; /* Max number of empty buckets to visit. */
-    if (!dictIsRehashing(d)) return 0;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/* Performs N steps of incremental rehashing. Returns 1 if there are still
+</span><span style="color:#75715e"> * keys to move from the old to the new hash table, otherwise 0 is returned.
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * Note that a rehashing step consists in moving a bucket (that may have more
+</span><span style="color:#75715e"> * than one key as we use chaining) from the old to the new hash table, however
+</span><span style="color:#75715e"> * since part of the hash table may be composed of empty spaces, it is not
+</span><span style="color:#75715e"> * guaranteed that this function will rehash even a single bucket, since it
+</span><span style="color:#75715e"> * will visit at max N*10 empty buckets in total, otherwise the amount of
+</span><span style="color:#75715e"> * work it does would be unbound and the function may block for a long time. */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">dictRehash</span>(dict <span style="color:#f92672">*</span>d, <span style="color:#66d9ef">int</span> n) {
+    <span style="color:#66d9ef">int</span> empty_visits <span style="color:#f92672">=</span> n <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span>; <span style="color:#75715e">/* Max number of empty buckets to visit. */</span>
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>dictIsRehashing(d)) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 
-    while (n-- &amp;&amp; d-&gt;ht[0].used != 0) {
-        dictEntry *de, *nextde;
+    <span style="color:#66d9ef">while</span> (n<span style="color:#f92672">--</span> <span style="color:#f92672">&amp;&amp;</span> d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">0</span>].used <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
+        dictEntry <span style="color:#f92672">*</span>de, <span style="color:#f92672">*</span>nextde;
 
-        /* Note that rehashidx can't overflow as we are sure there are more
-         * elements because ht[0].used != 0 */
-        assert(d-&gt;ht[0].size &gt; (unsigned long) d-&gt;rehashidx);
-        while (d-&gt;ht[0].table[d-&gt;rehashidx] == NULL) {
-            d-&gt;rehashidx++;
-            if (--empty_visits == 0) return 1;
+        <span style="color:#75715e">/* Note that rehashidx can&#39;t overflow as we are sure there are more
+</span><span style="color:#75715e">         * elements because ht[0].used != 0 */</span>
+        assert(d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">0</span>].size <span style="color:#f92672">&gt;</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>) d<span style="color:#f92672">-&gt;</span>rehashidx);
+        <span style="color:#66d9ef">while</span> (d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">0</span>].table[d<span style="color:#f92672">-&gt;</span>rehashidx] <span style="color:#f92672">==</span> NULL) {
+            d<span style="color:#f92672">-&gt;</span>rehashidx<span style="color:#f92672">++</span>;
+            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">--</span>empty_visits <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
         }
-        de = d-&gt;ht[0].table[d-&gt;rehashidx];
-        /* Move all the keys in this bucket from the old to the new hash HT */
-        while (de) {
-            uint64_t h;
+        de <span style="color:#f92672">=</span> d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">0</span>].table[d<span style="color:#f92672">-&gt;</span>rehashidx];
+        <span style="color:#75715e">/* Move all the keys in this bucket from the old to the new hash HT */</span>
+        <span style="color:#66d9ef">while</span> (de) {
+            <span style="color:#66d9ef">uint64_t</span> h;
 
-            nextde = de-&gt;next;
-            /* Get the index in the new hash table */
-            h = dictHashKey(d, de-&gt;key) &amp; d-&gt;ht[1].sizemask;
-            de-&gt;next = d-&gt;ht[1].table[h];
-            d-&gt;ht[1].table[h] = de;
-            d-&gt;ht[0].used--;
-            d-&gt;ht[1].used++;
-            de = nextde;
+            nextde <span style="color:#f92672">=</span> de<span style="color:#f92672">-&gt;</span>next;
+            <span style="color:#75715e">/* Get the index in the new hash table */</span>
+            h <span style="color:#f92672">=</span> dictHashKey(d, de<span style="color:#f92672">-&gt;</span>key) <span style="color:#f92672">&amp;</span> d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">1</span>].sizemask;
+            de<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">1</span>].table[h];
+            d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">1</span>].table[h] <span style="color:#f92672">=</span> de;
+            d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">0</span>].used<span style="color:#f92672">--</span>;
+            d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">1</span>].used<span style="color:#f92672">++</span>;
+            de <span style="color:#f92672">=</span> nextde;
         }
-        d-&gt;ht[0].table[d-&gt;rehashidx] = NULL;
-        d-&gt;rehashidx++;
+        d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">0</span>].table[d<span style="color:#f92672">-&gt;</span>rehashidx] <span style="color:#f92672">=</span> NULL;
+        d<span style="color:#f92672">-&gt;</span>rehashidx<span style="color:#f92672">++</span>;
     }
 
-    /* Check if we already rehashed the whole table... */
-    if (d-&gt;ht[0].used == 0) {
-        zfree(d-&gt;ht[0].table);
-        d-&gt;ht[0] = d-&gt;ht[1];
-        _dictReset(&amp;d-&gt;ht[1]);
-        d-&gt;rehashidx = -1;
-        return 0;
+    <span style="color:#75715e">/* Check if we already rehashed the whole table... */</span>
+    <span style="color:#66d9ef">if</span> (d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">0</span>].used <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+        zfree(d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">0</span>].table);
+        d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">1</span>];
+        _dictReset(<span style="color:#f92672">&amp;</span>d<span style="color:#f92672">-&gt;</span>ht[<span style="color:#ae81ff">1</span>]);
+        d<span style="color:#f92672">-&gt;</span>rehashidx <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
     }
 
-    /* More to rehash... */
-    return 1;
+    <span style="color:#75715e">/* More to rehash... */</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
 }
-</code></pre>
-<h3 id="跳跃表">跳跃表</h3>
+</code></pre></div><h3 id="跳跃表">跳跃表</h3>
 <p>是有序集合的底层实现之一。</p>
 <p>跳跃表是基于多指针有序链表实现的，可以看成多个有序链表。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/beba612e-dc5b-4fc2-869d-0b23408ac90a.png" width="600px"/> </div><br>
@@ -1152,34 +1129,32 @@ int dictRehash(dict *d, int n) {
 <h3 id="事件的调度与执行">事件的调度与执行</h3>
 <p>服务器需要不断监听文件事件的套接字才能得到待处理的文件事件，但是不能一直监听，否则时间事件无法在规定的时间内执行，因此监听时间应该根据距离现在最近的时间事件来决定。</p>
 <p>事件调度与执行由 aeProcessEvents 函数负责，伪代码如下：</p>
-<pre><code class="language-python">def aeProcessEvents():
-    # 获取到达时间离当前时间最接近的时间事件
-    time_event = aeSearchNearestTimer()
-    # 计算最接近的时间事件距离到达还有多少毫秒
-    remaind_ms = time_event.when - unix_ts_now()
-    # 如果事件已到达，那么 remaind_ms 的值可能为负数，将它设为 0
-    if remaind_ms &lt; 0:
-        remaind_ms = 0
-    # 根据 remaind_ms 的值，创建 timeval
-    timeval = create_timeval_with_ms(remaind_ms)
-    # 阻塞并等待文件事件产生，最大阻塞时间由传入的 timeval 决定
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">aeProcessEvents</span>():
+    <span style="color:#75715e"># 获取到达时间离当前时间最接近的时间事件</span>
+    time_event <span style="color:#f92672">=</span> aeSearchNearestTimer()
+    <span style="color:#75715e"># 计算最接近的时间事件距离到达还有多少毫秒</span>
+    remaind_ms <span style="color:#f92672">=</span> time_event<span style="color:#f92672">.</span>when <span style="color:#f92672">-</span> unix_ts_now()
+    <span style="color:#75715e"># 如果事件已到达，那么 remaind_ms 的值可能为负数，将它设为 0</span>
+    <span style="color:#66d9ef">if</span> remaind_ms <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>:
+        remaind_ms <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#75715e"># 根据 remaind_ms 的值，创建 timeval</span>
+    timeval <span style="color:#f92672">=</span> create_timeval_with_ms(remaind_ms)
+    <span style="color:#75715e"># 阻塞并等待文件事件产生，最大阻塞时间由传入的 timeval 决定</span>
     aeApiPoll(timeval)
-    # 处理所有已产生的文件事件
+    <span style="color:#75715e"># 处理所有已产生的文件事件</span>
     procesFileEvents()
-    # 处理所有已到达的时间事件
+    <span style="color:#75715e"># 处理所有已到达的时间事件</span>
     processTimeEvents()
-</code></pre>
-<p>将 aeProcessEvents 函数置于一个循环里面，加上初始化和清理函数，就构成了 Redis 服务器的主函数，伪代码如下：</p>
-<pre><code class="language-python">def main():
-    # 初始化服务器
+</code></pre></div><p>将 aeProcessEvents 函数置于一个循环里面，加上初始化和清理函数，就构成了 Redis 服务器的主函数，伪代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+    <span style="color:#75715e"># 初始化服务器</span>
     init_server()
-    # 一直处理事件，直到服务器关闭为止
-    while server_is_not_shutdown():
+    <span style="color:#75715e"># 一直处理事件，直到服务器关闭为止</span>
+    <span style="color:#66d9ef">while</span> server_is_not_shutdown():
         aeProcessEvents()
-    # 服务器关闭，执行清理操作
+    <span style="color:#75715e"># 服务器关闭，执行清理操作</span>
     clean_server()
-</code></pre>
-<p>从事件处理的角度来看，服务器运行流程如下：</p>
+</code></pre></div><p>从事件处理的角度来看，服务器运行流程如下：</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c0a9fa91-da2e-4892-8c9f-80206a6f7047.png" width="350"/> </div><br>
 <h2 id="十一复制">十一、复制</h2>
 <p>通过使用 slaveof host port 命令来让一个服务器成为另一个服务器的从服务器。</p>
@@ -1286,7 +1261,7 @@ int dictRehash(dict *d, int n) {
 <h2 id="595-big-countries">595. Big Countries</h2>
 <p><a href="https://leetcode.com/problems/big-countries/description/">https://leetcode.com/problems/big-countries/description/</a></p>
 <h3 id="description">Description</h3>
-<pre><code class="language-html">+-----------------+------------+------------+--------------+---------------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-----------------+------------+------------+--------------+---------------+
 | name            | continent  | area       | population   | gdp           |
 +-----------------+------------+------------+--------------+---------------+
 | Afghanistan     | Asia       | 652230     | 25500100     | 20343000      |
@@ -1295,83 +1270,74 @@ int dictRehash(dict *d, int n) {
 | Andorra         | Europe     | 468        | 78115        | 3712000       |
 | Angola          | Africa     | 1246700    | 20609294     | 100990000     |
 +-----------------+------------+------------+--------------+---------------+
-</code></pre>
-<p>查找面积超过 3,000,000 或者人口数超过 25,000,000 的国家。</p>
-<pre><code class="language-html">+--------------+-------------+--------------+
+</code></pre></div><p>查找面积超过 3,000,000 或者人口数超过 25,000,000 的国家。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+--------------+-------------+--------------+
 | name         | population  | area         |
 +--------------+-------------+--------------+
 | Afghanistan  | 25500100    | 652230       |
 | Algeria      | 37100000    | 2381741      |
 +--------------+-------------+--------------+
-</code></pre>
-<h3 id="solution">Solution</h3>
-<pre><code class="language-sql">SELECT name,
+</code></pre></div><h3 id="solution">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> name,
     population,
     area
-FROM
+<span style="color:#66d9ef">FROM</span>
     World
-WHERE
-    area &gt; 3000000
-    OR population &gt; 25000000;
-</code></pre>
-<h3 id="sql-schema">SQL Schema</h3>
+<span style="color:#66d9ef">WHERE</span>
+    area <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3000000</span>
+    <span style="color:#66d9ef">OR</span> population <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">25000000</span>;
+</code></pre></div><h3 id="sql-schema">SQL Schema</h3>
 <p>SQL Schema 用于在本地环境下创建表结构并导入数据，从而方便在本地环境调试。</p>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS World;
-CREATE TABLE World ( NAME VARCHAR ( 255 ), continent VARCHAR ( 255 ), area INT, population INT, gdp INT );
-INSERT INTO World ( NAME, continent, area, population, gdp )
-VALUES
-    ( 'Afghanistan', 'Asia', '652230', '25500100', '203430000' ),
-    ( 'Albania', 'Europe', '28748', '2831741', '129600000' ),
-    ( 'Algeria', 'Africa', '2381741', '37100000', '1886810000' ),
-    ( 'Andorra', 'Europe', '468', '78115', '37120000' ),
-    ( 'Angola', 'Africa', '1246700', '20609294', '1009900000' );
-</code></pre>
-<h2 id="627-swap-salary">627. Swap Salary</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> World;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> World ( NAME VARCHAR ( <span style="color:#ae81ff">255</span> ), continent VARCHAR ( <span style="color:#ae81ff">255</span> ), area INT, population INT, gdp INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> World ( NAME, continent, area, population, gdp )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#e6db74">&#39;Afghanistan&#39;</span>, <span style="color:#e6db74">&#39;Asia&#39;</span>, <span style="color:#e6db74">&#39;652230&#39;</span>, <span style="color:#e6db74">&#39;25500100&#39;</span>, <span style="color:#e6db74">&#39;203430000&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;Albania&#39;</span>, <span style="color:#e6db74">&#39;Europe&#39;</span>, <span style="color:#e6db74">&#39;28748&#39;</span>, <span style="color:#e6db74">&#39;2831741&#39;</span>, <span style="color:#e6db74">&#39;129600000&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;Algeria&#39;</span>, <span style="color:#e6db74">&#39;Africa&#39;</span>, <span style="color:#e6db74">&#39;2381741&#39;</span>, <span style="color:#e6db74">&#39;37100000&#39;</span>, <span style="color:#e6db74">&#39;1886810000&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;Andorra&#39;</span>, <span style="color:#e6db74">&#39;Europe&#39;</span>, <span style="color:#e6db74">&#39;468&#39;</span>, <span style="color:#e6db74">&#39;78115&#39;</span>, <span style="color:#e6db74">&#39;37120000&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;Angola&#39;</span>, <span style="color:#e6db74">&#39;Africa&#39;</span>, <span style="color:#e6db74">&#39;1246700&#39;</span>, <span style="color:#e6db74">&#39;20609294&#39;</span>, <span style="color:#e6db74">&#39;1009900000&#39;</span> );
+</code></pre></div><h2 id="627-swap-salary">627. Swap Salary</h2>
 <p><a href="https://leetcode.com/problems/swap-salary/description/">https://leetcode.com/problems/swap-salary/description/</a></p>
 <h3 id="description-1">Description</h3>
-<pre><code class="language-html">| id | name | sex | salary |
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">| id | name | sex | salary |
 |----|------|-----|--------|
 | 1  | A    | m   | 2500   |
 | 2  | B    | f   | 1500   |
 | 3  | C    | m   | 5500   |
 | 4  | D    | f   | 500    |
-</code></pre>
-<p>只用一个 SQL 查询，将 sex 字段反转。</p>
-<pre><code class="language-html">| id | name | sex | salary |
+</code></pre></div><p>只用一个 SQL 查询，将 sex 字段反转。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">| id | name | sex | salary |
 |----|------|-----|--------|
 | 1  | A    | f   | 2500   |
 | 2  | B    | m   | 1500   |
 | 3  | C    | f   | 5500   |
 | 4  | D    | m   | 500    |
-</code></pre>
-<h3 id="solution-1">Solution</h3>
+</code></pre></div><h3 id="solution-1">Solution</h3>
 <p>两个相等的数异或的结果为 0，而 0 与任何一个数异或的结果为这个数。</p>
 <p>sex  字段只有两个取值：&lsquo;f&rsquo; 和 &rsquo;m'，并且有以下规律：</p>
-<pre><code>'f' ^ ('m' ^ 'f') = 'm' ^ ('f' ^ 'f') = 'm'
+<pre tabindex="0"><code>'f' ^ ('m' ^ 'f') = 'm' ^ ('f' ^ 'f') = 'm'
 'm' ^ ('m' ^ 'f') = 'f' ^ ('m' ^ 'm') = 'f'
-</code></pre>
-<p>因此将 sex 字段和 &rsquo;m' ^ &lsquo;f&rsquo; 进行异或操作，最后就能反转 sex 字段。</p>
-<pre><code class="language-sql">UPDATE salary
-SET sex = CHAR ( ASCII(sex) ^ ASCII( 'm' ) ^ ASCII( 'f' ) );
-</code></pre>
-<h3 id="sql-schema-1">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS salary;
-CREATE TABLE salary ( id INT, NAME VARCHAR ( 100 ), sex CHAR ( 1 ), salary INT );
-INSERT INTO salary ( id, NAME, sex, salary )
-VALUES
-    ( '1', 'A', 'm', '2500' ),
-    ( '2', 'B', 'f', '1500' ),
-    ( '3', 'C', 'm', '5500' ),
-    ( '4', 'D', 'f', '500' );
-</code></pre>
-<h2 id="620-not-boring-movies">620. Not Boring Movies</h2>
+</code></pre><p>因此将 sex 字段和 &rsquo;m' ^ &lsquo;f&rsquo; 进行异或操作，最后就能反转 sex 字段。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">UPDATE</span> salary
+<span style="color:#66d9ef">SET</span> sex <span style="color:#f92672">=</span> CHAR ( ASCII(sex) <span style="color:#f92672">^</span> ASCII( <span style="color:#e6db74">&#39;m&#39;</span> ) <span style="color:#f92672">^</span> ASCII( <span style="color:#e6db74">&#39;f&#39;</span> ) );
+</code></pre></div><h3 id="sql-schema-1">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> salary;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> salary ( id INT, NAME VARCHAR ( <span style="color:#ae81ff">100</span> ), sex CHAR ( <span style="color:#ae81ff">1</span> ), salary INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> salary ( id, NAME, sex, salary )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;m&#39;</span>, <span style="color:#e6db74">&#39;2500&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;f&#39;</span>, <span style="color:#e6db74">&#39;1500&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;3&#39;</span>, <span style="color:#e6db74">&#39;C&#39;</span>, <span style="color:#e6db74">&#39;m&#39;</span>, <span style="color:#e6db74">&#39;5500&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;4&#39;</span>, <span style="color:#e6db74">&#39;D&#39;</span>, <span style="color:#e6db74">&#39;f&#39;</span>, <span style="color:#e6db74">&#39;500&#39;</span> );
+</code></pre></div><h2 id="620-not-boring-movies">620. Not Boring Movies</h2>
 <p><a href="https://leetcode.com/problems/not-boring-movies/description/">https://leetcode.com/problems/not-boring-movies/description/</a></p>
 <h3 id="description-2">Description</h3>
-<pre><code class="language-html">+---------+-----------+--------------+-----------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+-----------+--------------+-----------+
 |   id    | movie     |  description |  rating   |
 +---------+-----------+--------------+-----------+
 |   1     | War       |   great 3D   |   8.9     |
@@ -1380,43 +1346,39 @@ VALUES
 |   4     | Ice song  |   Fantacy    |   8.6     |
 |   5     | House card|   Interesting|   9.1     |
 +---------+-----------+--------------+-----------+
-</code></pre>
-<p>查找 id 为奇数，并且 description 不是 boring 的电影，按 rating 降序。</p>
-<pre><code class="language-html">+---------+-----------+--------------+-----------+
+</code></pre></div><p>查找 id 为奇数，并且 description 不是 boring 的电影，按 rating 降序。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+-----------+--------------+-----------+
 |   id    | movie     |  description |  rating   |
 +---------+-----------+--------------+-----------+
 |   5     | House card|   Interesting|   9.1     |
 |   1     | War       |   great 3D   |   8.9     |
 +---------+-----------+--------------+-----------+
-</code></pre>
-<h3 id="solution-2">Solution</h3>
-<pre><code class="language-sql">SELECT
-    *
-FROM
+</code></pre></div><h3 id="solution-2">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    <span style="color:#f92672">*</span>
+<span style="color:#66d9ef">FROM</span>
     cinema
-WHERE
-    id % 2 = 1
-    AND description != 'boring'
-ORDER BY
-    rating DESC;
-</code></pre>
-<h3 id="sql-schema-2">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS cinema;
-CREATE TABLE cinema ( id INT, movie VARCHAR ( 255 ), description VARCHAR ( 255 ), rating FLOAT ( 2, 1 ) );
-INSERT INTO cinema ( id, movie, description, rating )
-VALUES
-    ( 1, 'War', 'great 3D', 8.9 ),
-    ( 2, 'Science', 'fiction', 8.5 ),
-    ( 3, 'irish', 'boring', 6.2 ),
-    ( 4, 'Ice song', 'Fantacy', 8.6 ),
-    ( 5, 'House card', 'Interesting', 9.1 );
-</code></pre>
-<h2 id="596-classes-more-than-5-students">596. Classes More Than 5 Students</h2>
+<span style="color:#66d9ef">WHERE</span>
+    id <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> description <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;boring&#39;</span>
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+    rating <span style="color:#66d9ef">DESC</span>;
+</code></pre></div><h3 id="sql-schema-2">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> cinema;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> cinema ( id INT, movie VARCHAR ( <span style="color:#ae81ff">255</span> ), description VARCHAR ( <span style="color:#ae81ff">255</span> ), rating FLOAT ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> cinema ( id, movie, description, rating )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;War&#39;</span>, <span style="color:#e6db74">&#39;great 3D&#39;</span>, <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">9</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Science&#39;</span>, <span style="color:#e6db74">&#39;fiction&#39;</span>, <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">5</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;irish&#39;</span>, <span style="color:#e6db74">&#39;boring&#39;</span>, <span style="color:#ae81ff">6</span>.<span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Ice song&#39;</span>, <span style="color:#e6db74">&#39;Fantacy&#39;</span>, <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">6</span> ),
+    ( <span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;House card&#39;</span>, <span style="color:#e6db74">&#39;Interesting&#39;</span>, <span style="color:#ae81ff">9</span>.<span style="color:#ae81ff">1</span> );
+</code></pre></div><h2 id="596-classes-more-than-5-students">596. Classes More Than 5 Students</h2>
 <p><a href="https://leetcode.com/problems/classes-more-than-5-students/description/">https://leetcode.com/problems/classes-more-than-5-students/description/</a></p>
 <h3 id="description-3">Description</h3>
-<pre><code class="language-html">+---------+------------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+------------+
 | student | class      |
 +---------+------------+
 | A       | Math       |
@@ -1429,147 +1391,134 @@ VALUES
 | H       | Math       |
 | I       | Math       |
 +---------+------------+
-</code></pre>
-<p>查找有五名及以上 student 的 class。</p>
-<pre><code class="language-html">+---------+
+</code></pre></div><p>查找有五名及以上 student 的 class。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+
 | class   |
 +---------+
 | Math    |
 +---------+
-</code></pre>
-<h3 id="solution-3">Solution</h3>
+</code></pre></div><h3 id="solution-3">Solution</h3>
 <p>对 class 列进行分组之后，再使用 count 汇总函数统计每个分组的记录个数，之后使用 HAVING 进行筛选。HAVING  针对分组进行筛选，而 WHERE 针对每个记录（行）进行筛选。</p>
-<pre><code class="language-sql">SELECT
-    class
-FROM
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    <span style="color:#66d9ef">class</span>
+<span style="color:#66d9ef">FROM</span>
     courses
-GROUP BY
-    class
-HAVING
-    count( DISTINCT student ) &gt;= 5;
-</code></pre>
-<h3 id="sql-schema-3">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS courses;
-CREATE TABLE courses ( student VARCHAR ( 255 ), class VARCHAR ( 255 ) );
-INSERT INTO courses ( student, class )
-VALUES
-    ( 'A', 'Math' ),
-    ( 'B', 'English' ),
-    ( 'C', 'Math' ),
-    ( 'D', 'Biology' ),
-    ( 'E', 'Math' ),
-    ( 'F', 'Computer' ),
-    ( 'G', 'Math' ),
-    ( 'H', 'Math' ),
-    ( 'I', 'Math' );
-</code></pre>
-<h2 id="182-duplicate-emails">182. Duplicate Emails</h2>
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
+    <span style="color:#66d9ef">class</span>
+<span style="color:#66d9ef">HAVING</span>
+    <span style="color:#66d9ef">count</span>( <span style="color:#66d9ef">DISTINCT</span> student ) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">5</span>;
+</code></pre></div><h3 id="sql-schema-3">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> courses;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> courses ( student VARCHAR ( <span style="color:#ae81ff">255</span> ), <span style="color:#66d9ef">class</span> VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> courses ( student, <span style="color:#66d9ef">class</span> )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;English&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;C&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;D&#39;</span>, <span style="color:#e6db74">&#39;Biology&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;E&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;F&#39;</span>, <span style="color:#e6db74">&#39;Computer&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;G&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;H&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;I&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> );
+</code></pre></div><h2 id="182-duplicate-emails">182. Duplicate Emails</h2>
 <p><a href="https://leetcode.com/problems/duplicate-emails/description/">https://leetcode.com/problems/duplicate-emails/description/</a></p>
 <h3 id="description-4">Description</h3>
 <p>邮件地址表：</p>
-<pre><code class="language-html">+----+---------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+---------+
 | Id | Email   |
 +----+---------+
 | 1  | a@b.com |
 | 2  | c@d.com |
 | 3  | a@b.com |
 +----+---------+
-</code></pre>
-<p>查找重复的邮件地址：</p>
-<pre><code class="language-html">+---------+
+</code></pre></div><p>查找重复的邮件地址：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+
 | Email   |
 +---------+
 | a@b.com |
 +---------+
-</code></pre>
-<h3 id="solution-4">Solution</h3>
+</code></pre></div><h3 id="solution-4">Solution</h3>
 <p>对 Email 进行分组，如果并使用 COUNT 进行计数统计，结果大于等于 2 的表示 Email  重复。</p>
-<pre><code class="language-sql">SELECT
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
     Email
-FROM
+<span style="color:#66d9ef">FROM</span>
     Person
-GROUP BY
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
     Email
-HAVING
-    COUNT( * ) &gt;= 2;
-</code></pre>
-<h3 id="sql-schema-4">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS Person;
-CREATE TABLE Person ( Id INT, Email VARCHAR ( 255 ) );
-INSERT INTO Person ( Id, Email )
-VALUES
-    ( 1, 'a@b.com' ),
-    ( 2, 'c@d.com' ),
-    ( 3, 'a@b.com' );
-</code></pre>
-<h2 id="196-delete-duplicate-emails">196. Delete Duplicate Emails</h2>
+<span style="color:#66d9ef">HAVING</span>
+    <span style="color:#66d9ef">COUNT</span>( <span style="color:#f92672">*</span> ) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>;
+</code></pre></div><h3 id="sql-schema-4">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Person;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Person ( Id INT, Email VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Person ( Id, Email )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;a@b.com&#39;</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;c@d.com&#39;</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;a@b.com&#39;</span> );
+</code></pre></div><h2 id="196-delete-duplicate-emails">196. Delete Duplicate Emails</h2>
 <p><a href="https://leetcode.com/problems/delete-duplicate-emails/description/">https://leetcode.com/problems/delete-duplicate-emails/description/</a></p>
 <h3 id="description-5">Description</h3>
 <p>邮件地址表：</p>
-<pre><code class="language-html">+----+---------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+---------+
 | Id | Email   |
 +----+---------+
 | 1  | john@example.com |
 | 2  | bob@example.com |
 | 3  | john@example.com |
 +----+---------+
-</code></pre>
-<p>删除重复的邮件地址：</p>
-<pre><code class="language-html">+----+------------------+
+</code></pre></div><p>删除重复的邮件地址：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+------------------+
 | Id | Email            |
 +----+------------------+
 | 1  | john@example.com |
 | 2  | bob@example.com  |
 +----+------------------+
-</code></pre>
-<h3 id="solution-5">Solution</h3>
+</code></pre></div><h3 id="solution-5">Solution</h3>
 <p>只保留相同 Email 中 Id 最小的那一个，然后删除其它的。</p>
 <p>连接查询：</p>
-<pre><code class="language-sql">DELETE p1
-FROM
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span> p1
+<span style="color:#66d9ef">FROM</span>
     Person p1,
     Person p2
-WHERE
-    p1.Email = p2.Email
-    AND p1.Id &gt; p2.Id
-</code></pre>
-<p>子查询：</p>
-<pre><code class="language-sql">DELETE
-FROM
+<span style="color:#66d9ef">WHERE</span>
+    p1.Email <span style="color:#f92672">=</span> p2.Email
+    <span style="color:#66d9ef">AND</span> p1.Id <span style="color:#f92672">&gt;</span> p2.Id
+</code></pre></div><p>子查询：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span>
+<span style="color:#66d9ef">FROM</span>
     Person
-WHERE
-    id NOT IN (
-        SELECT id 
-        FROM ( 
-            SELECT min( id ) AS id 
-            FROM Person
-            GROUP BY email
-        ) AS m
+<span style="color:#66d9ef">WHERE</span>
+    id <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> (
+        <span style="color:#66d9ef">SELECT</span> id 
+        <span style="color:#66d9ef">FROM</span> ( 
+            <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">min</span>( id ) <span style="color:#66d9ef">AS</span> id 
+            <span style="color:#66d9ef">FROM</span> Person
+            <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> email
+        ) <span style="color:#66d9ef">AS</span> m
     );
-</code></pre>
-<p>应该注意的是上述解法额外嵌套了一个 SELECT 语句，如果不这么做，会出现错误：You can&rsquo;t specify target table &lsquo;Person&rsquo; for update in FROM clause。以下演示了这种错误解法。</p>
-<pre><code class="language-sql">DELETE
-FROM
+</code></pre></div><p>应该注意的是上述解法额外嵌套了一个 SELECT 语句，如果不这么做，会出现错误：You can&rsquo;t specify target table &lsquo;Person&rsquo; for update in FROM clause。以下演示了这种错误解法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span>
+<span style="color:#66d9ef">FROM</span>
     Person
-WHERE
-    id NOT IN ( 
-        SELECT min( id ) AS id 
-        FROM Person 
-        GROUP BY email 
+<span style="color:#66d9ef">WHERE</span>
+    id <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> ( 
+        <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">min</span>( id ) <span style="color:#66d9ef">AS</span> id 
+        <span style="color:#66d9ef">FROM</span> Person 
+        <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> email 
     );
-</code></pre>
-<p>参考：<a href="https://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-table-for-update-in-from-clause">pMySQL Error 1093 - Can&rsquo;t specify target table for update in FROM clause</a></p>
+</code></pre></div><p>参考：<a href="https://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-table-for-update-in-from-clause">pMySQL Error 1093 - Can&rsquo;t specify target table for update in FROM clause</a></p>
 <h3 id="sql-schema-5">SQL Schema</h3>
 <p>与 182 相同。</p>
 <h2 id="175-combine-two-tables">175. Combine Two Tables</h2>
 <p><a href="https://leetcode.com/problems/combine-two-tables/description/">https://leetcode.com/problems/combine-two-tables/description/</a></p>
 <h3 id="description-6">Description</h3>
 <p>Person 表：</p>
-<pre><code class="language-html">+-------------+---------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | PersonId    | int     |
@@ -1577,9 +1526,8 @@ WHERE
 | LastName    | varchar |
 +-------------+---------+
 PersonId is the primary key column for this table.
-</code></pre>
-<p>Address 表：</p>
-<pre><code class="language-html">+-------------+---------+
+</code></pre></div><p>Address 表：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | AddressId   | int     |
@@ -1588,41 +1536,38 @@ PersonId is the primary key column for this table.
 | State       | varchar |
 +-------------+---------+
 AddressId is the primary key column for this table.
-</code></pre>
-<p>查找 FirstName, LastName, City, State 数据，而不管一个用户有没有填地址信息。</p>
+</code></pre></div><p>查找 FirstName, LastName, City, State 数据，而不管一个用户有没有填地址信息。</p>
 <h3 id="solution-6">Solution</h3>
 <p>涉及到 Person 和 Address 两个表，在对这两个表执行连接操作时，因为要保留 Person 表中的信息，即使在 Address 表中没有关联的信息也要保留。此时可以用左外连接，将 Person 表放在 LEFT JOIN 的左边。</p>
-<pre><code class="language-sql">SELECT
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
     FirstName,
     LastName,
     City,
-    State
-FROM
+    <span style="color:#66d9ef">State</span>
+<span style="color:#66d9ef">FROM</span>
     Person P
-    LEFT JOIN Address A
-    ON P.PersonId = A.PersonId;
-</code></pre>
-<h3 id="sql-schema-6">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS Person;
-CREATE TABLE Person ( PersonId INT, FirstName VARCHAR ( 255 ), LastName VARCHAR ( 255 ) );
-DROP TABLE
-IF
-    EXISTS Address;
-CREATE TABLE Address ( AddressId INT, PersonId INT, City VARCHAR ( 255 ), State VARCHAR ( 255 ) );
-INSERT INTO Person ( PersonId, LastName, FirstName )
-VALUES
-    ( 1, 'Wang', 'Allen' );
-INSERT INTO Address ( AddressId, PersonId, City, State )
-VALUES
-    ( 1, 2, 'New York City', 'New York' );
-</code></pre>
-<h2 id="181-employees-earning-more-than-their-managers">181. Employees Earning More Than Their Managers</h2>
+    <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> Address A
+    <span style="color:#66d9ef">ON</span> P.PersonId <span style="color:#f92672">=</span> A.PersonId;
+</code></pre></div><h3 id="sql-schema-6">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Person;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Person ( PersonId INT, FirstName VARCHAR ( <span style="color:#ae81ff">255</span> ), LastName VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Address;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Address ( AddressId INT, PersonId INT, City VARCHAR ( <span style="color:#ae81ff">255</span> ), <span style="color:#66d9ef">State</span> VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Person ( PersonId, LastName, FirstName )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Wang&#39;</span>, <span style="color:#e6db74">&#39;Allen&#39;</span> );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Address ( AddressId, PersonId, City, <span style="color:#66d9ef">State</span> )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;New York City&#39;</span>, <span style="color:#e6db74">&#39;New York&#39;</span> );
+</code></pre></div><h2 id="181-employees-earning-more-than-their-managers">181. Employees Earning More Than Their Managers</h2>
 <p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/description/">https://leetcode.com/problems/employees-earning-more-than-their-managers/description/</a></p>
 <h3 id="description-7">Description</h3>
 <p>Employee 表：</p>
-<pre><code class="language-html">+----+-------+--------+-----------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-------+--------+-----------+
 | Id | Name  | Salary | ManagerId |
 +----+-------+--------+-----------+
 | 1  | Joe   | 70000  | 3         |
@@ -1630,34 +1575,31 @@ VALUES
 | 3  | Sam   | 60000  | NULL      |
 | 4  | Max   | 90000  | NULL      |
 +----+-------+--------+-----------+
-</code></pre>
-<p>查找薪资大于其经理薪资的员工信息。</p>
+</code></pre></div><p>查找薪资大于其经理薪资的员工信息。</p>
 <h3 id="solution-7">Solution</h3>
-<pre><code class="language-sql">SELECT
-    E1.NAME AS Employee
-FROM
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    E1.NAME <span style="color:#66d9ef">AS</span> Employee
+<span style="color:#66d9ef">FROM</span>
     Employee E1
-    INNER JOIN Employee E2
-    ON E1.ManagerId = E2.Id
-    AND E1.Salary &gt; E2.Salary;
-</code></pre>
-<h3 id="sql-schema-7">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS Employee;
-CREATE TABLE Employee ( Id INT, NAME VARCHAR ( 255 ), Salary INT, ManagerId INT );
-INSERT INTO Employee ( Id, NAME, Salary, ManagerId )
-VALUES
-    ( 1, 'Joe', 70000, 3 ),
-    ( 2, 'Henry', 80000, 4 ),
-    ( 3, 'Sam', 60000, NULL ),
-    ( 4, 'Max', 90000, NULL );
-</code></pre>
-<h2 id="183-customers-who-never-order">183. Customers Who Never Order</h2>
+    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Employee E2
+    <span style="color:#66d9ef">ON</span> E1.ManagerId <span style="color:#f92672">=</span> E2.Id
+    <span style="color:#66d9ef">AND</span> E1.Salary <span style="color:#f92672">&gt;</span> E2.Salary;
+</code></pre></div><h3 id="sql-schema-7">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Employee;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Employee ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ), Salary INT, ManagerId INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Employee ( Id, NAME, Salary, ManagerId )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Joe&#39;</span>, <span style="color:#ae81ff">70000</span>, <span style="color:#ae81ff">3</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Henry&#39;</span>, <span style="color:#ae81ff">80000</span>, <span style="color:#ae81ff">4</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sam&#39;</span>, <span style="color:#ae81ff">60000</span>, <span style="color:#66d9ef">NULL</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Max&#39;</span>, <span style="color:#ae81ff">90000</span>, <span style="color:#66d9ef">NULL</span> );
+</code></pre></div><h2 id="183-customers-who-never-order">183. Customers Who Never Order</h2>
 <p><a href="https://leetcode.com/problems/customers-who-never-order/description/">https://leetcode.com/problems/customers-who-never-order/description/</a></p>
 <h3 id="description-8">Description</h3>
 <p>Customers 表：</p>
-<pre><code class="language-html">+----+-------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-------+
 | Id | Name  |
 +----+-------+
 | 1  | Joe   |
@@ -1665,70 +1607,64 @@ VALUES
 | 3  | Sam   |
 | 4  | Max   |
 +----+-------+
-</code></pre>
-<p>Orders 表：</p>
-<pre><code class="language-html">+----+------------+
+</code></pre></div><p>Orders 表：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+------------+
 | Id | CustomerId |
 +----+------------+
 | 1  | 3          |
 | 2  | 1          |
 +----+------------+
-</code></pre>
-<p>查找没有订单的顾客信息：</p>
-<pre><code class="language-html">+-----------+
+</code></pre></div><p>查找没有订单的顾客信息：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-----------+
 | Customers |
 +-----------+
 | Henry     |
 | Max       |
 +-----------+
-</code></pre>
-<h3 id="solution-8">Solution</h3>
+</code></pre></div><h3 id="solution-8">Solution</h3>
 <p>左外链接</p>
-<pre><code class="language-sql">SELECT
-    C.Name AS Customers
-FROM
-    Customers C
-    LEFT JOIN Orders O
-    ON C.Id = O.CustomerId
-WHERE
-    O.CustomerId IS NULL;
-</code></pre>
-<p>子查询</p>
-<pre><code class="language-sql">SELECT
-    Name AS Customers
-FROM
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    <span style="color:#66d9ef">C</span>.Name <span style="color:#66d9ef">AS</span> Customers
+<span style="color:#66d9ef">FROM</span>
+    Customers <span style="color:#66d9ef">C</span>
+    <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> Orders O
+    <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">C</span>.Id <span style="color:#f92672">=</span> O.CustomerId
+<span style="color:#66d9ef">WHERE</span>
+    O.CustomerId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>;
+</code></pre></div><p>子查询</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    Name <span style="color:#66d9ef">AS</span> Customers
+<span style="color:#66d9ef">FROM</span>
     Customers
-WHERE
-    Id NOT IN ( 
-        SELECT CustomerId 
-        FROM Orders 
+<span style="color:#66d9ef">WHERE</span>
+    Id <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> ( 
+        <span style="color:#66d9ef">SELECT</span> CustomerId 
+        <span style="color:#66d9ef">FROM</span> Orders 
     );
-</code></pre>
-<h3 id="sql-schema-8">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS Customers;
-CREATE TABLE Customers ( Id INT, NAME VARCHAR ( 255 ) );
-DROP TABLE
-IF
-    EXISTS Orders;
-CREATE TABLE Orders ( Id INT, CustomerId INT );
-INSERT INTO Customers ( Id, NAME )
-VALUES
-    ( 1, 'Joe' ),
-    ( 2, 'Henry' ),
-    ( 3, 'Sam' ),
-    ( 4, 'Max' );
-INSERT INTO Orders ( Id, CustomerId )
-VALUES
-    ( 1, 3 ),
-    ( 2, 1 );
-</code></pre>
-<h2 id="184-department-highest-salary">184. Department Highest Salary</h2>
+</code></pre></div><h3 id="sql-schema-8">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Customers;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Customers ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Orders;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Orders ( Id INT, CustomerId INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Customers ( Id, NAME )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Joe&#39;</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Henry&#39;</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sam&#39;</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Max&#39;</span> );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Orders ( Id, CustomerId )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span> );
+</code></pre></div><h2 id="184-department-highest-salary">184. Department Highest Salary</h2>
 <p><a href="https://leetcode.com/problems/department-highest-salary/description/">https://leetcode.com/problems/department-highest-salary/description/</a></p>
 <h3 id="description-9">Description</h3>
 <p>Employee 表：</p>
-<pre><code class="language-html">+----+-------+--------+--------------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-------+--------+--------------+
 | Id | Name  | Salary | DepartmentId |
 +----+-------+--------+--------------+
 | 1  | Joe   | 70000  | 1            |
@@ -1736,120 +1672,110 @@ VALUES
 | 3  | Sam   | 60000  | 2            |
 | 4  | Max   | 90000  | 1            |
 +----+-------+--------+--------------+
-</code></pre>
-<p>Department 表：</p>
-<pre><code class="language-html">+----+----------+
+</code></pre></div><p>Department 表：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+----------+
 | Id | Name     |
 +----+----------+
 | 1  | IT       |
 | 2  | Sales    |
 +----+----------+
-</code></pre>
-<p>查找一个 Department 中收入最高者的信息：</p>
-<pre><code class="language-html">+------------+----------+--------+
+</code></pre></div><p>查找一个 Department 中收入最高者的信息：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+------------+----------+--------+
 | Department | Employee | Salary |
 +------------+----------+--------+
 | IT         | Max      | 90000  |
 | Sales      | Henry    | 80000  |
 +------------+----------+--------+
-</code></pre>
-<h3 id="solution-9">Solution</h3>
+</code></pre></div><h3 id="solution-9">Solution</h3>
 <p>创建一个临时表，包含了部门员工的最大薪资。可以对部门进行分组，然后使用 MAX() 汇总函数取得最大薪资。</p>
 <p>之后使用连接找到一个部门中薪资等于临时表中最大薪资的员工。</p>
-<pre><code class="language-sql">SELECT
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
     D.NAME Department,
     E.NAME Employee,
     E.Salary
-FROM
+<span style="color:#66d9ef">FROM</span>
     Employee E,
     Department D,
-    ( SELECT DepartmentId, MAX( Salary ) Salary 
-     FROM Employee 
-     GROUP BY DepartmentId ) M
-WHERE
-    E.DepartmentId = D.Id
-    AND E.DepartmentId = M.DepartmentId
-    AND E.Salary = M.Salary;
-</code></pre>
-<h3 id="sql-schema-9">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE IF EXISTS Employee;
-CREATE TABLE Employee ( Id INT, NAME VARCHAR ( 255 ), Salary INT, DepartmentId INT );
-DROP TABLE IF EXISTS Department;
-CREATE TABLE Department ( Id INT, NAME VARCHAR ( 255 ) );
-INSERT INTO Employee ( Id, NAME, Salary, DepartmentId )
-VALUES
-    ( 1, 'Joe', 70000, 1 ),
-    ( 2, 'Henry', 80000, 2 ),
-    ( 3, 'Sam', 60000, 2 ),
-    ( 4, 'Max', 90000, 1 );
-INSERT INTO Department ( Id, NAME )
-VALUES
-    ( 1, 'IT' ),
-    ( 2, 'Sales' );
-</code></pre>
-<h2 id="176-second-highest-salary">176. Second Highest Salary</h2>
+    ( <span style="color:#66d9ef">SELECT</span> DepartmentId, <span style="color:#66d9ef">MAX</span>( Salary ) Salary 
+     <span style="color:#66d9ef">FROM</span> Employee 
+     <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> DepartmentId ) M
+<span style="color:#66d9ef">WHERE</span>
+    E.DepartmentId <span style="color:#f92672">=</span> D.Id
+    <span style="color:#66d9ef">AND</span> E.DepartmentId <span style="color:#f92672">=</span> M.DepartmentId
+    <span style="color:#66d9ef">AND</span> E.Salary <span style="color:#f92672">=</span> M.Salary;
+</code></pre></div><h3 id="sql-schema-9">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> Employee;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Employee ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ), Salary INT, DepartmentId INT );
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> Department;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Department ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Employee ( Id, NAME, Salary, DepartmentId )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Joe&#39;</span>, <span style="color:#ae81ff">70000</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Henry&#39;</span>, <span style="color:#ae81ff">80000</span>, <span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sam&#39;</span>, <span style="color:#ae81ff">60000</span>, <span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Max&#39;</span>, <span style="color:#ae81ff">90000</span>, <span style="color:#ae81ff">1</span> );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Department ( Id, NAME )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;IT&#39;</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Sales&#39;</span> );
+</code></pre></div><h2 id="176-second-highest-salary">176. Second Highest Salary</h2>
 <p><a href="https://leetcode.com/problems/second-highest-salary/description/">https://leetcode.com/problems/second-highest-salary/description/</a></p>
 <h3 id="description-10">Description</h3>
-<pre><code class="language-html">+----+--------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+--------+
 | Id | Salary |
 +----+--------+
 | 1  | 100    |
 | 2  | 200    |
 | 3  | 300    |
 +----+--------+
-</code></pre>
-<p>查找工资第二高的员工。</p>
-<pre><code class="language-html">+---------------------+
+</code></pre></div><p>查找工资第二高的员工。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------------------+
 | SecondHighestSalary |
 +---------------------+
 | 200                 |
 +---------------------+
-</code></pre>
-<p>没有找到返回 null 而不是不返回数据。</p>
+</code></pre></div><p>没有找到返回 null 而不是不返回数据。</p>
 <h3 id="solution-10">Solution</h3>
 <p>为了在没有查找到数据时返回 null，需要在查询结果外面再套一层 SELECT。</p>
-<pre><code class="language-sql">SELECT
-    ( SELECT DISTINCT Salary 
-     FROM Employee 
-     ORDER BY Salary DESC 
-     LIMIT 1, 1 ) SecondHighestSalary;
-</code></pre>
-<h3 id="sql-schema-10">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS Employee;
-CREATE TABLE Employee ( Id INT, Salary INT );
-INSERT INTO Employee ( Id, Salary )
-VALUES
-    ( 1, 100 ),
-    ( 2, 200 ),
-    ( 3, 300 );
-</code></pre>
-<h2 id="177-nth-highest-salary">177. Nth Highest Salary</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> Salary 
+     <span style="color:#66d9ef">FROM</span> Employee 
+     <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> Salary <span style="color:#66d9ef">DESC</span> 
+     <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span> ) SecondHighestSalary;
+</code></pre></div><h3 id="sql-schema-10">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Employee;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Employee ( Id INT, Salary INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Employee ( Id, Salary )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">200</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">300</span> );
+</code></pre></div><h2 id="177-nth-highest-salary">177. Nth Highest Salary</h2>
 <h3 id="description-11">Description</h3>
 <p>查找工资第 N 高的员工。</p>
 <h3 id="solution-11">Solution</h3>
-<pre><code class="language-sql">CREATE FUNCTION getNthHighestSalary ( N INT ) RETURNS INT BEGIN
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">FUNCTION</span> getNthHighestSalary ( N INT ) <span style="color:#66d9ef">RETURNS</span> INT <span style="color:#66d9ef">BEGIN</span>
 
-SET N = N - 1;
-RETURN ( 
-    SELECT ( 
-        SELECT DISTINCT Salary 
-        FROM Employee 
-        ORDER BY Salary DESC 
-        LIMIT N, 1 
+<span style="color:#66d9ef">SET</span> N <span style="color:#f92672">=</span> N <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">RETURN</span> ( 
+    <span style="color:#66d9ef">SELECT</span> ( 
+        <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> Salary 
+        <span style="color:#66d9ef">FROM</span> Employee 
+        <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> Salary <span style="color:#66d9ef">DESC</span> 
+        <span style="color:#66d9ef">LIMIT</span> N, <span style="color:#ae81ff">1</span> 
     ) 
 );
 
-END
-</code></pre>
-<h3 id="sql-schema-11">SQL Schema</h3>
+<span style="color:#66d9ef">END</span>
+</code></pre></div><h3 id="sql-schema-11">SQL Schema</h3>
 <p>同 176。</p>
 <h2 id="178-rank-scores">178. Rank Scores</h2>
 <p><a href="https://leetcode.com/problems/rank-scores/description/">https://leetcode.com/problems/rank-scores/description/</a></p>
 <h3 id="description-12">Description</h3>
 <p>得分表：</p>
-<pre><code class="language-html">+----+-------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-------+
 | Id | Score |
 +----+-------+
 | 1  | 3.50  |
@@ -1859,9 +1785,8 @@ END
 | 5  | 4.00  |
 | 6  | 3.65  |
 +----+-------+
-</code></pre>
-<p>将得分排序，并统计排名。</p>
-<pre><code class="language-html">+-------+------+
+</code></pre></div><p>将得分排序，并统计排名。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-------+------+
 | Score | Rank |
 +-------+------+
 | 4.00  | 1    |
@@ -1871,8 +1796,7 @@ END
 | 3.65  | 3    |
 | 3.50  | 4    |
 +-------+------+
-</code></pre>
-<h3 id="solution-12">Solution</h3>
+</code></pre></div><h3 id="solution-12">Solution</h3>
 <p>要统计某个 score 的排名，只要统计大于等于该 score 的 score 数量。</p>
 <table>
 <thead>
@@ -1905,16 +1829,15 @@ END
 </tbody>
 </table>
 <p>使用连接操作找到某个 score 对应的大于等于其值的记录：</p>
-<pre><code class="language-sql">SELECT
-	*
-FROM
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+	<span style="color:#f92672">*</span>
+<span style="color:#66d9ef">FROM</span>
     Scores S1
-    INNER JOIN Scores S2
-    ON S1.score &lt;= S2.score
-ORDER BY
-    S1.score DESC, S1.Id;
-</code></pre>
-<table>
+    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Scores S2
+    <span style="color:#66d9ef">ON</span> S1.score <span style="color:#f92672">&lt;=</span> S2.score
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+    S1.score <span style="color:#66d9ef">DESC</span>, S1.Id;
+</code></pre></div><table>
 <thead>
 <tr>
 <th style="text-align:center">S1.Id</th>
@@ -1963,19 +1886,18 @@ ORDER BY
 </tbody>
 </table>
 <p>可以看到每个 S1.score 都有对应好几条记录，我们再进行分组，并统计每个分组的数量作为 &lsquo;Rank&rsquo;</p>
-<pre><code class="language-sql">SELECT
-    S1.score 'Score',
-    COUNT(*) 'Rank'
-FROM
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    S1.score <span style="color:#e6db74">&#39;Score&#39;</span>,
+    <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#e6db74">&#39;Rank&#39;</span>
+<span style="color:#66d9ef">FROM</span>
     Scores S1
-    INNER JOIN Scores S2
-    ON S1.score &lt;= S2.score
-GROUP BY
+    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Scores S2
+    <span style="color:#66d9ef">ON</span> S1.score <span style="color:#f92672">&lt;=</span> S2.score
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
     S1.id, S1.score
-ORDER BY
-    S1.score DESC, S1.Id;
-</code></pre>
-<table>
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+    S1.score <span style="color:#66d9ef">DESC</span>, S1.Id;
+</code></pre></div><table>
 <thead>
 <tr>
 <th style="text-align:center">score</th>
@@ -2121,37 +2043,35 @@ ORDER BY
 </tbody>
 </table>
 <p>我们想要的结果是，把分数相同的放在同一个排名，并且相同分数只占一个位置，例如上面的分数，Id=2 和 Id=3 的记录都有相同的分数，并且最高，他们并列第一。而 Id=1 的记录应该排第二名，而不是第三名。所以在进行 COUNT 计数统计时，我们需要使用 COUNT( DISTINCT S2.score ) 从而只统计一次相同的分数。</p>
-<pre><code class="language-sql">SELECT
-    S1.score 'Score',
-    COUNT( DISTINCT S2.score ) 'Rank'
-FROM
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    S1.score <span style="color:#e6db74">&#39;Score&#39;</span>,
+    <span style="color:#66d9ef">COUNT</span>( <span style="color:#66d9ef">DISTINCT</span> S2.score ) <span style="color:#e6db74">&#39;Rank&#39;</span>
+<span style="color:#66d9ef">FROM</span>
     Scores S1
-    INNER JOIN Scores S2
-    ON S1.score &lt;= S2.score
-GROUP BY
+    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Scores S2
+    <span style="color:#66d9ef">ON</span> S1.score <span style="color:#f92672">&lt;=</span> S2.score
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
     S1.id, S1.score
-ORDER BY
-    S1.score DESC;
-</code></pre>
-<h3 id="sql-schema-12">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS Scores;
-CREATE TABLE Scores ( Id INT, Score DECIMAL ( 3, 2 ) );
-INSERT INTO Scores ( Id, Score )
-VALUES
-    ( 1, 4.1 ),
-    ( 2, 4.1 ),
-    ( 3, 4.2 ),
-    ( 4, 4.2 ),
-    ( 5, 4.3 ),
-    ( 6, 4.3 );
-</code></pre>
-<h2 id="180-consecutive-numbers">180. Consecutive Numbers</h2>
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+    S1.score <span style="color:#66d9ef">DESC</span>;
+</code></pre></div><h3 id="sql-schema-12">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Scores;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Scores ( Id INT, Score DECIMAL ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Scores ( Id, Score )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">3</span> ),
+    ( <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">3</span> );
+</code></pre></div><h2 id="180-consecutive-numbers">180. Consecutive Numbers</h2>
 <p><a href="https://leetcode.com/problems/consecutive-numbers/description/">https://leetcode.com/problems/consecutive-numbers/description/</a></p>
 <h3 id="description-13">Description</h3>
 <p>数字表：</p>
-<pre><code class="language-html">+----+-----+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-----+
 | Id | Num |
 +----+-----+
 | 1  |  1  |
@@ -2162,46 +2082,42 @@ VALUES
 | 6  |  2  |
 | 7  |  2  |
 +----+-----+
-</code></pre>
-<p>查找连续出现三次的数字。</p>
-<pre><code class="language-html">+-----------------+
+</code></pre></div><p>查找连续出现三次的数字。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-----------------+
 | ConsecutiveNums |
 +-----------------+
 | 1               |
 +-----------------+
-</code></pre>
-<h3 id="solution-13">Solution</h3>
-<pre><code class="language-sql">SELECT
-    DISTINCT L1.num ConsecutiveNums
-FROM
+</code></pre></div><h3 id="solution-13">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    <span style="color:#66d9ef">DISTINCT</span> L1.num ConsecutiveNums
+<span style="color:#66d9ef">FROM</span>
     Logs L1,
     Logs L2,
     Logs L3
-WHERE L1.id = l2.id - 1
-    AND L2.id = L3.id - 1
-    AND L1.num = L2.num
-    AND l2.num = l3.num;
-</code></pre>
-<h3 id="sql-schema-13">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS LOGS;
-CREATE TABLE LOGS ( Id INT, Num INT );
-INSERT INTO LOGS ( Id, Num )
-VALUES
-    ( 1, 1 ),
-    ( 2, 1 ),
-    ( 3, 1 ),
-    ( 4, 2 ),
-    ( 5, 1 ),
-    ( 6, 2 ),
-    ( 7, 2 );
-</code></pre>
-<h2 id="626-exchange-seats">626. Exchange Seats</h2>
+<span style="color:#66d9ef">WHERE</span> L1.id <span style="color:#f92672">=</span> l2.id <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> L2.id <span style="color:#f92672">=</span> L3.id <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> L1.num <span style="color:#f92672">=</span> L2.num
+    <span style="color:#66d9ef">AND</span> l2.num <span style="color:#f92672">=</span> l3.num;
+</code></pre></div><h3 id="sql-schema-13">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> LOGS;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> LOGS ( Id INT, Num INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> LOGS ( Id, Num )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">2</span> );
+</code></pre></div><h2 id="626-exchange-seats">626. Exchange Seats</h2>
 <p><a href="https://leetcode.com/problems/exchange-seats/description/">https://leetcode.com/problems/exchange-seats/description/</a></p>
 <h3 id="description-14">Description</h3>
 <p>seat 表存储着座位对应的学生。</p>
-<pre><code class="language-html">+---------+---------+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+---------+
 |    id   | student |
 +---------+---------+
 |    1    | Abbot   |
@@ -2210,9 +2126,8 @@ VALUES
 |    4    | Green   |
 |    5    | Jeames  |
 +---------+---------+
-</code></pre>
-<p>要求交换相邻座位的两个学生，如果最后一个座位是奇数，那么不交换这个座位上的学生。</p>
-<pre><code class="language-html">+---------+---------+
+</code></pre></div><p>要求交换相邻座位的两个学生，如果最后一个座位是奇数，那么不交换这个座位上的学生。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+---------+
 |    id   | student |
 +---------+---------+
 |    1    | Doris   |
@@ -2221,54 +2136,51 @@ VALUES
 |    4    | Emerson |
 |    5    | Jeames  |
 +---------+---------+
-</code></pre>
-<h3 id="solution-14">Solution</h3>
+</code></pre></div><h3 id="solution-14">Solution</h3>
 <p>使用多个 union。</p>
-<pre><code class="language-sql">## 处理偶数 id，让 id 减 1
-## 例如 2,4,6,... 变成 1,3,5,...
-SELECT
-    s1.id - 1 AS id,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">处理偶数</span> id<span style="color:#960050;background-color:#1e0010">，让</span> id <span style="color:#960050;background-color:#1e0010">减</span> <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">例如</span> <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,... <span style="color:#960050;background-color:#1e0010">变成</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,...
+<span style="color:#66d9ef">SELECT</span>
+    s1.id <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AS</span> id,
     s1.student
-FROM
+<span style="color:#66d9ef">FROM</span>
     seat s1
-WHERE
-    s1.id MOD 2 = 0 UNION
-## 处理奇数 id，让 id 加 1。但是如果最大的 id 为奇数，则不做处理
-## 例如 1,3,5,... 变成 2,4,6,...
-SELECT
-    s2.id + 1 AS id,
+<span style="color:#66d9ef">WHERE</span>
+    s1.id <span style="color:#66d9ef">MOD</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">UNION</span>
+<span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">处理奇数</span> id<span style="color:#960050;background-color:#1e0010">，让</span> id <span style="color:#960050;background-color:#1e0010">加</span> <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">。但是如果最大的</span> id <span style="color:#960050;background-color:#1e0010">为奇数，则不做处理</span>
+<span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">例如</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,... <span style="color:#960050;background-color:#1e0010">变成</span> <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,...
+<span style="color:#66d9ef">SELECT</span>
+    s2.id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AS</span> id,
     s2.student
-FROM
+<span style="color:#66d9ef">FROM</span>
     seat s2
-WHERE
-    s2.id MOD 2 = 1
-    AND s2.id != ( SELECT max( s3.id ) FROM seat s3 ) UNION
-## 如果最大的 id 为奇数，单独取出这个数
-SELECT
-    s4.id AS id,
+<span style="color:#66d9ef">WHERE</span>
+    s2.id <span style="color:#66d9ef">MOD</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> s2.id <span style="color:#f92672">!=</span> ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">max</span>( s3.id ) <span style="color:#66d9ef">FROM</span> seat s3 ) <span style="color:#66d9ef">UNION</span>
+<span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">如果最大的</span> id <span style="color:#960050;background-color:#1e0010">为奇数，单独取出这个数</span>
+<span style="color:#66d9ef">SELECT</span>
+    s4.id <span style="color:#66d9ef">AS</span> id,
     s4.student
-FROM
+<span style="color:#66d9ef">FROM</span>
     seat s4
-WHERE
-    s4.id MOD 2 = 1
-    AND s4.id = ( SELECT max( s5.id ) FROM seat s5 )
-ORDER BY
+<span style="color:#66d9ef">WHERE</span>
+    s4.id <span style="color:#66d9ef">MOD</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> s4.id <span style="color:#f92672">=</span> ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">max</span>( s5.id ) <span style="color:#66d9ef">FROM</span> seat s5 )
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
     id;
-</code></pre>
-<h3 id="sql-schema-14">SQL Schema</h3>
-<pre><code class="language-sql">DROP TABLE
-IF
-    EXISTS seat;
-CREATE TABLE seat ( id INT, student VARCHAR ( 255 ) );
-INSERT INTO seat ( id, student )
-VALUES
-    ( '1', 'Abbot' ),
-    ( '2', 'Doris' ),
-    ( '3', 'Emerson' ),
-    ( '4', 'Green' ),
-    ( '5', 'Jeames' );
-</code></pre>
-
+</code></pre></div><h3 id="sql-schema-14">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> seat;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> seat ( id INT, student VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> seat ( id, student )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;Abbot&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;Doris&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;3&#39;</span>, <span style="color:#e6db74">&#39;Emerson&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;4&#39;</span>, <span style="color:#e6db74">&#39;Green&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;5&#39;</span>, <span style="color:#e6db74">&#39;Jeames&#39;</span> );
+</code></pre></div>
         
         ]]>
       </description>
@@ -2389,27 +2301,23 @@ VALUES
 <h4 id="1-独立的列">1. 独立的列</h4>
 <p>在进行查询时，索引列不能是表达式的一部分，也不能是函数的参数，否则无法使用索引。</p>
 <p>例如下面的查询不能使用 actor_id 列的索引：</p>
-<pre><code class="language-sql">SELECT actor_id FROM sakila.actor WHERE actor_id + 1 = 5;
-</code></pre>
-<h4 id="2-多列索引">2. 多列索引</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> actor_id <span style="color:#66d9ef">FROM</span> sakila.actor <span style="color:#66d9ef">WHERE</span> actor_id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</code></pre></div><h4 id="2-多列索引">2. 多列索引</h4>
 <p>在需要使用多个列作为条件进行查询时，使用多列索引比使用多个单列索引性能更好。例如下面的语句中，最好把 actor_id 和 film_id 设置为多列索引。</p>
-<pre><code class="language-sql">SELECT film_id, actor_ id FROM sakila.film_actor
-WHERE actor_id = 1 AND film_id = 1;
-</code></pre>
-<h4 id="3-索引列的顺序">3. 索引列的顺序</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> film_id, actor_ id <span style="color:#66d9ef">FROM</span> sakila.film_actor
+<span style="color:#66d9ef">WHERE</span> actor_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AND</span> film_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</code></pre></div><h4 id="3-索引列的顺序">3. 索引列的顺序</h4>
 <p>让选择性最强的索引列放在前面。</p>
 <p>索引的选择性是指：不重复的索引值和记录总数的比值。最大值为 1，此时每个记录都有唯一的索引与其对应。选择性越高，每个记录的区分度越高，查询效率也越高。</p>
 <p>例如下面显示的结果中 customer_id 的选择性比 staff_id 更高，因此最好把 customer_id 列放在多列索引的前面。</p>
-<pre><code class="language-sql">SELECT COUNT(DISTINCT staff_id)/COUNT(*) AS staff_id_selectivity,
-COUNT(DISTINCT customer_id)/COUNT(*) AS customer_id_selectivity,
-COUNT(*)
-FROM payment;
-</code></pre>
-<pre><code class="language-html">   staff_id_selectivity: 0.0001
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> staff_id)<span style="color:#f92672">/</span><span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> staff_id_selectivity,
+<span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> customer_id)<span style="color:#f92672">/</span><span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> customer_id_selectivity,
+<span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>)
+<span style="color:#66d9ef">FROM</span> payment;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">   staff_id_selectivity: 0.0001
 customer_id_selectivity: 0.0373
                COUNT(*): 16049
-</code></pre>
-<h4 id="4-前缀索引">4. 前缀索引</h4>
+</code></pre></div><h4 id="4-前缀索引">4. 前缀索引</h4>
 <p>对于 BLOB、TEXT 和 VARCHAR 类型的列，必须使用前缀索引，只索引开始的部分字符。</p>
 <p>前缀长度的选取需要根据索引选择性来确定。</p>
 <h4 id="5-覆盖索引">5. 覆盖索引</h4>
@@ -2465,15 +2373,13 @@ customer_id_selectivity: 0.0373
 <h3 id="重构查询方式">重构查询方式</h3>
 <h4 id="1-切分大查询">1. 切分大查询</h4>
 <p>一个大查询如果一次性执行的话，可能一次锁住很多数据、占满整个事务日志、耗尽系统资源、阻塞很多小的但重要的查询。</p>
-<pre><code class="language-sql">DELETE FROM messages WHERE create &lt; DATE_SUB(NOW(), INTERVAL 3 MONTH);
-</code></pre>
-<pre><code class="language-sql">rows_affected = 0
-do {
-    rows_affected = do_query(
-    &quot;DELETE FROM messages WHERE create  &lt; DATE_SUB(NOW(), INTERVAL 3 MONTH) LIMIT 10000&quot;)
-} while rows_affected &gt; 0
-</code></pre>
-<h4 id="2-分解大连接查询">2. 分解大连接查询</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> messages <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">create</span> <span style="color:#f92672">&lt;</span> DATE_SUB(NOW(), INTERVAL <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">MONTH</span>);
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">rows_affected <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">do</span> <span style="color:#960050;background-color:#1e0010">{</span>
+    rows_affected <span style="color:#f92672">=</span> do_query(
+    <span style="color:#e6db74">&#34;DELETE FROM messages WHERE create  &lt; DATE_SUB(NOW(), INTERVAL 3 MONTH) LIMIT 10000&#34;</span>)
+<span style="color:#960050;background-color:#1e0010">}</span> while rows_affected <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>
+</code></pre></div><h4 id="2-分解大连接查询">2. 分解大连接查询</h4>
 <p>将一个大连接查询分解成对每一个表进行一次单表查询，然后在应用程序中进行关联，这样做的好处有：</p>
 <ul>
 <li>让缓存更高效。对于连接查询，如果其中一个表发生变化，那么整个查询缓存就无法使用。而分解后的多个查询，即使其中一个表发生变化，对其它表的查询缓存依然可以使用。</li>
@@ -2482,16 +2388,14 @@ do {
 <li>在应用层进行连接，可以更容易对数据库进行拆分，从而更容易做到高性能和可伸缩。</li>
 <li>查询本身效率也可能会有所提升。例如下面的例子中，使用 IN() 代替连接查询，可以让 MySQL 按照 ID 顺序进行查询，这可能比随机的连接要更高效。</li>
 </ul>
-<pre><code class="language-sql">SELECT * FROM tag
-JOIN tag_post ON tag_post.tag_id=tag.id
-JOIN post ON tag_post.post_id=post.id
-WHERE tag.tag='mysql';
-</code></pre>
-<pre><code class="language-sql">SELECT * FROM tag WHERE tag='mysql';
-SELECT * FROM tag_post WHERE tag_id=1234;
-SELECT * FROM post WHERE post.id IN (123,456,567,9098,8904);
-</code></pre>
-<h2 id="三存储引擎">三、存储引擎</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tag
+<span style="color:#66d9ef">JOIN</span> tag_post <span style="color:#66d9ef">ON</span> tag_post.tag_id<span style="color:#f92672">=</span>tag.id
+<span style="color:#66d9ef">JOIN</span> post <span style="color:#66d9ef">ON</span> tag_post.post_id<span style="color:#f92672">=</span>post.id
+<span style="color:#66d9ef">WHERE</span> tag.tag<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql&#39;</span>;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tag <span style="color:#66d9ef">WHERE</span> tag<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql&#39;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tag_post <span style="color:#66d9ef">WHERE</span> tag_id<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> post <span style="color:#66d9ef">WHERE</span> post.id <span style="color:#66d9ef">IN</span> (<span style="color:#ae81ff">123</span>,<span style="color:#ae81ff">456</span>,<span style="color:#ae81ff">567</span>,<span style="color:#ae81ff">9098</span>,<span style="color:#ae81ff">8904</span>);
+</code></pre></div><h2 id="三存储引擎">三、存储引擎</h2>
 <h3 id="innodb">InnoDB</h3>
 <p>是 MySQL 默认的事务型存储引擎，只有在需要它不支持的特性时，才考虑使用其它存储引擎。</p>
 <p>实现了四个标准的隔离级别，默认级别是可重复读（REPEATABLE READ）。在可重复读隔离级别下，通过多版本并发控制（MVCC）+ Next-Key Locking 防止幻影读。</p>
@@ -2791,18 +2695,15 @@ SELECT * FROM post WHERE post.id IN (123,456,567,9098,8904);
 <p>加锁和解锁分为两个阶段进行。</p>
 <p>可串行化调度是指，通过并发控制，使得并发执行的事务结果与某个串行执行的事务结果相同。串行执行的事务互不干扰，不会出现并发一致性问题。</p>
 <p>事务遵循两段锁协议是保证可串行化调度的充分条件。例如以下操作满足两段锁协议，它是可串行化调度。</p>
-<pre><code class="language-html">lock-x(A)...lock-s(B)...lock-s(C)...unlock(A)...unlock(C)...unlock(B)
-</code></pre>
-<p>但不是必要条件，例如以下操作不满足两段锁协议，但它还是可串行化调度。</p>
-<pre><code class="language-html">lock-x(A)...unlock(A)...lock-s(B)...unlock(B)...lock-s(C)...unlock(C)
-</code></pre>
-<h3 id="mysql-隐式与显式锁定">MySQL 隐式与显式锁定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">lock-x(A)...lock-s(B)...lock-s(C)...unlock(A)...unlock(C)...unlock(B)
+</code></pre></div><p>但不是必要条件，例如以下操作不满足两段锁协议，但它还是可串行化调度。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">lock-x(A)...unlock(A)...lock-s(B)...unlock(B)...lock-s(C)...unlock(C)
+</code></pre></div><h3 id="mysql-隐式与显式锁定">MySQL 隐式与显式锁定</h3>
 <p>MySQL 的 InnoDB 存储引擎采用两段锁协议，会根据隔离级别在需要的时候自动加锁，并且所有的锁都是在同一时刻被释放，这被称为隐式锁定。</p>
 <p>InnoDB 也可以使用特定的语句进行显示锁定：</p>
-<pre><code class="language-sql">SELECT ... LOCK In SHARE MODE;
-SELECT ... FOR UPDATE;
-</code></pre>
-<h2 id="四隔离级别">四、隔离级别</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> ... <span style="color:#66d9ef">LOCK</span> <span style="color:#66d9ef">In</span> <span style="color:#66d9ef">SHARE</span> <span style="color:#66d9ef">MODE</span>;
+<span style="color:#66d9ef">SELECT</span> ... <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">UPDATE</span>;
+</code></pre></div><h2 id="四隔离级别">四、隔离级别</h2>
 <h3 id="未提交读read-uncommitted">未提交读（READ UNCOMMITTED）</h3>
 <p>事务中的修改，即使没有提交，对其它事务也是可见的。</p>
 <h3 id="提交读read-committed">提交读（READ COMMITTED）</h3>
@@ -2828,11 +2729,10 @@ SELECT ... FOR UPDATE;
 <h3 id="undo-日志">Undo 日志</h3>
 <p>MVCC 的多版本指的是多个版本的快照，快照存储在 Undo 日志中，该日志通过回滚指针 ROLL_PTR 把一个数据行的所有快照连接起来。</p>
 <p>例如在 MySQL 创建一个表 t，包含主键 id 和一个字段 x。我们先插入一个数据行，然后对该数据行执行两次更新操作。</p>
-<pre><code class="language-sql">INSERT INTO t(id, x) VALUES(1, &quot;a&quot;);
-UPDATE t SET x=&quot;b&quot; WHERE id=1;
-UPDATE t SET x=&quot;c&quot; WHERE id=1;
-</code></pre>
-<p>因为没有使用 <code>START TRANSACTION</code> 将上面的操作当成一个事务来执行，根据 MySQL 的 AUTOCOMMIT 机制，每个操作都会被当成一个事务来执行，所以上面的操作总共涉及到三个事务。快照中除了记录事务版本号 TRX_ID 和操作之外，还记录了一个 bit 的 DEL 字段，用于标记是否被删除。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> t(id, x) <span style="color:#66d9ef">VALUES</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;a&#34;</span>);
+<span style="color:#66d9ef">UPDATE</span> t <span style="color:#66d9ef">SET</span> x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b&#34;</span> <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">UPDATE</span> t <span style="color:#66d9ef">SET</span> x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;c&#34;</span> <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+</code></pre></div><p>因为没有使用 <code>START TRANSACTION</code> 将上面的操作当成一个事务来执行，根据 MySQL 的 AUTOCOMMIT 机制，每个操作都会被当成一个事务来执行，所以上面的操作总共涉及到三个事务。快照中除了记录事务版本号 TRX_ID 和操作之外，还记录了一个 bit 的 DEL 字段，用于标记是否被删除。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191208164808217.png"/> </div><br>
 <p>INSERT、UPDATE、DELETE 操作会创建一个日志，并将事务版本号 TRX_ID  写入。DELETE 可以看成是一个特殊的 UPDATE，还会额外将 DEL 字段设置为 1。</p>
 <h3 id="readview">ReadView</h3>
@@ -2858,19 +2758,16 @@ UPDATE t SET x=&quot;c&quot; WHERE id=1;
 <h3 id="快照读与当前读">快照读与当前读</h3>
 <h4 id="1-快照读">1. 快照读</h4>
 <p>MVCC 的 SELECT 操作是快照中的数据，不需要进行加锁操作。</p>
-<pre><code class="language-sql">SELECT * FROM table ...;
-</code></pre>
-<h4 id="2-当前读">2. 当前读</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span> ...;
+</code></pre></div><h4 id="2-当前读">2. 当前读</h4>
 <p>MVCC 其它会对数据库进行修改的操作（INSERT、UPDATE、DELETE）需要进行加锁操作，从而读取最新的数据。可以看到 MVCC 并不是完全不用加锁，而只是避免了 SELECT 的加锁操作。</p>
-<pre><code class="language-sql">INSERT;
-UPDATE;
-DELETE;
-</code></pre>
-<p>在进行 SELECT 操作时，可以强制指定进行加锁操作。以下第一个语句需要加 S 锁，第二个需要加 X 锁。</p>
-<pre><code class="language-sql">SELECT * FROM table WHERE ? lock in share mode;
-SELECT * FROM table WHERE ? for update;
-</code></pre>
-<h2 id="六next-key-locks">六、Next-Key Locks</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">INSERT</span>;
+<span style="color:#66d9ef">UPDATE</span>;
+<span style="color:#66d9ef">DELETE</span>;
+</code></pre></div><p>在进行 SELECT 操作时，可以强制指定进行加锁操作。以下第一个语句需要加 S 锁，第二个需要加 X 锁。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">WHERE</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">lock</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">share</span> <span style="color:#66d9ef">mode</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">WHERE</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">update</span>;
+</code></pre></div><h2 id="六next-key-locks">六、Next-Key Locks</h2>
 <p>Next-Key Locks 是 MySQL 的 InnoDB 存储引擎的一种锁实现。</p>
 <p>MVCC 不能解决幻影读问题，Next-Key Locks 就是为了解决这个问题而存在的。在可重复读（REPEATABLE READ）隔离级别下，使用 MVCC + Next-Key Locks 可以解决幻读问题。</p>
 <h3 id="record-locks">Record Locks</h3>
@@ -2878,17 +2775,15 @@ SELECT * FROM table WHERE ? for update;
 <p>如果表没有设置索引，InnoDB 会自动在主键上创建隐藏的聚簇索引，因此 Record Locks 依然可以使用。</p>
 <h3 id="gap-locks">Gap Locks</h3>
 <p>锁定索引之间的间隙，但是不包含索引本身。例如当一个事务执行以下语句，其它事务就不能在 t.c 中插入 15。</p>
-<pre><code class="language-sql">SELECT c FROM t WHERE c BETWEEN 10 and 20 FOR UPDATE;
-</code></pre>
-<h3 id="next-key-locks">Next-Key Locks</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">c</span> <span style="color:#66d9ef">FROM</span> t <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">c</span> <span style="color:#66d9ef">BETWEEN</span> <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">and</span> <span style="color:#ae81ff">20</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">UPDATE</span>;
+</code></pre></div><h3 id="next-key-locks">Next-Key Locks</h3>
 <p>它是 Record Locks 和 Gap Locks 的结合，不仅锁定一个记录上的索引，也锁定索引之间的间隙。它锁定一个前开后闭区间，例如一个索引包含以下值：10, 11, 13, and 20，那么就需要锁定以下区间：</p>
-<pre><code class="language-sql">(-∞, 10]
-(10, 11]
-(11, 13]
-(13, 20]
-(20, +∞)
-</code></pre>
-<h2 id="七关系数据库设计理论">七、关系数据库设计理论</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">(<span style="color:#f92672">-</span><span style="color:#960050;background-color:#1e0010">∞</span>, <span style="color:#ae81ff">10</span>]
+(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>]
+(<span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">13</span>]
+(<span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">20</span>]
+(<span style="color:#ae81ff">20</span>, <span style="color:#f92672">+</span><span style="color:#960050;background-color:#1e0010">∞</span>)
+</code></pre></div><h2 id="七关系数据库设计理论">七、关系数据库设计理论</h2>
 <h3 id="函数依赖">函数依赖</h3>
 <p>记 A-&gt;B 表示 A 函数决定 B，也可以说 B 函数依赖于 A。</p>
 <p>如果 {A1，A2，&hellip; ，An} 是关系的一个或多个属性的集合，该集合函数决定了关系的其它所有属性并且是最小的，那么该集合就称为键码。</p>
@@ -3324,7 +3219,7 @@ SELECT * FROM table WHERE ? for update;
 <h3 id="一绘图示例">一、绘图示例</h3>
 <p>通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。</p>
 <h4 id="示例1-直接绘制">示例1 直接绘制：</h4>
-<pre><code>MainWindow::MainWindow(QWidget *parent)
+<pre tabindex="0"><code>MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     QLabel *label = new QLabel(this);
@@ -3345,19 +3240,17 @@ SELECT * FROM table WHERE ? for update;
     this-&gt;resize(200, 200);
 }
 
-</code></pre>
-<p>运行结果：</p>
+</code></pre><p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo1.png" alt="demo1"></p>
 <h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制：</h4>
-<pre><code>void MainWindow::paintEvent(QPaintEvent *)
+<pre tabindex="0"><code>void MainWindow::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     painter.setPen(Qt::gray);
     painter.setBrush(Qt::green);
     painter.drawRect(10, 10, 50, 50);
 }
-</code></pre>
-<p>运行结果：</p>
+</code></pre><p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo2.png" alt="demo2"></p>
 <h3 id="二坐标系">二、坐标系</h3>
 <p>坐标系由 QPainter 类控制。绘图设备的默认坐标系的原点位于左上角。 该 X 值增加向右和 Y 值向下增加。 默认单位在基于像素的设备上是一个像素，在打印机上是一个点（1/72 英寸）。注意：原点在 Widget 的左上角而不是正中心，并且每个 Widget 都有自己独立的坐标系。</p>
@@ -3367,10 +3260,9 @@ SELECT * FROM table WHERE ? for update;
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/coordsys.png" alt="Paint-Base-Draw-Methods"></p>
 <h4 id="window-viewport-转换">Window-Viewport 转换</h4>
 <p>使用 Window-Viewport 转换，您可以使逻辑坐标系适合您的偏好。 该机制还可用于使绘图代码独立于绘图设备。 例如，您可以通过调用 ，使逻辑坐标从 (-50, -50) 扩展到 (50, 50)，以 (0, 0) 为中心 QPainter::setWindow () 函数 ：</p>
-<pre><code>QPainter painter(this);
+<pre tabindex="0"><code>QPainter painter(this);
 painter.setWindow(QRect(-50, -50, 100, 100));
-</code></pre>
-<p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
+</code></pre><p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
 <h3 id="三常用函数">三、常用函数</h3>
 <p>下图来自《C++ GUI Programming with Qt 4》，列出了 QPainter 常用的画图方法。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/Paint-Base-Draw-Methods.png" alt="Paint-Base-Draw-Methods"></p>
@@ -3514,7 +3406,7 @@ Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序�
 公共析构函数</p>
 </blockquote>
 <p>下列 Message类定义包括以下成员：</p>
-<pre><code>class Message
+<pre tabindex="0"><code>class Message
 {
 public:
     Message() = default;
@@ -3531,19 +3423,17 @@ private:
     QString m_body;
     QStringList m_headers;
 };
-</code></pre>
-<p>该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。</p>
+</code></pre><p>该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。</p>
 <h3 id="使用-qmetatype-声明类型">使用 QMetaType 声明类型</h3>
 <p>这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。</p>
 <p>Qt 中负责自定义类型的类是 QMetaType 。 为了让这个类知道类型，我们在定义它的头文件中的类上 添加 Q_DECLARE_METATYPE() 宏：</p>
-<pre><code>Q_DECLARE_METATYPE(Message);
-</code></pre>
-<p>这使得现在有可能 Message要存储在 QVariant 对象中并稍后检索的值。 有关 请参阅 自定义类型示例 演示此内容的代码， 。</p>
+<pre tabindex="0"><code>Q_DECLARE_METATYPE(Message);
+</code></pre><p>这使得现在有可能 Message要存储在 QVariant 对象中并稍后检索的值。 有关 请参阅 自定义类型示例 演示此内容的代码， 。</p>
 <p>所述 Q_DECLARE_METATYPE （）宏还使得可以对这些值用作到信号，但是参数 只在直接信号槽连接 。 为了使自定义类型通常可用于信号和插槽机制，我们需要执行一些额外的工作。</p>
 <h3 id="创建和销毁自定义对象">创建和销毁自定义对象</h3>
 <p>尽管上一节中的声明使该类型可用于直接信号槽连接，但它不能用于排队的信号槽连接，例如在不同线程中的对象之间建立的连接。 这是因为元对象系统不知道如何在运行时处理自定义类型对象的创建和销毁。</p>
 <p>要在运行时创建对象，请调用 qRegisterMetaType () 模板函数将其注册到元对象系统。 这也使得该类型可用于排队的信号槽通信，只要您在使用该类型的第一个连接之前调用它。</p>
-<pre><code>int main(int argc, char *argv[])
+<pre tabindex="0"><code>int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     ...
@@ -3551,9 +3441,8 @@ private:
     ...
     return app.exec();
 }
-</code></pre>
-<p>这种类型后来用于信号槽连接中 window.cpp文件：</p>
-<pre><code>Window::Window(QWidget *parent)
+</code></pre><p>这种类型后来用于信号槽连接中 window.cpp文件：</p>
+<pre tabindex="0"><code>Window::Window(QWidget *parent)
     : QWidget(parent), thread(new RenderThread(this))
 {
     ...
@@ -3562,21 +3451,17 @@ private:
     ...
     setWindowTitle(tr(&quot;Queued Custom Type&quot;));
 }
-</code></pre>
-<p>如果一个类型在没有注册的情况下在排队连接中使用，控制台会打印警告； 例如：</p>
-<pre><code>QObject::connect: Cannot queue arguments of type 'Block'
+</code></pre><p>如果一个类型在没有注册的情况下在排队连接中使用，控制台会打印警告； 例如：</p>
+<pre tabindex="0"><code>QObject::connect: Cannot queue arguments of type 'Block'
 (Make sure 'Block' is registered using qRegisterMetaType().)
-</code></pre>
-<h3 id="使类型可打印">使类型可打印</h3>
+</code></pre><h3 id="使类型可打印">使类型可打印</h3>
 <p>为调试目的使自定义类型可打印通常非常有用，如下面的代码所示：</p>
-<pre><code>    Message message(body, headers);
+<pre tabindex="0"><code>    Message message(body, headers);
     qDebug() &lt;&lt; &quot;Original:&quot; &lt;&lt; message;
-</code></pre>
-<p>这是通过为该类型创建一个流操作符来实现的，该操作符通常在该类型的头文件中定义：</p>
-<pre><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
-</code></pre>
-<p>实现：</p>
-<pre><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
+</code></pre><p>这是通过为该类型创建一个流操作符来实现的，该操作符通常在该类型的头文件中定义：</p>
+<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
+</code></pre><p>实现：</p>
+<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
 {
     QList&lt;QStringView&gt; pieces = message.body().split(u&quot;\r\n&quot;, Qt::SkipEmptyParts);
     if (pieces.isEmpty())
@@ -3587,8 +3472,7 @@ private:
         dbg.nospace() &lt;&lt; &quot;Message(&quot; &lt;&lt; pieces.first() &lt;&lt; &quot; ...)&quot;;
     return dbg.maybeSpace();
 }
-</code></pre>
-<p>当然，发送到调试流的输出可以根据您的喜好变得简单或复杂。 请注意，此函数返回的值是 QDebug 对象本身，尽管这通常是通过调用 获得的，该 QDebug 的 maySpace () 成员函数 函数 填充 用空格字符 流以使其更具可读性。</p>
+</code></pre><p>当然，发送到调试流的输出可以根据您的喜好变得简单或复杂。 请注意，此函数返回的值是 QDebug 对象本身，尽管这通常是通过调用 获得的，该 QDebug 的 maySpace () 成员函数 函数 填充 用空格字符 流以使其更具可读性。</p>
 
         
         ]]>
@@ -3648,7 +3532,7 @@ private:
 <p>警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。</p>
 </blockquote>
 <h3 id="示例">示例</h3>
-<pre><code>QPixmap p1, p2;
+<pre tabindex="0"><code>QPixmap p1, p2;
 p1.load(&quot;image.bmp&quot;);
 p2 = p1;                        // p1 and p2 share data
 
@@ -3656,8 +3540,7 @@ QPainter paint;
 paint.begin(&amp;p2);               // cuts p2 loose from p1
 paint.drawText(0,50, &quot;Hi&quot;);
 paint.end();
-</code></pre>
-<p>在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</p>
+</code></pre><p>在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</p>
 <h3 id="所有隐式共享的类">所有隐式共享的类</h3>
 <p>参见 <a href="https://doc.qt.io/qt-6/implicit-sharing.html">Qt 文档</a>。</p>
 
@@ -3886,13 +3769,12 @@ paint.end();
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/10.png" alt="img"></p>
 <h3 id="五将网站推送到-github-平台">五、将网站推送到 Github 平台</h3>
 <p>（2）打开命令窗口，进入 blog\public 目录，分别执行</p>
-<pre><code>git init 
+<pre tabindex="0"><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre>
-<p>输入 Github 账号名，密码，完成上传。</p>
+</code></pre><p>输入 Github 账号名，密码，完成上传。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/13.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/14.png" alt="img"></p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
@@ -4012,10 +3894,9 @@ git push --set-upstream origin master
 <p>对于你自己的类，你可以使用 <code>QTest::toString ()</code> 来格式化输出到测试日志中的值。具体可参考 <a href="https://doc.qt.io/qt-6/qtest.html#QCOMPARE">Qt 文档</a>;</p>
 <h3 id="五可执行文件">五、可执行文件</h3>
 <p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
-<pre><code>QTEST_MAIN(YourClassName)
+<pre tabindex="0"><code>QTEST_MAIN(YourClassName)
 #include &quot;yourfilename.moc&quot;
 </code></pre>
-
         
         ]]>
       </description>
@@ -4095,9 +3976,8 @@ git push --set-upstream origin master
 <p>使用QSKIP () 来处理在运行时发现整个测试函数在当前测试环境中不适用的情况。当只跳过测试函数的一部分时，可以使用条件语句，可选择qDebug()调用以报告跳过不适用部分的原因。</p>
 <p>数据驱动测试的测试功能或数据行可以限于特定平台，或使用#if. 但是，在使用跳过测试功能时要注意moc限制#if。该moc预处理器不具备访问所有builtin被经常用于编译器的特征检测编译器的宏。因此，moc预处理器条件的结果可能与其余代码看到的结果不同。这可能会导致moc为实际编译器跳过的测试槽生成元数据，或省略实际编译到类中的测试槽的元数据。在第一种情况下，测试将尝试运行未实现的插槽。在第二种情况下，即使应该尝试运行测试槽，测试也不会尝试。</p>
 <p>如果整个测试程序不适用于特定平台或除非启用了特定功能，最好的方法是使用父目录的.pro文件来避免构建测试。例如，如果tests/auto/gui/someclass测试对 macOS 无效，请将以下行添加到tests/auto/gui.pro：</p>
-<pre><code>mac*: SUBDIRS -= someclass
-</code></pre>
-<h3 id="避免q_assert">避免Q_ASSERT</h3>
+<pre tabindex="0"><code>mac*: SUBDIRS -= someclass
+</code></pre><h3 id="避免q_assert">避免Q_ASSERT</h3>
 <p>该Q_ASSERT宏将导致程序中止时断言的情况false，但前提是软件始建于调试模式。在 release 和 debug-and-release 版本中，Q_ASSERT什么都不做。</p>
 <p>Q_ASSERT 应该避免，因为它使测试的行为取决于是否正在测试调试版本，并且因为它会导致测试立即中止，跳过所有剩余的测试函数并返回不完整或格式错误的测试结果。</p>
 <p>它还会跳过本应在测试结束时进行的任何拆卸或整理，因此可能会使工作区处于不整洁状态，这可能会导致进一步测试的复杂化。</p>
@@ -4176,21 +4056,18 @@ git push --set-upstream origin master
 <p>某些测试使用测试机器的显示器、鼠标和键盘，因此如果机器同时用于其他用途或并行运行多个测试，则可能会失败。</p>
 <p>CI 系统使用专用测试机来避免此问题，但如果您没有专用测试机，则可以通过在第二台显示器上运行测试来解决此问题。</p>
 <p>在 Unix 上，还可以在嵌套或虚拟 X 服务器上运行测试，例如 Xephyr。例如，要在 Xephyr 上运行整套测试，请执行以下命令：</p>
-<pre><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
+<pre tabindex="0"><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
 sleep 5
 DISPLAY=:1 icewm &gt;/dev/null 2&gt;&amp;1 &amp;
 cd tests/auto
 make
 DISPLAY=:1 make -k -j1 check
-</code></pre>
-<p>NVIDIA 二进制驱动程序的用户应该注意 Xephyr 可能无法提供 GLX 扩展。强制 Mesa libGL 可能会有所帮助：</p>
-<pre><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
-</code></pre>
-<p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
+</code></pre><p>NVIDIA 二进制驱动程序的用户应该注意 Xephyr 可能无法提供 GLX 扩展。强制 Mesa libGL 可能会有所帮助：</p>
+<pre tabindex="0"><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
+</code></pre><p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
 <p>或者，使用屏幕外插件：</p>
-<pre><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
-</code></pre>
-<h3 id="窗口管理器">窗口管理器</h3>
+<pre tabindex="0"><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
+</code></pre><h3 id="窗口管理器">窗口管理器</h3>
 <p>在 Unix 上，至少有两个自动测试（tst_examples和tst_gestures）需要运行窗口管理器。因此，如果在嵌套的 X-server 下运行这些测试，您还必须在该 X-server 中运行窗口管理器。</p>
 <p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>
 <p>注意： Tab Window Manager 不适合运行完整的 Qt 自动测试套件，因为tst_gestures自动测试会导致它忘记其配置并恢复到手动窗口放置。</p>
@@ -4483,13 +4360,12 @@ DISPLAY=:1 make -k -j1 check
 <p>2.将网站展示文件存放到 Github 远程仓库。</p>
 <p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置中检查 Github Pages。</p>
 <p>（2）打开命令提示符，进入 demosite\public 目录，分别执行</p>
-<pre><code>git init 
+<pre tabindex="0"><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre>
-<p>输入账号名，密码，完成上传。</p>
+</code></pre><p>输入账号名，密码，完成上传。</p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，打开网址 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
 <p>3.自定义域名（可选、需要一定的时间）</p>
 <p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
@@ -4612,7 +4488,7 @@ B）领域模型命名规约<br>
 反例：String key = &ldquo;ID#taobao_&rdquo; + tradeId;</p>
 <p>14.【强制】代码格式，具体见下面正例。
 正例：</p>
-<pre><code>    public static void main(String[] args) {
+<pre tabindex="0"><code>    public static void main(String[] args) {
         // 缩进4个空格，注释内空1格
         String say = &quot;hello&quot;;
         // 运算符左右必须有一个空格
@@ -4631,7 +4507,6 @@ B）领域模型命名规约<br>
             System.out.printLn(&quot;ok&quot;);
         }
     }</code></pre>
-
         
         ]]>
       </description>
@@ -4724,7 +4599,7 @@ B）领域模型命名规约<br>
  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png" width = "500" height = "200" alt="图片名称" align=center /></div>
 <!-- ![img](https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png) -->
 <h3 id="核心实现">核心实现</h3>
-<pre><code>void create_node_array();//构造包含字符及其频率的数组
+<pre tabindex="0"><code>void create_node_array();//构造包含字符及其频率的数组
 void create_pq();//构造优先级队列
 void create_huffman_tree();//构造哈夫曼树
 void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表
@@ -4733,8 +4608,7 @@ bool do_compress();//开始压缩
 bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树
 void decode_huffman();//根据重构的哈夫曼树解码文件
 
-</code></pre>
-<h3 id="后续">后续</h3>
+</code></pre><h3 id="后续">后续</h3>
 <p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
 
         
@@ -4825,13 +4699,12 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
 <p>2.将网站展示文件存放到 Github 远程仓库。</p>
 <p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置 setting 中检查 Github Pages。</p>
 <p>（2）打开命令提示符，进入 blog\public 目录，分别执行</p>
-<pre><code>git init 
+<pre tabindex="0"><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre>
-<p>输入账号名，密码，完成上传。</p>
+</code></pre><p>输入账号名，密码，完成上传。</p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
 <p>3.自定义域名（可选、需要一定的时间）</p>
 <p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
@@ -4865,7 +4738,7 @@ git push --set-upstream origin master
 <h3 id="二磁盘操作">二、磁盘操作</h3>
 <p>File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。
 递归地列出一个目录的所有文件：</p>
-<pre><code>public static void listAllFiles(File dir){
+<pre tabindex="0"><code>public static void listAllFiles(File dir){
     if(dir == null || !dir.exists()){
         return ;
     }
@@ -4877,11 +4750,10 @@ git push --set-upstream origin master
         listAllFiles(file);
     }
 }
-</code></pre>
-<p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
+</code></pre><p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
 <h3 id="三字节操作">三、字节操作</h3>
 <h4 id="实现文件复制">实现文件复制</h4>
-<pre><code>public static void copuFile(String src, String dist) throws IOException {
+<pre tabindex="0"><code>public static void copuFile(String src, String dist) throws IOException {
     FileInputStream in = new FileInputStream(src);
     FileOutputStream out = new FileOutStream(dist);
 
@@ -4897,8 +4769,7 @@ git push --set-upstream origin master
     in.close();
     out.close();
 }
-</code></pre>
-<h4 id="装饰者模式">装饰者模式</h4>
+</code></pre><h4 id="装饰者模式">装饰者模式</h4>
 <p>Java I/O 使用了装饰者模式来实现。</p>
 <p>实例化一个具有缓存功能的字节流对象时，只需要在 FileInputStream 对象上再套一层 BufferedInputStream 对象即可。</p>
 <h3 id="七nio">七、NIO</h3>
@@ -4928,51 +4799,45 @@ git push --set-upstream origin master
 </ul>
 <h4 id="实现-runnable-接口">实现 Runnable 接口</h4>
 <p>需要实现接口中的 run() 方法。</p>
-<pre><code>public class MyRunnable implements Runnable {
+<pre tabindex="0"><code>public class MyRunnable implements Runnable {
     @Override
     public void run(){
         // ...
     }
 }
-</code></pre>
-<p>使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。</p>
-<pre><code>public static void main(String[] args){
+</code></pre><p>使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。</p>
+<pre tabindex="0"><code>public static void main(String[] args){
     MyRunnable instance = new MyRunnable();
     Thread thread = new Thread(instance);
     thread.start();
 }
-</code></pre>
-<h4 id="实现-callable-接口">实现 Callable 接口</h4>
+</code></pre><h4 id="实现-callable-接口">实现 Callable 接口</h4>
 <p>与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。</p>
-<pre><code>public class MyCallable implements Callable&lt;Integer&gt; {
+<pre tabindex="0"><code>public class MyCallable implements Callable&lt;Integer&gt; {
     public Integer call(){
         return 123;
     }
 }
-</code></pre>
-<pre><code>public static void main(String[] args) throws ExecutionException,InterruptedException {
+</code></pre><pre tabindex="0"><code>public static void main(String[] args) throws ExecutionException,InterruptedException {
     MyCallable mc = new MyCallble();
     FutureTask&lt;Integer&gt; ft = new FutureTask&lt;&gt;(mc);
     Thread thread = new Thread(ft);
     thread.start();
     System.out.println(ft.get());
 }
-</code></pre>
-<h3 id="继承-thread-类">继承 Thread 类</h3>
+</code></pre><h3 id="继承-thread-类">继承 Thread 类</h3>
 <p>同样也是需要实现 run() 方法，因为 Thread 类也实现了 Runnable 接口。</p>
 <p>当调用 start() 方法启动一个线程时，虚拟机会将该线程放入就绪队列中等待被调度，当一个线程被调度时会执行该线程的 run() 方法。</p>
-<pre><code>public class MyThread extends Thread {
+<pre tabindex="0"><code>public class MyThread extends Thread {
     public void run() {
         // ...
     }
 }
-</code></pre>
-<pre><code>public static void main(String[] args) {
+</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
     MyThread mt = new MyThread();
     mt.start();
 }
-</code></pre>
-<h3 id="实现接口-vs-继承-thread">实现接口 VS 继承 Thread</h3>
+</code></pre><h3 id="实现接口-vs-继承-thread">实现接口 VS 继承 Thread</h3>
 <p>实现接口会更好一些，因为：</p>
 <ul>
 <li>Java 不支持多重继承，可以实现多个接口。</li>
@@ -4982,15 +4847,14 @@ git push --set-upstream origin master
 <p>Java 提供了两种锁机制来控制多个线程对共享资源的互斥访问，第一个是 JVM 实现的 synchronized，而另一个是 JDK 实现的 ReentrantLock。</p>
 <h4 id="synchronized">synchronized</h4>
 <h5 id="1同步一个代码块">1.同步一个代码块</h5>
-<pre><code>public void func() {
+<pre tabindex="0"><code>public void func() {
     synchronized (this) {
         // ...
     }
 }
-</code></pre>
-<p>它只作用于同一个对象，如果调用两个对象上的同步代码块，就不会进行同步。</p>
+</code></pre><p>它只作用于同一个对象，如果调用两个对象上的同步代码块，就不会进行同步。</p>
 <p>对于以下代码，使用 ExecutorService 执行了两个线程，由于调用的是同一个对象的同步代码块，因此这两个线程会进行同步，当一个线程进入同步语句块时，另一个线程就必须等待。</p>
-<pre><code>public class SynchronizedExample {
+<pre tabindex="0"><code>public class SynchronizedExample {
 
     public void func1() {
         synchronized (this) {
@@ -5000,42 +4864,35 @@ git push --set-upstream origin master
         }
     }
 }
-</code></pre>
-<pre><code>public static void main(String[] args) {
+</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
     SynchronizedExample e1 = new SynchronizedExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; e1.func1());
     executorService.execute(() -&gt; e1.func1());
 }
-</code></pre>
-<pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
-</code></pre>
-<p>对于以下代码，两个线程调用了不同对象的同步代码块，因此这两个线程就不需要同步。从输出结果可以看出，两个线程交叉执行。</p>
-<pre><code>public static void main(String[] args) {
+</code></pre><pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre><p>对于以下代码，两个线程调用了不同对象的同步代码块，因此这两个线程就不需要同步。从输出结果可以看出，两个线程交叉执行。</p>
+<pre tabindex="0"><code>public static void main(String[] args) {
     SynchronizedExample e1 = new SynchronizedExample();
     SynchronizedExample e2 = new SynchronizedExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; e1.func1());
     executorService.execute(() -&gt; e2.func1());
 }
-</code></pre>
-<pre><code>0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
-</code></pre>
-<h5 id="2同步一个方法">2.同步一个方法</h5>
-<pre><code>public synchronized void func() {
+</code></pre><pre tabindex="0"><code>0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
+</code></pre><h5 id="2同步一个方法">2.同步一个方法</h5>
+<pre tabindex="0"><code>public synchronized void func() {
     // ...
 }
-</code></pre>
-<p>它和同步代码块一样，作用于同一个对象</p>
+</code></pre><p>它和同步代码块一样，作用于同一个对象</p>
 <h5 id="3同步一个类">3.同步一个类</h5>
-<pre><code>public void func() {
+<pre tabindex="0"><code>public void func() {
     synchronized (SynchronizedExample.class) {
         // ...
     }
 }
-</code></pre>
-<p>作用于整个类，也就是说两个线程调用同一个类的不同对象上的这种同步语句块，也会进行同步。</p>
-<pre><code>public class SynchronizedExample {
+</code></pre><p>作用于整个类，也就是说两个线程调用同一个类的不同对象上的这种同步语句块，也会进行同步。</p>
+<pre tabindex="0"><code>public class SynchronizedExample {
 
     public void func2() {
         synchronized (SynchronizedExample.class) {
@@ -5045,26 +4902,22 @@ git push --set-upstream origin master
         }
     }
 }
-</code></pre>
-<pre><code>public static void main(String[] args) {
+</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
     SynchronizedExample e1 = new SynchronizedExample();
     SynchronizedExample e2 = new SynchronizedExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; e1.func2());
     executorService.execute(() -&gt; e2.func2());
 }
-</code></pre>
-<pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
-</code></pre>
-<h5 id="4同步一个静态方法">4.同步一个静态方法</h5>
-<pre><code>public synchronized static void fun() {
+</code></pre><pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre><h5 id="4同步一个静态方法">4.同步一个静态方法</h5>
+<pre tabindex="0"><code>public synchronized static void fun() {
     // ...
 }
-</code></pre>
-<p>作用于整个类。</p>
+</code></pre><p>作用于整个类。</p>
 <h4 id="reentrantlock">ReentrantLock</h4>
 <p>ReentrantLock 是 java.util.concurrent（J.U.C)包中的锁。</p>
-<pre><code>public class LockExample {
+<pre tabindex="0"><code>public class LockExample {
 
     private Lock lock = new ReentrantLock();
 
@@ -5080,17 +4933,14 @@ git push --set-upstream origin master
     }
 }
 
-</code></pre>
-<pre><code>public static void main(String[] args) {
+</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
     LockExample lockExample = new LockExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; lockExample.func());
     executorService.execute(() -&gt; lockExample.func());
 }
-</code></pre>
-<pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
-</code></pre>
-<h5 id="使用选择">使用选择</h5>
+</code></pre><pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre><h5 id="使用选择">使用选择</h5>
 <p>除非需要使用 ReentrantLock 的高级功能，否则优先使用 synchronized。这是因为 synchronized 是 JVM 实现的一种锁机制，JVM 原生地支持它，而 ReentrantLock 不是所有的 JDK 版本都支持。并且使用 synchronized 不用担心没有释放锁而导致死锁问题，因为 JVM 会确保锁的释放。</p>
 <h3 id="六线程状态">六、线程状态</h3>
 <h4 id="新建">新建</h4>
@@ -5164,18 +5014,16 @@ git push --set-upstream origin master
 <p>SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。</p>
 <p>SQL 语句不区分大小写，但是数据库表名、列名和值是否区分依赖于具体的 DBMS 以及配置。</p>
 <p>SQL 支持以下三种注释：</p>
-<pre><code>### 注释
+<pre tabindex="0"><code>### 注释
 SELECT * FROM mytable; -- 注释
 /* 注释1
    注释2 */
 
-</code></pre>
-<p>数据库创建与使用：</p>
-<pre><code>CREATE DATABASE test;
+</code></pre><p>数据库创建与使用：</p>
+<pre tabindex="0"><code>CREATE DATABASE test;
 USE test;
-</code></pre>
-<h3 id="二创建表a-name2a">二、创建表<a name="2"></a></h3>
-<pre><code>CREATE TABLE mytable (
+</code></pre><h3 id="二创建表a-name2a">二、创建表<a name="2"></a></h3>
+<pre tabindex="0"><code>CREATE TABLE mytable (
     # int 类型，不为空，自增
     id INT NOT NULL AUTO_INCREMENT,
     # int 类型，不可为空，默认值为1，不为空
@@ -5187,85 +5035,69 @@ USE test;
     # 设置主健为 id
     PRIMARY KEY (`id`)
 );
-</code></pre>
-<h3 id="三修改表">三、修改表</h3>
+</code></pre><h3 id="三修改表">三、修改表</h3>
 <p>添加列</p>
-<pre><code>ALTER TABLE mytable
+<pre tabindex="0"><code>ALTER TABLE mytable
 ADD col CHAR(20);
-</code></pre>
-<p>删除列</p>
-<pre><code>ALTER TABLE mytable
+</code></pre><p>删除列</p>
+<pre tabindex="0"><code>ALTER TABLE mytable
 DROP COLUMN col;
-</code></pre>
-<p>删除表</p>
-<pre><code>DROP TABLE mytable;
-</code></pre>
-<h3 id="四插入">四、插入</h3>
+</code></pre><p>删除表</p>
+<pre tabindex="0"><code>DROP TABLE mytable;
+</code></pre><h3 id="四插入">四、插入</h3>
 <p>普通插入</p>
-<pre><code>INSERT INTO mytable(col1, col2)
+<pre tabindex="0"><code>INSERT INTO mytable(col1, col2)
 VALUES(val1,val2);
-</code></pre>
-<p>插入检索出来的数据</p>
-<pre><code>INSERT INTO mytable1(col1, col2)
+</code></pre><p>插入检索出来的数据</p>
+<pre tabindex="0"><code>INSERT INTO mytable1(col1, col2)
 SELECT col1, col2
 FROM mytable2;
-</code></pre>
-<p>将一个表的内容插入到一个新表</p>
-<pre><code>CREATE TABLE newtable AS 
+</code></pre><p>将一个表的内容插入到一个新表</p>
+<pre tabindex="0"><code>CREATE TABLE newtable AS 
 SELECT * FROM mytable;
-</code></pre>
-<h3 id="五更新">五、更新</h3>
-<pre><code>UPDATE mytable
+</code></pre><h3 id="五更新">五、更新</h3>
+<pre tabindex="0"><code>UPDATE mytable
 SET col = val 
 WHERE id = 1;
-</code></pre>
-<h3 id="六删除">六、删除</h3>
-<pre><code>DELETE FROM mytable
+</code></pre><h3 id="六删除">六、删除</h3>
+<pre tabindex="0"><code>DELETE FROM mytable
 WHERE id = 1;
-</code></pre>
-<p>TRUNCATE TABLE table 可以清空表，也就是删除所有行。</p>
-<pre><code>TRUNCATE TABLE mytable;
-</code></pre>
-<p>使用更新和删除操作时一定要用 WHERE 字句，不然会把整张表的数据都损坏。用 SELECT 语句进行测试，防止错误删除。</p>
+</code></pre><p>TRUNCATE TABLE table 可以清空表，也就是删除所有行。</p>
+<pre tabindex="0"><code>TRUNCATE TABLE mytable;
+</code></pre><p>使用更新和删除操作时一定要用 WHERE 字句，不然会把整张表的数据都损坏。用 SELECT 语句进行测试，防止错误删除。</p>
 <h3 id="七查询">七、查询</h3>
 <p>DISTINCT
 相同值只会出现一次。它作用与所有列，也就是说所有列的值都想同时才算相同。</p>
-<pre><code>SELECT DISTINCT col1, col2
+<pre tabindex="0"><code>SELECT DISTINCT col1, col2
 FROM mytable;
-</code></pre>
-<p>LIMIT
+</code></pre><p>LIMIT
 限制返回的行数。可以有两个参数，第一个参数为起始行，从 0 开始；第二个参数为返回的总行数。<br>
 返回前五行：</p>
-<pre><code>SELECT * 
+<pre tabindex="0"><code>SELECT * 
 FROM mytable
 LIMIT 5;
-</code></pre>
-<pre><code>SELECT *
+</code></pre><pre tabindex="0"><code>SELECT *
 FROM mytable
 LIMIT 0, 5;
-</code></pre>
-<p>返回第3～5行：</p>
-<pre><code>SELECT *
+</code></pre><p>返回第3～5行：</p>
+<pre tabindex="0"><code>SELECT *
 FROM mytable
 LIMIT 2, 3;
-</code></pre>
-<h3 id="八排序">八、排序</h3>
+</code></pre><h3 id="八排序">八、排序</h3>
 <ul>
 <li>ASC：升序（默认）</li>
 <li>DESC：降序
 可以按多个列进行排序，并且为每个列指定不同的排序方式：</li>
 </ul>
-<pre><code>SELECT *
+<pre tabindex="0"><code>SELECT *
 FROM mytable
 ORDER BY col1 DESC, col2 ASC;
-</code></pre>
-<h3 id="九过滤">九、过滤</h3>
+</code></pre><h3 id="九过滤">九、过滤</h3>
 <p>不进行过滤的数据非常大，导致通过网络传输了多余的数据，从而浪费了网络带宽。因此尽量使用 SQL 语句来过滤不必要的数据，而不是传输所有的数据到客户端中然后由客户端进行过滤。</p>
-<pre><code>SELECT * 
+<pre tabindex="0"><code>SELECT * 
 FROM mytable
 WHERE col IS NULL;
-</code></pre>
-<p>下表显示了 WHERE 字句可用的操作符。</p>
+</code></pre><p>下表显示了 WHERE 字句可用的操作符。</p>
 <table>
 <thead>
 <tr>
@@ -5320,22 +5152,19 @@ WHERE col IS NULL;
 <li>[] 可以匹配集合内的字符，例如 [ab]将匹配字符 a 或者 b。用脱字符 ^ 可以对其进行否定，也就是不匹配集合内的字符。<br>
 使用 LIKE 来进行通配符匹配。</li>
 </ul>
-<pre><code>SELECT *
+<pre tabindex="0"><code>SELECT *
 FROM mytable
 WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
-</code></pre>
-<p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
+</code></pre><p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
 <h3 id="十一计算字段">十一、计算字段</h3>
 <p>在数据库服务器上完成数据的转换和格式化的工作往往比客户端上快得多，并且转换和格式化后的数据量更少的话可以减少网络通信量。</p>
 <p>计算字段通常需要使用 AS 来取别名，否则输出的时候字段名为计算表达式。</p>
-<pre><code>SELECT col1 * col2 AS alias
+<pre tabindex="0"><code>SELECT col1 * col2 AS alias
 FROM mytable;
-</code></pre>
-<p>CONCAT() 用于连接两个字段。许多数据库会使用空格把一个值填充为列宽，因此连接的结果会出现一些不必要的空格，使用 TRIM() 可以去除首尾空格。</p>
-<pre><code>SELECT CONCAT(TRIM(col1), '(', TRIM(col2), ')') AS concat_col
+</code></pre><p>CONCAT() 用于连接两个字段。许多数据库会使用空格把一个值填充为列宽，因此连接的结果会出现一些不必要的空格，使用 TRIM() 可以去除首尾空格。</p>
+<pre tabindex="0"><code>SELECT CONCAT(TRIM(col1), '(', TRIM(col2), ')') AS concat_col
 FROM mytable;
-</code></pre>
-<h3 id="十二函数">十二、函数</h3>
+</code></pre><h3 id="十二函数">十二、函数</h3>
 <p>各个 DBMS 的函数都是不相同的，因此不可移植，以下主要是 MySQL 的函数。</p>
 <h4 id="汇总">汇总</h4>
 <p>AVG()	返回某列的平均值<br>
@@ -5345,10 +5174,9 @@ MIN()	返回某列的最小值<br>
 SUM()	返回某列值之和</p>
 <p>AVG() 会忽略 NULL 行。</p>
 <p>使用 DISTINCT 可以汇总不同的值。</p>
-<pre><code>SELECT AVG(DISTINCT col1) AS avg_col
+<pre tabindex="0"><code>SELECT AVG(DISTINCT col1) AS avg_col
 FROM mytable;
-</code></pre>
-<h4 id="文本处理">文本处理</h4>
+</code></pre><h4 id="文本处理">文本处理</h4>
 <p>LEFT()	左边的字符<br>
 RIGHT()	右边的字符<br>
 LOWER()	转换为小写字符<br>
@@ -5358,11 +5186,10 @@ RTRIM()	去除右边的空格<br>
 LENGTH()	长度<br>
 SOUNDEX()	转换为语音值</p>
 <p>其中， SOUNDEX() 可以将一个字符串转换为描述其语音表示的字母数字模式。</p>
-<pre><code>SELECT *
+<pre tabindex="0"><code>SELECT *
 FROM mytable
 WHERE SOUNDEX(col1) = SOUNDEX('apple')
-</code></pre>
-<h4 id="日期和时间处理">日期和时间处理</h4>
+</code></pre><h4 id="日期和时间处理">日期和时间处理</h4>
 <ul>
 <li>日期格式：YYYY-MM-DD</li>
 <li>时间格式：HH:<zero-width space>MM:SS</li>
@@ -5384,10 +5211,9 @@ NOW()	返回当前日期和时间<br>
 SECOND()	返回一个时间的秒部分<br>
 TIME()	返回一个日期时间的时间部分<br>
 YEAR()	返回一个日期的年份部分</p>
-<pre><code>mysql&gt; SELECT NOW();
+<pre tabindex="0"><code>mysql&gt; SELECT NOW();
 2018-4-14 20:25:11
-</code></pre>
-<h4 id="数值处理">数值处理</h4>
+</code></pre><h4 id="数值处理">数值处理</h4>
 <p>SIN()	正弦
 COS()	余弦
 TAN()	正切
@@ -5401,17 +5227,15 @@ RAND()	随机数</p>
 <p>把具有相同的数据值的行放在同一组中。</p>
 <p>可以对同一分组数据使用汇总函数进行处理，例如求分组数据的平均值等。</p>
 <p>指定的分组字段除了能按该字段进行分组，也会自动按该字段进行排序。</p>
-<pre><code>SELECT col, COUNT(*) AS num
+<pre tabindex="0"><code>SELECT col, COUNT(*) AS num
 FROM mytable
 GROUP BY col;
-</code></pre>
-<p>GROUP BY 自动按分组字段进行排序，ORDER BY 也可以按汇总字段来进行排序。</p>
-<pre><code>SELECT col, COUNT(*) AS num
+</code></pre><p>GROUP BY 自动按分组字段进行排序，ORDER BY 也可以按汇总字段来进行排序。</p>
+<pre tabindex="0"><code>SELECT col, COUNT(*) AS num
 FROM mytable
 GROUP BY col
 ORDER BY num;
-</code></pre>
-<p>分组规定：</p>
+</code></pre><p>分组规定：</p>
 <ul>
 <li>GROUP BY 子句出现在 WHERE 子句之后，ORDER BY 子句之前；</li>
 <li>除了汇总字段外，SELECT 语句中的每一字段都必须在 GROUP BY 子句中给出；</li>
@@ -5421,72 +5245,64 @@ ORDER BY num;
 <h3 id="十四子查询">十四、子查询</h3>
 <p>子查询中只能返回一个字段的数据。</p>
 <p>可以将子查询的结果作为 WHRER 语句的过滤条件：</p>
-<pre><code>SELECT *
+<pre tabindex="0"><code>SELECT *
 FROM mytable1
 WHERE col1 IN (SELECT col2 FROM mytable2);
-</code></pre>
-<p>下面的语句可以检索出客户的订单数量，子查询语句会对第一个查询检索出的每个客户执行一次：</p>
-<pre><code>SELECT cust_name, (SELECT COUNT(*)
+</code></pre><p>下面的语句可以检索出客户的订单数量，子查询语句会对第一个查询检索出的每个客户执行一次：</p>
+<pre tabindex="0"><code>SELECT cust_name, (SELECT COUNT(*)
                    FROM Orders
                    WHERE Orders.cust_id = Customers.cust_id)
                    AS orders_num
 FROM Customers
 ORDER BY cust_name;
-</code></pre>
-<h3 id="十五连接">十五、连接</h3>
+</code></pre><h3 id="十五连接">十五、连接</h3>
 <p>连接用于连接多个表，使用 JOIN 关键字，并且条件语句使用 ON 而不是 WHERE。</p>
 <p>连接可以替换子查询，并且比子查询的效率一般会更快。</p>
 <p>可以用 AS 给列名、计算字段和表名取别名，给表名取别名是为了简化 SQL 语句以及连接相同表。</p>
 <h4 id="内连接">内连接</h4>
 <p>内连接又称等值连接，使用 INNER JOIN 关键字。</p>
-<pre><code>SELECT A.value, B.value
+<pre tabindex="0"><code>SELECT A.value, B.value
 FROM tablea AS A INNER JOIN tableb AS B
 ON A.key = B.key;
-</code></pre>
-<p>可以不明确使用 INNER JOIN，而使用普通查询并在 WHERE 中将两个表中要连接的列用等值方法连接起来。</p>
-<pre><code>SELECT A.value, B.value
+</code></pre><p>可以不明确使用 INNER JOIN，而使用普通查询并在 WHERE 中将两个表中要连接的列用等值方法连接起来。</p>
+<pre tabindex="0"><code>SELECT A.value, B.value
 FROM tablea AS A, tableb AS B
 WHERE A.key = B.key;
-</code></pre>
-<h3 id="自连接">自连接</h3>
+</code></pre><h3 id="自连接">自连接</h3>
 <p>自连接可以看成内连接的一种，只是连接的表是自身而已。</p>
 <p>一张员工表，包含员工姓名和员工所属部门，要找出与 Jim 处在同一部门的所有员工姓名。</p>
 <p>子查询版本</p>
-<pre><code>SELECT name
+<pre tabindex="0"><code>SELECT name
 FROM employee
 WHERE department = (
       SELECT department
       FROM employee
       WHERE name = &quot;Jim&quot;);
-</code></pre>
-<p>自连接版本</p>
-<pre><code>SELECT e1.name
+</code></pre><p>自连接版本</p>
+<pre tabindex="0"><code>SELECT e1.name
 FROM employee AS e1 INNER JOIN employee AS e2
 ON e1.department = e2.department
       AND e2.name = &quot;Jim&quot;;
-</code></pre>
-<h4 id="自然连接">自然连接</h4>
+</code></pre><h4 id="自然连接">自然连接</h4>
 <p>自然连接是把同名列通过等值测试连接起来的，同名列可以有多个。</p>
 <p>内连接和自然连接的区别：内连接提供连接的列，而自然连接自动连接所有同名列。</p>
-<pre><code>SELECT A.value, B.value
+<pre tabindex="0"><code>SELECT A.value, B.value
 FROM tablea AS A NATURAL JOIN tableb AS B;
-</code></pre>
-<h4 id="外连接">外连接</h4>
+</code></pre><h4 id="外连接">外连接</h4>
 <p>外连接保留了没有关联的那些行。分为左外连接，右外连接以及全外连接，左外连接就是保留左表没有关联的行。</p>
 <h3 id="十六组合查询">十六、组合查询</h3>
 <p>使用 UNION 来组合两个查询，如果第一个查询返回 M 行，第二个查询返回 N 行，那么组合查询的结果一般为 M+N 行。</p>
 <p>每个查询必须包含相同的列、表达式和聚集函数。</p>
 <p>默认会去除相同行，如果需要保留相同行，使用 UNION ALL。</p>
 <p>只能包含一个 ORDER BY 子句，并且必须位于语句的最后。</p>
-<pre><code>SELECT col
+<pre tabindex="0"><code>SELECT col
 FROM mytable
 WHERE col = 1
 UNION
 SELECT col
 FROM mytable
 WHERE col =2;
-</code></pre>
-<h3 id="十七视图">十七、视图</h3>
+</code></pre><h3 id="十七视图">十七、视图</h3>
 <p>视图是虚拟的表，本身不包含数据，也就不能对其进行索引操作。</p>
 <p>对视图的操作和对普通表的操作一样。</p>
 <p>视图具有如下好处：</p>
@@ -5496,12 +5312,11 @@ WHERE col =2;
 <li>通过只给用户访问视图的权限，保证数据的安全性；</li>
 <li>更改数据格式和表示。</li>
 </ul>
-<pre><code>CREATE VIEW myview AS
+<pre tabindex="0"><code>CREATE VIEW myview AS
 SELECT Concat(col1, col2) AS concat_col, col3*col4 AS compute_col
 FROM mytable
 WHERE col5 = val;
-</code></pre>
-<h3 id="十八存储过程">十八、存储过程</h3>
+</code></pre><h3 id="十八存储过程">十八、存储过程</h3>
 <p>存储过程可以看成是对一系列 SQL 操作的批处理。</p>
 <p>使用存储过程的好处：</p>
 <ul>
@@ -5513,7 +5328,7 @@ WHERE col5 = val;
 <p>包含 in、out 和 inout 三种参数。</p>
 <p>给变量赋值都需要用 select into 语句。</p>
 <p>每次只能给一个变量赋值，不支持集合的操作。</p>
-<pre><code>delimiter //
+<pre tabindex="0"><code>delimiter //
 
 create procedure myprocedure( out ret int )
     begin
@@ -5525,11 +5340,9 @@ create procedure myprocedure( out ret int )
     end //
 
 delimiter ;
-</code></pre>
-<pre><code>call myprocedure(@ret);
+</code></pre><pre tabindex="0"><code>call myprocedure(@ret);
 select @ret;
-</code></pre>
-<h3 id="十九游标">十九、游标</h3>
+</code></pre><h3 id="十九游标">十九、游标</h3>
 <p>在存储过程中使用游标可以对一个结果集进行移动遍历。</p>
 <p>游标主要用于交互式应用，其中用户需要对数据集中的任意行进行浏览和修改。</p>
 <p>使用游标的四个步骤：</p>
@@ -5539,7 +5352,7 @@ select @ret;
 <li>取出数据；</li>
 <li>关闭游标；</li>
 </ul>
-<pre><code>delimiter //
+<pre tabindex="0"><code>delimiter //
 create procedure myprocedure(out ret int)
     begin
         declare done boolean default 0;
@@ -5559,17 +5372,15 @@ create procedure myprocedure(out ret int)
         close mycursor;
     end //
  delimiter ;
-</code></pre>
-<h3 id="二十触发器">二十、触发器</h3>
+</code></pre><h3 id="二十触发器">二十、触发器</h3>
 <p>触发器会在某个表执行以下语句时而自动执行：DELETE、INSERT、UPDATE。</p>
 <p>触发器必须指定在语句执行之前还是之后自动执行，之前执行使用 BEFORE 关键字，之后执行使用 AFTER 关键字。BEFORE 用于数据验证和净化，AFTER 用于审计跟踪，将修改记录到另外一张表中。</p>
 <p>INSERT 触发器包含一个名为 NEW 的虚拟表。</p>
-<pre><code>CREATE TRIGGER mytrigger AFTER INSERT ON mytable
+<pre tabindex="0"><code>CREATE TRIGGER mytrigger AFTER INSERT ON mytable
 FOR EACH ROW SELECT NEW.col into @result;
 
 SELECT @result; -- 获取结果
-</code></pre>
-<p>DELETE 触发器包含一个名为 OLD 的虚拟表，并且是只读的。</p>
+</code></pre><p>DELETE 触发器包含一个名为 OLD 的虚拟表，并且是只读的。</p>
 <p>UPDATE 触发器包含一个名为 NEW 和一个名为 OLD 的虚拟表，其中 NEW 是可以被修改的，而 OLD 是只读的。</p>
 <p>MySQL 不允许在触发器中使用 CALL 语句，也就是不能调用存储过程。</p>
 <h3 id="二十一事务管理">二十一、事务管理</h3>
@@ -5584,15 +5395,14 @@ SELECT @result; -- 获取结果
 <p>MySQL 的事务提交默认是隐式提交，每执行一条语句就把这条语句当成一个事务然后进行提交。当出现 START TRANSACTION 语句时，会关闭隐式提交；当 COMMIT 或 ROLLBACK 语句执行后，事务会自动关闭，重新恢复隐式提交。</p>
 <p>设置 autocommit 为 0 可以取消自动提交；autocommit 标记是针对每个连接而不是针对服务器的。</p>
 <p>如果没有设置保留点，ROLLBACK 会回退到 START TRANSACTION 语句处；如果设置了保留点，并且在 ROLLBACK 中指定该保留点，则会回退到该保留点。</p>
-<pre><code>START TRANSACTION
+<pre tabindex="0"><code>START TRANSACTION
 // ...
 SAVEPOINT delete1
 // ...
 ROLLBACK TO delete1
 // ...
 COMMIT
-</code></pre>
-<h3 id="二十二字符集">二十二、字符集</h3>
+</code></pre><h3 id="二十二字符集">二十二、字符集</h3>
 <p>基本术语：</p>
 <ul>
 <li>字符集为字母和符号的集合；</li>
@@ -5600,38 +5410,30 @@ COMMIT
 <li>校对字符指定如何比较，主要用于排序和分组。</li>
 </ul>
 <p>除了给表指定字符集和校对外，也可以给列指定：</p>
-<pre><code>CREATE TABLE mytable
+<pre tabindex="0"><code>CREATE TABLE mytable
 (col VARCHAR(10) CHARACTER SET latin COLLATE latin1_general_ci )
 DEFAULT CHARACTER SET hebrew COLLATE hebrew_general_ci;
-</code></pre>
-<p>可以在排序、分组时指定校对：</p>
-<pre><code>SELECT *
+</code></pre><p>可以在排序、分组时指定校对：</p>
+<pre tabindex="0"><code>SELECT *
 FROM mytable
 ORDER BY col COLLATE latin1_general_ci;
-</code></pre>
-<h3 id="二十三权限管理">二十三、权限管理</h3>
+</code></pre><h3 id="二十三权限管理">二十三、权限管理</h3>
 <p>MySQL 的账户信息保存在 mysql 这个数据库中。</p>
-<pre><code>USE mysql;
+<pre tabindex="0"><code>USE mysql;
 SELECT user FROM user;
-</code></pre>
-<p>创建账户</p>
+</code></pre><p>创建账户</p>
 <p>新创建的账户没有任何权限。</p>
-<pre><code>CREATE USER myuser IDENTIFIED BY 'mypassword';
-</code></pre>
-<p>修改账户名</p>
-<pre><code>RENAME USER myuser TO newuser;
-</code></pre>
-<p>删除账户</p>
-<pre><code>DROP USER myuser;
-</code></pre>
-<p>查看权限</p>
-<pre><code>SHOW GRANTS FOR myuser;
-</code></pre>
-<p>授予权限</p>
+<pre tabindex="0"><code>CREATE USER myuser IDENTIFIED BY 'mypassword';
+</code></pre><p>修改账户名</p>
+<pre tabindex="0"><code>RENAME USER myuser TO newuser;
+</code></pre><p>删除账户</p>
+<pre tabindex="0"><code>DROP USER myuser;
+</code></pre><p>查看权限</p>
+<pre tabindex="0"><code>SHOW GRANTS FOR myuser;
+</code></pre><p>授予权限</p>
 <p>账户用 username@host 的形式定义，username@% 使用的是默认主机名。</p>
-<pre><code>GRANT SELECT, INSERT ON mydatabase.* TO myuser;
-</code></pre>
-<p>删除权限</p>
+<pre tabindex="0"><code>GRANT SELECT, INSERT ON mydatabase.* TO myuser;
+</code></pre><p>删除权限</p>
 <p>GRANT 和 REVOKE 可在几个层次上控制访问权限：</p>
 <ul>
 <li>整个服务器，使用 GRANT ALL 和 REVOKE ALL；</li>
@@ -5640,13 +5442,11 @@ SELECT user FROM user;
 <li>特定的列；</li>
 <li>特定的存储过程。</li>
 </ul>
-<pre><code>REVOKE SELECT, INSERT ON mydatabase.* FROM myuser;
-</code></pre>
-<p>更改密码</p>
+<pre tabindex="0"><code>REVOKE SELECT, INSERT ON mydatabase.* FROM myuser;
+</code></pre><p>更改密码</p>
 <p>必须使用 Password() 函数进行加密。</p>
-<pre><code>SET PASSWROD FOR myuser = Password('new_password');
+<pre tabindex="0"><code>SET PASSWROD FOR myuser = Password('new_password');
 </code></pre>
-
         
         ]]>
       </description>
@@ -5730,9 +5530,8 @@ SELECT user FROM user;
 <h4 id="java-虚拟机栈-a-name12a">Java 虚拟机栈 <a name="1.2"></a></h4>
 <p>每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。</p>
 <p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</p>
-<pre><code>java -Xss2M HaskTheJava
-</code></pre>
-<p>该区域可能抛出以下异常：</p>
+<pre tabindex="0"><code>java -Xss2M HaskTheJava
+</code></pre><p>该区域可能抛出以下异常：</p>
 <ul>
 <li>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；</li>
 <li>栈进行动态扩展的时如果无法申请到足够的内存，会抛出 OutofMemoryError 异常。</li>
@@ -5749,9 +5548,8 @@ SELECT user FROM user;
 </ul>
 <p>堆不需要连续内存，并且可以动态增加其内存，增加失败会抛出 OutOfMemoryError 异常。</p>
 <p>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。</p>
-<pre><code>java -Xms1M -Xmx2M HackTheJava
-</code></pre>
-<h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
+<pre tabindex="0"><code>java -Xms1M -Xmx2M HackTheJava
+</code></pre><h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
 <p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
 <p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 OutOfMemoryError 异常。</p>
 <p>对这块区域进行垃圾回收的主要目标是对常量池的回收和对类的卸载，但是一般比较难实现。</p>
@@ -5896,7 +5694,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
         <p>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。</p>
 <p>然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。</p>
 <p>事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：</p>
-<pre><code>    //实验1
+<pre tabindex="0"><code>    //实验1
     String s1 = &quot;1&quot;;
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -5904,9 +5702,8 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     value[0] = '2';
     System.out.println(s1);                 //2
     System.out.println((s1 == &quot;1&quot;));        //true
-</code></pre>
-<p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
-<pre><code>    //实验2
+</code></pre><p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
+<pre tabindex="0"><code>    //实验2
     String s2 = new String(&quot;1&quot;);
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -5914,10 +5711,9 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     value2[0] = '2';
     System.out.println(s2);                //2
     System.out.println((s2 == &quot;1&quot;));       //false
-</code></pre>
-<p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
+</code></pre><p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
 <p>到这里，可以停一会了。很多技术文章中都做过类似上面的实验（通过比较创建方式的区别、反射修改等)，来分析 String 、String Pool 的原理和设计理念。但我总觉得以此说明最终的结论还不够严谨、或者说还不够直观。接下来请看——魔鬼实验：</p>
-<pre><code>    //实验3 
+<pre tabindex="0"><code>    //实验3 
     String s1 = &quot;1&quot;;
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -5926,9 +5722,8 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     System.out.println(s1);                 //2
     System.out.println((s1 == &quot;1&quot;));        //true
     System.out.println(&quot;1&quot;);                //2
-</code></pre>
-<p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
-<pre><code>    //实验4
+</code></pre><p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
+<pre tabindex="0"><code>    //实验4
     String s2 = new String(&quot;1&quot;);
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -5937,8 +5732,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     System.out.println(s2);                 //2
     System.out.println((s2 == &quot;1&quot;));        //false
     System.out.println(&quot;1&quot;);                //2
-</code></pre>
-<p>同样的，上述实验 4 只是在实验 2 的基础上输出了 <code>&quot;1&quot;</code> 的值。结果 <code>&quot;1&quot;</code> 的值还是 2。</p>
+</code></pre><p>同样的，上述实验 4 只是在实验 2 的基础上输出了 <code>&quot;1&quot;</code> 的值。结果 <code>&quot;1&quot;</code> 的值还是 2。</p>
 <p><strong>结论：</strong><br>
 基于对 String 类和字符串常量池（String Pool） 的了解，我对以上实验作出解释（详细理论下回贴出）:</p>
 <p>实验 3 中 字符串 <code>s1</code> 通过直接赋值字符串常量 <code>&quot;1&quot;</code> 的方式创建，因此 <strong><code>s1</code> 会直接引用字符串常量池中 <code>&quot;1&quot;</code> 对应的对象</strong>。对 <code>s1</code> 的修改，也就是对常量池中 <code>&quot;1&quot;</code> 对象的修改，因此 <code>s1</code> 和 <code>&quot;1&quot;</code> 的值都是修改后的 2，而 <code>s1 == &quot;1&quot;</code> 也是 <code>true</code>,因为它们是同一个对象的引用。</p>
@@ -6031,37 +5825,33 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
 <p>boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</p>
 <h4 id="包装类型-a-name12a">包装类型 <a name="1.2"></a></h4>
 <p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱和拆箱完成。</p>
-<pre><code>Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
+<pre tabindex="0"><code>Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
 int y = x;  //  拆箱 调用了 x.intValue()
-</code></pre>
-<h4 id="缓存池-a-name13a">缓存池 <a name="1.3"></a></h4>
+</code></pre><h4 id="缓存池-a-name13a">缓存池 <a name="1.3"></a></h4>
 <p>new Integer(123) 与 Integer.valueOf(123)的区别在于：</p>
 <ul>
 <li>new Integer(123) 每次都会创建一个对象；</li>
 <li>Integer.valueOf(123) 会使用缓存池中的对象，调用会取得同一个对象的引用。</li>
 </ul>
-<pre><code>Integer x = new Integer(123);
+<pre tabindex="0"><code>Integer x = new Integer(123);
 Integer y = new Integer(123);
 System.out.println(x == y);     //false
 Integer z = Integer.valueOf(123);
 Integer k = Integer.valueOf(123);
 System.out.println(z == k);     //true
-</code></pre>
-<p>valueOf() 方法的实现，就是先判断值是否存在缓存池中，如果在的话就直接返回缓存池的内容。</p>
-<pre><code>public static Integer valueOf(int i){
+</code></pre><p>valueOf() 方法的实现，就是先判断值是否存在缓存池中，如果在的话就直接返回缓存池的内容。</p>
+<pre tabindex="0"><code>public static Integer valueOf(int i){
     if(i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high){
         return IntegerCache.cache[i + (-IntegerCache.low)];
         return new Integer(i);
     }
 }
-</code></pre>
-<p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
+</code></pre><p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
 <p>编译器会在自动装箱过程中调用 valueOf()方法，因此多个值相同且值在缓存池范围内的 Integer 实例使用自动装箱来创建，那么就会引用相同的对象。</p>
-<pre><code>Integer m = 123;
+<pre tabindex="0"><code>Integer m = 123;
 Integer n = 123;
 System.out.priintln(m == n);    //true
-</code></pre>
-<p>基本类型对应的缓冲池如下：</p>
+</code></pre><p>基本类型对应的缓冲池如下：</p>
 <ul>
 <li>boolean values true and false</li>
 <li>all byte values</li>
@@ -6075,19 +5865,17 @@ System.out.priintln(m == n);    //true
 <h4 id="概览a-name21a">概览<a name="2.1"></a></h4>
 <p>String 被声明为 final,因此不可被继承。(Integer 等包装类也不能被继承)<br>
 在 Java 8 中，String 内部使用 char 数组存储数据。</p>
-<pre><code>public final class String 
+<pre tabindex="0"><code>public final class String 
     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
     private final char value[];   
 }
-</code></pre>
-<p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用的编码。</p>
-<pre><code>public final class String
+</code></pre><p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用的编码。</p>
+<pre tabindex="0"><code>public final class String
     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
         private final byte[] value;
         private final byte coder;
     }
-</code></pre>
-<p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能在引用其他数组，并且 String 内部没有改变 value 数组的方法。这些表明 String 不能更改的约束规范。实际上可以通过反射来修改 String 内部 value 数组的值，但是这样的做法毫无意义，而且会引发错误。</p>
+</code></pre><p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能在引用其他数组，并且 String 内部没有改变 value 数组的方法。这些表明 String 不能更改的约束规范。实际上可以通过反射来修改 String 内部 value 数组的值，但是这样的做法毫无意义，而且会引发错误。</p>
 <h4 id="不可变的好处a-name22a">不可变的好处<a name="2.2"></a></h4>
 <p>1.可以缓存 hash 值</p>
 <p>因为 String 的 hash 值经常被使用，例如 String 用做 HashMap 的 key。不可变的特性使得 hash 值也不可变，因此只需要进行一次计算。</p>
@@ -6112,19 +5900,17 @@ System.out.priintln(m == n);    //true
 <h4 id="string-poola-name24a">String Pool<a name="2.4"></a></h4>
 <p>字符串常量池(String Pool) 保存着所有字符串字面量(literal strings) ,这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool中。<br>
 当一个字符串调用 intern() 方法时，如果 String Pool 中已存在一个字符串和该字符串相等(使用 equals() 方法进行确定)，那么就会返回 String Pool 中字符串的引用；否则，就会在 String Poll 中添加一个新的字符串，并返回这个新字符串的引用。</p>
-<pre><code>String s1 = new String(&quot;aaa&quot;);
+<pre tabindex="0"><code>String s1 = new String(&quot;aaa&quot;);
 String s2 = new String(&quot;aaa&quot;);
 System.out.println(s1 == s2);    //false
 String s3 = s1.intern();
 String s4 = s2.intern();
 System.out.println(s3 == s4);   //true
-</code></pre>
-<p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
-<pre><code>String s5 = &quot;bbb&quot;;
+</code></pre><p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
+<pre tabindex="0"><code>String s5 = &quot;bbb&quot;;
 String s6 = &quot;bbb&quot;;
 System.out.println(s5 == s6);   //true
-</code></pre>
-<p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+</code></pre><p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
 <h4 id="new-stringabca-name25a">new String(&ldquo;abc&rdquo;)<a name="2.5"></a></h4>
 <p>使用这种方式一共会创建两个字符串对象（前提是 String Pool  中还没有 &ldquo;abc&rdquo; 字符串对象）。</p>
 <ul>
@@ -6132,14 +5918,13 @@ System.out.println(s5 == s6);   //true
 <li>而使用 new 的方式会在堆中创建一个字符串对象。<br>
 创建一个测试类，其 main 方法中使用这种方式来创建字符串对象。</li>
 </ul>
-<pre><code>    public class NewStringTest {
+<pre tabindex="0"><code>    public class NewStringTest {
         public static void main(String[] args){
             String s = new String(&quot;abc&quot;);
         }
     }
-</code></pre>
-<p>使用 javap -verbose 进行反编译，得到以下内容：</p>
-<pre><code>// ...
+</code></pre><p>使用 javap -verbose 进行反编译，得到以下内容：</p>
+<pre tabindex="0"><code>// ...
 Constant pool:
 // ...
    #2 = Class              #18            // java/lang/String
@@ -6160,18 +5945,16 @@ Constant pool:
          9: astore_1
 // ...
 
-</code></pre>
-<p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
+</code></pre><p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
 <p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
-<pre><code>public String(String original){
+<pre tabindex="0"><code>public String(String original){
     this.value = original.value;
     this.hash = original.hash;
 }
-</code></pre>
-<h3 id="三运算a-name3a">三、运算<a name="3"></a></h3>
+</code></pre><h3 id="三运算a-name3a">三、运算<a name="3"></a></h3>
 <h4 id="参数传递a-name31a">参数传递<a name="3.1"></a></h4>
 <p>以下代码中 Dog dog 的dog是一个指针，存储的是对象的地址。在将一个参数传入一个方法时，本质上是将对象的地址以值得方式传递到形参中。</p>
-<pre><code>public class Dog {
+<pre tabindex="0"><code>public class Dog {
     
     String name;
 
@@ -6187,9 +5970,8 @@ Constant pool:
         return super.toString();
     }
 }
-</code></pre>
-<p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
-<pre><code>class PassByValueExample {
+</code></pre><p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
+<pre tabindex="0"><code>class PassByValueExample {
     public static void main(String[] args) {
         Dog dog = new Dog(&quot;A&quot;);
         func(dog);
@@ -6200,9 +5982,8 @@ Constant pool:
         dog.setName(&quot;B&quot;);
     }
 }
-</code></pre>
-<p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
-<pre><code>public class PassByValueExample {
+</code></pre><p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
+<pre tabindex="0"><code>public class PassByValueExample {
     public static void main(String[] args) {
         Dog dog = new Dog(&quot;A&quot;);
         System.out.println(dog.getObjectAddress()); // Dog@4554617c
@@ -6218,28 +5999,22 @@ Constant pool:
         System.out.println(dog.getName());          // B
     }
 }
-</code></pre>
-<h4 id="float-与-doublea-name32a">float 与 double<a name="3.2"></a></h4>
+</code></pre><h4 id="float-与-doublea-name32a">float 与 double<a name="3.2"></a></h4>
 <p>Java 不能隐式执行向下转型，因为这会使得精度降低。</p>
 <p>1.1 字面量属于 double 类型，不能直接将 1.1 直接赋值给 float 变量，因为这是向下转型。</p>
-<pre><code>// float f = 1.1;
-</code></pre>
-<p>1.1f 字面量才是 float 类型。</p>
-<pre><code>float f = 1.1f;
-</code></pre>
-<h4 id="隐式类型转换a-name33a">隐式类型转换<a name="3.3"></a></h4>
+<pre tabindex="0"><code>// float f = 1.1;
+</code></pre><p>1.1f 字面量才是 float 类型。</p>
+<pre tabindex="0"><code>float f = 1.1f;
+</code></pre><h4 id="隐式类型转换a-name33a">隐式类型转换<a name="3.3"></a></h4>
 <p>因为字面量 1 是 int 类型，它比 short 类型精度要高，因此不能隐式地将 int 类型向下转型为 short 类型。</p>
-<pre><code>short s1 = 1;
+<pre tabindex="0"><code>short s1 = 1;
 //s1 = s1 + 1;
-</code></pre>
-<p>但是使用 += 或者 ++ 运算符会执行隐式类型转换。</p>
-<pre><code>s1 += 1;
+</code></pre><p>但是使用 += 或者 ++ 运算符会执行隐式类型转换。</p>
+<pre tabindex="0"><code>s1 += 1;
 s1++;
-</code></pre>
-<p>上面的语句相当于将 s1 + 1 的计算结果进行了向下转型：</p>
-<pre><code>s1 = (short)(s1 + 1);
-</code></pre>
-<h4 id="switcha-name34a">switch<a name="3.4"></a></h4>
+</code></pre><p>上面的语句相当于将 s1 + 1 的计算结果进行了向下转型：</p>
+<pre tabindex="0"><code>s1 = (short)(s1 + 1);
+</code></pre><h4 id="switcha-name34a">switch<a name="3.4"></a></h4>
 <p>从 Java 7 开始，可以在 switch 条件判断语句中使用 String 对象。<br>
 switch 不支持 long、float、double，是因为 switch 的设计初衷是对那些只有少数几个值的类型进行等值判断，如果值过于复杂，那么还是用 if 比较合适。</p>
 <h3 id="四关键字a-name4a">四、关键字<a name="4"></a></h3>
@@ -6250,12 +6025,11 @@ switch 不支持 long、float、double，是因为 switch 的设计初衷是对�
 <li>对于基本类型，final 使数值不变；</li>
 <li>对于引用类型，final 使引用不变，也就不能引用其他对象，但是被引用的对象本身是可以修改的。</li>
 </ul>
-<pre><code>final int x = 1;
+<pre tabindex="0"><code>final int x = 1;
 //x = 3;    // cannot assign value to final variable 'x'
 final A y = new A();
 y.a = 1;
-</code></pre>
-<p>2.<strong>方法</strong></p>
+</code></pre><p>2.<strong>方法</strong></p>
 <p>声明方法不能被子类重写。<br>
 private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。</p>
 <p>3.<strong>类</strong>
@@ -6266,7 +6040,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 <li>静态变量： 又被称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</li>
 <li>实例变量： 每创建一个实例就会产生一个实例变量，它与该实例同生共死。</li>
 </ul>
-<pre><code>public class A {
+<pre tabindex="0"><code>public class A {
     private int x;          // 实例变量
     private static int y;   // 静态变量
 
@@ -6277,15 +6051,13 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         int y = A.y;
     }
 }
-</code></pre>
-<p>2.<strong>静态方法</strong></p>
+</code></pre><p>2.<strong>静态方法</strong></p>
 <p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</p>
-<pre><code>public  abstract class A {
+<pre tabindex="0"><code>public  abstract class A {
     public static void func1(){}
 }
-</code></pre>
-<p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
-<pre><code>public class A {
+</code></pre><p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
+<pre tabindex="0"><code>public class A {
     private static int x;
     private int y;
 
@@ -6295,10 +6067,9 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         // int b = this.y;  //'A.this' cannot be referenced from a static context
     }
 }
-</code></pre>
-<p><strong>3.静态语句块</strong><br>
+</code></pre><p><strong>3.静态语句块</strong><br>
 静态语句块在类初始化时运行一次。</p>
-<pre><code>public class A {
+<pre tabindex="0"><code>public class A {
     static {
         System.out.println(&quot;123&quot;);
     }
@@ -6308,12 +6079,10 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         A a2 = new A();
     }
 }
-</code></pre>
-<pre><code>123
-</code></pre>
-<p><strong>4.静态内部类</strong><br>
+</code></pre><pre tabindex="0"><code>123
+</code></pre><p><strong>4.静态内部类</strong><br>
 非静态内部类依赖于外部类的实例，也就是说需要先创建外部类的实例，才能用这个实例去创建非静态内部类。而静态内部类不需要。</p>
-<pre><code>public class OuterClass {
+<pre tabindex="0"><code>public class OuterClass {
     class InnerClass {
     }
     static class StaticInnerClass {
@@ -6325,30 +6094,24 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         StaticInnerClass staticInnerClass = new StaticInnerClass(); 
     }
 }
-</code></pre>
-<p>静态内部类不能访问外部类的非静态的变量和方法。</p>
+</code></pre><p>静态内部类不能访问外部类的非静态的变量和方法。</p>
 <p><strong>5.静态导包</strong>
 在使用静态变量和方法时不用再指明 ClassName,从而简化代码，但可读性大大降低。</p>
 <p><strong>6.初始化顺序</strong><br>
 静态变量和静态语句块优先于实例变量和普通语句块，静态变量和静态语句块的初始化顺序取决于它们在代码中的顺序。</p>
-<pre><code>public static String staticField = &quot;静态变量&quot;;
-</code></pre>
-<pre><code>static {
+<pre tabindex="0"><code>public static String staticField = &quot;静态变量&quot;;
+</code></pre><pre tabindex="0"><code>static {
     System.out.println(&quot;静态语句块&quot;);
 }
-</code></pre>
-<pre><code>public String field = &quot;实例变量&quot;;
-</code></pre>
-<pre><code>{
+</code></pre><pre tabindex="0"><code>public String field = &quot;实例变量&quot;;
+</code></pre><pre tabindex="0"><code>{
     System.out.println(&quot;普通语句块&quot;);
 }
-</code></pre>
-<p>最后才是构造函数的初始化。</p>
-<pre><code>public InitialOrderTest(){
+</code></pre><p>最后才是构造函数的初始化。</p>
+<pre tabindex="0"><code>public InitialOrderTest(){
     System.out.println(&quot;构造函数&quot;);
 }
-</code></pre>
-<p>存在继承的情况下，初始化顺序为：</p>
+</code></pre><p>存在继承的情况下，初始化顺序为：</p>
 <ul>
 <li>父类（静态变量、静态语句块）</li>
 <li>子类（静态变量、静态语句块）</li>
@@ -6359,7 +6122,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 </ul>
 <h3 id="五object-通用方法a-name5a">五、Object 通用方法<a name="5"></a></h3>
 <h4 id="概述a-name51a">概述<a name="5.1"></a></h4>
-<pre><code>public native int hashCode()
+<pre tabindex="0"><code>public native int hashCode()
 
 public boolean equals(Object obj)
 
@@ -6381,8 +6144,7 @@ public final void wait(long timeout, int nanos) throws InterruptedException
 
 public final void wait() throws InterruptedException
 
-</code></pre>
-<h4 id="equalsa-name52a">equals()<a name="5.2"></a></h4>
+</code></pre><h4 id="equalsa-name52a">equals()<a name="5.2"></a></h4>
 <p><strong>1.等价关系</strong><br>
 两个对象具有等价关系，需要满足以下五个条件：自反性、对称性、传递性、一致性、与 null 的比较（对任何不是 null 的对象 x 调用 x.equals(null) 结果都为flase)</p>
 <p><strong>2.等价于相等</strong></p>
@@ -6390,19 +6152,18 @@ public final void wait() throws InterruptedException
 <li>对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。</li>
 <li>对于引用类型，== 判断两个变量是否引用同一个对象，而 equals() 判断引用的对象是否等价。</li>
 </ul>
-<pre><code>Integer x = new Integer(1);
+<pre tabindex="0"><code>Integer x = new Integer(1);
 Integer y = new Integer(1);
 System.out.println(x.equals(y));    // true
 System.out.println(x == y);         // false
-</code></pre>
-<p><strong>3.实现</strong></p>
+</code></pre><p><strong>3.实现</strong></p>
 <ul>
 <li>检查是否为同一个对象的引用，如果是直接返回 true；</li>
 <li>检查是否是同一个类型，如果不是，直接返回 false；</li>
 <li>将 Object 对象进行转型；</li>
 <li>判断每个关键域是否相等</li>
 </ul>
-<pre><code>public class EqualExample {
+<pre tabindex="0"><code>public class EqualExample {
     private int x;
     private int y;
     private int z;
@@ -6425,21 +6186,19 @@ System.out.println(x == y);         // false
         return z == that.z;
     }
 }
-</code></pre>
-<h4 id="hashcodea-name53a">hashCode()<a name="5.3"></a></h4>
+</code></pre><h4 id="hashcodea-name53a">hashCode()<a name="5.3"></a></h4>
 <p>hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。<br>
 在覆盖 equals() 方法时应当总是覆盖 hashCode() 方法，保证等价的两个对象哈希值也相等。<br>
 HashSet 和 HashMap 等集合类使用了 hashCode() 方法来计算对象应该存储的位置，因此要将对象添加到这些集合类中，需要让对应的类实现 hashCode() 方法。<br>
 下面的代码中，新建了两个等价的对象，并将它们添加到 HashSet 中，我们希望将两个对象当成一样的，只在集合中添加一个对象。但是 EqualExample 没有实现 hashCode() 方法，因此两个对象的哈希值是不同的，最终导致集合添加了两个等价的对象。</p>
-<pre><code>EqualExample e1 = new EqualExample(1,1,1);
+<pre tabindex="0"><code>EqualExample e1 = new EqualExample(1,1,1);
 EqualExample e2 = new EqualExample(1,1,1);
 System.out.println(eq.equal(e2));   // true
 HashSet&lt;EqualExample&gt; set  = new HashSet&lt;&gt;();
 set.add(e1);
 set.add(e2);
 System.out.println(set.size());     // 2
-</code></pre>
-<p>理想的哈希函数应当具有均匀性 ，即不相等的对象应当均匀分布到所有可能的哈希值上。这就要求了哈希函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。</p>
+</code></pre><p>理想的哈希函数应当具有均匀性 ，即不相等的对象应当均匀分布到所有可能的哈希值上。这就要求了哈希函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。</p>
 <p>R 一般取 31，它是一个奇素数。</p>
 <h4 id="tostringa-name54a">toString()<a name="5.4"></a></h4>
 <p>默认返回 类名@十六进制数 这种形式，其中 @ 后面的数值为散列码的无符号十六进制表示。</p>

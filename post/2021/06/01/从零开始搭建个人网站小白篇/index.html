@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     
-    <title>从零开始搭建个人网站——小白篇 - 罗泽勋</title>
-    <meta property="og:title" content="从零开始搭建个人网站——小白篇 - 罗泽勋">
+    <title>从零开始搭建个人网站——小白篇 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="从零开始搭建个人网站——小白篇 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -27,51 +26,78 @@
 
     
     
-    
-    <meta name="og:image" content="/images/logo.png">
-    
+
     
 
     
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    
+<link rel="stylesheet" href="/css/custom.css" />
 
   </head>
 
-  <body>
-    <nav>
-    <ul class="menu">
+  
+  <body class="post">
+    <header class="masthead">
       
-      <li><a href="/">主页</a></li>
-      
-      <li><a href="/about/">关于</a></li>
-      
-      <li><a href="/blog/">日志</a></li>
-      
-      <li><a href="/post/">编程</a></li>
-      
-      <li><a href="/series/">标签</a></li>
-      
-      <li><a href="/categories/">分类</a></li>
-      
-      <li><a href="/music/">音乐</a></li>
-      
-      <li><a href="/note/">抄录</a></li>
-      
-    </ul>
-    <hr/>
-    </nav>
 
-<div class="article-meta">
-<h1><span class="title">从零开始搭建个人网站——小白篇</span></h1>
-<h2 class="author">罗泽勋</h2>
-<h2 class="date">2021/06/01</h2>
-</div>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
-<main>
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/music/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>从零开始搭建个人网站——小白篇</h1>
+
+
+<h3>罗泽勋 / 
+2021-06-01</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
 <h3 id="前言">前言</h3>
 <p>小白篇和前面<a href="../2021-2-18-2/">正经篇</a>的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的<a href="https://gitee.com/lzxqaq/demosite.git">示例网站</a>，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。</p>
 <h3 id="准备工作与前篇一致">准备工作（与前篇一致）</h3>
@@ -93,20 +119,19 @@
 <p>2.将网站展示文件存放到 Github 远程仓库。</p>
 <p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置中检查 Github Pages。</p>
 <p>（2）打开命令提示符，进入 demosite\public 目录，分别执行</p>
-<pre><code>git init 
+<pre tabindex="0"><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre>
-<p>输入账号名，密码，完成上传。</p>
+</code></pre><p>输入账号名，密码，完成上传。</p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，打开网址 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
 <p>3.自定义域名（可选、需要一定的时间）</p>
 <p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
 <p>（2）配置。访问 github.com 网站，进入你的仓库，在 setting 中找到 Github Pages，在 Custom domain 输入框中输入你的域名，保存。</p>
 <p>（3）测试。访问你的域名。</p>
 
-</main>
+
 
   <footer>
   
@@ -152,10 +177,46 @@ async>
 
 
 
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
 
 
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
 <script>
 var doNotTrack = false;
@@ -167,12 +228,6 @@ if (!doNotTrack) {
 }
 </script>
 
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </footer>
   </body>
 </html>
 

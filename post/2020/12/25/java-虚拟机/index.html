@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     
-    <title>Java 虚拟机 - 罗泽勋</title>
-    <meta property="og:title" content="Java 虚拟机 - 罗泽勋">
+    <title>Java 虚拟机 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="Java 虚拟机 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -29,51 +28,78 @@
 
     
     
-    
-    <meta name="og:image" content="/images/logo.png">
-    
+
     
 
     
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    
+<link rel="stylesheet" href="/css/custom.css" />
 
   </head>
 
-  <body>
-    <nav>
-    <ul class="menu">
+  
+  <body class="post">
+    <header class="masthead">
       
-      <li><a href="/">主页</a></li>
-      
-      <li><a href="/about/">关于</a></li>
-      
-      <li><a href="/blog/">日志</a></li>
-      
-      <li><a href="/post/">编程</a></li>
-      
-      <li><a href="/series/">标签</a></li>
-      
-      <li><a href="/categories/">分类</a></li>
-      
-      <li><a href="/music/">音乐</a></li>
-      
-      <li><a href="/note/">抄录</a></li>
-      
-    </ul>
-    <hr/>
-    </nav>
 
-<div class="article-meta">
-<h1><span class="title">Java 虚拟机</span></h1>
-<h2 class="author">罗泽勋</h2>
-<h2 class="date">2020/12/25</h2>
-</div>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
-<main>
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/music/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Java 虚拟机</h1>
+
+
+<h3>罗泽勋 / 
+2020-12-25</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
 <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA.md">CyC2018/CS-Notes</a></p>
 <ul>
 <li><a href="#1">一、运行时数据区域</a>
@@ -120,9 +146,8 @@
 <h4 id="java-虚拟机栈-a-name12a">Java 虚拟机栈 <a name="1.2"></a></h4>
 <p>每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。</p>
 <p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</p>
-<pre><code>java -Xss2M HaskTheJava
-</code></pre>
-<p>该区域可能抛出以下异常：</p>
+<pre tabindex="0"><code>java -Xss2M HaskTheJava
+</code></pre><p>该区域可能抛出以下异常：</p>
 <ul>
 <li>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；</li>
 <li>栈进行动态扩展的时如果无法申请到足够的内存，会抛出 OutofMemoryError 异常。</li>
@@ -139,9 +164,8 @@
 </ul>
 <p>堆不需要连续内存，并且可以动态增加其内存，增加失败会抛出 OutOfMemoryError 异常。</p>
 <p>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。</p>
-<pre><code>java -Xms1M -Xmx2M HackTheJava
-</code></pre>
-<h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
+<pre tabindex="0"><code>java -Xms1M -Xmx2M HackTheJava
+</code></pre><h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
 <p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
 <p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 OutOfMemoryError 异常。</p>
 <p>对这块区域进行垃圾回收的主要目标是对常量池的回收和对类的卸载，但是一般比较难实现。</p>
@@ -204,7 +228,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
 <li>卸载</li>
 </ul>
 
-</main>
+
 
   <footer>
   
@@ -250,10 +274,46 @@ async>
 
 
 
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
 
 
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
 <script>
 var doNotTrack = false;
@@ -265,12 +325,6 @@ if (!doNotTrack) {
 }
 </script>
 
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </footer>
   </body>
 </html>
 

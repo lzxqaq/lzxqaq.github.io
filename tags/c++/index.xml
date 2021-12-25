@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C&#43;&#43; on 罗泽勋</title>
+    <title>C&#43;&#43; on Zexun Luo | 罗泽勋</title>
     <link>/tags/c&#43;&#43;/</link>
-    <description>Recent content in C&#43;&#43; on 罗泽勋</description>
+    <description>Recent content in C&#43;&#43; on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 25 May 2021 07:12:32 +0800</lastBuildDate>
@@ -28,7 +28,7 @@
  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png" width = "500" height = "200" alt="图片名称" align=center /></div>
 <!-- ![img](https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png) -->
 <h3 id="核心实现">核心实现</h3>
-<pre><code>void create_node_array();//构造包含字符及其频率的数组
+<pre tabindex="0"><code>void create_node_array();//构造包含字符及其频率的数组
 void create_pq();//构造优先级队列
 void create_huffman_tree();//构造哈夫曼树
 void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表
@@ -37,8 +37,7 @@ bool do_compress();//开始压缩
 bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树
 void decode_huffman();//根据重构的哈夫曼树解码文件
 
-</code></pre>
-<h3 id="后续">后续</h3>
+</code></pre><h3 id="后续">后续</h3>
 <p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
 
         

@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     
-    <title>【转载】缓存 - 罗泽勋</title>
-    <meta property="og:title" content="【转载】缓存 - 罗泽勋">
+    <title>【转载】缓存 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="【转载】缓存 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -31,52 +30,81 @@
 
     
     
-    <meta name="og:image" content="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/15313ed8-a520-4799-a300-2b6b36be314f.jpg">
-    
-    
+    <meta name="twitter:image" content="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/15313ed8-a520-4799-a300-2b6b36be314f.jpg">
     
     
 
     
+
+    
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    
+<link rel="stylesheet" href="/css/custom.css" />
 
   </head>
 
-  <body>
-    <nav>
-    <ul class="menu">
+  
+  <body class="post">
+    <header class="masthead">
       
-      <li><a href="/">主页</a></li>
-      
-      <li><a href="/about/">关于</a></li>
-      
-      <li><a href="/blog/">日志</a></li>
-      
-      <li><a href="/post/">编程</a></li>
-      
-      <li><a href="/series/">标签</a></li>
-      
-      <li><a href="/categories/">分类</a></li>
-      
-      <li><a href="/music/">音乐</a></li>
-      
-      <li><a href="/note/">抄录</a></li>
-      
-    </ul>
-    <hr/>
-    </nav>
 
-<div class="article-meta">
-<h1><span class="title">【转载】缓存</span></h1>
-<h2 class="author">罗泽勋</h2>
-<h2 class="date">2021/12/22</h2>
-</div>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
-<main>
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/music/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>【转载】缓存</h1>
+
+
+<h3>罗泽勋 / 
+2021-12-22</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
 <h1 id="缓存">缓存</h1>
 <!-- GFM-TOC -->
 <ul>
@@ -202,131 +230,130 @@
 <li>访问某个节点时，将其从原来的位置删除，并重新插入到链表头部。这样就能保证链表尾部存储的就是最近最久未使用的节点，当节点数量大于缓存最大空间时就淘汰链表尾部的节点。</li>
 <li>为了使删除操作时间复杂度为 O(1)，就不能采用遍历的方式找到某个节点。HashMap 存储着 Key 到节点的映射，通过 Key 就能以 O(1) 的时间得到节点，然后再以 O(1) 的时间将其从双向队列中删除。</li>
 </ul>
-<pre><code class="language-java">public class LRU&lt;K, V&gt; implements Iterable&lt;K&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LRU</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> V<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">implements</span> Iterable<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
 
-    private Node head;
-    private Node tail;
-    private HashMap&lt;K, Node&gt; map;
-    private int maxSize;
+    <span style="color:#66d9ef">private</span> Node head<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Node tail<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> HashMap<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> Node<span style="color:#f92672">&gt;</span> map<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> maxSize<span style="color:#f92672">;</span>
 
-    private class Node {
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span> <span style="color:#f92672">{</span>
 
-        Node pre;
-        Node next;
-        K k;
-        V v;
+        Node pre<span style="color:#f92672">;</span>
+        Node next<span style="color:#f92672">;</span>
+        K k<span style="color:#f92672">;</span>
+        V v<span style="color:#f92672">;</span>
 
-        public Node(K k, V v) {
-            this.k = k;
-            this.v = v;
-        }
-    }
-
-
-    public LRU(int maxSize) {
-
-        this.maxSize = maxSize;
-        this.map = new HashMap&lt;&gt;(maxSize * 4 / 3);
-
-        head = new Node(null, null);
-        tail = new Node(null, null);
-
-        head.next = tail;
-        tail.pre = head;
-    }
+        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">(</span>K k<span style="color:#f92672">,</span> V v<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">k</span> <span style="color:#f92672">=</span> k<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> v<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
 
-    public V get(K key) {
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LRU</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> maxSize<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-        if (!map.containsKey(key)) {
-            return null;
-        }
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">maxSize</span> <span style="color:#f92672">=</span> maxSize<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;(</span>maxSize <span style="color:#f92672">*</span> 4 <span style="color:#f92672">/</span> 3<span style="color:#f92672">);</span>
 
-        Node node = map.get(key);
-        unlink(node);
-        appendHead(node);
+        head <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+        tail <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
 
-        return node.v;
-    }
-
-
-    public void put(K key, V value) {
-
-        if (map.containsKey(key)) {
-            Node node = map.get(key);
-            unlink(node);
-        }
-
-        Node node = new Node(key, value);
-        map.put(key, node);
-        appendHead(node);
-
-        if (map.size() &gt; maxSize) {
-            Node toRemove = removeTail();
-            map.remove(toRemove.k);
-        }
-    }
+        head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> tail<span style="color:#f92672">;</span>
+        tail<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
 
-    private void unlink(Node node) {
+    <span style="color:#66d9ef">public</span> V <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>K key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-        Node pre = node.pre;
-        Node next = node.next;
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>key<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        pre.next = next;
-        next.pre = pre;
+        Node node <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+        unlink<span style="color:#f92672">(</span>node<span style="color:#f92672">);</span>
+        appendHead<span style="color:#f92672">(</span>node<span style="color:#f92672">);</span>
 
-        node.pre = null;
-        node.next = null;
-    }
-
-
-    private void appendHead(Node node) {
-        Node next = head.next;
-        node.next = next;
-        next.pre = node;
-        node.pre = head;
-        head.next = node;
-    }
+        <span style="color:#66d9ef">return</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">v</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
 
-    private Node removeTail() {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>K key<span style="color:#f92672">,</span> V value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-        Node node = tail.pre;
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>key<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            Node node <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+            unlink<span style="color:#f92672">(</span>node<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
 
-        Node pre = node.pre;
-        tail.pre = pre;
-        pre.next = tail;
+        Node node <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> value<span style="color:#f92672">);</span>
+        map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> node<span style="color:#f92672">);</span>
+        appendHead<span style="color:#f92672">(</span>node<span style="color:#f92672">);</span>
 
-        node.pre = null;
-        node.next = null;
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> maxSize<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            Node toRemove <span style="color:#f92672">=</span> removeTail<span style="color:#f92672">();</span>
+            map<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>toRemove<span style="color:#f92672">.</span><span style="color:#a6e22e">k</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-        return node;
-    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">unlink</span><span style="color:#f92672">(</span>Node node<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+        Node pre <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span><span style="color:#f92672">;</span>
+        Node next <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+
+        pre<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> next<span style="color:#f92672">;</span>
+        next<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> pre<span style="color:#f92672">;</span>
+
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
 
-    @Override
-    public Iterator&lt;K&gt; iterator() {
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">appendHead</span><span style="color:#f92672">(</span>Node node<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Node next <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> next<span style="color:#f92672">;</span>
+        next<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">;</span>
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+        head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-        return new Iterator&lt;K&gt;() {
-            private Node cur = head.next;
 
-            @Override
-            public boolean hasNext() {
-                return cur != tail;
-            }
+    <span style="color:#66d9ef">private</span> Node <span style="color:#a6e22e">removeTail</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 
-            @Override
-            public K next() {
-                Node node = cur;
-                cur = cur.next;
-                return node.k;
-            }
-        };
-    }
-}
-</code></pre>
-<h2 id="参考资料">参考资料</h2>
+        Node node <span style="color:#f92672">=</span> tail<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span><span style="color:#f92672">;</span>
+
+        Node pre <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span><span style="color:#f92672">;</span>
+        tail<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> pre<span style="color:#f92672">;</span>
+        pre<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> tail<span style="color:#f92672">;</span>
+
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">pre</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">return</span> node<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Iterator<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">iterator</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Iterator<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">private</span> Node cur <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">return</span> cur <span style="color:#f92672">!=</span> tail<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> K <span style="color:#a6e22e">next</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                Node node <span style="color:#f92672">=</span> cur<span style="color:#f92672">;</span>
+                cur <span style="color:#f92672">=</span> cur<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">return</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">k</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="参考资料">参考资料</h2>
 <ul>
 <li>大规模分布式存储系统</li>
 <li><a href="https://tech.meituan.com/cache_about.html">缓存那些事</a></li>
@@ -335,7 +362,7 @@
 <li><a href="https://www.aspirationhosting.com/aspiration-cdn/">How Aspiration CDN helps to improve your website loading speed?</a></li>
 </ul>
 
-</main>
+
 
   <footer>
   
@@ -381,10 +408,46 @@ async>
 
 
 
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
 
 
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
 <script>
 var doNotTrack = false;
@@ -396,12 +459,6 @@ if (!doNotTrack) {
 }
 </script>
 
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </footer>
   </body>
 </html>
 

@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>博客搭建 on 罗泽勋</title>
+    <title>博客搭建 on Zexun Luo | 罗泽勋</title>
     <link>/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
-    <description>Recent content in 博客搭建 on 罗泽勋</description>
+    <description>Recent content in 博客搭建 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 01 Jun 2021 06:16:32 +0800</lastBuildDate>
@@ -38,13 +38,12 @@
 <p>2.将网站展示文件存放到 Github 远程仓库。</p>
 <p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置中检查 Github Pages。</p>
 <p>（2）打开命令提示符，进入 demosite\public 目录，分别执行</p>
-<pre><code>git init 
+<pre tabindex="0"><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre>
-<p>输入账号名，密码，完成上传。</p>
+</code></pre><p>输入账号名，密码，完成上传。</p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，打开网址 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
 <p>3.自定义域名（可选、需要一定的时间）</p>
 <p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
@@ -87,13 +86,12 @@ git push --set-upstream origin master
 <p>2.将网站展示文件存放到 Github 远程仓库。</p>
 <p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置 setting 中检查 Github Pages。</p>
 <p>（2）打开命令提示符，进入 blog\public 目录，分别执行</p>
-<pre><code>git init 
+<pre tabindex="0"><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre>
-<p>输入账号名，密码，完成上传。</p>
+</code></pre><p>输入账号名，密码，完成上传。</p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
 <p>3.自定义域名（可选、需要一定的时间）</p>
 <p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>

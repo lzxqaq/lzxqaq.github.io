@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qt 绘制系统 on 罗泽勋</title>
+    <title>Qt 绘制系统 on Zexun Luo | 罗泽勋</title>
     <link>/series/qt-%E7%BB%98%E5%88%B6%E7%B3%BB%E7%BB%9F/</link>
-    <description>Recent content in Qt 绘制系统 on 罗泽勋</description>
+    <description>Recent content in Qt 绘制系统 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 13 Dec 2021 21:28:59 +0800</lastBuildDate>
@@ -25,7 +25,7 @@
 <h3 id="一绘图示例">一、绘图示例</h3>
 <p>通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。</p>
 <h4 id="示例1-直接绘制">示例1 直接绘制：</h4>
-<pre><code>MainWindow::MainWindow(QWidget *parent)
+<pre tabindex="0"><code>MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     QLabel *label = new QLabel(this);
@@ -46,19 +46,17 @@
     this-&gt;resize(200, 200);
 }
 
-</code></pre>
-<p>运行结果：</p>
+</code></pre><p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo1.png" alt="demo1"></p>
 <h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制：</h4>
-<pre><code>void MainWindow::paintEvent(QPaintEvent *)
+<pre tabindex="0"><code>void MainWindow::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     painter.setPen(Qt::gray);
     painter.setBrush(Qt::green);
     painter.drawRect(10, 10, 50, 50);
 }
-</code></pre>
-<p>运行结果：</p>
+</code></pre><p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo2.png" alt="demo2"></p>
 <h3 id="二坐标系">二、坐标系</h3>
 <p>坐标系由 QPainter 类控制。绘图设备的默认坐标系的原点位于左上角。 该 X 值增加向右和 Y 值向下增加。 默认单位在基于像素的设备上是一个像素，在打印机上是一个点（1/72 英寸）。注意：原点在 Widget 的左上角而不是正中心，并且每个 Widget 都有自己独立的坐标系。</p>
@@ -68,10 +66,9 @@
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/coordsys.png" alt="Paint-Base-Draw-Methods"></p>
 <h4 id="window-viewport-转换">Window-Viewport 转换</h4>
 <p>使用 Window-Viewport 转换，您可以使逻辑坐标系适合您的偏好。 该机制还可用于使绘图代码独立于绘图设备。 例如，您可以通过调用 ，使逻辑坐标从 (-50, -50) 扩展到 (50, 50)，以 (0, 0) 为中心 QPainter::setWindow () 函数 ：</p>
-<pre><code>QPainter painter(this);
+<pre tabindex="0"><code>QPainter painter(this);
 painter.setWindow(QRect(-50, -50, 100, 100));
-</code></pre>
-<p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
+</code></pre><p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
 <h3 id="三常用函数">三、常用函数</h3>
 <p>下图来自《C++ GUI Programming with Qt 4》，列出了 QPainter 常用的画图方法。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/Paint-Base-Draw-Methods.png" alt="Paint-Base-Draw-Methods"></p>

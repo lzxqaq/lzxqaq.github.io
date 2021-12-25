@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>从零开始的博客建站之旅 on 罗泽勋</title>
+    <title>从零开始的博客建站之旅 on Zexun Luo | 罗泽勋</title>
     <link>/series/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E4%B9%8B%E6%97%85/</link>
-    <description>Recent content in 从零开始的博客建站之旅 on 罗泽勋</description>
+    <description>Recent content in 从零开始的博客建站之旅 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 18 Nov 2021 18:36:33 +0800</lastBuildDate>
@@ -89,13 +89,12 @@
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/10.png" alt="img"></p>
 <h3 id="五将网站推送到-github-平台">五、将网站推送到 Github 平台</h3>
 <p>（2）打开命令窗口，进入 blog\public 目录，分别执行</p>
-<pre><code>git init 
+<pre tabindex="0"><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
-</code></pre>
-<p>输入 Github 账号名，密码，完成上传。</p>
+</code></pre><p>输入 Github 账号名，密码，完成上传。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/13.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/14.png" alt="img"></p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>

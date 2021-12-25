@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     
-    <title>Qt测试最佳实践（Qt文档） - 罗泽勋</title>
-    <meta property="og:title" content="Qt测试最佳实践（Qt文档） - 罗泽勋">
+    <title>Qt测试最佳实践（Qt文档） - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="Qt测试最佳实践（Qt文档） - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -25,51 +24,78 @@
 
     
     
-    
-    <meta name="og:image" content="/images/logo.png">
-    
+
     
 
     
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    
+<link rel="stylesheet" href="/css/custom.css" />
 
   </head>
 
-  <body>
-    <nav>
-    <ul class="menu">
+  
+  <body class="post">
+    <header class="masthead">
       
-      <li><a href="/">主页</a></li>
-      
-      <li><a href="/about/">关于</a></li>
-      
-      <li><a href="/blog/">日志</a></li>
-      
-      <li><a href="/post/">编程</a></li>
-      
-      <li><a href="/series/">标签</a></li>
-      
-      <li><a href="/categories/">分类</a></li>
-      
-      <li><a href="/music/">音乐</a></li>
-      
-      <li><a href="/note/">抄录</a></li>
-      
-    </ul>
-    <hr/>
-    </nav>
 
-<div class="article-meta">
-<h1><span class="title">Qt测试最佳实践（Qt文档）</span></h1>
-<h2 class="author">罗泽勋</h2>
-<h2 class="date">2021/10/13</h2>
-</div>
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
 
-<main>
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/music/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Qt测试最佳实践（Qt文档）</h1>
+
+
+<h3>罗泽勋 / 
+2021-10-13</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
 <h2 id="qt-测试最佳实践">Qt 测试最佳实践</h2>
 <p>我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表现出错误，并在修复之后通过。在开发新功能时，添加测试以验证它们是否按预期工作。</p>
 <p>符合一组编码标准将使 Qt 自动测试更有可能在所有环境中可靠地工作。例如，有些测试需要从磁盘读取数据。如果没有为如何完成设置标准，则某些测试将无法移植。例如，假设其测试数据文件位于当前工作目录中的测试仅适用于源代码构建。在影子构建中（在源目录之外），测试将无法找到其数据。</p>
@@ -134,9 +160,8 @@
 <p>使用QSKIP () 来处理在运行时发现整个测试函数在当前测试环境中不适用的情况。当只跳过测试函数的一部分时，可以使用条件语句，可选择qDebug()调用以报告跳过不适用部分的原因。</p>
 <p>数据驱动测试的测试功能或数据行可以限于特定平台，或使用#if. 但是，在使用跳过测试功能时要注意moc限制#if。该moc预处理器不具备访问所有builtin被经常用于编译器的特征检测编译器的宏。因此，moc预处理器条件的结果可能与其余代码看到的结果不同。这可能会导致moc为实际编译器跳过的测试槽生成元数据，或省略实际编译到类中的测试槽的元数据。在第一种情况下，测试将尝试运行未实现的插槽。在第二种情况下，即使应该尝试运行测试槽，测试也不会尝试。</p>
 <p>如果整个测试程序不适用于特定平台或除非启用了特定功能，最好的方法是使用父目录的.pro文件来避免构建测试。例如，如果tests/auto/gui/someclass测试对 macOS 无效，请将以下行添加到tests/auto/gui.pro：</p>
-<pre><code>mac*: SUBDIRS -= someclass
-</code></pre>
-<h3 id="避免q_assert">避免Q_ASSERT</h3>
+<pre tabindex="0"><code>mac*: SUBDIRS -= someclass
+</code></pre><h3 id="避免q_assert">避免Q_ASSERT</h3>
 <p>该Q_ASSERT宏将导致程序中止时断言的情况false，但前提是软件始建于调试模式。在 release 和 debug-and-release 版本中，Q_ASSERT什么都不做。</p>
 <p>Q_ASSERT 应该避免，因为它使测试的行为取决于是否正在测试调试版本，并且因为它会导致测试立即中止，跳过所有剩余的测试函数并返回不完整或格式错误的测试结果。</p>
 <p>它还会跳过本应在测试结束时进行的任何拆卸或整理，因此可能会使工作区处于不整洁状态，这可能会导致进一步测试的复杂化。</p>
@@ -215,26 +240,23 @@
 <p>某些测试使用测试机器的显示器、鼠标和键盘，因此如果机器同时用于其他用途或并行运行多个测试，则可能会失败。</p>
 <p>CI 系统使用专用测试机来避免此问题，但如果您没有专用测试机，则可以通过在第二台显示器上运行测试来解决此问题。</p>
 <p>在 Unix 上，还可以在嵌套或虚拟 X 服务器上运行测试，例如 Xephyr。例如，要在 Xephyr 上运行整套测试，请执行以下命令：</p>
-<pre><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
+<pre tabindex="0"><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
 sleep 5
 DISPLAY=:1 icewm &gt;/dev/null 2&gt;&amp;1 &amp;
 cd tests/auto
 make
 DISPLAY=:1 make -k -j1 check
-</code></pre>
-<p>NVIDIA 二进制驱动程序的用户应该注意 Xephyr 可能无法提供 GLX 扩展。强制 Mesa libGL 可能会有所帮助：</p>
-<pre><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
-</code></pre>
-<p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
+</code></pre><p>NVIDIA 二进制驱动程序的用户应该注意 Xephyr 可能无法提供 GLX 扩展。强制 Mesa libGL 可能会有所帮助：</p>
+<pre tabindex="0"><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
+</code></pre><p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
 <p>或者，使用屏幕外插件：</p>
-<pre><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
-</code></pre>
-<h3 id="窗口管理器">窗口管理器</h3>
+<pre tabindex="0"><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
+</code></pre><h3 id="窗口管理器">窗口管理器</h3>
 <p>在 Unix 上，至少有两个自动测试（tst_examples和tst_gestures）需要运行窗口管理器。因此，如果在嵌套的 X-server 下运行这些测试，您还必须在该 X-server 中运行窗口管理器。</p>
 <p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>
 <p>注意： Tab Window Manager 不适合运行完整的 Qt 自动测试套件，因为tst_gestures自动测试会导致它忘记其配置并恢复到手动窗口放置。</p>
 
-</main>
+
 
   <footer>
   
@@ -280,10 +302,46 @@ async>
 
 
 
+<script async src="/js/fix-toc.js"></script>
+
 <script async src="/js/center-img.js"></script>
 
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
 
 
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
 <script>
 var doNotTrack = false;
@@ -295,12 +353,6 @@ if (!doNotTrack) {
 }
 </script>
 
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2021
-  
-  </footer>
   </body>
 </html>
 

@@ -367,10 +367,10 @@
   </url><url>
     <loc>/work/</loc>
   </url><url>
-    <loc>/cv/</loc>
-  </url><url>
     <loc>/about/</loc>
   </url><url>
     <loc>/note/</loc>
+  </url><url>
+    <loc>/cv/</loc>
   </url>
 </urlset>
