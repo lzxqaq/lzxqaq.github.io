@@ -5,8 +5,95 @@
     <description>Recent content in 技术文章 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 26 Dec 2021 09:14:03 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 Dec 2021 12:55:54 +0800</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>由 hpp 头文件引发 C&#43;&#43; 编译的思考</title>
+      <link>/post/2021/12/26/hpp/</link>
+      <pubDate>Sun, 26 Dec 2021 12:55:54 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/post/2021/12/26/hpp/</guid>
+      <description>
+        <![CDATA[
+        <p>前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h + cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C++ 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h + cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希望他去学习 C++ 基础，但没想到从这里就埋下了一个坑，导致这篇文章的产生&hellip;..</p>
+<p>很快，遇到第一个问题，redefined identifier。我解释说，这是重复 include hpp 文件引入实现，会引发这个重定义的问题。使用 #ifndef 可以防止头文件被重复包含和引入。</p>
+<p>过了一阵，又遇到新的问题。我过去一看，循环依赖。第一个坑出现了。A 依赖 B，B 又 依赖 A，如果用 hpp 实现的话，那A、B 都互相包含对方，无尽循环……所以这种情况只能老老实实用回 h + cpp 的方式了，A 依赖 B，就在 A 的头文件中前向声明 B，然后在源文件中 include B，B 也如此操作。</p>
+<p>就这样过了很久很久，突然有一天，我发现有很多库都需要重新编译，奇怪的是这些库不应该有改动的。一看是依赖的一个底层动态库发生变化，再看，是这个库里的一个 hpp 文件发生变化。大坑，我最开始的时候提醒过的。 那个库本身就有别的坑，实际上它更应该是静态库，但因为客观原因，它暂时还是一个动态库。然后就这样，一个 hpp 文件被嵌入这个底层动态库对外开放的接口里面。它一改动，所有依赖这个库的库都需要重新编译，还真是“牵一发而动全身”啊。</p>
+<h3 id="补充">补充</h3>
+<p>一、#include 指令</p>
+<pre tabindex="0"><code>#include &quot;test.hpp&quot;
+</code></pre><p>C++ 会使用一个预处理器，在进行主编译之前对源文件进行处理，它会在编译程序时自动运行。上面所示 #include &ldquo;test.hpp&rdquo;，该编译指令导致预处理器将 test.hpp 文件的内容添加到程序中。实际上，test.hpp 文件的内容将取代程序中的代码行 #include &ldquo;test.hpp&rdquo;。原始文件没有被修改，而是将源码和 test.hpp 文件组合成一个复合文件，编译的下一个阶段将使用该文件。</p>
+<p>二、头文件名</p>
+<table>
+<thead>
+<tr>
+<th>头文件类型</th>
+<th>约定</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++ 旧式风格</td>
+<td>以 .h 结尾</td>
+<td>iostream.h</td>
+<td>C++ 程序可以使用</td>
+</tr>
+<tr>
+<td>C 旧式风格</td>
+<td>以 .h 结尾</td>
+<td>math.h</td>
+<td>C、C++ 程序可以使用</td>
+</tr>
+<tr>
+<td>C++ 新式风格</td>
+<td>没有扩展名</td>
+<td>iostream</td>
+<td>C++ 程序可以使用，可以使用 namespace std</td>
+</tr>
+<tr>
+<td>转换后的 C</td>
+<td>加上前缀 c，没有扩展名</td>
+<td>cmath</td>
+<td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace std</td>
+</tr>
+</tbody>
+</table>
+<p>由于 C 使用不同的文件扩展名来表示不同文件类型，因此用一些特殊的扩展名（如 .hpp 或 .hxx）表示 C++ 头文件是有道理的，ANSI/ISO 委员会也这样认为。问题在于究竟使用哪种扩展名，因此最终他们一致同意不使用任何扩展名。:)</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>设计模式概述</title>
+      <link>/post/2021/12/26/design/</link>
+      <pubDate>Sun, 26 Dec 2021 10:10:12 +0800</pubDate>
+      <author>罗泽勋</author>
+      <guid>/post/2021/12/26/design/</guid>
+      <description>
+        <![CDATA[
+        <p>在软件开发生命周期的每一个阶段都存在着一些被认同的模式。</p>
+<p>在软件模式中，设计模式是研究最为深入的分支，设计模式用于在特定的调剂爱你下为一些重复出现的软件设计问题提供合理的、有效的解决方案。</p>
+<p>一般定义：设计模式（Design Pattern)是一套被反复使用、多数人知晓的、进过分类编目的代码设计经验的总结，使用设计模式是为了可重用代码、让代码更容易被他人理解并且保证代码可靠性。</p>
+<p>狭义的设计模式是指 GoF 在《设计模式：可复用面向对象软件的基础》一书中所介绍的23种经典设计模式。不过设计模式并不仅仅只有这23种，越来越多的新模式不断诞生并得以应用。</p>
+<p>23 种设计模式根据用途可分为创建型、结构型和行为型三种。其中创建型模式主要用于描述如何创建对象，结构型模式主要用于描述如何实现类或对象的组合，行为型模式主要用于描述类或对象怎样交互以及怎样分配职责。</p>
+<p>值得注意的是，简单工厂模式没有在 23 种设计模式里面，但一般都会对它进行说明。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-26/design1.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-26/design2.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-26/design2.png" alt="img"></p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
     
     
     <item>
@@ -3244,7 +3331,7 @@ customer_id_selectivity: 0.0373
     
     
     <item>
-      <title>【翻译】Qt6 绘制基础</title>
+      <title>【转载】Qt6 绘制基础</title>
       <link>/post/2021/12/13/paintsystem/</link>
       <pubDate>Mon, 13 Dec 2021 21:28:59 +0800</pubDate>
       <author>罗泽勋</author>
@@ -3325,7 +3412,7 @@ painter.setWindow(QRect(-50, -50, 100, 100));
     
     
     <item>
-      <title>【翻译】Qt6 对象模型</title>
+      <title>【转载】Qt6 对象模型</title>
       <link>/post/2021/12/13/object/</link>
       <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
       <author>罗泽勋</author>
@@ -3370,7 +3457,7 @@ painter.setWindow(QRect(-50, -50, 100, 100));
     
     
     <item>
-      <title>【翻译】Qt 6 核心内部结构</title>
+      <title>【转载】Qt 6 核心内部结构</title>
       <link>/post/2021/12/13/qt-core/</link>
       <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
       <author>罗泽勋</author>
@@ -3429,7 +3516,7 @@ Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序�
     
     
     <item>
-      <title>【翻译】Qt6 Qvariant 与自定义 Qt 类型</title>
+      <title>【转载】Qt6 Qvariant 与自定义 Qt 类型</title>
       <link>/post/2021/12/13/qvariant/</link>
       <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
       <author>罗泽勋</author>
@@ -3522,7 +3609,7 @@ private:
     
     
     <item>
-      <title>【翻译】Qt6 顺序容器 QList</title>
+      <title>【转载】Qt6 顺序容器 QList</title>
       <link>/post/2021/12/02/qlist/</link>
       <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
       <author>罗泽勋</author>
@@ -3548,7 +3635,7 @@ private:
     
     
     <item>
-      <title>【翻译】Qt6 隐式共享</title>
+      <title>【转载】Qt6 隐式共享</title>
       <link>/post/2021/12/01/implicit-sharing/</link>
       <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
       <author>罗泽勋</author>
@@ -3592,7 +3679,7 @@ paint.end();
     
     
     <item>
-      <title>【翻译】Qt6 容器类-概述</title>
+      <title>【转载】Qt6 容器类-概述</title>
       <link>/post/2021/12/01/qt-containers/</link>
       <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
       <author>罗泽勋</author>
@@ -3945,11 +4032,11 @@ git push --set-upstream origin master
     
     
     <item>
-      <title>Qt测试最佳实践（Qt文档）</title>
-      <link>/post/2021/10/13/qt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5qt%E6%96%87%E6%A1%A3/</link>
+      <title>【转载】Qt测试最佳实践</title>
+      <link>/post/2021/10/13/%E8%BD%AC%E8%BD%BDqt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
       <author>罗泽勋</author>
-      <guid>/post/2021/10/13/qt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5qt%E6%96%87%E6%A1%A3/</guid>
+      <guid>/post/2021/10/13/%E8%BD%AC%E8%BD%BDqt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
       <description>
         <![CDATA[
         <h2 id="qt-测试最佳实践">Qt 测试最佳实践</h2>

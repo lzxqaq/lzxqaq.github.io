@@ -5,14 +5,14 @@
     <description>Recent content in Home on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 26 Dec 2021 09:14:03 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 Dec 2021 12:55:54 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>技术文章</title>
       <link>/post/</link>
-      <pubDate>Sun, 26 Dec 2021 09:14:03 +0800</pubDate>
+      <pubDate>Sun, 26 Dec 2021 12:55:54 +0800</pubDate>
       
       <guid>/post/</guid>
       <description>
@@ -140,8 +140,9 @@
         <h1 id="罗泽勋">罗泽勋</h1>
 <h2 id="联系方式">联系方式</h2>
 <p>Email：lzx@lzxqaq.com；主页：<a href="https://lzxqaq.com">https://lzxqaq.com</a>；现居住于广东省广州市增从化区</p>
-<h2 id="工作兴趣">工作兴趣</h2>
-<p>数据可视化，统计图形，交互式图形；统计计算；动态报告，可重复性研究</p>
+<!-- ## 工作兴趣
+
+数据可视化，统计图形，交互式图形；统计计算；动态报告，可重复性研究 -->
 <h2 id="教育背景">教育背景</h2>
 <ul>
 <li>2017.09 ~ 2021.06 华南师范大学，软件工程专业，工学学士</li>

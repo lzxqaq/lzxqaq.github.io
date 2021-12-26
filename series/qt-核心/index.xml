@@ -10,7 +10,7 @@
     
     
     <item>
-      <title>【翻译】Qt6 对象模型</title>
+      <title>【转载】Qt6 对象模型</title>
       <link>/post/2021/12/13/object/</link>
       <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
       <author>罗泽勋</author>
@@ -55,7 +55,7 @@
     
     
     <item>
-      <title>【翻译】Qt 6 核心内部结构</title>
+      <title>【转载】Qt 6 核心内部结构</title>
       <link>/post/2021/12/13/qt-core/</link>
       <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
       <author>罗泽勋</author>
@@ -114,7 +114,7 @@ Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序�
     
     
     <item>
-      <title>【翻译】Qt6 Qvariant 与自定义 Qt 类型</title>
+      <title>【转载】Qt6 Qvariant 与自定义 Qt 类型</title>
       <link>/post/2021/12/13/qvariant/</link>
       <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
       <author>罗泽勋</author>
@@ -207,7 +207,7 @@ private:
     
     
     <item>
-      <title>【翻译】Qt6 隐式共享</title>
+      <title>【转载】Qt6 隐式共享</title>
       <link>/post/2021/12/01/implicit-sharing/</link>
       <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
       <author>罗泽勋</author>

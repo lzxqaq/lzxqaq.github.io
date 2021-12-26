@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>由 hpp 头文件引发 C&#43;&#43; 编译的思考 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="由 hpp 头文件引发 C&#43;&#43; 编译的思考 - Zexun Luo | 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h &#43; cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C&#43;&#43; 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h &#43; cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希 &amp;hellip;">
+      <meta property="og:description" content="前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h &#43; cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C&#43;&#43; 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h &#43; cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/song/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>由 hpp 头文件引发 C&#43;&#43; 编译的思考</h1>
+
+
+<h3>罗泽勋 / 
+2021-12-26</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h + cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C++ 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h + cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希望他去学习 C++ 基础，但没想到从这里就埋下了一个坑，导致这篇文章的产生&hellip;..</p>
+<p>很快，遇到第一个问题，redefined identifier。我解释说，这是重复 include hpp 文件引入实现，会引发这个重定义的问题。使用 #ifndef 可以防止头文件被重复包含和引入。</p>
+<p>过了一阵，又遇到新的问题。我过去一看，循环依赖。第一个坑出现了。A 依赖 B，B 又 依赖 A，如果用 hpp 实现的话，那A、B 都互相包含对方，无尽循环……所以这种情况只能老老实实用回 h + cpp 的方式了，A 依赖 B，就在 A 的头文件中前向声明 B，然后在源文件中 include B，B 也如此操作。</p>
+<p>就这样过了很久很久，突然有一天，我发现有很多库都需要重新编译，奇怪的是这些库不应该有改动的。一看是依赖的一个底层动态库发生变化，再看，是这个库里的一个 hpp 文件发生变化。大坑，我最开始的时候提醒过的。 那个库本身就有别的坑，实际上它更应该是静态库，但因为客观原因，它暂时还是一个动态库。然后就这样，一个 hpp 文件被嵌入这个底层动态库对外开放的接口里面。它一改动，所有依赖这个库的库都需要重新编译，还真是“牵一发而动全身”啊。</p>
+<h3 id="补充">补充</h3>
+<p>一、#include 指令</p>
+<pre tabindex="0"><code>#include &quot;test.hpp&quot;
+</code></pre><p>C++ 会使用一个预处理器，在进行主编译之前对源文件进行处理，它会在编译程序时自动运行。上面所示 #include &ldquo;test.hpp&rdquo;，该编译指令导致预处理器将 test.hpp 文件的内容添加到程序中。实际上，test.hpp 文件的内容将取代程序中的代码行 #include &ldquo;test.hpp&rdquo;。原始文件没有被修改，而是将源码和 test.hpp 文件组合成一个复合文件，编译的下一个阶段将使用该文件。</p>
+<p>二、头文件名</p>
+<table>
+<thead>
+<tr>
+<th>头文件类型</th>
+<th>约定</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++ 旧式风格</td>
+<td>以 .h 结尾</td>
+<td>iostream.h</td>
+<td>C++ 程序可以使用</td>
+</tr>
+<tr>
+<td>C 旧式风格</td>
+<td>以 .h 结尾</td>
+<td>math.h</td>
+<td>C、C++ 程序可以使用</td>
+</tr>
+<tr>
+<td>C++ 新式风格</td>
+<td>没有扩展名</td>
+<td>iostream</td>
+<td>C++ 程序可以使用，可以使用 namespace std</td>
+</tr>
+<tr>
+<td>转换后的 C</td>
+<td>加上前缀 c，没有扩展名</td>
+<td>cmath</td>
+<td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace std</td>
+</tr>
+</tbody>
+</table>
+<p>由于 C 使用不同的文件扩展名来表示不同文件类型，因此用一些特殊的扩展名（如 .hpp 或 .hxx）表示 C++ 头文件是有道理的，ANSI/ISO 委员会也这样认为。问题在于究竟使用哪种扩展名，因此最终他们一致同意不使用任何扩展名。:)</p>
+
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/12/26/design/">设计模式概述</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2021\/12\/26\/design\/';
+    
+  } else if (e.which == 39) {  
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/fix-toc.js"></script>
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  </body>
+</html>
+
