@@ -10,11 +10,11 @@
     
     
     <item>
-      <title>英语角</title>
-      <link>/english/</link>
+      <title>生活日志</title>
+      <link>/blog/</link>
       <pubDate>Thu, 30 Dec 2021 22:21:26 +0800</pubDate>
       
-      <guid>/english/</guid>
+      <guid>/blog/</guid>
       <description>
         <![CDATA[
         
@@ -31,22 +31,6 @@
       <pubDate>Thu, 30 Dec 2021 07:13:11 +0800</pubDate>
       
       <guid>/post/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>生活日志</title>
-      <link>/blog/</link>
-      <pubDate>Mon, 27 Dec 2021 07:44:58 +0800</pubDate>
-      
-      <guid>/blog/</guid>
       <description>
         <![CDATA[
         
@@ -186,6 +170,22 @@
 <li>可持续自我学习 具备宽广的国际视野、跨领域学习、以及适应发展的能力</li>
 </ul>
 
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>英语角</title>
+      <link>/english/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/english/</guid>
+      <description>
+        <![CDATA[
+        
         
         ]]>
       </description>
