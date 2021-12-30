@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>【转载】C Primer 之 char*, char[], string - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="【转载】C Primer 之 char*, char[], string - Zexun Luo | 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="转载自https://github.com/andycai/cprimer
+[&amp;hellip;] 在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&#39;\0&#39;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
+C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行 &amp;hellip;">
+      <meta property="og:description" content="转载自https://github.com/andycai/cprimer
+[&amp;hellip;] 在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&#39;\0&#39;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
+C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/song/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>【转载】C Primer 之 char*, char[], string</h1>
+
+
+<h3>罗泽勋 / 
+2021-12-30</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>转载自<a href="https://github.com/andycai/cprimer">https://github.com/andycai/cprimer</a></p>
+<h2 id="31-char-char-string">3.1 char*, char[], string</h2>
+<p>在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null('\0')字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。</p>
+<p>C字符串定义时可以利用&quot;=&ldquo;号进行初始化，但是以后不能利用&rdquo;=&ldquo;对C字符串进行赋值。对C字符串的操作需要通过&quot;string&quot;文件中定义的字符串处理函数。例如：</p>
+<pre><code>//字符串的初始化
+char a[11] = &quot;huanying&quot;;
+//字符串的赋值
+strcpy(a,&quot;nihao&quot;)
+//获取字符串的长度，不包括'\0'在内
+strlen(a);
+printf(&quot;%s&quot;,a);
+</code></pre>
+<p>在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问.
+char *a = &ldquo;nihao&rdquo;;
+printf(&quot;%s&rdquo;,a);</p>
+<p>在C++中则把字符串封装成了一种数据类型string,可以直接声明变量并进行赋值等字符串操作。以下是C字符串和C++中string的区别：</p>
+<pre><code>                             C字符串                 string对象
+所需的头文件名称       	&lt;string&gt;或&lt;string.h&gt;        	&lt;string&gt;或&lt;string.h&gt;
+为什么需要头文件       	为了使用字符串函数            为了使用string类
+如何声明                 char name[20];              string name;
+如何初始化               char name[20]=&quot;nihao&quot;;   	string name = &quot;nihao&quot;;
+必须声明字符串长度么？		是                          否
+使用一个null字符么？     	是                          否
+怎样实现字符串赋值      	strcpy(name,&quot;John&quot;);        name = &quot;John&quot;;
+其他优点               	更快                        更易于使用，优选方案
+可以赋一个比现有字符更 	不能                        可以
+长的字符串么？  
+</code></pre>
+<h3 id="1-c常用字符串函数">(1) C++常用字符串函数</h3>
+<pre><code>char s1[]=&quot;I am a student&quot;;
+char s2[20]=&quot;teacher&quot;;
+char s3[]=&quot;student&quot;;
+int result;
+char s4[20],*p;
+</code></pre>
+<ol>
+<li>
+<p>串长度 int strlen(char *str)</p>
+<p>cout&laquo;strlen(s1)&laquo;endl; 输出14
+cout&laquo;strlen(s2)&laquo;endl; 输出7</p>
+</li>
+<li>
+<p>串拷贝 char *strcpy(char *str1,char *str2)</p>
+<p>strcpy(s4,s2);   //s4为&quot;teacher&quot;</p>
+</li>
+<li>
+<p>串连接 char *strcat(char <em>str1,char</em>str2)</p>
+<p>strcat(s2,s3); //s2为&quot;teacherstudent&quot;</p>
+</li>
+<li>
+<p>串比较 int strcmp(char *str1,char *str) //比较的是对应字符的ASCII码值，如果str1&gt;str2,返回1</p>
+<p>result=strcmp(s2,s3);   //result&gt;0
+result=strcmp(s2,s2);   //result=0
+result=strcmp(s3,s2);   //result&lt;0</p>
+</li>
+<li>
+<p>串定位 char *strchr(char *str,char ch)</p>
+<p>p=strchr(s1,&rsquo;s');    //找到返回字符在字串中的位置，否则返回-1
+strcpy(p,s2);      //s1为&quot;I am a teacher&quot;</p>
+</li>
+<li>
+<p>在一个串中查找是否存在和另一个串相等的子串</p>
+</li>
+<li>
+<p>截取子串形成一个新串</p>
+</li>
+</ol>
+<h3 id="2-字符串的输入">(2) 字符串的输入</h3>
+<ol>
+<li>
+<p>方法一：使用输入操符来填充一个C字符串变量
+例如：
+char a[80];
+cin&raquo;a;
+注：以这种方式来读取C字符串时，会忽略最初的空白字符(空格、制表符和换行符)，而且输入会在下一个空格或者换行符处停止。</p>
+</li>
+<li>
+<p>方法二：使用预定义函数getline获取整行输入(包括空格)
+getline函数有两个参数：第一个参数用于接收输入的C字符串变量；第二个参数用于规定getline最多能接收的字符个数。
+例如:
+char a[80];
+cin.getline(a,80);
+当遇到行结束的时候，输入才会停止。</p>
+</li>
+</ol>
+<h3 id="3-c-string类的输入">(3) C++ string类的输入</h3>
+<ol>
+<li>方法一：和C字符串输入的方法一相同。</li>
+<li>方法二：使用getline函数。</li>
+</ol>
+<p>例如：</p>
+<pre><code>string a;
+getline(cin,a);
+</code></pre>
+<h3 id="4-string对象和c字符串之间的转换">(4) string对象和C字符串之间的转换</h3>
+<p>可以将C字符串存储在string类型的变量中，例如：</p>
+<pre><code>char a[] = &quot;nihao&quot;;
+string b;
+b=a;
+</code></pre>
+<p>但string对象不能自动的转换为C字符串，需要进行显式的类型转换，需要用到string类的成员函数c_str().
+例如：</p>
+<pre><code>strcpy(a,b.c_str());
+</code></pre>
+<h3 id="5-字符串到数字的转换">(5) 字符串到数字的转换</h3>
+<p>atoi函数获取一个C字符串参数，返回对应的int值。如果参数不与一个int值对应，atoi就会返回0。atoi函数在文件为cstdlib的库中。如果数字太大，不能转换成int类型的值，可以使用atol将字符串转换为long类型的值。
+例如:</p>
+<pre><code>atoi(&quot;1234&quot;);   //返回整数1234
+atoi(&quot;#123&quot;);   //返回0
+</code></pre>
+<h2 id="导航">导航</h2>
+<ul>
+<li><a href="00.md">目录</a></li>
+<li>上一章：<a href="02.md">Chapter 2 - pointers, refrence</a></li>
+<li>下一章：<a href="04.md">Chapter 4 - uint8_t, uint16_t, uint32_t, uint64_t</a></li>
+</ul>
+
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/12/30/cprimer02/">【转载】C Primer 之 指针和引用</a></span>
+  <span class="nav-next"><a href="/post/2021/12/30/cprimer04/">【转载】C Primer 之 new, delete</a> &rarr;</span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2021\/12\/30\/cprimer02\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/post\/2021\/12\/30\/cprimer04\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/fix-toc.js"></script>
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  </body>
+</html>
+

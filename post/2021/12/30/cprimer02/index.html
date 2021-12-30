@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>【转载】C Primer 之 指针和引用 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="【转载】C Primer 之 指针和引用 - Zexun Luo | 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="转载自https://github.com/andycai/cprimer
+[&amp;hellip;] 引用是C&#43;&#43;中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。
+int m; int &amp;amp;n = m;  n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指 &amp;hellip;">
+      <meta property="og:description" content="转载自https://github.com/andycai/cprimer
+[&amp;hellip;] 引用是C&#43;&#43;中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。
+int m; int &amp;amp;n = m;  n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+<link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/series/">标签</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/cv/">简历</a></li>
+  
+  <li><a href="/song/">音乐</a></li>
+  
+  <li><a href="/note/">抄录</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>【转载】C Primer 之 指针和引用</h1>
+
+
+<h3>罗泽勋 / 
+2021-12-30</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>转载自<a href="https://github.com/andycai/cprimer">https://github.com/andycai/cprimer</a></p>
+<h2 id="21-refrence-引用">2.1 refrence 引用</h2>
+<p>引用是C++中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。</p>
+<pre><code>int m; 
+int &amp;n = m;
+</code></pre>
+<p>n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。</p>
+<p><strong>引用的规则：</strong></p>
+<ul>
+<li>引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。</li>
+<li>不能有NULL引用，引用必须与合法的存储单元关联（指针则可以是NULL）。</li>
+<li>一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。</li>
+</ul>
+<p>以下示例程序中，k 被初始化为 i 的引用。语句 k = j 并不能将 k 修改成为 j 的引用，只是把 k 的值改变成为6。由于 k 是 i 的引用，所以 i 的值也变成了6。</p>
+<pre><code>int i = 5; 
+int j = 6; 
+int &amp;k = i; 
+k = j; // k和i的值都变成了6; 
+</code></pre>
+<p><strong>引用的主要功能是传递函数的参数和返回值</strong>。</p>
+<p>C++语言中，函数的参数和返回值的传递方式有三种：<strong>值传递、指针传递和引用传递</strong>。</p>
+<h3 id="1-以下是值传递的示例程序">(1) 以下是&quot;值传递&quot;的示例程序</h3>
+<p>由于Func1函数体内的x是外部变量n的一份拷贝，改变x的值不会影响n, 所以n的值仍然是0。</p>
+<pre><code>void Func1(int x) 
+{ 
+	x = x + 10; 
+} 
+... 
+int n = 0; 
+Func1(n); 
+cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 0 
+</code></pre>
+<h3 id="2-以下是指针传递的示例程序">(2) 以下是&quot;指针传递&quot;的示例程序</h3>
+<p>由于Func2函数体内的x是指向外部变量n的指针，改变该指针的内容将导致n的值改变，所以n的值成为10。</p>
+<pre><code>void Func2(int *x) 
+{ 
+	(* x) = (* x) + 10; 
+} 
+... 
+int n = 0; 
+Func2(&amp;n); 
+cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10 
+</code></pre>
+<h3 id="3-以下是引用传递的示例程序">(3) 以下是&quot;引用传递&quot;的示例程序</h3>
+<p>由于Func3函数体内的x是外部变量n的引用，x和n是同一个东西，改变x等于改变n，所以n的值成为10。</p>
+<pre><code>void Func3(int &amp;x) 
+{ 
+	x = x + 10; 
+} 
+... 
+int n = 0; 
+Func3(n); 
+cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10 
+</code></pre>
+<p>对比上述三个示例程序，<strong>会发现&quot;引用传递&quot;的性质象&quot;指针传递&quot;，而书写方式象&quot;值传递&quot;</strong>。</p>
+<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？
+答案是&quot;用适当的工具做恰如其分的工作&quot;。</p>
+<p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。</p>
+<p>如果的确只需要借用一下某个对象的&quot;别名&quot;，那么就用&quot;引用&quot;，而不要用&quot;指针&quot;，以免发生意外。</p>
+<h2 id="导航">导航</h2>
+<ul>
+<li><a href="00.md">目录</a></li>
+<li>上一章：<a href="01.md">Chapter 1 - const, inline，static, this</a></li>
+<li>下一章：<a href="03.md">Chapter 3 - char*, char[], string</a></li>
+</ul>
+
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2021/12/30/cprimer01/">【转载】C Primer 之 const, inline, static, this</a></span>
+  <span class="nav-next"><a href="/post/2021/12/30/cprimer03/">【转载】C Primer 之 char*, char[], string</a> &rarr;</span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2021\/12\/30\/cprimer01\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/post\/2021\/12\/30\/cprimer03\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/fix-toc.js"></script>
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2021</div>
+  
+  </footer>
+  </article>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  </body>
+</html>
+
