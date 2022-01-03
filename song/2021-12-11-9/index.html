@@ -40,6 +40,8 @@ It&amp;rsquo;s a small world &amp;hellip;">
     <link rel="stylesheet" href="/css/fonts.css" />
     
 <link rel="stylesheet" href="/css/custom.css" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
   </head>
 
@@ -95,9 +97,6 @@ It&amp;rsquo;s a small world &amp;hellip;">
 
       </header>
 
-<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
 <div class="container">
     <div id="aplayer"></div>
 </div>
@@ -134,6 +133,7 @@ It&rsquo;s a small, small world</p>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
+    autoplay: true,
     audio: [
         {
             name: 'It\u0027s a Small World',
