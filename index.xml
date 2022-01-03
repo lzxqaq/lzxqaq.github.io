@@ -10,11 +10,11 @@
     
     
     <item>
-      <title>英语角</title>
-      <link>/english/</link>
+      <title>抄录</title>
+      <link>/note/</link>
       <pubDate>Mon, 03 Jan 2022 22:07:23 +0800</pubDate>
       
-      <guid>/english/</guid>
+      <guid>/note/</guid>
       <description>
         <![CDATA[
         
@@ -122,22 +122,6 @@
 <li>手机号：就在这里哦！为什么你看不到？因为它被隐藏了(≖ ‿ ≖)✧</li>
 </ul>
 
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>抄录</title>
-      <link>/note/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/note/</guid>
-      <description>
-        <![CDATA[
-        
         
         ]]>
       </description>
