@@ -77,14 +77,14 @@ img[src$="#border"] {
   border: 1px solid #ddd;
   box-shadow: 5px 5px 5px #eee;
 }
-.cn del {
+del {
   background-color: #444;
 }
-.cn del:hover {
+ del:hover {
   background-color: inherit;
   text-decoration: inherit;
 }
-.home blockquote, .cn blockquote:not(:hover) {
+.home blockquote, blockquote:not(:hover) {
   border-left-color: transparent;
 }
 .anchor {
