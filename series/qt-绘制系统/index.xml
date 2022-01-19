@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qt 绘制系统 on Zexun Luo | 罗泽勋</title>
+    <title>Qt 绘制系统 on Zexun Luo | 绝望先生</title>
     <link>/series/qt-%E7%BB%98%E5%88%B6%E7%B3%BB%E7%BB%9F/</link>
-    <description>Recent content in Qt 绘制系统 on Zexun Luo | 罗泽勋</description>
+    <description>Recent content in Qt 绘制系统 on Zexun Luo | 绝望先生</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 13 Dec 2021 21:28:59 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <title>【转载】Qt6 绘制基础</title>
       <link>/post/2021/12/13/paintsystem/</link>
       <pubDate>Mon, 13 Dec 2021 21:28:59 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>绝望先生</author>
       <guid>/post/2021/12/13/paintsystem/</guid>
       <description>
         <![CDATA[
