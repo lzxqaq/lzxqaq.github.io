@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>数据结构 on 绝望先生</title>
+    <title>数据结构 on 罗泽勋</title>
     <link>/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-    <description>Recent content in 数据结构 on 绝望先生</description>
+    <description>Recent content in 数据结构 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 26 Dec 2021 09:14:03 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <title>栈和队列</title>
       <link>/post/2021/12/26/stackqueue/</link>
       <pubDate>Sun, 26 Dec 2021 09:14:03 +0800</pubDate>
-      <author>绝望先生</author>
+      <author>罗泽勋</author>
       <guid>/post/2021/12/26/stackqueue/</guid>
       <description>
         <![CDATA[
@@ -46,7 +46,7 @@
       <title>线性表</title>
       <link>/post/2021/12/16/linearlist/</link>
       <pubDate>Thu, 16 Dec 2021 12:43:02 +0800</pubDate>
-      <author>绝望先生</author>
+      <author>罗泽勋</author>
       <guid>/post/2021/12/16/linearlist/</guid>
       <description>
         <![CDATA[

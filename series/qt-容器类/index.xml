@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qt 容器类 on 绝望先生</title>
+    <title>Qt 容器类 on 罗泽勋</title>
     <link>/series/qt-%E5%AE%B9%E5%99%A8%E7%B1%BB/</link>
-    <description>Recent content in Qt 容器类 on 绝望先生</description>
+    <description>Recent content in Qt 容器类 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 02 Dec 2021 12:41:29 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <title>【转载】Qt6 顺序容器 QList</title>
       <link>/post/2021/12/02/qlist/</link>
       <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
-      <author>绝望先生</author>
+      <author>罗泽勋</author>
       <guid>/post/2021/12/02/qlist/</guid>
       <description>
         <![CDATA[
@@ -39,7 +39,7 @@
       <title>【转载】Qt6 容器类-概述</title>
       <link>/post/2021/12/01/qt-containers/</link>
       <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
-      <author>绝望先生</author>
+      <author>罗泽勋</author>
       <guid>/post/2021/12/01/qt-containers/</guid>
       <description>
         <![CDATA[
