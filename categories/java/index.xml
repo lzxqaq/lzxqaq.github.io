@@ -29,7 +29,7 @@
 <h3 id="二磁盘操作">二、磁盘操作</h3>
 <p>File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。
 递归地列出一个目录的所有文件：</p>
-<pre tabindex="0"><code>public static void listAllFiles(File dir){
+<pre><code>public static void listAllFiles(File dir){
     if(dir == null || !dir.exists()){
         return ;
     }
@@ -44,7 +44,7 @@
 </code></pre><p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
 <h3 id="三字节操作">三、字节操作</h3>
 <h4 id="实现文件复制">实现文件复制</h4>
-<pre tabindex="0"><code>public static void copuFile(String src, String dist) throws IOException {
+<pre><code>public static void copuFile(String src, String dist) throws IOException {
     FileInputStream in = new FileInputStream(src);
     FileOutputStream out = new FileOutStream(dist);
 
@@ -90,26 +90,26 @@
 </ul>
 <h4 id="实现-runnable-接口">实现 Runnable 接口</h4>
 <p>需要实现接口中的 run() 方法。</p>
-<pre tabindex="0"><code>public class MyRunnable implements Runnable {
+<pre><code>public class MyRunnable implements Runnable {
     @Override
     public void run(){
         // ...
     }
 }
 </code></pre><p>使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。</p>
-<pre tabindex="0"><code>public static void main(String[] args){
+<pre><code>public static void main(String[] args){
     MyRunnable instance = new MyRunnable();
     Thread thread = new Thread(instance);
     thread.start();
 }
 </code></pre><h4 id="实现-callable-接口">实现 Callable 接口</h4>
 <p>与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。</p>
-<pre tabindex="0"><code>public class MyCallable implements Callable&lt;Integer&gt; {
+<pre><code>public class MyCallable implements Callable&lt;Integer&gt; {
     public Integer call(){
         return 123;
     }
 }
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) throws ExecutionException,InterruptedException {
+</code></pre><pre><code>public static void main(String[] args) throws ExecutionException,InterruptedException {
     MyCallable mc = new MyCallble();
     FutureTask&lt;Integer&gt; ft = new FutureTask&lt;&gt;(mc);
     Thread thread = new Thread(ft);
@@ -119,12 +119,12 @@
 </code></pre><h3 id="继承-thread-类">继承 Thread 类</h3>
 <p>同样也是需要实现 run() 方法，因为 Thread 类也实现了 Runnable 接口。</p>
 <p>当调用 start() 方法启动一个线程时，虚拟机会将该线程放入就绪队列中等待被调度，当一个线程被调度时会执行该线程的 run() 方法。</p>
-<pre tabindex="0"><code>public class MyThread extends Thread {
+<pre><code>public class MyThread extends Thread {
     public void run() {
         // ...
     }
 }
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
+</code></pre><pre><code>public static void main(String[] args) {
     MyThread mt = new MyThread();
     mt.start();
 }
@@ -138,14 +138,14 @@
 <p>Java 提供了两种锁机制来控制多个线程对共享资源的互斥访问，第一个是 JVM 实现的 synchronized，而另一个是 JDK 实现的 ReentrantLock。</p>
 <h4 id="synchronized">synchronized</h4>
 <h5 id="1同步一个代码块">1.同步一个代码块</h5>
-<pre tabindex="0"><code>public void func() {
+<pre><code>public void func() {
     synchronized (this) {
         // ...
     }
 }
 </code></pre><p>它只作用于同一个对象，如果调用两个对象上的同步代码块，就不会进行同步。</p>
 <p>对于以下代码，使用 ExecutorService 执行了两个线程，由于调用的是同一个对象的同步代码块，因此这两个线程会进行同步，当一个线程进入同步语句块时，另一个线程就必须等待。</p>
-<pre tabindex="0"><code>public class SynchronizedExample {
+<pre><code>public class SynchronizedExample {
 
     public void func1() {
         synchronized (this) {
@@ -155,35 +155,35 @@
         }
     }
 }
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
+</code></pre><pre><code>public static void main(String[] args) {
     SynchronizedExample e1 = new SynchronizedExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; e1.func1());
     executorService.execute(() -&gt; e1.func1());
 }
-</code></pre><pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre><pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
 </code></pre><p>对于以下代码，两个线程调用了不同对象的同步代码块，因此这两个线程就不需要同步。从输出结果可以看出，两个线程交叉执行。</p>
-<pre tabindex="0"><code>public static void main(String[] args) {
+<pre><code>public static void main(String[] args) {
     SynchronizedExample e1 = new SynchronizedExample();
     SynchronizedExample e2 = new SynchronizedExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; e1.func1());
     executorService.execute(() -&gt; e2.func1());
 }
-</code></pre><pre tabindex="0"><code>0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
+</code></pre><pre><code>0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9
 </code></pre><h5 id="2同步一个方法">2.同步一个方法</h5>
-<pre tabindex="0"><code>public synchronized void func() {
+<pre><code>public synchronized void func() {
     // ...
 }
 </code></pre><p>它和同步代码块一样，作用于同一个对象</p>
 <h5 id="3同步一个类">3.同步一个类</h5>
-<pre tabindex="0"><code>public void func() {
+<pre><code>public void func() {
     synchronized (SynchronizedExample.class) {
         // ...
     }
 }
 </code></pre><p>作用于整个类，也就是说两个线程调用同一个类的不同对象上的这种同步语句块，也会进行同步。</p>
-<pre tabindex="0"><code>public class SynchronizedExample {
+<pre><code>public class SynchronizedExample {
 
     public void func2() {
         synchronized (SynchronizedExample.class) {
@@ -193,22 +193,22 @@
         }
     }
 }
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
+</code></pre><pre><code>public static void main(String[] args) {
     SynchronizedExample e1 = new SynchronizedExample();
     SynchronizedExample e2 = new SynchronizedExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; e1.func2());
     executorService.execute(() -&gt; e2.func2());
 }
-</code></pre><pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre><pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
 </code></pre><h5 id="4同步一个静态方法">4.同步一个静态方法</h5>
-<pre tabindex="0"><code>public synchronized static void fun() {
+<pre><code>public synchronized static void fun() {
     // ...
 }
 </code></pre><p>作用于整个类。</p>
 <h4 id="reentrantlock">ReentrantLock</h4>
 <p>ReentrantLock 是 java.util.concurrent（J.U.C)包中的锁。</p>
-<pre tabindex="0"><code>public class LockExample {
+<pre><code>public class LockExample {
 
     private Lock lock = new ReentrantLock();
 
@@ -224,13 +224,13 @@
     }
 }
 
-</code></pre><pre tabindex="0"><code>public static void main(String[] args) {
+</code></pre><pre><code>public static void main(String[] args) {
     LockExample lockExample = new LockExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(() -&gt; lockExample.func());
     executorService.execute(() -&gt; lockExample.func());
 }
-</code></pre><pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+</code></pre><pre><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
 </code></pre><h5 id="使用选择">使用选择</h5>
 <p>除非需要使用 ReentrantLock 的高级功能，否则优先使用 synchronized。这是因为 synchronized 是 JVM 实现的一种锁机制，JVM 原生地支持它，而 ReentrantLock 不是所有的 JDK 版本都支持。并且使用 synchronized 不用担心没有释放锁而导致死锁问题，因为 JVM 会确保锁的释放。</p>
 <h3 id="六线程状态">六、线程状态</h3>
@@ -301,7 +301,7 @@
 <h4 id="java-虚拟机栈-a-name12a">Java 虚拟机栈 <a name="1.2"></a></h4>
 <p>每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。</p>
 <p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</p>
-<pre tabindex="0"><code>java -Xss2M HaskTheJava
+<pre><code>java -Xss2M HaskTheJava
 </code></pre><p>该区域可能抛出以下异常：</p>
 <ul>
 <li>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；</li>
@@ -319,7 +319,7 @@
 </ul>
 <p>堆不需要连续内存，并且可以动态增加其内存，增加失败会抛出 OutOfMemoryError 异常。</p>
 <p>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。</p>
-<pre tabindex="0"><code>java -Xms1M -Xmx2M HackTheJava
+<pre><code>java -Xms1M -Xmx2M HackTheJava
 </code></pre><h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
 <p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
 <p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 OutOfMemoryError 异常。</p>
@@ -465,7 +465,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
         <p>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。</p>
 <p>然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。</p>
 <p>事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：</p>
-<pre tabindex="0"><code>    //实验1
+<pre><code>    //实验1
     String s1 = &quot;1&quot;;
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -474,7 +474,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     System.out.println(s1);                 //2
     System.out.println((s1 == &quot;1&quot;));        //true
 </code></pre><p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
-<pre tabindex="0"><code>    //实验2
+<pre><code>    //实验2
     String s2 = new String(&quot;1&quot;);
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -484,7 +484,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     System.out.println((s2 == &quot;1&quot;));       //false
 </code></pre><p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
 <p>到这里，可以停一会了。很多技术文章中都做过类似上面的实验（通过比较创建方式的区别、反射修改等)，来分析 String 、String Pool 的原理和设计理念。但我总觉得以此说明最终的结论还不够严谨、或者说还不够直观。接下来请看——魔鬼实验：</p>
-<pre tabindex="0"><code>    //实验3 
+<pre><code>    //实验3 
     String s1 = &quot;1&quot;;
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -494,7 +494,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     System.out.println((s1 == &quot;1&quot;));        //true
     System.out.println(&quot;1&quot;);                //2
 </code></pre><p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
-<pre tabindex="0"><code>    //实验4
+<pre><code>    //实验4
     String s2 = new String(&quot;1&quot;);
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -596,7 +596,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
 <p>boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</p>
 <h4 id="包装类型-a-name12a">包装类型 <a name="1.2"></a></h4>
 <p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱和拆箱完成。</p>
-<pre tabindex="0"><code>Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
+<pre><code>Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
 int y = x;  //  拆箱 调用了 x.intValue()
 </code></pre><h4 id="缓存池-a-name13a">缓存池 <a name="1.3"></a></h4>
 <p>new Integer(123) 与 Integer.valueOf(123)的区别在于：</p>
@@ -604,14 +604,14 @@ int y = x;  //  拆箱 调用了 x.intValue()
 <li>new Integer(123) 每次都会创建一个对象；</li>
 <li>Integer.valueOf(123) 会使用缓存池中的对象，调用会取得同一个对象的引用。</li>
 </ul>
-<pre tabindex="0"><code>Integer x = new Integer(123);
+<pre><code>Integer x = new Integer(123);
 Integer y = new Integer(123);
 System.out.println(x == y);     //false
 Integer z = Integer.valueOf(123);
 Integer k = Integer.valueOf(123);
 System.out.println(z == k);     //true
 </code></pre><p>valueOf() 方法的实现，就是先判断值是否存在缓存池中，如果在的话就直接返回缓存池的内容。</p>
-<pre tabindex="0"><code>public static Integer valueOf(int i){
+<pre><code>public static Integer valueOf(int i){
     if(i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high){
         return IntegerCache.cache[i + (-IntegerCache.low)];
         return new Integer(i);
@@ -619,7 +619,7 @@ System.out.println(z == k);     //true
 }
 </code></pre><p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
 <p>编译器会在自动装箱过程中调用 valueOf()方法，因此多个值相同且值在缓存池范围内的 Integer 实例使用自动装箱来创建，那么就会引用相同的对象。</p>
-<pre tabindex="0"><code>Integer m = 123;
+<pre><code>Integer m = 123;
 Integer n = 123;
 System.out.priintln(m == n);    //true
 </code></pre><p>基本类型对应的缓冲池如下：</p>
@@ -636,12 +636,12 @@ System.out.priintln(m == n);    //true
 <h4 id="概览a-name21a">概览<a name="2.1"></a></h4>
 <p>String 被声明为 final,因此不可被继承。(Integer 等包装类也不能被继承)<br>
 在 Java 8 中，String 内部使用 char 数组存储数据。</p>
-<pre tabindex="0"><code>public final class String 
+<pre><code>public final class String 
     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
     private final char value[];   
 }
 </code></pre><p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用的编码。</p>
-<pre tabindex="0"><code>public final class String
+<pre><code>public final class String
     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
         private final byte[] value;
         private final byte coder;
@@ -671,14 +671,14 @@ System.out.priintln(m == n);    //true
 <h4 id="string-poola-name24a">String Pool<a name="2.4"></a></h4>
 <p>字符串常量池(String Pool) 保存着所有字符串字面量(literal strings) ,这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool中。<br>
 当一个字符串调用 intern() 方法时，如果 String Pool 中已存在一个字符串和该字符串相等(使用 equals() 方法进行确定)，那么就会返回 String Pool 中字符串的引用；否则，就会在 String Poll 中添加一个新的字符串，并返回这个新字符串的引用。</p>
-<pre tabindex="0"><code>String s1 = new String(&quot;aaa&quot;);
+<pre><code>String s1 = new String(&quot;aaa&quot;);
 String s2 = new String(&quot;aaa&quot;);
 System.out.println(s1 == s2);    //false
 String s3 = s1.intern();
 String s4 = s2.intern();
 System.out.println(s3 == s4);   //true
 </code></pre><p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
-<pre tabindex="0"><code>String s5 = &quot;bbb&quot;;
+<pre><code>String s5 = &quot;bbb&quot;;
 String s6 = &quot;bbb&quot;;
 System.out.println(s5 == s6);   //true
 </code></pre><p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
@@ -689,13 +689,13 @@ System.out.println(s5 == s6);   //true
 <li>而使用 new 的方式会在堆中创建一个字符串对象。<br>
 创建一个测试类，其 main 方法中使用这种方式来创建字符串对象。</li>
 </ul>
-<pre tabindex="0"><code>    public class NewStringTest {
+<pre><code>    public class NewStringTest {
         public static void main(String[] args){
             String s = new String(&quot;abc&quot;);
         }
     }
 </code></pre><p>使用 javap -verbose 进行反编译，得到以下内容：</p>
-<pre tabindex="0"><code>// ...
+<pre><code>// ...
 Constant pool:
 // ...
    #2 = Class              #18            // java/lang/String
@@ -718,14 +718,14 @@ Constant pool:
 
 </code></pre><p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
 <p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
-<pre tabindex="0"><code>public String(String original){
+<pre><code>public String(String original){
     this.value = original.value;
     this.hash = original.hash;
 }
 </code></pre><h3 id="三运算a-name3a">三、运算<a name="3"></a></h3>
 <h4 id="参数传递a-name31a">参数传递<a name="3.1"></a></h4>
 <p>以下代码中 Dog dog 的dog是一个指针，存储的是对象的地址。在将一个参数传入一个方法时，本质上是将对象的地址以值得方式传递到形参中。</p>
-<pre tabindex="0"><code>public class Dog {
+<pre><code>public class Dog {
     
     String name;
 
@@ -742,7 +742,7 @@ Constant pool:
     }
 }
 </code></pre><p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
-<pre tabindex="0"><code>class PassByValueExample {
+<pre><code>class PassByValueExample {
     public static void main(String[] args) {
         Dog dog = new Dog(&quot;A&quot;);
         func(dog);
@@ -754,7 +754,7 @@ Constant pool:
     }
 }
 </code></pre><p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
-<pre tabindex="0"><code>public class PassByValueExample {
+<pre><code>public class PassByValueExample {
     public static void main(String[] args) {
         Dog dog = new Dog(&quot;A&quot;);
         System.out.println(dog.getObjectAddress()); // Dog@4554617c
@@ -773,18 +773,18 @@ Constant pool:
 </code></pre><h4 id="float-与-doublea-name32a">float 与 double<a name="3.2"></a></h4>
 <p>Java 不能隐式执行向下转型，因为这会使得精度降低。</p>
 <p>1.1 字面量属于 double 类型，不能直接将 1.1 直接赋值给 float 变量，因为这是向下转型。</p>
-<pre tabindex="0"><code>// float f = 1.1;
+<pre><code>// float f = 1.1;
 </code></pre><p>1.1f 字面量才是 float 类型。</p>
-<pre tabindex="0"><code>float f = 1.1f;
+<pre><code>float f = 1.1f;
 </code></pre><h4 id="隐式类型转换a-name33a">隐式类型转换<a name="3.3"></a></h4>
 <p>因为字面量 1 是 int 类型，它比 short 类型精度要高，因此不能隐式地将 int 类型向下转型为 short 类型。</p>
-<pre tabindex="0"><code>short s1 = 1;
+<pre><code>short s1 = 1;
 //s1 = s1 + 1;
 </code></pre><p>但是使用 += 或者 ++ 运算符会执行隐式类型转换。</p>
-<pre tabindex="0"><code>s1 += 1;
+<pre><code>s1 += 1;
 s1++;
 </code></pre><p>上面的语句相当于将 s1 + 1 的计算结果进行了向下转型：</p>
-<pre tabindex="0"><code>s1 = (short)(s1 + 1);
+<pre><code>s1 = (short)(s1 + 1);
 </code></pre><h4 id="switcha-name34a">switch<a name="3.4"></a></h4>
 <p>从 Java 7 开始，可以在 switch 条件判断语句中使用 String 对象。<br>
 switch 不支持 long、float、double，是因为 switch 的设计初衷是对那些只有少数几个值的类型进行等值判断，如果值过于复杂，那么还是用 if 比较合适。</p>
@@ -796,7 +796,7 @@ switch 不支持 long、float、double，是因为 switch 的设计初衷是对�
 <li>对于基本类型，final 使数值不变；</li>
 <li>对于引用类型，final 使引用不变，也就不能引用其他对象，但是被引用的对象本身是可以修改的。</li>
 </ul>
-<pre tabindex="0"><code>final int x = 1;
+<pre><code>final int x = 1;
 //x = 3;    // cannot assign value to final variable 'x'
 final A y = new A();
 y.a = 1;
@@ -811,7 +811,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 <li>静态变量： 又被称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</li>
 <li>实例变量： 每创建一个实例就会产生一个实例变量，它与该实例同生共死。</li>
 </ul>
-<pre tabindex="0"><code>public class A {
+<pre><code>public class A {
     private int x;          // 实例变量
     private static int y;   // 静态变量
 
@@ -824,11 +824,11 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 }
 </code></pre><p>2.<strong>静态方法</strong></p>
 <p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</p>
-<pre tabindex="0"><code>public  abstract class A {
+<pre><code>public  abstract class A {
     public static void func1(){}
 }
 </code></pre><p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
-<pre tabindex="0"><code>public class A {
+<pre><code>public class A {
     private static int x;
     private int y;
 
@@ -840,7 +840,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 }
 </code></pre><p><strong>3.静态语句块</strong><br>
 静态语句块在类初始化时运行一次。</p>
-<pre tabindex="0"><code>public class A {
+<pre><code>public class A {
     static {
         System.out.println(&quot;123&quot;);
     }
@@ -850,10 +850,10 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
         A a2 = new A();
     }
 }
-</code></pre><pre tabindex="0"><code>123
+</code></pre><pre><code>123
 </code></pre><p><strong>4.静态内部类</strong><br>
 非静态内部类依赖于外部类的实例，也就是说需要先创建外部类的实例，才能用这个实例去创建非静态内部类。而静态内部类不需要。</p>
-<pre tabindex="0"><code>public class OuterClass {
+<pre><code>public class OuterClass {
     class InnerClass {
     }
     static class StaticInnerClass {
@@ -870,16 +870,16 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 在使用静态变量和方法时不用再指明 ClassName,从而简化代码，但可读性大大降低。</p>
 <p><strong>6.初始化顺序</strong><br>
 静态变量和静态语句块优先于实例变量和普通语句块，静态变量和静态语句块的初始化顺序取决于它们在代码中的顺序。</p>
-<pre tabindex="0"><code>public static String staticField = &quot;静态变量&quot;;
-</code></pre><pre tabindex="0"><code>static {
+<pre><code>public static String staticField = &quot;静态变量&quot;;
+</code></pre><pre><code>static {
     System.out.println(&quot;静态语句块&quot;);
 }
-</code></pre><pre tabindex="0"><code>public String field = &quot;实例变量&quot;;
-</code></pre><pre tabindex="0"><code>{
+</code></pre><pre><code>public String field = &quot;实例变量&quot;;
+</code></pre><pre><code>{
     System.out.println(&quot;普通语句块&quot;);
 }
 </code></pre><p>最后才是构造函数的初始化。</p>
-<pre tabindex="0"><code>public InitialOrderTest(){
+<pre><code>public InitialOrderTest(){
     System.out.println(&quot;构造函数&quot;);
 }
 </code></pre><p>存在继承的情况下，初始化顺序为：</p>
@@ -893,7 +893,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 </ul>
 <h3 id="五object-通用方法a-name5a">五、Object 通用方法<a name="5"></a></h3>
 <h4 id="概述a-name51a">概述<a name="5.1"></a></h4>
-<pre tabindex="0"><code>public native int hashCode()
+<pre><code>public native int hashCode()
 
 public boolean equals(Object obj)
 
@@ -923,7 +923,7 @@ public final void wait() throws InterruptedException
 <li>对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。</li>
 <li>对于引用类型，== 判断两个变量是否引用同一个对象，而 equals() 判断引用的对象是否等价。</li>
 </ul>
-<pre tabindex="0"><code>Integer x = new Integer(1);
+<pre><code>Integer x = new Integer(1);
 Integer y = new Integer(1);
 System.out.println(x.equals(y));    // true
 System.out.println(x == y);         // false
@@ -934,7 +934,7 @@ System.out.println(x == y);         // false
 <li>将 Object 对象进行转型；</li>
 <li>判断每个关键域是否相等</li>
 </ul>
-<pre tabindex="0"><code>public class EqualExample {
+<pre><code>public class EqualExample {
     private int x;
     private int y;
     private int z;
@@ -962,7 +962,7 @@ System.out.println(x == y);         // false
 在覆盖 equals() 方法时应当总是覆盖 hashCode() 方法，保证等价的两个对象哈希值也相等。<br>
 HashSet 和 HashMap 等集合类使用了 hashCode() 方法来计算对象应该存储的位置，因此要将对象添加到这些集合类中，需要让对应的类实现 hashCode() 方法。<br>
 下面的代码中，新建了两个等价的对象，并将它们添加到 HashSet 中，我们希望将两个对象当成一样的，只在集合中添加一个对象。但是 EqualExample 没有实现 hashCode() 方法，因此两个对象的哈希值是不同的，最终导致集合添加了两个等价的对象。</p>
-<pre tabindex="0"><code>EqualExample e1 = new EqualExample(1,1,1);
+<pre><code>EqualExample e1 = new EqualExample(1,1,1);
 EqualExample e2 = new EqualExample(1,1,1);
 System.out.println(eq.equal(e2));   // true
 HashSet&lt;EqualExample&gt; set  = new HashSet&lt;&gt;();

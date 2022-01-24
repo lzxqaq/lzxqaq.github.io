@@ -146,16 +146,16 @@ SQL 语句不区 &amp;hellip;">
 <p>SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。</p>
 <p>SQL 语句不区分大小写，但是数据库表名、列名和值是否区分依赖于具体的 DBMS 以及配置。</p>
 <p>SQL 支持以下三种注释：</p>
-<pre tabindex="0"><code>### 注释
+<pre><code>### 注释
 SELECT * FROM mytable; -- 注释
 /* 注释1
    注释2 */
 
 </code></pre><p>数据库创建与使用：</p>
-<pre tabindex="0"><code>CREATE DATABASE test;
+<pre><code>CREATE DATABASE test;
 USE test;
 </code></pre><h3 id="二创建表a-name2a">二、创建表<a name="2"></a></h3>
-<pre tabindex="0"><code>CREATE TABLE mytable (
+<pre><code>CREATE TABLE mytable (
     # int 类型，不为空，自增
     id INT NOT NULL AUTO_INCREMENT,
     # int 类型，不可为空，默认值为1，不为空
@@ -169,50 +169,50 @@ USE test;
 );
 </code></pre><h3 id="三修改表">三、修改表</h3>
 <p>添加列</p>
-<pre tabindex="0"><code>ALTER TABLE mytable
+<pre><code>ALTER TABLE mytable
 ADD col CHAR(20);
 </code></pre><p>删除列</p>
-<pre tabindex="0"><code>ALTER TABLE mytable
+<pre><code>ALTER TABLE mytable
 DROP COLUMN col;
 </code></pre><p>删除表</p>
-<pre tabindex="0"><code>DROP TABLE mytable;
+<pre><code>DROP TABLE mytable;
 </code></pre><h3 id="四插入">四、插入</h3>
 <p>普通插入</p>
-<pre tabindex="0"><code>INSERT INTO mytable(col1, col2)
+<pre><code>INSERT INTO mytable(col1, col2)
 VALUES(val1,val2);
 </code></pre><p>插入检索出来的数据</p>
-<pre tabindex="0"><code>INSERT INTO mytable1(col1, col2)
+<pre><code>INSERT INTO mytable1(col1, col2)
 SELECT col1, col2
 FROM mytable2;
 </code></pre><p>将一个表的内容插入到一个新表</p>
-<pre tabindex="0"><code>CREATE TABLE newtable AS 
+<pre><code>CREATE TABLE newtable AS 
 SELECT * FROM mytable;
 </code></pre><h3 id="五更新">五、更新</h3>
-<pre tabindex="0"><code>UPDATE mytable
+<pre><code>UPDATE mytable
 SET col = val 
 WHERE id = 1;
 </code></pre><h3 id="六删除">六、删除</h3>
-<pre tabindex="0"><code>DELETE FROM mytable
+<pre><code>DELETE FROM mytable
 WHERE id = 1;
 </code></pre><p>TRUNCATE TABLE table 可以清空表，也就是删除所有行。</p>
-<pre tabindex="0"><code>TRUNCATE TABLE mytable;
+<pre><code>TRUNCATE TABLE mytable;
 </code></pre><p>使用更新和删除操作时一定要用 WHERE 字句，不然会把整张表的数据都损坏。用 SELECT 语句进行测试，防止错误删除。</p>
 <h3 id="七查询">七、查询</h3>
 <p>DISTINCT
 相同值只会出现一次。它作用与所有列，也就是说所有列的值都想同时才算相同。</p>
-<pre tabindex="0"><code>SELECT DISTINCT col1, col2
+<pre><code>SELECT DISTINCT col1, col2
 FROM mytable;
 </code></pre><p>LIMIT
 限制返回的行数。可以有两个参数，第一个参数为起始行，从 0 开始；第二个参数为返回的总行数。<br>
 返回前五行：</p>
-<pre tabindex="0"><code>SELECT * 
+<pre><code>SELECT * 
 FROM mytable
 LIMIT 5;
-</code></pre><pre tabindex="0"><code>SELECT *
+</code></pre><pre><code>SELECT *
 FROM mytable
 LIMIT 0, 5;
 </code></pre><p>返回第3～5行：</p>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable
 LIMIT 2, 3;
 </code></pre><h3 id="八排序">八、排序</h3>
@@ -221,12 +221,12 @@ LIMIT 2, 3;
 <li>DESC：降序
 可以按多个列进行排序，并且为每个列指定不同的排序方式：</li>
 </ul>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable
 ORDER BY col1 DESC, col2 ASC;
 </code></pre><h3 id="九过滤">九、过滤</h3>
 <p>不进行过滤的数据非常大，导致通过网络传输了多余的数据，从而浪费了网络带宽。因此尽量使用 SQL 语句来过滤不必要的数据，而不是传输所有的数据到客户端中然后由客户端进行过滤。</p>
-<pre tabindex="0"><code>SELECT * 
+<pre><code>SELECT * 
 FROM mytable
 WHERE col IS NULL;
 </code></pre><p>下表显示了 WHERE 字句可用的操作符。</p>
@@ -284,17 +284,17 @@ WHERE col IS NULL;
 <li>[] 可以匹配集合内的字符，例如 [ab]将匹配字符 a 或者 b。用脱字符 ^ 可以对其进行否定，也就是不匹配集合内的字符。<br>
 使用 LIKE 来进行通配符匹配。</li>
 </ul>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable
 WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
 </code></pre><p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
 <h3 id="十一计算字段">十一、计算字段</h3>
 <p>在数据库服务器上完成数据的转换和格式化的工作往往比客户端上快得多，并且转换和格式化后的数据量更少的话可以减少网络通信量。</p>
 <p>计算字段通常需要使用 AS 来取别名，否则输出的时候字段名为计算表达式。</p>
-<pre tabindex="0"><code>SELECT col1 * col2 AS alias
+<pre><code>SELECT col1 * col2 AS alias
 FROM mytable;
 </code></pre><p>CONCAT() 用于连接两个字段。许多数据库会使用空格把一个值填充为列宽，因此连接的结果会出现一些不必要的空格，使用 TRIM() 可以去除首尾空格。</p>
-<pre tabindex="0"><code>SELECT CONCAT(TRIM(col1), '(', TRIM(col2), ')') AS concat_col
+<pre><code>SELECT CONCAT(TRIM(col1), '(', TRIM(col2), ')') AS concat_col
 FROM mytable;
 </code></pre><h3 id="十二函数">十二、函数</h3>
 <p>各个 DBMS 的函数都是不相同的，因此不可移植，以下主要是 MySQL 的函数。</p>
@@ -306,7 +306,7 @@ MIN()	返回某列的最小值<br>
 SUM()	返回某列值之和</p>
 <p>AVG() 会忽略 NULL 行。</p>
 <p>使用 DISTINCT 可以汇总不同的值。</p>
-<pre tabindex="0"><code>SELECT AVG(DISTINCT col1) AS avg_col
+<pre><code>SELECT AVG(DISTINCT col1) AS avg_col
 FROM mytable;
 </code></pre><h4 id="文本处理">文本处理</h4>
 <p>LEFT()	左边的字符<br>
@@ -318,7 +318,7 @@ RTRIM()	去除右边的空格<br>
 LENGTH()	长度<br>
 SOUNDEX()	转换为语音值</p>
 <p>其中， SOUNDEX() 可以将一个字符串转换为描述其语音表示的字母数字模式。</p>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable
 WHERE SOUNDEX(col1) = SOUNDEX('apple')
 </code></pre><h4 id="日期和时间处理">日期和时间处理</h4>
@@ -343,7 +343,7 @@ NOW()	返回当前日期和时间<br>
 SECOND()	返回一个时间的秒部分<br>
 TIME()	返回一个日期时间的时间部分<br>
 YEAR()	返回一个日期的年份部分</p>
-<pre tabindex="0"><code>mysql&gt; SELECT NOW();
+<pre><code>mysql&gt; SELECT NOW();
 2018-4-14 20:25:11
 </code></pre><h4 id="数值处理">数值处理</h4>
 <p>SIN()	正弦
@@ -359,11 +359,11 @@ RAND()	随机数</p>
 <p>把具有相同的数据值的行放在同一组中。</p>
 <p>可以对同一分组数据使用汇总函数进行处理，例如求分组数据的平均值等。</p>
 <p>指定的分组字段除了能按该字段进行分组，也会自动按该字段进行排序。</p>
-<pre tabindex="0"><code>SELECT col, COUNT(*) AS num
+<pre><code>SELECT col, COUNT(*) AS num
 FROM mytable
 GROUP BY col;
 </code></pre><p>GROUP BY 自动按分组字段进行排序，ORDER BY 也可以按汇总字段来进行排序。</p>
-<pre tabindex="0"><code>SELECT col, COUNT(*) AS num
+<pre><code>SELECT col, COUNT(*) AS num
 FROM mytable
 GROUP BY col
 ORDER BY num;
@@ -377,11 +377,11 @@ ORDER BY num;
 <h3 id="十四子查询">十四、子查询</h3>
 <p>子查询中只能返回一个字段的数据。</p>
 <p>可以将子查询的结果作为 WHRER 语句的过滤条件：</p>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable1
 WHERE col1 IN (SELECT col2 FROM mytable2);
 </code></pre><p>下面的语句可以检索出客户的订单数量，子查询语句会对第一个查询检索出的每个客户执行一次：</p>
-<pre tabindex="0"><code>SELECT cust_name, (SELECT COUNT(*)
+<pre><code>SELECT cust_name, (SELECT COUNT(*)
                    FROM Orders
                    WHERE Orders.cust_id = Customers.cust_id)
                    AS orders_num
@@ -393,32 +393,32 @@ ORDER BY cust_name;
 <p>可以用 AS 给列名、计算字段和表名取别名，给表名取别名是为了简化 SQL 语句以及连接相同表。</p>
 <h4 id="内连接">内连接</h4>
 <p>内连接又称等值连接，使用 INNER JOIN 关键字。</p>
-<pre tabindex="0"><code>SELECT A.value, B.value
+<pre><code>SELECT A.value, B.value
 FROM tablea AS A INNER JOIN tableb AS B
 ON A.key = B.key;
 </code></pre><p>可以不明确使用 INNER JOIN，而使用普通查询并在 WHERE 中将两个表中要连接的列用等值方法连接起来。</p>
-<pre tabindex="0"><code>SELECT A.value, B.value
+<pre><code>SELECT A.value, B.value
 FROM tablea AS A, tableb AS B
 WHERE A.key = B.key;
 </code></pre><h3 id="自连接">自连接</h3>
 <p>自连接可以看成内连接的一种，只是连接的表是自身而已。</p>
 <p>一张员工表，包含员工姓名和员工所属部门，要找出与 Jim 处在同一部门的所有员工姓名。</p>
 <p>子查询版本</p>
-<pre tabindex="0"><code>SELECT name
+<pre><code>SELECT name
 FROM employee
 WHERE department = (
       SELECT department
       FROM employee
       WHERE name = &quot;Jim&quot;);
 </code></pre><p>自连接版本</p>
-<pre tabindex="0"><code>SELECT e1.name
+<pre><code>SELECT e1.name
 FROM employee AS e1 INNER JOIN employee AS e2
 ON e1.department = e2.department
       AND e2.name = &quot;Jim&quot;;
 </code></pre><h4 id="自然连接">自然连接</h4>
 <p>自然连接是把同名列通过等值测试连接起来的，同名列可以有多个。</p>
 <p>内连接和自然连接的区别：内连接提供连接的列，而自然连接自动连接所有同名列。</p>
-<pre tabindex="0"><code>SELECT A.value, B.value
+<pre><code>SELECT A.value, B.value
 FROM tablea AS A NATURAL JOIN tableb AS B;
 </code></pre><h4 id="外连接">外连接</h4>
 <p>外连接保留了没有关联的那些行。分为左外连接，右外连接以及全外连接，左外连接就是保留左表没有关联的行。</p>
@@ -427,7 +427,7 @@ FROM tablea AS A NATURAL JOIN tableb AS B;
 <p>每个查询必须包含相同的列、表达式和聚集函数。</p>
 <p>默认会去除相同行，如果需要保留相同行，使用 UNION ALL。</p>
 <p>只能包含一个 ORDER BY 子句，并且必须位于语句的最后。</p>
-<pre tabindex="0"><code>SELECT col
+<pre><code>SELECT col
 FROM mytable
 WHERE col = 1
 UNION
@@ -444,7 +444,7 @@ WHERE col =2;
 <li>通过只给用户访问视图的权限，保证数据的安全性；</li>
 <li>更改数据格式和表示。</li>
 </ul>
-<pre tabindex="0"><code>CREATE VIEW myview AS
+<pre><code>CREATE VIEW myview AS
 SELECT Concat(col1, col2) AS concat_col, col3*col4 AS compute_col
 FROM mytable
 WHERE col5 = val;
@@ -460,7 +460,7 @@ WHERE col5 = val;
 <p>包含 in、out 和 inout 三种参数。</p>
 <p>给变量赋值都需要用 select into 语句。</p>
 <p>每次只能给一个变量赋值，不支持集合的操作。</p>
-<pre tabindex="0"><code>delimiter //
+<pre><code>delimiter //
 
 create procedure myprocedure( out ret int )
     begin
@@ -472,7 +472,7 @@ create procedure myprocedure( out ret int )
     end //
 
 delimiter ;
-</code></pre><pre tabindex="0"><code>call myprocedure(@ret);
+</code></pre><pre><code>call myprocedure(@ret);
 select @ret;
 </code></pre><h3 id="十九游标">十九、游标</h3>
 <p>在存储过程中使用游标可以对一个结果集进行移动遍历。</p>
@@ -484,7 +484,7 @@ select @ret;
 <li>取出数据；</li>
 <li>关闭游标；</li>
 </ul>
-<pre tabindex="0"><code>delimiter //
+<pre><code>delimiter //
 create procedure myprocedure(out ret int)
     begin
         declare done boolean default 0;
@@ -508,7 +508,7 @@ create procedure myprocedure(out ret int)
 <p>触发器会在某个表执行以下语句时而自动执行：DELETE、INSERT、UPDATE。</p>
 <p>触发器必须指定在语句执行之前还是之后自动执行，之前执行使用 BEFORE 关键字，之后执行使用 AFTER 关键字。BEFORE 用于数据验证和净化，AFTER 用于审计跟踪，将修改记录到另外一张表中。</p>
 <p>INSERT 触发器包含一个名为 NEW 的虚拟表。</p>
-<pre tabindex="0"><code>CREATE TRIGGER mytrigger AFTER INSERT ON mytable
+<pre><code>CREATE TRIGGER mytrigger AFTER INSERT ON mytable
 FOR EACH ROW SELECT NEW.col into @result;
 
 SELECT @result; -- 获取结果
@@ -527,7 +527,7 @@ SELECT @result; -- 获取结果
 <p>MySQL 的事务提交默认是隐式提交，每执行一条语句就把这条语句当成一个事务然后进行提交。当出现 START TRANSACTION 语句时，会关闭隐式提交；当 COMMIT 或 ROLLBACK 语句执行后，事务会自动关闭，重新恢复隐式提交。</p>
 <p>设置 autocommit 为 0 可以取消自动提交；autocommit 标记是针对每个连接而不是针对服务器的。</p>
 <p>如果没有设置保留点，ROLLBACK 会回退到 START TRANSACTION 语句处；如果设置了保留点，并且在 ROLLBACK 中指定该保留点，则会回退到该保留点。</p>
-<pre tabindex="0"><code>START TRANSACTION
+<pre><code>START TRANSACTION
 // ...
 SAVEPOINT delete1
 // ...
@@ -542,29 +542,29 @@ COMMIT
 <li>校对字符指定如何比较，主要用于排序和分组。</li>
 </ul>
 <p>除了给表指定字符集和校对外，也可以给列指定：</p>
-<pre tabindex="0"><code>CREATE TABLE mytable
+<pre><code>CREATE TABLE mytable
 (col VARCHAR(10) CHARACTER SET latin COLLATE latin1_general_ci )
 DEFAULT CHARACTER SET hebrew COLLATE hebrew_general_ci;
 </code></pre><p>可以在排序、分组时指定校对：</p>
-<pre tabindex="0"><code>SELECT *
+<pre><code>SELECT *
 FROM mytable
 ORDER BY col COLLATE latin1_general_ci;
 </code></pre><h3 id="二十三权限管理">二十三、权限管理</h3>
 <p>MySQL 的账户信息保存在 mysql 这个数据库中。</p>
-<pre tabindex="0"><code>USE mysql;
+<pre><code>USE mysql;
 SELECT user FROM user;
 </code></pre><p>创建账户</p>
 <p>新创建的账户没有任何权限。</p>
-<pre tabindex="0"><code>CREATE USER myuser IDENTIFIED BY 'mypassword';
+<pre><code>CREATE USER myuser IDENTIFIED BY 'mypassword';
 </code></pre><p>修改账户名</p>
-<pre tabindex="0"><code>RENAME USER myuser TO newuser;
+<pre><code>RENAME USER myuser TO newuser;
 </code></pre><p>删除账户</p>
-<pre tabindex="0"><code>DROP USER myuser;
+<pre><code>DROP USER myuser;
 </code></pre><p>查看权限</p>
-<pre tabindex="0"><code>SHOW GRANTS FOR myuser;
+<pre><code>SHOW GRANTS FOR myuser;
 </code></pre><p>授予权限</p>
 <p>账户用 username@host 的形式定义，username@% 使用的是默认主机名。</p>
-<pre tabindex="0"><code>GRANT SELECT, INSERT ON mydatabase.* TO myuser;
+<pre><code>GRANT SELECT, INSERT ON mydatabase.* TO myuser;
 </code></pre><p>删除权限</p>
 <p>GRANT 和 REVOKE 可在几个层次上控制访问权限：</p>
 <ul>
@@ -574,10 +574,10 @@ SELECT user FROM user;
 <li>特定的列；</li>
 <li>特定的存储过程。</li>
 </ul>
-<pre tabindex="0"><code>REVOKE SELECT, INSERT ON mydatabase.* FROM myuser;
+<pre><code>REVOKE SELECT, INSERT ON mydatabase.* FROM myuser;
 </code></pre><p>更改密码</p>
 <p>必须使用 Password() 函数进行加密。</p>
-<pre tabindex="0"><code>SET PASSWROD FOR myuser = Password('new_password');
+<pre><code>SET PASSWROD FOR myuser = Password('new_password');
 </code></pre>
 
 

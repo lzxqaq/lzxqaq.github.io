@@ -17,10 +17,10 @@
       
       <meta property="description" content="Java 的 I/O 大概可以分成以下几类：
 [&amp;hellip;] File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { &amp;hellip;">
+public static void listAllFiles(File dir){if(dir == null || !dir.exists()){return ;}if(dir.isFile()) { &amp;hellip;">
       <meta property="og:description" content="Java 的 I/O 大概可以分成以下几类：
 [&amp;hellip;] File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { &amp;hellip;">
+public static void listAllFiles(File dir){if(dir == null || !dir.exists()){return ;}if(dir.isFile()) { &amp;hellip;">
       
     
 
@@ -106,7 +106,7 @@ public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ ret
 <h3 id="二磁盘操作">二、磁盘操作</h3>
 <p>File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。
 递归地列出一个目录的所有文件：</p>
-<pre tabindex="0"><code>public static void listAllFiles(File dir){
+<pre><code>public static void listAllFiles(File dir){
     if(dir == null || !dir.exists()){
         return ;
     }
@@ -121,7 +121,7 @@ public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ ret
 </code></pre><p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
 <h3 id="三字节操作">三、字节操作</h3>
 <h4 id="实现文件复制">实现文件复制</h4>
-<pre tabindex="0"><code>public static void copuFile(String src, String dist) throws IOException {
+<pre><code>public static void copuFile(String src, String dist) throws IOException {
     FileInputStream in = new FileInputStream(src);
     FileOutputStream out = new FileOutStream(dist);
 

@@ -266,13 +266,13 @@
 <p>加锁和解锁分为两个阶段进行。</p>
 <p>可串行化调度是指，通过并发控制，使得并发执行的事务结果与某个串行执行的事务结果相同。串行执行的事务互不干扰，不会出现并发一致性问题。</p>
 <p>事务遵循两段锁协议是保证可串行化调度的充分条件。例如以下操作满足两段锁协议，它是可串行化调度。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">lock-x(A)...lock-s(B)...lock-s(C)...unlock(A)...unlock(C)...unlock(B)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">lock-x(A)...lock-s(B)...lock-s(C)...unlock(A)...unlock(C)...unlock(B)
 </code></pre></div><p>但不是必要条件，例如以下操作不满足两段锁协议，但它还是可串行化调度。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">lock-x(A)...unlock(A)...lock-s(B)...unlock(B)...lock-s(C)...unlock(C)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">lock-x(A)...unlock(A)...lock-s(B)...unlock(B)...lock-s(C)...unlock(C)
 </code></pre></div><h3 id="mysql-隐式与显式锁定">MySQL 隐式与显式锁定</h3>
 <p>MySQL 的 InnoDB 存储引擎采用两段锁协议，会根据隔离级别在需要的时候自动加锁，并且所有的锁都是在同一时刻被释放，这被称为隐式锁定。</p>
 <p>InnoDB 也可以使用特定的语句进行显示锁定：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> ... <span style="color:#66d9ef">LOCK</span> <span style="color:#66d9ef">In</span> <span style="color:#66d9ef">SHARE</span> <span style="color:#66d9ef">MODE</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> ... <span style="color:#66d9ef">LOCK</span> <span style="color:#66d9ef">In</span> <span style="color:#66d9ef">SHARE</span> <span style="color:#66d9ef">MODE</span>;
 <span style="color:#66d9ef">SELECT</span> ... <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">UPDATE</span>;
 </code></pre></div><h2 id="四隔离级别">四、隔离级别</h2>
 <h3 id="未提交读read-uncommitted">未提交读（READ UNCOMMITTED）</h3>
@@ -300,7 +300,7 @@
 <h3 id="undo-日志">Undo 日志</h3>
 <p>MVCC 的多版本指的是多个版本的快照，快照存储在 Undo 日志中，该日志通过回滚指针 ROLL_PTR 把一个数据行的所有快照连接起来。</p>
 <p>例如在 MySQL 创建一个表 t，包含主键 id 和一个字段 x。我们先插入一个数据行，然后对该数据行执行两次更新操作。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> t(id, x) <span style="color:#66d9ef">VALUES</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;a&#34;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> t(id, x) <span style="color:#66d9ef">VALUES</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;a&#34;</span>);
 <span style="color:#66d9ef">UPDATE</span> t <span style="color:#66d9ef">SET</span> x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b&#34;</span> <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
 <span style="color:#66d9ef">UPDATE</span> t <span style="color:#66d9ef">SET</span> x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;c&#34;</span> <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
 </code></pre></div><p>因为没有使用 <code>START TRANSACTION</code> 将上面的操作当成一个事务来执行，根据 MySQL 的 AUTOCOMMIT 机制，每个操作都会被当成一个事务来执行，所以上面的操作总共涉及到三个事务。快照中除了记录事务版本号 TRX_ID 和操作之外，还记录了一个 bit 的 DEL 字段，用于标记是否被删除。</p>
@@ -329,14 +329,14 @@
 <h3 id="快照读与当前读">快照读与当前读</h3>
 <h4 id="1-快照读">1. 快照读</h4>
 <p>MVCC 的 SELECT 操作是快照中的数据，不需要进行加锁操作。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span> ...;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span> ...;
 </code></pre></div><h4 id="2-当前读">2. 当前读</h4>
 <p>MVCC 其它会对数据库进行修改的操作（INSERT、UPDATE、DELETE）需要进行加锁操作，从而读取最新的数据。可以看到 MVCC 并不是完全不用加锁，而只是避免了 SELECT 的加锁操作。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">INSERT</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">INSERT</span>;
 <span style="color:#66d9ef">UPDATE</span>;
 <span style="color:#66d9ef">DELETE</span>;
 </code></pre></div><p>在进行 SELECT 操作时，可以强制指定进行加锁操作。以下第一个语句需要加 S 锁，第二个需要加 X 锁。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">WHERE</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">lock</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">share</span> <span style="color:#66d9ef">mode</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">WHERE</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">lock</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">share</span> <span style="color:#66d9ef">mode</span>;
 <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">WHERE</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">update</span>;
 </code></pre></div><h2 id="六next-key-locks">六、Next-Key Locks</h2>
 <p>Next-Key Locks 是 MySQL 的 InnoDB 存储引擎的一种锁实现。</p>
@@ -346,10 +346,10 @@
 <p>如果表没有设置索引，InnoDB 会自动在主键上创建隐藏的聚簇索引，因此 Record Locks 依然可以使用。</p>
 <h3 id="gap-locks">Gap Locks</h3>
 <p>锁定索引之间的间隙，但是不包含索引本身。例如当一个事务执行以下语句，其它事务就不能在 t.c 中插入 15。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">c</span> <span style="color:#66d9ef">FROM</span> t <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">c</span> <span style="color:#66d9ef">BETWEEN</span> <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">and</span> <span style="color:#ae81ff">20</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">UPDATE</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">c</span> <span style="color:#66d9ef">FROM</span> t <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">c</span> <span style="color:#66d9ef">BETWEEN</span> <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">and</span> <span style="color:#ae81ff">20</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">UPDATE</span>;
 </code></pre></div><h3 id="next-key-locks">Next-Key Locks</h3>
 <p>它是 Record Locks 和 Gap Locks 的结合，不仅锁定一个记录上的索引，也锁定索引之间的间隙。它锁定一个前开后闭区间，例如一个索引包含以下值：10, 11, 13, and 20，那么就需要锁定以下区间：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">(<span style="color:#f92672">-</span><span style="color:#960050;background-color:#1e0010">∞</span>, <span style="color:#ae81ff">10</span>]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">(<span style="color:#f92672">-</span><span style="color:#960050;background-color:#1e0010">∞</span>, <span style="color:#ae81ff">10</span>]
 (<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>]
 (<span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">13</span>]
 (<span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">20</span>]

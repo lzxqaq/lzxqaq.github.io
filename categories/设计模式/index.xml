@@ -31,7 +31,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/ocp1.jpg" alt="img"></p>
 <p>图1 初始设计方案结构图</p>
 <p>在ChartDisplay类的display()方法中存在如下代码片段：</p>
-<pre tabindex="0"><code>......
+<pre><code>......
 if (type.equals(&quot;pie&quot;)) {
 PieChart chart = new PieChart();
 chart.display();
@@ -133,7 +133,7 @@ chart.display();
 <p>Sunny软件公司欲基于Java语言开发一套图表库，该图表库可以为应用系统提供各种不同外观的图表，例如柱状图、饼状图、折线图等。Sunny软件公司图表库设计人员希望为应用系统开发人员提供一套灵活易用的图表库，而且可以较为方便地对图表库进行扩展，以便能够在将来增加一些新类型的图表。</p>
 </blockquote>
 <p>Sunny软件公司图表库设计人员提出了一个初始设计方案，将所有图表的实现代码封装在一个Chart类中，其框架代码如下所示：</p>
-<pre tabindex="0"><code>class Chart {
+<pre><code>class Chart {
 private String type; //图表类型
 
 public Chart(Object[][] data, String type) {
@@ -190,7 +190,7 @@ else if (this.type.equalsIgnoreCase(&quot;line&quot;)) {
 </ul>
 <p>在简单工厂模式中，客户端通过工厂类来创建一个产品类的实例，而无须直接使用new关键字来创建对象，它是工厂模式家族中最简单的一员。</p>
 <p>在使用简单工厂模式时，首先需要对产品类进行重构，不能设计一个包罗万象的产品类，而需根据实际情况设计一个产品层次结构，将所有产品类公共的代码移至抽象产品类，并在抽象产品类中声明一些抽象方法，以供不同的具体产品类来实现，典型的抽象产品类代码如下所示：</p>
-<pre tabindex="0"><code>abstract class Product {
+<pre><code>abstract class Product {
 //所有产品类的公共业务方法
 public void methodSame() {
 //公共方法的实现
@@ -201,14 +201,14 @@ public abstract void methodDiff();
 }
 
 </code></pre><p>在具体产品类中实现了抽象产品类中声明的抽象业务方法，不同的具体产品类可以提供不同的实现，典型的具体产品类代码如下所示：</p>
-<pre tabindex="0"><code>class ConcreteProduct extends Product {
+<pre><code>class ConcreteProduct extends Product {
 //实现业务方法
 public void methodDiff() {
 //业务方法的实现
 }
 }
 </code></pre><p>简单工厂模式的核心是工厂类，在没有工厂类之前，客户端一般会使用new关键字来直接创建产品对象，而在引入工厂类之后，客户端可以通过工厂类来创建产品，在简单工厂模式中，工厂类提供了一个静态工厂方法供客户端使用，根据所传入的参数不同可以创建不同的产品对象，典型的工厂类代码如下所示：</p>
-<pre tabindex="0"><code>class Factory {
+<pre><code>class Factory {
 //静态工厂方法
 public static Product getProduct(String arg) {
 Product product = null;
@@ -224,7 +224,7 @@ return product;
 }
 }
 </code></pre><p>在客户端代码中，我们通过调用工厂类的工厂方法即可得到产品对象，典型代码如下所示：</p>
-<pre tabindex="0"><code>class Client {
+<pre><code>class Client {
 public static void main(String args[]) {
 Product product; 
 product = Factory.getProduct(&quot;A&quot;); //通过工厂类创建产品对象
@@ -236,7 +236,7 @@ product.methodDiff();
 <p>为了将Chart类的职责分离，同时将Chart对象的创建和使用分离，Sunny软件公司开发人员决定使用简单工厂模式对图表库进行重构，重构后的结构如图2所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory2.jpeg" alt="img"></p>
 <p>在上图中，Chart接口充当抽象产品类，其子类HistogramChart、PieChart和LineChart充当具体产品类，ChartFactory充当工厂类。完整代码如下所示：</p>
-<pre tabindex="0"><code>//抽象图表接口：抽象产品类
+<pre><code>//抽象图表接口：抽象产品类
 interface Chart {
 public void display();
 }
@@ -295,7 +295,7 @@ return chart;
 }
 }
 </code></pre><p>编写如下客户端测试代码：</p>
-<pre tabindex="0"><code>class Client {
+<pre><code>class Client {
 public static void main(String args[]) {
 Chart chart;
 chart = ChartFactory.getChart(&quot;histogram&quot;); //通过静态工厂方法创建产品
@@ -303,17 +303,17 @@ chart.display();
 }
 }
 </code></pre><p>编译并运行程序，输出结果如下：</p>
-<pre tabindex="0"><code>创建柱状图！
+<pre><code>创建柱状图！
 
 初始化设置柱状图！
 
 显示柱状图！
 </code></pre><p>在客户端测试类中，我们使用工厂类的静态工厂方法创建产品对象，如果需要更换产品，只需修改静态工厂方法中的参数即可，例如将柱状图改为饼状图，只需将代码：</p>
-<pre tabindex="0"><code>chart = ChartFactory.getChart(&quot;histogram&quot;);
+<pre><code>chart = ChartFactory.getChart(&quot;histogram&quot;);
 </code></pre><p>改为：</p>
-<pre tabindex="0"><code>chart = ChartFactory.getChart(&quot;pie&quot;);
+<pre><code>chart = ChartFactory.getChart(&quot;pie&quot;);
 </code></pre><p>编译并运行程序，输出结果如下：</p>
-<pre tabindex="0"><code>创建饼状图！
+<pre><code>创建饼状图！
 
 初始化设置饼状图！
 
@@ -321,12 +321,12 @@ chart.display();
 </code></pre><h3 id="四方案的改进">四、方案的改进</h3>
 <p>Sunny软件公司开发人员发现在创建具体Chart对象时，每更换一个Chart对象都需要修改客户端代码中静态工厂方法的参数，客户端代码将要重新编译，这对于客户端而言，违反了“开闭原则”，有没有一种方法能够在不修改客户端代码的前提下更换具体产品对象呢？答案是肯定的，下面将介绍一种常用的实现方式。</p>
 <p>我们可以将静态工厂方法的参数存储在XML或properties格式的配置文件中，如下config.xml所示：</p>
-<pre tabindex="0"><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;config&gt;
 &lt;chartType&gt;histogram&lt;/chartType&gt;
 &lt;/config&gt;
 </code></pre><p>再通过一个工具类XMLUtil来读取配置文件中的字符串参数，XMLUtil类的代码如下所示：</p>
-<pre tabindex="0"><code>import javax.xml.parsers.*;
+<pre><code>import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import java.io.*;
@@ -354,7 +354,7 @@ catch(Exception e) {
 }
 }
 </code></pre><p>在引入了配置文件和工具类XMLUtil之后，客户端代码修改如下：</p>
-<pre tabindex="0"><code>class Client {
+<pre><code>class Client {
 public static void main(String args[]) {
 Chart chart;
 String type = XMLUtil.getChartType(); //读取配置文件中的参数
