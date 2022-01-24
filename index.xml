@@ -74,6 +74,24 @@
     
     
     <item>
+      <title>事务</title>
+      <link>/todo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/todo/</guid>
+      <description>
+        <![CDATA[
+        <h2 id="待办事项">待办事项</h2>
+<p>1.<a href="https://github.com/lzxqaq/blogup.git">blogup</a> 开发 Qt 博客编辑发布助手。</p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
       <title>关于</title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
