@@ -131,7 +131,7 @@ Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序�
 公共析构函数</p>
 </blockquote>
 <p>下列 Message类定义包括以下成员：</p>
-<pre><code>class Message
+<pre tabindex="0"><code>class Message
 {
 public:
     Message() = default;
@@ -152,13 +152,13 @@ private:
 <h3 id="使用-qmetatype-声明类型">使用 QMetaType 声明类型</h3>
 <p>这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。</p>
 <p>Qt 中负责自定义类型的类是 QMetaType 。 为了让这个类知道类型，我们在定义它的头文件中的类上 添加 Q_DECLARE_METATYPE() 宏：</p>
-<pre><code>Q_DECLARE_METATYPE(Message);
+<pre tabindex="0"><code>Q_DECLARE_METATYPE(Message);
 </code></pre><p>这使得现在有可能 Message要存储在 QVariant 对象中并稍后检索的值。 有关 请参阅 自定义类型示例 演示此内容的代码， 。</p>
 <p>所述 Q_DECLARE_METATYPE （）宏还使得可以对这些值用作到信号，但是参数 只在直接信号槽连接 。 为了使自定义类型通常可用于信号和插槽机制，我们需要执行一些额外的工作。</p>
 <h3 id="创建和销毁自定义对象">创建和销毁自定义对象</h3>
 <p>尽管上一节中的声明使该类型可用于直接信号槽连接，但它不能用于排队的信号槽连接，例如在不同线程中的对象之间建立的连接。 这是因为元对象系统不知道如何在运行时处理自定义类型对象的创建和销毁。</p>
 <p>要在运行时创建对象，请调用 qRegisterMetaType () 模板函数将其注册到元对象系统。 这也使得该类型可用于排队的信号槽通信，只要您在使用该类型的第一个连接之前调用它。</p>
-<pre><code>int main(int argc, char *argv[])
+<pre tabindex="0"><code>int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     ...
@@ -167,7 +167,7 @@ private:
     return app.exec();
 }
 </code></pre><p>这种类型后来用于信号槽连接中 window.cpp文件：</p>
-<pre><code>Window::Window(QWidget *parent)
+<pre tabindex="0"><code>Window::Window(QWidget *parent)
     : QWidget(parent), thread(new RenderThread(this))
 {
     ...
@@ -177,16 +177,16 @@ private:
     setWindowTitle(tr(&quot;Queued Custom Type&quot;));
 }
 </code></pre><p>如果一个类型在没有注册的情况下在排队连接中使用，控制台会打印警告； 例如：</p>
-<pre><code>QObject::connect: Cannot queue arguments of type 'Block'
+<pre tabindex="0"><code>QObject::connect: Cannot queue arguments of type 'Block'
 (Make sure 'Block' is registered using qRegisterMetaType().)
 </code></pre><h3 id="使类型可打印">使类型可打印</h3>
 <p>为调试目的使自定义类型可打印通常非常有用，如下面的代码所示：</p>
-<pre><code>    Message message(body, headers);
+<pre tabindex="0"><code>    Message message(body, headers);
     qDebug() &lt;&lt; &quot;Original:&quot; &lt;&lt; message;
 </code></pre><p>这是通过为该类型创建一个流操作符来实现的，该操作符通常在该类型的头文件中定义：</p>
-<pre><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
+<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
 </code></pre><p>实现：</p>
-<pre><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
+<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
 {
     QList&lt;QStringView&gt; pieces = message.body().split(u&quot;\r\n&quot;, Qt::SkipEmptyParts);
     if (pieces.isEmpty())
@@ -257,7 +257,7 @@ private:
 <p>警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。</p>
 </blockquote>
 <h3 id="示例">示例</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">QPixmap p1, p2;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">QPixmap p1, p2;
 p1.load(<span style="color:#e6db74">&#34;image.bmp&#34;</span>);
 p2 <span style="color:#f92672">=</span> p1;                        <span style="color:#75715e">// p1 and p2 share data
 </span><span style="color:#75715e"></span>
@@ -436,7 +436,7 @@ paint.end();
 <p>对于你自己的类，你可以使用 <code>QTest::toString ()</code> 来格式化输出到测试日志中的值。具体可参考 <a href="https://doc.qt.io/qt-6/qtest.html#QCOMPARE">Qt 文档</a>;</p>
 <h3 id="五可执行文件">五、可执行文件</h3>
 <p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
-<pre><code>QTEST_MAIN(YourClassName)
+<pre tabindex="0"><code>QTEST_MAIN(YourClassName)
 #include &quot;yourfilename.moc&quot;
 </code></pre>
         
@@ -518,7 +518,7 @@ paint.end();
 <p>使用QSKIP () 来处理在运行时发现整个测试函数在当前测试环境中不适用的情况。当只跳过测试函数的一部分时，可以使用条件语句，可选择qDebug()调用以报告跳过不适用部分的原因。</p>
 <p>数据驱动测试的测试功能或数据行可以限于特定平台，或使用#if. 但是，在使用跳过测试功能时要注意moc限制#if。该moc预处理器不具备访问所有builtin被经常用于编译器的特征检测编译器的宏。因此，moc预处理器条件的结果可能与其余代码看到的结果不同。这可能会导致moc为实际编译器跳过的测试槽生成元数据，或省略实际编译到类中的测试槽的元数据。在第一种情况下，测试将尝试运行未实现的插槽。在第二种情况下，即使应该尝试运行测试槽，测试也不会尝试。</p>
 <p>如果整个测试程序不适用于特定平台或除非启用了特定功能，最好的方法是使用父目录的.pro文件来避免构建测试。例如，如果tests/auto/gui/someclass测试对 macOS 无效，请将以下行添加到tests/auto/gui.pro：</p>
-<pre><code>mac*: SUBDIRS -= someclass
+<pre tabindex="0"><code>mac*: SUBDIRS -= someclass
 </code></pre><h3 id="避免q_assert">避免Q_ASSERT</h3>
 <p>该Q_ASSERT宏将导致程序中止时断言的情况false，但前提是软件始建于调试模式。在 release 和 debug-and-release 版本中，Q_ASSERT什么都不做。</p>
 <p>Q_ASSERT 应该避免，因为它使测试的行为取决于是否正在测试调试版本，并且因为它会导致测试立即中止，跳过所有剩余的测试函数并返回不完整或格式错误的测试结果。</p>
@@ -598,17 +598,17 @@ paint.end();
 <p>某些测试使用测试机器的显示器、鼠标和键盘，因此如果机器同时用于其他用途或并行运行多个测试，则可能会失败。</p>
 <p>CI 系统使用专用测试机来避免此问题，但如果您没有专用测试机，则可以通过在第二台显示器上运行测试来解决此问题。</p>
 <p>在 Unix 上，还可以在嵌套或虚拟 X 服务器上运行测试，例如 Xephyr。例如，要在 Xephyr 上运行整套测试，请执行以下命令：</p>
-<pre><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
+<pre tabindex="0"><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
 sleep 5
 DISPLAY=:1 icewm &gt;/dev/null 2&gt;&amp;1 &amp;
 cd tests/auto
 make
 DISPLAY=:1 make -k -j1 check
 </code></pre><p>NVIDIA 二进制驱动程序的用户应该注意 Xephyr 可能无法提供 GLX 扩展。强制 Mesa libGL 可能会有所帮助：</p>
-<pre><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
+<pre tabindex="0"><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
 </code></pre><p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
 <p>或者，使用屏幕外插件：</p>
-<pre><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
+<pre tabindex="0"><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
 </code></pre><h3 id="窗口管理器">窗口管理器</h3>
 <p>在 Unix 上，至少有两个自动测试（tst_examples和tst_gestures）需要运行窗口管理器。因此，如果在嵌套的 X-server 下运行这些测试，您还必须在该 X-server 中运行窗口管理器。</p>
 <p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>

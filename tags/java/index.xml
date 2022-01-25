@@ -54,7 +54,7 @@ B）领域模型命名规约<br>
 反例：String key = &ldquo;ID#taobao_&rdquo; + tradeId;</p>
 <p>14.【强制】代码格式，具体见下面正例。
 正例：</p>
-<pre><code>    public static void main(String[] args) {
+<pre tabindex="0"><code>    public static void main(String[] args) {
         // 缩进4个空格，注释内空1格
         String say = &quot;hello&quot;;
         // 运算符左右必须有一个空格

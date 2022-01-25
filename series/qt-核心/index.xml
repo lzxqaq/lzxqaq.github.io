@@ -131,7 +131,7 @@ Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序�
 公共析构函数</p>
 </blockquote>
 <p>下列 Message类定义包括以下成员：</p>
-<pre><code>class Message
+<pre tabindex="0"><code>class Message
 {
 public:
     Message() = default;
@@ -152,13 +152,13 @@ private:
 <h3 id="使用-qmetatype-声明类型">使用 QMetaType 声明类型</h3>
 <p>这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。</p>
 <p>Qt 中负责自定义类型的类是 QMetaType 。 为了让这个类知道类型，我们在定义它的头文件中的类上 添加 Q_DECLARE_METATYPE() 宏：</p>
-<pre><code>Q_DECLARE_METATYPE(Message);
+<pre tabindex="0"><code>Q_DECLARE_METATYPE(Message);
 </code></pre><p>这使得现在有可能 Message要存储在 QVariant 对象中并稍后检索的值。 有关 请参阅 自定义类型示例 演示此内容的代码， 。</p>
 <p>所述 Q_DECLARE_METATYPE （）宏还使得可以对这些值用作到信号，但是参数 只在直接信号槽连接 。 为了使自定义类型通常可用于信号和插槽机制，我们需要执行一些额外的工作。</p>
 <h3 id="创建和销毁自定义对象">创建和销毁自定义对象</h3>
 <p>尽管上一节中的声明使该类型可用于直接信号槽连接，但它不能用于排队的信号槽连接，例如在不同线程中的对象之间建立的连接。 这是因为元对象系统不知道如何在运行时处理自定义类型对象的创建和销毁。</p>
 <p>要在运行时创建对象，请调用 qRegisterMetaType () 模板函数将其注册到元对象系统。 这也使得该类型可用于排队的信号槽通信，只要您在使用该类型的第一个连接之前调用它。</p>
-<pre><code>int main(int argc, char *argv[])
+<pre tabindex="0"><code>int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     ...
@@ -167,7 +167,7 @@ private:
     return app.exec();
 }
 </code></pre><p>这种类型后来用于信号槽连接中 window.cpp文件：</p>
-<pre><code>Window::Window(QWidget *parent)
+<pre tabindex="0"><code>Window::Window(QWidget *parent)
     : QWidget(parent), thread(new RenderThread(this))
 {
     ...
@@ -177,16 +177,16 @@ private:
     setWindowTitle(tr(&quot;Queued Custom Type&quot;));
 }
 </code></pre><p>如果一个类型在没有注册的情况下在排队连接中使用，控制台会打印警告； 例如：</p>
-<pre><code>QObject::connect: Cannot queue arguments of type 'Block'
+<pre tabindex="0"><code>QObject::connect: Cannot queue arguments of type 'Block'
 (Make sure 'Block' is registered using qRegisterMetaType().)
 </code></pre><h3 id="使类型可打印">使类型可打印</h3>
 <p>为调试目的使自定义类型可打印通常非常有用，如下面的代码所示：</p>
-<pre><code>    Message message(body, headers);
+<pre tabindex="0"><code>    Message message(body, headers);
     qDebug() &lt;&lt; &quot;Original:&quot; &lt;&lt; message;
 </code></pre><p>这是通过为该类型创建一个流操作符来实现的，该操作符通常在该类型的头文件中定义：</p>
-<pre><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
+<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
 </code></pre><p>实现：</p>
-<pre><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
+<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
 {
     QList&lt;QStringView&gt; pieces = message.body().split(u&quot;\r\n&quot;, Qt::SkipEmptyParts);
     if (pieces.isEmpty())
@@ -231,7 +231,7 @@ private:
 <p>警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。</p>
 </blockquote>
 <h3 id="示例">示例</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">QPixmap p1, p2;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">QPixmap p1, p2;
 p1.load(<span style="color:#e6db74">&#34;image.bmp&#34;</span>);
 p2 <span style="color:#f92672">=</span> p1;                        <span style="color:#75715e">// p1 and p2 share data
 </span><span style="color:#75715e"></span>

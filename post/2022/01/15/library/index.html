@@ -76,7 +76,7 @@
   
   <li><a href="/note/">抄录</a></li>
   
-  <li><a href="/todo/">事项</a></li>
+  <li><a href="/todo/">事务</a></li>
   
   </ul>
 </nav>
@@ -309,14 +309,14 @@
 <p>使用 CLion 编写共享库</p>
 <p>创建一个名为 MySharedLib 的共享库</p>
 <p>CMakeLists.txt</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake">cmake_minimum_required(<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">3.10</span>)<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake">cmake_minimum_required(<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">3.10</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>project(<span style="color:#e6db74">MySharedLib</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>set(<span style="color:#e6db74">CMAKE_CXX_STANDARD</span> <span style="color:#e6db74">11</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>add_library(<span style="color:#e6db74">MySharedLib</span> <span style="color:#e6db74">SHARED</span> <span style="color:#e6db74">library.cpp</span> <span style="color:#e6db74">library.h</span>)<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>library.h</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#ifndef MYSHAREDLIB_LIBRARY_H
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#ifndef MYSHAREDLIB_LIBRARY_H
 </span><span style="color:#75715e">#define MYSHAREDLIB_LIBRARY_H
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// 打印 Hello World!
@@ -336,7 +336,7 @@ T sum(T first, Types ... rest)
 
 <span style="color:#75715e">#endif
 </span></code></pre></div><p>library.cpp</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;library.h&#34;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">hello</span>() {
@@ -346,7 +346,7 @@ T sum(T first, Types ... rest)
 <p>使用 CLion 调用共享库</p>
 <p>创建一个名为 TestSharedLib 的可执行项目</p>
 <p>CMakeLists.txt</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake">cmake_minimum_required(<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">3.10</span>)<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake">cmake_minimum_required(<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">3.10</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>project(<span style="color:#e6db74">TestSharedLib</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># C++11 编译
@@ -366,7 +366,7 @@ T sum(T first, Types ... rest)
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 链接 MySharedLib 库
 </span><span style="color:#75715e"></span>target_link_libraries(<span style="color:#e6db74">TestSharedLib</span> <span style="color:#e6db74">MySharedLib</span>)<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>main.cpp</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;library.h&#34;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>cout;
 <span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>endl;
@@ -380,7 +380,7 @@ T sum(T first, Types ... rest)
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 </code></pre></div><p>执行结果</p>
-<pre><code>Hello, World!
+<pre tabindex="0"><code>Hello, World!
 1 + 2 = 3
 1 + 2 + 3 = 6
 </code></pre><h3 id="windows-应用程序入口函数">Windows 应用程序入口函数</h3>
@@ -389,7 +389,7 @@ T sum(T first, Types ... rest)
 <li>CUI（Console User Interface）应用，链接器选项：<code>/SUBSYSTEM:CONSOLE</code></li>
 </ul>
 <p>_tWinMain 与 _tmain 函数声明</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Int WINAPI <span style="color:#a6e22e">_tWinMain</span>(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Int WINAPI <span style="color:#a6e22e">_tWinMain</span>(
     HINSTANCE hInstanceExe,
     HINSTANCE,
     PTSTR pszCmdLine,
@@ -469,7 +469,7 @@ T sum(T first, Types ... rest)
 </ol>
 <h4 id="dll-入口函数">DLL 入口函数</h4>
 <p>DllMain 函数</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">BOOL WINAPI <span style="color:#a6e22e">DllMain</span>(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">BOOL WINAPI <span style="color:#a6e22e">DllMain</span>(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 {
     <span style="color:#66d9ef">switch</span>(fdwReason)
     {
@@ -494,7 +494,7 @@ T sum(T first, Types ... rest)
 </span><span style="color:#75715e"></span>}
 </code></pre></div><h4 id="载入卸载库">载入卸载库</h4>
 <p>LoadLibrary、LoadLibraryExA、LoadPackagedLibrary、FreeLibrary、FreeLibraryAndExitThread 函数声明</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 载入库
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 载入库
 </span><span style="color:#75715e"></span>HMODULE WINAPI <span style="color:#a6e22e">LoadLibrary</span>(
   _In_ LPCTSTR lpFileName
 );
@@ -520,13 +520,13 @@ HMODULE <span style="color:#a6e22e">LoadLibraryExA</span>(
 );
 </code></pre></div><h4 id="显示地链接到导出符号">显示地链接到导出符号</h4>
 <p>GetProcAddress 函数声明</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">FARPROC <span style="color:#a6e22e">GetProcAddress</span>(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">FARPROC <span style="color:#a6e22e">GetProcAddress</span>(
   HMODULE hInstDll,
   PCSTR pszSymbolName  <span style="color:#75715e">// 只能接受 ANSI 字符串，不能是 Unicode
 </span><span style="color:#75715e"></span>);
 </code></pre></div><h4 id="dumpbinexe-查看-dll-信息">DumpBin.exe 查看 DLL 信息</h4>
 <p>在 <code>VS 的开发人员命令提示符</code> 使用 <code>DumpBin.exe</code> 可查看 DLL 库的导出段（导出的变量、函数、类名的符号）、相对虚拟地址（RVA，relative virtual address）。如：</p>
-<pre><code>DUMPBIN -exports D:\mydll.dll
+<pre tabindex="0"><code>DUMPBIN -exports D:\mydll.dll
 </code></pre><h4 id="loadlibrary-与-freelibrary-流程图">LoadLibrary 与 FreeLibrary 流程图</h4>
 <p>LoadLibrary 与 FreeLibrary 流程图</p>
 <h5 id="loadlibrary">LoadLibrary</h5>
@@ -536,7 +536,7 @@ HMODULE <span style="color:#a6e22e">LoadLibraryExA</span>(
 <h4 id="dll-库的编写导出一个-dll-模块">DLL 库的编写（导出一个 DLL 模块）</h4>
 <p>DLL 库的编写（导出一个 DLL 模块）
 DLL 头文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// MyLib.h
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// MyLib.h
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">#ifdef MYLIBAPI
 </span><span style="color:#75715e"></span>
@@ -558,7 +558,7 @@ DLL 头文件</p>
 <span style="color:#75715e">// 定义导出函数原型
 </span><span style="color:#75715e"></span>MYLIBAPI <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">Add</span>(<span style="color:#66d9ef">int</span> nLeft, <span style="color:#66d9ef">int</span> nRight);
 </code></pre></div><p>DLL 源文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// MyLibFile1.cpp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// MyLibFile1.cpp
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// 包含标准Windows和C运行时头文件
 </span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;windows.h&gt;</span><span style="color:#75715e">
@@ -579,7 +579,7 @@ DLL 头文件</p>
 }
 </code></pre></div><h4 id="dll-库的使用运行时动态链接-dll">DLL 库的使用（运行时动态链接 DLL）</h4>
 <p>DLL 库的使用（运行时动态链接 DLL）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// A simple program that uses LoadLibrary and 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// A simple program that uses LoadLibrary and 
 </span><span style="color:#75715e">// GetProcAddress to access myPuts from Myputs.dll. 
 </span><span style="color:#75715e"></span> 
 <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;windows.h&gt; </span><span style="color:#75715e">

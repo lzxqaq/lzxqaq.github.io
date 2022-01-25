@@ -27,7 +27,7 @@
 <p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
 <p>3.安装 Hugo。（官方教程可看<a href="https://www.gohugo.org/doc/tutorials/installing-on-windows/" target="_blank">这里</a>)</p>
 <p>（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。</p>
-<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
 <p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
 <p>（4）配置环境变量。方法1:在 win10 搜索 cmd，右键<strong>以管理员身份打开</strong>命令提示符，将 <code>setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m </code>复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
 <p>（5）验证。重新打开命令提示符（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到 hugo 的帮助文档，就验证成功，否则检查上述步骤是否出错。</p>
@@ -38,7 +38,7 @@
 <p>2.将网站展示文件存放到 Github 远程仓库。</p>
 <p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置中检查 Github Pages。</p>
 <p>（2）打开命令提示符，进入 demosite\public 目录，分别执行</p>
-<pre><code>git init 
+<pre tabindex="0"><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
@@ -73,7 +73,7 @@ git push --set-upstream origin master
 <p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
 <p>3.安装 Hugo。（官方教程可看<a href="https://www.gohugo.org/doc/tutorials/installing-on-windows/" target="_blank">这里</a>)</p>
 <p>（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。</p>
-<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_*_Windows-64bit.zip。解压，如果是一个 hugo_*_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
 <p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
 <p>（4）配置环境变量。方法1:在 win10 搜索 cmd，右键<strong>以管理员身份打开</strong>命令提示符，将 <code>setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m </code>复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
 <p>（5）验证。重新打开命令提示符（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到 hugo 的帮助文档，就验证成功，否则检查上述步骤是否出错。</p>
@@ -86,7 +86,7 @@ git push --set-upstream origin master
 <p>2.将网站展示文件存放到 Github 远程仓库。</p>
 <p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置 setting 中检查 Github Pages。</p>
 <p>（2）打开命令提示符，进入 blog\public 目录，分别执行</p>
-<pre><code>git init 
+<pre tabindex="0"><code>git init 
 git add .
 git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git

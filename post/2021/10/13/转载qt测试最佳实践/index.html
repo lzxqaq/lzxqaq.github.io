@@ -67,7 +67,7 @@
   
   <li><a href="/note/">抄录</a></li>
   
-  <li><a href="/todo/">事项</a></li>
+  <li><a href="/todo/">事务</a></li>
   
   </ul>
 </nav>
@@ -156,7 +156,7 @@
 <p>使用QSKIP () 来处理在运行时发现整个测试函数在当前测试环境中不适用的情况。当只跳过测试函数的一部分时，可以使用条件语句，可选择qDebug()调用以报告跳过不适用部分的原因。</p>
 <p>数据驱动测试的测试功能或数据行可以限于特定平台，或使用#if. 但是，在使用跳过测试功能时要注意moc限制#if。该moc预处理器不具备访问所有builtin被经常用于编译器的特征检测编译器的宏。因此，moc预处理器条件的结果可能与其余代码看到的结果不同。这可能会导致moc为实际编译器跳过的测试槽生成元数据，或省略实际编译到类中的测试槽的元数据。在第一种情况下，测试将尝试运行未实现的插槽。在第二种情况下，即使应该尝试运行测试槽，测试也不会尝试。</p>
 <p>如果整个测试程序不适用于特定平台或除非启用了特定功能，最好的方法是使用父目录的.pro文件来避免构建测试。例如，如果tests/auto/gui/someclass测试对 macOS 无效，请将以下行添加到tests/auto/gui.pro：</p>
-<pre><code>mac*: SUBDIRS -= someclass
+<pre tabindex="0"><code>mac*: SUBDIRS -= someclass
 </code></pre><h3 id="避免q_assert">避免Q_ASSERT</h3>
 <p>该Q_ASSERT宏将导致程序中止时断言的情况false，但前提是软件始建于调试模式。在 release 和 debug-and-release 版本中，Q_ASSERT什么都不做。</p>
 <p>Q_ASSERT 应该避免，因为它使测试的行为取决于是否正在测试调试版本，并且因为它会导致测试立即中止，跳过所有剩余的测试函数并返回不完整或格式错误的测试结果。</p>
@@ -236,17 +236,17 @@
 <p>某些测试使用测试机器的显示器、鼠标和键盘，因此如果机器同时用于其他用途或并行运行多个测试，则可能会失败。</p>
 <p>CI 系统使用专用测试机来避免此问题，但如果您没有专用测试机，则可以通过在第二台显示器上运行测试来解决此问题。</p>
 <p>在 Unix 上，还可以在嵌套或虚拟 X 服务器上运行测试，例如 Xephyr。例如，要在 Xephyr 上运行整套测试，请执行以下命令：</p>
-<pre><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
+<pre tabindex="0"><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
 sleep 5
 DISPLAY=:1 icewm &gt;/dev/null 2&gt;&amp;1 &amp;
 cd tests/auto
 make
 DISPLAY=:1 make -k -j1 check
 </code></pre><p>NVIDIA 二进制驱动程序的用户应该注意 Xephyr 可能无法提供 GLX 扩展。强制 Mesa libGL 可能会有所帮助：</p>
-<pre><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
+<pre tabindex="0"><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
 </code></pre><p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
 <p>或者，使用屏幕外插件：</p>
-<pre><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
+<pre tabindex="0"><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
 </code></pre><h3 id="窗口管理器">窗口管理器</h3>
 <p>在 Unix 上，至少有两个自动测试（tst_examples和tst_gestures）需要运行窗口管理器。因此，如果在嵌套的 X-server 下运行这些测试，您还必须在该 X-server 中运行窗口管理器。</p>
 <p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>

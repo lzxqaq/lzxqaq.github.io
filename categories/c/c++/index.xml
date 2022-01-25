@@ -251,14 +251,14 @@
 <p>使用 CLion 编写共享库</p>
 <p>创建一个名为 MySharedLib 的共享库</p>
 <p>CMakeLists.txt</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake">cmake_minimum_required(<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">3.10</span>)<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake">cmake_minimum_required(<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">3.10</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>project(<span style="color:#e6db74">MySharedLib</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>set(<span style="color:#e6db74">CMAKE_CXX_STANDARD</span> <span style="color:#e6db74">11</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>add_library(<span style="color:#e6db74">MySharedLib</span> <span style="color:#e6db74">SHARED</span> <span style="color:#e6db74">library.cpp</span> <span style="color:#e6db74">library.h</span>)<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>library.h</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#ifndef MYSHAREDLIB_LIBRARY_H
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#ifndef MYSHAREDLIB_LIBRARY_H
 </span><span style="color:#75715e">#define MYSHAREDLIB_LIBRARY_H
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// 打印 Hello World!
@@ -278,7 +278,7 @@ T sum(T first, Types ... rest)
 
 <span style="color:#75715e">#endif
 </span></code></pre></div><p>library.cpp</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;library.h&#34;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">hello</span>() {
@@ -288,7 +288,7 @@ T sum(T first, Types ... rest)
 <p>使用 CLion 调用共享库</p>
 <p>创建一个名为 TestSharedLib 的可执行项目</p>
 <p>CMakeLists.txt</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake">cmake_minimum_required(<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">3.10</span>)<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake">cmake_minimum_required(<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">3.10</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>project(<span style="color:#e6db74">TestSharedLib</span>)<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># C++11 编译
@@ -308,7 +308,7 @@ T sum(T first, Types ... rest)
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 链接 MySharedLib 库
 </span><span style="color:#75715e"></span>target_link_libraries(<span style="color:#e6db74">TestSharedLib</span> <span style="color:#e6db74">MySharedLib</span>)<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>main.cpp</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;library.h&#34;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>cout;
 <span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>endl;
@@ -322,7 +322,7 @@ T sum(T first, Types ... rest)
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 </code></pre></div><p>执行结果</p>
-<pre><code>Hello, World!
+<pre tabindex="0"><code>Hello, World!
 1 + 2 = 3
 1 + 2 + 3 = 6
 </code></pre><h3 id="windows-应用程序入口函数">Windows 应用程序入口函数</h3>
@@ -331,7 +331,7 @@ T sum(T first, Types ... rest)
 <li>CUI（Console User Interface）应用，链接器选项：<code>/SUBSYSTEM:CONSOLE</code></li>
 </ul>
 <p>_tWinMain 与 _tmain 函数声明</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Int WINAPI <span style="color:#a6e22e">_tWinMain</span>(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Int WINAPI <span style="color:#a6e22e">_tWinMain</span>(
     HINSTANCE hInstanceExe,
     HINSTANCE,
     PTSTR pszCmdLine,
@@ -411,7 +411,7 @@ T sum(T first, Types ... rest)
 </ol>
 <h4 id="dll-入口函数">DLL 入口函数</h4>
 <p>DllMain 函数</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">BOOL WINAPI <span style="color:#a6e22e">DllMain</span>(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">BOOL WINAPI <span style="color:#a6e22e">DllMain</span>(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 {
     <span style="color:#66d9ef">switch</span>(fdwReason)
     {
@@ -436,7 +436,7 @@ T sum(T first, Types ... rest)
 </span><span style="color:#75715e"></span>}
 </code></pre></div><h4 id="载入卸载库">载入卸载库</h4>
 <p>LoadLibrary、LoadLibraryExA、LoadPackagedLibrary、FreeLibrary、FreeLibraryAndExitThread 函数声明</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 载入库
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 载入库
 </span><span style="color:#75715e"></span>HMODULE WINAPI <span style="color:#a6e22e">LoadLibrary</span>(
   _In_ LPCTSTR lpFileName
 );
@@ -462,13 +462,13 @@ HMODULE <span style="color:#a6e22e">LoadLibraryExA</span>(
 );
 </code></pre></div><h4 id="显示地链接到导出符号">显示地链接到导出符号</h4>
 <p>GetProcAddress 函数声明</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">FARPROC <span style="color:#a6e22e">GetProcAddress</span>(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">FARPROC <span style="color:#a6e22e">GetProcAddress</span>(
   HMODULE hInstDll,
   PCSTR pszSymbolName  <span style="color:#75715e">// 只能接受 ANSI 字符串，不能是 Unicode
 </span><span style="color:#75715e"></span>);
 </code></pre></div><h4 id="dumpbinexe-查看-dll-信息">DumpBin.exe 查看 DLL 信息</h4>
 <p>在 <code>VS 的开发人员命令提示符</code> 使用 <code>DumpBin.exe</code> 可查看 DLL 库的导出段（导出的变量、函数、类名的符号）、相对虚拟地址（RVA，relative virtual address）。如：</p>
-<pre><code>DUMPBIN -exports D:\mydll.dll
+<pre tabindex="0"><code>DUMPBIN -exports D:\mydll.dll
 </code></pre><h4 id="loadlibrary-与-freelibrary-流程图">LoadLibrary 与 FreeLibrary 流程图</h4>
 <p>LoadLibrary 与 FreeLibrary 流程图</p>
 <h5 id="loadlibrary">LoadLibrary</h5>
@@ -478,7 +478,7 @@ HMODULE <span style="color:#a6e22e">LoadLibraryExA</span>(
 <h4 id="dll-库的编写导出一个-dll-模块">DLL 库的编写（导出一个 DLL 模块）</h4>
 <p>DLL 库的编写（导出一个 DLL 模块）
 DLL 头文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// MyLib.h
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// MyLib.h
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">#ifdef MYLIBAPI
 </span><span style="color:#75715e"></span>
@@ -500,7 +500,7 @@ DLL 头文件</p>
 <span style="color:#75715e">// 定义导出函数原型
 </span><span style="color:#75715e"></span>MYLIBAPI <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">Add</span>(<span style="color:#66d9ef">int</span> nLeft, <span style="color:#66d9ef">int</span> nRight);
 </code></pre></div><p>DLL 源文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// MyLibFile1.cpp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// MyLibFile1.cpp
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// 包含标准Windows和C运行时头文件
 </span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;windows.h&gt;</span><span style="color:#75715e">
@@ -521,7 +521,7 @@ DLL 头文件</p>
 }
 </code></pre></div><h4 id="dll-库的使用运行时动态链接-dll">DLL 库的使用（运行时动态链接 DLL）</h4>
 <p>DLL 库的使用（运行时动态链接 DLL）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// A simple program that uses LoadLibrary and 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// A simple program that uses LoadLibrary and 
 </span><span style="color:#75715e">// GetProcAddress to access myPuts from Myputs.dll. 
 </span><span style="color:#75715e"></span> 
 <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;windows.h&gt; </span><span style="color:#75715e">
@@ -1310,7 +1310,7 @@ DLL 头文件</p>
 </blockquote>
 <p><img src="https://gitee.com/huihut/interview/raw/master/images/socket%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E8%AE%AF.jpg" alt="Socket 客户端服务器通讯"></p>
 <h4 id="socket-中的-readwrite-函数">Socket 中的 read()、write() 函数</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">ssize_t <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">ssize_t <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
 ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
 </code></pre></div><h5 id="read">read()</h5>
 <ul>
@@ -1654,7 +1654,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <h5 id="判断大端小端">判断大端小端</h5>
 <p>判断大端小端</p>
 <p>可以这样判断自己 CPU 字节序是大端还是小端：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
@@ -1947,7 +1947,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <h4 id="顺序栈sequence-stack">顺序栈（Sequence Stack）</h4>
 <p><a href="https://github.com/huihut/interview/blob/master/DataStructure/SqStack.cpp">SqStack.cpp</a></p>
 <p>顺序栈数据结构和图片</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
 	ElemType <span style="color:#f92672">*</span>elem;
 	<span style="color:#66d9ef">int</span> top;
 	<span style="color:#66d9ef">int</span> size;
@@ -1956,7 +1956,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 </code></pre></div><p><img src="https://gitee.com/huihut/interview/raw/master/images/SqStack.png" alt=""></p>
 <h4 id="队列sequence-queue">队列（Sequence Queue）</h4>
 <p>队列数据结构</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
 	ElemType <span style="color:#f92672">*</span> elem;
 	<span style="color:#66d9ef">int</span> front;
 	<span style="color:#66d9ef">int</span> rear;
@@ -1973,7 +1973,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <h4 id="顺序表sequence-list">顺序表（Sequence List）</h4>
 <p><a href="https://github.com/huihut/interview/blob/master/DataStructure/SqList.cpp">SqList.cpp</a></p>
 <p>顺序表数据结构和图片</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
 	ElemType <span style="color:#f92672">*</span>elem;
 	<span style="color:#66d9ef">int</span> length;
 	<span style="color:#66d9ef">int</span> size;
@@ -1984,7 +1984,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <p><a href="https://github.com/huihut/interview/blob/master/DataStructure/LinkList.cpp">LinkList.cpp</a></p>
 <p><a href="https://github.com/huihut/interview/blob/master/DataStructure/LinkList_with_head.cpp">LinkList_with_head.cpp</a></p>
 <p>链式数据结构</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">LNode</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">LNode</span> {
     ElemType data;
     <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">LNode</span> <span style="color:#f92672">*</span>next;
 } LNode, <span style="color:#f92672">*</span>LinkList; 
@@ -2026,7 +2026,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 </ul>
 <h4 id="线性探测的哈希表数据结构">线性探测的哈希表数据结构</h4>
 <p>线性探测的哈希表数据结构和图片</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">char</span> KeyType;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">char</span> KeyType;
 
 <span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
 	KeyType key;
@@ -2063,7 +2063,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <h4 id="广义表">广义表</h4>
 <h5 id="头尾链表存储表示">头尾链表存储表示</h5>
 <p>广义表的头尾链表存储表示和图片</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 广义表的头尾链表存储表示
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 广义表的头尾链表存储表示
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> {ATOM, LIST} ElemTag;
 <span style="color:#75715e">// ATOM==0：原子，LIST==1：子表
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">GLNode</span> {
@@ -2082,7 +2082,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 </code></pre></div><p><img src="https://gitee.com/huihut/interview/raw/master/images/GeneralizedList1.png" alt=""></p>
 <h5 id="扩展线性链表存储表示">扩展线性链表存储表示</h5>
 <p>扩展线性链表存储表示和图片</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 广义表的扩展线性链表存储表示
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 广义表的扩展线性链表存储表示
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> {ATOM, LIST} ElemTag;
 <span style="color:#75715e">// ATOM==0：原子，LIST==1：子表
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">GLNode1</span> {
@@ -2115,7 +2115,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 </ol>
 <h4 id="存储结构">存储结构</h4>
 <p>二叉树数据结构</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">BiTNode</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">BiTNode</span>
 {
     TElemType data;
     <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">BiTNode</span> <span style="color:#f92672">*</span>lchild, <span style="color:#f92672">*</span>rchild;
@@ -2579,7 +2579,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 </blockquote>
 <h4 id="使用">使用</h4>
 <p>const 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 类
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 类
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span>
 {
 <span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
@@ -2690,7 +2690,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 </ul>
 <h4 id="使用-1">使用</h4>
 <p>inline 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 声明1（加 inline，建议使用）
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 声明1（加 inline，建议使用）
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">functionName</span>(<span style="color:#66d9ef">int</span> first, <span style="color:#66d9ef">int</span> second,...);
 
 <span style="color:#75715e">// 声明2（不加 inline）
@@ -2740,7 +2740,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <li><code>inline virtual</code> 唯一可以内联的时候是：编译器知道所调用的对象是哪个类（如 <code>Base::who()</code>），这只有在编译器具有实际对象而不是对象的指针或引用时才会发生。</li>
 </ul>
 <p>虚函数内联使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;  </span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;  </span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Base</span>
 {
@@ -2778,7 +2778,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 } 
 </code></pre></div><h3 id="volatile">volatile</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">volatile</span> <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>; 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">volatile</span> <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>; 
 </code></pre></div><ul>
 <li>volatile 关键字是一种类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素（操作系统、硬件、其它线程等）更改。所以使用 volatile 告诉编译器不应对这样的对象进行优化。</li>
 <li>volatile 关键字声明的变量，每次访问时都必须从内存中取出值（没有被 volatile 修饰的变量，可能由于编译器的优化，从 CPU 寄存器中取值）</li>
@@ -2788,7 +2788,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <h3 id="assert">assert()</h3>
 <p>断言，是宏，而非函数。assert 宏的原型定义在 <code>&lt;assert.h&gt;</code>（C）、<code>&lt;cassert&gt;</code>（C++）中，其作用是如果它的条件返回错误，则终止程序执行。可以通过定义 <code>NDEBUG</code> 来关闭 assert，但是需要在源代码的开头，<code>include &lt;assert.h&gt;</code> 之前。</p>
 <p>assert() 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#define NDEBUG          </span><span style="color:#75715e">// 加上这行，则 assert 不可用
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#define NDEBUG          </span><span style="color:#75715e">// 加上这行，则 assert 不可用
 </span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;assert.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 assert( p <span style="color:#f92672">!=</span> NULL );    <span style="color:#75715e">// assert 不可用
@@ -2800,7 +2800,7 @@ assert( p <span style="color:#f92672">!=</span> NULL );    <span style="color:#7
 <h3 id="pragma-packn">#pragma pack(n)</h3>
 <p>设定结构体、联合以及类成员变量以 n 字节方式对齐</p>
 <p>#pragma pack(n) 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#pragma pack(push)  </span><span style="color:#75715e">// 保存对齐状态
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#pragma pack(push)  </span><span style="color:#75715e">// 保存对齐状态
 </span><span style="color:#75715e"></span><span style="color:#75715e">#pragma pack(4)     </span><span style="color:#75715e">// 设定为 4 字节对齐
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">test</span>
@@ -2812,7 +2812,7 @@ assert( p <span style="color:#f92672">!=</span> NULL );    <span style="color:#7
 
 <span style="color:#75715e">#pragma pack(pop)   </span><span style="color:#75715e">// 恢复对齐状态
 </span></code></pre></div><h3 id="位域">位域</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Bit mode: <span style="color:#ae81ff">2</span>;    <span style="color:#75715e">// mode 占 2 位
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Bit mode: <span style="color:#ae81ff">2</span>;    <span style="color:#75715e">// mode 占 2 位
 </span></code></pre></div><p>类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。</p>
 <ul>
 <li>位域在内存中的布局是与机器有关的</li>
@@ -2826,7 +2826,7 @@ assert( p <span style="color:#f92672">!=</span> NULL );    <span style="color:#7
 </ul>
 <p><code>extern &quot;C&quot;</code> 的作用是让 C++ 编译器将 <code>extern &quot;C&quot;</code> 声明的代码当作 C 语言代码处理，可以避免 C++ 因符号修饰导致代码不能和C语言库中的符号进行链接的问题。</p>
 <p>extern &ldquo;C&rdquo; 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#ifdef __cplusplus
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#ifdef __cplusplus
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;C&#34;</span> {
 <span style="color:#75715e">#endif
 </span><span style="color:#75715e"></span>
@@ -2837,12 +2837,12 @@ assert( p <span style="color:#f92672">!=</span> NULL );    <span style="color:#7
 <span style="color:#75715e">#endif
 </span></code></pre></div><h3 id="struct-和-typedef-struct">struct 和 typedef struct</h3>
 <h4 id="c-中">C 中</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// c
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Student {
     <span style="color:#66d9ef">int</span> age; 
 } S;
 </code></pre></div><p>等价于</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// c
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> Student { 
     <span style="color:#66d9ef">int</span> age; 
 };
@@ -2854,14 +2854,14 @@ assert( p <span style="color:#f92672">!=</span> NULL );    <span style="color:#7
 <p>由于编译器定位符号的规则（搜索规则）改变，导致不同于C语言。</p>
 <p>一、如果在类标识符空间定义了 <code>struct Student {...};</code>，使用 <code>Student me;</code> 时，编译器将搜索全局标识符表，<code>Student</code> 未找到，则在类标识符内搜索。</p>
 <p>即表现为可以使用 <code>Student</code> 也可以使用 <code>struct Student</code>，如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// cpp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// cpp
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Student</span> { 
     <span style="color:#66d9ef">int</span> age; 
 };
 
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>( Student me );       <span style="color:#75715e">// 正确，&#34;struct&#34; 关键字可省略
 </span></code></pre></div><p>二、若定义了与 <code>Student</code> 同名函数之后，则 <code>Student</code> 只代表函数，不代表结构体，如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Student</span> { 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Student</span> { 
     <span style="color:#66d9ef">int</span> age; 
 } S;
 
@@ -2898,7 +2898,7 @@ assert( p <span style="color:#f92672">!=</span> NULL );    <span style="color:#7
 <li>全局匿名联合必须是静态（static）的</li>
 </ul>
 <p>union 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">union</span> <span style="color:#a6e22e">UnionTest</span> {
     UnionTest() <span style="color:#f92672">:</span> i(<span style="color:#ae81ff">10</span>) {};
@@ -2945,7 +2945,7 @@ assert( p <span style="color:#f92672">!=</span> NULL );    <span style="color:#7
 <li>explicit 修饰转换函数时，可以防止隐式转换，但 <a href="https://zh.cppreference.com/w/cpp/language/implicit_conversion">按语境转换</a> 除外</li>
 </ul>
 <p>explicit 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">A</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">A</span>
 {
 	A(<span style="color:#66d9ef">int</span>) { }
 	<span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">bool</span>() <span style="color:#66d9ef">const</span> { <span style="color:#66d9ef">return</span> true; }
@@ -2998,32 +2998,32 @@ assert( p <span style="color:#f92672">!=</span> NULL );    <span style="color:#7
 <h3 id="using">using</h3>
 <h4 id="using-声明">using 声明</h4>
 <p>一条 <code>using 声明</code> 语句一次只引入命名空间的一个成员。它使得我们可以清楚知道程序中所引用的到底是哪个名字。如：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">using</span> namespace_name<span style="color:#f92672">::</span>name;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">using</span> namespace_name<span style="color:#f92672">::</span>name;
 </code></pre></div><h4 id="构造函数的-using-声明">构造函数的 using 声明</h4>
 <p>在 C++11 中，派生类能够重用其直接基类定义的构造函数。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Derived</span> <span style="color:#f92672">:</span> Base {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Derived</span> <span style="color:#f92672">:</span> Base {
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
     <span style="color:#66d9ef">using</span> Base<span style="color:#f92672">::</span>Base;
     <span style="color:#75715e">/* ... */</span>
 };
 </code></pre></div><p>如上 using 声明，对于基类的每个构造函数，编译器都生成一个与之对应（形参列表完全相同）的派生类构造函数。生成如下类型构造函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Derived(parms) <span style="color:#f92672">:</span> Base(args) { }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Derived(parms) <span style="color:#f92672">:</span> Base(args) { }
 </code></pre></div><h4 id="using-指示">using 指示</h4>
 <p><code>using 指示</code> 使得某个特定命名空间中所有名字都可见，这样我们就无需再为它们添加任何前缀限定符了。如：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">using</span> namespace_name name;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">using</span> namespace_name name;
 </code></pre></div><h4 id="尽量少使用-using-指示-污染命名空间">尽量少使用 <code>using 指示</code> 污染命名空间</h4>
 <blockquote>
 <p>一般说来，使用 using 命令比使用 using 编译命令更安全，这是由于它<strong>只导入了指定的名称</strong>。如果该名称与局部名称发生冲突，编译器将<strong>发出指示</strong>。using编译命令导入所有的名称，包括可能并不需要的名称。如果与局部名称发生冲突，则<strong>局部名称将覆盖名称空间版本</strong>，而编译器<strong>并不会发出警告</strong>。另外，名称空间的开放性意味着名称空间的名称可能分散在多个地方，这使得难以准确知道添加了哪些名称。</p>
 </blockquote>
 <p>using 使用</p>
 <p>尽量少使用 <code>using 指示</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 </code></pre></div><p>应该多使用 <code>using 声明</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> x;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> x;
 std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span> x ;
 std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
 </code></pre></div><p>或者</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>cin;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>cin;
 <span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>cout;
 <span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>endl;
 <span style="color:#66d9ef">int</span> x;
@@ -3037,7 +3037,7 @@ cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&
 <li>命名空间作用域符（<code>namespace::name</code>）:用于表示指定类型的作用域范围是具体某个命名空间的</li>
 </ol>
 <p>:: 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>;         <span style="color:#75715e">// 全局（::）的 count
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>;         <span style="color:#75715e">// 全局（::）的 count
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
@@ -3062,15 +3062,15 @@ cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&
 }
 </code></pre></div><h3 id="enum-枚举类型">enum 枚举类型</h3>
 <h4 id="限定作用域的枚举类型">限定作用域的枚举类型</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">open_modes</span> { input, output, append };
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">open_modes</span> { input, output, append };
 </code></pre></div><h4 id="不限定作用域的枚举类型">不限定作用域的枚举类型</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">color</span> { red, yellow, green };
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">color</span> { red, yellow, green };
 <span style="color:#66d9ef">enum</span> { floatPrec <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>, doublePrec <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> };
 </code></pre></div><h3 id="decltype">decltype</h3>
 <p>decltype 关键字用于检查实体的声明类型或表达式的类型及值分类。语法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">decltype</span> ( expression )
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">decltype</span> ( expression )
 </code></pre></div><p>decltype 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 尾置返回允许我们在参数列表之后声明返回类型
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 尾置返回允许我们在参数列表之后声明返回类型
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> It<span style="color:#f92672">&gt;</span>
 <span style="color:#66d9ef">auto</span> fcn(It beg, It end) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">decltype</span>(<span style="color:#f92672">*</span>beg)
 {
@@ -3118,7 +3118,7 @@ cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&
 <h3 id="initializer_list-列表初始化">initializer_list 列表初始化</h3>
 <p>用花括号初始化器列表初始化一个对象，其中对应构造函数接受一个 <code>std::initializer_list</code> 参数.</p>
 <p>initializer_list 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;initializer_list&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span> 
@@ -3199,7 +3199,7 @@ cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&
 </blockquote>
 <h4 id="静态多态编译期早绑定">静态多态（编译期/早绑定）</h4>
 <p>函数重载</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span>
 {
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
     <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">do</span>(<span style="color:#66d9ef">int</span> a);
@@ -3219,7 +3219,7 @@ cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&
 <li>内联函数不能是表现多态性时的虚函数，解释见：<a href="https://github.com/huihut/interview#%E8%99%9A%E5%87%BD%E6%95%B0virtual%E5%8F%AF%E4%BB%A5%E6%98%AF%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0inline%E5%90%97">虚函数（virtual）可以是内联函数（inline）吗？</a></li>
 </ul>
 <p>动态多态使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span>                     <span style="color:#75715e">// 形状类
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span>                     <span style="color:#75715e">// 形状类
 </span><span style="color:#75715e"></span>{
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
     <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">double</span> calcArea()
@@ -3255,7 +3255,7 @@ cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&
 </code></pre></div><h3 id="虚析构函数">虚析构函数</h3>
 <p>虚析构函数是为了解决基类的指针指向派生类对象，并用基类的指针删除派生类对象。</p>
 <p>虚析构函数使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span>
 {
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
     Shape();                    <span style="color:#75715e">// 构造函数不能是虚函数
@@ -3278,7 +3278,7 @@ cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&
 }
 </code></pre></div><h3 id="纯虚函数">纯虚函数</h3>
 <p>纯虚函数是一种特殊的虚函数，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">A</span>() <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">A</span>() <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </code></pre></div><h3 id="虚函数纯虚函数">虚函数、纯虚函数</h3>
 <ul>
 <li>类里如果声明了虚函数，这个函数是实现的，哪怕是空实现，它的作用就是为了能让这个函数在它的子类里面可以被覆盖（override），这样的话，编译器就可以使用后期绑定来达到多态了。纯虚函数只是一个接口，是个函数的声明而已，它要留到子类里去实现。</li>
@@ -3352,10 +3352,10 @@ cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&
 <p>用于分配、释放内存</p>
 <p>malloc、free 使用</p>
 <p>申请内存，确认是否申请成功</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>str <span style="color:#f92672">=</span> (<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>) malloc(<span style="color:#ae81ff">100</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>str <span style="color:#f92672">=</span> (<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>) malloc(<span style="color:#ae81ff">100</span>);
 assert(str <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>);
 </code></pre></div><p>释放内存后指针置空</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">free(p); 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">free(p); 
 p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
 </code></pre></div><h4 id="newdelete">new、delete</h4>
 <ol>
@@ -3365,7 +3365,7 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
 </ol>
 <p>new、delete 使用</p>
 <p>申请内存，确认是否申请成功</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
     T<span style="color:#f92672">*</span> t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> T();     <span style="color:#75715e">// 先内存分配 ，再构造函数
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">delete</span> t;           <span style="color:#75715e">// 先析构函数，再内存释放
@@ -3373,7 +3373,7 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
 }
 </code></pre></div><h4 id="定位-new">定位 new</h4>
 <p>定位 new（placement new）允许我们向 new 传递额外的地址参数，从而在预先指定的内存区域创建对象。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">new</span> (place_address) type
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">new</span> (place_address) type
 <span style="color:#66d9ef">new</span> (place_address) type (initializers)
 <span style="color:#66d9ef">new</span> (place_address) type [size]
 <span style="color:#66d9ef">new</span> (place_address) type [size] { braced initializer list }
@@ -3406,7 +3406,7 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
 <h4 id="c-标准库stl中">C++ 标准库（STL）中</h4>
 <p>头文件：<code>#include &lt;memory&gt;</code></p>
 <h4 id="c-98">C++ 98</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>auto_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span> ps (<span style="color:#66d9ef">new</span> std<span style="color:#f92672">::</span>string(str))<span style="color:#960050;background-color:#1e0010">；</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>auto_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span> ps (<span style="color:#66d9ef">new</span> std<span style="color:#f92672">::</span>string(str))<span style="color:#960050;background-color:#1e0010">；</span>
 </code></pre></div><h4 id="c-11">C++ 11</h4>
 <ol>
 <li>shared_ptr</li>
@@ -3480,7 +3480,7 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
 <li>由于强制转换为引用类型失败，dynamic_cast 运算符引发 bad_cast 异常。</li>
 </ul>
 <p>bad_cast 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">try</span> {  
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">try</span> {  
     Circle<span style="color:#f92672">&amp;</span> ref_circle <span style="color:#f92672">=</span> <span style="color:#66d9ef">dynamic_cast</span><span style="color:#f92672">&lt;</span>Circle<span style="color:#f92672">&amp;&gt;</span>(ref_shape);   
 }  
 <span style="color:#66d9ef">catch</span> (bad_cast b) {  
@@ -3504,7 +3504,7 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
 <li>头文件：<code>typeinfo</code></li>
 </ul>
 <p>typeid、type_info 使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Flyable</span>                       <span style="color:#75715e">// 能飞的
@@ -3829,7 +3829,7 @@ Func3(n);
 cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10 
 </code></pre>
 <p>对比上述三个示例程序，<strong>会发现&quot;引用传递&quot;的性质象&quot;指针传递&quot;，而书写方式象&quot;值传递&quot;</strong>。</p>
-<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？ 
+<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？
 答案是&quot;用适当的工具做恰如其分的工作&quot;。</p>
 <p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。</p>
 <p>如果的确只需要借用一下某个对象的&quot;别名&quot;，那么就用&quot;引用&quot;，而不要用&quot;指针&quot;，以免发生意外。</p>

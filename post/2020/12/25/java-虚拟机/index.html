@@ -71,7 +71,7 @@
   
   <li><a href="/note/">抄录</a></li>
   
-  <li><a href="/todo/">事项</a></li>
+  <li><a href="/todo/">事务</a></li>
   
   </ul>
 </nav>
@@ -142,7 +142,7 @@
 <h4 id="java-虚拟机栈-a-name12a">Java 虚拟机栈 <a name="1.2"></a></h4>
 <p>每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。</p>
 <p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</p>
-<pre><code>java -Xss2M HaskTheJava
+<pre tabindex="0"><code>java -Xss2M HaskTheJava
 </code></pre><p>该区域可能抛出以下异常：</p>
 <ul>
 <li>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；</li>
@@ -160,7 +160,7 @@
 </ul>
 <p>堆不需要连续内存，并且可以动态增加其内存，增加失败会抛出 OutOfMemoryError 异常。</p>
 <p>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。</p>
-<pre><code>java -Xms1M -Xmx2M HackTheJava
+<pre tabindex="0"><code>java -Xms1M -Xmx2M HackTheJava
 </code></pre><h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
 <p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
 <p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 OutOfMemoryError 异常。</p>

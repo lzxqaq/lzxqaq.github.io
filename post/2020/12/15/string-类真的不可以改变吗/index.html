@@ -67,7 +67,7 @@
   
   <li><a href="/note/">抄录</a></li>
   
-  <li><a href="/todo/">事项</a></li>
+  <li><a href="/todo/">事务</a></li>
   
   </ul>
 </nav>
@@ -95,7 +95,7 @@
 <p>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。</p>
 <p>然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。</p>
 <p>事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：</p>
-<pre><code>    //实验1
+<pre tabindex="0"><code>    //实验1
     String s1 = &quot;1&quot;;
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -104,7 +104,7 @@
     System.out.println(s1);                 //2
     System.out.println((s1 == &quot;1&quot;));        //true
 </code></pre><p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
-<pre><code>    //实验2
+<pre tabindex="0"><code>    //实验2
     String s2 = new String(&quot;1&quot;);
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -114,7 +114,7 @@
     System.out.println((s2 == &quot;1&quot;));       //false
 </code></pre><p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
 <p>到这里，可以停一会了。很多技术文章中都做过类似上面的实验（通过比较创建方式的区别、反射修改等)，来分析 String 、String Pool 的原理和设计理念。但我总觉得以此说明最终的结论还不够严谨、或者说还不够直观。接下来请看——魔鬼实验：</p>
-<pre><code>    //实验3 
+<pre tabindex="0"><code>    //实验3 
     String s1 = &quot;1&quot;;
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
@@ -124,7 +124,7 @@
     System.out.println((s1 == &quot;1&quot;));        //true
     System.out.println(&quot;1&quot;);                //2
 </code></pre><p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
-<pre><code>    //实验4
+<pre tabindex="0"><code>    //实验4
     String s2 = new String(&quot;1&quot;);
     Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
