@@ -68,15 +68,6 @@
         <h2 id="待办事项">待办事项</h2>
 <ol>
 <li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 设计整体框架。</p>
-</li>
-<li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 完成文本编辑功能。</p>
-</li>
-<li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 完成文档资源管理功能。</p>
-</li>
-<li>
 <p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 集成 Hugo。</p>
 </li>
 <li>
@@ -101,6 +92,18 @@
 </li>
 <li>
 <p>练吉他。</p>
+</li>
+</ol>
+<h2 id="已完成">已完成</h2>
+<ol>
+<li>
+<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 设计整体框架。</p>
+</li>
+<li>
+<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 完成文本编辑功能。</p>
+</li>
+<li>
+<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 完成文档资源管理功能。</p>
 </li>
 </ol>
 
