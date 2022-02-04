@@ -117,3 +117,16 @@ thead, tfoot, tr:nth-child(even) { background: #eee; }
 .title hr {
   margin: 2em auto;
 }
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.nav-prev {
+  margin-right: 1em;
+}
+.nav-next {
+  margin-left: 1em;
+  text-align: right;
+}
