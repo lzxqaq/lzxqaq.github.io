@@ -26,20 +26,16 @@
     
 
     
-
-    
     
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <script async src="/js/load-typekit.js"></script>
-<link rel="stylesheet" href="/css/custom.css" />
-<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
   </head>
 
   
-  <body class="post">
+  <body>
     <header class="masthead">
       
 
@@ -73,9 +69,7 @@
 </nav>
 
     </header>
-
-    <article class="main">
-      <header class="title">
+    <header class="title">
       
 <h1>【转载】Qt 6 核心内部结构</h1>
 
@@ -86,12 +80,13 @@
 <hr>
 
 
-      </header>
+    </header>
 
 
 
 
 
+<main>
 <p>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示了如何使用它们来实现 Qt 尚未提供的专门功能。</p>
 <h3 id="对象属性和事件">对象、属性和事件</h3>
 <p>该 QObject的 类构成Qt的对象模型的基础，是父类的许多Qt类的。 对象模型引入了许多机制，例如元对象系统，它允许运行时内省、操作和调用对象中的属性和方法。 它还作为 Qt 事件系统的基础，这是一种在 之间进行通信的低级方式 QObject 基于 的对象 。 Qt 的信号和槽机制提供了另一种高级通信形式。</p>
@@ -136,7 +131,7 @@ Qt 中的线程支持</p>
 Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序的函数</p>
 </blockquote>
 
-
+</main>
 
   <footer>
   
@@ -182,43 +177,21 @@ async>
 
 
 
-<script async src="/js/fix-toc.js"></script>
-
 <script async src="/js/center-img.js"></script>
 
 <script async src="/js/right-quote.js"></script>
-
-<script async src="/js/fix-footnote.js"></script>
-
-<script async src="/js/math-code.js"></script>
 
 <script async src="/js/external-link.js"></script>
 
 <script async src="/js/alt-title.js"></script>
 
-<script async src="/js/header-link.js"></script>
-
 
 
   
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2022</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
   
   </footer>
-  </article>
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
-}
-</script>
-
   </body>
 </html>
 

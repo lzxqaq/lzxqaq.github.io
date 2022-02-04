@@ -27,20 +27,16 @@
     
 
     
-
-    
     
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <script async src="/js/load-typekit.js"></script>
-<link rel="stylesheet" href="/css/custom.css" />
-<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
   </head>
 
   
-  <body class="post">
+  <body>
     <header class="masthead">
       
 
@@ -74,9 +70,7 @@
 </nav>
 
     </header>
-
-    <article class="main">
-      <header class="title">
+    <header class="title">
       
 <h1>搭建</h1>
 
@@ -87,12 +81,13 @@
 <hr>
 
 
-      </header>
+    </header>
 
 
 
 
 
+<main>
 <h3 id="一在本地创建网站">一、在本地创建网站</h3>
 <p>（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 <code>cmd </code> 加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 <code>hugo new site blog</code> ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一个文件夹名字，但为了方便教程工作，请统一）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/1.png" alt="img"></p>
@@ -125,7 +120,7 @@ git push --set-upstream origin master
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/14.png" alt="img"></p>
 <p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
 
-
+</main>
 
   <footer>
   
@@ -171,43 +166,21 @@ async>
 
 
 
-<script async src="/js/fix-toc.js"></script>
-
 <script async src="/js/center-img.js"></script>
 
 <script async src="/js/right-quote.js"></script>
-
-<script async src="/js/fix-footnote.js"></script>
-
-<script async src="/js/math-code.js"></script>
 
 <script async src="/js/external-link.js"></script>
 
 <script async src="/js/alt-title.js"></script>
 
-<script async src="/js/header-link.js"></script>
-
 
 
   
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2022</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
   
   </footer>
-  </article>
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
-}
-</script>
-
   </body>
 </html>
 

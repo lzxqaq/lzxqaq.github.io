@@ -26,20 +26,16 @@
     
 
     
-
-    
     
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <script async src="/js/load-typekit.js"></script>
-<link rel="stylesheet" href="/css/custom.css" />
-<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
   </head>
 
   
-  <body class="post">
+  <body>
     <header class="masthead">
       
 
@@ -73,9 +69,7 @@
 </nav>
 
     </header>
-
-    <article class="main">
-      <header class="title">
+    <header class="title">
       
 <h1>【转载】Qt测试最佳实践</h1>
 
@@ -86,12 +80,13 @@
 <hr>
 
 
-      </header>
+    </header>
 
 
 
 
 
+<main>
 <h2 id="qt-测试最佳实践">Qt 测试最佳实践</h2>
 <p>我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表现出错误，并在修复之后通过。在开发新功能时，添加测试以验证它们是否按预期工作。</p>
 <p>符合一组编码标准将使 Qt 自动测试更有可能在所有环境中可靠地工作。例如，有些测试需要从磁盘读取数据。如果没有为如何完成设置标准，则某些测试将无法移植。例如，假设其测试数据文件位于当前工作目录中的测试仅适用于源代码构建。在影子构建中（在源目录之外），测试将无法找到其数据。</p>
@@ -252,7 +247,7 @@ DISPLAY=:1 make -k -j1 check
 <p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>
 <p>注意： Tab Window Manager 不适合运行完整的 Qt 自动测试套件，因为tst_gestures自动测试会导致它忘记其配置并恢复到手动窗口放置。</p>
 
-
+</main>
 
   <footer>
   
@@ -298,43 +293,21 @@ async>
 
 
 
-<script async src="/js/fix-toc.js"></script>
-
 <script async src="/js/center-img.js"></script>
 
 <script async src="/js/right-quote.js"></script>
-
-<script async src="/js/fix-footnote.js"></script>
-
-<script async src="/js/math-code.js"></script>
 
 <script async src="/js/external-link.js"></script>
 
 <script async src="/js/alt-title.js"></script>
 
-<script async src="/js/header-link.js"></script>
-
 
 
   
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2022</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
   
   </footer>
-  </article>
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
-}
-</script>
-
   </body>
 </html>
 

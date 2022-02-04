@@ -28,20 +28,16 @@
     
 
     
-
-    
     
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <script async src="/js/load-typekit.js"></script>
-<link rel="stylesheet" href="/css/custom.css" />
-<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
   </head>
 
   
-  <body class="post">
+  <body>
     <header class="masthead">
       
 
@@ -75,9 +71,7 @@
 </nav>
 
     </header>
-
-    <article class="main">
-      <header class="title">
+    <header class="title">
       
 <h1>从零开始搭建个人网站——小白篇</h1>
 
@@ -88,12 +82,13 @@
 <hr>
 
 
-      </header>
+    </header>
 
 
 
 
 
+<main>
 <h3 id="前言">前言</h3>
 <p>小白篇和前面<a href="../2021-2-18-2/">正经篇</a>的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的<a href="https://gitee.com/lzxqaq/demosite.git">示例网站</a>，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。</p>
 <h3 id="准备工作与前篇一致">准备工作（与前篇一致）</h3>
@@ -127,7 +122,7 @@ git push --set-upstream origin master
 <p>（2）配置。访问 github.com 网站，进入你的仓库，在 setting 中找到 Github Pages，在 Custom domain 输入框中输入你的域名，保存。</p>
 <p>（3）测试。访问你的域名。</p>
 
-
+</main>
 
   <footer>
   
@@ -173,43 +168,21 @@ async>
 
 
 
-<script async src="/js/fix-toc.js"></script>
-
 <script async src="/js/center-img.js"></script>
 
 <script async src="/js/right-quote.js"></script>
-
-<script async src="/js/fix-footnote.js"></script>
-
-<script async src="/js/math-code.js"></script>
 
 <script async src="/js/external-link.js"></script>
 
 <script async src="/js/alt-title.js"></script>
 
-<script async src="/js/header-link.js"></script>
-
 
 
   
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2022</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
   
   </footer>
-  </article>
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
-}
-</script>
-
   </body>
 </html>
 

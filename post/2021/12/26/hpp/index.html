@@ -24,20 +24,16 @@
     
 
     
-
-    
     
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <script async src="/js/load-typekit.js"></script>
-<link rel="stylesheet" href="/css/custom.css" />
-<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
   </head>
 
   
-  <body class="post">
+  <body>
     <header class="masthead">
       
 
@@ -71,9 +67,7 @@
 </nav>
 
     </header>
-
-    <article class="main">
-      <header class="title">
+    <header class="title">
       
 <h1>由 hpp 头文件引发 C&#43;&#43; 编译的思考</h1>
 
@@ -84,12 +78,13 @@
 <hr>
 
 
-      </header>
+    </header>
 
 
 
 
 
+<main>
 <p>前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h + cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C++ 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h + cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希望他去学习 C++ 基础，但没想到从这里就埋下了一个坑，导致这篇文章的产生&hellip;..</p>
 <p>很快，遇到第一个问题，redefined identifier。我解释说，这是重复 include hpp 文件引入实现，会引发这个重定义的问题。使用 #ifndef 可以防止头文件被重复包含和引入。</p>
 <p>过了一阵，又遇到新的问题。我过去一看，循环依赖。第一个坑出现了。A 依赖 B，B 又 依赖 A，如果用 hpp 实现的话，那A、B 都互相包含对方，无尽循环……所以这种情况只能老老实实用回 h + cpp 的方式了，A 依赖 B，就在 A 的头文件中前向声明 B，然后在源文件中 include B，B 也如此操作。</p>
@@ -137,7 +132,7 @@
 </table>
 <p>由于 C 使用不同的文件扩展名来表示不同文件类型，因此用一些特殊的扩展名（如 .hpp 或 .hxx）表示 C++ 头文件是有道理的，ANSI/ISO 委员会也这样认为。问题在于究竟使用哪种扩展名，因此最终他们一致同意不使用任何扩展名。:)</p>
 
-
+</main>
 
   <footer>
   
@@ -183,43 +178,21 @@ async>
 
 
 
-<script async src="/js/fix-toc.js"></script>
-
 <script async src="/js/center-img.js"></script>
 
 <script async src="/js/right-quote.js"></script>
-
-<script async src="/js/fix-footnote.js"></script>
-
-<script async src="/js/math-code.js"></script>
 
 <script async src="/js/external-link.js"></script>
 
 <script async src="/js/alt-title.js"></script>
 
-<script async src="/js/header-link.js"></script>
-
 
 
   
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2022</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
   
   </footer>
-  </article>
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
-}
-</script>
-
   </body>
 </html>
 

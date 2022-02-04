@@ -26,20 +26,16 @@ Hugo &amp;hellip;">
     
 
     
-
-    
     
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <script async src="/js/load-typekit.js"></script>
-<link rel="stylesheet" href="/css/custom.css" />
-<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
   </head>
 
   
-  <body class="post">
+  <body>
     <header class="masthead">
       
 
@@ -73,9 +69,7 @@ Hugo &amp;hellip;">
 </nav>
 
     </header>
-
-    <article class="main">
-      <header class="title">
+    <header class="title">
       
 <h1>基础概念</h1>
 
@@ -86,12 +80,13 @@ Hugo &amp;hellip;">
 <hr>
 
 
-      </header>
+    </header>
 
 
 
 
 
+<main>
 <p>教程开始前，先来介绍一下最终的成果，以便确认是否符合你的需求。本篇教程以 Hugo 和 Github Pages 为基础，创建一个静态的网站。这个过程仅需要一台联网的电脑，不需要其他花费（注意：如果你想自定义域名，则需要自行购买域名，后面会有相关介绍）。下文提到的概念理论只需要有一个模糊的认识就足够了，不需要理解透彻，因为在后续文章中会具体介绍其用法，届时就会有更直观的认识了。</p>
 <p>Hugo 和 Github Pages 稍后会介绍，我们先来了解什么是静态网站。静态网站是由静态网页文件（也就是HTML文件)组成，它不需要服务器运行，也不需要数据库。我们将组成网站的这些网页文件上传到服务器上，别人就可以在互联网上通过这台服务器的地址或域名（例如 <a href="http://www.lzxqaq.com">www.lzxqaq.com</a>)访问这些网页文件，这就是静态网站的大致原理。</p>
 <p>不过，这里所说的服务器并非我们日常所用的电脑，因为我们日常所用的电脑都是在局域网里，是不能让整个互联网的人都能访问到的。所以一般都要用所谓的云服务器，例如阿里云服务器、华为云服务器等等。不过现在有一些平台提供了免费的站点服务，我们就不需要购买昂贵的服务器了。例如本教程中使用的 Github Pages 服务，我们可以将网站托管到 Github 平台上，让平台帮我们把网站跑起来并在互联网上可以访问。</p>
@@ -100,7 +95,7 @@ Hugo &amp;hellip;">
 <p>简单来说，我们的工作流程是：在自己的电脑上，用一个静态网站生成器工具生成网页文件，然后将网站文件上传到某个平台上，这样别人就可以访问我们的网站了。如果修改网站（比如添加文章），也是重复上述步骤：重新生成网页文件，重新上传。</p>
 <p>后续文章我会细述搭建网站的具体步骤，尽可能考虑新手建站的情况。如果你在这过程中遇到问题，欢迎在评论中指出或着与我联系。</p>
 
-
+</main>
 
   <footer>
   
@@ -146,43 +141,21 @@ async>
 
 
 
-<script async src="/js/fix-toc.js"></script>
-
 <script async src="/js/center-img.js"></script>
 
 <script async src="/js/right-quote.js"></script>
-
-<script async src="/js/fix-footnote.js"></script>
-
-<script async src="/js/math-code.js"></script>
 
 <script async src="/js/external-link.js"></script>
 
 <script async src="/js/alt-title.js"></script>
 
-<script async src="/js/header-link.js"></script>
-
 
 
   
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2022</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
   
   </footer>
-  </article>
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
-}
-</script>
-
   </body>
 </html>
 

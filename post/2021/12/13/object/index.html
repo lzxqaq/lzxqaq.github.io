@@ -28,20 +28,16 @@ Qt 将这些特性添加到 C&#43;&#43; 中：
     
 
     
-
-    
     
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <script async src="/js/load-typekit.js"></script>
-<link rel="stylesheet" href="/css/custom.css" />
-<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
   </head>
 
   
-  <body class="post">
+  <body>
     <header class="masthead">
       
 
@@ -75,9 +71,7 @@ Qt 将这些特性添加到 C&#43;&#43; 中：
 </nav>
 
     </header>
-
-    <article class="main">
-      <header class="title">
+    <header class="title">
       
 <h1>【转载】Qt6 对象模型</h1>
 
@@ -88,12 +82,13 @@ Qt 将这些特性添加到 C&#43;&#43; 中：
 <hr>
 
 
-      </header>
+    </header>
 
 
 
 
 
+<main>
 <h3 id="对象模型">对象模型</h3>
 <p>标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率和高度灵活性的领域。 Qt 通过将 C++ 的速度与 Qt 对象模型的灵活性相结合来提供这一点。</p>
 <p>Qt 将这些特性添加到 C++ 中：</p>
@@ -124,7 +119,7 @@ Qt 将这些特性添加到 C&#43;&#43; 中：
 </blockquote>
 <p>由于这些原因，Qt 对象应该被视为身份，而不是值。 身份是克隆的，而不是复制或分配的，克隆身份是比复制或分配值更复杂的操作。 因此， QObject的 和所有子类 的QObject （直接或间接）有自己的 拷贝构造函数和赋值操作符 禁用。</p>
 
-
+</main>
 
   <footer>
   
@@ -170,43 +165,21 @@ async>
 
 
 
-<script async src="/js/fix-toc.js"></script>
-
 <script async src="/js/center-img.js"></script>
 
 <script async src="/js/right-quote.js"></script>
-
-<script async src="/js/fix-footnote.js"></script>
-
-<script async src="/js/math-code.js"></script>
 
 <script async src="/js/external-link.js"></script>
 
 <script async src="/js/alt-title.js"></script>
 
-<script async src="/js/header-link.js"></script>
-
 
 
   
-  
-  <hr>
-  <div class="copyright">© <a href="/">Zexun Luo</a> 2020 - 2022</div>
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
   
   </footer>
-  </article>
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
-}
-</script>
-
   </body>
 </html>
 
