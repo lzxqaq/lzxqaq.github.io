@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on Zexun Luo | 罗泽勋</title>
+    <title>Hugo on 糸色</title>
     <link>/tags/hugo/</link>
-    <description>Recent content in Hugo on Zexun Luo | 罗泽勋</description>
+    <description>Recent content in Hugo on 糸色</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 01 Jun 2021 06:16:32 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <title>从零开始搭建个人网站——小白篇</title>
       <link>/post/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%B0%8F%E7%99%BD%E7%AF%87/</link>
       <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%B0%8F%E7%99%BD%E7%AF%87/</guid>
       <description>
         <![CDATA[
@@ -61,7 +61,7 @@ git push --set-upstream origin master
       <title>从零开始搭建个人网站（win10,Github,Hugo）</title>
       <link>/post/2021/02/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99win10githubhugo/</link>
       <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/02/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99win10githubhugo/</guid>
       <description>
         <![CDATA[

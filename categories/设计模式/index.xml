@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>设计模式 on Zexun Luo | 罗泽勋</title>
+    <title>设计模式 on 糸色</title>
     <link>/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
-    <description>Recent content in 设计模式 on Zexun Luo | 罗泽勋</description>
+    <description>Recent content in 设计模式 on 糸色</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 28 Dec 2021 08:07:08 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <title>【转载】面向对象设计原则之开闭原则</title>
       <link>/post/2021/12/28/oop/</link>
       <pubDate>Tue, 28 Dec 2021 08:07:08 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/28/oop/</guid>
       <description>
         <![CDATA[
@@ -63,7 +63,7 @@ chart.display();
       <title>【转载】面向对象设计原则之单一职责原则</title>
       <link>/post/2021/12/28/singleresponsibility/</link>
       <pubDate>Tue, 28 Dec 2021 07:40:16 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/28/singleresponsibility/</guid>
       <description>
         <![CDATA[
@@ -101,7 +101,7 @@ chart.display();
       <title>【转载】面向对象设计原则概述</title>
       <link>/post/2021/12/28/oop/</link>
       <pubDate>Tue, 28 Dec 2021 06:59:01 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/28/oop/</guid>
       <description>
         <![CDATA[
@@ -122,7 +122,7 @@ chart.display();
       <title>【转载】简单工厂模式</title>
       <link>/post/2021/12/28/singlefactory/</link>
       <pubDate>Tue, 28 Dec 2021 06:50:56 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/28/singlefactory/</guid>
       <description>
         <![CDATA[
@@ -402,7 +402,7 @@ chart.display();
       <title>设计模式概述</title>
       <link>/post/2021/12/26/design/</link>
       <pubDate>Sun, 26 Dec 2021 10:10:12 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/26/design/</guid>
       <description>
         <![CDATA[

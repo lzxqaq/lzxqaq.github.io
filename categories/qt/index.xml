@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qt on Zexun Luo | 罗泽勋</title>
+    <title>Qt on 糸色</title>
     <link>/categories/qt/</link>
-    <description>Recent content in Qt on Zexun Luo | 罗泽勋</description>
+    <description>Recent content in Qt on 糸色</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 13 Dec 2021 08:08:17 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <title>【转载】Qt6 对象模型</title>
       <link>/post/2021/12/13/object/</link>
       <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/13/object/</guid>
       <description>
         <![CDATA[
@@ -58,7 +58,7 @@
       <title>【转载】Qt 6 核心内部结构</title>
       <link>/post/2021/12/13/qt-core/</link>
       <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/13/qt-core/</guid>
       <description>
         <![CDATA[
@@ -117,7 +117,7 @@ Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序�
       <title>【转载】Qt6 Qvariant 与自定义 Qt 类型</title>
       <link>/post/2021/12/13/qvariant/</link>
       <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/13/qvariant/</guid>
       <description>
         <![CDATA[
@@ -210,7 +210,7 @@ private:
       <title>【转载】Qt6 顺序容器 QList</title>
       <link>/post/2021/12/02/qlist/</link>
       <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/02/qlist/</guid>
       <description>
         <![CDATA[
@@ -236,7 +236,7 @@ private:
       <title>【转载】Qt6 隐式共享</title>
       <link>/post/2021/12/01/implicit-sharing/</link>
       <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/01/implicit-sharing/</guid>
       <description>
         <![CDATA[
@@ -280,7 +280,7 @@ paint.end();
       <title>【转载】Qt6 容器类-概述</title>
       <link>/post/2021/12/01/qt-containers/</link>
       <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/01/qt-containers/</guid>
       <description>
         <![CDATA[
@@ -418,7 +418,7 @@ paint.end();
       <title>Qt单元测试基础笔记</title>
       <link>/post/2021/10/13/qt%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/10/13/qt%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</guid>
       <description>
         <![CDATA[
@@ -450,7 +450,7 @@ paint.end();
       <title>【转载】Qt测试最佳实践</title>
       <link>/post/2021/10/13/%E8%BD%AC%E8%BD%BDqt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/10/13/%E8%BD%AC%E8%BD%BDqt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
       <description>
         <![CDATA[

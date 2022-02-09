@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>数据库 on Zexun Luo | 罗泽勋</title>
+    <title>数据库 on 糸色</title>
     <link>/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
-    <description>Recent content in 数据库 on Zexun Luo | 罗泽勋</description>
+    <description>Recent content in 数据库 on 糸色</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 22 Dec 2021 23:34:10 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <title>【转载】Redis</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BDredis/</link>
       <pubDate>Wed, 22 Dec 2021 23:34:10 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BDredis/</guid>
       <description>
         <![CDATA[
@@ -592,7 +592,7 @@ OK
       <title>【转载】SQL 练习</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BDsql-%E7%BB%83%E4%B9%A0/</link>
       <pubDate>Wed, 22 Dec 2021 23:32:38 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BDsql-%E7%BB%83%E4%B9%A0/</guid>
       <description>
         <![CDATA[
@@ -1554,7 +1554,7 @@ AddressId is the primary key column for this table.
       <title>【转载】Mysql</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BDmysql/</link>
       <pubDate>Wed, 22 Dec 2021 23:30:39 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BDmysql/</guid>
       <description>
         <![CDATA[
@@ -1886,7 +1886,7 @@ customer_id_selectivity: 0.0373
       <title>【转载】数据库系统原理</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/</link>
       <pubDate>Wed, 22 Dec 2021 23:28:00 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/</guid>
       <description>
         <![CDATA[
@@ -2444,7 +2444,7 @@ customer_id_selectivity: 0.0373
       <title>SQL 语法</title>
       <link>/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Thu, 31 Dec 2020 10:12:40 +0800</pubDate>
-      <author>罗泽勋</author>
+      <author>糸色</author>
       <guid>/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/</guid>
       <description>
         <![CDATA[
