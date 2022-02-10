@@ -17,10 +17,10 @@
       
       <meta property="description" content="转载自https://github.com/andycai/cprimer
 [&amp;hellip;] 引用是C&#43;&#43;中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。
-int m; int &amp;amp;n = m;  n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指 &amp;hellip;">
+int m; int &amp;amp;n = m; n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指 &amp;hellip;">
       <meta property="og:description" content="转载自https://github.com/andycai/cprimer
 [&amp;hellip;] 引用是C&#43;&#43;中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。
-int m; int &amp;amp;n = m;  n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指 &amp;hellip;">
+int m; int &amp;amp;n = m; n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指 &amp;hellip;">
       
     
 
@@ -134,7 +134,7 @@ Func3(n);
 cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10 
 </code></pre>
 <p>对比上述三个示例程序，<strong>会发现&quot;引用传递&quot;的性质象&quot;指针传递&quot;，而书写方式象&quot;值传递&quot;</strong>。</p>
-<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？
+<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？ 
 答案是&quot;用适当的工具做恰如其分的工作&quot;。</p>
 <p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。</p>
 <p>如果的确只需要借用一下某个对象的&quot;别名&quot;，那么就用&quot;引用&quot;，而不要用&quot;指针&quot;，以免发生意外。</p>
