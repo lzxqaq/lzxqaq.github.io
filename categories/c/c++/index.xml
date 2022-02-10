@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C/C&#43;&#43; on 糸色</title>
+    <title>C/C&#43;&#43; on 糸色生</title>
     <link>/categories/c/c&#43;&#43;/</link>
-    <description>Recent content in C/C&#43;&#43; on 糸色</description>
+    <description>Recent content in C/C&#43;&#43; on 糸色生</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <atom:link href="/categories/c/c&#43;&#43;/" rel="self" type="application/rss+xml" />
@@ -12,7 +12,7 @@
       <title>【转载】C&#43;&#43; 面试之设计模式</title>
       <link>/post/2022/01/15/design-pattern/</link>
       <pubDate>Sat, 15 Jan 2022 08:14:07 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/design-pattern/</guid>
       <description>
         <![CDATA[
@@ -52,7 +52,7 @@
       <title>【转载】C&#43;&#43; 面试之链接装载库</title>
       <link>/post/2022/01/15/library/</link>
       <pubDate>Sat, 15 Jan 2022 08:10:50 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/library/</guid>
       <description>
         <![CDATA[
@@ -627,7 +627,7 @@ DLL 头文件</p>
       <title>【转载】C&#43;&#43; 面试之数据库</title>
       <link>/post/2022/01/15/database/</link>
       <pubDate>Sat, 15 Jan 2022 08:08:34 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/database/</guid>
       <description>
         <![CDATA[
@@ -779,7 +779,7 @@ DLL 头文件</p>
       <title>【转载】C&#43;&#43; 面试之计算机网络</title>
       <link>/post/2022/01/15/network/</link>
       <pubDate>Sat, 15 Jan 2022 08:06:35 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/network/</guid>
       <description>
         <![CDATA[
@@ -1367,7 +1367,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之操作系统</title>
       <link>/post/2022/01/14/os/</link>
       <pubDate>Fri, 14 Jan 2022 21:02:05 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/os/</guid>
       <description>
         <![CDATA[
@@ -1709,7 +1709,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之算法</title>
       <link>/post/2022/01/14/algorithm/</link>
       <pubDate>Fri, 14 Jan 2022 20:42:19 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/algorithm/</guid>
       <description>
         <![CDATA[
@@ -1938,7 +1938,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之数据结构</title>
       <link>/post/2022/01/14/data-structure/</link>
       <pubDate>Fri, 14 Jan 2022 20:28:54 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/data-structure/</guid>
       <description>
         <![CDATA[
@@ -2253,7 +2253,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之 STL</title>
       <link>/post/2022/01/14/c-stl/</link>
       <pubDate>Fri, 14 Jan 2022 20:23:31 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/c-stl/</guid>
       <description>
         <![CDATA[
@@ -2440,7 +2440,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之 Effective C&#43;&#43;</title>
       <link>/post/2022/01/14/effectivec-/</link>
       <pubDate>Fri, 14 Jan 2022 20:16:02 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/effectivec-/</guid>
       <description>
         <![CDATA[
@@ -2546,7 +2546,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43;面试之 C/C&#43;&#43;基础</title>
       <link>/post/2022/01/11/cc-base/</link>
       <pubDate>Tue, 11 Jan 2022 23:20:27 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/11/cc-base/</guid>
       <description>
         <![CDATA[
@@ -3575,7 +3575,7 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
       <title>【转载】C Primer 之 new, delete</title>
       <link>/post/2021/12/30/cprimer04/</link>
       <pubDate>Thu, 30 Dec 2021 07:13:11 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/30/cprimer04/</guid>
       <description>
         <![CDATA[
@@ -3638,7 +3638,7 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
       <title>【转载】C Primer 之 char*, char[], string</title>
       <link>/post/2021/12/30/cprimer03/</link>
       <pubDate>Thu, 30 Dec 2021 07:12:45 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/30/cprimer03/</guid>
       <description>
         <![CDATA[
@@ -3770,7 +3770,7 @@ atoi(&quot;#123&quot;);   //返回0
       <title>【转载】C Primer 之 指针和引用</title>
       <link>/post/2021/12/30/cprimer02/</link>
       <pubDate>Thu, 30 Dec 2021 07:12:43 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/30/cprimer02/</guid>
       <description>
         <![CDATA[
@@ -3829,7 +3829,7 @@ Func3(n);
 cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10 
 </code></pre>
 <p>对比上述三个示例程序，<strong>会发现&quot;引用传递&quot;的性质象&quot;指针传递&quot;，而书写方式象&quot;值传递&quot;</strong>。</p>
-<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？
+<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？ 
 答案是&quot;用适当的工具做恰如其分的工作&quot;。</p>
 <p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。</p>
 <p>如果的确只需要借用一下某个对象的&quot;别名&quot;，那么就用&quot;引用&quot;，而不要用&quot;指针&quot;，以免发生意外。</p>
@@ -3851,7 +3851,7 @@ cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10
       <title>【转载】C Primer 之 const, inline, static, this</title>
       <link>/post/2021/12/30/cprimer01/</link>
       <pubDate>Thu, 30 Dec 2021 07:12:38 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/30/cprimer01/</guid>
       <description>
         <![CDATA[
@@ -4026,7 +4026,7 @@ void main( )
       <title>C&#43;&#43; 基础总结</title>
       <link>/post/2021/12/15/cppbase/</link>
       <pubDate>Wed, 15 Dec 2021 12:35:27 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/15/cppbase/</guid>
       <description>
         <![CDATA[

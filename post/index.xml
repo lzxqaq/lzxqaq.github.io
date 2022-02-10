@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>技术文章 on 糸色</title>
+    <title>技术文章 on 糸色生</title>
     <link>/post/</link>
-    <description>Recent content in 技术文章 on 糸色</description>
+    <description>Recent content in 技术文章 on 糸色生</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 15 Jan 2022 08:14:07 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <title>【转载】C&#43;&#43; 面试之设计模式</title>
       <link>/post/2022/01/15/design-pattern/</link>
       <pubDate>Sat, 15 Jan 2022 08:14:07 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/design-pattern/</guid>
       <description>
         <![CDATA[
@@ -53,7 +53,7 @@
       <title>【转载】C&#43;&#43; 面试之链接装载库</title>
       <link>/post/2022/01/15/library/</link>
       <pubDate>Sat, 15 Jan 2022 08:10:50 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/library/</guid>
       <description>
         <![CDATA[
@@ -628,7 +628,7 @@ DLL 头文件</p>
       <title>【转载】C&#43;&#43; 面试之数据库</title>
       <link>/post/2022/01/15/database/</link>
       <pubDate>Sat, 15 Jan 2022 08:08:34 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/database/</guid>
       <description>
         <![CDATA[
@@ -780,7 +780,7 @@ DLL 头文件</p>
       <title>【转载】C&#43;&#43; 面试之计算机网络</title>
       <link>/post/2022/01/15/network/</link>
       <pubDate>Sat, 15 Jan 2022 08:06:35 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/network/</guid>
       <description>
         <![CDATA[
@@ -1368,7 +1368,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之操作系统</title>
       <link>/post/2022/01/14/os/</link>
       <pubDate>Fri, 14 Jan 2022 21:02:05 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/os/</guid>
       <description>
         <![CDATA[
@@ -1710,7 +1710,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之算法</title>
       <link>/post/2022/01/14/algorithm/</link>
       <pubDate>Fri, 14 Jan 2022 20:42:19 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/algorithm/</guid>
       <description>
         <![CDATA[
@@ -1939,7 +1939,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之数据结构</title>
       <link>/post/2022/01/14/data-structure/</link>
       <pubDate>Fri, 14 Jan 2022 20:28:54 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/data-structure/</guid>
       <description>
         <![CDATA[
@@ -2254,7 +2254,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之 STL</title>
       <link>/post/2022/01/14/c-stl/</link>
       <pubDate>Fri, 14 Jan 2022 20:23:31 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/c-stl/</guid>
       <description>
         <![CDATA[
@@ -2441,7 +2441,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之 Effective C&#43;&#43;</title>
       <link>/post/2022/01/14/effectivec-/</link>
       <pubDate>Fri, 14 Jan 2022 20:16:02 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/effectivec-/</guid>
       <description>
         <![CDATA[
@@ -2547,7 +2547,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43;面试之 C/C&#43;&#43;基础</title>
       <link>/post/2022/01/11/cc-base/</link>
       <pubDate>Tue, 11 Jan 2022 23:20:27 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/11/cc-base/</guid>
       <description>
         <![CDATA[
@@ -3576,7 +3576,7 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
       <title>【转载】C Primer 之 new, delete</title>
       <link>/post/2021/12/30/cprimer04/</link>
       <pubDate>Thu, 30 Dec 2021 07:13:11 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/30/cprimer04/</guid>
       <description>
         <![CDATA[
@@ -3639,7 +3639,7 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
       <title>【转载】C Primer 之 char*, char[], string</title>
       <link>/post/2021/12/30/cprimer03/</link>
       <pubDate>Thu, 30 Dec 2021 07:12:45 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/30/cprimer03/</guid>
       <description>
         <![CDATA[
@@ -3771,7 +3771,7 @@ atoi(&quot;#123&quot;);   //返回0
       <title>【转载】C Primer 之 指针和引用</title>
       <link>/post/2021/12/30/cprimer02/</link>
       <pubDate>Thu, 30 Dec 2021 07:12:43 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/30/cprimer02/</guid>
       <description>
         <![CDATA[
@@ -3830,7 +3830,7 @@ Func3(n);
 cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10 
 </code></pre>
 <p>对比上述三个示例程序，<strong>会发现&quot;引用传递&quot;的性质象&quot;指针传递&quot;，而书写方式象&quot;值传递&quot;</strong>。</p>
-<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？
+<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？ 
 答案是&quot;用适当的工具做恰如其分的工作&quot;。</p>
 <p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。</p>
 <p>如果的确只需要借用一下某个对象的&quot;别名&quot;，那么就用&quot;引用&quot;，而不要用&quot;指针&quot;，以免发生意外。</p>
@@ -3852,7 +3852,7 @@ cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10
       <title>【转载】C Primer 之 const, inline, static, this</title>
       <link>/post/2021/12/30/cprimer01/</link>
       <pubDate>Thu, 30 Dec 2021 07:12:38 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/30/cprimer01/</guid>
       <description>
         <![CDATA[
@@ -4027,7 +4027,7 @@ void main( )
       <title>【转载】面向对象设计原则之开闭原则</title>
       <link>/post/2021/12/28/oop/</link>
       <pubDate>Tue, 28 Dec 2021 08:07:08 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/28/oop/</guid>
       <description>
         <![CDATA[
@@ -4077,7 +4077,7 @@ chart.display();
       <title>【转载】面向对象设计原则之单一职责原则</title>
       <link>/post/2021/12/28/singleresponsibility/</link>
       <pubDate>Tue, 28 Dec 2021 07:40:16 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/28/singleresponsibility/</guid>
       <description>
         <![CDATA[
@@ -4115,7 +4115,7 @@ chart.display();
       <title>【转载】面向对象设计原则概述</title>
       <link>/post/2021/12/28/oop/</link>
       <pubDate>Tue, 28 Dec 2021 06:59:01 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/28/oop/</guid>
       <description>
         <![CDATA[
@@ -4136,7 +4136,7 @@ chart.display();
       <title>【转载】简单工厂模式</title>
       <link>/post/2021/12/28/singlefactory/</link>
       <pubDate>Tue, 28 Dec 2021 06:50:56 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/28/singlefactory/</guid>
       <description>
         <![CDATA[
@@ -4416,7 +4416,7 @@ chart.display();
       <title>由 hpp 头文件引发 C&#43;&#43; 编译的思考</title>
       <link>/post/2021/12/26/hpp/</link>
       <pubDate>Sun, 26 Dec 2021 12:55:54 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/26/hpp/</guid>
       <description>
         <![CDATA[
@@ -4478,7 +4478,7 @@ chart.display();
       <title>设计模式概述</title>
       <link>/post/2021/12/26/design/</link>
       <pubDate>Sun, 26 Dec 2021 10:10:12 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/26/design/</guid>
       <description>
         <![CDATA[
@@ -4503,7 +4503,7 @@ chart.display();
       <title>栈和队列</title>
       <link>/post/2021/12/26/stackqueue/</link>
       <pubDate>Sun, 26 Dec 2021 09:14:03 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/26/stackqueue/</guid>
       <description>
         <![CDATA[
@@ -4536,7 +4536,7 @@ chart.display();
       <title>【转载】面向对象思想</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BD%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/</link>
       <pubDate>Wed, 22 Dec 2021 23:41:54 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BD%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/</guid>
       <description>
         <![CDATA[
@@ -4902,7 +4902,7 @@ Vihicle .. N
       <title>【转载】缓存</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BD%E7%BC%93%E5%AD%98/</link>
       <pubDate>Wed, 22 Dec 2021 23:37:55 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BD%E7%BC%93%E5%AD%98/</guid>
       <description>
         <![CDATA[
@@ -5174,7 +5174,7 @@ Vihicle .. N
       <title>【转载】Redis</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BDredis/</link>
       <pubDate>Wed, 22 Dec 2021 23:34:10 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BDredis/</guid>
       <description>
         <![CDATA[
@@ -5753,7 +5753,7 @@ OK
       <title>【转载】SQL 练习</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BDsql-%E7%BB%83%E4%B9%A0/</link>
       <pubDate>Wed, 22 Dec 2021 23:32:38 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BDsql-%E7%BB%83%E4%B9%A0/</guid>
       <description>
         <![CDATA[
@@ -6715,7 +6715,7 @@ AddressId is the primary key column for this table.
       <title>【转载】Mysql</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BDmysql/</link>
       <pubDate>Wed, 22 Dec 2021 23:30:39 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BDmysql/</guid>
       <description>
         <![CDATA[
@@ -7047,7 +7047,7 @@ customer_id_selectivity: 0.0373
       <title>【转载】数据库系统原理</title>
       <link>/post/2021/12/22/%E8%BD%AC%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/</link>
       <pubDate>Wed, 22 Dec 2021 23:28:00 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/22/%E8%BD%AC%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/</guid>
       <description>
         <![CDATA[
@@ -7605,7 +7605,7 @@ customer_id_selectivity: 0.0373
       <title>线性表</title>
       <link>/post/2021/12/16/linearlist/</link>
       <pubDate>Thu, 16 Dec 2021 12:43:02 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/16/linearlist/</guid>
       <description>
         <![CDATA[
@@ -7653,7 +7653,7 @@ customer_id_selectivity: 0.0373
       <title>C&#43;&#43; 基础总结</title>
       <link>/post/2021/12/15/cppbase/</link>
       <pubDate>Wed, 15 Dec 2021 12:35:27 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/15/cppbase/</guid>
       <description>
         <![CDATA[
@@ -7737,7 +7737,7 @@ customer_id_selectivity: 0.0373
       <title>【转载】Qt6 绘制基础</title>
       <link>/post/2021/12/13/paintsystem/</link>
       <pubDate>Mon, 13 Dec 2021 21:28:59 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/13/paintsystem/</guid>
       <description>
         <![CDATA[
@@ -7818,7 +7818,7 @@ painter.setWindow(QRect(-50, -50, 100, 100));
       <title>【转载】Qt6 对象模型</title>
       <link>/post/2021/12/13/object/</link>
       <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/13/object/</guid>
       <description>
         <![CDATA[
@@ -7863,7 +7863,7 @@ painter.setWindow(QRect(-50, -50, 100, 100));
       <title>【转载】Qt 6 核心内部结构</title>
       <link>/post/2021/12/13/qt-core/</link>
       <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/13/qt-core/</guid>
       <description>
         <![CDATA[
@@ -7922,7 +7922,7 @@ Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序�
       <title>【转载】Qt6 Qvariant 与自定义 Qt 类型</title>
       <link>/post/2021/12/13/qvariant/</link>
       <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/13/qvariant/</guid>
       <description>
         <![CDATA[
@@ -8015,7 +8015,7 @@ private:
       <title>【转载】Qt6 顺序容器 QList</title>
       <link>/post/2021/12/02/qlist/</link>
       <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/02/qlist/</guid>
       <description>
         <![CDATA[
@@ -8041,7 +8041,7 @@ private:
       <title>【转载】Qt6 隐式共享</title>
       <link>/post/2021/12/01/implicit-sharing/</link>
       <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/01/implicit-sharing/</guid>
       <description>
         <![CDATA[
@@ -8085,7 +8085,7 @@ paint.end();
       <title>【转载】Qt6 容器类-概述</title>
       <link>/post/2021/12/01/qt-containers/</link>
       <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/12/01/qt-containers/</guid>
       <description>
         <![CDATA[
@@ -8223,7 +8223,7 @@ paint.end();
       <title>修改菜单栏和文章创作</title>
       <link>/post/2021/11/18/%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%92%8C%E6%96%87%E7%AB%A0%E5%88%9B%E4%BD%9C/</link>
       <pubDate>Thu, 18 Nov 2021 18:36:33 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/11/18/%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%92%8C%E6%96%87%E7%AB%A0%E5%88%9B%E4%BD%9C/</guid>
       <description>
         <![CDATA[
@@ -8273,7 +8273,7 @@ paint.end();
       <title>搭建</title>
       <link>/post/2021/11/17/%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Wed, 17 Nov 2021 19:38:06 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/11/17/%E6%90%AD%E5%BB%BA/</guid>
       <description>
         <![CDATA[
@@ -8320,7 +8320,7 @@ git push --set-upstream origin master
       <title>准备工作</title>
       <link>/post/2021/11/15/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</link>
       <pubDate>Mon, 15 Nov 2021 12:26:45 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/11/15/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</guid>
       <description>
         <![CDATA[
@@ -8358,7 +8358,7 @@ git push --set-upstream origin master
       <title>基础概念</title>
       <link>/post/2021/11/14/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/11/14/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</guid>
       <description>
         <![CDATA[
@@ -8381,7 +8381,7 @@ git push --set-upstream origin master
       <title>开篇</title>
       <link>/post/2021/11/14/%E5%BC%80%E7%AF%87/</link>
       <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/11/14/%E5%BC%80%E7%AF%87/</guid>
       <description>
         <![CDATA[
@@ -8406,7 +8406,7 @@ git push --set-upstream origin master
       <title>Qt单元测试基础笔记</title>
       <link>/post/2021/10/13/qt%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/10/13/qt%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</guid>
       <description>
         <![CDATA[
@@ -8438,7 +8438,7 @@ git push --set-upstream origin master
       <title>【转载】Qt测试最佳实践</title>
       <link>/post/2021/10/13/%E8%BD%AC%E8%BD%BDqt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/10/13/%E8%BD%AC%E8%BD%BDqt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
       <description>
         <![CDATA[
@@ -8613,7 +8613,7 @@ DISPLAY=:1 make -k -j1 check
       <title>开发指南-未完待续</title>
       <link>/post/2021/07/16/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</link>
       <pubDate>Fri, 16 Jul 2021 14:24:34 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/07/16/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/</guid>
       <description>
         <![CDATA[
@@ -8865,7 +8865,7 @@ DISPLAY=:1 make -k -j1 check
       <title>从零开始搭建个人网站——小白篇</title>
       <link>/post/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%B0%8F%E7%99%BD%E7%AF%87/</link>
       <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%B0%8F%E7%99%BD%E7%AF%87/</guid>
       <description>
         <![CDATA[
@@ -9204,7 +9204,7 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
       <title>从零开始搭建个人网站（win10,Github,Hugo）</title>
       <link>/post/2021/02/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99win10githubhugo/</link>
       <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/02/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99win10githubhugo/</guid>
       <description>
         <![CDATA[
@@ -9252,7 +9252,7 @@ git push --set-upstream origin master
       <title>Java I/O</title>
       <link>/post/2021/01/12/java-i/o/</link>
       <pubDate>Tue, 12 Jan 2021 08:46:08 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/01/12/java-i/o/</guid>
       <description>
         <![CDATA[
@@ -9316,7 +9316,7 @@ git push --set-upstream origin master
       <title>Java 并发</title>
       <link>/post/2021/01/09/java-%E5%B9%B6%E5%8F%91/</link>
       <pubDate>Sat, 09 Jan 2021 10:50:16 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2021/01/09/java-%E5%B9%B6%E5%8F%91/</guid>
       <description>
         <![CDATA[
@@ -9490,7 +9490,7 @@ git push --set-upstream origin master
       <title>SQL 语法</title>
       <link>/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Thu, 31 Dec 2020 10:12:40 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/</guid>
       <description>
         <![CDATA[
@@ -9988,7 +9988,7 @@ SELECT user FROM user;
       <title>Linux 不同发行版的选择</title>
       <link>/post/2020/12/26/linux-%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E9%80%89%E6%8B%A9/</link>
       <pubDate>Sat, 26 Dec 2020 22:33:13 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2020/12/26/linux-%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E9%80%89%E6%8B%A9/</guid>
       <description>
         <![CDATA[
@@ -10010,7 +10010,7 @@ SELECT user FROM user;
       <title>Java 虚拟机</title>
       <link>/post/2020/12/25/java-%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
       <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2020/12/25/java-%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
       <description>
         <![CDATA[
@@ -10153,7 +10153,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
       <title>Java 容器</title>
       <link>/post/2020/12/24/java-%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2020/12/24/java-%E5%AE%B9%E5%99%A8/</guid>
       <description>
         <![CDATA[
@@ -10217,7 +10217,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
       <title>String 类真的不可以改变吗？</title>
       <link>/post/2020/12/15/string-%E7%B1%BB%E7%9C%9F%E7%9A%84%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E5%90%97/</link>
       <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2020/12/15/string-%E7%B1%BB%E7%9C%9F%E7%9A%84%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E5%90%97/</guid>
       <description>
         <![CDATA[
@@ -10281,7 +10281,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
       <title>Java 基础</title>
       <link>/post/2020/12/15/java-%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2020/12/15/java-%E5%9F%BA%E7%A1%80/</guid>
       <description>
         <![CDATA[
