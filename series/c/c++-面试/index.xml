@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C/C&#43;&#43; 面试 on 糸色</title>
+    <title>C/C&#43;&#43; 面试 on 糸色生</title>
     <link>/series/c/c&#43;&#43;-%E9%9D%A2%E8%AF%95/</link>
-    <description>Recent content in C/C&#43;&#43; 面试 on 糸色</description>
+    <description>Recent content in C/C&#43;&#43; 面试 on 糸色生</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <atom:link href="/series/c/c&#43;&#43;-%E9%9D%A2%E8%AF%95/" rel="self" type="application/rss+xml" />
@@ -12,7 +12,7 @@
       <title>【转载】C&#43;&#43; 面试之设计模式</title>
       <link>/post/2022/01/15/design-pattern/</link>
       <pubDate>Sat, 15 Jan 2022 08:14:07 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/design-pattern/</guid>
       <description>
         <![CDATA[
@@ -52,7 +52,7 @@
       <title>【转载】C&#43;&#43; 面试之链接装载库</title>
       <link>/post/2022/01/15/library/</link>
       <pubDate>Sat, 15 Jan 2022 08:10:50 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/library/</guid>
       <description>
         <![CDATA[
@@ -627,7 +627,7 @@ DLL 头文件</p>
       <title>【转载】C&#43;&#43; 面试之数据库</title>
       <link>/post/2022/01/15/database/</link>
       <pubDate>Sat, 15 Jan 2022 08:08:34 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/database/</guid>
       <description>
         <![CDATA[
@@ -779,7 +779,7 @@ DLL 头文件</p>
       <title>【转载】C&#43;&#43; 面试之计算机网络</title>
       <link>/post/2022/01/15/network/</link>
       <pubDate>Sat, 15 Jan 2022 08:06:35 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/15/network/</guid>
       <description>
         <![CDATA[
@@ -1367,7 +1367,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之操作系统</title>
       <link>/post/2022/01/14/os/</link>
       <pubDate>Fri, 14 Jan 2022 21:02:05 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/os/</guid>
       <description>
         <![CDATA[
@@ -1709,7 +1709,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之算法</title>
       <link>/post/2022/01/14/algorithm/</link>
       <pubDate>Fri, 14 Jan 2022 20:42:19 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/algorithm/</guid>
       <description>
         <![CDATA[
@@ -1938,7 +1938,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之数据结构</title>
       <link>/post/2022/01/14/data-structure/</link>
       <pubDate>Fri, 14 Jan 2022 20:28:54 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/data-structure/</guid>
       <description>
         <![CDATA[
@@ -2253,7 +2253,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之 STL</title>
       <link>/post/2022/01/14/c-stl/</link>
       <pubDate>Fri, 14 Jan 2022 20:23:31 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/c-stl/</guid>
       <description>
         <![CDATA[
@@ -2440,7 +2440,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43; 面试之 Effective C&#43;&#43;</title>
       <link>/post/2022/01/14/effectivec-/</link>
       <pubDate>Fri, 14 Jan 2022 20:16:02 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/14/effectivec-/</guid>
       <description>
         <![CDATA[
@@ -2546,7 +2546,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <title>【转载】C&#43;&#43;面试之 C/C&#43;&#43;基础</title>
       <link>/post/2022/01/11/cc-base/</link>
       <pubDate>Tue, 11 Jan 2022 23:20:27 +0800</pubDate>
-      <author>糸色</author>
+      <author>糸色生</author>
       <guid>/post/2022/01/11/cc-base/</guid>
       <description>
         <![CDATA[
