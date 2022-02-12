@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Java on 糸色生</title>
+    <title>Java on 糸色先生</title>
     <link>/categories/java/</link>
-    <description>Recent content in Java on 糸色生</description>
+    <description>Recent content in Java on 糸色先生</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 12 Jan 2021 08:46:08 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <title>Java I/O</title>
       <link>/post/2021/01/12/java-i/o/</link>
       <pubDate>Tue, 12 Jan 2021 08:46:08 +0800</pubDate>
-      <author>糸色生</author>
+      <author>糸色先生</author>
       <guid>/post/2021/01/12/java-i/o/</guid>
       <description>
         <![CDATA[
@@ -77,7 +77,7 @@
       <title>Java 并发</title>
       <link>/post/2021/01/09/java-%E5%B9%B6%E5%8F%91/</link>
       <pubDate>Sat, 09 Jan 2021 10:50:16 +0800</pubDate>
-      <author>糸色生</author>
+      <author>糸色先生</author>
       <guid>/post/2021/01/09/java-%E5%B9%B6%E5%8F%91/</guid>
       <description>
         <![CDATA[
@@ -251,7 +251,7 @@
       <title>Java 虚拟机</title>
       <link>/post/2020/12/25/java-%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
       <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
-      <author>糸色生</author>
+      <author>糸色先生</author>
       <guid>/post/2020/12/25/java-%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
       <description>
         <![CDATA[
@@ -394,7 +394,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
       <title>Java 容器</title>
       <link>/post/2020/12/24/java-%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
-      <author>糸色生</author>
+      <author>糸色先生</author>
       <guid>/post/2020/12/24/java-%E5%AE%B9%E5%99%A8/</guid>
       <description>
         <![CDATA[
@@ -458,7 +458,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
       <title>String 类真的不可以改变吗？</title>
       <link>/post/2020/12/15/string-%E7%B1%BB%E7%9C%9F%E7%9A%84%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E5%90%97/</link>
       <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
-      <author>糸色生</author>
+      <author>糸色先生</author>
       <guid>/post/2020/12/15/string-%E7%B1%BB%E7%9C%9F%E7%9A%84%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E5%90%97/</guid>
       <description>
         <![CDATA[
@@ -522,7 +522,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
       <title>Java 基础</title>
       <link>/post/2020/12/15/java-%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
-      <author>糸色生</author>
+      <author>糸色先生</author>
       <guid>/post/2020/12/15/java-%E5%9F%BA%E7%A1%80/</guid>
       <description>
         <![CDATA[
