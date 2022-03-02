@@ -5,8 +5,73 @@
     <description>Recent content in 技术文章 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 Jan 2022 08:14:07 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Feb 2022 14:17:47 +0800</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Marp：使用 Markdown 创建漂亮的幻灯片</title>
+      <link>/post/2022/02/28/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87/</link>
+      <pubDate>Mon, 28 Feb 2022 14:17:47 +0800</pubDate>
+      <author>糸色先生</author>
+      <guid>/post/2022/02/28/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87/</guid>
+      <description>
+        <![CDATA[
+        <h3 id="简介">简介</h3>
+<p>Marp（Markdown Presentation Ecosystem）为创建漂亮的幻灯片提供了直观的体验。 你只需要专注于在 Markdown 文档中写你的故事。</p>
+<h3 id="安装使用">安装使用</h3>
+<p>Marp 有两个集成应用，<a href="https://github.com/marp-team/marp-vscode">Marp for VS Code</a> 和 <a href="https://github.com/marp-team/marp-cli">Marp CLI</a>。Marp for VS Code 是一个 VS Code 插件扩展，允许您在 VS Code 中编辑 Markdown 和预览幻灯片，Marp CLI 是一个命令行工具，允许您使用简单的 CLI 界面转换 Markdown。对普通用户而言，Marp for VS Code 已经足够了，本文只对其进行介绍。</p>
+<p>安装：在 VS Code 左侧插件栏中搜索安装 Marp for VS Code 插件，同时你也可以选择再安装一个 Markdown All in One 插件，它有助于书写 Markdown。</p>
+<p>使用：</p>
+<p>方式1：新建或打开 md 格式文件，在开头写入：</p>
+<pre tabindex="0"><code>---
+marp: true
+---
+</code></pre><p>然后，在后面书写 Markdown 格式内容。</p>
+<p>方式2：通过 VS Code 菜单：File -&gt; New File&hellip; -&gt; Marp Markdown，生成新文件。</p>
+<h3 id="官方示例">官方示例</h3>
+<p>源码：</p>
+<pre tabindex="0"><code>---
+marp: true
+theme: gaia
+_class: lead
+paginate: true
+backgroundColor: #fff
+backgroundImage: url('https://marp.app/assets/hero-background.svg')
+---
+
+![bg left:40% 80%](https://marp.app/assets/marp.svg)
+
+# **Marp**
+
+Markdown Presentation Ecosystem
+
+https://marp.app/
+
+---
+
+# How to write slides
+
+Split pages by horizontal ruler (`---`). It's very simple! 😆
+
+```markdown
+# Slide 1
+
+foobar
+
+---
+
+# Slide 2
+
+foobar
+</code></pre><p>效果图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-2-28/marp.png" alt="img"></p>
+
+        
+        ]]>
+      </description>
+    </item>
+    
     
     
     <item>
@@ -3830,7 +3895,7 @@ Func3(n);
 cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10 
 </code></pre>
 <p>对比上述三个示例程序，<strong>会发现&quot;引用传递&quot;的性质象&quot;指针传递&quot;，而书写方式象&quot;值传递&quot;</strong>。</p>
-<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？
+<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？ 
 答案是&quot;用适当的工具做恰如其分的工作&quot;。</p>
 <p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。</p>
 <p>如果的确只需要借用一下某个对象的&quot;别名&quot;，那么就用&quot;引用&quot;，而不要用&quot;指针&quot;，以免发生意外。</p>

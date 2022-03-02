@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title> - 罗泽勋</title>
+    <meta property="og:title" content=" - 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+    
+
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+  </head>
+
+  
+  <body>
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+    <header class="title">
+      
+<h1></h1>
+
+
+<h3>
+</h3>
+
+<hr>
+
+
+    </header>
+
+
+
+
+
+<main>
+<h1 id="从面向对象的角度谈-java-到-c-的变化">从面向对象的角度谈 Java 到 C++ 的变化</h1>
+<h3 id="罗泽勋">罗泽勋</h3>
+<hr>
+<h2 id="目录">目录</h2>
+<ul>
+<li>
+<ol>
+<li>C++、Java 新特性</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>封装</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>继承</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>多态、抽象</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>模板和泛型</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li>参考资料</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="0-c语言内存">0 C语言内存</h2>
+<h3 id="c语言的内存分区">C语言的内存分区</h3>
+<ul>
+<li>栈（Stack）</li>
+<li>堆（Heap）</li>
+<li>全局/静态常量</li>
+<li>文本（代码）Text(Code)</li>
+</ul>
+<hr>
+<h2 id="1-cjava-新特性">1 C++、Java “新”特性</h2>
+<hr>
+<h3 id="11-c-新特性">1.1 C++ “新”特性</h3>
+<ul>
+<li>bool 类型与 auto 类型</li>
+<li>引用</li>
+<li>关于赋值</li>
+<li>初始化的新语法</li>
+<li>new 和 delete</li>
+<li>新的 for 循环</li>
+<li>重载</li>
+<li>lambda</li>
+</ul>
+<hr>
+<h3 id="12-java-新特性">1.2 Java “新”特性</h3>
+<ul>
+<li>类</li>
+<li>类型转换</li>
+<li>boolean 类型</li>
+<li>指针？引用？</li>
+<li>new</li>
+<li>Java 的数组</li>
+<li>新的 for 循环</li>
+<li>重载</li>
+<li>lambda</li>
+</ul>
+<hr>
+<h2 id="2-封装-使用类和对象">2 封装-使用类和对象</h2>
+<hr>
+<h3 id="21-理解封装">2.1 理解封装</h3>
+<hr>
+<h3 id="22-使用类和对象c">2.2 使用类和对象（C++）</h3>
+<hr>
+<h4 id="221-基本语法">2.2.1 基本语法</h4>
+<h5 id="纲要">纲要</h5>
+<ul>
+<li>定义类和使用对象</li>
+<li>访问控制</li>
+<li>this</li>
+<li>关于 const</li>
+<li>嵌套类和局部类</li>
+</ul>
+<hr>
+<h4 id="222-构造和析构">2.2.2 构造和析构</h4>
+<h5 id="纲要-1">纲要</h5>
+<ul>
+<li>构造</li>
+<li>关于初始化</li>
+<li>构造的默认参数和重载</li>
+<li>关于显式转换</li>
+<li>析构</li>
+</ul>
+<hr>
+<h4 id="223-友元和运算符重载">2.2.3 友元和运算符重载</h4>
+<h5 id="纲要-2">纲要</h5>
+<ul>
+<li>友元
+<ul>
+<li>友元函数</li>
+<li>友元类</li>
+<li>友元成员函数</li>
+</ul>
+</li>
+<li>运算符重载</li>
+</ul>
+<hr>
+<h4 id="224-对象的复制拷贝">2.2.4 对象的复制（拷贝）</h4>
+<h5 id="纲要-3">纲要</h5>
+<ul>
+<li>拷贝构造（复制构造）</li>
+<li>拷贝（复制）</li>
+</ul>
+<hr>
+<h4 id="225-静态成员">2.2.5 静态成员</h4>
+<h5 id="纲要-4">纲要</h5>
+<ul>
+<li>静态成员变量</li>
+<li>静态成员函数</li>
+</ul>
+<hr>
+<h3 id="23-使用类和对象java">2.3 使用类和对象（Java）</h3>
+<hr>
+<h4 id="231-基本语法">2.3.1 基本语法</h4>
+<h5 id="纲要-5">纲要</h5>
+<ul>
+<li>与 C++ 的不同：
+<ul>
+<li>析构；默认参数；自定义运算符重载；友元</li>
+</ul>
+</li>
+<li>定义类和使用对象</li>
+<li>访问控制</li>
+<li>this</li>
+<li>关于final</li>
+<li>内部类</li>
+</ul>
+<hr>
+<h4 id="232-对象的构造">2.3.2 对象的构造</h4>
+<h5 id="纲要-6">纲要</h5>
+<ul>
+<li>构造</li>
+<li>构造的重载</li>
+<li>隐式转换</li>
+</ul>
+<hr>
+<h4 id="233-对象的复制拷贝">2.3.3 对象的复制（拷贝）</h4>
+<h5 id="纲要-7">纲要</h5>
+<ul>
+<li>拷贝构造（复制构造）</li>
+<li>拷贝（复制）</li>
+</ul>
+<hr>
+<h4 id="234-静态成员">2.3.4 静态成员</h4>
+<h5 id="纲要-8">纲要</h5>
+<ul>
+<li>静态成员变量</li>
+<li>静态成员函数</li>
+</ul>
+<hr>
+<h2 id="3-继承-类的派生">3 继承-类的派生</h2>
+<hr>
+<h3 id="31-理解继承">3.1 理解“继承”</h3>
+<hr>
+<h3 id="32-c-的继承">3.2 C++ 的继承</h3>
+<hr>
+<h3 id="33-java-的继承">3.3 Java 的继承</h3>
+<hr>
+<h2 id="4-多态抽象">4 多态、抽象</h2>
+<hr>
+<h3 id="41-多态">4.1 多态</h3>
+<hr>
+<h4 id="411-理解多态">4.1.1 理解“多态”</h4>
+<hr>
+<h4 id="412-c-的多态">4.1.2 C++ 的“多态”</h4>
+<hr>
+<h4 id="413-java-的多态">4.1.3 Java 的“多态”</h4>
+<hr>
+<h3 id="42-抽象类">4.2 抽象类</h3>
+<hr>
+<h4 id="421-什么是抽象类">4.2.1 什么是抽象类</h4>
+<hr>
+<h4 id="422-c-的抽象类">4.2.2 C++ 的抽象类</h4>
+<hr>
+<h4 id="423-java-的抽象类">4.2.3 Java 的抽象类</h4>
+<hr>
+<h3 id="43-override-和-final">4.3 override 和 final</h3>
+<hr>
+<h3 id="431-java-的-override-和-final">4.3.1 Java 的 override 和 final</h3>
+<hr>
+<h3 id="432-c-的-override-和-final">4.3.2 C++ 的 override 和 final</h3>
+<hr>
+<h2 id="5-模板和泛型">5 模板和泛型</h2>
+<hr>
+<h3 id="51-关于代码复用">5.1 关于代码复用</h3>
+<hr>
+<h3 id="52-c-的模板template">5.2 C++ 的模板（Template）</h3>
+<hr>
+<h4 id="521-函数模板">5.2.1 函数模板</h4>
+<hr>
+<h4 id="522-类模板">5.2.2 类模板</h4>
+<hr>
+<h4 id="523-标准模板库stl">5.2.3 标准模板库（STL）</h4>
+<hr>
+<h3 id="53-java-的泛型generic-type">5.3 Java 的泛型（Generic Type）</h3>
+<hr>
+<h2 id="6-参考资料">6 参考资料</h2>
+
+</main>
+
+  <footer>
+  
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+
+
+  
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
+  
+  </footer>
+  </body>
+</html>
+

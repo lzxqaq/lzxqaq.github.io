@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Marp：使用 Markdown 创建漂亮的幻灯片 - 罗泽勋</title>
+    <meta property="og:title" content="Marp：使用 Markdown 创建漂亮的幻灯片 - 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Marp（Markdown Presentation Ecosystem）为创建漂亮的幻灯片提供了直观的体验。 你只需要专注于在 Markdown 文档中写你的故事。
+[&amp;hellip;] Marp 有两个集成应用，Marp for VS Code 和 Marp CLI。Marp for VS Code 是一个 VS Code 插件扩展，允许您在 VS Code 中编辑 Markdown 和预览幻 &amp;hellip;">
+      <meta property="og:description" content="Marp（Markdown Presentation Ecosystem）为创建漂亮的幻灯片提供了直观的体验。 你只需要专注于在 Markdown 文档中写你的故事。
+[&amp;hellip;] Marp 有两个集成应用，Marp for VS Code 和 Marp CLI。Marp for VS Code 是一个 VS Code 插件扩展，允许您在 VS Code 中编辑 Markdown 和预览幻 &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-2-28/marp.png">
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+  </head>
+
+  
+  <body>
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+    <header class="title">
+      
+<h1>Marp：使用 Markdown 创建漂亮的幻灯片</h1>
+
+
+<h3>糸色先生 / 
+2022-02-28</h3>
+
+<hr>
+
+
+    </header>
+
+
+
+
+
+<main>
+<h3 id="简介">简介</h3>
+<p>Marp（Markdown Presentation Ecosystem）为创建漂亮的幻灯片提供了直观的体验。 你只需要专注于在 Markdown 文档中写你的故事。</p>
+<h3 id="安装使用">安装使用</h3>
+<p>Marp 有两个集成应用，<a href="https://github.com/marp-team/marp-vscode">Marp for VS Code</a> 和 <a href="https://github.com/marp-team/marp-cli">Marp CLI</a>。Marp for VS Code 是一个 VS Code 插件扩展，允许您在 VS Code 中编辑 Markdown 和预览幻灯片，Marp CLI 是一个命令行工具，允许您使用简单的 CLI 界面转换 Markdown。对普通用户而言，Marp for VS Code 已经足够了，本文只对其进行介绍。</p>
+<p>安装：在 VS Code 左侧插件栏中搜索安装 Marp for VS Code 插件，同时你也可以选择再安装一个 Markdown All in One 插件，它有助于书写 Markdown。</p>
+<p>使用：</p>
+<p>方式1：新建或打开 md 格式文件，在开头写入：</p>
+<pre tabindex="0"><code>---
+marp: true
+---
+</code></pre><p>然后，在后面书写 Markdown 格式内容。</p>
+<p>方式2：通过 VS Code 菜单：File -&gt; New File&hellip; -&gt; Marp Markdown，生成新文件。</p>
+<h3 id="官方示例">官方示例</h3>
+<p>源码：</p>
+<pre tabindex="0"><code>---
+marp: true
+theme: gaia
+_class: lead
+paginate: true
+backgroundColor: #fff
+backgroundImage: url('https://marp.app/assets/hero-background.svg')
+---
+
+![bg left:40% 80%](https://marp.app/assets/marp.svg)
+
+# **Marp**
+
+Markdown Presentation Ecosystem
+
+https://marp.app/
+
+---
+
+# How to write slides
+
+Split pages by horizontal ruler (`---`). It's very simple! 😆
+
+```markdown
+# Slide 1
+
+foobar
+
+---
+
+# Slide 2
+
+foobar
+</code></pre><p>效果图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-2-28/marp.png" alt="img"></p>
+
+</main>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2022/01/15/design-pattern/">【转载】C&#43;&#43; 面试之设计模式</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2022\/01\/15\/design-pattern\/';
+    
+  } else if (e.which == 39) {  
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+
+
+  
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
+  
+  </footer>
+  </body>
+</html>
+
