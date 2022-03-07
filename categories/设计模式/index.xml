@@ -5,8 +5,48 @@
     <description>Recent content in 设计模式 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 28 Dec 2021 08:07:08 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Jan 2022 08:14:07 +0800</lastBuildDate>
     <atom:link href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之设计模式</title>
+      <link>/post/2022/01/15/design-pattern/</link>
+      <pubDate>Sat, 15 Jan 2022 08:14:07 +0800</pubDate>
+      
+      <guid>/post/2022/01/15/design-pattern/</guid>
+      <description>
+        <![CDATA[
+        <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
+<blockquote>
+<p>各大设计模式例子参考：<a href="https://blog.csdn.net/liang19890820/article/details/66974516">CSDN专栏 . C++ 设计模式</a> 系列博文</p>
+</blockquote>
+<p><a href="DesignPattern">设计模式工程目录</a></p>
+<h3 id="单例模式">单例模式</h3>
+<p><a href="DesignPattern/SingletonPattern">单例模式例子</a></p>
+<h3 id="抽象工厂模式">抽象工厂模式</h3>
+<p><a href="DesignPattern/AbstractFactoryPattern">抽象工厂模式例子</a></p>
+<h3 id="适配器模式">适配器模式</h3>
+<p><a href="DesignPattern/AdapterPattern">适配器模式例子</a></p>
+<h3 id="桥接模式">桥接模式</h3>
+<p><a href="DesignPattern/BridgePattern">桥接模式例子</a></p>
+<h3 id="观察者模式">观察者模式</h3>
+<p><a href="DesignPattern/ObserverPattern">观察者模式例子</a></p>
+<h3 id="设计模式的六大原则">设计模式的六大原则</h3>
+<ul>
+<li>单一职责原则（SRP，Single Responsibility Principle）</li>
+<li>里氏替换原则（LSP，Liskov Substitution Principle）</li>
+<li>依赖倒置原则（DIP，Dependence Inversion Principle）</li>
+<li>接口隔离原则（ISP，Interface Segregation Principle）</li>
+<li>迪米特法则（LoD，Law of Demeter）</li>
+<li>开放封闭原则（OCP，Open Close Principle）</li>
+</ul>
+
+        
+        ]]>
+      </description>
+    </item>
+    
     
     
     <item>

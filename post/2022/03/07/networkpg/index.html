@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>【转载】C&#43;&#43; 开发必备之网络编程 - 罗泽勋</title>
+    <meta property="og:title" content="【转载】C&#43;&#43; 开发必备之网络编程 - 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="转载自https://github.com/huihut/interview
+[&amp;hellip;] Linux Socket 编程（不限 Linux）
+[&amp;hellip;] [&amp;hellip;] ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); &amp;hellip;">
+      <meta property="og:description" content="转载自https://github.com/huihut/interview
+[&amp;hellip;] Linux Socket 编程（不限 Linux）
+[&amp;hellip;] [&amp;hellip;] ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://gitee.com/huihut/interview/raw/master/images/socket%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E8%AE%AF.jpg">
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+  </head>
+
+  
+  <body>
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+    <header class="title">
+      
+<h1>【转载】C&#43;&#43; 开发必备之网络编程</h1>
+
+
+<h3>
+2022-03-07</h3>
+
+<hr>
+
+
+    </header>
+
+
+
+
+
+<main>
+<p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
+<h3 id="socket">Socket</h3>
+<blockquote>
+<p><a href="/post/2022/03/07/linuxsocket/">Linux Socket 编程（不限 Linux）</a></p>
+</blockquote>
+<p><img src="https://gitee.com/huihut/interview/raw/master/images/socket%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E8%AE%AF.jpg" alt="Socket 客户端服务器通讯"></p>
+<h4 id="socket-中的-readwrite-函数">Socket 中的 read()、write() 函数</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">ssize_t <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
+ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
+</code></pre></div><h5 id="read">read()</h5>
+<ul>
+<li>read 函数是负责从 fd 中读取内容。</li>
+<li>当读成功时，read 返回实际所读的字节数。</li>
+<li>如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。</li>
+<li>如果错误为 EINTR 说明读是由中断引起的；如果是 ECONNREST 表示网络连接出了问题。</li>
+</ul>
+<h5 id="write">write()</h5>
+<ul>
+<li>write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd。</li>
+<li>成功时返回写的字节数。失败时返回 -1，并设置 errno 变量。</li>
+<li>在网络程序中，当我们向套接字文件描述符写时有俩种可能。</li>
+<li>（1）write 的返回值大于 0，表示写了部分或者是全部的数据。</li>
+<li>（2）返回的值小于 0，此时出现了错误。</li>
+<li>如果错误为 EINTR 表示在写的时候出现了中断错误；如果为 EPIPE 表示网络连接出现了问题（对方已经关闭了连接）。</li>
+</ul>
+<h4 id="socket-中-tcp-的三次握手建立连接">Socket 中 TCP 的三次握手建立连接</h4>
+<p>我们知道 TCP 建立连接要进行 “三次握手”，即交换三个分组。大致流程如下：</p>
+<ol>
+<li>客户端向服务器发送一个 SYN J</li>
+<li>服务器向客户端响应一个 SYN K，并对 SYN J 进行确认 ACK J+1</li>
+<li>客户端再想服务器发一个确认 ACK K+1</li>
+</ol>
+<p>只有就完了三次握手，但是这个三次握手发生在 Socket 的那几个函数中呢？请看下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-3-7/socket3.png" alt="socket 中发送的 TCP 三次握手"></p>
+<p>从图中可以看出：</p>
+<ol>
+<li>当客户端调用 connect 时，触发了连接请求，向服务器发送了 SYN J 包，这时 connect 进入阻塞状态；</li>
+<li>服务器监听到连接请求，即收到 SYN J 包，调用 accept 函数接收请求向客户端发送 SYN K ，ACK J+1，这时 accept 进入阻塞状态；</li>
+<li>客户端收到服务器的 SYN K ，ACK J+1 之后，这时 connect 返回，并对 SYN K 进行确认；</li>
+<li>服务器收到 ACK K+1 时，accept 返回，至此三次握手完毕，连接建立。</li>
+</ol>
+<h4 id="socket-中-tcp-的四次握手释放连接">Socket 中 TCP 的四次握手释放连接</h4>
+<p>上面介绍了 socket 中 TCP 的三次握手建立过程，及其涉及的 socket 函数。现在我们介绍 socket 中的四次握手释放连接的过程，请看下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-3-7/socket4.png" alt="socket 中发送的 TCP 四次握手"></p>
+<p>图示过程如下：</p>
+<ol>
+<li>某个应用进程首先调用 close 主动关闭连接，这时 TCP 发送一个 FIN M；</li>
+<li>另一端接收到 FIN M 之后，执行被动关闭，对这个 FIN 进行确认。它的接收也作为文件结束符传递给应用进程，因为 FIN 的接收意味着应用进程在相应的连接上再也接收不到额外数据；</li>
+<li>一段时间之后，接收到文件结束符的应用进程调用 close 关闭它的 socket。这导致它的 TCP 也发送一个 FIN N；</li>
+<li>接收到这个 FIN 的源发送端 TCP 对它进行确认。</li>
+</ol>
+<p>这样每个方向上都有一个 FIN 和 ACK。</p>
+
+</main>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2022/03/07/java2c-/">从 Java 到 Qt/C&#43;&#43; 的一些经验总结</a></span>
+  <span class="nav-next"><a href="/post/2022/03/07/linuxsocket/">【转载】Linux Socket 编程（不限 Linux）</a> &rarr;</span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/post\/2022\/03\/07\/java2c-\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/post\/2022\/03\/07\/linuxsocket\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+
+
+  
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
+  
+  </footer>
+  </body>
+</html>
+
