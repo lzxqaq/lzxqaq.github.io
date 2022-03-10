@@ -150,7 +150,7 @@
     public void func1() {
         synchronized (this) {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &quot; &quot;);
+                System.out.print(i + &#34; &#34;);
             }
         }
     }
@@ -188,7 +188,7 @@
     public void func2() {
         synchronized (SynchronizedExample.class) {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &quot; &quot;);
+                System.out.print(i + &#34; &#34;);
             }
         }
     }
@@ -216,14 +216,13 @@
         lock.lock();
         try {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &quot; &quot;);
+                System.out.print(i + &#34; &#34;);
             }
         } finally {
             lock.unlock(); // 确保释放锁，从而避免发生死锁。
         }
     }
 }
-
 </code></pre><pre tabindex="0"><code>public static void main(String[] args) {
     LockExample lockExample = new LockExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
@@ -248,11 +247,11 @@
     
     
     <item>
-      <title>Java 虚拟机</title>
-      <link>/post/2020/12/25/java-%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+      <title>【转载】Java 虚拟机</title>
+      <link>/collection/2020-12-25jvm/</link>
       <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2020/12/25/java-%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
+      <guid>/collection/2020-12-25jvm/</guid>
       <description>
         <![CDATA[
         <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA.md">CyC2018/CS-Notes</a></p>
@@ -391,11 +390,11 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     
     
     <item>
-      <title>Java 容器</title>
-      <link>/post/2020/12/24/java-%E5%AE%B9%E5%99%A8/</link>
+      <title>【转载】Java 容器</title>
+      <link>/collection/2020-12-24-collection/</link>
       <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2020/12/24/java-%E5%AE%B9%E5%99%A8/</guid>
+      <guid>/collection/2020-12-24-collection/</guid>
       <description>
         <![CDATA[
         <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%AE%B9%E5%99%A8.md">CyC2018/CS-Notes</a></p>
@@ -466,43 +465,43 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
 <p>然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。</p>
 <p>事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：</p>
 <pre tabindex="0"><code>    //实验1
-    String s1 = &quot;1&quot;;
-    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
+    String s1 = &#34;1&#34;;
+    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
     valueField.setAccessible(true);
     char[] value = (char[]) valueField.get(s1);
-    value[0] = '2';
+    value[0] = &#39;2&#39;;
     System.out.println(s1);                 //2
-    System.out.println((s1 == &quot;1&quot;));        //true
+    System.out.println((s1 == &#34;1&#34;));        //true
 </code></pre><p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
 <pre tabindex="0"><code>    //实验2
-    String s2 = new String(&quot;1&quot;);
-    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
+    String s2 = new String(&#34;1&#34;);
+    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
     valueField.setAccessible(true);
     char[] value2 = (char[]) valueField.get(s2);
-    value2[0] = '2';
+    value2[0] = &#39;2&#39;;
     System.out.println(s2);                //2
-    System.out.println((s2 == &quot;1&quot;));       //false
+    System.out.println((s2 == &#34;1&#34;));       //false
 </code></pre><p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
 <p>到这里，可以停一会了。很多技术文章中都做过类似上面的实验（通过比较创建方式的区别、反射修改等)，来分析 String 、String Pool 的原理和设计理念。但我总觉得以此说明最终的结论还不够严谨、或者说还不够直观。接下来请看——魔鬼实验：</p>
 <pre tabindex="0"><code>    //实验3 
-    String s1 = &quot;1&quot;;
-    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
+    String s1 = &#34;1&#34;;
+    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
     valueField.setAccessible(true);
     char[] value = (char[]) valueField.get(s1);
-    value[0] = '2';
+    value[0] = &#39;2&#39;;
     System.out.println(s1);                 //2
-    System.out.println((s1 == &quot;1&quot;));        //true
-    System.out.println(&quot;1&quot;);                //2
+    System.out.println((s1 == &#34;1&#34;));        //true
+    System.out.println(&#34;1&#34;);                //2
 </code></pre><p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
 <pre tabindex="0"><code>    //实验4
-    String s2 = new String(&quot;1&quot;);
-    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
+    String s2 = new String(&#34;1&#34;);
+    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
     valueField.setAccessible(true);
     char[] value2 = (char[]) valueField.get(s2);
-    value2[0] = '2';
+    value2[0] = &#39;2&#39;;
     System.out.println(s2);                 //2
-    System.out.println((s2 == &quot;1&quot;));        //false
-    System.out.println(&quot;1&quot;);                //2
+    System.out.println((s2 == &#34;1&#34;));        //false
+    System.out.println(&#34;1&#34;);                //2
 </code></pre><p>同样的，上述实验 4 只是在实验 2 的基础上输出了 <code>&quot;1&quot;</code> 的值。结果 <code>&quot;1&quot;</code> 的值还是 2。</p>
 <p><strong>结论：</strong><br>
 基于对 String 类和字符串常量池（String Pool） 的了解，我对以上实验作出解释（详细理论下回贴出）:</p>
@@ -519,11 +518,11 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     
     
     <item>
-      <title>Java 基础</title>
-      <link>/post/2020/12/15/java-%E5%9F%BA%E7%A1%80/</link>
+      <title>【转载】Java 基础</title>
+      <link>/collection/2020-12-15-base/</link>
       <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2020/12/15/java-%E5%9F%BA%E7%A1%80/</guid>
+      <guid>/collection/2020-12-15-base/</guid>
       <description>
         <![CDATA[
         <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md">CyC2018/CS-Notes</a></p>
@@ -671,15 +670,15 @@ System.out.priintln(m == n);    //true
 <h4 id="string-poola-name24a">String Pool<a name="2.4"></a></h4>
 <p>字符串常量池(String Pool) 保存着所有字符串字面量(literal strings) ,这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool中。<br>
 当一个字符串调用 intern() 方法时，如果 String Pool 中已存在一个字符串和该字符串相等(使用 equals() 方法进行确定)，那么就会返回 String Pool 中字符串的引用；否则，就会在 String Poll 中添加一个新的字符串，并返回这个新字符串的引用。</p>
-<pre tabindex="0"><code>String s1 = new String(&quot;aaa&quot;);
-String s2 = new String(&quot;aaa&quot;);
+<pre tabindex="0"><code>String s1 = new String(&#34;aaa&#34;);
+String s2 = new String(&#34;aaa&#34;);
 System.out.println(s1 == s2);    //false
 String s3 = s1.intern();
 String s4 = s2.intern();
 System.out.println(s3 == s4);   //true
 </code></pre><p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
-<pre tabindex="0"><code>String s5 = &quot;bbb&quot;;
-String s6 = &quot;bbb&quot;;
+<pre tabindex="0"><code>String s5 = &#34;bbb&#34;;
+String s6 = &#34;bbb&#34;;
 System.out.println(s5 == s6);   //true
 </code></pre><p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
 <h4 id="new-stringabca-name25a">new String(&ldquo;abc&rdquo;)<a name="2.5"></a></h4>
@@ -691,7 +690,7 @@ System.out.println(s5 == s6);   //true
 </ul>
 <pre tabindex="0"><code>    public class NewStringTest {
         public static void main(String[] args){
-            String s = new String(&quot;abc&quot;);
+            String s = new String(&#34;abc&#34;);
         }
     }
 </code></pre><p>使用 javap -verbose 进行反编译，得到以下内容：</p>
@@ -712,10 +711,9 @@ Constant pool:
          0: new           #2                  // class java/lang/String
          3: dup
          4: ldc           #3                  // String abc
-         6: invokespecial #4                  // Method java/lang/String.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;)V
+         6: invokespecial #4                  // Method java/lang/String.&#34;&lt;init&gt;&#34;:(Ljava/lang/String;)V
          9: astore_1
 // ...
-
 </code></pre><p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
 <p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
 <pre tabindex="0"><code>public String(String original){
@@ -744,19 +742,19 @@ Constant pool:
 </code></pre><p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
 <pre tabindex="0"><code>class PassByValueExample {
     public static void main(String[] args) {
-        Dog dog = new Dog(&quot;A&quot;);
+        Dog dog = new Dog(&#34;A&#34;);
         func(dog);
         System.out.println(dog.getName());      // B
     }
 
     private static void func(Dog dog) {
-        dog.setName(&quot;B&quot;);
+        dog.setName(&#34;B&#34;);
     }
 }
 </code></pre><p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
 <pre tabindex="0"><code>public class PassByValueExample {
     public static void main(String[] args) {
-        Dog dog = new Dog(&quot;A&quot;);
+        Dog dog = new Dog(&#34;A&#34;);
         System.out.println(dog.getObjectAddress()); // Dog@4554617c
         func(dog);
         System.out.println(dog.getObjectAddress()); // Dog@4554617c
@@ -765,7 +763,7 @@ Constant pool:
 
     private static void func(Dog dog) {
         System.out.println(dog.getObjectAddress()); // Dog@4554617c
-        dog = new Dog(&quot;B&quot;);
+        dog = new Dog(&#34;B&#34;);
         System.out.println(dog.getObjectAddress()); // Dog@74a14482
         System.out.println(dog.getName());          // B
     }
@@ -797,7 +795,7 @@ switch 不支持 long、float、double，是因为 switch 的设计初衷是对�
 <li>对于引用类型，final 使引用不变，也就不能引用其他对象，但是被引用的对象本身是可以修改的。</li>
 </ul>
 <pre tabindex="0"><code>final int x = 1;
-//x = 3;    // cannot assign value to final variable 'x'
+//x = 3;    // cannot assign value to final variable &#39;x&#39;
 final A y = new A();
 y.a = 1;
 </code></pre><p>2.<strong>方法</strong></p>
@@ -816,7 +814,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
     private static int y;   // 静态变量
 
     public static void main(String[] args) {
-        // int x = A.x;     // Non-static field 'x' cannot be referenced from a static context 
+        // int x = A.x;     // Non-static field &#39;x&#39; cannot be referenced from a static context 
         A a = new A();
         int x = a.x;
         int y = A.y;
@@ -834,15 +832,15 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 
     public static void func1(){
         int a = x;
-        // int b = y;       // Non-static field 'y' cannot be referenced from a static context
-        // int b = this.y;  //'A.this' cannot be referenced from a static context
+        // int b = y;       // Non-static field &#39;y&#39; cannot be referenced from a static context
+        // int b = this.y;  //&#39;A.this&#39; cannot be referenced from a static context
     }
 }
 </code></pre><p><strong>3.静态语句块</strong><br>
 静态语句块在类初始化时运行一次。</p>
 <pre tabindex="0"><code>public class A {
     static {
-        System.out.println(&quot;123&quot;);
+        System.out.println(&#34;123&#34;);
     }
 
     public static void main(String[] args) {
@@ -859,7 +857,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
     static class StaticInnerClass {
     }
     public static void main(String[] args) {
-        //InnerClass innerClass = new InnerClass();     //  'OuterClass.this' cannot be referenced from a static context
+        //InnerClass innerClass = new InnerClass();     //  &#39;OuterClass.this&#39; cannot be referenced from a static context
         OuterClass  outerClass = new OuterClass();
         InnerClass innerClass = outerClass.new InnerClass();
         StaticInnerClass staticInnerClass = new StaticInnerClass(); 
@@ -870,17 +868,17 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 在使用静态变量和方法时不用再指明 ClassName,从而简化代码，但可读性大大降低。</p>
 <p><strong>6.初始化顺序</strong><br>
 静态变量和静态语句块优先于实例变量和普通语句块，静态变量和静态语句块的初始化顺序取决于它们在代码中的顺序。</p>
-<pre tabindex="0"><code>public static String staticField = &quot;静态变量&quot;;
+<pre tabindex="0"><code>public static String staticField = &#34;静态变量&#34;;
 </code></pre><pre tabindex="0"><code>static {
-    System.out.println(&quot;静态语句块&quot;);
+    System.out.println(&#34;静态语句块&#34;);
 }
-</code></pre><pre tabindex="0"><code>public String field = &quot;实例变量&quot;;
+</code></pre><pre tabindex="0"><code>public String field = &#34;实例变量&#34;;
 </code></pre><pre tabindex="0"><code>{
-    System.out.println(&quot;普通语句块&quot;);
+    System.out.println(&#34;普通语句块&#34;);
 }
 </code></pre><p>最后才是构造函数的初始化。</p>
 <pre tabindex="0"><code>public InitialOrderTest(){
-    System.out.println(&quot;构造函数&quot;);
+    System.out.println(&#34;构造函数&#34;);
 }
 </code></pre><p>存在继承的情况下，初始化顺序为：</p>
 <ul>
@@ -914,7 +912,6 @@ public final native void wait(long timeout) throws InterruptedException
 public final void wait(long timeout, int nanos) throws InterruptedException
 
 public final void wait() throws InterruptedException
-
 </code></pre><h4 id="equalsa-name52a">equals()<a name="5.2"></a></h4>
 <p><strong>1.等价关系</strong><br>
 两个对象具有等价关系，需要满足以下五个条件：自反性、对称性、传递性、一致性、与 null 的比较（对任何不是 null 的对象 x 调用 x.equals(null) 结果都为flase)</p>

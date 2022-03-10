@@ -11,10 +11,10 @@
     
     <item>
       <title>【转载】Linux Socket 编程（不限 Linux）</title>
-      <link>/post/2022/03/07/linuxsocket/</link>
+      <link>/collection/linuxsocket/</link>
       <pubDate>Mon, 07 Mar 2022 18:43:02 +0800</pubDate>
       
-      <guid>/post/2022/03/07/linuxsocket/</guid>
+      <guid>/collection/linuxsocket/</guid>
       <description>
         <![CDATA[
         <p>作者：吴秦<br>
@@ -72,7 +72,6 @@
 struct in_addr {
     uint32_t       s_addr;     /* address in network byte order */
 };
-
 </code></pre><p>ipv6对应的是：</p>
 <pre tabindex="0"><code>struct sockaddr_in6 { 
     sa_family_t     sin6_family;   /* AF_INET6 */ 
@@ -200,7 +199,7 @@ int main(int argc, char** argv)
     int     n;
 
     if( (listenfd = socket(AF_INET, SOCK_STREAM, 0)) == -1 ){
-    printf(&quot;create socket error: %s(errno: %d)\n&quot;,strerror(errno),errno);
+    printf(&#34;create socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
     exit(0);
     }
 
@@ -210,24 +209,24 @@ int main(int argc, char** argv)
     servaddr.sin_port = htons(6666);
 
     if( bind(listenfd, (struct sockaddr*)&amp;servaddr, sizeof(servaddr)) == -1){
-    printf(&quot;bind socket error: %s(errno: %d)\n&quot;,strerror(errno),errno);
+    printf(&#34;bind socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
     exit(0);
     }
 
     if( listen(listenfd, 10) == -1){
-    printf(&quot;listen socket error: %s(errno: %d)\n&quot;,strerror(errno),errno);
+    printf(&#34;listen socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
     exit(0);
     }
 
-    printf(&quot;======waiting for client's request======\n&quot;);
+    printf(&#34;======waiting for client&#39;s request======\n&#34;);
     while(1){
     if( (connfd = accept(listenfd, (struct sockaddr*)NULL, NULL)) == -1){
-        printf(&quot;accept socket error: %s(errno: %d)&quot;,strerror(errno),errno);
+        printf(&#34;accept socket error: %s(errno: %d)&#34;,strerror(errno),errno);
         continue;
     }
     n = recv(connfd, buff, MAXLINE, 0);
-    buff[n] = '\0';
-    printf(&quot;recv msg from client: %s\n&quot;, buff);
+    buff[n] = &#39;\0&#39;;
+    printf(&#34;recv msg from client: %s\n&#34;, buff);
     close(connfd);
     }
 
@@ -252,12 +251,12 @@ int main(int argc, char** argv)
     struct sockaddr_in    servaddr;
 
     if( argc != 2){
-    printf(&quot;usage: ./client &lt;ipaddress&gt;\n&quot;);
+    printf(&#34;usage: ./client &lt;ipaddress&gt;\n&#34;);
     exit(0);
     }
 
     if( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) &lt; 0){
-    printf(&quot;create socket error: %s(errno: %d)\n&quot;, strerror(errno),errno);
+    printf(&#34;create socket error: %s(errno: %d)\n&#34;, strerror(errno),errno);
     exit(0);
     }
 
@@ -265,20 +264,20 @@ int main(int argc, char** argv)
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(6666);
     if( inet_pton(AF_INET, argv[1], &amp;servaddr.sin_addr) &lt;= 0){
-    printf(&quot;inet_pton error for %s\n&quot;,argv[1]);
+    printf(&#34;inet_pton error for %s\n&#34;,argv[1]);
     exit(0);
     }
 
     if( connect(sockfd, (struct sockaddr*)&amp;servaddr, sizeof(servaddr)) &lt; 0){
-    printf(&quot;connect error: %s(errno: %d)\n&quot;,strerror(errno),errno);
+    printf(&#34;connect error: %s(errno: %d)\n&#34;,strerror(errno),errno);
     exit(0);
     }
 
-    printf(&quot;send msg to server: \n&quot;);
+    printf(&#34;send msg to server: \n&#34;);
     fgets(sendline, 4096, stdin);
     if( send(sockfd, sendline, strlen(sendline), 0) &lt; 0)
     {
-    printf(&quot;send msg error: %s(errno: %d)\n&quot;, strerror(errno), errno);
+    printf(&#34;send msg error: %s(errno: %d)\n&#34;, strerror(errno), errno);
     exit(0);
     }
 
@@ -296,10 +295,10 @@ int main(int argc, char** argv)
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之网络编程</title>
-      <link>/post/2022/03/07/networkpg/</link>
+      <link>/collection/networkpg/</link>
       <pubDate>Mon, 07 Mar 2022 18:38:17 +0800</pubDate>
       
-      <guid>/post/2022/03/07/networkpg/</guid>
+      <guid>/collection/networkpg/</guid>
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -309,9 +308,9 @@ int main(int argc, char** argv)
 </blockquote>
 <p><img src="https://gitee.com/huihut/interview/raw/master/images/socket%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E8%AE%AF.jpg" alt="Socket 客户端服务器通讯"></p>
 <h4 id="socket-中的-readwrite-函数">Socket 中的 read()、write() 函数</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">ssize_t <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
-ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
-</code></pre></div><h5 id="read">read()</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ssize_t <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
+</span></span><span style="display:flex;"><span>ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
+</span></span></code></pre></div><h5 id="read">read()</h5>
 <ul>
 <li>read 函数是负责从 fd 中读取内容。</li>
 <li>当读成功时，read 返回实际所读的字节数。</li>
@@ -364,10 +363,10 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之计算机网络</title>
-      <link>/post/2022/01/15/network/</link>
+      <link>/collection/network/</link>
       <pubDate>Sat, 15 Jan 2022 08:06:35 +0800</pubDate>
       
-      <guid>/post/2022/01/15/network/</guid>
+      <guid>/collection/network/</guid>
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -897,9 +896,9 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 </blockquote>
 <p><img src="https://gitee.com/huihut/interview/raw/master/images/socket%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E8%AE%AF.jpg" alt="Socket 客户端服务器通讯"></p>
 <h4 id="socket-中的-readwrite-函数">Socket 中的 read()、write() 函数</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">ssize_t <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
-ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
-</code></pre></div><h5 id="read">read()</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ssize_t <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
+</span></span><span style="display:flex;"><span>ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
+</span></span></code></pre></div><h5 id="read">read()</h5>
 <ul>
 <li>read 函数是负责从 fd 中读取内容。</li>
 <li>当读成功时，read 返回实际所读的字节数。</li>

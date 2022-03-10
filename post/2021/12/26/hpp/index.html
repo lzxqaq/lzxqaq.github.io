@@ -53,7 +53,11 @@
   
   <li><a href="/post/">编程</a></li>
   
+  <li><a href="/collection/">收录</a></li>
+  
   <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/vitae/">简历</a></li>
   
   </ul>
 </nav>
@@ -83,7 +87,7 @@
 <p>就这样过了很久很久，突然有一天，我发现有很多库都需要重新编译，奇怪的是这些库不应该有改动的。一看是依赖的一个底层动态库发生变化，再看，是这个库里的一个 hpp 文件发生变化。大坑，我最开始的时候提醒过的。 那个库本身就有别的坑，实际上它更应该是静态库，但因为客观原因，它暂时还是一个动态库。然后就这样，一个 hpp 文件被嵌入这个底层动态库对外开放的接口里面。它一改动，所有依赖这个库的库都需要重新编译，还真是“牵一发而动全身”啊。</p>
 <h3 id="补充">补充</h3>
 <p>一、#include 指令</p>
-<pre tabindex="0"><code>#include &quot;test.hpp&quot;
+<pre tabindex="0"><code>#include &#34;test.hpp&#34;
 </code></pre><p>C++ 会使用一个预处理器，在进行主编译之前对源文件进行处理，它会在编译程序时自动运行。上面所示 #include &ldquo;test.hpp&rdquo;，该编译指令导致预处理器将 test.hpp 文件的内容添加到程序中。实际上，test.hpp 文件的内容将取代程序中的代码行 #include &ldquo;test.hpp&rdquo;。原始文件没有被修改，而是将源码和 test.hpp 文件组合成一个复合文件，编译的下一个阶段将使用该文件。</p>
 <p>二、头文件名</p>
 <table>
@@ -130,7 +134,7 @@
   
 <nav class="post-nav">
   <span class="nav-prev">&larr; <a href="/post/2021/12/26/design/">设计模式概述</a></span>
-  <span class="nav-next"><a href="/post/2021/12/28/singlefactory/">【转载】简单工厂模式</a> &rarr;</span>
+  <span class="nav-next"><a href="/post/2022/02/28/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87/">Marp：使用 Markdown 创建漂亮的幻灯片</a> &rarr;</span>
 </nav>
 
 <script type="text/javascript">
@@ -143,7 +147,7 @@ document.addEventListener('keyup', function(e) {
     
   } else if (e.which == 39) {  
     
-    url = '\/post\/2021\/12\/28\/singlefactory\/';
+    url = '\/post\/2022\/02\/28\/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87\/';
     
   }
   if (url) window.location = url;

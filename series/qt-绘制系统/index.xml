@@ -11,10 +11,10 @@
     
     <item>
       <title>【转载】Qt6 绘制基础</title>
-      <link>/post/2021/12/13/paintsystem/</link>
+      <link>/collection/paintsystem/</link>
       <pubDate>Mon, 13 Dec 2021 21:28:59 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2021/12/13/paintsystem/</guid>
+      <guid>/collection/paintsystem/</guid>
       <description>
         <![CDATA[
         <h3 id="绘制系统">绘制系统</h3>
@@ -36,7 +36,7 @@
 
     QPainter painter(&amp;pixmap);
     painter.drawRect(10, 10, 80, 80);
-    painter.drawText(20, 30, &quot;Hello World&quot;);
+    painter.drawText(20, 30, &#34;Hello World&#34;);
 
     label-&gt;setPixmap(pixmap);
 
@@ -45,7 +45,6 @@
     this-&gt;setLayout(layout);
     this-&gt;resize(200, 200);
 }
-
 </code></pre><p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo1.png" alt="demo1"></p>
 <h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制：</h4>

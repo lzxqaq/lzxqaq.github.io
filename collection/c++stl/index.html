@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>【转载】C&#43;&#43; 开发必备之 STL - 罗泽勋</title>
+    <meta property="og:title" content="【转载】C&#43;&#43; 开发必备之 STL - 罗泽勋">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="转载自https://github.com/huihut/interview
+[&amp;hellip;] STL 方法含义索引
+">
+      <meta property="og:description" content="转载自https://github.com/huihut/interview
+[&amp;hellip;] STL 方法含义索引
+">
+      
+    
+
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+  </head>
+
+  
+  <body>
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">主页</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/blog/">日志</a></li>
+  
+  <li><a href="/post/">编程</a></li>
+  
+  <li><a href="/collection/">收录</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/vitae/">简历</a></li>
+  
+  </ul>
+</nav>
+
+    </header>
+    <header class="title">
+      
+<h1>【转载】C&#43;&#43; 开发必备之 STL</h1>
+
+
+<h3>
+2022-01-14</h3>
+
+<hr>
+
+
+    </header>
+
+
+
+
+
+<main>
+<p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
+<h3 id="stl-索引">STL 索引</h3>
+<p><a href="https://github.com/huihut/interview/tree/master/STL">STL 方法含义索引</a></p>
+<h3 id="stl-容器">STL 容器</h3>
+<table>
+<thead>
+<tr>
+<th>容器</th>
+<th>底层数据结构</th>
+<th>时间复杂度</th>
+<th>有无序</th>
+<th>可不可重复</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#array">array</a></td>
+<td>数组</td>
+<td>随机读改 O(1)</td>
+<td>无序</td>
+<td>可重复</td>
+<td>支持随机访问</td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#vector">vector</a></td>
+<td>数组</td>
+<td>随机读改、尾部插入、尾部删除 O(1)<br/>头部插入、头部删除 O(n)</td>
+<td>无序</td>
+<td>可重复</td>
+<td>支持随机访问</td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#deque">deque</a></td>
+<td>双端队列</td>
+<td>头尾插入、头尾删除 O(1)</td>
+<td>无序</td>
+<td>可重复</td>
+<td>一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问</td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#forward_list">forward_list</a></td>
+<td>单向链表</td>
+<td>插入、删除 O(1)</td>
+<td>无序</td>
+<td>可重复</td>
+<td>不支持随机访问</td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#list">list</a></td>
+<td>双向链表</td>
+<td>插入、删除 O(1)</td>
+<td>无序</td>
+<td>可重复</td>
+<td>不支持随机访问</td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#stack">stack</a></td>
+<td>deque / list</td>
+<td>顶部插入、顶部删除 O(1)</td>
+<td>无序</td>
+<td>可重复</td>
+<td>deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时</td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#queue">queue</a></td>
+<td>deque / list</td>
+<td>尾部插入、头部删除 O(1)</td>
+<td>无序</td>
+<td>可重复</td>
+<td>deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时</td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#priority_queue">priority_queue</a></td>
+<td>vector + max-heap</td>
+<td>插入、删除 O(log<sub>2</sub>n)</td>
+<td>有序</td>
+<td>可重复</td>
+<td>vector容器+heap处理规则</td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#set">set</a></td>
+<td>红黑树</td>
+<td>插入、删除、查找 O(log<sub>2</sub>n)</td>
+<td>有序</td>
+<td>不可重复</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#multiset">multiset</a></td>
+<td>红黑树</td>
+<td>插入、删除、查找 O(log<sub>2</sub>n)</td>
+<td>有序</td>
+<td>可重复</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#map">map</a></td>
+<td>红黑树</td>
+<td>插入、删除、查找 O(log<sub>2</sub>n)</td>
+<td>有序</td>
+<td>不可重复</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#multimap">multimap</a></td>
+<td>红黑树</td>
+<td>插入、删除、查找 O(log<sub>2</sub>n)</td>
+<td>有序</td>
+<td>可重复</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#unordered_set">unordered_set</a></td>
+<td>哈希表</td>
+<td>插入、删除、查找 O(1) 最差 O(n)</td>
+<td>无序</td>
+<td>不可重复</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#unordered_multiset">unordered_multiset</a></td>
+<td>哈希表</td>
+<td>插入、删除、查找 O(1) 最差 O(n)</td>
+<td>无序</td>
+<td>可重复</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#unordered_map">unordered_map</a></td>
+<td>哈希表</td>
+<td>插入、删除、查找 O(1) 最差 O(n)</td>
+<td>无序</td>
+<td>不可重复</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/huihut/interview/tree/master/STL#unordered_multimap">unordered_multimap</a></td>
+<td>哈希表</td>
+<td>插入、删除、查找 O(1) 最差 O(n)</td>
+<td>无序</td>
+<td>可重复</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="stl-算法">STL 算法</h3>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>底层算法</th>
+<th>时间复杂度</th>
+<th>可不可重复</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.cplusplus.com/reference/algorithm/find/">find</a></td>
+<td>顺序查找</td>
+<td>O(n)</td>
+<td>可重复</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gcc-mirror/gcc/blob/master/libstdc++-v3/include/bits/stl_algo.h#L4808">sort</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Introsort">内省排序</a></td>
+<td>O(n*log<sub>2</sub>n)</td>
+<td>可重复</td>
+</tr>
+</tbody>
+</table>
+
+</main>
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/collection/effectivec&#43;&#43;/">【转载】C&#43;&#43; 开发必备之 Effective C&#43;&#43;</a></span>
+  <span class="nav-next"><a href="/collection/data-structure/">【转载】C&#43;&#43; 开发必备之数据结构</a> &rarr;</span>
+</nav>
+
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/collection\/effectivec\u002b\u002b\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/collection\/data-structure\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+repo="lzxqaq/site-comment"
+issue-term="title"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+
+
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+
+
+  
+  <hr/>
+  © <a href="/">Zexun Luo</a> 2020 - 2022
+  
+  </footer>
+  </body>
+</html>
+

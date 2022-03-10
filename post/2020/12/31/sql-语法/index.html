@@ -137,7 +137,6 @@ SQL 语句不区 &amp;hellip;">
 SELECT * FROM mytable; -- 注释
 /* 注释1
    注释2 */
-
 </code></pre><p>数据库创建与使用：</p>
 <pre tabindex="0"><code>CREATE DATABASE test;
 USE test;
@@ -273,7 +272,7 @@ WHERE col IS NULL;
 </ul>
 <pre tabindex="0"><code>SELECT *
 FROM mytable
-WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
+WHERE col LIKE &#39;[^AB]%&#39;; -- 不以 A 和 B 开头的任意文本
 </code></pre><p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
 <h3 id="十一计算字段">十一、计算字段</h3>
 <p>在数据库服务器上完成数据的转换和格式化的工作往往比客户端上快得多，并且转换和格式化后的数据量更少的话可以减少网络通信量。</p>
@@ -281,7 +280,7 @@ WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
 <pre tabindex="0"><code>SELECT col1 * col2 AS alias
 FROM mytable;
 </code></pre><p>CONCAT() 用于连接两个字段。许多数据库会使用空格把一个值填充为列宽，因此连接的结果会出现一些不必要的空格，使用 TRIM() 可以去除首尾空格。</p>
-<pre tabindex="0"><code>SELECT CONCAT(TRIM(col1), '(', TRIM(col2), ')') AS concat_col
+<pre tabindex="0"><code>SELECT CONCAT(TRIM(col1), &#39;(&#39;, TRIM(col2), &#39;)&#39;) AS concat_col
 FROM mytable;
 </code></pre><h3 id="十二函数">十二、函数</h3>
 <p>各个 DBMS 的函数都是不相同的，因此不可移植，以下主要是 MySQL 的函数。</p>
@@ -307,7 +306,7 @@ SOUNDEX()	转换为语音值</p>
 <p>其中， SOUNDEX() 可以将一个字符串转换为描述其语音表示的字母数字模式。</p>
 <pre tabindex="0"><code>SELECT *
 FROM mytable
-WHERE SOUNDEX(col1) = SOUNDEX('apple')
+WHERE SOUNDEX(col1) = SOUNDEX(&#39;apple&#39;)
 </code></pre><h4 id="日期和时间处理">日期和时间处理</h4>
 <ul>
 <li>日期格式：YYYY-MM-DD</li>
@@ -396,12 +395,12 @@ FROM employee
 WHERE department = (
       SELECT department
       FROM employee
-      WHERE name = &quot;Jim&quot;);
+      WHERE name = &#34;Jim&#34;);
 </code></pre><p>自连接版本</p>
 <pre tabindex="0"><code>SELECT e1.name
 FROM employee AS e1 INNER JOIN employee AS e2
 ON e1.department = e2.department
-      AND e2.name = &quot;Jim&quot;;
+      AND e2.name = &#34;Jim&#34;;
 </code></pre><h4 id="自然连接">自然连接</h4>
 <p>自然连接是把同名列通过等值测试连接起来的，同名列可以有多个。</p>
 <p>内连接和自然连接的区别：内连接提供连接的列，而自然连接自动连接所有同名列。</p>
@@ -478,8 +477,8 @@ create procedure myprocedure(out ret int)
 
         declare mycursor cursor for
         select col1 from mytable;
-        # 定义了一个 continue handler，当 sqlstate '02000' 这个条件出现时，会执行 set done = 1
-        declare continue handler for sqlstate '02000' set done = 1;
+        # 定义了一个 continue handler，当 sqlstate &#39;02000&#39; 这个条件出现时，会执行 set done = 1
+        declare continue handler for sqlstate &#39;02000&#39; set done = 1;
 
         open mycursor;
 
@@ -542,7 +541,7 @@ ORDER BY col COLLATE latin1_general_ci;
 SELECT user FROM user;
 </code></pre><p>创建账户</p>
 <p>新创建的账户没有任何权限。</p>
-<pre tabindex="0"><code>CREATE USER myuser IDENTIFIED BY 'mypassword';
+<pre tabindex="0"><code>CREATE USER myuser IDENTIFIED BY &#39;mypassword&#39;;
 </code></pre><p>修改账户名</p>
 <pre tabindex="0"><code>RENAME USER myuser TO newuser;
 </code></pre><p>删除账户</p>
@@ -564,7 +563,7 @@ SELECT user FROM user;
 <pre tabindex="0"><code>REVOKE SELECT, INSERT ON mydatabase.* FROM myuser;
 </code></pre><p>更改密码</p>
 <p>必须使用 Password() 函数进行加密。</p>
-<pre tabindex="0"><code>SET PASSWROD FOR myuser = Password('new_password');
+<pre tabindex="0"><code>SET PASSWROD FOR myuser = Password(&#39;new_password&#39;);
 </code></pre>
 </main>
 

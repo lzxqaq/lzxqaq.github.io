@@ -233,7 +233,7 @@ DISPLAY=:1 make -k -j1 check
 <pre tabindex="0"><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
 </code></pre><p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
 <p>或者，使用屏幕外插件：</p>
-<pre tabindex="0"><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
+<pre tabindex="0"><code>TESTARGS=&#34;-platform offscreen&#34; make check -k -j1
 </code></pre><h3 id="窗口管理器">窗口管理器</h3>
 <p>在 Unix 上，至少有两个自动测试（tst_examples和tst_gestures）需要运行窗口管理器。因此，如果在嵌套的 X-server 下运行这些测试，您还必须在该 X-server 中运行窗口管理器。</p>
 <p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>

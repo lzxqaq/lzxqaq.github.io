@@ -19,12 +19,12 @@
 [&amp;hellip;] 编译
 [&amp;hellip;] 汇编
 [&amp;hellip;] 链接
-[&amp;hellip;] #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int main() {int m, n;int *p, *q;scanf(&amp;quot;%d%d&amp;quot;, &amp;amp;m, &amp;amp;n);p = &amp;hellip;">
+[&amp;hellip;] #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; int main() { int m, n; int *p, *q; scanf(&amp;#34;%d%d&amp;#34;, &amp;amp;m, &amp;amp;n); p = &amp;hellip;">
       <meta property="og:description" content="预处理
 [&amp;hellip;] 编译
 [&amp;hellip;] 汇编
 [&amp;hellip;] 链接
-[&amp;hellip;] #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int main() {int m, n;int *p, *q;scanf(&amp;quot;%d%d&amp;quot;, &amp;amp;m, &amp;amp;n);p = &amp;hellip;">
+[&amp;hellip;] #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; int main() { int m, n; int *p, *q; scanf(&amp;#34;%d%d&amp;#34;, &amp;amp;m, &amp;amp;n); p = &amp;hellip;">
       
     
 
@@ -61,7 +61,11 @@
   
   <li><a href="/post/">编程</a></li>
   
+  <li><a href="/collection/">收录</a></li>
+  
   <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/vitae/">简历</a></li>
   
   </ul>
 </nav>
@@ -132,7 +136,7 @@
 int main() {
   int m, n;
   int *p, *q;
-  scanf(&quot;%d%d&quot;, &amp;m, &amp;n);
+  scanf(&#34;%d%d&#34;, &amp;m, &amp;n);
   p = (int*)malloc(sizeof(int) * m);
   q = (int*)malloc(sizeof(int) * n);
   return 0;
@@ -149,7 +153,7 @@ void hehe() {
   static int sum = 0;
   k++;
   sum++;
-  printf(&quot;%d %d\n&quot;, k, sum);
+  printf(&#34;%d %d\n&#34;, k, sum);
 }
 int main() {
   int *p;
@@ -179,7 +183,7 @@ void hehe() {
 }
 int main() {
   int k = 3;//局部变量-&gt;栈， 3-&gt;文本区
-  char *str = &quot;Hello&quot;;//str-&gt;栈  &quot;Hello&quot;-&gt;常量区
+  char *str = &#34;Hello&#34;;//str-&gt;栈  &#34;Hello&#34;-&gt;常量区
   int *p = (int*)malloc(sizeof(int));//p-&gt;栈  malloc分配控件-&gt;堆
   hehe();//函数每次结束，栈空间都会释放，而静态区不会
   free(p);
@@ -187,7 +191,6 @@ int main() {
 }
 
 //文本区-&gt;放这个文件编译后的二进制码
-
 </code></pre><h3 id="动态库静态库">动态库、静态库</h3>
 <ul>
 <li>
@@ -256,8 +259,8 @@ private:
 };
 </code></pre><pre tabindex="0"><code>// TemplateLib.cpp : 定义 DLL 应用程序的导出函数。
  
-#include &quot;stdafx.h&quot;
-#include &quot;TemplateLib.h&quot;
+#include &#34;stdafx.h&#34;
+#include &#34;TemplateLib.h&#34;
  
 // 1.利用重载来实例化不同类型的模板，代码量大不说，基本上是重复的代码
 // 2.库的设计者不知道用户会传入什么类型，也就是说设计者不可能实例化每一种类型的模板。
@@ -276,10 +279,10 @@ namespace implement_template_private
 	void	implement_template()
 	{
 		int		idata = 10;
-		char	chr	= 'x';
+		char	chr	= &#39;x&#39;;
 		float	fdata = 20.f;
 		UINT	undata= 9;
-		char*	str	=	&quot;hello&quot;;
+		char*	str	=	&#34;hello&#34;;
  
 		// 这种方式的实例化，代码量比重载方式少许多，但需运行一次该模板函数
 		// 也许在某些时候凭空运行这个函数是不合理的。
@@ -303,7 +306,6 @@ namespace implement_template_private
 	}
  
 };
-
 </code></pre><ul>
 <li>总结：不建议在导出库中使用模板相关的技术，假如你能够确定用户在使用你设计的模板函数时，将传入哪些类型，设计者要将这些类型的模板一一实例化。</li>
 <li>在动态库和静态库使用模板:https://blog.csdn.net/xiexievv/article/details/8500234</li>
@@ -349,7 +351,7 @@ int main() {
 <pre tabindex="0"><code>int arr[5] = {1, 2, 3, 4, 5};
 for (int x : arr) {
   x += 100;
-  cout &lt;&lt; x &lt;&lt; ' ';
+  cout &lt;&lt; x &lt;&lt; &#39; &#39;;
 }
 cout &lt;&lt; arr[0];
 </code></pre><ul>
@@ -375,7 +377,6 @@ cout &lt;&lt; f1(1, 2) &lt;&lt; endl;
 </code></pre><h3 id="类型转换c">类型转换（C++）</h3>
 <pre tabindex="0"><code>  int k;
   k = 3.14;//在 Java 中会报错，在 C/C++ 编译器中正常（k==3）。
-
 </code></pre><ul>
 <li>Java 对类型转换更严格。</li>
 <li>C/C++ 编译器给了程序员太多自由：编译器认为，程序员可以这样写，程序员应该知道他在干什么，也应该为自己的行为负责。</li>
@@ -462,7 +463,6 @@ public:
     //写在这里的只能是赋值
   }
 }
-
 </code></pre><h3 id="对象的复制c">对象的复制（C++）</h3>
 <ul>
 <li>注意浅拷贝、深拷贝。</li>
@@ -501,14 +501,14 @@ Array b = a;
 <pre tabindex="0"><code>class People {
 public:
   void say() {
-    cout &lt;&lt; &quot;I 'm a person!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &#34;I &#39;m a person!&#34; &lt;&lt; endl;
   }
 };
 
 class Student : public People {
 public:
   void say() {
-    cout &lt;&lt; &quot;I'm a student!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &#34;I&#39;m a student!&#34; &lt;&lt; endl;
     }
 };
 
@@ -552,12 +552,12 @@ int main() {
 <li>当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。</li>
 </ul>
 <pre tabindex="0"><code>QPixmap p1, p2;
-p1.load(&quot;image.bmp&quot;);
+p1.load(&#34;image.bmp&#34;);
 p2 = p1;                        // p1 and p2 share data
 
 QPainter paint;
 paint.begin(&amp;p2);               // cuts p2 loose from p1
-paint.drawText(0,50, &quot;Hi&quot;);
+paint.drawText(0,50, &#34;Hi&#34;);
 paint.end();
 </code></pre><ul>
 <li>
@@ -640,7 +640,7 @@ paint.end();
   
 <nav class="post-nav">
   <span class="nav-prev">&larr; <a href="/post/2022/02/28/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87/">Marp：使用 Markdown 创建漂亮的幻灯片</a></span>
-  <span class="nav-next"><a href="/post/2022/03/07/networkpg/">【转载】C&#43;&#43; 开发必备之网络编程</a> &rarr;</span>
+  <span class="nav-next"></span>
 </nav>
 
 <script type="text/javascript">
@@ -652,8 +652,6 @@ document.addEventListener('keyup', function(e) {
     url = '\/post\/2022\/02\/28\/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87\/';
     
   } else if (e.which == 39) {  
-    
-    url = '\/post\/2022\/03\/07\/networkpg\/';
     
   }
   if (url) window.location = url;

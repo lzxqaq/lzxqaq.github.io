@@ -189,23 +189,23 @@ B&#43; Tree 是基于 B Tree 和叶子节点顺序访问指针进行实现，它
 <h4 id="1-独立的列">1. 独立的列</h4>
 <p>在进行查询时，索引列不能是表达式的一部分，也不能是函数的参数，否则无法使用索引。</p>
 <p>例如下面的查询不能使用 actor_id 列的索引：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> actor_id <span style="color:#66d9ef">FROM</span> sakila.actor <span style="color:#66d9ef">WHERE</span> actor_id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-</code></pre></div><h4 id="2-多列索引">2. 多列索引</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> actor_id <span style="color:#66d9ef">FROM</span> sakila.actor <span style="color:#66d9ef">WHERE</span> actor_id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span></code></pre></div><h4 id="2-多列索引">2. 多列索引</h4>
 <p>在需要使用多个列作为条件进行查询时，使用多列索引比使用多个单列索引性能更好。例如下面的语句中，最好把 actor_id 和 film_id 设置为多列索引。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> film_id, actor_ id <span style="color:#66d9ef">FROM</span> sakila.film_actor
-<span style="color:#66d9ef">WHERE</span> actor_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AND</span> film_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</code></pre></div><h4 id="3-索引列的顺序">3. 索引列的顺序</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> film_id, actor_ id <span style="color:#66d9ef">FROM</span> sakila.film_actor
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> actor_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AND</span> film_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span></code></pre></div><h4 id="3-索引列的顺序">3. 索引列的顺序</h4>
 <p>让选择性最强的索引列放在前面。</p>
 <p>索引的选择性是指：不重复的索引值和记录总数的比值。最大值为 1，此时每个记录都有唯一的索引与其对应。选择性越高，每个记录的区分度越高，查询效率也越高。</p>
 <p>例如下面显示的结果中 customer_id 的选择性比 staff_id 更高，因此最好把 customer_id 列放在多列索引的前面。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> staff_id)<span style="color:#f92672">/</span><span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> staff_id_selectivity,
-<span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> customer_id)<span style="color:#f92672">/</span><span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> customer_id_selectivity,
-<span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>)
-<span style="color:#66d9ef">FROM</span> payment;
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">   staff_id_selectivity: 0.0001
-customer_id_selectivity: 0.0373
-               COUNT(*): 16049
-</code></pre></div><h4 id="4-前缀索引">4. 前缀索引</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> staff_id)<span style="color:#f92672">/</span><span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> staff_id_selectivity,
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> customer_id)<span style="color:#f92672">/</span><span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> customer_id_selectivity,
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> payment;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>   staff_id_selectivity: 0.0001
+</span></span><span style="display:flex;"><span>customer_id_selectivity: 0.0373
+</span></span><span style="display:flex;"><span>               COUNT(*): 16049
+</span></span></code></pre></div><h4 id="4-前缀索引">4. 前缀索引</h4>
 <p>对于 BLOB、TEXT 和 VARCHAR 类型的列，必须使用前缀索引，只索引开始的部分字符。</p>
 <p>前缀长度的选取需要根据索引选择性来确定。</p>
 <h4 id="5-覆盖索引">5. 覆盖索引</h4>
@@ -261,13 +261,13 @@ customer_id_selectivity: 0.0373
 <h3 id="重构查询方式">重构查询方式</h3>
 <h4 id="1-切分大查询">1. 切分大查询</h4>
 <p>一个大查询如果一次性执行的话，可能一次锁住很多数据、占满整个事务日志、耗尽系统资源、阻塞很多小的但重要的查询。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> messages <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">create</span> <span style="color:#f92672">&lt;</span> DATE_SUB(NOW(), INTERVAL <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">MONTH</span>);
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">rows_affected <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">do</span> <span style="color:#960050;background-color:#1e0010">{</span>
-    rows_affected <span style="color:#f92672">=</span> do_query(
-    <span style="color:#e6db74">&#34;DELETE FROM messages WHERE create  &lt; DATE_SUB(NOW(), INTERVAL 3 MONTH) LIMIT 10000&#34;</span>)
-<span style="color:#960050;background-color:#1e0010">}</span> while rows_affected <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>
-</code></pre></div><h4 id="2-分解大连接查询">2. 分解大连接查询</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> messages <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">create</span> <span style="color:#f92672">&lt;</span> DATE_SUB(NOW(), INTERVAL <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">MONTH</span>);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>rows_affected <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>    rows_affected <span style="color:#f92672">=</span> do_query(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;DELETE FROM messages WHERE create  &lt; DATE_SUB(NOW(), INTERVAL 3 MONTH) LIMIT 10000&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span> while rows_affected <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><h4 id="2-分解大连接查询">2. 分解大连接查询</h4>
 <p>将一个大连接查询分解成对每一个表进行一次单表查询，然后在应用程序中进行关联，这样做的好处有：</p>
 <ul>
 <li>让缓存更高效。对于连接查询，如果其中一个表发生变化，那么整个查询缓存就无法使用。而分解后的多个查询，即使其中一个表发生变化，对其它表的查询缓存依然可以使用。</li>
@@ -276,14 +276,14 @@ customer_id_selectivity: 0.0373
 <li>在应用层进行连接，可以更容易对数据库进行拆分，从而更容易做到高性能和可伸缩。</li>
 <li>查询本身效率也可能会有所提升。例如下面的例子中，使用 IN() 代替连接查询，可以让 MySQL 按照 ID 顺序进行查询，这可能比随机的连接要更高效。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tag
-<span style="color:#66d9ef">JOIN</span> tag_post <span style="color:#66d9ef">ON</span> tag_post.tag_id<span style="color:#f92672">=</span>tag.id
-<span style="color:#66d9ef">JOIN</span> post <span style="color:#66d9ef">ON</span> tag_post.post_id<span style="color:#f92672">=</span>post.id
-<span style="color:#66d9ef">WHERE</span> tag.tag<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql&#39;</span>;
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tag <span style="color:#66d9ef">WHERE</span> tag<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql&#39;</span>;
-<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tag_post <span style="color:#66d9ef">WHERE</span> tag_id<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>;
-<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> post <span style="color:#66d9ef">WHERE</span> post.id <span style="color:#66d9ef">IN</span> (<span style="color:#ae81ff">123</span>,<span style="color:#ae81ff">456</span>,<span style="color:#ae81ff">567</span>,<span style="color:#ae81ff">9098</span>,<span style="color:#ae81ff">8904</span>);
-</code></pre></div><h2 id="三存储引擎">三、存储引擎</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tag
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">JOIN</span> tag_post <span style="color:#66d9ef">ON</span> tag_post.tag_id<span style="color:#f92672">=</span>tag.id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">JOIN</span> post <span style="color:#66d9ef">ON</span> tag_post.post_id<span style="color:#f92672">=</span>post.id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> tag.tag<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql&#39;</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tag <span style="color:#66d9ef">WHERE</span> tag<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tag_post <span style="color:#66d9ef">WHERE</span> tag_id<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> post <span style="color:#66d9ef">WHERE</span> post.id <span style="color:#66d9ef">IN</span> (<span style="color:#ae81ff">123</span>,<span style="color:#ae81ff">456</span>,<span style="color:#ae81ff">567</span>,<span style="color:#ae81ff">9098</span>,<span style="color:#ae81ff">8904</span>);
+</span></span></code></pre></div><h2 id="三存储引擎">三、存储引擎</h2>
 <h3 id="innodb">InnoDB</h3>
 <p>是 MySQL 默认的事务型存储引擎，只有在需要它不支持的特性时，才考虑使用其它存储引擎。</p>
 <p>实现了四个标准的隔离级别，默认级别是可重复读（REPEATABLE READ）。在可重复读隔离级别下，通过多版本并发控制（MVCC）+ Next-Key Locking 防止幻影读。</p>

@@ -141,7 +141,6 @@
 struct in_addr {
     uint32_t       s_addr;     /* address in network byte order */
 };
-
 </code></pre><p>ipv6对应的是：</p>
 <pre tabindex="0"><code>struct sockaddr_in6 { 
     sa_family_t     sin6_family;   /* AF_INET6 */ 
@@ -269,7 +268,7 @@ int main(int argc, char** argv)
     int     n;
 
     if( (listenfd = socket(AF_INET, SOCK_STREAM, 0)) == -1 ){
-    printf(&quot;create socket error: %s(errno: %d)\n&quot;,strerror(errno),errno);
+    printf(&#34;create socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
     exit(0);
     }
 
@@ -279,24 +278,24 @@ int main(int argc, char** argv)
     servaddr.sin_port = htons(6666);
 
     if( bind(listenfd, (struct sockaddr*)&amp;servaddr, sizeof(servaddr)) == -1){
-    printf(&quot;bind socket error: %s(errno: %d)\n&quot;,strerror(errno),errno);
+    printf(&#34;bind socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
     exit(0);
     }
 
     if( listen(listenfd, 10) == -1){
-    printf(&quot;listen socket error: %s(errno: %d)\n&quot;,strerror(errno),errno);
+    printf(&#34;listen socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
     exit(0);
     }
 
-    printf(&quot;======waiting for client's request======\n&quot;);
+    printf(&#34;======waiting for client&#39;s request======\n&#34;);
     while(1){
     if( (connfd = accept(listenfd, (struct sockaddr*)NULL, NULL)) == -1){
-        printf(&quot;accept socket error: %s(errno: %d)&quot;,strerror(errno),errno);
+        printf(&#34;accept socket error: %s(errno: %d)&#34;,strerror(errno),errno);
         continue;
     }
     n = recv(connfd, buff, MAXLINE, 0);
-    buff[n] = '\0';
-    printf(&quot;recv msg from client: %s\n&quot;, buff);
+    buff[n] = &#39;\0&#39;;
+    printf(&#34;recv msg from client: %s\n&#34;, buff);
     close(connfd);
     }
 
@@ -321,12 +320,12 @@ int main(int argc, char** argv)
     struct sockaddr_in    servaddr;
 
     if( argc != 2){
-    printf(&quot;usage: ./client &lt;ipaddress&gt;\n&quot;);
+    printf(&#34;usage: ./client &lt;ipaddress&gt;\n&#34;);
     exit(0);
     }
 
     if( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) &lt; 0){
-    printf(&quot;create socket error: %s(errno: %d)\n&quot;, strerror(errno),errno);
+    printf(&#34;create socket error: %s(errno: %d)\n&#34;, strerror(errno),errno);
     exit(0);
     }
 
@@ -334,20 +333,20 @@ int main(int argc, char** argv)
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(6666);
     if( inet_pton(AF_INET, argv[1], &amp;servaddr.sin_addr) &lt;= 0){
-    printf(&quot;inet_pton error for %s\n&quot;,argv[1]);
+    printf(&#34;inet_pton error for %s\n&#34;,argv[1]);
     exit(0);
     }
 
     if( connect(sockfd, (struct sockaddr*)&amp;servaddr, sizeof(servaddr)) &lt; 0){
-    printf(&quot;connect error: %s(errno: %d)\n&quot;,strerror(errno),errno);
+    printf(&#34;connect error: %s(errno: %d)\n&#34;,strerror(errno),errno);
     exit(0);
     }
 
-    printf(&quot;send msg to server: \n&quot;);
+    printf(&#34;send msg to server: \n&#34;);
     fgets(sendline, 4096, stdin);
     if( send(sockfd, sendline, strlen(sendline), 0) &lt; 0)
     {
-    printf(&quot;send msg error: %s(errno: %d)\n&quot;, strerror(errno), errno);
+    printf(&#34;send msg error: %s(errno: %d)\n&#34;, strerror(errno), errno);
     exit(0);
     }
 

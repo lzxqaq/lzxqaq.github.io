@@ -17,11 +17,11 @@
       
       <meta property="description" content="有三种使用线程的方法：
 [&amp;hellip;] 需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable {@Overridepublic void run(){// ...}}使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
 public &amp;hellip;">
       <meta property="og:description" content="有三种使用线程的方法：
 [&amp;hellip;] 需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable {@Overridepublic void run(){// ...}}使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
 public &amp;hellip;">
       
     
@@ -59,7 +59,11 @@ public &amp;hellip;">
   
   <li><a href="/post/">编程</a></li>
   
+  <li><a href="/collection/">收录</a></li>
+  
   <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/vitae/">简历</a></li>
   
   </ul>
 </nav>
@@ -152,7 +156,7 @@ public &amp;hellip;">
     public void func1() {
         synchronized (this) {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &quot; &quot;);
+                System.out.print(i + &#34; &#34;);
             }
         }
     }
@@ -190,7 +194,7 @@ public &amp;hellip;">
     public void func2() {
         synchronized (SynchronizedExample.class) {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &quot; &quot;);
+                System.out.print(i + &#34; &#34;);
             }
         }
     }
@@ -218,14 +222,13 @@ public &amp;hellip;">
         lock.lock();
         try {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &quot; &quot;);
+                System.out.print(i + &#34; &#34;);
             }
         } finally {
             lock.unlock(); // 确保释放锁，从而避免发生死锁。
         }
     }
 }
-
 </code></pre><pre tabindex="0"><code>public static void main(String[] args) {
     LockExample lockExample = new LockExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
@@ -247,7 +250,7 @@ public &amp;hellip;">
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2020/12/31/sql-%E8%AF%AD%E6%B3%95/">SQL 语法</a></span>
+  <span class="nav-prev">&larr; <a href="/post/2020/12/26/linux-%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E9%80%89%E6%8B%A9/">Linux 不同发行版的选择</a></span>
   <span class="nav-next"><a href="/post/2021/01/12/java-i/o/">Java I/O</a> &rarr;</span>
 </nav>
 
@@ -257,7 +260,7 @@ document.addEventListener('keyup', function(e) {
   var url = false;
   if (e.which == 37) {  
     
-    url = '\/post\/2020\/12\/31\/sql-%E8%AF%AD%E6%B3%95\/';
+    url = '\/post\/2020\/12\/26\/linux-%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E9%80%89%E6%8B%A9\/';
     
   } else if (e.which == 39) {  
     

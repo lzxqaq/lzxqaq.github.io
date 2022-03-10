@@ -11,10 +11,10 @@
     
     <item>
       <title>【转载】Qt6 对象模型</title>
-      <link>/post/2021/12/13/object/</link>
+      <link>/collection/object/</link>
       <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2021/12/13/object/</guid>
+      <guid>/collection/object/</guid>
       <description>
         <![CDATA[
         <h3 id="对象模型">对象模型</h3>
@@ -56,10 +56,10 @@
     
     <item>
       <title>【转载】Qt 6 核心内部结构</title>
-      <link>/post/2021/12/13/qt-core/</link>
+      <link>/collection/qt-core/</link>
       <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2021/12/13/qt-core/</guid>
+      <guid>/collection/qt-core/</guid>
       <description>
         <![CDATA[
         <p>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示了如何使用它们来实现 Qt 尚未提供的专门功能。</p>
@@ -115,10 +115,10 @@ Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序�
     
     <item>
       <title>【转载】Qt6 Qvariant 与自定义 Qt 类型</title>
-      <link>/post/2021/12/13/qvariant/</link>
+      <link>/collection/qvariant/</link>
       <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2021/12/13/qvariant/</guid>
+      <guid>/collection/qvariant/</guid>
       <description>
         <![CDATA[
         <h3 id="概述">概述</h3>
@@ -174,27 +174,27 @@ private:
     connect(thread, &amp;RenderThread::sendBlock,
             this, &amp;Window::addBlock);
     ...
-    setWindowTitle(tr(&quot;Queued Custom Type&quot;));
+    setWindowTitle(tr(&#34;Queued Custom Type&#34;));
 }
 </code></pre><p>如果一个类型在没有注册的情况下在排队连接中使用，控制台会打印警告； 例如：</p>
-<pre tabindex="0"><code>QObject::connect: Cannot queue arguments of type 'Block'
-(Make sure 'Block' is registered using qRegisterMetaType().)
+<pre tabindex="0"><code>QObject::connect: Cannot queue arguments of type &#39;Block&#39;
+(Make sure &#39;Block&#39; is registered using qRegisterMetaType().)
 </code></pre><h3 id="使类型可打印">使类型可打印</h3>
 <p>为调试目的使自定义类型可打印通常非常有用，如下面的代码所示：</p>
 <pre tabindex="0"><code>    Message message(body, headers);
-    qDebug() &lt;&lt; &quot;Original:&quot; &lt;&lt; message;
+    qDebug() &lt;&lt; &#34;Original:&#34; &lt;&lt; message;
 </code></pre><p>这是通过为该类型创建一个流操作符来实现的，该操作符通常在该类型的头文件中定义：</p>
 <pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
 </code></pre><p>实现：</p>
 <pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
 {
-    QList&lt;QStringView&gt; pieces = message.body().split(u&quot;\r\n&quot;, Qt::SkipEmptyParts);
+    QList&lt;QStringView&gt; pieces = message.body().split(u&#34;\r\n&#34;, Qt::SkipEmptyParts);
     if (pieces.isEmpty())
-        dbg.nospace() &lt;&lt; &quot;Message()&quot;;
+        dbg.nospace() &lt;&lt; &#34;Message()&#34;;
     else if (pieces.size() == 1)
-        dbg.nospace() &lt;&lt; &quot;Message(&quot; &lt;&lt; pieces.first() &lt;&lt; &quot;)&quot;;
+        dbg.nospace() &lt;&lt; &#34;Message(&#34; &lt;&lt; pieces.first() &lt;&lt; &#34;)&#34;;
     else
-        dbg.nospace() &lt;&lt; &quot;Message(&quot; &lt;&lt; pieces.first() &lt;&lt; &quot; ...)&quot;;
+        dbg.nospace() &lt;&lt; &#34;Message(&#34; &lt;&lt; pieces.first() &lt;&lt; &#34; ...)&#34;;
     return dbg.maybeSpace();
 }
 </code></pre><p>当然，发送到调试流的输出可以根据您的喜好变得简单或复杂。 请注意，此函数返回的值是 QDebug 对象本身，尽管这通常是通过调用 获得的，该 QDebug 的 maySpace () 成员函数 函数 填充 用空格字符 流以使其更具可读性。</p>
@@ -208,10 +208,10 @@ private:
     
     <item>
       <title>【转载】Qt6 顺序容器 QList</title>
-      <link>/post/2021/12/02/qlist/</link>
+      <link>/collection/qlist/</link>
       <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2021/12/02/qlist/</guid>
+      <guid>/collection/qlist/</guid>
       <description>
         <![CDATA[
         <h3 id="介绍">介绍</h3>
@@ -234,10 +234,10 @@ private:
     
     <item>
       <title>【转载】Qt6 隐式共享</title>
-      <link>/post/2021/12/01/implicit-sharing/</link>
+      <link>/collection/implicit-sharing/</link>
       <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2021/12/01/implicit-sharing/</guid>
+      <guid>/collection/implicit-sharing/</guid>
       <description>
         <![CDATA[
         <p>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。</p>
@@ -257,15 +257,15 @@ private:
 <p>警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。</p>
 </blockquote>
 <h3 id="示例">示例</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">QPixmap p1, p2;
-p1.load(<span style="color:#e6db74">&#34;image.bmp&#34;</span>);
-p2 <span style="color:#f92672">=</span> p1;                        <span style="color:#75715e">// p1 and p2 share data
-</span><span style="color:#75715e"></span>
-QPainter paint;
-paint.begin(<span style="color:#f92672">&amp;</span>p2);               <span style="color:#75715e">// cuts p2 loose from p1
-</span><span style="color:#75715e"></span>paint.drawText(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">50</span>, <span style="color:#e6db74">&#34;Hi&#34;</span>);
-paint.end();
-</code></pre></div><p>在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>QPixmap p1, p2;
+</span></span><span style="display:flex;"><span>p1.load(<span style="color:#e6db74">&#34;image.bmp&#34;</span>);
+</span></span><span style="display:flex;"><span>p2 <span style="color:#f92672">=</span> p1;                        <span style="color:#75715e">// p1 and p2 share data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>QPainter paint;
+</span></span><span style="display:flex;"><span>paint.begin(<span style="color:#f92672">&amp;</span>p2);               <span style="color:#75715e">// cuts p2 loose from p1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>paint.drawText(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">50</span>, <span style="color:#e6db74">&#34;Hi&#34;</span>);
+</span></span><span style="display:flex;"><span>paint.end();
+</span></span></code></pre></div><p>在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</p>
 <h3 id="所有隐式共享的类">所有隐式共享的类</h3>
 <p>参见 <a href="https://doc.qt.io/qt-6/implicit-sharing.html">Qt 文档</a>。</p>
 
@@ -278,10 +278,10 @@ paint.end();
     
     <item>
       <title>【转载】Qt6 容器类-概述</title>
-      <link>/post/2021/12/01/qt-containers/</link>
+      <link>/collection/qt-containers/</link>
       <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2021/12/01/qt-containers/</guid>
+      <guid>/collection/qt-containers/</guid>
       <description>
         <![CDATA[
         <h3 id="介绍">介绍</h3>
@@ -437,7 +437,7 @@ paint.end();
 <h3 id="五可执行文件">五、可执行文件</h3>
 <p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
 <pre tabindex="0"><code>QTEST_MAIN(YourClassName)
-#include &quot;yourfilename.moc&quot;
+#include &#34;yourfilename.moc&#34;
 </code></pre>
         
         ]]>
@@ -448,10 +448,10 @@ paint.end();
     
     <item>
       <title>【转载】Qt测试最佳实践</title>
-      <link>/post/2021/10/13/%E8%BD%AC%E8%BD%BDqt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
+      <link>/collection/2021-10-13-2/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
       <author>糸色先生</author>
-      <guid>/post/2021/10/13/%E8%BD%AC%E8%BD%BDqt%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>/collection/2021-10-13-2/</guid>
       <description>
         <![CDATA[
         <h2 id="qt-测试最佳实践">Qt 测试最佳实践</h2>
@@ -608,7 +608,7 @@ DISPLAY=:1 make -k -j1 check
 <pre tabindex="0"><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
 </code></pre><p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
 <p>或者，使用屏幕外插件：</p>
-<pre tabindex="0"><code>TESTARGS=&quot;-platform offscreen&quot; make check -k -j1
+<pre tabindex="0"><code>TESTARGS=&#34;-platform offscreen&#34; make check -k -j1
 </code></pre><h3 id="窗口管理器">窗口管理器</h3>
 <p>在 Unix 上，至少有两个自动测试（tst_examples和tst_gestures）需要运行窗口管理器。因此，如果在嵌套的 X-server 下运行这些测试，您还必须在该 X-server 中运行窗口管理器。</p>
 <p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>
