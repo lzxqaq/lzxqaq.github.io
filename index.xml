@@ -5,8 +5,24 @@
     <description>Recent content in Home on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 07 Mar 2022 18:43:02 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Mar 2022 23:38:01 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>生活日志</title>
+      <link>/blog/</link>
+      <pubDate>Wed, 16 Mar 2022 23:38:01 +0800</pubDate>
+      
+      <guid>/blog/</guid>
+      <description>
+        <![CDATA[
+        
+        
+        ]]>
+      </description>
+    </item>
+    
     
     
     <item>
@@ -31,22 +47,6 @@
       <pubDate>Mon, 07 Mar 2022 12:22:40 +0800</pubDate>
       
       <guid>/post/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>生活日志</title>
-      <link>/blog/</link>
-      <pubDate>Tue, 22 Feb 2022 08:07:54 +0800</pubDate>
-      
-      <guid>/blog/</guid>
       <description>
         <![CDATA[
         
@@ -124,7 +124,7 @@
       <description>
         <![CDATA[
         <h1 id="我是谁">我是谁</h1>
-<p>我喜欢打羽毛球，它经常被我打得支离破碎，它也一直虐得我死去活来；喜欢跑步时风吹在脸上的感觉；喜欢逛博客乱翻帖子；喜欢看世界名作剧场系列的动漫，比如《崔普一家物语》、《红发安妮》、《长腿叔叔》等等；喜欢听很多歌，最喜欢的歌手是张国荣；</p>
+<p>我喜欢打羽毛球，它经常被我打得支离破碎，它也一直虐得我死去活来；喜欢跑步时风吹在脸上的感觉；喜欢逛博客乱翻帖子；喜欢看动漫，比如世界名作剧场系列的《崔普一家物语》、《红发安妮》、《长腿叔叔》等等；喜欢听很多歌，最喜欢的歌手是张国荣。</p>
 <h1 id="本站架构">本站架构</h1>
 <p>本站目前采用 Hugo（一个静态网站生成器）作为后台系统，使用 Github Pages 服务，源码托管在 <a href="https://github.com/lzxqaq/source_lzxqaq.git">Github</a> 上。本站主题是 hugo-ivy 和 hugo-xmin 乱搭而成，作者 <a href="https://yihui.org/">Yihui Xie</a>。</p>
 <p>如果你也打算建立这样的博客网站，但是不知道从哪里开始，请看<a href="https://lzxqaq.com/series/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E4%B9%8B%E6%97%85/">从零开始的博客建站之旅</a>。</p>
@@ -164,7 +164,7 @@
 主页：<a href="https://lzxqaq.com">https://lzxqaq.com</a>；<br>
 住址：现居住于广东省广州市增城区</p>
 <h2 id="主要工作">主要工作</h2>
-<p>Qt/C++ 客户端开发</p>
+<p>C++ 客户端/后台开发</p>
 <h2 id="教育背景">教育背景</h2>
 <ul>
 <li>2017.09 ~ 2021.06 华南师范大学，软件工程专业，工学学士</li>
@@ -178,8 +178,6 @@
 <ol>
 <li>2020.10 ~ 2021.06 某研究所 软件工程师</li>
 </ol>
-<h3 id="网站建设与管理">网站建设与管理</h3>
-<p>lzxqaq.com 2020 年 至今</p>
 
         
         ]]>
