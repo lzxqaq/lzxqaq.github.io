@@ -266,7 +266,7 @@ Func3(n);
 cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10 
 </code></pre>
 <p>对比上述三个示例程序，<strong>会发现&quot;引用传递&quot;的性质象&quot;指针传递&quot;，而书写方式象&quot;值传递&quot;</strong>。</p>
-<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？ 
+<p>实际上&quot;引用&quot;可以做的任何事情&quot;指针&quot;也都能够做，为什么还要&quot;引用&quot;这东西？
 答案是&quot;用适当的工具做恰如其分的工作&quot;。</p>
 <p>指针能够毫无约束地操作内存中的任何东西，尽管指针功能强大，但是非常危险。</p>
 <p>如果的确只需要借用一下某个对象的&quot;别名&quot;，那么就用&quot;引用&quot;，而不要用&quot;指针&quot;，以免发生意外。</p>
