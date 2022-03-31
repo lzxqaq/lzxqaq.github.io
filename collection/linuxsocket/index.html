@@ -1,96 +1,195 @@
 <!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html lang="zh-cn">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>【转载】Linux Socket 编程（不限 Linux） - 罗泽勋</title>
-    <meta property="og:title" content="【转载】Linux Socket 编程（不限 Linux） - 罗泽勋">
-    
-    <meta name="twitter:card" content="summary">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+  
+  <title>【转载】Linux Socket 编程（不限 Linux） - 罗泽勋</title>
+
+  
+  
+  <meta name="description" content="作者：吴秦 出处：(http://www.cnblogs.com/skynet/) 1、网络中进程之间如何通信？ 本地的进程间通信（IPC）有很多" />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="/an-old-hope.min.css" />
+  <script
+    defer
+    src="/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="/theme.png" />
+
+  
+  <link rel="preload" as="image" href="/github.svg" />
+  
+
+  
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.95.0" />
+
+  
+  
+
+  
+  
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  
+  
+  <meta property="og:title" content="【转载】Linux Socket 编程（不限 Linux）" />
+<meta property="og:description" content="作者：吴秦 出处：(http://www.cnblogs.com/skynet/) 1、网络中进程之间如何通信？ 本地的进程间通信（IPC）有很多" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/collection/linuxsocket/" /><meta property="article:section" content="collection" />
+<meta property="article:published_time" content="2022-03-07T18:43:02+08:00" />
+<meta property="article:modified_time" content="2022-03-07T18:43:02+08:00" />
+
+
+
+  
+  <meta itemprop="name" content="【转载】Linux Socket 编程（不限 Linux）">
+<meta itemprop="description" content="作者：吴秦 出处：(http://www.cnblogs.com/skynet/) 1、网络中进程之间如何通信？ 本地的进程间通信（IPC）有很多"><meta itemprop="datePublished" content="2022-03-07T18:43:02+08:00" />
+<meta itemprop="dateModified" content="2022-03-07T18:43:02+08:00" />
+<meta itemprop="wordCount" content="6181">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【转载】Linux Socket 编程（不限 Linux）"/>
+<meta name="twitter:description" content="作者：吴秦 出处：(http://www.cnblogs.com/skynet/) 1、网络中进程之间如何通信？ 本地的进程间通信（IPC）有很多"/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="true">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="/">罗泽勋</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+  <nav class="menu">
     
+    <a class="" href="/">主页</a>
+    
+    <a class="" href="/about/">关于</a>
+    
+    <a class="" href="/blog/">日志</a>
+    
+    <a class="" href="/post/">编程</a>
+    
+    <a class="" href="/collection/">收录</a>
+    
+    <a class="" href="/categories/">分类</a>
+    
+  </nav>
+  
+
+  
+  <nav class="social">
+    
+    <a
+      class="github"
+      style="--url: url(./github.svg)"
+      href="https://github.com/lzxqaq"
+      target="_blank"
+    ></a>
+    
+  </nav>
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
       
-    
-
-    
+      <time>Mar 7, 2022</time>
       
-      <meta property="description" content="作者：吴秦
-出处：(http://www.cnblogs.com/skynet/)
-[&amp;hellip;] 本地的进程间通信（IPC）有很多种方式，但可以总结为下面4类：
-[&amp;hellip;] 但这些都不是本文的主题！我们要讨论的是网络中进程之间如何通信？首要解决的问题是如何唯一标识一个进程，否则通信无从谈起！在本地可以通过进程PID来唯一标识一个进程，但是在网络中这是行不通的。其实TCP/IP协议 &amp;hellip;">
-      <meta property="og:description" content="作者：吴秦
-出处：(http://www.cnblogs.com/skynet/)
-[&amp;hellip;] 本地的进程间通信（IPC）有很多种方式，但可以总结为下面4类：
-[&amp;hellip;] 但这些都不是本文的主题！我们要讨论的是网络中进程之间如何通信？首要解决的问题是如何唯一标识一个进程，否则通信无从谈起！在本地可以通过进程PID来唯一标识一个进程，但是在网络中这是行不通的。其实TCP/IP协议 &amp;hellip;">
       
-    
-
-    
-    
-    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-3-7/socket3.png">
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
-      
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>【转载】Linux Socket 编程（不限 Linux）</h1>
-
-
-<h3>
-2022-03-07</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<p>作者：吴秦<br>
+    </p>
+    <h1>【转载】Linux Socket 编程（不限 Linux）</h1>
+  </header>
+  <section class="post-content"><p>作者：吴秦<br>
 出处：(<a href="http://www.cnblogs.com/skynet/">http://www.cnblogs.com/skynet/</a>)</p>
 <h3 id="1网络中进程之间如何通信">1、网络中进程之间如何通信？</h3>
 <p>本地的进程间通信（IPC）有很多种方式，但可以总结为下面4类：</p>
@@ -358,66 +457,29 @@ int main(int argc, char** argv)
     exit(0);
 }
 </code></pre><p>当然上面的代码很简单，也有很多缺点，这就只是简单的演示socket的基本函数使用。其实不管有多复杂的网络程序，都使用的这些基本函数。上面的服务器使用的是迭代模式的，即只有处理完一个客户端请求才会去处理下一个客户端的请求，这样的服务器处理能力是很弱的，现实中的服务器都需要有并发处理能力！为了需要并发处理，服务器需要fork()一个新的进程或者线程去处理请求等。</p>
+</section>
+
+  
+  
+
+  
+  
+  
+
+  
+  
+</article>
 
 </main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/collection/networkpg/">【转载】C&#43;&#43; 开发必备之网络编程</a></span>
-  <span class="nav-next"></span>
-</nav>
-
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
+    <footer class="footer">
+  <p> 
+     
+    © <a href="/">Zexun Luo</a> 2020 - 2022
     
-    url = '\/collection\/networkpg\/';
-    
-  } else if (e.which == 39) {  
-    
-  }
-  if (url) window.location = url;
-});
-</script>
+  </p>
 
+</footer>
 
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
-  </footer>
   </body>
 </html>
-

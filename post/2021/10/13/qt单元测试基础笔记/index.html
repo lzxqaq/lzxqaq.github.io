@@ -1,93 +1,196 @@
 <!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html lang="zh-cn">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Qt单元测试基础笔记 - 罗泽勋</title>
-    <meta property="og:title" content="Qt单元测试基础笔记 - 罗泽勋">
-    
-    <meta name="twitter:card" content="summary">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+  
+  <title>Qt单元测试基础笔记 - 罗泽勋</title>
+
+  
+  
+  <meta name="description" content="一、构建 构建时添加 QT &#43;= testlib 。 二、测试类 测试类必须从 QObject 继承，头文件 include &lt;QTest&gt; ，并将测试函数声明 private slot 三、QVERIFY(condition) 宏 检查 con" />
+  <meta name="author" content="糸色先生" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="/an-old-hope.min.css" />
+  <script
+    defer
+    src="/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="/theme.png" />
+
+  
+  <link rel="preload" as="image" href="/github.svg" />
+  
+
+  
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.95.0" />
+
+  
+  
+
+  
+  
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  
+  
+  <meta property="og:title" content="Qt单元测试基础笔记" />
+<meta property="og:description" content="一、构建 构建时添加 QT &#43;= testlib 。 二、测试类 测试类必须从 QObject 继承，头文件 include &lt;QTest&gt; ，并将测试函数声明 private slot 三、QVERIFY(condition) 宏 检查 con" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2021/10/13/qt%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-13T07:01:19+08:00" />
+<meta property="article:modified_time" content="2021-10-13T07:01:19+08:00" />
+
+
+  
+  <meta itemprop="name" content="Qt单元测试基础笔记">
+<meta itemprop="description" content="一、构建 构建时添加 QT &#43;= testlib 。 二、测试类 测试类必须从 QObject 继承，头文件 include &lt;QTest&gt; ，并将测试函数声明 private slot 三、QVERIFY(condition) 宏 检查 con"><meta itemprop="datePublished" content="2021-10-13T07:01:19+08:00" />
+<meta itemprop="dateModified" content="2021-10-13T07:01:19+08:00" />
+<meta itemprop="wordCount" content="420">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Qt单元测试基础笔记"/>
+<meta name="twitter:description" content="一、构建 构建时添加 QT &#43;= testlib 。 二、测试类 测试类必须从 QObject 继承，头文件 include &lt;QTest&gt; ，并将测试函数声明 private slot 三、QVERIFY(condition) 宏 检查 con"/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="true">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="/">罗泽勋</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+  <nav class="menu">
     
+    <a class="" href="/">主页</a>
+    
+    <a class="" href="/about/">关于</a>
+    
+    <a class="" href="/blog/">日志</a>
+    
+    <a class="" href="/post/">编程</a>
+    
+    <a class="" href="/collection/">收录</a>
+    
+    <a class="" href="/categories/">分类</a>
+    
+  </nav>
+  
+
+  
+  <nav class="social">
+    
+    <a
+      class="github"
+      style="--url: url(./github.svg)"
+      href="https://github.com/lzxqaq"
+      target="_blank"
+    ></a>
+    
+  </nav>
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
       
-    
-
-    
+      <time>Oct 13, 2021</time>
       
-      <meta property="description" content="构建时添加 QT &#43;= testlib 。
-[&amp;hellip;] 测试类必须从 QObject 继承，头文件 include &amp;lt;QTest&amp;gt; ，并将测试函数声明 private slot
-[&amp;hellip;] 检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。
-如果需要在测试失败报告中加入附加信息， &amp;hellip;">
-      <meta property="og:description" content="构建时添加 QT &#43;= testlib 。
-[&amp;hellip;] 测试类必须从 QObject 继承，头文件 include &amp;lt;QTest&amp;gt; ，并将测试函数声明 private slot
-[&amp;hellip;] 检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。
-如果需要在测试失败报告中加入附加信息， &amp;hellip;">
       
-    
-
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
+      <span>糸色先生</span>
       
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>Qt单元测试基础笔记</h1>
-
-
-<h3>糸色先生 / 
-2021-10-13</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<h3 id="一构建">一、构建</h3>
+    </p>
+    <h1>Qt单元测试基础笔记</h1>
+  </header>
+  <section class="post-content"><h3 id="一构建">一、构建</h3>
 <p>构建时添加 <code>QT += testlib</code> 。</p>
 <h3 id="二测试类">二、测试类</h3>
 <p>测试类必须从 QObject 继承，头文件 <code>include &lt;QTest&gt;</code> ，并将测试函数声明 <code>private slot</code></p>
@@ -103,68 +206,29 @@
 <p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
 <pre tabindex="0"><code>QTEST_MAIN(YourClassName)
 #include &#34;yourfilename.moc&#34;
-</code></pre>
+</code></pre></section>
+
+  
+  
+
+  
+  
+  
+
+  
+  
+</article>
+
 </main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2021/07/16/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">开发指南-未完待续</a></span>
-  <span class="nav-next"><a href="/post/2021/11/14/%E5%BC%80%E7%AF%87/">开篇</a> &rarr;</span>
-</nav>
-
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
+    <footer class="footer">
+  <p> 
+     
+    © <a href="/">Zexun Luo</a> 2020 - 2022
     
-    url = '\/post\/2021\/07\/16\/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/post\/2021\/11\/14\/%E5%BC%80%E7%AF%87\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
+  </p>
 
+</footer>
 
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
-  </footer>
   </body>
 </html>
-

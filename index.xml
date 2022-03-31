@@ -1,189 +1,911 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on 罗泽勋</title>
+    <title>罗泽勋</title>
     <link>/</link>
-    <description>Recent content in Home on 罗泽勋</description>
+    <description>Recent content on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 20 Mar 2022 10:13:40 +0800</lastBuildDate>
-    <atom:link href="/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 20 Mar 2022 10:13:40 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>生活日志</title>
-      <link>/blog/</link>
+      <title>认知世界形势变化</title>
+      <link>/blog/2022/03/20/%E8%AE%A4%E7%9F%A5%E4%B8%96%E7%95%8C%E5%BD%A2%E5%8A%BF%E5%8F%98%E5%8C%96/</link>
       <pubDate>Sun, 20 Mar 2022 10:13:40 +0800</pubDate>
       
-      <guid>/blog/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <guid>/blog/2022/03/20/%E8%AE%A4%E7%9F%A5%E4%B8%96%E7%95%8C%E5%BD%A2%E5%8A%BF%E5%8F%98%E5%8C%96/</guid>
+      <description>人类同胞们， 我来此召集你们，是要你们了解目前的形势。 每个人都应该意识到我们此时所遭受的危机， 我们彼此互相争斗， 为了共和历史的微小冲突而被分散</description>
     </item>
     
-    
+    <item>
+      <title>在路的尽头，你会找到你自己</title>
+      <link>/blog/2022/03/16/%E5%9C%A8%E8%B7%AF%E7%9A%84%E5%B0%BD%E5%A4%B4%E4%BD%A0%E4%BC%9A%E6%89%BE%E5%88%B0%E4%BD%A0%E8%87%AA%E5%B7%B1/</link>
+      <pubDate>Wed, 16 Mar 2022 23:38:01 +0800</pubDate>
+      
+      <guid>/blog/2022/03/16/%E5%9C%A8%E8%B7%AF%E7%9A%84%E5%B0%BD%E5%A4%B4%E4%BD%A0%E4%BC%9A%E6%89%BE%E5%88%B0%E4%BD%A0%E8%87%AA%E5%B7%B1/</guid>
+      <description>最近时常回忆起以前的事情，并且想用文字记下一些东西的念头越来越强烈。 回首往昔，能记起来的事却少之又少，其中多数藏在脑海深处久矣。二十多年的人</description>
+    </item>
     
     <item>
-      <title>收录文章</title>
-      <link>/collection/</link>
+      <title>【转载】Linux Socket 编程（不限 Linux）</title>
+      <link>/collection/linuxsocket/</link>
       <pubDate>Mon, 07 Mar 2022 18:43:02 +0800</pubDate>
       
-      <guid>/collection/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <guid>/collection/linuxsocket/</guid>
+      <description>作者：吴秦 出处：(http://www.cnblogs.com/skynet/) 1、网络中进程之间如何通信？ 本地的进程间通信（IPC）有很多</description>
     </item>
     
-    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之网络编程</title>
+      <link>/collection/networkpg/</link>
+      <pubDate>Mon, 07 Mar 2022 18:38:17 +0800</pubDate>
+      
+      <guid>/collection/networkpg/</guid>
+      <description>转载自https://github.com/huihut/interview Socket Linux Socket 编程（不限 Linux） Socket 中的 read()、write() 函</description>
+    </item>
     
     <item>
-      <title>技术文章</title>
-      <link>/post/</link>
+      <title>从 Java 到 Qt/C&#43;&#43; 的一些经验总结</title>
+      <link>/post/2022/03/07/java2c-/</link>
       <pubDate>Mon, 07 Mar 2022 12:22:40 +0800</pubDate>
       
-      <guid>/post/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <guid>/post/2022/03/07/java2c-/</guid>
+      <description>C/C++ 代码编译成可执行程序的过程 预处理 进行宏定义展开、头文件展开、条件编译，不检查语法。 gcc -E demo1.c -o demo1.i 编译 检查语法，将预处理过的文件编译生成汇编文件</description>
     </item>
-    
-    
     
     <item>
-      <title>事务</title>
-      <link>/todo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Marp：使用 Markdown 创建漂亮的幻灯片</title>
+      <link>/post/2022/02/28/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87/</link>
+      <pubDate>Mon, 28 Feb 2022 14:17:47 +0800</pubDate>
       
-      <guid>/todo/</guid>
-      <description>
-        <![CDATA[
-        <h2 id="待办事项">待办事项</h2>
-<ol>
-<li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 集成 Hugo。</p>
-</li>
-<li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 实现新建网站、日志文章功能。</p>
-</li>
-<li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 集成 Git。</p>
-</li>
-<li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 设计实现 Git 管理插件。</p>
-</li>
-<li>
-<p>定制一个 Hugo 主题。</p>
-</li>
-</ol>
-<h2 id="持续计划">持续计划</h2>
-<ol>
-<li>
-<p>阅读。</p>
-</li>
-<li>
-<p>写小说。</p>
-</li>
-<li>
-<p>练吉他。</p>
-</li>
-</ol>
-<h2 id="已完成">已完成</h2>
-<ol>
-<li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 设计整体框架。</p>
-</li>
-<li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 完成文本编辑功能。</p>
-</li>
-<li>
-<p><a href="https://github.com/lzxqaq/blogup.git">blogup</a> 完成文档资源管理功能。</p>
-</li>
-</ol>
-
-        
-        ]]>
-      </description>
+      <guid>/post/2022/02/28/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87/</guid>
+      <description>简介 Marp（Markdown Presentation Ecosystem）为创建漂亮的幻灯片提供了直观的体验。 你只需要专注于在 Markdown 文档中写你的故事。 安装使用 Marp 有两个</description>
     </item>
-    
-    
     
     <item>
-      <title>关于</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>《红发少女安妮——虔诚的承诺》</title>
+      <link>/blog/2022/02/09/%E7%BA%A2%E5%8F%91%E5%B0%91%E5%A5%B3%E5%AE%89%E5%A6%AE%E8%99%94%E8%AF%9A%E7%9A%84%E6%89%BF%E8%AF%BA/</link>
+      <pubDate>Wed, 09 Feb 2022 19:45:15 +0800</pubDate>
       
-      <guid>/about/</guid>
-      <description>
-        <![CDATA[
-        <h1 id="我是谁">我是谁</h1>
-<p>我喜欢打羽毛球，它经常被我打得支离破碎，它也一直虐得我死去活来；喜欢跑步时风吹在脸上的感觉；喜欢逛博客乱翻帖子；喜欢看动漫，比如世界名作剧场系列的《崔普一家物语》、《红发安妮》、《长腿叔叔》等等；喜欢听很多歌，最喜欢的歌手是张国荣。</p>
-<h1 id="本站架构">本站架构</h1>
-<p>本站目前采用 Hugo（一个静态网站生成器）作为后台系统，使用 Github Pages 服务，源码托管在 <a href="https://github.com/lzxqaq/source_lzxqaq.git">Github</a> 上。本站主题是 hugo-ivy 和 hugo-xmin 乱搭而成，作者 <a href="https://yihui.org/">Yihui Xie</a>。</p>
-<p>如果你也打算建立这样的博客网站，但是不知道从哪里开始，请看<a href="https://lzxqaq.com/series/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E4%B9%8B%E6%97%85/">从零开始的博客建站之旅</a>。</p>
-<h1 id="其他链接">其他链接</h1>
-<ul>
-<li><a href="https://github.com/lzxqaq">Github</a> ：这是我的 Github 仓库地址。</li>
-<li><a href="https://gitee.com/lzxqaq">Gitee</a> ：这是我的 Gitee 仓库地址。</li>
-</ul>
-<h1 id="联系我">联系我</h1>
-<ul>
-<li>微信：就在这一行下面的注释里，如果你知道怎么找的话。 (~￣▽￣)~</li>
-</ul>
-<!-- * 微信号：BaiGei-Wan -->
-<ul>
-<li>邮箱：<a href="mailto:lzx@lzxqaq.com">lzx@lzxqaq.com</a></li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <guid>/blog/2022/02/09/%E7%BA%A2%E5%8F%91%E5%B0%91%E5%A5%B3%E5%AE%89%E5%A6%AE%E8%99%94%E8%AF%9A%E7%9A%84%E6%89%BF%E8%AF%BA/</guid>
+      <description>一 安妮：希望戴安娜会成为我的知心朋友，我一定会喜欢戴安娜的，而且我相信戴安娜她一定也会喜欢我的。因为今天晚上戴安娜家中的橙光，看起来是离我那</description>
     </item>
-    
-    
     
     <item>
-      <title>简历</title>
-      <link>/vitae/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>我现在看清了我真正的敌人</title>
+      <link>/blog/2022/02/05/%E6%88%91%E7%8E%B0%E5%9C%A8%E7%9C%8B%E6%B8%85%E4%BA%86%E6%88%91%E7%9C%9F%E6%AD%A3%E7%9A%84%E6%95%8C%E4%BA%BA/</link>
+      <pubDate>Sat, 05 Feb 2022 19:21:37 +0800</pubDate>
       
-      <guid>/vitae/</guid>
-      <description>
-        <![CDATA[
-        <h1 id="罗泽勋">罗泽勋</h1>
-<h2 id="联系方式">联系方式</h2>
-<p>微信：BaiGei-Wan<br>
-邮箱：lzx@lzxqaq.com；<br>
-主页：<a href="https://lzxqaq.com">https://lzxqaq.com</a>；<br>
-住址：现居住于广东省广州市增城区</p>
-<h2 id="主要工作">主要工作</h2>
-<p>C++ 客户端/后台开发</p>
-<h2 id="教育背景">教育背景</h2>
-<ul>
-<li>2017.09 ~ 2021.06 华南师范大学，软件工程专业，工学学士</li>
-</ul>
-<h2 id="工作经历">工作经历</h2>
-<h3 id="工作">工作</h3>
-<ol>
-<li>2021.07 至今，某研究所 软件工程师</li>
-</ol>
-<h3 id="实习">实习</h3>
-<ol>
-<li>2020.10 ~ 2021.06 某研究所 软件工程师</li>
-</ol>
-
-        
-        ]]>
-      </description>
+      <guid>/blog/2022/02/05/%E6%88%91%E7%8E%B0%E5%9C%A8%E7%9C%8B%E6%B8%85%E4%BA%86%E6%88%91%E7%9C%9F%E6%AD%A3%E7%9A%84%E6%95%8C%E4%BA%BA/</guid>
+      <description>前些天，我感觉我的世界崩塌了，可渐渐的，我的心平静了下来，那些一直一直困扰我的问题也随之解开。为了纪念自己进入“不惑”之年，我决定在此发表一</description>
     </item>
     
+    <item>
+      <title>【音乐】水手</title>
+      <link>/blog/2022/02/05/%E9%9F%B3%E4%B9%90%E6%B0%B4%E6%89%8B/</link>
+      <pubDate>Sat, 05 Feb 2022 19:21:20 +0800</pubDate>
+      
+      <guid>/blog/2022/02/05/%E9%9F%B3%E4%B9%90%E6%B0%B4%E6%89%8B/</guid>
+      <description>苦涩的沙 吹痛脸庞的感觉 像父亲的责骂 母亲的哭泣 永远难忘记 年少的我 喜欢一个人在海边 卷起裤管 光着脚丫 踩在沙滩上 总是幻想海洋的尽头有另一个世界 总是以</description>
+    </item>
+    
+    <item>
+      <title>【音乐】追梦赤子心</title>
+      <link>/blog/2022/02/05/%E9%9F%B3%E4%B9%90%E8%BF%BD%E6%A2%A6%E8%B5%A4%E5%AD%90%E5%BF%83/</link>
+      <pubDate>Sat, 05 Feb 2022 19:21:18 +0800</pubDate>
+      
+      <guid>/blog/2022/02/05/%E9%9F%B3%E4%B9%90%E8%BF%BD%E6%A2%A6%E8%B5%A4%E5%AD%90%E5%BF%83/</guid>
+      <description>充满鲜花的世界到底在哪里 如果它真的存在那么我一定会去 我想在那里最高的山峰矗立 不在乎它是不是悬崖峭壁 用力活着用力爱哪怕肝脑涂地 不求任何人满意只</description>
+    </item>
+    
+    <item>
+      <title>【音乐】とんぼ</title>
+      <link>/blog/2022/02/05/%E9%9F%B3%E4%B9%90%E3%81%A8%E3%82%93%E3%81%BC/</link>
+      <pubDate>Sat, 05 Feb 2022 19:21:15 +0800</pubDate>
+      
+      <guid>/blog/2022/02/05/%E9%9F%B3%E4%B9%90%E3%81%A8%E3%82%93%E3%81%BC/</guid>
+      <description>コツコツとアスファルトに刻む 脚步声咯噔咯噔刻在沥青路上 足音を踏みしめるたびに 每踩一步时 俺は俺で在り続けたい そう願った 我都祈愿了 要永远保持住本</description>
+    </item>
+    
+    <item>
+      <title>我什么也没说</title>
+      <link>/blog/2022/02/05/%E6%88%91%E4%BB%80%E4%B9%88%E4%B9%9F%E6%B2%A1%E8%AF%B4/</link>
+      <pubDate>Sat, 05 Feb 2022 08:43:08 +0800</pubDate>
+      
+      <guid>/blog/2022/02/05/%E6%88%91%E4%BB%80%E4%B9%88%E4%B9%9F%E6%B2%A1%E8%AF%B4/</guid>
+      <description>很久之前，我见到过这样一个画面：一位年轻的母亲和她的孩子坐公交，她用手抱着小孩，小孩用手抱着手机。她在刷短视频，一遍又一遍。我就这么看着，什</description>
+    </item>
+    
+    <item>
+      <title>战斗吧！为了雅典娜！</title>
+      <link>/blog/2022/02/04/%E6%88%98%E6%96%97%E5%90%A7%E4%B8%BA%E4%BA%86%E9%9B%85%E5%85%B8%E5%A8%9C/</link>
+      <pubDate>Fri, 04 Feb 2022 19:59:26 +0800</pubDate>
+      
+      <guid>/blog/2022/02/04/%E6%88%98%E6%96%97%E5%90%A7%E4%B8%BA%E4%BA%86%E9%9B%85%E5%85%B8%E5%A8%9C/</guid>
+      <description>如果说《世界名作系列》是想告诉世人什么是爱，那么《圣斗士星矢》则给我们展示了为爱而战斗的意志。爆发你的小宇宙吧！这样你才有力量去追求你爱的一</description>
+    </item>
+    
+    <item>
+      <title>【音乐】追 - 张国荣</title>
+      <link>/blog/2022/02/03/%E9%9F%B3%E4%B9%90%E8%BF%BD-%E5%BC%A0%E5%9B%BD%E8%8D%A3/</link>
+      <pubDate>Thu, 03 Feb 2022 20:23:01 +0800</pubDate>
+      
+      <guid>/blog/2022/02/03/%E9%9F%B3%E4%B9%90%E8%BF%BD-%E5%BC%A0%E5%9B%BD%E8%8D%A3/</guid>
+      <description>这一生也在进取 这分钟却挂念谁 我会说是唯独你不可失去 好风光似幻似虚 谁明人生乐趣 我会说为情为爱仍然是对 谁比你重要 成功了败了也完全无重要 谁比你重要</description>
+    </item>
+    
+    <item>
+      <title>【音乐】墮落 - 王菲</title>
+      <link>/blog/2022/02/03/%E9%9F%B3%E4%B9%90%E5%A2%AE%E8%90%BD-%E7%8E%8B%E8%8F%B2/</link>
+      <pubDate>Thu, 03 Feb 2022 20:00:09 +0800</pubDate>
+      
+      <guid>/blog/2022/02/03/%E9%9F%B3%E4%B9%90%E5%A2%AE%E8%90%BD-%E7%8E%8B%E8%8F%B2/</guid>
+      <description>这世界看来很快乐 看不出难过 始终笑著沉默 你不慌不忙 自然坦荡 脱下了伪装 摘去了信仰 你不愿多说话 你想放纵一下 没什么可怕 没什么放心不下 痛苦地享乐 犹豫著</description>
+    </item>
+    
+    <item>
+      <title>【音乐】昨天 今天 下雨天</title>
+      <link>/blog/2022/02/03/%E9%9F%B3%E4%B9%90%E6%98%A8%E5%A4%A9-%E4%BB%8A%E5%A4%A9-%E4%B8%8B%E9%9B%A8%E5%A4%A9/</link>
+      <pubDate>Thu, 03 Feb 2022 18:01:32 +0800</pubDate>
+      
+      <guid>/blog/2022/02/03/%E9%9F%B3%E4%B9%90%E6%98%A8%E5%A4%A9-%E4%BB%8A%E5%A4%A9-%E4%B8%8B%E9%9B%A8%E5%A4%A9/</guid>
+      <description>下雨天小雨点 那一天亲我面 我喜欢 街中披雨到处走 在那天七岁多 多开心很少挂念 雨那天起舞在前后 玩雨水追雨点 盼雨天一世现 但雨点 始终须要远走 问母亲怎会的</description>
+    </item>
+    
+    <item>
+      <title>《Thoughts on Death》</title>
+      <link>/blog/2022/01/30/thoughtsondeath/</link>
+      <pubDate>Sun, 30 Jan 2022 22:58:34 +0800</pubDate>
+      
+      <guid>/blog/2022/01/30/thoughtsondeath/</guid>
+      <description>My third story is about death. 我的第三个故事是关于死亡的。 When I was 17, I read a quote that went something like: &amp;ldquo;If you live each day as if it was your last, someday you&amp;rsquo;ll most certainly be right.&amp;rdquo; 17岁那年，我读到了一句话，它是这样说的：</description>
+    </item>
+    
+    <item>
+      <title>【音乐】花咲く旅路</title>
+      <link>/blog/2022/01/27/%E9%9F%B3%E4%B9%90%E8%8A%B1%E5%92%B2%E3%81%8F%E6%97%85%E8%B7%AF/</link>
+      <pubDate>Thu, 27 Jan 2022 07:50:56 +0800</pubDate>
+      
+      <guid>/blog/2022/01/27/%E9%9F%B3%E4%B9%90%E8%8A%B1%E5%92%B2%E3%81%8F%E6%97%85%E8%B7%AF/</guid>
+      <description>鈴なりの花を摘み 摘下串串花儿 吹く風に夏を知る 微风吹拂夏日临 おだやかに ああ おだやかに 静静地，啊静静地 今 ぼんやり遠くをながめてる 凝望远方 はるかな</description>
+    </item>
+    
+    <item>
+      <title>【音乐】月亮代表我的心</title>
+      <link>/blog/2022/01/27/%E9%9F%B3%E4%B9%90%E6%9C%88%E4%BA%AE%E4%BB%A3%E8%A1%A8%E6%88%91%E7%9A%84%E5%BF%83/</link>
+      <pubDate>Thu, 27 Jan 2022 07:43:09 +0800</pubDate>
+      
+      <guid>/blog/2022/01/27/%E9%9F%B3%E4%B9%90%E6%9C%88%E4%BA%AE%E4%BB%A3%E8%A1%A8%E6%88%91%E7%9A%84%E5%BF%83/</guid>
+      <description>你问我爱你有多深 我爱你有几分 我的情也真 我的爱也真 月亮代表我的心 你问我爱你有多深 我爱你有几分 我的情不移 我的爱不变 月亮代表我的心 轻轻的一个吻 已经</description>
+    </item>
+    
+    <item>
+      <title>【音乐】左右手</title>
+      <link>/blog/2022/01/27/%E9%9F%B3%E4%B9%90%E5%B7%A6%E5%8F%B3%E6%89%8B/</link>
+      <pubDate>Thu, 27 Jan 2022 07:33:15 +0800</pubDate>
+      
+      <guid>/blog/2022/01/27/%E9%9F%B3%E4%B9%90%E5%B7%A6%E5%8F%B3%E6%89%8B/</guid>
+      <description>不知道为何你会远走 不知道何时才再有对手 我的身心只适应你 没气力回头 不知道为何你会放手 只知道习惯抱你抱了太久 怕这双手一失去你 令动作颤抖 尚记得 左手</description>
+    </item>
+    
+    <item>
+      <title>【音乐】至少还有你</title>
+      <link>/blog/2022/01/27/%E9%9F%B3%E4%B9%90%E8%87%B3%E5%B0%91%E8%BF%98%E6%9C%89%E4%BD%A0/</link>
+      <pubDate>Thu, 27 Jan 2022 07:24:25 +0800</pubDate>
+      
+      <guid>/blog/2022/01/27/%E9%9F%B3%E4%B9%90%E8%87%B3%E5%B0%91%E8%BF%98%E6%9C%89%E4%BD%A0/</guid>
+      <description>我怕来不及 我要抱着你 直到感觉你的皱纹 有了岁月的痕迹 直到肯定你是真的 直到失去力气 为了你 我愿意 动也不能动 也要抱着你 直到感觉你的发线 有了白雪的痕迹</description>
+    </item>
+    
+    <item>
+      <title>《Love and Loss》</title>
+      <link>/blog/2022/01/27/loveandloss/</link>
+      <pubDate>Thu, 27 Jan 2022 00:19:44 +0800</pubDate>
+      
+      <guid>/blog/2022/01/27/loveandloss/</guid>
+      <description>—— Steve Jobs My second story is about love and loss. 我的第二个故事是关于爱与得失的。 I was lucky —— I found what I loved to do early in life. 我很幸运，因为我在很早的时候就发现了自己钟爱的东西。 Woz</description>
+    </item>
+    
+    <item>
+      <title>《Connecting the dots》</title>
+      <link>/blog/2022/01/26/connectthedots/</link>
+      <pubDate>Wed, 26 Jan 2022 22:13:11 +0800</pubDate>
+      
+      <guid>/blog/2022/01/26/connectthedots/</guid>
+      <description>—— Steve Jobs I am honored to be with you today for your commencement from one of the finest universities in the world. 很荣幸与大家一道参加这次的毕业典礼，斯坦福大学是世界上最好的大学之一。 Truth be told, I never graduated from college. And this is</description>
+    </item>
+    
+    <item>
+      <title>爱自己</title>
+      <link>/blog/2022/01/23/%E7%88%B1%E8%87%AA%E5%B7%B1/</link>
+      <pubDate>Sun, 23 Jan 2022 22:06:42 +0800</pubDate>
+      
+      <guid>/blog/2022/01/23/%E7%88%B1%E8%87%AA%E5%B7%B1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之设计模式</title>
+      <link>/collection/design-pattern/</link>
+      <pubDate>Sat, 15 Jan 2022 08:14:07 +0800</pubDate>
+      
+      <guid>/collection/design-pattern/</guid>
+      <description>转载自https://github.com/huihut/interview 各大设计模式例子参考：CSDN专栏 . C++ 设计模式 系列博文 设计模式工</description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之链接装载库</title>
+      <link>/collection/library/</link>
+      <pubDate>Sat, 15 Jan 2022 08:10:50 +0800</pubDate>
+      
+      <guid>/collection/library/</guid>
+      <description>转载自https://github.com/huihut/interview 本节部分知识点来自《程序员的自我修养——链接装载库》 内存、栈、堆</description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之数据库</title>
+      <link>/collection/database/</link>
+      <pubDate>Sat, 15 Jan 2022 08:08:34 +0800</pubDate>
+      
+      <guid>/collection/database/</guid>
+      <description>转载自https://github.com/huihut/interview 本节部分知识点来自《数据库系统概论（第 5 版）》 基本概念 数据（da</description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之计算机网络</title>
+      <link>/collection/network/</link>
+      <pubDate>Sat, 15 Jan 2022 08:06:35 +0800</pubDate>
+      
+      <guid>/collection/network/</guid>
+      <description>转载自https://github.com/huihut/interview 本节部分知识点来自《计算机网络（第 7 版）》 计算机网络体系结构： 各</description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之操作系统</title>
+      <link>/collection/os/</link>
+      <pubDate>Fri, 14 Jan 2022 21:02:05 +0800</pubDate>
+      
+      <guid>/collection/os/</guid>
+      <description>转载自https://github.com/huihut/interview 进程与线程 对于有线程系统： 进程是资源分配的独立单位 线程是资源调度</description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之算法</title>
+      <link>/collection/algorithm/</link>
+      <pubDate>Fri, 14 Jan 2022 20:42:19 +0800</pubDate>
+      
+      <guid>/collection/algorithm/</guid>
+      <description>转载自https://github.com/huihut/interview 排序 排序算法 平均时间复杂度 最差时间复杂度 空间复杂度 数据对象稳定性</description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之数据结构</title>
+      <link>/collection/data-structure/</link>
+      <pubDate>Fri, 14 Jan 2022 20:28:54 +0800</pubDate>
+      
+      <guid>/collection/data-structure/</guid>
+      <description>转载自https://github.com/huihut/interview 顺序结构 顺序栈（Sequence Stack） SqStack.cpp 顺序栈数据结构和图</description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之 STL</title>
+      <link>/collection/c&#43;&#43;stl/</link>
+      <pubDate>Fri, 14 Jan 2022 20:23:31 +0800</pubDate>
+      
+      <guid>/collection/c&#43;&#43;stl/</guid>
+      <description>转载自https://github.com/huihut/interview STL 索引 STL 方法含义索引 STL 容器 容器 底层数据结构 时间复杂度 有无序 可不可</description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之 Effective C&#43;&#43;</title>
+      <link>/collection/effectivec&#43;&#43;/</link>
+      <pubDate>Fri, 14 Jan 2022 20:16:02 +0800</pubDate>
+      
+      <guid>/collection/effectivec&#43;&#43;/</guid>
+      <description>转载自https://github.com/huihut/interview Effective C++ 视 C++ 为一个语言联邦（C、Object-Oriented C++</description>
+    </item>
+    
+    <item>
+      <title>【转载】C&#43;&#43; 开发必备之 C/C&#43;&#43;基础</title>
+      <link>/collection/cc&#43;&#43;base/</link>
+      <pubDate>Tue, 11 Jan 2022 23:20:27 +0800</pubDate>
+      
+      <guid>/collection/cc&#43;&#43;base/</guid>
+      <description>转载自https://github.com/huihut/interview const 作用 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的</description>
+    </item>
+    
+    <item>
+      <title>《罗生门》</title>
+      <link>/blog/2022/01/09/rashomon/</link>
+      <pubDate>Sun, 09 Jan 2022 22:41:53 +0800</pubDate>
+      
+      <guid>/blog/2022/01/09/rashomon/</guid>
+      <description>乞丐：（大笑）这倒像是是实话了。 砍柴人：我可不撒谎，是我亲眼看见来的。 乞丐：那也靠不住。 砍柴人：是真的，我可不撒谎。 乞丐：撒谎的人才不会说自</description>
+    </item>
+    
+    <item>
+      <title>我终于变成了冬天的落汤鸡</title>
+      <link>/blog/2022/01/05/%E6%88%91%E7%BB%88%E4%BA%8E%E5%8F%98%E6%88%90%E4%BA%86%E5%86%AC%E5%A4%A9%E7%9A%84%E8%90%BD%E6%B1%A4%E9%B8%A1/</link>
+      <pubDate>Wed, 05 Jan 2022 19:20:26 +0800</pubDate>
+      
+      <guid>/blog/2022/01/05/%E6%88%91%E7%BB%88%E4%BA%8E%E5%8F%98%E6%88%90%E4%BA%86%E5%86%AC%E5%A4%A9%E7%9A%84%E8%90%BD%E6%B1%A4%E9%B8%A1/</guid>
+      <description>Spring chicken，”春天里的小鸡“，这个词前一段时间总浮现在我脑海里，没想到，今天真成了冬天里的“落汤鸡”。 今天如同往常一样，在单位餐厅吃晚</description>
+    </item>
+    
+    <item>
+      <title>《As I Began to Love Myself》</title>
+      <link>/blog/2022/01/03/asibegantolovemyself/</link>
+      <pubDate>Mon, 03 Jan 2022 22:07:23 +0800</pubDate>
+      
+      <guid>/blog/2022/01/03/asibegantolovemyself/</guid>
+      <description>—— Charlie Chaplin As I began to love myself I found that anguish and emotional suffering are only warning signs that I was living against my own truth. Today, I know, this is “AUTHENTICITY”. 当我真正开始爱自己 我才意识到，所有的痛苦和</description>
+    </item>
+    
+    <item>
+      <title>你永远都不是独自一人</title>
+      <link>/blog/2022/01/01/%E4%BD%A0%E6%B0%B8%E8%BF%9C%E9%83%BD%E4%B8%8D%E6%98%AF%E7%8B%AC%E8%87%AA%E4%B8%80%E4%BA%BA/</link>
+      <pubDate>Sat, 01 Jan 2022 22:44:04 +0800</pubDate>
+      
+      <guid>/blog/2022/01/01/%E4%BD%A0%E6%B0%B8%E8%BF%9C%E9%83%BD%E4%B8%8D%E6%98%AF%E7%8B%AC%E8%87%AA%E4%B8%80%E4%BA%BA/</guid>
+      <description>刚刚躺着的时候，我还在想着喵喵到哪去了。因为我在它的窝没看到，别的地方也没找到。还在想着，突然就听到它跳上床的声音…… 今天给它伤口涂了些药，</description>
+    </item>
+    
+    <item>
+      <title>相逢离别时</title>
+      <link>/blog/2021/12/30/%E7%9B%B8%E9%80%A2%E7%A6%BB%E5%88%AB%E6%97%B6/</link>
+      <pubDate>Thu, 30 Dec 2021 22:21:26 +0800</pubDate>
+      
+      <guid>/blog/2021/12/30/%E7%9B%B8%E9%80%A2%E7%A6%BB%E5%88%AB%E6%97%B6/</guid>
+      <description>when the day meets the night, when the knife meets the fork, when you meet your soulmate. —— Jessie 在高中那会，我开始喜欢听电台音频。也不知道为了学英语，还是为了找到一个声音塞满思绪。这时，我遇到了 SoulmateEnglish</description>
+    </item>
+    
+    <item>
+      <title>【转载】C Primer 之 new, delete</title>
+      <link>/collection/cprimer04/</link>
+      <pubDate>Thu, 30 Dec 2021 07:13:11 +0800</pubDate>
+      
+      <guid>/collection/cprimer04/</guid>
+      <description>转载自https://github.com/andycai/cprimer new和delete运算符用于动态分配和撤销内存的运算符 (1) new用</description>
+    </item>
+    
+    <item>
+      <title>【转载】C Primer 之 char*, char[], string</title>
+      <link>/collection/cprimer03/</link>
+      <pubDate>Thu, 30 Dec 2021 07:12:45 +0800</pubDate>
+      
+      <guid>/collection/cprimer03/</guid>
+      <description>转载自https://github.com/andycai/cprimer 3.1 char*, char[], string 在C中，并没有字符串这个数据类型，而是使用字符数组来保存字</description>
+    </item>
+    
+    <item>
+      <title>【转载】C Primer 之 指针和引用</title>
+      <link>/collection/cprimer02/</link>
+      <pubDate>Thu, 30 Dec 2021 07:12:43 +0800</pubDate>
+      
+      <guid>/collection/cprimer02/</guid>
+      <description>转载自https://github.com/andycai/cprimer 2.1 refrence 引用 引用是C++中的概念，初学者容易把引用和指针混淆一起。以下</description>
+    </item>
+    
+    <item>
+      <title>【转载】C Primer 之 const, inline, static, this</title>
+      <link>/collection/cprimer01/</link>
+      <pubDate>Thu, 30 Dec 2021 07:12:38 +0800</pubDate>
+      
+      <guid>/collection/cprimer01/</guid>
+      <description>转载自https://github.com/andycai/cprimer 1.1 const (1) const 基础 如果const关键字不涉及到指针，我们很好理解，下面是</description>
+    </item>
+    
+    <item>
+      <title>【转载】面向对象设计原则之开闭原则</title>
+      <link>/collection/oop/</link>
+      <pubDate>Tue, 28 Dec 2021 08:07:08 +0800</pubDate>
+      
+      <guid>/collection/oop/</guid>
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 开闭原则是面向对象的可复</description>
+    </item>
+    
+    <item>
+      <title>【转载】面向对象设计原则之单一职责原则</title>
+      <link>/collection/singleresponsibility/</link>
+      <pubDate>Tue, 28 Dec 2021 07:40:16 +0800</pubDate>
+      
+      <guid>/collection/singleresponsibility/</guid>
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 单一职责原则是最简单的面</description>
+    </item>
+    
+    <item>
+      <title>【转载】面向对象设计原则概述</title>
+      <link>/collection/oop/</link>
+      <pubDate>Tue, 28 Dec 2021 06:59:01 +0800</pubDate>
+      
+      <guid>/collection/oop/</guid>
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 对于面向对象软件系统的设</description>
+    </item>
+    
+    <item>
+      <title>【转载】简单工厂模式</title>
+      <link>/collection/singlefactory/</link>
+      <pubDate>Tue, 28 Dec 2021 06:50:56 +0800</pubDate>
+      
+      <guid>/collection/singlefactory/</guid>
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 工厂模式是最常用的一类创</description>
+    </item>
+    
+    <item>
+      <title>喵喵和狗子</title>
+      <link>/blog/2021/12/27/%E5%96%B5%E5%96%B5%E5%92%8C%E7%8B%97%E5%AD%90/</link>
+      <pubDate>Mon, 27 Dec 2021 07:44:58 +0800</pubDate>
+      
+      <guid>/blog/2021/12/27/%E5%96%B5%E5%96%B5%E5%92%8C%E7%8B%97%E5%AD%90/</guid>
+      <description>这两张照片都是喵喵，狗子没有上镜。狗子就是前面有提到的罗小白，不过它现在已经不白了，而且因为它闯下的大祸，已经剥夺了它的取名资格…… 狗子非常</description>
+    </item>
+    
+    <item>
+      <title>由 hpp 头文件引发 C&#43;&#43; 编译的思考</title>
+      <link>/post/2021/12/26/hpp/</link>
+      <pubDate>Sun, 26 Dec 2021 12:55:54 +0800</pubDate>
+      
+      <guid>/post/2021/12/26/hpp/</guid>
+      <description>前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h + cpp 方式的区别。这个</description>
+    </item>
+    
+    <item>
+      <title>设计模式概述</title>
+      <link>/post/2021/12/26/design/</link>
+      <pubDate>Sun, 26 Dec 2021 10:10:12 +0800</pubDate>
+      
+      <guid>/post/2021/12/26/design/</guid>
+      <description>在软件开发生命周期的每一个阶段都存在着一些被认同的模式。 在软件模式中，设计模式是研究最为深入的分支，设计模式用于在特定的调剂爱你下为一些重复</description>
+    </item>
+    
+    <item>
+      <title>栈和队列</title>
+      <link>/post/2021/12/26/stackqueue/</link>
+      <pubDate>Sun, 26 Dec 2021 09:14:03 +0800</pubDate>
+      
+      <guid>/post/2021/12/26/stackqueue/</guid>
+      <description>从数据结构的角度看，栈和队列是操作受限的线性表，栈和队列的数据元素具有单一的前驱和后继的线性关系。 栈 定义：栈是限定仅在表尾进行插入和删除操作</description>
+    </item>
+    
+    <item>
+      <title>【转载】面向对象思想</title>
+      <link>/collection/2021-12-22-oop/</link>
+      <pubDate>Wed, 22 Dec 2021 23:41:54 +0800</pubDate>
+      
+      <guid>/collection/2021-12-22-oop/</guid>
+      <description>面向对象思想 面向对象思想 一、三大特性 封装 继承 多态 二、类图 泛化关系 (Generalization) 实现关系 (Realization) 聚合关系 (Aggregation) 组合关系 (Composition) 关联关系 (Association) 依赖关系 (Dependency) 三、设计原则 S.O.L.I.D 其他常见原</description>
+    </item>
+    
+    <item>
+      <title>【转载】缓存</title>
+      <link>/collection/2021-12-22-cache/</link>
+      <pubDate>Wed, 22 Dec 2021 23:37:55 +0800</pubDate>
+      
+      <guid>/collection/2021-12-22-cache/</guid>
+      <description>缓存 缓存 一、缓存特征 二、缓存位置 三、CDN 四、缓存问题 五、数据分布 六、一致性哈希 七、LRU 参考资料 一、缓存特征 命中率 当某个请求能够通过访问缓</description>
+    </item>
+    
+    <item>
+      <title>【转载】Redis</title>
+      <link>/collection/2021-12-22-redis/</link>
+      <pubDate>Wed, 22 Dec 2021 23:34:10 +0800</pubDate>
+      
+      <guid>/collection/2021-12-22-redis/</guid>
+      <description>Redis Redis 一、概述 二、数据类型 STRING LIST SET HASH ZSET 三、数据结构 字典 跳跃表 四、使用场景 计数器 缓存 查找表 消息队列 会话缓存 分布式锁实现 其它 五、Redis 与 Memcached 数据类</description>
+    </item>
+    
+    <item>
+      <title>【转载】SQL 练习</title>
+      <link>/collection/2021-12-22-sqldemo/</link>
+      <pubDate>Wed, 22 Dec 2021 23:32:38 +0800</pubDate>
+      
+      <guid>/collection/2021-12-22-sqldemo/</guid>
+      <description>SQL 练习 SQL 练习 595. Big Countries 627. Swap Salary 620. Not Boring Movies 596. Classes More Than 5 Students 182. Duplicate Emails 196. Delete Duplicate Emails 175. Combine Two Tables 181. Employees Earning More Than Their Managers 183. Customers Who Never Order 184. Department Highest Salary 176. Second Highest Salary 177. Nth Highest Salary 178. Rank Scores 180. Consecutive Numbers 626. Exchange Seats 595. Big Countries https://leetcode.com/problems/big-countries/description/</description>
+    </item>
+    
+    <item>
+      <title>【转载】Mysql</title>
+      <link>/collection/2021-12-22-mysql/</link>
+      <pubDate>Wed, 22 Dec 2021 23:30:39 +0800</pubDate>
+      
+      <guid>/collection/2021-12-22-mysql/</guid>
+      <description>MySQL MySQL 一、索引 B+ Tree 原理 MySQL 索引 索引优化 索引的优点 索引的使用条件 二、查询性能优化 使用 Explain 进行分析 优化数据访问 重构查询方式 三、存储引擎 InnoDB MyISAM 比较 四、数据</description>
+    </item>
+    
+    <item>
+      <title>【转载】数据库系统原理</title>
+      <link>/collection/2021-12-22-database/</link>
+      <pubDate>Wed, 22 Dec 2021 23:28:00 +0800</pubDate>
+      
+      <guid>/collection/2021-12-22-database/</guid>
+      <description>数据库系统原理 数据库系统原理 一、事务 概念 ACID AUTOCOMMIT 二、并发一致性问题 丢失修改 读脏数据 不可重复读 幻影读 三、封锁 封锁粒度 封锁类型 封锁协议 MySQL 隐式与显式锁</description>
+    </item>
+    
+    <item>
+      <title>【音乐】湖の決心</title>
+      <link>/blog/2021/12/21/%E9%9F%B3%E4%B9%90%E6%B9%96%E3%81%AE%E6%B1%BA%E5%BF%83/</link>
+      <pubDate>Tue, 21 Dec 2021 23:21:29 +0800</pubDate>
+      
+      <guid>/blog/2021/12/21/%E9%9F%B3%E4%B9%90%E6%B9%96%E3%81%AE%E6%B1%BA%E5%BF%83/</guid>
+      <description>運命を信じますか 【相信命运吗】 そしてそれに従いますか 【顺从于命运吗】 私は 私は 【我，我】 あなたに従います 【顺从于你】 白い鳥が仲良く 【白鸟友好地</description>
+    </item>
+    
+    <item>
+      <title>【音乐】裸足のフローネ</title>
+      <link>/blog/2021/12/21/%E9%9F%B3%E4%B9%90%E8%A3%B8%E8%B6%B3%E3%81%AE%E3%83%95%E3%83%AD%E3%83%BC%E3%83%8D/</link>
+      <pubDate>Tue, 21 Dec 2021 23:09:27 +0800</pubDate>
+      
+      <guid>/blog/2021/12/21/%E9%9F%B3%E4%B9%90%E8%A3%B8%E8%B6%B3%E3%81%AE%E3%83%95%E3%83%AD%E3%83%BC%E3%83%8D/</guid>
+      <description>潮風を頬にうけ 裸足で駆けてく ふり向けば白い砂 わたしの足跡 ほら飲んでごらん 冷たい水を上げましょう ほら空をごらん カモメも飛ぶわよろしくネ どんな淋</description>
+    </item>
+    
+    <item>
+      <title>【音乐】山のごちそう</title>
+      <link>/blog/2021/12/21/%E9%9F%B3%E4%B9%90%E5%B1%B1%E3%81%AE%E3%81%94%E3%81%A1%E3%81%9D%E3%81%86/</link>
+      <pubDate>Tue, 21 Dec 2021 23:09:24 +0800</pubDate>
+      
+      <guid>/blog/2021/12/21/%E9%9F%B3%E4%B9%90%E5%B1%B1%E3%81%AE%E3%81%94%E3%81%A1%E3%81%9D%E3%81%86/</guid>
+      <description>静かな山小屋の 朝ごはんは 木の葉のいいにおい さやさや風よ ホルディア ホルディヒヒヤ ホルディクク ホルディヒヒヤ ホルディクク ホルディヒヒヤ ホルディク</description>
+    </item>
+    
+    <item>
+      <title>【音乐】ドレミの歌</title>
+      <link>/blog/2021/12/21/%E9%9F%B3%E4%B9%90%E3%83%89%E3%83%AC%E3%83%9F%E3%81%AE%E6%AD%8C/</link>
+      <pubDate>Tue, 21 Dec 2021 22:36:52 +0800</pubDate>
+      
+      <guid>/blog/2021/12/21/%E9%9F%B3%E4%B9%90%E3%83%89%E3%83%AC%E3%83%9F%E3%81%AE%E6%AD%8C/</guid>
+      <description>ドはドーナツのド レはレモンのレ ミはみんなのミ ファはファイトのファ ソは青い空 ラはラッパのラ シは幸せよ さあ歌いましょう ランランラン ドはドーナツの</description>
+    </item>
+    
+    <item>
+      <title>【音乐】心の友</title>
+      <link>/blog/2021/12/20/%E9%9F%B3%E4%B9%90%E5%BF%83%E3%81%AE%E5%8F%8B/</link>
+      <pubDate>Mon, 20 Dec 2021 23:40:15 +0800</pubDate>
+      
+      <guid>/blog/2021/12/20/%E9%9F%B3%E4%B9%90%E5%BF%83%E3%81%AE%E5%8F%8B/</guid>
+      <description>あなたから苦しみを奪えたその時 私にも生きてゆく勇気が湧いてくる あなたと出会うまでは孤独なさすらい人 その手のぬくもりを 感じさせて 愛はいつもララ</description>
+    </item>
+    
+    <item>
+      <title>【音乐】愛になりたい</title>
+      <link>/blog/2021/12/20/%E9%9F%B3%E4%B9%90%E6%84%9B%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%84/</link>
+      <pubDate>Mon, 20 Dec 2021 23:40:15 +0800</pubDate>
+      
+      <guid>/blog/2021/12/20/%E9%9F%B3%E4%B9%90%E6%84%9B%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%84/</guid>
+      <description>Dream… 金色の星屑(ほし)を集め 君のイニシャル 落書き Dream… 悲しみに負けちゃダメよ 銀の鏡に呪文をかけたの 夜空にまわしたオルゴール 夢の</description>
+    </item>
+    
+    <item>
+      <title>2021 12 19 日记</title>
+      <link>/blog/2021/12/19/2021-12-19-%E6%97%A5%E8%AE%B0/</link>
+      <pubDate>Sun, 19 Dec 2021 23:36:03 +0800</pubDate>
+      
+      <guid>/blog/2021/12/19/2021-12-19-%E6%97%A5%E8%AE%B0/</guid>
+      <description>今天很高兴，我认为这是值得纪念的一天，遂记于此。 首先今天是我二哥结婚，我哥是一个非常努力的人，现在和心爱之人开始相伴终生，我也很开心。这也意</description>
+    </item>
+    
+    <item>
+      <title>《失望和希望》</title>
+      <link>/blog/2021/12/17/%E5%A4%B1%E6%9C%9B%E5%92%8C%E5%B8%8C%E6%9C%9B/</link>
+      <pubDate>Fri, 17 Dec 2021 22:07:23 +0800</pubDate>
+      
+      <guid>/blog/2021/12/17/%E5%A4%B1%E6%9C%9B%E5%92%8C%E5%B8%8C%E6%9C%9B/</guid>
+      <description>从小时候就开始数了。 数到懂事、数到成熟, 还没有数清。 天上的星星为什么数不清呢？ 像记忆和幻想， 永远背负着固执的谜…… 不要失望， 失望会使我们衰老</description>
+    </item>
+    
+    <item>
+      <title>线性表</title>
+      <link>/post/2021/12/16/linearlist/</link>
+      <pubDate>Thu, 16 Dec 2021 12:43:02 +0800</pubDate>
+      
+      <guid>/post/2021/12/16/linearlist/</guid>
+      <description>线性表是一种最基本、最简单的数据结构，数据元素之间仅具有单一的前驱和后继关系。 一、线性表的逻辑结构 定义：线性表简称表，是 n(n&amp;gt;=0) 个具有相同类型的数</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; 基础总结</title>
+      <link>/post/2021/12/15/cppbase/</link>
+      <pubDate>Wed, 15 Dec 2021 12:35:27 +0800</pubDate>
+      
+      <guid>/post/2021/12/15/cppbase/</guid>
+      <description>一、语法基础 指针和引用的概念 指针与内存关系 程序编译过程 static、const、#define的用法和区别 C和C++区别 内存模型 内存中的栈和</description>
+    </item>
+    
+    <item>
+      <title>【转载】Qt6 绘制基础</title>
+      <link>/collection/paintsystem/</link>
+      <pubDate>Mon, 13 Dec 2021 21:28:59 +0800</pubDate>
+      
+      <guid>/collection/paintsystem/</guid>
+      <description>绘制系统 Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进</description>
+    </item>
+    
+    <item>
+      <title>【转载】Qt6 对象模型</title>
+      <link>/collection/object/</link>
+      <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
+      
+      <guid>/collection/object/</guid>
+      <description>对象模型 标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率</description>
+    </item>
+    
+    <item>
+      <title>【转载】Qt 6 核心内部结构</title>
+      <link>/collection/qt-core/</link>
+      <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
+      
+      <guid>/collection/qt-core/</guid>
+      <description>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示</description>
+    </item>
+    
+    <item>
+      <title>【转载】Qt6 Qvariant 与自定义 Qt 类型</title>
+      <link>/collection/qvariant/</link>
+      <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
+      
+      <guid>/collection/qvariant/</guid>
+      <description>概述 在本文档中，我们采用自定义类型并描述如何将其集成到 Qt 的对象模型中，以便可以像标准 Qt 类型一样存储它。 然后我们展示如何注册自定义类型以允许它</description>
+    </item>
+    
+    <item>
+      <title>《圣斗士星矢——冥王哈迪斯十二宫篇》</title>
+      <link>/blog/2021/12/12/%E5%9C%A3%E6%96%97%E5%A3%AB%E6%98%9F%E7%9F%A2%E5%86%A5%E7%8E%8B%E5%93%88%E8%BF%AA%E6%96%AF%E5%8D%81%E4%BA%8C%E5%AE%AB%E7%AF%87/</link>
+      <pubDate>Sun, 12 Dec 2021 22:07:23 +0800</pubDate>
+      
+      <guid>/blog/2021/12/12/%E5%9C%A3%E6%96%97%E5%A3%AB%E6%98%9F%E7%9F%A2%E5%86%A5%E7%8E%8B%E5%93%88%E8%BF%AA%E6%96%AF%E5%8D%81%E4%BA%8C%E5%AE%AB%E7%AF%87/</guid>
+      <description>佛：沙加 佛：沙加啊 佛：有什么事让你如此悲伤 佛：只有六岁的你 佛：为什么每天都这么坐着 佛：有什么事情让你如此忧心忡忡 沙加：今天 沙加：我又看到冈底</description>
+    </item>
+    
+    <item>
+      <title>《崔普一家物语》</title>
+      <link>/blog/2021/12/12/%E5%B4%94%E6%99%AE%E4%B8%80%E5%AE%B6%E7%89%A9%E8%AF%AD/</link>
+      <pubDate>Sun, 12 Dec 2021 22:07:23 +0800</pubDate>
+      
+      <guid>/blog/2021/12/12/%E5%B4%94%E6%99%AE%E4%B8%80%E5%AE%B6%E7%89%A9%E8%AF%AD/</guid>
+      <description>一 耶拉：我觉得我好像做了不该做的事情耶 玛莉亚：守规矩当然是很重要的事情 玛莉亚：但是为了交我这个举世无双的朋友 玛莉亚：而不守规矩的话 玛莉亚：是</description>
+    </item>
+    
+    <item>
+      <title>【音乐】It&#39;s a Small World - Disney Classics</title>
+      <link>/blog/2021/12/11/%E9%9F%B3%E4%B9%90its-a-small-world-disney-classics/</link>
+      <pubDate>Sat, 11 Dec 2021 19:50:42 +0800</pubDate>
+      
+      <guid>/blog/2021/12/11/%E9%9F%B3%E4%B9%90its-a-small-world-disney-classics/</guid>
+      <description>It&amp;rsquo;s a world of laughter, a world of tears It&amp;rsquo;s a world of hopes and a world of fears There&amp;rsquo;s so much that we share That it&amp;rsquo;s time we&amp;rsquo;re aware It&amp;rsquo;s a small world after all It&amp;rsquo;s a small world after all It&amp;rsquo;s a small world after all It&amp;rsquo;s a small world after all It&amp;rsquo;s a small, small world There is just one moon and one golden sun And a</description>
+    </item>
+    
+    <item>
+      <title>【音乐】十分十二吋 - 林子祥</title>
+      <link>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E5%8D%81%E5%88%86%E5%8D%81%E4%BA%8C%E5%90%8B-%E6%9E%97%E5%AD%90%E7%A5%A5/</link>
+      <pubDate>Sat, 11 Dec 2021 19:50:40 +0800</pubDate>
+      
+      <guid>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E5%8D%81%E5%88%86%E5%8D%81%E4%BA%8C%E5%90%8B-%E6%9E%97%E5%AD%90%E7%A5%A5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【音乐】And I Love You So - Don McLean</title>
+      <link>/blog/2021/12/11/%E9%9F%B3%E4%B9%90and-i-love-you-so-don-mclean/</link>
+      <pubDate>Sat, 11 Dec 2021 15:45:11 +0800</pubDate>
+      
+      <guid>/blog/2021/12/11/%E9%9F%B3%E4%B9%90and-i-love-you-so-don-mclean/</guid>
+      <description>And I Love You So The people ask me how How I&amp;rsquo;ve lived &amp;rsquo;til now I tell them &amp;ldquo;I don&amp;rsquo;t know&amp;rdquo; I guess they understand How lonely life has been But life began again The day you took my hand And yes, I know how lonely life can be The shadows follow me And the night won&amp;rsquo;t set me free But I don&amp;rsquo;t let the evening get me down Now</description>
+    </item>
+    
+    <item>
+      <title>【音乐】春夏秋冬 - 张国荣</title>
+      <link>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC-%E5%BC%A0%E5%9B%BD%E8%8D%A3/</link>
+      <pubDate>Sat, 11 Dec 2021 15:18:33 +0800</pubDate>
+      
+      <guid>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC-%E5%BC%A0%E5%9B%BD%E8%8D%A3/</guid>
+      <description>秋天该很好 你若尚在场 秋风即使带凉 亦漂亮 深秋中的你填密我梦想 就像落叶飞 轻敲我窗 冬天该很好 你若尚在场 天空多灰 我们亦放亮 一起坐坐谈谈来日动向 漠视外</description>
+    </item>
+    
+    <item>
+      <title>【音乐】且听风吟 - 朴树</title>
+      <link>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E4%B8%94%E5%90%AC%E9%A3%8E%E5%90%9F-%E6%9C%B4%E6%A0%91/</link>
+      <pubDate>Sat, 11 Dec 2021 15:18:31 +0800</pubDate>
+      
+      <guid>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E4%B8%94%E5%90%AC%E9%A3%8E%E5%90%9F-%E6%9C%B4%E6%A0%91/</guid>
+      <description>突然落下的夜晚 灯火已隔世般阑珊 昨天已经去得很远 我的窗前已模糊一片 大风声 像没发生 太多的记忆 又怎样放开我的手 怕你说 那些被风吹起的日子 在深夜收紧我</description>
+    </item>
+    
+    <item>
+      <title>【音乐】両手を広げて - 伊東惠里</title>
+      <link>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E4%B8%A1%E6%89%8B%E3%82%92%E5%BA%83%E3%81%92%E3%81%A6-%E4%BC%8A%E6%9D%B1%E6%83%A0%E9%87%8C/</link>
+      <pubDate>Sat, 11 Dec 2021 14:48:57 +0800</pubDate>
+      
+      <guid>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E4%B8%A1%E6%89%8B%E3%82%92%E5%BA%83%E3%81%92%E3%81%A6-%E4%BC%8A%E6%9D%B1%E6%83%A0%E9%87%8C/</guid>
+      <description>丘に登って 深呼吸するの つくり笑いは得意じゃない 臆病なのは誰だって同じ 明日の翼 信じたいね 風も山も 唄うメロディー 涙だって 幸せのレッスン 私らしく 両</description>
+    </item>
+    
+    <item>
+      <title>【音乐】Khayran Jalgan - 哈萨克民歌</title>
+      <link>/blog/2021/12/11/%E9%9F%B3%E4%B9%90khayran-jalgan-%E5%93%88%E8%90%A8%E5%85%8B%E6%B0%91%E6%AD%8C/</link>
+      <pubDate>Sat, 11 Dec 2021 14:04:44 +0800</pubDate>
+      
+      <guid>/blog/2021/12/11/%E9%9F%B3%E4%B9%90khayran-jalgan-%E5%93%88%E8%90%A8%E5%85%8B%E6%B0%91%E6%AD%8C/</guid>
+      <description>Сонау алыс ауылда қалды-ау сұйген жар Аттанарда қош десе алмай болдым- ау зар Қайра</description>
+    </item>
+    
+    <item>
+      <title>【音乐】秋桜 - 山口百恵</title>
+      <link>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E7%A7%8B%E6%A1%9C-%E5%B1%B1%E5%8F%A3%E7%99%BE%E6%81%B5/</link>
+      <pubDate>Sat, 11 Dec 2021 13:35:54 +0800</pubDate>
+      
+      <guid>/blog/2021/12/11/%E9%9F%B3%E4%B9%90%E7%A7%8B%E6%A1%9C-%E5%B1%B1%E5%8F%A3%E7%99%BE%E6%81%B5/</guid>
+      <description>淡紅の秋桜が秋の日の 何気ない陽溜りに揺れている 此頃涙脆くなった母が 庭先でひとつ咳をする 縁側でアルバムを開いては 私の幼い日の思い出を 何度も同じ</description>
+    </item>
+    
+    <item>
+      <title>【音乐】Forrest Gump Suite - Alan Silvestri</title>
+      <link>/blog/2021/12/11/%E9%9F%B3%E4%B9%90forrest-gump-suite-alan-silvestri/</link>
+      <pubDate>Sat, 11 Dec 2021 01:02:32 +0800</pubDate>
+      
+      <guid>/blog/2021/12/11/%E9%9F%B3%E4%B9%90forrest-gump-suite-alan-silvestri/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【转载】Qt6 顺序容器 QList</title>
+      <link>/collection/qlist/</link>
+      <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
+      
+      <guid>/collection/qlist/</guid>
+      <description>介绍 QList 类是提供动态数组的模板类。该类中的所有函数都是可重入的。另外两个常用的顺序容器 QStack 和 QQueue 继承自 Qlist。 详细说明 QList 是 Qt 的通用容器类之一。</description>
+    </item>
+    
+    <item>
+      <title>【转载】Qt6 隐式共享</title>
+      <link>/collection/implicit-sharing/</link>
+      <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
+      
+      <guid>/collection/implicit-sharing/</guid>
+      <description>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且</description>
+    </item>
+    
+    <item>
+      <title>【转载】Qt6 容器类-概述</title>
+      <link>/collection/qt-containers/</link>
+      <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
+      
+      <guid>/collection/qt-containers/</guid>
+      <description>介绍 Qt 库提供了一组通用的基于模板的容器类。这些类可用于存储制定类型的项。例如，您需要一个可调整大小的 QString 数组，请使用 QList。 这些容器类被设</description>
+    </item>
+    
+    <item>
+      <title>《星际争霸——虚空之遗》</title>
+      <link>/blog/2021/11/30/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E8%99%9A%E7%A9%BA%E4%B9%8B%E9%81%97/</link>
+      <pubDate>Tue, 30 Nov 2021 23:07:23 +0800</pubDate>
+      
+      <guid>/blog/2021/11/30/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E8%99%9A%E7%A9%BA%E4%B9%8B%E9%81%97/</guid>
+      <description>（六） 阿塔尼斯：虫群摧毁了我们的家园。 阿塔尼斯：我高贵的族人们沦为难民。 阿塔尼斯：但是…… 阿塔尼斯：虫群无法摧毁我们意志。 阿塔尼斯：因为神圣</description>
+    </item>
+    
+    <item>
+      <title>《星际争霸——虫群之心》</title>
+      <link>/blog/2021/11/30/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E8%99%AB%E7%BE%A4%E4%B9%8B%E5%BF%83/</link>
+      <pubDate>Tue, 30 Nov 2021 22:07:23 +0800</pubDate>
+      
+      <guid>/blog/2021/11/30/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E8%99%AB%E7%BE%A4%E4%B9%8B%E5%BF%83/</guid>
+      <description>（四） 雷诺：莎拉？ 雷诺：不…… 凯瑞甘：我要救你出去。 雷诺：你都干了什么？ 凯瑞甘：我是……迫不得已。 雷诺：这话去和芬尼科斯说，去和被你杀害的人</description>
+    </item>
+    
+    <item>
+      <title>《星际争霸——自由之翼》</title>
+      <link>/blog/2021/11/29/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E8%87%AA%E7%94%B1%E4%B9%8B%E7%BF%BC/</link>
+      <pubDate>Mon, 29 Nov 2021 22:30:23 +0800</pubDate>
+      
+      <guid>/blog/2021/11/29/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E8%87%AA%E7%94%B1%E4%B9%8B%E7%BF%BC/</guid>
+      <description>交易 阿克图尔斯：据说人在被剥夺了自由后…… 阿克图尔斯：……才能真正了解自己 阿克图尔斯：我在想，你有多了解自己呢？ 副官：囚犯，向前走上平台。 阿</description>
+    </item>
+    
+    <item>
+      <title>《星际争霸——母巢之战》</title>
+      <link>/blog/2021/11/29/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E6%AF%8D%E5%B7%A2%E4%B9%8B%E6%88%98/</link>
+      <pubDate>Mon, 29 Nov 2021 22:07:23 +0800</pubDate>
+      
+      <guid>/blog/2021/11/29/%E6%98%9F%E9%99%85%E4%BA%89%E9%9C%B8%E6%AF%8D%E5%B7%A2%E4%B9%8B%E6%88%98/</guid>
+      <description>人族帝国的皇帝—— 阿克图拉斯一世的加冕仪式 人类同胞们， 我来此召集你们，是要让你们了解目前的形势。 每个人都应该意识到我们此时所遭受到的危机， 我</description>
+    </item>
+    
+    <item>
+      <title>世界名作剧场系列推荐</title>
+      <link>/blog/2021/11/27/%E4%B8%96%E7%95%8C%E5%90%8D%E4%BD%9C%E5%89%A7%E5%9C%BA%E7%B3%BB%E5%88%97%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Sat, 27 Nov 2021 07:42:23 +0800</pubDate>
+      
+      <guid>/blog/2021/11/27/%E4%B8%96%E7%95%8C%E5%90%8D%E4%BD%9C%E5%89%A7%E5%9C%BA%E7%B3%BB%E5%88%97%E6%8E%A8%E8%8D%90/</guid>
+      <description>《长腿叔叔》 https://www.bilibili.com/bangumi/play/ep94176 《崔普一家物語》 https://www.bilibili.com/video/BV1cb411P7N 《红发安妮》 https://www.bilibili.com/video/BV12W411m7jJ 《阿尔卑斯山的少女》 https://www.bilibili.com/bangumi/play/ep60826 《佩琳物语》 https://www.bilibili.com/bangumi/play/ep81529</description>
+    </item>
+    
+    <item>
+      <title>在阳光下奔跑</title>
+      <link>/blog/2021/11/21/%E5%9C%A8%E9%98%B3%E5%85%89%E4%B8%8B%E5%A5%94%E8%B7%91/</link>
+      <pubDate>Sun, 21 Nov 2021 00:46:42 +0800</pubDate>
+      
+      <guid>/blog/2021/11/21/%E5%9C%A8%E9%98%B3%E5%85%89%E4%B8%8B%E5%A5%94%E8%B7%91/</guid>
+      <description>前两天一位朋友向我分享了他的学生在校运会跑步的场景，选手们迎着终点跑去，赛道旁鼓气呐喊声连绵不绝。好怀念，在阳光下奔跑的时光。 跑步本身是没什</description>
+    </item>
+    
+    <item>
+      <title>修改菜单栏和文章创作</title>
+      <link>/post/2021/11/18/%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%92%8C%E6%96%87%E7%AB%A0%E5%88%9B%E4%BD%9C/</link>
+      <pubDate>Thu, 18 Nov 2021 18:36:33 +0800</pubDate>
+      
+      <guid>/post/2021/11/18/%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%92%8C%E6%96%87%E7%AB%A0%E5%88%9B%E4%BD%9C/</guid>
+      <description>前情提要 完成前面的工作后，我们的网站是下图这样的，非常符合极简之美。不过空荡荡的网站不是我们想要的，接下来我们就开始最核心的部分：修改网站内</description>
+    </item>
+    
+    <item>
+      <title>搭建</title>
+      <link>/post/2021/11/17/%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Wed, 17 Nov 2021 19:38:06 +0800</pubDate>
+      
+      <guid>/post/2021/11/17/%E6%90%AD%E5%BB%BA/</guid>
+      <description>一、在本地创建网站 （1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边</description>
+    </item>
+    
+    <item>
+      <title>《天黑以后》</title>
+      <link>/blog/2021/11/16/%E5%A4%A9%E9%BB%91%E4%BB%A5%E5%90%8E/</link>
+      <pubDate>Tue, 16 Nov 2021 22:07:23 +0800</pubDate>
+      
+      <guid>/blog/2021/11/16/%E5%A4%A9%E9%BB%91%E4%BB%A5%E5%90%8E/</guid>
+      <description>一 “为什么？”玛丽问。 “你是问我，为什么忽然打算好好学习了？” “对。” 高桥双手端着咖啡杯，眯起眼睛望着她的脸，就像从窗缝里窥视房间内部。“就</description>
+    </item>
+    
+    <item>
+      <title>《你为生存做些什么，我不关心》</title>
+      <link>/blog/2021/11/16/%E4%BD%A0%E4%B8%BA%E7%94%9F%E5%AD%98%E5%81%9A%E4%BA%9B%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%85%B3%E5%BF%83/</link>
+      <pubDate>Tue, 16 Nov 2021 20:07:23 +0800</pubDate>
+      
+      <guid>/blog/2021/11/16/%E4%BD%A0%E4%B8%BA%E7%94%9F%E5%AD%98%E5%81%9A%E4%BA%9B%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%85%B3%E5%BF%83/</guid>
+      <description>The Invitation by Oriah ——〔加拿大〕 Oriah（译者：野竹林） It doesn&amp;rsquo;t interest me what you do for a living. I want to know what you ache for and if you dare to dream of meeting your heart&amp;rsquo;s longing. 你为生存做了些什么，我不关心； 我想</description>
+    </item>
+    
+    <item>
+      <title>文非加粗描红不能读也？</title>
+      <link>/blog/2021/11/16/%E6%96%87%E9%9D%9E%E5%8A%A0%E7%B2%97%E6%8F%8F%E7%BA%A2%E4%B8%8D%E8%83%BD%E8%AF%BB%E4%B9%9F/</link>
+      <pubDate>Tue, 16 Nov 2021 00:46:27 +0800</pubDate>
+      
+      <guid>/blog/2021/11/16/%E6%96%87%E9%9D%9E%E5%8A%A0%E7%B2%97%E6%8F%8F%E7%BA%A2%E4%B8%8D%E8%83%BD%E8%AF%BB%E4%B9%9F/</guid>
+      <description>刚刚一口气读完了一本小说《天黑以后》。我特别喜欢这样的阅读方式，从头读到尾，酣畅淋漓。然而每当我稍读到稍有蕴意或难懂的文字时，下方便被画了&amp;</description>
+    </item>
+    
+    <item>
+      <title>准备工作</title>
+      <link>/post/2021/11/15/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</link>
+      <pubDate>Mon, 15 Nov 2021 12:26:45 +0800</pubDate>
+      
+      <guid>/post/2021/11/15/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</guid>
+      <description>一、注册 Github 帐号 （1）.前往 github.com 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分） （2）在 Github 中</description>
+    </item>
+    
+    <item>
+      <title>基础概念</title>
+      <link>/post/2021/11/14/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
+      
+      <guid>/post/2021/11/14/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</guid>
+      <description>教程开始前，先来介绍一下最终的成果，以便确认是否符合你的需求。本篇教程以 Hugo 和 Github Pages 为基础，创建一个静态的网站。这个过程仅需要一台联网的电脑，不</description>
+    </item>
+    
+    <item>
+      <title>开篇</title>
+      <link>/post/2021/11/14/%E5%BC%80%E7%AF%87/</link>
+      <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
+      
+      <guid>/post/2021/11/14/%E5%BC%80%E7%AF%87/</guid>
+      <description>回顾过去，我刚接触互联网时，还是 2G 时代，那时各类论坛博客和聊天室正蓬勃发展。这种跨越时空的交流方式让我感到非常新奇，看着屏幕吐出文字的时候，</description>
+    </item>
+    
+    <item>
+      <title>年轻人要多做事啊</title>
+      <link>/blog/2021/11/14/%E5%B9%B4%E8%BD%BB%E4%BA%BA%E8%A6%81%E5%A4%9A%E5%81%9A%E4%BA%8B%E5%95%8A/</link>
+      <pubDate>Sun, 14 Nov 2021 20:50:29 +0800</pubDate>
+      
+      <guid>/blog/2021/11/14/%E5%B9%B4%E8%BD%BB%E4%BA%BA%E8%A6%81%E5%A4%9A%E5%81%9A%E4%BA%8B%E5%95%8A/</guid>
+      <description>还在想什么呢？不创造价值，谈什么需求？果然还是要马上行动起来！</description>
+    </item>
     
   </channel>
 </rss>

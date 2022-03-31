@@ -1,91 +1,196 @@
 <!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html lang="zh-cn">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>从零开始搭建个人网站——小白篇 - 罗泽勋</title>
-    <meta property="og:title" content="从零开始搭建个人网站——小白篇 - 罗泽勋">
-    
-    <meta name="twitter:card" content="summary">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+  
+  <title>从零开始搭建个人网站——小白篇 - 罗泽勋</title>
+
+  
+  
+  <meta name="description" content="前言 小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这" />
+  <meta name="author" content="糸色先生" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="/an-old-hope.min.css" />
+  <script
+    defer
+    src="/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="/theme.png" />
+
+  
+  <link rel="preload" as="image" href="/github.svg" />
+  
+
+  
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.95.0" />
+
+  
+  
+
+  
+  
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  
+  
+  <meta property="og:title" content="从零开始搭建个人网站——小白篇" />
+<meta property="og:description" content="前言 小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%B0%8F%E7%99%BD%E7%AF%87/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-01T06:16:32+08:00" />
+<meta property="article:modified_time" content="2021-06-01T06:16:32+08:00" />
+
+
+  
+  <meta itemprop="name" content="从零开始搭建个人网站——小白篇">
+<meta itemprop="description" content="前言 小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这"><meta itemprop="datePublished" content="2021-06-01T06:16:32+08:00" />
+<meta itemprop="dateModified" content="2021-06-01T06:16:32+08:00" />
+<meta itemprop="wordCount" content="1404">
+<meta itemprop="keywords" content="Hugo," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从零开始搭建个人网站——小白篇"/>
+<meta name="twitter:description" content="前言 小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这"/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="true">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="/">罗泽勋</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+  <nav class="menu">
     
+    <a class="" href="/">主页</a>
+    
+    <a class="" href="/about/">关于</a>
+    
+    <a class="" href="/blog/">日志</a>
+    
+    <a class="" href="/post/">编程</a>
+    
+    <a class="" href="/collection/">收录</a>
+    
+    <a class="" href="/categories/">分类</a>
+    
+  </nav>
+  
+
+  
+  <nav class="social">
+    
+    <a
+      class="github"
+      style="--url: url(./github.svg)"
+      href="https://github.com/lzxqaq"
+      target="_blank"
+    ></a>
+    
+  </nav>
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
       
-    
-
-    
+      <time>Jun 1, 2021</time>
       
-      <meta property="description" content="小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。
-[&amp;hellip;] 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是你网站网址的一部分）
-补 &amp;hellip;">
-      <meta property="og:description" content="小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。
-[&amp;hellip;] 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是你网站网址的一部分）
-补 &amp;hellip;">
       
-    
-
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
+      <span>糸色先生</span>
       
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>从零开始搭建个人网站——小白篇</h1>
-
-
-<h3>糸色先生 / 
-2021-06-01</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<h3 id="前言">前言</h3>
+    </p>
+    <h1>从零开始搭建个人网站——小白篇</h1>
+  </header>
+  <section class="post-content"><h3 id="前言">前言</h3>
 <p>小白篇和前面<a href="../2021-2-18-2/">正经篇</a>的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的<a href="https://gitee.com/lzxqaq/demosite.git">示例网站</a>，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。</p>
 <h3 id="准备工作与前篇一致">准备工作（与前篇一致）</h3>
 <p>1.注册 Github 帐号。前往 <a href="https://github.com/" target="_blank">github.com</a> 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是你网站网址的一部分）</p>
@@ -117,68 +222,35 @@ git push --set-upstream origin master
 <p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
 <p>（2）配置。访问 github.com 网站，进入你的仓库，在 setting 中找到 Github Pages，在 Custom domain 输入框中输入你的域名，保存。</p>
 <p>（3）测试。访问你的域名。</p>
+</section>
+
+  
+  
+  <footer class="post-tags">
+     
+    <a href="/tags/hugo">Hugo</a>
+    
+  </footer>
+  
+
+  
+  
+  
+
+  
+  
+</article>
 
 </main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/">【规约】 C&#43;&#43; 编程篇</a></span>
-  <span class="nav-next"><a href="/post/2021/07/10/vim-%E6%93%8D%E4%BD%9C%E5%A4%87%E5%BF%98/">vim 操作备忘</a> &rarr;</span>
-</nav>
-
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
+    <footer class="footer">
+  <p> 
+     
+    © <a href="/">Zexun Luo</a> 2020 - 2022
     
-    url = '\/post\/2021\/05\/28\/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/post\/2021\/07\/10\/vim-%E6%93%8D%E4%BD%9C%E5%A4%87%E5%BF%98\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
+  </p>
 
+</footer>
 
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
-  </footer>
   </body>
 </html>
-

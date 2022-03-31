@@ -1,91 +1,196 @@
 <!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html lang="zh-cn">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Java I/O - 罗泽勋</title>
-    <meta property="og:title" content="Java I/O - 罗泽勋">
-    
-    <meta name="twitter:card" content="summary">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+  
+  <title>Java I/O - 罗泽勋</title>
+
+  
+  
+  <meta name="description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc" />
+  <meta name="author" content="糸色先生" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="/an-old-hope.min.css" />
+  <script
+    defer
+    src="/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="/theme.png" />
+
+  
+  <link rel="preload" as="image" href="/github.svg" />
+  
+
+  
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.95.0" />
+
+  
+  
+
+  
+  
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  
+  
+  <meta property="og:title" content="Java I/O" />
+<meta property="og:description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2021/01/12/java-i/o/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-01-12T08:46:08+08:00" />
+<meta property="article:modified_time" content="2021-01-12T08:46:08+08:00" />
+
+
+  
+  <meta itemprop="name" content="Java I/O">
+<meta itemprop="description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc"><meta itemprop="datePublished" content="2021-01-12T08:46:08+08:00" />
+<meta itemprop="dateModified" content="2021-01-12T08:46:08+08:00" />
+<meta itemprop="wordCount" content="392">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java I/O"/>
+<meta name="twitter:description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc"/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="true">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="/">罗泽勋</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+  <nav class="menu">
     
+    <a class="" href="/">主页</a>
+    
+    <a class="" href="/about/">关于</a>
+    
+    <a class="" href="/blog/">日志</a>
+    
+    <a class="" href="/post/">编程</a>
+    
+    <a class="" href="/collection/">收录</a>
+    
+    <a class="" href="/categories/">分类</a>
+    
+  </nav>
+  
+
+  
+  <nav class="social">
+    
+    <a
+      class="github"
+      style="--url: url(./github.svg)"
+      href="https://github.com/lzxqaq"
+      target="_blank"
+    ></a>
+    
+  </nav>
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
       
-    
-
-    
+      <time>Jan 12, 2021</time>
       
-      <meta property="description" content="Java 的 I/O 大概可以分成以下几类：
-[&amp;hellip;] File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { &amp;hellip;">
-      <meta property="og:description" content="Java 的 I/O 大概可以分成以下几类：
-[&amp;hellip;] File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { &amp;hellip;">
       
-    
-
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
+      <span>糸色先生</span>
       
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>Java I/O</h1>
-
-
-<h3>糸色先生 / 
-2021-01-12</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<h3 id="一概览">一、概览</h3>
+    </p>
+    <h1>Java I/O</h1>
+  </header>
+  <section class="post-content"><h3 id="一概览">一、概览</h3>
 <p>Java 的 I/O 大概可以分成以下几类：</p>
 <ul>
 <li>磁盘操作：File</li>
@@ -133,68 +238,29 @@ public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ ret
 <p>实例化一个具有缓存功能的字节流对象时，只需要在 FileInputStream 对象上再套一层 BufferedInputStream 对象即可。</p>
 <h3 id="七nio">七、NIO</h3>
 <p>新的输入/输出（NIO）库是在 JDK1.4中引入的，弥补了原来的 I/O 的不足，提供了高速的、面向块的 I/O。</p>
+</section>
+
+  
+  
+
+  
+  
+  
+
+  
+  
+</article>
 
 </main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2021/01/09/java-%E5%B9%B6%E5%8F%91/">Java 并发</a></span>
-  <span class="nav-next"><a href="/post/2021/02/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99win10githubhugo/">从零开始搭建个人网站（win10,Github,Hugo）</a> &rarr;</span>
-</nav>
-
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
+    <footer class="footer">
+  <p> 
+     
+    © <a href="/">Zexun Luo</a> 2020 - 2022
     
-    url = '\/post\/2021\/01\/09\/java-%E5%B9%B6%E5%8F%91\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/post\/2021\/02\/18\/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99win10githubhugo\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
+  </p>
 
+</footer>
 
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
-  </footer>
   </body>
 </html>
-

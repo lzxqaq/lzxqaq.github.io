@@ -1,29 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>分类 on 罗泽勋</title>
+    <title>Categories on 罗泽勋</title>
     <link>/categories/</link>
-    <description>Recent content in 分类 on 罗泽勋</description>
+    <description>Recent content in Categories on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 07 Mar 2022 18:43:02 +0800</lastBuildDate>
-    <atom:link href="/categories/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 07 Mar 2022 18:43:02 +0800</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>网络编程</title>
       <link>/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Mon, 07 Mar 2022 18:43:02 +0800</pubDate>
       
       <guid>/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>设计模式</title>
@@ -31,15 +22,8 @@
       <pubDate>Sat, 15 Jan 2022 08:14:07 +0800</pubDate>
       
       <guid>/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>数据库</title>
@@ -47,15 +31,8 @@
       <pubDate>Sat, 15 Jan 2022 08:08:34 +0800</pubDate>
       
       <guid>/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>操作系统</title>
@@ -63,15 +40,8 @@
       <pubDate>Fri, 14 Jan 2022 21:02:05 +0800</pubDate>
       
       <guid>/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>算法</title>
@@ -79,15 +49,8 @@
       <pubDate>Fri, 14 Jan 2022 20:42:19 +0800</pubDate>
       
       <guid>/categories/%E7%AE%97%E6%B3%95/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>数据结构</title>
@@ -95,15 +58,8 @@
       <pubDate>Fri, 14 Jan 2022 20:28:54 +0800</pubDate>
       
       <guid>/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>编程实践经验</title>
@@ -111,15 +67,8 @@
       <pubDate>Sun, 26 Dec 2021 12:55:54 +0800</pubDate>
       
       <guid>/categories/%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E7%BB%8F%E9%AA%8C/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>面向对象</title>
@@ -127,15 +76,8 @@
       <pubDate>Wed, 22 Dec 2021 23:41:54 +0800</pubDate>
       
       <guid>/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>系统设计</title>
@@ -143,15 +85,8 @@
       <pubDate>Wed, 22 Dec 2021 23:37:55 +0800</pubDate>
       
       <guid>/categories/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>Qt</title>
@@ -159,15 +94,8 @@
       <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
       
       <guid>/categories/qt/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>博客建站</title>
@@ -175,15 +103,8 @@
       <pubDate>Thu, 18 Nov 2021 18:36:33 +0800</pubDate>
       
       <guid>/categories/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>编程规范</title>
@@ -191,15 +112,8 @@
       <pubDate>Fri, 16 Jul 2021 14:24:34 +0800</pubDate>
       
       <guid>/categories/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>vim</title>
@@ -207,15 +121,8 @@
       <pubDate>Sat, 10 Jul 2021 10:35:46 +0800</pubDate>
       
       <guid>/categories/vim/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>博客搭建</title>
@@ -223,15 +130,8 @@
       <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
       
       <guid>/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>项目</title>
@@ -239,15 +139,8 @@
       <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
       
       <guid>/categories/%E9%A1%B9%E7%9B%AE/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>Java</title>
@@ -255,15 +148,8 @@
       <pubDate>Tue, 12 Jan 2021 08:46:08 +0800</pubDate>
       
       <guid>/categories/java/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>Linux</title>
@@ -271,15 +157,8 @@
       <pubDate>Sat, 26 Dec 2020 22:33:13 +0800</pubDate>
       
       <guid>/categories/linux/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
-    
     
     <item>
       <title>C/C&#43;&#43;</title>
@@ -287,14 +166,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/categories/c/c&#43;&#43;/</guid>
-      <description>
-        <![CDATA[
-        
-        
-        ]]>
-      </description>
+      <description></description>
     </item>
-    
     
   </channel>
 </rss>
