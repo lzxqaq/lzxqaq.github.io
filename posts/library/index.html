@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>C&#43;&#43; 开发必备之链接装载库 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="转载自https://github.com/huihut/interview
+ 本节部分知识点来自《程序员的自我修养——链接装载库》
+ 内存、栈、堆 🔗一般应用程序内存空间有如下区域：
+ 栈：由操作系统自动分配释放，存放函数的参数值、局部变量等的值，用于维护函数调用的上下文 堆：一般由程序员分配释放，若程序员不释放，程序结束时可能由操作系统回收，用来容纳应用程序动态分配的内存区域 可执行文件映像：存储着可执行文件在内存中的映像，由装载器装载是将可执行文件的内存读取或映射到这里 保留区：保留区并不是一个单一的内存区域，而是对内存中受到保护而禁止访问的内存区域的总称，如通常 C 语言讲无效指针赋值为 0（NULL），因此 0 地址正常情况下不可能有效的访问数据  栈 🔗栈保存了一个函数调用所需要的维护信息，常被称为堆栈帧（Stack Frame）或活动记录（Activate Record），一般包含以下几方面：
+ 函数的返回地址和参数 临时变量：包括函数的非静态局部变量以及编译器自动生成的其他临时变量 保存上下文：包括函数调用前后需要保持不变的寄存器  堆 🔗堆分配算法：
+ 空闲链表（Free List） 位图（Bitmap） 对象池  “段错误（segment fault）” 或 “非法操作，该内存地址不能 read/write” 🔗典型的非法指针解引用造成的错误。当指针指向一个不允许读写的内存地址，而程序却试图利用指针来读或写该地址时，会出现这个错误。
+普遍原因：
+ 将指针初始化为 NULL，之后没有给它一个合理的值就开始使用指针 没用初始化栈中的指针，指针的值一般会是随机数，之后就直接开始使用指针  编译链接 🔗各平台文件格式 🔗   平台 可执行文件 目标文件 动态库/共享对象 静态库     Windows exe obj dll lib   Unix/Linux ELF、out o so a   Mac Mach-O o dylib、tbd、framework a、framework    编译链接过程 🔗 预编译（预编译器处理如 #include、#define 等预编译指令，生成 .">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">C&#43;&#43; 开发必备之链接装载库</h1>
+
+    <div class="tip">
+        <time datetime="2022-01-15 08:10:50 &#43;0800 CST">2022年01月15日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          980字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5分钟
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>转载自<a href="https://github.com/huihut/interview" target="_blank" rel="noopener">https://github.com/huihut/interview</a></p>
+<blockquote>
+<p>本节部分知识点来自《程序员的自我修养——链接装载库》</p>
+</blockquote>
+<h3 id="内存栈堆">内存、栈、堆 <a href="#%e5%86%85%e5%ad%98%e6%a0%88%e5%a0%86" class="anchor">🔗</a></h3><p>一般应用程序内存空间有如下区域：</p>
+<ul>
+<li>栈：由操作系统自动分配释放，存放函数的参数值、局部变量等的值，用于维护函数调用的上下文</li>
+<li>堆：一般由程序员分配释放，若程序员不释放，程序结束时可能由操作系统回收，用来容纳应用程序动态分配的内存区域</li>
+<li>可执行文件映像：存储着可执行文件在内存中的映像，由装载器装载是将可执行文件的内存读取或映射到这里</li>
+<li>保留区：保留区并不是一个单一的内存区域，而是对内存中受到保护而禁止访问的内存区域的总称，如通常 C 语言讲无效指针赋值为 0（NULL），因此 0 地址正常情况下不可能有效的访问数据</li>
+</ul>
+<h4 id="栈">栈 <a href="#%e6%a0%88" class="anchor">🔗</a></h4><p>栈保存了一个函数调用所需要的维护信息，常被称为堆栈帧（Stack Frame）或活动记录（Activate Record），一般包含以下几方面：</p>
+<ul>
+<li>函数的返回地址和参数</li>
+<li>临时变量：包括函数的非静态局部变量以及编译器自动生成的其他临时变量</li>
+<li>保存上下文：包括函数调用前后需要保持不变的寄存器</li>
+</ul>
+<h4 id="堆">堆 <a href="#%e5%a0%86" class="anchor">🔗</a></h4><p>堆分配算法：</p>
+<ul>
+<li>空闲链表（Free List）</li>
+<li>位图（Bitmap）</li>
+<li>对象池</li>
+</ul>
+<h4 id="段错误segment-fault-或-非法操作该内存地址不能-readwrite">“段错误（segment fault）” 或 “非法操作，该内存地址不能 read/write” <a href="#%e6%ae%b5%e9%94%99%e8%af%afsegment-fault-%e6%88%96-%e9%9d%9e%e6%b3%95%e6%93%8d%e4%bd%9c%e8%af%a5%e5%86%85%e5%ad%98%e5%9c%b0%e5%9d%80%e4%b8%8d%e8%83%bd-readwrite" class="anchor">🔗</a></h4><p>典型的非法指针解引用造成的错误。当指针指向一个不允许读写的内存地址，而程序却试图利用指针来读或写该地址时，会出现这个错误。</p>
+<p>普遍原因：</p>
+<ul>
+<li>将指针初始化为 NULL，之后没有给它一个合理的值就开始使用指针</li>
+<li>没用初始化栈中的指针，指针的值一般会是随机数，之后就直接开始使用指针</li>
+</ul>
+<h3 id="编译链接">编译链接 <a href="#%e7%bc%96%e8%af%91%e9%93%be%e6%8e%a5" class="anchor">🔗</a></h3><h4 id="各平台文件格式">各平台文件格式 <a href="#%e5%90%84%e5%b9%b3%e5%8f%b0%e6%96%87%e4%bb%b6%e6%a0%bc%e5%bc%8f" class="anchor">🔗</a></h4><table>
+<thead>
+<tr>
+<th>平台</th>
+<th>可执行文件</th>
+<th>目标文件</th>
+<th>动态库/共享对象</th>
+<th>静态库</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td>exe</td>
+<td>obj</td>
+<td>dll</td>
+<td>lib</td>
+</tr>
+<tr>
+<td>Unix/Linux</td>
+<td>ELF、out</td>
+<td>o</td>
+<td>so</td>
+<td>a</td>
+</tr>
+<tr>
+<td>Mac</td>
+<td>Mach-O</td>
+<td>o</td>
+<td>dylib、tbd、framework</td>
+<td>a、framework</td>
+</tr>
+</tbody>
+</table>
+<h4 id="编译链接过程">编译链接过程 <a href="#%e7%bc%96%e8%af%91%e9%93%be%e6%8e%a5%e8%bf%87%e7%a8%8b" class="anchor">🔗</a></h4><ol>
+<li>预编译（预编译器处理如 <code>#include</code>、<code>#define</code> 等预编译指令，生成 <code>.i</code> 或 <code>.ii</code> 文件）</li>
+<li>编译（编译器进行词法分析、语法分析、语义分析、中间代码生成、目标代码生成、优化，生成 <code>.s</code> 文件）</li>
+<li>汇编（汇编器把汇编码翻译成机器码，生成 <code>.o</code> 文件）</li>
+<li>链接（连接器进行地址和空间分配、符号决议、重定位，生成 <code>.out</code> 文件）</li>
+</ol>
+<blockquote>
+<p>现在版本 GCC 把预编译和编译合成一步，预编译编译程序 cc1、汇编器 as、连接器 ld</p>
+</blockquote>
+<blockquote>
+<p>MSVC 编译环境，编译器 cl、连接器 link、可执行文件查看器 dumpbin</p>
+</blockquote>
+<h4 id="目标文件">目标文件 <a href="#%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6" class="anchor">🔗</a></h4><p>编译器编译源代码后生成的文件叫做目标文件。目标文件从结构上讲，它是已经编译后的可执行文件格式，只是还没有经过链接的过程，其中可能有些符号或有些地址还没有被调整。</p>
+<blockquote>
+<p>可执行文件（Windows 的 <code>.exe</code> 和 Linux 的 <code>ELF</code>）、动态链接库（Windows 的 <code>.dll</code> 和 Linux 的 <code>.so</code>）、静态链接库（Windows 的 <code>.lib</code> 和 Linux 的 <code>.a</code>）都是按照可执行文件格式存储（Windows 按照 PE-COFF，Linux 按照 ELF）</p>
+</blockquote>
+<h5 id="目标文件格式">目标文件格式 <a href="#%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6%e6%a0%bc%e5%bc%8f" class="anchor">🔗</a></h5><ul>
+<li>Windows 的 PE（Portable Executable），或称为 PE-COFF，<code>.obj</code> 格式</li>
+<li>Linux 的 ELF（Executable Linkable Format），<code>.o</code> 格式</li>
+<li>Intel/Microsoft 的 OMF（Object Module Format）</li>
+<li>Unix 的 <code>a.out</code> 格式</li>
+<li>MS-DOS 的 <code>.COM</code> 格式</li>
+</ul>
+<blockquote>
+<p>PE 和 ELF 都是 COFF（Common File Format）的变种</p>
+</blockquote>
+<h5 id="目标文件存储结构">目标文件存储结构 <a href="#%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6%e5%ad%98%e5%82%a8%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h5><table>
+<thead>
+<tr>
+<th>段</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File Header</td>
+<td>文件头，描述整个文件的文件属性（包括文件是否可执行、是静态链接或动态连接及入口地址、目标硬件、目标操作系统等）</td>
+</tr>
+<tr>
+<td>.text section</td>
+<td>代码段，执行语句编译成的机器代码</td>
+</tr>
+<tr>
+<td>.data section</td>
+<td>数据段，已初始化的全局变量和局部静态变量</td>
+</tr>
+<tr>
+<td>.bss section</td>
+<td>BSS 段（Block Started by Symbol），未初始化的全局变量和局部静态变量（因为默认值为 0，所以只是在此预留位置，不占空间）</td>
+</tr>
+<tr>
+<td>.rodata section</td>
+<td>只读数据段，存放只读数据，一般是程序里面的只读变量（如 const 修饰的变量）和字符串常量</td>
+</tr>
+<tr>
+<td>.comment section</td>
+<td>注释信息段，存放编译器版本信息</td>
+</tr>
+<tr>
+<td>.note.GNU-stack section</td>
+<td>堆栈提示段</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>其他段略</p>
+</blockquote>
+<h4 id="链接的接口符号">链接的接口————符号 <a href="#%e9%93%be%e6%8e%a5%e7%9a%84%e6%8e%a5%e5%8f%a3%e7%ac%a6%e5%8f%b7" class="anchor">🔗</a></h4><p>在链接中，目标文件之间相互拼合实际上是目标文件之间对地址的引用，即对函数和变量的地址的引用。我们将函数和变量统称为符号（Symbol），函数名或变量名就是符号名（Symbol Name）。</p>
+<p>如下符号表（Symbol Table）：</p>
+<table>
+<thead>
+<tr>
+<th>Symbol（符号名）</th>
+<th>Symbol Value （地址）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>main</td>
+<td>0x100</td>
+</tr>
+<tr>
+<td>Add</td>
+<td>0x123</td>
+</tr>
+<tr>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="linux-的共享库shared-library">Linux 的共享库（Shared Library） <a href="#linux-%e7%9a%84%e5%85%b1%e4%ba%ab%e5%ba%93shared-library" class="anchor">🔗</a></h3><p>Linux 下的共享库就是普通的 ELF 共享对象。</p>
+<p>共享库版本更新应该保证二进制接口 ABI（Application Binary Interface）的兼容</p>
+<h4 id="命名">命名 <a href="#%e5%91%bd%e5%90%8d" class="anchor">🔗</a></h4><p><code>libname.so.x.y.z</code></p>
+<ul>
+<li>x：主版本号，不同主版本号的库之间不兼容，需要重新编译</li>
+<li>y：次版本号，高版本号向后兼容低版本号</li>
+<li>z：发布版本号，不对接口进行更改，完全兼容</li>
+</ul>
+<h4 id="路径">路径 <a href="#%e8%b7%af%e5%be%84" class="anchor">🔗</a></h4><p>大部分包括 Linux 在内的开源系统遵循 FHS（File Hierarchy Standard）的标准，这标准规定了系统文件如何存放，包括各个目录结构、组织和作用。</p>
+<ul>
+<li><code>/lib</code>：存放系统最关键和最基础的共享库，如动态链接器、C 语言运行库、数学库等</li>
+<li><code>/usr/lib</code>：存放非系统运行时所需要的关键性的库，主要是开发库</li>
+<li><code>/usr/local/lib</code>：存放跟操作系统本身并不十分相关的库，主要是一些第三方应用程序的库</li>
+</ul>
+<blockquote>
+<p>动态链接器会在 <code>/lib</code>、<code>/usr/lib</code> 和由 <code>/etc/ld.so.conf</code> 配置文件指定的，目录中查找共享库</p>
+</blockquote>
+<h4 id="环境变量">环境变量 <a href="#%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" class="anchor">🔗</a></h4><ul>
+<li><code>LD_LIBRARY_PATH</code>：临时改变某个应用程序的共享库查找路径，而不会影响其他应用程序</li>
+<li><code>LD_PRELOAD</code>：指定预先装载的一些共享库甚至是目标文件</li>
+<li><code>LD_DEBUG</code>：打开动态链接器的调试功能</li>
+</ul>
+<h4 id="so-共享库的编写">so 共享库的编写 <a href="#so-%e5%85%b1%e4%ba%ab%e5%ba%93%e7%9a%84%e7%bc%96%e5%86%99" class="anchor">🔗</a></h4><p>使用 CLion 编写共享库</p>
+<p>创建一个名为 MySharedLib 的共享库</p>
+<p>CMakeLists.txt</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span><span style="color:#a2f">cmake_minimum_required</span>(<span style="color:#b44">VERSION</span> <span style="color:#b44">3.10</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#a2f">project</span>(<span style="color:#b44">MySharedLib</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#a2f">set</span>(<span style="color:#b44">CMAKE_CXX_STANDARD</span> <span style="color:#b44">11</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#a2f">add_library</span>(<span style="color:#b44">MySharedLib</span> <span style="color:#b44">SHARED</span> <span style="color:#b44">library.cpp</span> <span style="color:#b44">library.h</span>)<span style="">
+</span></span></span></code></pre></div><p>library.h</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#ifndef MYSHAREDLIB_LIBRARY_H
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#define MYSHAREDLIB_LIBRARY_H
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 打印 Hello World!
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">hello</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 使用可变模版参数求和
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">typename</span> T<span style="color:#666">&gt;</span>
+</span></span><span style="display:flex;"><span>T sum(T t)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> t;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">typename</span> T, <span style="color:#a2f;font-weight:bold">typename</span> ...Types<span style="color:#666">&gt;</span>
+</span></span><span style="display:flex;"><span>T sum(T first, Types ... rest)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> first <span style="color:#666">+</span> sum<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;</span>(rest...);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#endif
+</span></span></span></code></pre></div><p>library.cpp</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&#34;library.h&#34;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">hello</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;Hello, World!&#34;</span> <span style="color:#666">&lt;&lt;</span> std<span style="color:#666">::</span>endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="so-共享库的使用被可执行项目调用">so 共享库的使用（被可执行项目调用） <a href="#so-%e5%85%b1%e4%ba%ab%e5%ba%93%e7%9a%84%e4%bd%bf%e7%94%a8%e8%a2%ab%e5%8f%af%e6%89%a7%e8%a1%8c%e9%a1%b9%e7%9b%ae%e8%b0%83%e7%94%a8" class="anchor">🔗</a></h4><p>使用 CLion 调用共享库</p>
+<p>创建一个名为 TestSharedLib 的可执行项目</p>
+<p>CMakeLists.txt</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span><span style="color:#a2f">cmake_minimum_required</span>(<span style="color:#b44">VERSION</span> <span style="color:#b44">3.10</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#a2f">project</span>(<span style="color:#b44">TestSharedLib</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#080;font-style:italic"># C++11 编译
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">set</span>(<span style="color:#b44">CMAKE_CXX_STANDARD</span> <span style="color:#b44">11</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#080;font-style:italic"># 头文件路径
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">set</span>(<span style="color:#b44">INC_DIR</span> <span style="color:#b44">/home/xx/code/clion/MySharedLib</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#080;font-style:italic"># 库文件路径
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">set</span>(<span style="color:#b44">LIB_DIR</span> <span style="color:#b44">/home/xx/code/clion/MySharedLib/cmake-build-debug</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#a2f">include_directories</span>(<span style="color:#666">${</span><span style="color:#b8860b">INC_DIR</span><span style="color:#666">}</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#a2f">link_directories</span>(<span style="color:#666">${</span><span style="color:#b8860b">LIB_DIR</span><span style="color:#666">}</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#a2f">link_libraries</span>(<span style="color:#b44">MySharedLib</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#a2f">add_executable</span>(<span style="color:#b44">TestSharedLib</span> <span style="color:#b44">main.cpp</span>)<span style="">
+</span></span></span><span style="display:flex;"><span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="color:#080;font-style:italic"># 链接 MySharedLib 库
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">target_link_libraries</span>(<span style="color:#b44">TestSharedLib</span> <span style="color:#b44">MySharedLib</span>)<span style="">
+</span></span></span></code></pre></div><p>main.cpp</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&#34;library.h&#34;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> std<span style="color:#666">::</span>cout;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> std<span style="color:#666">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    hello();
+</span></span><span style="display:flex;"><span>    cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;1 + 2 = &#34;</span> <span style="color:#666">&lt;&lt;</span> sum(<span style="color:#666">1</span>,<span style="color:#666">2</span>) <span style="color:#666">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;1 + 2 + 3 = &#34;</span> <span style="color:#666">&lt;&lt;</span> sum(<span style="color:#666">1</span>,<span style="color:#666">2</span>,<span style="color:#666">3</span>) <span style="color:#666">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>执行结果</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Hello, World!
+</span></span><span style="display:flex;"><span>1 + 2 = 3
+</span></span><span style="display:flex;"><span>1 + 2 + 3 = 6
+</span></span></code></pre></div><h3 id="windows-应用程序入口函数">Windows 应用程序入口函数 <a href="#windows-%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f%e5%85%a5%e5%8f%a3%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><ul>
+<li>GUI（Graphical User Interface）应用，链接器选项：<code>/SUBSYSTEM:WINDOWS</code></li>
+<li>CUI（Console User Interface）应用，链接器选项：<code>/SUBSYSTEM:CONSOLE</code></li>
+</ul>
+<p>_tWinMain 与 _tmain 函数声明</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Int WINAPI <span style="color:#00a000">_tWinMain</span>(
+</span></span><span style="display:flex;"><span>    HINSTANCE hInstanceExe,
+</span></span><span style="display:flex;"><span>    HINSTANCE,
+</span></span><span style="display:flex;"><span>    PTSTR pszCmdLine,
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> nCmdShow);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">_tmain</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> argc,
+</span></span><span style="display:flex;"><span>    TCHAR <span style="color:#666">*</span>argv[],
+</span></span><span style="display:flex;"><span>    TCHAR <span style="color:#666">*</span>envp[]);
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>应用程序类型</th>
+<th>入口点函数</th>
+<th>嵌入可执行文件的启动函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>处理ANSI字符（串）的GUI应用程序</td>
+<td>_tWinMain(WinMain)</td>
+<td>WinMainCRTSartup</td>
+</tr>
+<tr>
+<td>处理Unicode字符（串）的GUI应用程序</td>
+<td>_tWinMain(wWinMain)</td>
+<td>wWinMainCRTSartup</td>
+</tr>
+<tr>
+<td>处理ANSI字符（串）的CUI应用程序</td>
+<td>_tmain(Main)</td>
+<td>mainCRTSartup</td>
+</tr>
+<tr>
+<td>处理Unicode字符（串）的CUI应用程序</td>
+<td>_tmain(wMain)</td>
+<td>wmainCRTSartup</td>
+</tr>
+<tr>
+<td>动态链接库（Dynamic-Link Library）</td>
+<td>DllMain</td>
+<td>_DllMainCRTStartup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="windows-的动态链接库dynamic-link-library">Windows 的动态链接库（Dynamic-Link Library） <a href="#windows-%e7%9a%84%e5%8a%a8%e6%80%81%e9%93%be%e6%8e%a5%e5%ba%93dynamic-link-library" class="anchor">🔗</a></h3><blockquote>
+<p>部分知识点来自《Windows 核心编程（第五版）》</p>
+</blockquote>
+<h4 id="用处">用处 <a href="#%e7%94%a8%e5%a4%84" class="anchor">🔗</a></h4><ul>
+<li>扩展了应用程序的特性</li>
+<li>简化了项目管理</li>
+<li>有助于节省内存</li>
+<li>促进了资源的共享</li>
+<li>促进了本地化</li>
+<li>有助于解决平台间的差异</li>
+<li>可以用于特殊目的</li>
+</ul>
+<h4 id="注意">注意 <a href="#%e6%b3%a8%e6%84%8f" class="anchor">🔗</a></h4><ul>
+<li>创建 DLL，事实上是在创建可供一个可执行模块调用的函数</li>
+<li>当一个模块提供一个内存分配函数（malloc、new）的时候，它必须同时提供另一个内存释放函数（free、delete）</li>
+<li>在使用 C 和 C++ 混编的时候，要使用 extern &ldquo;C&rdquo; 修饰符</li>
+<li>一个 DLL 可以导出函数、变量（避免导出）、C++ 类（导出导入需要同编译器，否则避免导出）</li>
+<li>DLL 模块：cpp 文件中的 __declspec(dllexport) 写在 include 头文件之前</li>
+<li>调用 DLL 的可执行模块：cpp 文件的 __declspec(dllimport) 之前不应该定义 MYLIBAPI</li>
+</ul>
+<h4 id="加载-windows-程序的搜索顺序">加载 Windows 程序的搜索顺序 <a href="#%e5%8a%a0%e8%bd%bd-windows-%e7%a8%8b%e5%ba%8f%e7%9a%84%e6%90%9c%e7%b4%a2%e9%a1%ba%e5%ba%8f" class="anchor">🔗</a></h4><ol>
+<li>包含可执行文件的目录</li>
+<li>Windows 的系统目录，可以通过 GetSystemDirectory 得到</li>
+<li>16 位的系统目录，即 Windows 目录中的 System 子目录</li>
+<li>Windows 目录，可以通过 GetWindowsDirectory 得到</li>
+<li>进程的当前目录</li>
+<li>PATH 环境变量中所列出的目录</li>
+</ol>
+<h4 id="dll-入口函数">DLL 入口函数 <a href="#dll-%e5%85%a5%e5%8f%a3%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h4><p>DllMain 函数</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>BOOL WINAPI <span style="color:#00a000">DllMain</span>(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">switch</span>(fdwReason)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">case</span> <span style="color:#a0a000">DLL_PROCESS_ATTACH</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// 第一次将一个DLL映射到进程地址空间时调用
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#080;font-style:italic">// The DLL is being mapped into the process&#39; address space.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">case</span> <span style="color:#a0a000">DLL_THREAD_ATTACH</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// 当进程创建一个线程的时候，用于告诉DLL执行与线程相关的初始化（非主线程执行）
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#080;font-style:italic">// A thread is bing created.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">case</span> <span style="color:#a0a000">DLL_THREAD_DETACH</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// 系统调用 ExitThread 线程退出前，即将终止的线程通过告诉DLL执行与线程相关的清理
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#080;font-style:italic">// A thread is exiting cleanly.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">case</span> <span style="color:#a0a000">DLL_PROCESS_DETACH</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// 将一个DLL从进程的地址空间时调用
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#080;font-style:italic">// The DLL is being unmapped from the process&#39; address space.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> (TRUE); <span style="color:#080;font-style:italic">// Used only for DLL_PROCESS_ATTACH
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span></code></pre></div><h4 id="载入卸载库">载入卸载库 <a href="#%e8%bd%bd%e5%85%a5%e5%8d%b8%e8%bd%bd%e5%ba%93" class="anchor">🔗</a></h4><p>LoadLibrary、LoadLibraryExA、LoadPackagedLibrary、FreeLibrary、FreeLibraryAndExitThread 函数声明</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 载入库
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>HMODULE WINAPI <span style="color:#00a000">LoadLibrary</span>(
+</span></span><span style="display:flex;"><span>  _In_ LPCTSTR lpFileName
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>HMODULE <span style="color:#00a000">LoadLibraryExA</span>(
+</span></span><span style="display:flex;"><span>  LPCSTR lpLibFileName,
+</span></span><span style="display:flex;"><span>  HANDLE hFile,
+</span></span><span style="display:flex;"><span>  DWORD  dwFlags
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 若要在通用 Windows 平台（UWP）应用中加载 Win32 DLL，需要调用 LoadPackagedLibrary，而不是 LoadLibrary 或 LoadLibraryEx
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>HMODULE <span style="color:#00a000">LoadPackagedLibrary</span>(
+</span></span><span style="display:flex;"><span>  LPCWSTR lpwLibFileName,
+</span></span><span style="display:flex;"><span>  DWORD   Reserved
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 卸载库
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>BOOL WINAPI <span style="color:#00a000">FreeLibrary</span>(
+</span></span><span style="display:flex;"><span>  _In_ HMODULE hModule
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 卸载库和退出线程
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>VOID WINAPI <span style="color:#00a000">FreeLibraryAndExitThread</span>(
+</span></span><span style="display:flex;"><span>  _In_ HMODULE hModule,
+</span></span><span style="display:flex;"><span>  _In_ DWORD   dwExitCode
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><h4 id="显示地链接到导出符号">显示地链接到导出符号 <a href="#%e6%98%be%e7%a4%ba%e5%9c%b0%e9%93%be%e6%8e%a5%e5%88%b0%e5%af%bc%e5%87%ba%e7%ac%a6%e5%8f%b7" class="anchor">🔗</a></h4><p>GetProcAddress 函数声明</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>FARPROC <span style="color:#00a000">GetProcAddress</span>(
+</span></span><span style="display:flex;"><span>  HMODULE hInstDll,
+</span></span><span style="display:flex;"><span>  PCSTR pszSymbolName  <span style="color:#080;font-style:italic">// 只能接受 ANSI 字符串，不能是 Unicode
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>);
+</span></span></code></pre></div><h4 id="dumpbinexe-查看-dll-信息">DumpBin.exe 查看 DLL 信息 <a href="#dumpbinexe-%e6%9f%a5%e7%9c%8b-dll-%e4%bf%a1%e6%81%af" class="anchor">🔗</a></h4><p>在 <code>VS 的开发人员命令提示符</code> 使用 <code>DumpBin.exe</code> 可查看 DLL 库的导出段（导出的变量、函数、类名的符号）、相对虚拟地址（RVA，relative virtual address）。如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>DUMPBIN -exports D:\mydll.dll
+</span></span></code></pre></div><h4 id="loadlibrary-与-freelibrary-流程图">LoadLibrary 与 FreeLibrary 流程图 <a href="#loadlibrary-%e4%b8%8e-freelibrary-%e6%b5%81%e7%a8%8b%e5%9b%be" class="anchor">🔗</a></h4><p>LoadLibrary 与 FreeLibrary 流程图</p>
+<h5 id="loadlibrary">LoadLibrary <a href="#loadlibrary" class="anchor">🔗</a></h5><p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/WindowsLoadLibrary.png" alt="WindowsLoadLibrary"  />
+</p></p>
+<h5 id="freelibrary">FreeLibrary <a href="#freelibrary" class="anchor">🔗</a></h5><p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/WindowsFreeLibrary.png" alt="WindowsFreeLibrary"  />
+</p></p>
+<h4 id="dll-库的编写导出一个-dll-模块">DLL 库的编写（导出一个 DLL 模块） <a href="#dll-%e5%ba%93%e7%9a%84%e7%bc%96%e5%86%99%e5%af%bc%e5%87%ba%e4%b8%80%e4%b8%aa-dll-%e6%a8%a1%e5%9d%97" class="anchor">🔗</a></h4><p>DLL 库的编写（导出一个 DLL 模块）
+DLL 头文件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// MyLib.h
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#ifdef MYLIBAPI
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// MYLIBAPI 应该在全部 DLL 源文件的 include &#34;Mylib.h&#34; 之前被定义
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 全部函数/变量正在被导出
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#else
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 这个头文件被一个exe源代码模块包含，意味着全部函数/变量被导入
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MYLIBAPI extern &#34;C&#34; __declspec(dllimport)
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 这里定义任何的数据结构和符号
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 定义导出的变量（避免导出变量）
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>MYLIBAPI <span style="color:#0b0;font-weight:bold">int</span> g_nResult;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 定义导出函数原型
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>MYLIBAPI <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">Add</span>(<span style="color:#0b0;font-weight:bold">int</span> nLeft, <span style="color:#0b0;font-weight:bold">int</span> nRight);
+</span></span></code></pre></div><p>DLL 源文件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// MyLibFile1.cpp
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 包含标准Windows和C运行时头文件
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#include</span> <span style="color:#080">&lt;windows.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// DLL源码文件导出的函数和变量
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MYLIBAPI extern &#34;C&#34; __declspec(dllexport)
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 包含导出的数据结构、符号、函数、变量
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#include</span> <span style="color:#080">&#34;MyLib.h&#34;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 将此DLL源代码文件的代码放在此处
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span> g_nResult;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">Add</span>(<span style="color:#0b0;font-weight:bold">int</span> nLeft, <span style="color:#0b0;font-weight:bold">int</span> nRight)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    g_nResult <span style="color:#666">=</span> nLeft <span style="color:#666">+</span> nRight;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> g_nResult;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="dll-库的使用运行时动态链接-dll">DLL 库的使用（运行时动态链接 DLL） <a href="#dll-%e5%ba%93%e7%9a%84%e4%bd%bf%e7%94%a8%e8%bf%90%e8%a1%8c%e6%97%b6%e5%8a%a8%e6%80%81%e9%93%be%e6%8e%a5-dll" class="anchor">🔗</a></h4><p>DLL 库的使用（运行时动态链接 DLL）</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// A simple program that uses LoadLibrary and 
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// GetProcAddress to access myPuts from Myputs.dll. 
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;windows.h&gt; </span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;stdio.h&gt; </span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#00a000">int</span> (<span style="color:#a2f;font-weight:bold">__cdecl</span> <span style="color:#666">*</span>MYPROC)(LPWSTR); 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>( <span style="color:#0b0;font-weight:bold">void</span> ) 
+</span></span><span style="display:flex;"><span>{ 
+</span></span><span style="display:flex;"><span>    HINSTANCE hinstLib; 
+</span></span><span style="display:flex;"><span>    MYPROC ProcAdd; 
+</span></span><span style="display:flex;"><span>    BOOL fFreeResult, fRunTimeLinkSuccess <span style="color:#666">=</span> FALSE; 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// Get a handle to the DLL module.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span>    hinstLib <span style="color:#666">=</span> LoadLibrary(TEXT(<span style="color:#b44">&#34;MyPuts.dll&#34;</span>)); 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// If the handle is valid, try to get the function address.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> (hinstLib <span style="color:#666">!=</span> <span style="color:#a2f">NULL</span>) 
+</span></span><span style="display:flex;"><span>    { 
+</span></span><span style="display:flex;"><span>        ProcAdd <span style="color:#666">=</span> (MYPROC) GetProcAddress(hinstLib, <span style="color:#b44">&#34;myPuts&#34;</span>); 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// If the function address is valid, call the function.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#a2f">NULL</span> <span style="color:#666">!=</span> ProcAdd) 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            fRunTimeLinkSuccess <span style="color:#666">=</span> TRUE;
+</span></span><span style="display:flex;"><span>            (ProcAdd) (<span style="color:#b44">L</span><span style="color:#b44">&#34;Message sent to the DLL function</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>); 
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// Free the DLL module.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span> 
+</span></span><span style="display:flex;"><span>        fFreeResult <span style="color:#666">=</span> FreeLibrary(hinstLib); 
+</span></span><span style="display:flex;"><span>    } 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// If unable to call the DLL function, use an alternative.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span> fRunTimeLinkSuccess) 
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#b44">&#34;Message printed from executable</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>); 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="运行库runtime-library">运行库（Runtime Library） <a href="#%e8%bf%90%e8%a1%8c%e5%ba%93runtime-library" class="anchor">🔗</a></h3><h4 id="典型程序运行步骤">典型程序运行步骤 <a href="#%e5%85%b8%e5%9e%8b%e7%a8%8b%e5%ba%8f%e8%bf%90%e8%a1%8c%e6%ad%a5%e9%aa%a4" class="anchor">🔗</a></h4><ol>
+<li>操作系统创建进程，把控制权交给程序的入口（往往是运行库中的某个入口函数）</li>
+<li>入口函数对运行库和程序运行环境进行初始化（包括堆、I/O、线程、全局变量构造等等）。</li>
+<li>入口函数初始化后，调用 main 函数，正式开始执行程序主体部分。</li>
+<li>main 函数执行完毕后，返回到入口函数进行清理工作（包括全局变量析构、堆销毁、关闭I/O等），然后进行系统调用结束进程。</li>
+</ol>
+<blockquote>
+<p>一个程序的 I/O 指代程序与外界的交互，包括文件、管程、网络、命令行、信号等。更广义地讲，I/O 指代操作系统理解为 “文件” 的事物。</p>
+</blockquote>
+<h4 id="glibc-入口">glibc 入口 <a href="#glibc-%e5%85%a5%e5%8f%a3" class="anchor">🔗</a></h4><p><code>_start -&gt; __libc_start_main -&gt; exit -&gt; _exit</code></p>
+<p>其中 <code>main(argc, argv, __environ)</code> 函数在 <code>__libc_start_main</code> 里执行。</p>
+<h4 id="msvc-crt-入口">MSVC CRT 入口 <a href="#msvc-crt-%e5%85%a5%e5%8f%a3" class="anchor">🔗</a></h4><p><code>int mainCRTStartup(void)</code></p>
+<p>执行如下操作：</p>
+<ol>
+<li>初始化和 OS 版本有关的全局变量。</li>
+<li>初始化堆。</li>
+<li>初始化 I/O。</li>
+<li>获取命令行参数和环境变量。</li>
+<li>初始化 C 库的一些数据。</li>
+<li>调用 main 并记录返回值。</li>
+<li>检查错误并将 main 的返回值返回。</li>
+</ol>
+<h4 id="c-语言运行库crt">C 语言运行库（CRT） <a href="#c-%e8%af%ad%e8%a8%80%e8%bf%90%e8%a1%8c%e5%ba%93crt" class="anchor">🔗</a></h4><p>大致包含如下功能：</p>
+<ul>
+<li>启动与退出：包括入口函数及入口函数所依赖的其他函数等。</li>
+<li>标准函数：有 C 语言标准规定的C语言标准库所拥有的函数实现。</li>
+<li>I/O：I/O 功能的封装和实现。</li>
+<li>堆：堆的封装和实现。</li>
+<li>语言实现：语言中一些特殊功能的实现。</li>
+<li>调试：实现调试功能的代码。</li>
+</ul>
+<h4 id="c语言标准库ansi-c">C语言标准库（ANSI C） <a href="#c%e8%af%ad%e8%a8%80%e6%a0%87%e5%87%86%e5%ba%93ansi-c" class="anchor">🔗</a></h4><p>包含：</p>
+<ul>
+<li>标准输入输出（stdio.h）</li>
+<li>文件操作（stdio.h）</li>
+<li>字符操作（ctype.h）</li>
+<li>字符串操作（string.h）</li>
+<li>数学函数（math.h）</li>
+<li>资源管理（stdlib.h）</li>
+<li>格式转换（stdlib.h）</li>
+<li>时间/日期（time.h）</li>
+<li>断言（assert.h）</li>
+<li>各种类型上的常数（limits.h &amp; float.h）</li>
+<li>变长参数（stdarg.h）</li>
+<li>非局部跳转（setjmp.h）</li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/c/c&#43;&#43;">C/C&#43;&#43;</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

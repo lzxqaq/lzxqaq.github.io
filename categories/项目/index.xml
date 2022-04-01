@@ -1,50 +1,20 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>项目 on 罗泽勋</title>
     <link>/categories/%E9%A1%B9%E7%9B%AE/</link>
     <description>Recent content in 项目 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 May 2021 07:12:32 +0800</lastBuildDate>
-    <atom:link href="/categories/%E9%A1%B9%E7%9B%AE/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 25 May 2021 07:12:32 +0800</lastBuildDate><atom:link href="/categories/%E9%A1%B9%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
       <link>/post/2021/05/25/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84c-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%93%88%E5%A4%AB%E6%9B%BC%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6/</link>
       <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
       
       <guid>/post/2021/05/25/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84c-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%93%88%E5%A4%AB%E6%9B%BC%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="前言">前言</h3>
-<p>这是以前的一个实训周作业，核心是哈夫曼编码和解码，软件界面由 QT 实现。代码量很小，比较简单。</p>
-<p>源代码： <a href="https://gitee.com/lzxqaq/zxhan.git">https://gitee.com/lzxqaq/zxhan.git</a></p>
-<p>介绍：<a href="https://lzxqaq.com/post/zxhan/">https://lzxqaq.com/post/zxhan/</a></p>
-<p>算法参考：<a href="https://blog.csdn.net/small_hacker/article/details/52843738">Huffman压缩真正的C++实现</a></p>
-<p>运行环境：Linux 系统（Windows系统下运行尚有 bug ),开发环境为 QT Creator。</p>
-<p>运行截图：</p>
-<div  align="center">    
- <img src="https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png" width = "500" height = "200" alt="图片名称" align=center /></div>
-<!-- ![img](https://cdn.jsdelivr.net/gh/lzxqaq/zxhan@master/images/zxhan.png) -->
-<h3 id="核心实现">核心实现</h3>
-<pre tabindex="0"><code>void create_node_array();//构造包含字符及其频率的数组
-void create_pq();//构造优先级队列
-void create_huffman_tree();//构造哈夫曼树
-void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表
-bool calculate_huffman_codes();//计算哈夫曼编码
-bool do_compress();//开始压缩
-bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树
-void decode_huffman();//根据重构的哈夫曼树解码文件
-</code></pre><h3 id="后续">后续</h3>
-<p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
-
-        
-        ]]>
-      </description>
+      <description>前言 这是以前的一个实训周作业，核心是哈夫曼编码和解码，软件界面由 QT 实现。代码量很小，比较简单。 源代码： https://gitee.com/lzxqaq/zxhan.git 介绍：https://lzxqaq.</description>
     </item>
-    
-    
     
     <item>
       <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</title>
@@ -52,50 +22,8 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
       <pubDate>Sat, 08 May 2021 11:09:51 +0800</pubDate>
       
       <guid>/post/2021/05/08/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84java%E5%BC%80%E5%8F%91%E6%B3%A1%E6%B3%A1%E5%A0%82%E6%B8%B8%E6%88%8Fmvc%E6%9E%B6%E6%9E%84/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="介绍">介绍</h3>
-<p>本项目是一个很久以前的实训周项目，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功夫。本项目仍存在一些不足的地方，后续可能会进行优化，现在我将项目源代码和一些实现思路开源公布。</p>
-<p>源代码：<a href="https://gitee.com/lzxqaq/CrazyArcade">https://gitee.com/lzxqaq/CrazyArcade</a></p>
-<p>文章介绍：<a href="https://lzxqaq.com/post/java/paopaotang/">https://lzxqaq.com/post/java/paopaotang/</a></p>
-<p>程序运行： 在终端下进入执行程序所在目录，执行 <code>java -jar CrazyArcade.jar</code> 或者双击 <code>CrazyArcade.jar</code>，或者在开发环境中打开源代码，运行 <code>GameStart.java</code>的 <code>main</code> 方法。</p>
-<p>运行环境：Linux、Windows均可。开发环境：IDEA。</p>
-<p>演示视频：</p>
-<p>运行截图：</p>
-<div  align="center">    
- <img src="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade@master/images/CrazyArcade.png" width = "500" height = "200" alt="图片1" align=center />
- <br/>
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade/images/2.png" width = "500" height = "200" alt="图片2" align=center />
- </div>
-<h3 id="功能">功能</h3>
-<p>本项目实现的功能如下：</p>
-<ul>
-<li>绘制游戏启动界面、结束界面、地图、主角、道具</li>
-<li>实现泡泡爆炸</li>
-<li>实现双主角PK（积分制）</li>
-<li>实现道具掉落和相应属性加成</li>
-<li>实现游戏音效和背景音乐</li>
-</ul>
-<p>其中我们对游戏玩法做了调整，大致如下:</p>
-<p>我们把游戏设计为双人pk积分赛模式，在这个模式里面，玩家只要率先达到一定分数既可以赢得比赛。玩家可以通过炸箱子可以得到少量的分数，也可以通过炸掉对手然后戳破包围对手的水泡得到大量分数。而玩家如果被泡泡爆炸击中，会被泡泡包裹一段时间，在这段时间内不可以移动和放泡泡，需要等时间过去或者被对手戳破水泡才能获得自由。但如果玩家被自己放的泡泡炸中，会扣一定的分数。</p>
-<h3 id="思路和架构">思路和架构</h3>
-<p>整个项目采用 MVC 架构，将项目整体分为数据模型层（M）、视图层（V）、控制层（C）。M层负责元素的创建、存储、管理，V层负责所有元素的显示（24帧/秒），C层负责交互（监听用户的操作），同时负责控制游戏的进程。</p>
-<p>选择MVC架构最主要的原因是让这个游戏项目具有良好的可扩展性和更新功能，当然了，一个好的游戏也需要良好的交互功能，漂亮的UI设计。</p>
-<p>架构设计图：</p>
-<div  align="center">    
- <img src="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade@master/images/design.png" width = "500" height = "200" alt="图片名称" align=center /></div>
-<h3 id="包结构">包结构</h3>
-<p>未完待续……</p>
-<h3 id="核心实现">核心实现</h3>
-<p>未完待续……</p>
-<h3 id="后续">后续</h3>
-<p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
-
-        
-        ]]>
-      </description>
+      <description>介绍 本项目是一个很久以前的实训周项目，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功夫。本项目仍存在一些不足</description>
     </item>
-    
     
   </channel>
 </rss>

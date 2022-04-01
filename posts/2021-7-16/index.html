@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>开发指南-未完待续 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="提高质量和生产率是软件工程要解决的核心问题。
+软件开发：正确性、健壮性、可靠性、效率、易用性、可读性（可理解性）、可扩展性、可复用性、兼容性、可移植性等。
+只记录实际目前为止比较困惑的。
+头文件的结构 🔗1.为了防止头文件被重复引用，应当用 ifndef/define/endif 结构产生预处理块。
+2.用 #include&lt;filename.h&gt;格式来引用非标准库的头文件（编译器将会从标准库目录开始搜索；用 #include&lt;Îy &ldquo;filename.h&rdquo; 格式来引用非标准库的头文件（编译器将从用户的工作目录开始搜索）。（注：一般将 &lt;&gt; 格式的放在前， &ldquo;&ldquo;格式的放在后，为了统一风格）
+3.头文件只存放“声明”而不存放“定义”。（C&#43;&#43;中，类的成员函数可以在声明的同时被定义，并且自动成为内联函数。但这样做会造成风格不一致，弊大于利！
+4.不提倡使用全局变量，尽量不要在头文件中出现 extern int value 这类声明。
+头文件作用： 🔗  （1）通过头文件来调用库功能。在很多场合，源代码不便（或不准）向用户公布，只要向用户提供头文件和二进制的库即可。用户只需要按照头文件中的借口声明来调用库的功能，而不必关心接口怎么实现的。编译器会从库中提取相应的代码。
+  （2）头文件能加强类型安全检查。如果某个接口被实现或被使用时，其方式与头文件中的声明不一致，编译器就会指出错误，这一简单的规则能大大减轻程序员调试、改错的负担。
+  目录结构 🔗如果一个软件的头文件数目比较多（如超过十个），通常应将头文件和定义文件分别保存于不同的目录，以便于维护。
+例如可将头文件保存于 include 目录，将定义文件保存于 source 目录（可以是多级目录）。
+如果某些头文件是私有的，它不会被用户的程序直接饮用，则没有必要公开其“声明”，可以把这些私有的头文件和定义文件存放于同一个目录。
+空行 🔗1.类声明之后、函数定义结束之后要加空行。
+2.在一个函数体内，逻辑上密切相关的语句之间不加空行，其他地方应加空行分割。
+代码行 🔗1.一行代码只做一件事情，如只定义一个变量，或只写一条语句。
+2.if、for、while、do 等语句自占一行，执行语句不得紧跟其后。不论执行语句有多少都要加{}。这样可以防止书写失误。（注：也为了统一风格）
+3.尽可能在定义变量的同时初始化该变量（就近原则）。（注：这样可以减少被野指针折磨的痛苦，强烈建议）
+代码行内的空格 🔗1.关键字之后要留一个空格。像 if、for、while 等关键字之后应留一个空格再跟左括号 &lsquo;(&rsquo;，以突出关键字。
+2.函数名之后不要留空格，紧跟左括号&rsquo;(&rsquo;，以与关键字区别。
+3.&rsquo;(&lsquo;向后紧跟，&rsquo;)&rsquo;、‘，’、‘；’向前紧跟，紧跟处不留空格。
+4.&rsquo;,&lsquo;之后要留空格，如果&rsquo;;&lsquo;不是一行的结束符号，其后要留空格，如for(initialization; condition; update)。
+5.【建议】对于表达式比较长的 for 语句和 if 语句，为了紧凑起见可以适当地去掉一些空格。（注：如果真的长到影响阅读，可以考虑）
+对齐 🔗1.‘{{’h和‘}}’应独占一行并且位于同一列，同时与引用它们的语句左对齐。
+长行拆分 🔗1.代码行最大长度应控制在 70 至 80 个字符以内。
+2.【强烈】长表达式要在低优先级操作符处拆分成新行，操作符放在新行之首。">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">开发指南-未完待续</h1>
+
+    <div class="tip">
+        <time datetime="2021-07-16 14:24:34 &#43;0800 CST">2021年07月16日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          65字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>提高质量和生产率是软件工程要解决的核心问题。</p>
+<p>软件开发：正确性、健壮性、可靠性、效率、易用性、可读性（可理解性）、可扩展性、可复用性、兼容性、可移植性等。</p>
+<p>只记录实际目前为止比较困惑的。</p>
+<h3 id="头文件的结构">头文件的结构 <a href="#%e5%a4%b4%e6%96%87%e4%bb%b6%e7%9a%84%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h3><p>1.为了防止头文件被重复引用，应当用 ifndef/define/endif 结构产生预处理块。</p>
+<p>2.用 #include&lt;filename.h&gt;格式来引用非标准库的头文件（编译器将会从标准库目录开始搜索；用 #include&lt;Îy &ldquo;filename.h&rdquo; 格式来引用非标准库的头文件（编译器将从用户的工作目录开始搜索）。（注：一般将 &lt;&gt; 格式的放在前， &ldquo;&ldquo;格式的放在后，为了统一风格）</p>
+<p>3.头文件只存放“声明”而不存放“定义”。（C++中，类的成员函数可以在声明的同时被定义，并且自动成为内联函数。但这样做会造成风格不一致，弊大于利！</p>
+<p>4.不提倡使用全局变量，尽量不要在头文件中出现 extern int value 这类声明。</p>
+<h3 id="头文件作用">头文件作用： <a href="#%e5%a4%b4%e6%96%87%e4%bb%b6%e4%bd%9c%e7%94%a8" class="anchor">🔗</a></h3><ul>
+<li>
+<p>（1）通过头文件来调用库功能。在很多场合，源代码不便（或不准）向用户公布，只要向用户提供头文件和二进制的库即可。用户只需要按照头文件中的借口声明来调用库的功能，而不必关心接口怎么实现的。编译器会从库中提取相应的代码。</p>
+</li>
+<li>
+<p>（2）头文件能加强类型安全检查。如果某个接口被实现或被使用时，其方式与头文件中的声明不一致，编译器就会指出错误，这一简单的规则能大大减轻程序员调试、改错的负担。</p>
+</li>
+</ul>
+<h3 id="目录结构">目录结构 <a href="#%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h3><p>如果一个软件的头文件数目比较多（如超过十个），通常应将头文件和定义文件分别保存于不同的目录，以便于维护。</p>
+<p>例如可将头文件保存于 include 目录，将定义文件保存于 source 目录（可以是多级目录）。</p>
+<p>如果某些头文件是私有的，它不会被用户的程序直接饮用，则没有必要公开其“声明”，可以把这些私有的头文件和定义文件存放于同一个目录。</p>
+<h3 id="空行">空行 <a href="#%e7%a9%ba%e8%a1%8c" class="anchor">🔗</a></h3><p>1.类声明之后、函数定义结束之后要加空行。</p>
+<p>2.在一个函数体内，逻辑上密切相关的语句之间不加空行，其他地方应加空行分割。</p>
+<h3 id="代码行">代码行 <a href="#%e4%bb%a3%e7%a0%81%e8%a1%8c" class="anchor">🔗</a></h3><p>1.一行代码只做一件事情，如只定义一个变量，或只写一条语句。</p>
+<p>2.if、for、while、do 等语句自占一行，执行语句不得紧跟其后。不论执行语句有多少都要加{}。这样可以防止书写失误。（注：也为了统一风格）</p>
+<p>3.尽可能在定义变量的同时初始化该变量（就近原则）。（注：这样可以减少被野指针折磨的痛苦，强烈建议）</p>
+<h3 id="代码行内的空格">代码行内的空格 <a href="#%e4%bb%a3%e7%a0%81%e8%a1%8c%e5%86%85%e7%9a%84%e7%a9%ba%e6%a0%bc" class="anchor">🔗</a></h3><p>1.关键字之后要留一个空格。像 if、for、while 等关键字之后应留一个空格再跟左括号 &lsquo;(&rsquo;，以突出关键字。</p>
+<p>2.函数名之后不要留空格，紧跟左括号&rsquo;(&rsquo;，以与关键字区别。</p>
+<p>3.&rsquo;(&lsquo;向后紧跟，&rsquo;)&rsquo;、‘，’、‘；’向前紧跟，紧跟处不留空格。</p>
+<p>4.&rsquo;,&lsquo;之后要留空格，如果&rsquo;;&lsquo;不是一行的结束符号，其后要留空格，如for(initialization; condition; update)。</p>
+<p>5.【建议】对于表达式比较长的 for 语句和 if 语句，为了紧凑起见可以适当地去掉一些空格。（注：如果真的长到影响阅读，可以考虑）</p>
+<h3 id="对齐">对齐 <a href="#%e5%af%b9%e9%bd%90" class="anchor">🔗</a></h3><p>1.‘{{’h和‘}}’应独占一行并且位于同一列，同时与引用它们的语句左对齐。</p>
+<h3 id="长行拆分">长行拆分 <a href="#%e9%95%bf%e8%a1%8c%e6%8b%86%e5%88%86" class="anchor">🔗</a></h3><p>1.代码行最大长度应控制在 70 至 80 个字符以内。</p>
+<p>2.【强烈】长表达式要在低优先级操作符处拆分成新行，操作符放在新行之首。</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83">编程规范</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

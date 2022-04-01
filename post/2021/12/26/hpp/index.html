@@ -1,91 +1,226 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>由 hpp 头文件引发 C&#43;&#43; 编译的思考 | 罗泽勋</title>
+<meta name="keywords" content="">
+<meta name="description" content="前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h &#43; cpp 方式的区别。这个">
+<meta name="author" content="糸色先生">
+<link rel="canonical" href="/post/2021/12/26/hpp/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/post/2021/12/26/hpp/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="由 hpp 头文件引发 C&#43;&#43; 编译的思考" />
+<meta property="og:description" content="前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h &#43; cpp 方式的区别。这个" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2021/12/26/hpp/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-26T12:55:54&#43;08:00" />
+<meta property="article:modified_time" content="2021-12-26T12:55:54&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="由 hpp 头文件引发 C&#43;&#43; 编译的思考"/>
+<meta name="twitter:description" content="前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h &#43; cpp 方式的区别。这个"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "",
+      "item": "/post/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "由 hpp 头文件引发 C++ 编译的思考",
+      "item": "/post/2021/12/26/hpp/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "由 hpp 头文件引发 C++ 编译的思考",
+  "name": "由 hpp 头文件引发 C\u002b\u002b 编译的思考",
+  "description": "前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h + cpp 方式的区别。这个",
+  "keywords": [
     
-    <title>由 hpp 头文件引发 C&#43;&#43; 编译的思考 - 罗泽勋</title>
-    <meta property="og:title" content="由 hpp 头文件引发 C&#43;&#43; 编译的思考 - 罗泽勋">
+  ],
+  "articleBody": "前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h + cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C++ 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h + cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希望他去学习 C++ 基础，但没想到从这里就埋下了一个坑，导致这篇文章的产生…..\n很快，遇到第一个问题，redefined identifier。我解释说，这是重复 include hpp 文件引入实现，会引发这个重定义的问题。使用 #ifndef 可以防止头文件被重复包含和引入。\n过了一阵，又遇到新的问题。我过去一看，循环依赖。第一个坑出现了。A 依赖 B，B 又 依赖 A，如果用 hpp 实现的话，那A、B 都互相包含对方，无尽循环……所以这种情况只能老老实实用回 h + cpp 的方式了，A 依赖 B，就在 A 的头文件中前向声明 B，然后在源文件中 include B，B 也如此操作。\n就这样过了很久很久，突然有一天，我发现有很多库都需要重新编译，奇怪的是这些库不应该有改动的。一看是依赖的一个底层动态库发生变化，再看，是这个库里的一个 hpp 文件发生变化。大坑，我最开始的时候提醒过的。 那个库本身就有别的坑，实际上它更应该是静态库，但因为客观原因，它暂时还是一个动态库。然后就这样，一个 hpp 文件被嵌入这个底层动态库对外开放的接口里面。它一改动，所有依赖这个库的库都需要重新编译，还真是“牵一发而动全身”啊。\n补充 一、#include 指令\n#include \"test.hpp\" C++ 会使用一个预处理器，在进行主编译之前对源文件进行处理，它会在编译程序时自动运行。上面所示 #include “test.hpp”，该编译指令导致预处理器将 test.hpp 文件的内容添加到程序中。实际上，test.hpp 文件的内容将取代程序中的代码行 #include “test.hpp”。原始文件没有被修改，而是将源码和 test.hpp 文件组合成一个复合文件，编译的下一个阶段将使用该文件。\n二、头文件名\n   头文件类型 约定 示例 说明     C++ 旧式风格 以 .h 结尾 iostream.h C++ 程序可以使用   C 旧式风格 以 .h 结尾 math.h C、C++ 程序可以使用   C++ 新式风格 没有扩展名 iostream C++ 程序可以使用，可以使用 namespace std   转换后的 C 加上前缀 c，没有扩展名 cmath C++ 程序可以使用，可以使用不是 C 的特性，如 namespace std    由于 C 使用不同的文件扩展名来表示不同文件类型，因此用一些特殊的扩展名（如 .hpp 或 .hxx）表示 C++ 头文件是有道理的，ANSI/ISO 委员会也这样认为。问题在于究竟使用哪种扩展名，因此最终他们一致同意不使用任何扩展名。:)\n",
+  "wordCount" : "1057",
+  "inLanguage": "en",
+  "datePublished": "2021-12-26T12:55:54+08:00",
+  "dateModified": "2021-12-26T12:55:54+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "糸色先生"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2021/12/26/hpp/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "罗泽勋",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="罗泽勋 (Alt + H)">罗泽勋</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/cn/" title="中文"
+                            aria-label="中文">Cn</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/" title="Program">
+                    <span>Program</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    <meta name="twitter:card" content="summary">
+    <h1 class="post-title">
+      由 hpp 头文件引发 C&#43;&#43; 编译的思考
+    </h1>
+    <div class="post-meta"><span title='2021-12-26 12:55:54 +0800 CST'>December 26, 2021</span>&nbsp;·&nbsp;糸色先生
 
-    
-      
-    
-
-    
-      
-      <meta property="description" content="前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h &#43; cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C&#43;&#43; 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h &#43; cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希 &amp;hellip;">
-      <meta property="og:description" content="前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h &#43; cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C&#43;&#43; 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h &#43; cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希 &amp;hellip;">
-      
-    
-
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
-      
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>由 hpp 头文件引发 C&#43;&#43; 编译的思考</h1>
-
-
-<h3>糸色先生 / 
-2021-12-26</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<p>前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h + cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C++ 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h + cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希望他去学习 C++ 基础，但没想到从这里就埋下了一个坑，导致这篇文章的产生&hellip;..</p>
+</div>
+  </header> 
+  <div class="post-content"><p>前一阵子，我注意到一位项目组新成员喜欢使用 hpp 头文件的方式来写，他解释说很多开源库都是以这样的方式实现，还问我 hpp 头文件和 h + cpp 方式的区别。这个问题很麻烦，解释起来可能需要理一遍 C++ 基础，对此，我劝告他：从本质来说 hpp 是将声明和实现放在一个文件，而 h + cpp 是将声明和实现分开在两个文件，采用 hpp 这种方式也是可以的，但是必须要清楚它的局限。我本来是希望他去学习 C++ 基础，但没想到从这里就埋下了一个坑，导致这篇文章的产生&hellip;..</p>
 <p>很快，遇到第一个问题，redefined identifier。我解释说，这是重复 include hpp 文件引入实现，会引发这个重定义的问题。使用 #ifndef 可以防止头文件被重复包含和引入。</p>
 <p>过了一阵，又遇到新的问题。我过去一看，循环依赖。第一个坑出现了。A 依赖 B，B 又 依赖 A，如果用 hpp 实现的话，那A、B 都互相包含对方，无尽循环……所以这种情况只能老老实实用回 h + cpp 的方式了，A 依赖 B，就在 A 的头文件中前向声明 B，然后在源文件中 include B，B 也如此操作。</p>
 <p>就这样过了很久很久，突然有一天，我发现有很多库都需要重新编译，奇怪的是这些库不应该有改动的。一看是依赖的一个底层动态库发生变化，再看，是这个库里的一个 hpp 文件发生变化。大坑，我最开始的时候提醒过的。 那个库本身就有别的坑，实际上它更应该是静态库，但因为客观原因，它暂时还是一个动态库。然后就这样，一个 hpp 文件被嵌入这个底层动态库对外开放的接口里面。它一改动，所有依赖这个库的库都需要重新编译，还真是“牵一发而动全身”啊。</p>
-<h3 id="补充">补充</h3>
+<h3 id="补充">补充<a hidden class="anchor" aria-hidden="true" href="#补充">#</a></h3>
 <p>一、#include 指令</p>
 <pre tabindex="0"><code>#include &#34;test.hpp&#34;
 </code></pre><p>C++ 会使用一个预处理器，在进行主编译之前对源文件进行处理，它会在编译程序时自动运行。上面所示 #include &ldquo;test.hpp&rdquo;，该编译指令导致预处理器将 test.hpp 文件的内容添加到程序中。实际上，test.hpp 文件的内容将取代程序中的代码行 #include &ldquo;test.hpp&rdquo;。原始文件没有被修改，而是将源码和 test.hpp 文件组合成一个复合文件，编译的下一个阶段将使用该文件。</p>
@@ -128,67 +263,82 @@
 </table>
 <p>由于 C 使用不同的文件扩展名来表示不同文件类型，因此用一些特殊的扩展名（如 .hpp 或 .hxx）表示 C++ 头文件是有道理的，ANSI/ISO 委员会也这样认为。问题在于究竟使用哪种扩展名，因此最终他们一致同意不使用任何扩展名。:)</p>
 
-</main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2021/12/26/design/">设计模式概述</a></span>
-  <span class="nav-next"><a href="/post/2022/02/28/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87/">Marp：使用 Markdown 创建漂亮的幻灯片</a> &rarr;</span>
-</nav>
+  </div>
 
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
-    
-    url = '\/post\/2021\/12\/26\/design\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/post\/2022\/02\/28\/marp%E4%BD%BF%E7%94%A8-markdown-%E5%88%9B%E5%BB%BA%E6%BC%82%E4%BA%AE%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
-
-
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
+  <footer class="post-footer">
   </footer>
-  </body>
-</html>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="/">罗泽勋</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

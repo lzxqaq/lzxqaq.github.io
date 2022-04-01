@@ -1,253 +1,47 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Qt 核心 on 罗泽勋</title>
     <link>/series/qt-%E6%A0%B8%E5%BF%83/</link>
     <description>Recent content in Qt 核心 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 13 Dec 2021 08:08:17 +0800</lastBuildDate>
-    <atom:link href="/series/qt-%E6%A0%B8%E5%BF%83/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 13 Dec 2021 08:08:17 +0800</lastBuildDate><atom:link href="/series/qt-%E6%A0%B8%E5%BF%83/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【转载】Qt6 对象模型</title>
       <link>/collection/object/</link>
       <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/object/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="对象模型">对象模型</h3>
-<p>标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率和高度灵活性的领域。 Qt 通过将 C++ 的速度与 Qt 对象模型的灵活性相结合来提供这一点。</p>
-<p>Qt 将这些特性添加到 C++ 中：</p>
-<blockquote>
-<p>一种非常强大的无缝对象通信机制，称为 信号和槽
-可查询和可设计的 对象属性
-强大的 事件和事件过滤器
-上下文 用于国际化的 字符串翻译
-复杂的间隔驱动 计时器 ，可以在事件驱动的 GUI 中优雅地集成许多任务
-分层和可查询 对象树 以自然方式组织对象所有权的
-受保护的指针 ( QPointer ) 在引用的对象被销毁时自动设置为 0，这与普通的 C++ 指针不同，后者在对象被销毁时变成悬空指针
-动态转换 跨库边界 。
-支持 自定义类型 创建。</p>
-</blockquote>
-<p>许多 Qt 功能是使用标准 C++ 技术实现的，基于 继承 QObject 的 。 其他的，比如对象通信机制和动态属性系统，需要 的 元对象系统 Qt自己的 提供 元对象编译器（moc） 。</p>
-<p>元对象系统是一个 C++ 扩展，使该语言更适合真正的组件 GUI 编程。</p>
-<h3 id="重要类">重要类</h3>
-<p>这些类构成了 Qt 对象模型的基础。</p>
-<h3 id="qt-对象身份与价值">Qt 对象：身份与价值</h3>
-<p>上面为 Qt 对象模型列出的一些附加功能要求我们将 Qt 对象视为身份，而不是值。 值被复制或分配； 身份被克隆。 克隆意味着创建一个新身份，而不是旧身份的精确副本。 例如，双胞胎有不同的身份。 它们可能看起来相同，但名称不同，位置不同，并且可能拥有完全不同的社交网络。</p>
-<p>那么克隆身份是比复制或分配值更复杂的操作。 我们可以在 Qt 对象模型中看到这意味着什么。</p>
-<p>一个 Qt 对象&hellip;</p>
-<blockquote>
-<p>可能有一个唯一的 QObject::objectName ()。 如果我们复制一个 Qt 对象，我们应该给副本起什么名字？
-在 有一个位置 对象层次结构中 。 如果我们复制一个 Qt 对象，该副本应该位于何处？
-可以连接到其他 Qt 对象以向它们发出信号或接收它们发出的信号。 如果我们复制一个 Qt 对象，我们应该如何将这些连接转移到副本？
-可以 新属性 在运行时向其添加未在 C++ 类中声明的 。 如果我们复制一个 Qt 对象，该副本是否应该包括添加到原始对象的属性？</p>
-</blockquote>
-<p>由于这些原因，Qt 对象应该被视为身份，而不是值。 身份是克隆的，而不是复制或分配的，克隆身份是比复制或分配值更复杂的操作。 因此， QObject的 和所有子类 的QObject （直接或间接）有自己的 拷贝构造函数和赋值操作符 禁用。</p>
-
-        
-        ]]>
-      </description>
+      <description>对象模型 标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt 6 核心内部结构</title>
       <link>/collection/qt-core/</link>
       <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qt-core/</guid>
-      <description>
-        <![CDATA[
-        <p>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示了如何使用它们来实现 Qt 尚未提供的专门功能。</p>
-<h3 id="对象属性和事件">对象、属性和事件</h3>
-<p>该 QObject的 类构成Qt的对象模型的基础，是父类的许多Qt类的。 对象模型引入了许多机制，例如元对象系统，它允许运行时内省、操作和调用对象中的属性和方法。 它还作为 Qt 事件系统的基础，这是一种在 之间进行通信的低级方式 QObject 基于 的对象 。 Qt 的信号和槽机制提供了另一种高级通信形式。</p>
-<p>另外， QObject 通过 提供了一个简单的计时机制 QObject::startTimer () 。 或者， QTimer 类为计时器提供高级接口。</p>
-<blockquote>
-<p>对象模型<br>
-元对象系统<br>
-物业系统<br>
-事件系统<br>
-信号和插槽<br>
-—— 基于字符串和基于函子的连接之间的差异<br>
-计时器</p>
-</blockquote>
-<h3 id="容器类">容器类</h3>
-<p>容器 是一种数据结构，其实例是其他对象的集合。 容器的一些示例是：动态数组、队列、链表和关联数组。 Qt 提供了一组通用的、基于模板的容器类，用于在内存中构造数据。</p>
-<p>有关 请参阅 的完整列表 容器类 更多详细信息， 。</p>
-<h3 id="国际化">国际化</h3>
-<p>Qt 使用 Unicode 来编码可显示的文本字符串。 Unicode 为世界上所有常用的书写系统提供支持，是跨平台开发的理想选择。 还可以使用 Qt 强大的国际化系统编写应用程序，以通过一个代码库支持任意数量的不同语言。</p>
-<blockquote>
-<p>Qt 中的 Unicode
-Qt 国际化</p>
-</blockquote>
-<h3 id="进程间通信">进程间通信</h3>
-<p>Qt 提供了几个类来支持进程之间的通信。 您还可以使用 启动和管理外部进程 QProcess 类 。</p>
-<blockquote>
-<p>Qt中的进程间通信</p>
-</blockquote>
-<h3 id="线程">线程</h3>
-<p>Qt 提供了以安全且独立于平台的方式管理线程和并行代码的功能。</p>
-<blockquote>
-<p>线程基础
-Qt 中的线程支持</p>
-</blockquote>
-<h3 id="平台支持">平台支持</h3>
-<p>Qt 允许您编写独立于平台的代码，其中相同的代码库可以在不同平台上编译和部署，而无需任何更改。 如果您需要使用特定于平台的功能并与系统库集成，Qt 也为此提供了解决方案。</p>
-<p>Qt 使用 Qt Platform Abstraction (QPA) 与目标平台上的窗口系统集成。 QPA 是窗口系统的抽象，它使得将 Qt 移植到新平台变得简单快捷。 其中一种系统是 Wayland 协议。 Qt 可以与 Wayland 一起用作嵌入式硬件上的轻量级窗口系统，以支持多进程图形用户界面。</p>
-<p>Qt 平台抽象使用 Qt 的插件系统。 该插件系统提供 API 以在特定领域扩展 Qt（例如添加对新图像格式、数据库驱动程序等的支持）以及编写您自己的支持第三方插件的可扩展 Qt 应用程序。</p>
-<blockquote>
-<p>Qt平台抽象
-实现原子操作 - 用于新架构
-如何创建 Qt 插件
-Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序的函数</p>
-</blockquote>
-
-        
-        ]]>
-      </description>
+      <description>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 Qvariant 与自定义 Qt 类型</title>
       <link>/collection/qvariant/</link>
       <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qvariant/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="概述">概述</h3>
-<p>在本文档中，我们采用自定义类型并描述如何将其集成到 Qt 的对象模型中，以便可以像标准 Qt 类型一样存储它。 然后我们展示如何注册自定义类型以允许它在信号和插槽连接中使用。</p>
-<h3 id="创建自定义类型">创建自定义类型</h3>
-<p>在开始之前，我们需要确保我们正在创建的自定义类型满足 QMetaType 强加的所有要求。换言之，它必须提供：</p>
-<blockquote>
-<p>公共默认构造函数 <br>
-公共复制构造函数<br>
-公共析构函数</p>
-</blockquote>
-<p>下列 Message类定义包括以下成员：</p>
-<pre tabindex="0"><code>class Message
-{
-public:
-    Message() = default;
-    ~Message() = default;
-    Message(const Message &amp;) = default;
-    Message &amp;operator=(const Message &amp;) = default;
-
-    Message(const QString &amp;body, const QStringList &amp;headers);
-
-    QStringView body() const;
-    QStringList headers() const;
-
-private:
-    QString m_body;
-    QStringList m_headers;
-};
-</code></pre><p>该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。</p>
-<h3 id="使用-qmetatype-声明类型">使用 QMetaType 声明类型</h3>
-<p>这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。</p>
-<p>Qt 中负责自定义类型的类是 QMetaType 。 为了让这个类知道类型，我们在定义它的头文件中的类上 添加 Q_DECLARE_METATYPE() 宏：</p>
-<pre tabindex="0"><code>Q_DECLARE_METATYPE(Message);
-</code></pre><p>这使得现在有可能 Message要存储在 QVariant 对象中并稍后检索的值。 有关 请参阅 自定义类型示例 演示此内容的代码， 。</p>
-<p>所述 Q_DECLARE_METATYPE （）宏还使得可以对这些值用作到信号，但是参数 只在直接信号槽连接 。 为了使自定义类型通常可用于信号和插槽机制，我们需要执行一些额外的工作。</p>
-<h3 id="创建和销毁自定义对象">创建和销毁自定义对象</h3>
-<p>尽管上一节中的声明使该类型可用于直接信号槽连接，但它不能用于排队的信号槽连接，例如在不同线程中的对象之间建立的连接。 这是因为元对象系统不知道如何在运行时处理自定义类型对象的创建和销毁。</p>
-<p>要在运行时创建对象，请调用 qRegisterMetaType () 模板函数将其注册到元对象系统。 这也使得该类型可用于排队的信号槽通信，只要您在使用该类型的第一个连接之前调用它。</p>
-<pre tabindex="0"><code>int main(int argc, char *argv[])
-{
-    QApplication app(argc, argv);
-    ...
-    qRegisterMetaType&lt;Block&gt;();
-    ...
-    return app.exec();
-}
-</code></pre><p>这种类型后来用于信号槽连接中 window.cpp文件：</p>
-<pre tabindex="0"><code>Window::Window(QWidget *parent)
-    : QWidget(parent), thread(new RenderThread(this))
-{
-    ...
-    connect(thread, &amp;RenderThread::sendBlock,
-            this, &amp;Window::addBlock);
-    ...
-    setWindowTitle(tr(&#34;Queued Custom Type&#34;));
-}
-</code></pre><p>如果一个类型在没有注册的情况下在排队连接中使用，控制台会打印警告； 例如：</p>
-<pre tabindex="0"><code>QObject::connect: Cannot queue arguments of type &#39;Block&#39;
-(Make sure &#39;Block&#39; is registered using qRegisterMetaType().)
-</code></pre><h3 id="使类型可打印">使类型可打印</h3>
-<p>为调试目的使自定义类型可打印通常非常有用，如下面的代码所示：</p>
-<pre tabindex="0"><code>    Message message(body, headers);
-    qDebug() &lt;&lt; &#34;Original:&#34; &lt;&lt; message;
-</code></pre><p>这是通过为该类型创建一个流操作符来实现的，该操作符通常在该类型的头文件中定义：</p>
-<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
-</code></pre><p>实现：</p>
-<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
-{
-    QList&lt;QStringView&gt; pieces = message.body().split(u&#34;\r\n&#34;, Qt::SkipEmptyParts);
-    if (pieces.isEmpty())
-        dbg.nospace() &lt;&lt; &#34;Message()&#34;;
-    else if (pieces.size() == 1)
-        dbg.nospace() &lt;&lt; &#34;Message(&#34; &lt;&lt; pieces.first() &lt;&lt; &#34;)&#34;;
-    else
-        dbg.nospace() &lt;&lt; &#34;Message(&#34; &lt;&lt; pieces.first() &lt;&lt; &#34; ...)&#34;;
-    return dbg.maybeSpace();
-}
-</code></pre><p>当然，发送到调试流的输出可以根据您的喜好变得简单或复杂。 请注意，此函数返回的值是 QDebug 对象本身，尽管这通常是通过调用 获得的，该 QDebug 的 maySpace () 成员函数 函数 填充 用空格字符 流以使其更具可读性。</p>
-
-        
-        ]]>
-      </description>
+      <description>概述 在本文档中，我们采用自定义类型并描述如何将其集成到 Qt 的对象模型中，以便可以像标准 Qt 类型一样存储它。 然后我们展示如何注册自定义类型以允许它</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 隐式共享</title>
       <link>/collection/implicit-sharing/</link>
       <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/implicit-sharing/</guid>
-      <description>
-        <![CDATA[
-        <p>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。</p>
-<h3 id="概述">概述</h3>
-<p>共享类由指向共享数据块的指针组成，该共享数据块包含引用计数和数据。</p>
-<p>创建共享对象时，它将引用计数设置为 1。只要新对象引用共享数据，引用计数就会增加，而当对象取消引用共享数据时，引用计数会减少。当引用计数变为零时，共享数据将被删除。</p>
-<p>在处理共享对象时，有两种方法可以复制对象。我们通常谈论深拷贝和浅拷贝。深拷贝意味着复制一个对象。浅拷贝是引用拷贝，即只是指向共享数据块的指针。就内存和 CPU 而言，进行深度复制的成本可能很高。制作浅拷贝非常快，因为它只涉及设置一个指针和增加引用计数。</p>
-<p>隐式共享对象的对象分配（使用 operator=()）是使用浅拷贝实现的。</p>
-<p>共享的好处是程序不需要不必要地复制数据，从而减少内存使用和数据复制。对象可以很容易地被赋值，作为函数参数发送，并从函数中返回。</p>
-<p>隐式共享大多发生在幕后；程序员很少需要担心它。但是，Qt 的容器迭代器与 STL 的容器迭代器具有不同的行为。阅读隐式共享迭代器问题。</p>
-<p>在多线程应用程序中，会发生隐式共享，如线程和隐式共享类中所述。</p>
-<p>在实现您自己的隐式共享类时，请使用QSharedData和QSharedDataPointer类。</p>
-<h3 id="详细的隐式共享">详细的隐式共享</h3>
-<p>如果对象即将更改并且引用计数大于 1，则隐式共享会自动将对象从共享块中分离。（这通常称为 copy-on-write 或者 value semantics。）</p>
-<p>隐式共享类可以控制其内部数据。在任何修改其数据的成员函数中，它会在修改数据之前自动分离。但是，请注意容器迭代器的特殊情况；请参阅隐式共享迭代器问题。</p>
-<blockquote>
-<p>警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。</p>
-</blockquote>
-<h3 id="示例">示例</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>QPixmap p1, p2;
-</span></span><span style="display:flex;"><span>p1.load(<span style="color:#e6db74">&#34;image.bmp&#34;</span>);
-</span></span><span style="display:flex;"><span>p2 <span style="color:#f92672">=</span> p1;                        <span style="color:#75715e">// p1 and p2 share data
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>QPainter paint;
-</span></span><span style="display:flex;"><span>paint.begin(<span style="color:#f92672">&amp;</span>p2);               <span style="color:#75715e">// cuts p2 loose from p1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>paint.drawText(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">50</span>, <span style="color:#e6db74">&#34;Hi&#34;</span>);
-</span></span><span style="display:flex;"><span>paint.end();
-</span></span></code></pre></div><p>在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</p>
-<h3 id="所有隐式共享的类">所有隐式共享的类</h3>
-<p>参见 <a href="https://doc.qt.io/qt-6/implicit-sharing.html">Qt 文档</a>。</p>
-
-        
-        ]]>
-      </description>
+      <description>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且</description>
     </item>
-    
     
   </channel>
 </rss>

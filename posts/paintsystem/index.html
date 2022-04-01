@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>Qt6 绘制基础 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="绘制系统 🔗Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。
+QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使用 了QPainter 和 的QPaintDevice ，除非他们创建自己的设备的种类从应用程序员隐藏。
+这种方法的主要好处是所有绘制都遵循相同的绘制管道，从而可以轻松添加对新功能的支持并为不受支持的功能提供默认实现。
+一、绘图示例 🔗通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。
+示例1 直接绘制： 🔗MainWindow::MainWindow(QWidget *parent)  : QMainWindow(parent) {  QLabel *label = new QLabel(this);  label-&gt;resize(100, 100);   QPixmap pixmap(100, 100);  pixmap.fill(Qt::gray);   QPainter painter(&amp;pixmap);  painter.drawRect(10, 10, 80, 80);  painter.drawText(20, 30, &#34;Hello World&#34;);   label-&gt;setPixmap(pixmap);   QVBoxLayout *layout = new QVBoxLayout();  layout-&gt;addWidget(label);  this-&gt;setLayout(layout);  this-&gt;resize(200, 200); } 运行结果：">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Qt6 绘制基础</h1>
+
+    <div class="tip">
+        <time datetime="2021-12-13 21:28:59 &#43;0800 CST">2021年12月13日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          196字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <h3 id="绘制系统">绘制系统 <a href="#%e7%bb%98%e5%88%b6%e7%b3%bb%e7%bb%9f" class="anchor">🔗</a></h3><p>Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。</p>
+<p>QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使用 了QPainter 和 的QPaintDevice ，除非他们创建自己的设备的种类从应用程序员隐藏。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/paintsystem.png" alt="paintsystem"  />
+</p></p>
+<p>这种方法的主要好处是所有绘制都遵循相同的绘制管道，从而可以轻松添加对新功能的支持并为不受支持的功能提供默认实现。</p>
+<h3 id="一绘图示例">一、绘图示例 <a href="#%e4%b8%80%e7%bb%98%e5%9b%be%e7%a4%ba%e4%be%8b" class="anchor">🔗</a></h3><p>通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。</p>
+<h4 id="示例1-直接绘制">示例1 直接绘制： <a href="#%e7%a4%ba%e4%be%8b1-%e7%9b%b4%e6%8e%a5%e7%bb%98%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>MainWindow::MainWindow(QWidget *parent)
+</span></span><span style="display:flex;"><span>    : QMainWindow(parent)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    QLabel *label = new QLabel(this);
+</span></span><span style="display:flex;"><span>    label-&gt;resize(100, 100);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    QPixmap pixmap(100, 100);
+</span></span><span style="display:flex;"><span>    pixmap.fill(Qt::gray);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    QPainter painter(&amp;pixmap);
+</span></span><span style="display:flex;"><span>    painter.drawRect(10, 10, 80, 80);
+</span></span><span style="display:flex;"><span>    painter.drawText(20, 30, &#34;Hello World&#34;);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    label-&gt;setPixmap(pixmap);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    QVBoxLayout *layout = new QVBoxLayout();
+</span></span><span style="display:flex;"><span>    layout-&gt;addWidget(label);
+</span></span><span style="display:flex;"><span>    this-&gt;setLayout(layout);
+</span></span><span style="display:flex;"><span>    this-&gt;resize(200, 200);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>运行结果：</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo1.png" alt="demo1"  />
+</p></p>
+<h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制： <a href="#%e7%a4%ba%e4%be%8b2-painteventqpaintevent--%e5%87%bd%e6%95%b0%e4%b8%ad%e7%bb%98%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>void MainWindow::paintEvent(QPaintEvent *)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    QPainter painter(this);
+</span></span><span style="display:flex;"><span>    painter.setPen(Qt::gray);
+</span></span><span style="display:flex;"><span>    painter.setBrush(Qt::green);
+</span></span><span style="display:flex;"><span>    painter.drawRect(10, 10, 50, 50);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>运行结果：</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo2.png" alt="demo2"  />
+</p></p>
+<h3 id="二坐标系">二、坐标系 <a href="#%e4%ba%8c%e5%9d%90%e6%a0%87%e7%b3%bb" class="anchor">🔗</a></h3><p>坐标系由 QPainter 类控制。绘图设备的默认坐标系的原点位于左上角。 该 X 值增加向右和 Y 值向下增加。 默认单位在基于像素的设备上是一个像素，在打印机上是一个点（1/72 英寸）。注意：原点在 Widget 的左上角而不是正中心，并且每个 Widget 都有自己独立的坐标系。</p>
+<p>QPainter 的逻辑坐标到物理 QPaintDevice 坐标的映射由 QPainter 的转换矩阵、视口和“窗口”处理。 默认情况下，逻辑坐标系和物理坐标系是一致的。 QPainter 还支持坐标变换（例如旋转和缩放）。</p>
+<h4 id="渲染-逻辑表示">渲染 逻辑表示 <a href="#%e6%b8%b2%e6%9f%93-%e9%80%bb%e8%be%91%e8%a1%a8%e7%a4%ba" class="anchor">🔗</a></h4><p>图形基元的大小（宽度和高度）始终与其数学模型相对应，忽略绘制它的笔的宽度：</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/coordsys.png" alt="Paint-Base-Draw-Methods"  />
+</p></p>
+<h4 id="window-viewport-转换">Window-Viewport 转换 <a href="#window-viewport-%e8%bd%ac%e6%8d%a2" class="anchor">🔗</a></h4><p>使用 Window-Viewport 转换，您可以使逻辑坐标系适合您的偏好。 该机制还可用于使绘图代码独立于绘图设备。 例如，您可以通过调用 ，使逻辑坐标从 (-50, -50) 扩展到 (50, 50)，以 (0, 0) 为中心 QPainter::setWindow () 函数 ：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>QPainter painter(this);
+</span></span><span style="display:flex;"><span>painter.setWindow(QRect(-50, -50, 100, 100));
+</span></span></code></pre></div><p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
+<h3 id="三常用函数">三、常用函数 <a href="#%e4%b8%89%e5%b8%b8%e7%94%a8%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><p>下图来自《C++ GUI Programming with Qt 4》，列出了 QPainter 常用的画图方法。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/Paint-Base-Draw-Methods.png" alt="Paint-Base-Draw-Methods"  />
+</p></p>
+<h4 id="线---drawline">线 - drawLine() <a href="#%e7%ba%bf---drawline" class="anchor">🔗</a></h4><h4 id="多线段---drawlines">多线段 - drawLines() <a href="#%e5%a4%9a%e7%ba%bf%e6%ae%b5---drawlines" class="anchor">🔗</a></h4><h4 id="折线---drawpolyline">折线 - drawPolyline() <a href="#%e6%8a%98%e7%ba%bf---drawpolyline" class="anchor">🔗</a></h4><h4 id="多边形---drawpolygon">多边形 - drawPolygon() <a href="#%e5%a4%9a%e8%be%b9%e5%bd%a2---drawpolygon" class="anchor">🔗</a></h4><h4 id="矩形---drawrect">矩形 - drawRect() <a href="#%e7%9f%a9%e5%bd%a2---drawrect" class="anchor">🔗</a></h4><h4 id="圆角矩形---drawroundrect--drawroundedrect">圆角矩形 - drawRoundRect() &amp; drawRoundedRect() <a href="#%e5%9c%86%e8%a7%92%e7%9f%a9%e5%bd%a2---drawroundrect--drawroundedrect" class="anchor">🔗</a></h4><h4 id="圆椭圆---drawellipse">圆、椭圆 - drawEllipse() <a href="#%e5%9c%86%e6%a4%ad%e5%9c%86---drawellipse" class="anchor">🔗</a></h4><h4 id="弧弦饼图---drawarcdrawchorddrawpie">弧、弦、饼图 - drawArc()、drawChord()、drawPie() <a href="#%e5%bc%a7%e5%bc%a6%e9%a5%bc%e5%9b%be---drawarcdrawchorddrawpie" class="anchor">🔗</a></h4><h4 id="绘制-qpixmap---drawpixmap">绘制 QPixmap - drawPixmap() <a href="#%e7%bb%98%e5%88%b6-qpixmap---drawpixmap" class="anchor">🔗</a></h4><h4 id="绘制-qimage---drawimage">绘制 QImage - drawImage() <a href="#%e7%bb%98%e5%88%b6-qimage---drawimage" class="anchor">🔗</a></h4>
+    </div>
+
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

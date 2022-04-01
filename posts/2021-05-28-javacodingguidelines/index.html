@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>【规约】 Java 编程篇 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="前言 🔗“码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。
+（一）命名风格 🔗1.【强制】类名使用 UpperCamelCase风格，但以下情形例外：DO / BO / DTO / VO / AO / PO / UID等。 正例：MarcoPolo / UserDO / XmlService / TcpUdpDeal /TaPromotion
+2.【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。
+正例：localValue / getHttpMessage() / inputUserId
+3.【强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。
+正例：MAX_STOCK_COUNT
+4.【强制】抽象类命名使用 Abstract 或 Base 开头；异常类命名使用 Exception 结尾；测试类命名以它要测试的类的名称开始，以 Test 结尾。
+5.【强制】类型与中括号紧挨起来表示数组。
+正例：int[] arrayDemo;
+6.【强制】POJO 类中布尔类型的变量，都不要加 is 前缀。
+7.【强制】包名统一使用小写，点分隔符之间有且只有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。
+正例：应用工具类包名为 com.alibaba.ai.util、类名为 MessageUtils。
+8.【强制】杜绝完全不规范的缩写，任何自定义编程元素在命名时，使用尽量完整的单词组合来表达其意。
+9.【推荐】如果模块、接口、类、方法使用了设计模式，在命名时需体系那具体模式。
+10.【推荐】接口类的方法和属性不要加任何修饰符号（public 也不要加），保持代码整洁，并加上有效的 Javadoc 注释。
+11.【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的一定时接口，内部的实现类用 Impl 的后缀与接口区别。">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">【规约】 Java 编程篇</h1>
+
+    <div class="tip">
+        <time datetime="2021-05-28 10:36:40 &#43;0800 CST">2021年05月28日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          167字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <h3 id="前言">前言 <a href="#%e5%89%8d%e8%a8%80" class="anchor">🔗</a></h3><p>“码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。</p>
+<h3 id="一命名风格">（一）命名风格 <a href="#%e4%b8%80%e5%91%bd%e5%90%8d%e9%a3%8e%e6%a0%bc" class="anchor">🔗</a></h3><p>1.【强制】类名使用 UpperCamelCase风格，但以下情形例外：DO  /  BO  /  DTO  /  VO  /  AO  /  PO  /  UID等。
+正例：MarcoPolo  /  UserDO  /  XmlService  /  TcpUdpDeal  /TaPromotion</p>
+<p>2.【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。<br>
+正例：localValue  /  getHttpMessage()  /  inputUserId</p>
+<p>3.【强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。<br>
+正例：MAX_STOCK_COUNT</p>
+<p>4.【强制】抽象类命名使用 Abstract 或 Base 开头；异常类命名使用 Exception 结尾；测试类命名以它要测试的类的名称开始，以 Test 结尾。</p>
+<p>5.【强制】类型与中括号紧挨起来表示数组。<br>
+正例：int[] arrayDemo;</p>
+<p>6.【强制】POJO 类中布尔类型的变量，都不要加 is 前缀。</p>
+<p>7.【强制】包名统一使用小写，点分隔符之间有且只有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。<br>
+正例：应用工具类包名为 com.alibaba.ai.util、类名为 MessageUtils。</p>
+<p>8.【强制】杜绝完全不规范的缩写，任何自定义编程元素在命名时，使用尽量完整的单词组合来表达其意。</p>
+<p>9.【推荐】如果模块、接口、类、方法使用了设计模式，在命名时需体系那具体模式。</p>
+<p>10.【推荐】接口类的方法和属性不要加任何修饰符号（public 也不要加），保持代码整洁，并加上有效的 Javadoc 注释。</p>
+<p>11.【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的一定时接口，内部的实现类用 Impl 的后缀与接口区别。<br>
+正例：CacheServiceImpl 实现 CacheService。</p>
+<p>12.【参考】各层命名规约：
+A）Service/DAO 层方法命名规约<br>
+1）获取单个对象的方法用 get 做前缀。<br>
+2）获取多个对象的方法用 list 做前缀，复数形式结尾如： listObjects。<br>
+3）获取统计值的方法用 count 做前缀。<br>
+4）插入的方法用 save/insert 做前缀<br>
+5）删除的方法用 remove/delete 做前缀<br>
+6）修改的方法用 update 做前缀<br>
+B）领域模型命名规约<br>
+1）数据对象：xxxDO，xxx 即为数据表名。<br>
+2）数据传输对象：xxxDTO，xxx 为业务领域相关的名称。<br>
+3）展示对象：xxxVO，xxx 一般为网页名称。<br>
+4) POJO 是 DO/DTO/BO/VO 的统称，禁止命名为 xxxPOJO。</p>
+<p>13.【强制】不允许任何魔法值（即未经预先i当以的常量）出现在代码中。<br>
+反例：String key = &ldquo;ID#taobao_&rdquo; + tradeId;</p>
+<p>14.【强制】代码格式，具体见下面正例。
+正例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    public static void main(String[] args) {
+</span></span><span style="display:flex;"><span>        // 缩进4个空格，注释内空1格
+</span></span><span style="display:flex;"><span>        String say = &#34;hello&#34;;
+</span></span><span style="display:flex;"><span>        // 运算符左右必须有一个空格
+</span></span><span style="display:flex;"><span>        int flag = 0;
+</span></span><span style="display:flex;"><span>        // 关键词 if 与括号之间必须有一个空格
+</span></span><span style="display:flex;"><span>        if (flag == 0) {
+</span></span><span style="display:flex;"><span>            System.out.println(say);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        // 左大括号前加空格且不换行，左大括号后换行。
+</span></span><span style="display:flex;"><span>        if (flag == 0) {
+</span></span><span style="display:flex;"><span>            System.out.println(&#34;world&#34;);
+</span></span><span style="display:flex;"><span>        //  右大括号前换行，右大括号后有 else，不用换行、
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        else {
+</span></span><span style="display:flex;"><span>            System.out.printLn(&#34;ok&#34;);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div>
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83">编程规范</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

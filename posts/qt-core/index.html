@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>Qt 6 核心内部结构 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示了如何使用它们来实现 Qt 尚未提供的专门功能。
+对象、属性和事件 🔗该 QObject的 类构成Qt的对象模型的基础，是父类的许多Qt类的。 对象模型引入了许多机制，例如元对象系统，它允许运行时内省、操作和调用对象中的属性和方法。 它还作为 Qt 事件系统的基础，这是一种在 之间进行通信的低级方式 QObject 基于 的对象 。 Qt 的信号和槽机制提供了另一种高级通信形式。
+另外， QObject 通过 提供了一个简单的计时机制 QObject::startTimer () 。 或者， QTimer 类为计时器提供高级接口。
+ 对象模型
+元对象系统
+物业系统
+事件系统
+信号和插槽
+—— 基于字符串和基于函子的连接之间的差异
+计时器
+ 容器类 🔗容器 是一种数据结构，其实例是其他对象的集合。 容器的一些示例是：动态数组、队列、链表和关联数组。 Qt 提供了一组通用的、基于模板的容器类，用于在内存中构造数据。
+有关 请参阅 的完整列表 容器类 更多详细信息， 。
+国际化 🔗Qt 使用 Unicode 来编码可显示的文本字符串。 Unicode 为世界上所有常用的书写系统提供支持，是跨平台开发的理想选择。 还可以使用 Qt 强大的国际化系统编写应用程序，以通过一个代码库支持任意数量的不同语言。
+ Qt 中的 Unicode Qt 国际化">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Qt 6 核心内部结构</h1>
+
+    <div class="tip">
+        <time datetime="2021-12-13 08:00:25 &#43;0800 CST">2021年12月13日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          134字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示了如何使用它们来实现 Qt 尚未提供的专门功能。</p>
+<h3 id="对象属性和事件">对象、属性和事件 <a href="#%e5%af%b9%e8%b1%a1%e5%b1%9e%e6%80%a7%e5%92%8c%e4%ba%8b%e4%bb%b6" class="anchor">🔗</a></h3><p>该 QObject的 类构成Qt的对象模型的基础，是父类的许多Qt类的。 对象模型引入了许多机制，例如元对象系统，它允许运行时内省、操作和调用对象中的属性和方法。 它还作为 Qt 事件系统的基础，这是一种在 之间进行通信的低级方式 QObject 基于 的对象 。 Qt 的信号和槽机制提供了另一种高级通信形式。</p>
+<p>另外， QObject 通过 提供了一个简单的计时机制 QObject::startTimer () 。 或者， QTimer 类为计时器提供高级接口。</p>
+<blockquote>
+<p>对象模型<br>
+元对象系统<br>
+物业系统<br>
+事件系统<br>
+信号和插槽<br>
+—— 基于字符串和基于函子的连接之间的差异<br>
+计时器</p>
+</blockquote>
+<h3 id="容器类">容器类 <a href="#%e5%ae%b9%e5%99%a8%e7%b1%bb" class="anchor">🔗</a></h3><p>容器 是一种数据结构，其实例是其他对象的集合。 容器的一些示例是：动态数组、队列、链表和关联数组。 Qt 提供了一组通用的、基于模板的容器类，用于在内存中构造数据。</p>
+<p>有关 请参阅 的完整列表 容器类 更多详细信息， 。</p>
+<h3 id="国际化">国际化 <a href="#%e5%9b%bd%e9%99%85%e5%8c%96" class="anchor">🔗</a></h3><p>Qt 使用 Unicode 来编码可显示的文本字符串。 Unicode 为世界上所有常用的书写系统提供支持，是跨平台开发的理想选择。 还可以使用 Qt 强大的国际化系统编写应用程序，以通过一个代码库支持任意数量的不同语言。</p>
+<blockquote>
+<p>Qt 中的 Unicode
+Qt 国际化</p>
+</blockquote>
+<h3 id="进程间通信">进程间通信 <a href="#%e8%bf%9b%e7%a8%8b%e9%97%b4%e9%80%9a%e4%bf%a1" class="anchor">🔗</a></h3><p>Qt 提供了几个类来支持进程之间的通信。 您还可以使用 启动和管理外部进程 QProcess 类 。</p>
+<blockquote>
+<p>Qt中的进程间通信</p>
+</blockquote>
+<h3 id="线程">线程 <a href="#%e7%ba%bf%e7%a8%8b" class="anchor">🔗</a></h3><p>Qt 提供了以安全且独立于平台的方式管理线程和并行代码的功能。</p>
+<blockquote>
+<p>线程基础
+Qt 中的线程支持</p>
+</blockquote>
+<h3 id="平台支持">平台支持 <a href="#%e5%b9%b3%e5%8f%b0%e6%94%af%e6%8c%81" class="anchor">🔗</a></h3><p>Qt 允许您编写独立于平台的代码，其中相同的代码库可以在不同平台上编译和部署，而无需任何更改。 如果您需要使用特定于平台的功能并与系统库集成，Qt 也为此提供了解决方案。</p>
+<p>Qt 使用 Qt Platform Abstraction (QPA) 与目标平台上的窗口系统集成。 QPA 是窗口系统的抽象，它使得将 Qt 移植到新平台变得简单快捷。 其中一种系统是 Wayland 协议。 Qt 可以与 Wayland 一起用作嵌入式硬件上的轻量级窗口系统，以支持多进程图形用户界面。</p>
+<p>Qt 平台抽象使用 Qt 的插件系统。 该插件系统提供 API 以在特定领域扩展 Qt（例如添加对新图像格式、数据库驱动程序等的支持）以及编写您自己的支持第三方插件的可扩展 Qt 应用程序。</p>
+<blockquote>
+<p>Qt平台抽象
+实现原子操作 - 用于新架构
+如何创建 Qt 插件
+Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序的函数</p>
+</blockquote>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/qt">Qt</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

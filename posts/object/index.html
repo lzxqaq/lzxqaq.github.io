@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>Qt6 对象模型 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="对象模型 🔗标准的 C&#43;&#43; 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率和高度灵活性的领域。 Qt 通过将 C&#43;&#43; 的速度与 Qt 对象模型的灵活性相结合来提供这一点。
+Qt 将这些特性添加到 C&#43;&#43; 中：
+ 一种非常强大的无缝对象通信机制，称为 信号和槽 可查询和可设计的 对象属性 强大的 事件和事件过滤器 上下文 用于国际化的 字符串翻译 复杂的间隔驱动 计时器 ，可以在事件驱动的 GUI 中优雅地集成许多任务 分层和可查询 对象树 以自然方式组织对象所有权的 受保护的指针 ( QPointer ) 在引用的对象被销毁时自动设置为 0，这与普通的 C&#43;&#43; 指针不同，后者在对象被销毁时变成悬空指针 动态转换 跨库边界 。 支持 自定义类型 创建。
+ 许多 Qt 功能是使用标准 C&#43;&#43; 技术实现的，基于 继承 QObject 的 。 其他的，比如对象通信机制和动态属性系统，需要 的 元对象系统 Qt自己的 提供 元对象编译器（moc） 。
+元对象系统是一个 C&#43;&#43; 扩展，使该语言更适合真正的组件 GUI 编程。">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Qt6 对象模型</h1>
+
+    <div class="tip">
+        <time datetime="2021-12-13 08:08:17 &#43;0800 CST">2021年12月13日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          129字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <h3 id="对象模型">对象模型 <a href="#%e5%af%b9%e8%b1%a1%e6%a8%a1%e5%9e%8b" class="anchor">🔗</a></h3><p>标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率和高度灵活性的领域。 Qt 通过将 C++ 的速度与 Qt 对象模型的灵活性相结合来提供这一点。</p>
+<p>Qt 将这些特性添加到 C++ 中：</p>
+<blockquote>
+<p>一种非常强大的无缝对象通信机制，称为 信号和槽
+可查询和可设计的 对象属性
+强大的 事件和事件过滤器
+上下文 用于国际化的 字符串翻译
+复杂的间隔驱动 计时器 ，可以在事件驱动的 GUI 中优雅地集成许多任务
+分层和可查询 对象树 以自然方式组织对象所有权的
+受保护的指针 ( QPointer ) 在引用的对象被销毁时自动设置为 0，这与普通的 C++ 指针不同，后者在对象被销毁时变成悬空指针
+动态转换 跨库边界 。
+支持 自定义类型 创建。</p>
+</blockquote>
+<p>许多 Qt 功能是使用标准 C++ 技术实现的，基于 继承 QObject 的 。 其他的，比如对象通信机制和动态属性系统，需要 的 元对象系统 Qt自己的 提供 元对象编译器（moc） 。</p>
+<p>元对象系统是一个 C++ 扩展，使该语言更适合真正的组件 GUI 编程。</p>
+<h3 id="重要类">重要类 <a href="#%e9%87%8d%e8%a6%81%e7%b1%bb" class="anchor">🔗</a></h3><p>这些类构成了 Qt 对象模型的基础。</p>
+<h3 id="qt-对象身份与价值">Qt 对象：身份与价值 <a href="#qt-%e5%af%b9%e8%b1%a1%e8%ba%ab%e4%bb%bd%e4%b8%8e%e4%bb%b7%e5%80%bc" class="anchor">🔗</a></h3><p>上面为 Qt 对象模型列出的一些附加功能要求我们将 Qt 对象视为身份，而不是值。 值被复制或分配； 身份被克隆。 克隆意味着创建一个新身份，而不是旧身份的精确副本。 例如，双胞胎有不同的身份。 它们可能看起来相同，但名称不同，位置不同，并且可能拥有完全不同的社交网络。</p>
+<p>那么克隆身份是比复制或分配值更复杂的操作。 我们可以在 Qt 对象模型中看到这意味着什么。</p>
+<p>一个 Qt 对象&hellip;</p>
+<blockquote>
+<p>可能有一个唯一的 QObject::objectName ()。 如果我们复制一个 Qt 对象，我们应该给副本起什么名字？
+在 有一个位置 对象层次结构中 。 如果我们复制一个 Qt 对象，该副本应该位于何处？
+可以连接到其他 Qt 对象以向它们发出信号或接收它们发出的信号。 如果我们复制一个 Qt 对象，我们应该如何将这些连接转移到副本？
+可以 新属性 在运行时向其添加未在 C++ 类中声明的 。 如果我们复制一个 Qt 对象，该副本是否应该包括添加到原始对象的属性？</p>
+</blockquote>
+<p>由于这些原因，Qt 对象应该被视为身份，而不是值。 身份是克隆的，而不是复制或分配的，克隆身份是比复制或分配值更复杂的操作。 因此， QObject的 和所有子类 的QObject （直接或间接）有自己的 拷贝构造函数和赋值操作符 禁用。</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/qt">Qt</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

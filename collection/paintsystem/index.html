@@ -1,99 +1,231 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【转载】Qt6 绘制基础 | 罗泽勋</title>
+<meta name="keywords" content="">
+<meta name="description" content="绘制系统 Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进">
+<meta name="author" content="糸色先生">
+<link rel="canonical" href="/collection/paintsystem/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/collection/paintsystem/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="【转载】Qt6 绘制基础" />
+<meta property="og:description" content="绘制系统 Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/collection/paintsystem/" /><meta property="article:section" content="collection" />
+<meta property="article:published_time" content="2021-12-13T21:28:59&#43;08:00" />
+<meta property="article:modified_time" content="2021-12-13T21:28:59&#43;08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【转载】Qt6 绘制基础"/>
+<meta name="twitter:description" content="绘制系统 Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "收录文章",
+      "item": "/collection/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "【转载】Qt6 绘制基础",
+      "item": "/collection/paintsystem/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【转载】Qt6 绘制基础",
+  "name": "【转载】Qt6 绘制基础",
+  "description": "绘制系统 Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进",
+  "keywords": [
     
-    <title>【转载】Qt6 绘制基础 - 罗泽勋</title>
-    <meta property="og:title" content="【转载】Qt6 绘制基础 - 罗泽勋">
+  ],
+  "articleBody": "绘制系统 Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。\nQPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使用 了QPainter 和 的QPaintDevice ，除非他们创建自己的设备的种类从应用程序员隐藏。\n这种方法的主要好处是所有绘制都遵循相同的绘制管道，从而可以轻松添加对新功能的支持并为不受支持的功能提供默认实现。\n一、绘图示例 通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。\n示例1 直接绘制： MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) { QLabel *label = new QLabel(this); label-resize(100, 100); QPixmap pixmap(100, 100); pixmap.fill(Qt::gray); QPainter painter(\u0026pixmap); painter.drawRect(10, 10, 80, 80); painter.drawText(20, 30, \"Hello World\"); label-setPixmap(pixmap); QVBoxLayout *layout = new QVBoxLayout(); layout-addWidget(label); this-setLayout(layout); this-resize(200, 200); } 运行结果：\n示例2 paintEvent(QPaintEvent *) 函数中绘制： void MainWindow::paintEvent(QPaintEvent *) { QPainter painter(this); painter.setPen(Qt::gray); painter.setBrush(Qt::green); painter.drawRect(10, 10, 50, 50); } 运行结果：\n二、坐标系 坐标系由 QPainter 类控制。绘图设备的默认坐标系的原点位于左上角。 该 X 值增加向右和 Y 值向下增加。 默认单位在基于像素的设备上是一个像素，在打印机上是一个点（1/72 英寸）。注意：原点在 Widget 的左上角而不是正中心，并且每个 Widget 都有自己独立的坐标系。\nQPainter 的逻辑坐标到物理 QPaintDevice 坐标的映射由 QPainter 的转换矩阵、视口和“窗口”处理。 默认情况下，逻辑坐标系和物理坐标系是一致的。 QPainter 还支持坐标变换（例如旋转和缩放）。\n渲染 逻辑表示 图形基元的大小（宽度和高度）始终与其数学模型相对应，忽略绘制它的笔的宽度：\nWindow-Viewport 转换 使用 Window-Viewport 转换，您可以使逻辑坐标系适合您的偏好。 该机制还可用于使绘图代码独立于绘图设备。 例如，您可以通过调用 ，使逻辑坐标从 (-50, -50) 扩展到 (50, 50)，以 (0, 0) 为中心 QPainter::setWindow () 函数 ：\nQPainter painter(this); painter.setWindow(QRect(-50, -50, 100, 100)); 现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。\n三、常用函数 下图来自《C++ GUI Programming with Qt 4》，列出了 QPainter 常用的画图方法。\n线 - drawLine() 多线段 - drawLines() 折线 - drawPolyline() 多边形 - drawPolygon() 矩形 - drawRect() 圆角矩形 - drawRoundRect() \u0026 drawRoundedRect() 圆、椭圆 - drawEllipse() 弧、弦、饼图 - drawArc()、drawChord()、drawPie() 绘制 QPixmap - drawPixmap() 绘制 QImage - drawImage() ",
+  "wordCount" : "798",
+  "inLanguage": "en",
+  "datePublished": "2021-12-13T21:28:59+08:00",
+  "dateModified": "2021-12-13T21:28:59+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "糸色先生"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/collection/paintsystem/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "罗泽勋",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="罗泽勋 (Alt + H)">罗泽勋</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/cn/" title="中文"
+                            aria-label="中文">Cn</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/" title="Program">
+                    <span>Program</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    <meta name="twitter:card" content="summary">
+    <h1 class="post-title">
+      【转载】Qt6 绘制基础
+    </h1>
+    <div class="post-meta"><span title='2021-12-13 21:28:59 +0800 CST'>December 13, 2021</span>&nbsp;·&nbsp;糸色先生
 
-    
-      
-    
-
-    
-      
-      <meta property="description" content="Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。
-QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使 &amp;hellip;">
-      <meta property="og:description" content="Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。
-QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使 &amp;hellip;">
-      
-    
-
-    
-    
-    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/paintsystem.png">
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
-      
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>【转载】Qt6 绘制基础</h1>
-
-
-<h3>糸色先生 / 
-2021-12-13</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<h3 id="绘制系统">绘制系统</h3>
+</div>
+  </header> 
+  <div class="post-content"><h3 id="绘制系统">绘制系统<a hidden class="anchor" aria-hidden="true" href="#绘制系统">#</a></h3>
 <p>Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。</p>
 <p>QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使用 了QPainter 和 的QPaintDevice ，除非他们创建自己的设备的种类从应用程序员隐藏。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/paintsystem.png" alt="paintsystem"></p>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/paintsystem.png" alt="paintsystem"  />
+</p>
 <p>这种方法的主要好处是所有绘制都遵循相同的绘制管道，从而可以轻松添加对新功能的支持并为不受支持的功能提供默认实现。</p>
-<h3 id="一绘图示例">一、绘图示例</h3>
+<h3 id="一绘图示例">一、绘图示例<a hidden class="anchor" aria-hidden="true" href="#一绘图示例">#</a></h3>
 <p>通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。</p>
-<h4 id="示例1-直接绘制">示例1 直接绘制：</h4>
+<h4 id="示例1-直接绘制">示例1 直接绘制：<a hidden class="anchor" aria-hidden="true" href="#示例1-直接绘制">#</a></h4>
 <pre tabindex="0"><code>MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -115,8 +247,9 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
     this-&gt;resize(200, 200);
 }
 </code></pre><p>运行结果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo1.png" alt="demo1"></p>
-<h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制：</h4>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo1.png" alt="demo1"  />
+</p>
+<h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制：<a hidden class="anchor" aria-hidden="true" href="#示例2-painteventqpaintevent--函数中绘制">#</a></h4>
 <pre tabindex="0"><code>void MainWindow::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
@@ -125,93 +258,111 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
     painter.drawRect(10, 10, 50, 50);
 }
 </code></pre><p>运行结果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo2.png" alt="demo2"></p>
-<h3 id="二坐标系">二、坐标系</h3>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo2.png" alt="demo2"  />
+</p>
+<h3 id="二坐标系">二、坐标系<a hidden class="anchor" aria-hidden="true" href="#二坐标系">#</a></h3>
 <p>坐标系由 QPainter 类控制。绘图设备的默认坐标系的原点位于左上角。 该 X 值增加向右和 Y 值向下增加。 默认单位在基于像素的设备上是一个像素，在打印机上是一个点（1/72 英寸）。注意：原点在 Widget 的左上角而不是正中心，并且每个 Widget 都有自己独立的坐标系。</p>
 <p>QPainter 的逻辑坐标到物理 QPaintDevice 坐标的映射由 QPainter 的转换矩阵、视口和“窗口”处理。 默认情况下，逻辑坐标系和物理坐标系是一致的。 QPainter 还支持坐标变换（例如旋转和缩放）。</p>
-<h4 id="渲染-逻辑表示">渲染 逻辑表示</h4>
+<h4 id="渲染-逻辑表示">渲染 逻辑表示<a hidden class="anchor" aria-hidden="true" href="#渲染-逻辑表示">#</a></h4>
 <p>图形基元的大小（宽度和高度）始终与其数学模型相对应，忽略绘制它的笔的宽度：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/coordsys.png" alt="Paint-Base-Draw-Methods"></p>
-<h4 id="window-viewport-转换">Window-Viewport 转换</h4>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/coordsys.png" alt="Paint-Base-Draw-Methods"  />
+</p>
+<h4 id="window-viewport-转换">Window-Viewport 转换<a hidden class="anchor" aria-hidden="true" href="#window-viewport-转换">#</a></h4>
 <p>使用 Window-Viewport 转换，您可以使逻辑坐标系适合您的偏好。 该机制还可用于使绘图代码独立于绘图设备。 例如，您可以通过调用 ，使逻辑坐标从 (-50, -50) 扩展到 (50, 50)，以 (0, 0) 为中心 QPainter::setWindow () 函数 ：</p>
 <pre tabindex="0"><code>QPainter painter(this);
 painter.setWindow(QRect(-50, -50, 100, 100));
 </code></pre><p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
-<h3 id="三常用函数">三、常用函数</h3>
+<h3 id="三常用函数">三、常用函数<a hidden class="anchor" aria-hidden="true" href="#三常用函数">#</a></h3>
 <p>下图来自《C++ GUI Programming with Qt 4》，列出了 QPainter 常用的画图方法。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/Paint-Base-Draw-Methods.png" alt="Paint-Base-Draw-Methods"></p>
-<h4 id="线---drawline">线 - drawLine()</h4>
-<h4 id="多线段---drawlines">多线段 - drawLines()</h4>
-<h4 id="折线---drawpolyline">折线 - drawPolyline()</h4>
-<h4 id="多边形---drawpolygon">多边形 - drawPolygon()</h4>
-<h4 id="矩形---drawrect">矩形 - drawRect()</h4>
-<h4 id="圆角矩形---drawroundrect--drawroundedrect">圆角矩形 - drawRoundRect() &amp; drawRoundedRect()</h4>
-<h4 id="圆椭圆---drawellipse">圆、椭圆 - drawEllipse()</h4>
-<h4 id="弧弦饼图---drawarcdrawchorddrawpie">弧、弦、饼图 - drawArc()、drawChord()、drawPie()</h4>
-<h4 id="绘制-qpixmap---drawpixmap">绘制 QPixmap - drawPixmap()</h4>
-<h4 id="绘制-qimage---drawimage">绘制 QImage - drawImage()</h4>
-
-</main>
-
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/collection/object/">【转载】Qt6 对象模型</a></span>
-  <span class="nav-next"><a href="/collection/2021-12-22-database/">【转载】数据库系统原理</a> &rarr;</span>
-</nav>
-
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
-    
-    url = '\/collection\/object\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/collection\/2021-12-22-database\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/Paint-Base-Draw-Methods.png" alt="Paint-Base-Draw-Methods"  />
+</p>
+<h4 id="线---drawline">线 - drawLine()<a hidden class="anchor" aria-hidden="true" href="#线---drawline">#</a></h4>
+<h4 id="多线段---drawlines">多线段 - drawLines()<a hidden class="anchor" aria-hidden="true" href="#多线段---drawlines">#</a></h4>
+<h4 id="折线---drawpolyline">折线 - drawPolyline()<a hidden class="anchor" aria-hidden="true" href="#折线---drawpolyline">#</a></h4>
+<h4 id="多边形---drawpolygon">多边形 - drawPolygon()<a hidden class="anchor" aria-hidden="true" href="#多边形---drawpolygon">#</a></h4>
+<h4 id="矩形---drawrect">矩形 - drawRect()<a hidden class="anchor" aria-hidden="true" href="#矩形---drawrect">#</a></h4>
+<h4 id="圆角矩形---drawroundrect--drawroundedrect">圆角矩形 - drawRoundRect() &amp; drawRoundedRect()<a hidden class="anchor" aria-hidden="true" href="#圆角矩形---drawroundrect--drawroundedrect">#</a></h4>
+<h4 id="圆椭圆---drawellipse">圆、椭圆 - drawEllipse()<a hidden class="anchor" aria-hidden="true" href="#圆椭圆---drawellipse">#</a></h4>
+<h4 id="弧弦饼图---drawarcdrawchorddrawpie">弧、弦、饼图 - drawArc()、drawChord()、drawPie()<a hidden class="anchor" aria-hidden="true" href="#弧弦饼图---drawarcdrawchorddrawpie">#</a></h4>
+<h4 id="绘制-qpixmap---drawpixmap">绘制 QPixmap - drawPixmap()<a hidden class="anchor" aria-hidden="true" href="#绘制-qpixmap---drawpixmap">#</a></h4>
+<h4 id="绘制-qimage---drawimage">绘制 QImage - drawImage()<a hidden class="anchor" aria-hidden="true" href="#绘制-qimage---drawimage">#</a></h4>
 
 
+  </div>
 
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
+  <footer class="post-footer">
   </footer>
-  </body>
-</html>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="/">罗泽勋</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

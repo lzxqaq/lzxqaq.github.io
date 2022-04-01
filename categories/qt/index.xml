@@ -1,624 +1,83 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Qt on 罗泽勋</title>
     <link>/categories/qt/</link>
     <description>Recent content in Qt on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 13 Dec 2021 08:08:17 +0800</lastBuildDate>
-    <atom:link href="/categories/qt/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 13 Dec 2021 08:08:17 +0800</lastBuildDate><atom:link href="/categories/qt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【转载】Qt6 对象模型</title>
       <link>/collection/object/</link>
       <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/object/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="对象模型">对象模型</h3>
-<p>标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率和高度灵活性的领域。 Qt 通过将 C++ 的速度与 Qt 对象模型的灵活性相结合来提供这一点。</p>
-<p>Qt 将这些特性添加到 C++ 中：</p>
-<blockquote>
-<p>一种非常强大的无缝对象通信机制，称为 信号和槽
-可查询和可设计的 对象属性
-强大的 事件和事件过滤器
-上下文 用于国际化的 字符串翻译
-复杂的间隔驱动 计时器 ，可以在事件驱动的 GUI 中优雅地集成许多任务
-分层和可查询 对象树 以自然方式组织对象所有权的
-受保护的指针 ( QPointer ) 在引用的对象被销毁时自动设置为 0，这与普通的 C++ 指针不同，后者在对象被销毁时变成悬空指针
-动态转换 跨库边界 。
-支持 自定义类型 创建。</p>
-</blockquote>
-<p>许多 Qt 功能是使用标准 C++ 技术实现的，基于 继承 QObject 的 。 其他的，比如对象通信机制和动态属性系统，需要 的 元对象系统 Qt自己的 提供 元对象编译器（moc） 。</p>
-<p>元对象系统是一个 C++ 扩展，使该语言更适合真正的组件 GUI 编程。</p>
-<h3 id="重要类">重要类</h3>
-<p>这些类构成了 Qt 对象模型的基础。</p>
-<h3 id="qt-对象身份与价值">Qt 对象：身份与价值</h3>
-<p>上面为 Qt 对象模型列出的一些附加功能要求我们将 Qt 对象视为身份，而不是值。 值被复制或分配； 身份被克隆。 克隆意味着创建一个新身份，而不是旧身份的精确副本。 例如，双胞胎有不同的身份。 它们可能看起来相同，但名称不同，位置不同，并且可能拥有完全不同的社交网络。</p>
-<p>那么克隆身份是比复制或分配值更复杂的操作。 我们可以在 Qt 对象模型中看到这意味着什么。</p>
-<p>一个 Qt 对象&hellip;</p>
-<blockquote>
-<p>可能有一个唯一的 QObject::objectName ()。 如果我们复制一个 Qt 对象，我们应该给副本起什么名字？
-在 有一个位置 对象层次结构中 。 如果我们复制一个 Qt 对象，该副本应该位于何处？
-可以连接到其他 Qt 对象以向它们发出信号或接收它们发出的信号。 如果我们复制一个 Qt 对象，我们应该如何将这些连接转移到副本？
-可以 新属性 在运行时向其添加未在 C++ 类中声明的 。 如果我们复制一个 Qt 对象，该副本是否应该包括添加到原始对象的属性？</p>
-</blockquote>
-<p>由于这些原因，Qt 对象应该被视为身份，而不是值。 身份是克隆的，而不是复制或分配的，克隆身份是比复制或分配值更复杂的操作。 因此， QObject的 和所有子类 的QObject （直接或间接）有自己的 拷贝构造函数和赋值操作符 禁用。</p>
-
-        
-        ]]>
-      </description>
+      <description>对象模型 标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt 6 核心内部结构</title>
       <link>/collection/qt-core/</link>
       <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qt-core/</guid>
-      <description>
-        <![CDATA[
-        <p>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示了如何使用它们来实现 Qt 尚未提供的专门功能。</p>
-<h3 id="对象属性和事件">对象、属性和事件</h3>
-<p>该 QObject的 类构成Qt的对象模型的基础，是父类的许多Qt类的。 对象模型引入了许多机制，例如元对象系统，它允许运行时内省、操作和调用对象中的属性和方法。 它还作为 Qt 事件系统的基础，这是一种在 之间进行通信的低级方式 QObject 基于 的对象 。 Qt 的信号和槽机制提供了另一种高级通信形式。</p>
-<p>另外， QObject 通过 提供了一个简单的计时机制 QObject::startTimer () 。 或者， QTimer 类为计时器提供高级接口。</p>
-<blockquote>
-<p>对象模型<br>
-元对象系统<br>
-物业系统<br>
-事件系统<br>
-信号和插槽<br>
-—— 基于字符串和基于函子的连接之间的差异<br>
-计时器</p>
-</blockquote>
-<h3 id="容器类">容器类</h3>
-<p>容器 是一种数据结构，其实例是其他对象的集合。 容器的一些示例是：动态数组、队列、链表和关联数组。 Qt 提供了一组通用的、基于模板的容器类，用于在内存中构造数据。</p>
-<p>有关 请参阅 的完整列表 容器类 更多详细信息， 。</p>
-<h3 id="国际化">国际化</h3>
-<p>Qt 使用 Unicode 来编码可显示的文本字符串。 Unicode 为世界上所有常用的书写系统提供支持，是跨平台开发的理想选择。 还可以使用 Qt 强大的国际化系统编写应用程序，以通过一个代码库支持任意数量的不同语言。</p>
-<blockquote>
-<p>Qt 中的 Unicode
-Qt 国际化</p>
-</blockquote>
-<h3 id="进程间通信">进程间通信</h3>
-<p>Qt 提供了几个类来支持进程之间的通信。 您还可以使用 启动和管理外部进程 QProcess 类 。</p>
-<blockquote>
-<p>Qt中的进程间通信</p>
-</blockquote>
-<h3 id="线程">线程</h3>
-<p>Qt 提供了以安全且独立于平台的方式管理线程和并行代码的功能。</p>
-<blockquote>
-<p>线程基础
-Qt 中的线程支持</p>
-</blockquote>
-<h3 id="平台支持">平台支持</h3>
-<p>Qt 允许您编写独立于平台的代码，其中相同的代码库可以在不同平台上编译和部署，而无需任何更改。 如果您需要使用特定于平台的功能并与系统库集成，Qt 也为此提供了解决方案。</p>
-<p>Qt 使用 Qt Platform Abstraction (QPA) 与目标平台上的窗口系统集成。 QPA 是窗口系统的抽象，它使得将 Qt 移植到新平台变得简单快捷。 其中一种系统是 Wayland 协议。 Qt 可以与 Wayland 一起用作嵌入式硬件上的轻量级窗口系统，以支持多进程图形用户界面。</p>
-<p>Qt 平台抽象使用 Qt 的插件系统。 该插件系统提供 API 以在特定领域扩展 Qt（例如添加对新图像格式、数据库驱动程序等的支持）以及编写您自己的支持第三方插件的可扩展 Qt 应用程序。</p>
-<blockquote>
-<p>Qt平台抽象
-实现原子操作 - 用于新架构
-如何创建 Qt 插件
-Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序的函数</p>
-</blockquote>
-
-        
-        ]]>
-      </description>
+      <description>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 Qvariant 与自定义 Qt 类型</title>
       <link>/collection/qvariant/</link>
       <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qvariant/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="概述">概述</h3>
-<p>在本文档中，我们采用自定义类型并描述如何将其集成到 Qt 的对象模型中，以便可以像标准 Qt 类型一样存储它。 然后我们展示如何注册自定义类型以允许它在信号和插槽连接中使用。</p>
-<h3 id="创建自定义类型">创建自定义类型</h3>
-<p>在开始之前，我们需要确保我们正在创建的自定义类型满足 QMetaType 强加的所有要求。换言之，它必须提供：</p>
-<blockquote>
-<p>公共默认构造函数 <br>
-公共复制构造函数<br>
-公共析构函数</p>
-</blockquote>
-<p>下列 Message类定义包括以下成员：</p>
-<pre tabindex="0"><code>class Message
-{
-public:
-    Message() = default;
-    ~Message() = default;
-    Message(const Message &amp;) = default;
-    Message &amp;operator=(const Message &amp;) = default;
-
-    Message(const QString &amp;body, const QStringList &amp;headers);
-
-    QStringView body() const;
-    QStringList headers() const;
-
-private:
-    QString m_body;
-    QStringList m_headers;
-};
-</code></pre><p>该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。</p>
-<h3 id="使用-qmetatype-声明类型">使用 QMetaType 声明类型</h3>
-<p>这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。</p>
-<p>Qt 中负责自定义类型的类是 QMetaType 。 为了让这个类知道类型，我们在定义它的头文件中的类上 添加 Q_DECLARE_METATYPE() 宏：</p>
-<pre tabindex="0"><code>Q_DECLARE_METATYPE(Message);
-</code></pre><p>这使得现在有可能 Message要存储在 QVariant 对象中并稍后检索的值。 有关 请参阅 自定义类型示例 演示此内容的代码， 。</p>
-<p>所述 Q_DECLARE_METATYPE （）宏还使得可以对这些值用作到信号，但是参数 只在直接信号槽连接 。 为了使自定义类型通常可用于信号和插槽机制，我们需要执行一些额外的工作。</p>
-<h3 id="创建和销毁自定义对象">创建和销毁自定义对象</h3>
-<p>尽管上一节中的声明使该类型可用于直接信号槽连接，但它不能用于排队的信号槽连接，例如在不同线程中的对象之间建立的连接。 这是因为元对象系统不知道如何在运行时处理自定义类型对象的创建和销毁。</p>
-<p>要在运行时创建对象，请调用 qRegisterMetaType () 模板函数将其注册到元对象系统。 这也使得该类型可用于排队的信号槽通信，只要您在使用该类型的第一个连接之前调用它。</p>
-<pre tabindex="0"><code>int main(int argc, char *argv[])
-{
-    QApplication app(argc, argv);
-    ...
-    qRegisterMetaType&lt;Block&gt;();
-    ...
-    return app.exec();
-}
-</code></pre><p>这种类型后来用于信号槽连接中 window.cpp文件：</p>
-<pre tabindex="0"><code>Window::Window(QWidget *parent)
-    : QWidget(parent), thread(new RenderThread(this))
-{
-    ...
-    connect(thread, &amp;RenderThread::sendBlock,
-            this, &amp;Window::addBlock);
-    ...
-    setWindowTitle(tr(&#34;Queued Custom Type&#34;));
-}
-</code></pre><p>如果一个类型在没有注册的情况下在排队连接中使用，控制台会打印警告； 例如：</p>
-<pre tabindex="0"><code>QObject::connect: Cannot queue arguments of type &#39;Block&#39;
-(Make sure &#39;Block&#39; is registered using qRegisterMetaType().)
-</code></pre><h3 id="使类型可打印">使类型可打印</h3>
-<p>为调试目的使自定义类型可打印通常非常有用，如下面的代码所示：</p>
-<pre tabindex="0"><code>    Message message(body, headers);
-    qDebug() &lt;&lt; &#34;Original:&#34; &lt;&lt; message;
-</code></pre><p>这是通过为该类型创建一个流操作符来实现的，该操作符通常在该类型的头文件中定义：</p>
-<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
-</code></pre><p>实现：</p>
-<pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
-{
-    QList&lt;QStringView&gt; pieces = message.body().split(u&#34;\r\n&#34;, Qt::SkipEmptyParts);
-    if (pieces.isEmpty())
-        dbg.nospace() &lt;&lt; &#34;Message()&#34;;
-    else if (pieces.size() == 1)
-        dbg.nospace() &lt;&lt; &#34;Message(&#34; &lt;&lt; pieces.first() &lt;&lt; &#34;)&#34;;
-    else
-        dbg.nospace() &lt;&lt; &#34;Message(&#34; &lt;&lt; pieces.first() &lt;&lt; &#34; ...)&#34;;
-    return dbg.maybeSpace();
-}
-</code></pre><p>当然，发送到调试流的输出可以根据您的喜好变得简单或复杂。 请注意，此函数返回的值是 QDebug 对象本身，尽管这通常是通过调用 获得的，该 QDebug 的 maySpace () 成员函数 函数 填充 用空格字符 流以使其更具可读性。</p>
-
-        
-        ]]>
-      </description>
+      <description>概述 在本文档中，我们采用自定义类型并描述如何将其集成到 Qt 的对象模型中，以便可以像标准 Qt 类型一样存储它。 然后我们展示如何注册自定义类型以允许它</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 顺序容器 QList</title>
       <link>/collection/qlist/</link>
       <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qlist/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="介绍">介绍</h3>
-<p>QList 类是提供动态数组的模板类。该类中的所有函数都是可重入的。另外两个常用的顺序容器 QStack 和 QQueue 继承自 Qlist。</p>
-<h3 id="详细说明">详细说明</h3>
-<p>QList<T> 是 Qt 的通用容器类之一。它将其项目存储在相邻的内存位置，并提供基于索引的快速访问。QVector <T> 在 Qt 5 中曾经是一个不同的类，但现在是 QList 的一个简单别名。</p>
-<p>QList<T> 和QVarLengthArray <T> 提供类似的 API 和功能。它们通常可以互换，但会产生性能后果。以下是用例的概述：</p>
-<ul>
-<li>QList 应该是您的默认首选。</li>
-<li>QVarLengthArray提供了一个在堆栈上保留空间的数组，但如果需要，可以动态地增长到堆上。用于通常较小的短寿命容器是很好的。</li>
-<li>如果您需要一个真正的链表，它保证在列表中间插入恒定时间并使用迭代器到项目而不是索引，请使用 std::list。</li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>介绍 QList 类是提供动态数组的模板类。该类中的所有函数都是可重入的。另外两个常用的顺序容器 QStack 和 QQueue 继承自 Qlist。 详细说明 QList 是 Qt 的通用容器类之一。</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 隐式共享</title>
       <link>/collection/implicit-sharing/</link>
       <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/implicit-sharing/</guid>
-      <description>
-        <![CDATA[
-        <p>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。</p>
-<h3 id="概述">概述</h3>
-<p>共享类由指向共享数据块的指针组成，该共享数据块包含引用计数和数据。</p>
-<p>创建共享对象时，它将引用计数设置为 1。只要新对象引用共享数据，引用计数就会增加，而当对象取消引用共享数据时，引用计数会减少。当引用计数变为零时，共享数据将被删除。</p>
-<p>在处理共享对象时，有两种方法可以复制对象。我们通常谈论深拷贝和浅拷贝。深拷贝意味着复制一个对象。浅拷贝是引用拷贝，即只是指向共享数据块的指针。就内存和 CPU 而言，进行深度复制的成本可能很高。制作浅拷贝非常快，因为它只涉及设置一个指针和增加引用计数。</p>
-<p>隐式共享对象的对象分配（使用 operator=()）是使用浅拷贝实现的。</p>
-<p>共享的好处是程序不需要不必要地复制数据，从而减少内存使用和数据复制。对象可以很容易地被赋值，作为函数参数发送，并从函数中返回。</p>
-<p>隐式共享大多发生在幕后；程序员很少需要担心它。但是，Qt 的容器迭代器与 STL 的容器迭代器具有不同的行为。阅读隐式共享迭代器问题。</p>
-<p>在多线程应用程序中，会发生隐式共享，如线程和隐式共享类中所述。</p>
-<p>在实现您自己的隐式共享类时，请使用QSharedData和QSharedDataPointer类。</p>
-<h3 id="详细的隐式共享">详细的隐式共享</h3>
-<p>如果对象即将更改并且引用计数大于 1，则隐式共享会自动将对象从共享块中分离。（这通常称为 copy-on-write 或者 value semantics。）</p>
-<p>隐式共享类可以控制其内部数据。在任何修改其数据的成员函数中，它会在修改数据之前自动分离。但是，请注意容器迭代器的特殊情况；请参阅隐式共享迭代器问题。</p>
-<blockquote>
-<p>警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。</p>
-</blockquote>
-<h3 id="示例">示例</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>QPixmap p1, p2;
-</span></span><span style="display:flex;"><span>p1.load(<span style="color:#e6db74">&#34;image.bmp&#34;</span>);
-</span></span><span style="display:flex;"><span>p2 <span style="color:#f92672">=</span> p1;                        <span style="color:#75715e">// p1 and p2 share data
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>QPainter paint;
-</span></span><span style="display:flex;"><span>paint.begin(<span style="color:#f92672">&amp;</span>p2);               <span style="color:#75715e">// cuts p2 loose from p1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>paint.drawText(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">50</span>, <span style="color:#e6db74">&#34;Hi&#34;</span>);
-</span></span><span style="display:flex;"><span>paint.end();
-</span></span></code></pre></div><p>在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</p>
-<h3 id="所有隐式共享的类">所有隐式共享的类</h3>
-<p>参见 <a href="https://doc.qt.io/qt-6/implicit-sharing.html">Qt 文档</a>。</p>
-
-        
-        ]]>
-      </description>
+      <description>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 容器类-概述</title>
       <link>/collection/qt-containers/</link>
       <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qt-containers/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="介绍">介绍</h3>
-<p>Qt 库提供了一组通用的基于模板的容器类。这些类可用于存储制定类型的项。例如，您需要一个可调整大小的 QString 数组，请使用 QList<QString>。</p>
-<p>这些容器类被设计为比 STL 容器更轻、更安全且更易于使用。如果您不熟悉 STL，或者更喜欢“Qt 方式”实现，您可以使用这些类而不是 STL 类。</p>
-<p>容器类是 <a href="/post/2021/12/01/implicit-sharing/">隐式共享的</a>，它们是可重入的，并且它们针对速度、低内存消耗和最小的内联代码扩展进行了优化，从而产生更小的可执行文件。此外，在所有用于访问它们的线程将它们用作只读容器的情况下，它们是线程安全的。</p>
-<p>容器提供了遍历的迭代器。STL 样式的迭代器是最有效的迭代器，可以与 Qt 和 STL 的通用算法一起使用。提供 Java 风格的迭代器是为了向后兼容。</p>
-<h3 id="容器类">容器类</h3>
-<p>Qt 提供以下顺序容器：QList、QStack 和 QQueue。对于大多数应用程序，QList 是最好的类型。它提供了非常快速的追加。如果您确实需要链表，请使用 std::list。QStack 和 QQueue 是提供 LIFO 和 FIFO 语义的便利类。QList和QVector在 Qt 6 中被统一。两者都使用来自QVector的数据模型。QVector现在是QList的别名。</p>
-<p>Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet。“Multi”容器方便地支持与单个键关联的多个值。“散列”容器通过使用散列函数而不是对排序集的二分搜索来提供更快的查找。</p>
-<p>作为特殊情况，QCache 和 QContiguousCache 类在有限的缓存存储中提供了有效的对象散列查找。</p>
-<table>
-<thead>
-<tr>
-<th>类</th>
-<th>简述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QList <T></td>
-<td>这是迄今为止最常用的容器类。它存储可以通过索引访问的给定类型 (T) 的值列表。在内部，它在内存中的相邻位置存储一组给定类型的值。在列表的前面或中间插入可能会很慢，因为它可能导致大量项目必须在内存中移动一个位置。</td>
-</tr>
-<tr>
-<td>QVarLengthArray &lt;T, Prealloc &gt;</td>
-<td>这提供了一个低级的可变长度数组。在速度特别重要的地方，它可以代替QList使用。</td>
-</tr>
-<tr>
-<td>QStack <T></td>
-<td>这是QList 的一个便利子类，提供“后进先出”(LIFO) 语义。它向QList 中已有的函数添加了以下函数：push ()、pop () 和top ()。</td>
-</tr>
-<tr>
-<td>QQueue <T></td>
-<td>这是QList的便利子类，提供“先进先出”(FIFO) 语义。它将以下函数添加到QList 中已经存在的函数中：enqueue ()、dequeue () 和head ()。</td>
-</tr>
-<tr>
-<td>QSet <T></td>
-<td>这提供了具有快速查找功能的单值数学集。</td>
-</tr>
-<tr>
-<td>QMap &lt;Key, T&gt;</td>
-<td>这提供了一个字典（关联数组），将 Key 类型的键映射到 T 类型的值。通常每个键都与单个值相关联。QMap以 Key 顺序存储其数据；如果顺序无关紧要QHash是一个更快的选择。</td>
-</tr>
-<tr>
-<td>QMultiMap &lt;Key, T&gt;</td>
-<td>这是QMap 的一个方便的子类，它为多值映射提供了一个很好的接口，即一个键可以与多个值相关联的映射。</td>
-</tr>
-<tr>
-<td>QHash &lt;Key, T&gt;</td>
-<td>这与QMap具有几乎相同的 API ，但提供了明显更快的查找。QHash以任意顺序存储其数据。</td>
-</tr>
-<tr>
-<td>QMultiHash &lt;Key, T&gt;</td>
-<td>这是QHash 的一个便利子类，它为多值散列提供了一个很好的接口。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="算法复杂性">算法复杂性</h3>
-<p>下表总结了顺序容器 QList 的算法复杂度。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>索引查找</th>
-<th>插入</th>
-<th>前置</th>
-<th>附加</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QList <T></td>
-<td>O(1)</td>
-<td>O(n)</td>
-<td>O(n)</td>
-<td>Amort.O(1)</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>在表中，“Amort.”代表“摊销行为”。例如，“Amort.O(1)”意味着如果你只调用一次函数，你可能会得到 O(n) 的行为，但如果你多次调用它（例如，n 次），平均行为将是 O(1)。</p>
-</blockquote>
-<p>下表总结了 Qt 的关联容器和集合的算法复杂度：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>键查找-平均数</th>
-<th>键查找-最差的情况</th>
-<th>插入-平均数</th>
-<th>插入-最差的情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QMap&lt;Key, T&gt;</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-</tr>
-<tr>
-<td>QMultiMap&lt;Key, T&gt;</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-</tr>
-<tr>
-<td>QHash&lt;Key, T&gt;</td>
-<td>Amort.O(1)</td>
-<td>O( n )</td>
-<td>Amort.O(1)</td>
-<td>O( n )</td>
-</tr>
-<tr>
-<td>QSet<Key></td>
-<td>Amort.O(1)</td>
-<td>O( n )</td>
-<td>Amort.O(1)</td>
-<td>O( n )</td>
-</tr>
-</tbody>
-</table>
-
-        
-        ]]>
-      </description>
+      <description>介绍 Qt 库提供了一组通用的基于模板的容器类。这些类可用于存储制定类型的项。例如，您需要一个可调整大小的 QString 数组，请使用 QList。 这些容器类被设</description>
     </item>
-    
-    
     
     <item>
       <title>Qt单元测试基础笔记</title>
       <link>/post/2021/10/13/qt%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/post/2021/10/13/qt%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="一构建">一、构建</h3>
-<p>构建时添加 <code>QT += testlib</code> 。</p>
-<h3 id="二测试类">二、测试类</h3>
-<p>测试类必须从 QObject 继承，头文件 <code>include &lt;QTest&gt;</code> ，并将测试函数声明 <code>private slot</code></p>
-<h3 id="三qverifycondition-宏">三、QVERIFY(condition) 宏</h3>
-<p>检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。</p>
-<p>如果需要在测试失败报告中加入附加信息，可以使用 QVERIFY2(condition, message)。</p>
-<p>如果需要测试日志有更详细的输出，可以使用 QCOMPARE(actual, expected)。</p>
-<h3 id="四qcompareactual-expected宏">四、QCOMPARE(actual, expected)宏</h3>
-<p>使用相等运算符将 actual （实际值）与 expected （预期值）进行比较。如果实际和预期匹配，则继续执行。如果不是，则在测试日志中记录失败，并且测试函数返回而不尝试任何后续检查。</p>
-<p>如果比较失败，QCOMPARE() 会尝试输出值的内容，因此可以从测试日志中看到比较失败的原因。</p>
-<p>对于你自己的类，你可以使用 <code>QTest::toString ()</code> 来格式化输出到测试日志中的值。具体可参考 <a href="https://doc.qt.io/qt-6/qtest.html#QCOMPARE">Qt 文档</a>;</p>
-<h3 id="五可执行文件">五、可执行文件</h3>
-<p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
-<pre tabindex="0"><code>QTEST_MAIN(YourClassName)
-#include &#34;yourfilename.moc&#34;
-</code></pre>
-        
-        ]]>
-      </description>
+      <description>一、构建 构建时添加 QT += testlib 。 二、测试类 测试类必须从 QObject 继承，头文件 include &amp;lt;QTest&amp;gt; ，并将测试函数声明 private slot 三、QVERIFY(condition) 宏 检查 con</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt测试最佳实践</title>
       <link>/collection/2021-10-13-2/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2021-10-13-2/</guid>
-      <description>
-        <![CDATA[
-        <h2 id="qt-测试最佳实践">Qt 测试最佳实践</h2>
-<p>我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表现出错误，并在修复之后通过。在开发新功能时，添加测试以验证它们是否按预期工作。</p>
-<p>符合一组编码标准将使 Qt 自动测试更有可能在所有环境中可靠地工作。例如，有些测试需要从磁盘读取数据。如果没有为如何完成设置标准，则某些测试将无法移植。例如，假设其测试数据文件位于当前工作目录中的测试仅适用于源代码构建。在影子构建中（在源目录之外），测试将无法找到其数据。</p>
-<p>以下章节包含了编写Qt测试的指南。</p>
-<ul>
-<li><a href="#%E4%B8%80%E8%88%AC%E5%8E%9F%E5%88%99">一般原则</a></li>
-<li><a href="#%E7%BC%96%E5%86%99%E5%8F%AF%E9%9D%A0%E7%9A%84%E6%B5%8B%E8%AF%95">编写可靠的测试</a></li>
-<li><a href="#%E6%94%B9%E8%BF%9B%E6%B5%8B%E8%AF%95%E8%BE%93%E5%87%BA">改进测试输出</a></li>
-<li><a href="#%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81">编写可测试的代码</a></li>
-<li><a href="#%E8%AE%BE%E7%BD%AE%E6%B5%8B%E8%AF%95%E6%9C%BA">设置测试机</a></li>
-</ul>
-<h2 id="一般原则">一般原则</h2>
-<p>下面的章节提供了编写单元测试的一般指南。</p>
-<ul>
-<li><a href="#%E9%AA%8C%E8%AF%81%E6%B5%8B%E8%AF%95">验证测试</a></li>
-<li><a href="#%E8%B5%8B%E4%BA%88%E6%B5%8B%E8%AF%95%E5%87%BD%E6%95%B0%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%9A%84%E5%90%8D%E7%A7%B0">赋予测试函数描述性的名称</a></li>
-<li><a href="#%E7%BC%96%E5%86%99%E8%87%AA%E5%B8%A6%E7%9A%84%E6%B5%8B%E8%AF%95%E5%87%BD%E6%95%B0">编写自带的测试函数</a></li>
-<li><a href="#%E6%B5%8B%E8%AF%95%E5%85%A8%E6%A0%88">测试全栈</a></li>
-<li><a href="#%E8%AE%A9%E6%B5%8B%E8%AF%95%E5%BF%AB%E9%80%9F%E5%AE%8C%E6%88%90">让测试快速完成</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E7%9A%84%E6%B5%8B%E8%AF%95">使用数据驱动的测试</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E8%A6%86%E7%9B%96%E5%B7%A5%E5%85%B7">使用覆盖工具</a></li>
-<li><a href="#%E9%80%89%E6%8B%A9%E9%80%82%E5%BD%93%E7%9A%84%E6%9C%BA%E5%88%B6%E6%9D%A5%E6%8E%92%E9%99%A4%E6%B5%8B%E8%AF%95">选择适当的机制来排除测试</a></li>
-<li><a href="#%E9%81%BF%E5%85%8DQ_ASSERT">避免Q_ASSERT</a></li>
-</ul>
-<h3 id="验证测试">验证测试</h3>
-<p>编写并提交你的测试以及你的修复或新功能到一个新的分支上。一旦你完成了,你可以检查出你的工作所基于的分支,然后把你的新测试的测试文件检查到这个分支。这可以让你验证测试是否在前一个分支上失败了,因此确实抓住了一个错误或测试了一个新功能。</p>
-<p>例如，如果使用Git版本控制系统，则修复 QDateTime 类中的错误的工作流程可能如下所示：</p>
-<blockquote>
-<p>1.为您的修订和测试创建一个分支： git checkout -b fix-branch 5.14<br>
-2.编写一个测试并修复错误。<br>
-3.用修复版和新的测试版进行构建和测试,以验证新的测试版是否能通过修复版。<br>
-4.将修复程序和测试添加到您的分支： git add tests/auto/corelib/time/qdatetime/tst_qdatetime.cpp src/corelib/time/qdatetime.cpp<br>
-5.提交修复程序并测试您的分支机构： git commit -m &lsquo;Fix bug in QDateTime&rsquo;<br>
-6.要验证测试是否确实捕获了需要您修复的内容，请检出您自己的分支所基于的分支： git checkout 5.14<br>
-7.仅将测试文件检出到5.14分支： git checkout fix-branch &ndash; tests/auto/corelib/time/qdatetime/tst_qdatetime.cpp<br>
-现在只有测试在fix-branch上。其余的源代码树仍在5.14上。<br>
-8.构建并运行测试,以验证它在5.14上失败,因此确实抓住了一个错误。<br>
-9.您现在可以返回到fix分支： git checkout fix-branch<br>
-10.或者，您可以在5.14上将工作树恢复到干净状态： git checkout HEAD &ndash; tests/auto/corelib/time/qdatetime/tst_qdatetime.cpp</p>
-</blockquote>
-<p>当你在审查一个变更时,你可以调整这个工作流程,以检查该变更是否确实带有测试它确实修复的问题。</p>
-<h3 id="为测试函数提供描述性名称">为测试函数提供描述性名称</h3>
-<p>命名测试用例很重要。测试名称出现在测试运行的失败报告中。对于数据驱动的测试，数据行的名称也会出现在失败报告中。这些名字让阅读报告的人初步了解出了什么问题。</p>
-<p>测试函数名称应该让函数试图测试的内容一目了然。不要简单地使用错误跟踪标识符，因为如果替换错误跟踪器，标识符就会过时。此外，并非所有用户都可以访问某些错误跟踪器。当测试代码的后续读者可能对错误报告感兴趣时，您可以在测试的相关部分旁边的评论中提及它。</p>
-<p>同样，在编写数据驱动的测试时，为测试用例提供描述性名称，表明每个测试用例关注功能的哪个方面。不要简单地给测试用例编号，也不要使用错误跟踪标识符。阅读测试输出的人将不知道数字或标识符的含义。如果相关，您可以在提及错误跟踪标识符的测试行上添加注释。</p>
-<h3 id="编写自包含的测试函数">编写自包含的测试函数</h3>
-<p>在一个测试程序中，测试功能应该相互独立，并且它们不应该依赖于之前已经运行过的测试功能。您可以通过使用tst_foo testname.</p>
-<p>不要在多个测试中重复使用被测类的实例。测试实例（例如小部件）不应该是测试的成员变量，但最好在堆栈上实例化，以确保即使测试失败也能进行适当的清理，这样测试不会相互干扰。</p>
-<h3 id="测试全栈">测试全栈</h3>
-<p>如果 API 是根据可插拔或特定于平台的后端来实现的，这些后端执行繁重的工作，请确保编写涵盖代码路径一直到后端的测试。使用模拟后端测试上层 API 部分是将 API 层中的错误与后端隔离的好方法，但它是对使用真实世界数据运行实际实现的测试的补充。</p>
-<h3 id="使测试快速完成">使测试快速完成</h3>
-<p>测试不应因不必要的重复、使用不当的大量测试数据或引入不必要的空闲时间而浪费时间。</p>
-<p>对于单元测试尤其如此，其中每一秒额外的单元测试执行时间都会使跨多个目标的分支的 CI 测试花费更长的时间。请记住，单元测试与负载和可靠性测试是分开的，其中需要大量的测试数据和更长的测试运行时间。</p>
-<p>基准测试通常会多次执行相同的测试，应位于单独的tests/benchmarks目录中，并且不应与功能单元测试混合使用。</p>
-<h3 id="使用数据驱动测试">使用数据驱动测试</h3>
-<p>数据驱动的测试可以更轻松地为后期错误报告中发现的边界条件添加新测试。</p>
-<p>使用数据驱动的测试而不是在测试中按顺序测试多个项目可以节省非常相似的代码的重复，并确保即使较早的案例失败也能测试后续案例。它还鼓励系统和统一的测试，因为对每个数据样本应用相同的测试。</p>
-<h3 id="使用覆盖工具">使用覆盖工具</h3>
-<p>使用诸如Froglogic Coco Code Coverage或gcov 之类的覆盖工具来帮助编写测试，以覆盖被测试函数或类中尽可能多的语句、分支和条件。在新功能的开发周期中越早完成此操作，稍后在重构代码时就越容易捕获回归。</p>
-<h3 id="选择适当的机制来排除测试">选择适当的机制来排除测试</h3>
-<p>选择适当的机制来排除不适用的测试很重要：QSKIP ()，使用条件语句排除部分测试功能，或不为特定平台构建测试。</p>
-<p>使用QSKIP () 来处理在运行时发现整个测试函数在当前测试环境中不适用的情况。当只跳过测试函数的一部分时，可以使用条件语句，可选择qDebug()调用以报告跳过不适用部分的原因。</p>
-<p>数据驱动测试的测试功能或数据行可以限于特定平台，或使用#if. 但是，在使用跳过测试功能时要注意moc限制#if。该moc预处理器不具备访问所有builtin被经常用于编译器的特征检测编译器的宏。因此，moc预处理器条件的结果可能与其余代码看到的结果不同。这可能会导致moc为实际编译器跳过的测试槽生成元数据，或省略实际编译到类中的测试槽的元数据。在第一种情况下，测试将尝试运行未实现的插槽。在第二种情况下，即使应该尝试运行测试槽，测试也不会尝试。</p>
-<p>如果整个测试程序不适用于特定平台或除非启用了特定功能，最好的方法是使用父目录的.pro文件来避免构建测试。例如，如果tests/auto/gui/someclass测试对 macOS 无效，请将以下行添加到tests/auto/gui.pro：</p>
-<pre tabindex="0"><code>mac*: SUBDIRS -= someclass
-</code></pre><h3 id="避免q_assert">避免Q_ASSERT</h3>
-<p>该Q_ASSERT宏将导致程序中止时断言的情况false，但前提是软件始建于调试模式。在 release 和 debug-and-release 版本中，Q_ASSERT什么都不做。</p>
-<p>Q_ASSERT 应该避免，因为它使测试的行为取决于是否正在测试调试版本，并且因为它会导致测试立即中止，跳过所有剩余的测试函数并返回不完整或格式错误的测试结果。</p>
-<p>它还会跳过本应在测试结束时进行的任何拆卸或整理，因此可能会使工作区处于不整洁状态，这可能会导致进一步测试的复杂化。</p>
-<p>应Q_ASSERT使用QCOMPARE () 或QVERIFY () 宏变体而不是 。它们使当前测试报告失败并终止，但允许执行剩余的测试功能和整个测试程序正常终止。QVERIFY2 () 甚至允许在测试日志中记录描述性错误消息。</p>
-<h2 id="编写可靠的测试">编写可靠的测试</h2>
-<p>以下部分提供了编写可靠测试的指南：</p>
-<ul>
-<li><a href="#%E9%81%BF%E5%85%8D%E9%AA%8C%E8%AF%81%E6%AD%A5%E9%AA%A4%E4%B8%AD%E7%9A%84%E5%89%AF%E4%BD%9C%E7%94%A8">避免验证步骤中的副作用</a></li>
-<li><a href="#%E9%81%BF%E5%85%8D%E5%9B%BA%E5%AE%9A%E8%B6%85%E6%97%B6">避免固定超时</a></li>
-<li><a href="#%E8%B0%A8%E9%98%B2%E4%BE%9D%E8%B5%96%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E8%A1%8C%E4%B8%BA">谨防依赖于时间的行为</a></li>
-<li><a href="#%E9%81%BF%E5%85%8D%E4%BD%8D%E5%9B%BE%E6%8D%95%E8%8E%B7%E5%92%8C%E6%AF%94%E8%BE%83">避免位图捕获和比较</a></li>
-</ul>
-<h3 id="避免验证步骤中的副作用">避免验证步骤中的副作用</h3>
-<p>在使用QCOMPARE ()、QVERIFY () 等执行自动测试中的验证步骤时，应避免副作用。验证步骤中的副作用会使测试难以理解。此外，当测试更改为使用QTRY_VERIFY ()、QTRY_COMPARE () 或QBENCHMARK ()时，他们可以很容易地以难以诊断的方式破坏测试。这些可以多次执行传递的表达式，从而重复任何副作用。</p>
-<p>当副作用不可避免时，确保在测试函数结束时恢复先前的状态，即使测试失败。这通常需要使用在函数返回时恢复状态的 RAII（资源获取即初始化）类或cleanup()方法。不要简单地将恢复代码放在测试结束时。如果部分测试失败，此类代码将被跳过并且不会恢复之前的状态。</p>
-<h3 id="避免固定超时">避免固定超时</h3>
-<p>避免使用硬编码超时，例如QTest::qWait () 来等待某些条件变为真。考虑使用QSignalSpy类、QTRY_VERIFY () 或QTRY_COMPARE () 宏，或将QSignalSpy类与QTRY_宏变体结合使用。</p>
-<p>该qWait()函数可用于在执行某些操作和等待该操作触发的某些异步行为完成之间设置一段固定时间的延迟。例如，更改小部件的状态，然后等待小部件重新绘制。但是，当在工作站上编写的测试在设备上执行时，此类超时通常会导致失败，在这种情况下，预期行为可能需要更长时间才能完成。在最慢的测试平台上将固定超时增加到比所需值大几倍的值并不是一个好的解决方案，因为它会减慢所有平台上的测试运行速度，特别是对于表驱动测试。</p>
-<p>如果被测代码在异步行为完成时发出 Qt 信号，更好的方法是使用QSignalSpy类通知测试函数现在可以执行验证步骤。</p>
-<p>如果没有 Qt 信号，请使用QTRY_COMPARE()和QTRY_VERIFY()宏，它会定期测试指定的条件，直到它变为真或达到某个最大超时。这些宏可防止测试花费比必要时间更长的时间，同时避免在工作站上编写测试并随后在嵌入式平台上执行时出现中断。</p>
-<p>如果没有 Qt 信号，并且您正在编写测试作为开发新 API 的一部分，请考虑 API 是否可以从添加报告异步行为完成的信号中受益。</p>
-<h3 id="谨防依赖于时间的行为">谨防依赖于时间的行为</h3>
-<p>一些测试策略容易受到某些类的时间相关行为的影响，这可能导致测试仅在某些平台上失败或不返回一致的结果。</p>
-<p>这方面的一个例子是文本输入小部件，它通常有一个闪烁的光标，可以根据捕获位图时光标的状态使捕获的位图的比较成功或失败。这又可能取决于执行测试的机器的速度。</p>
-<p>在测试根据计时器事件更改其状态的类时，在执行验证步骤时需要考虑基于计时器的行为。由于依赖于时序的行为多种多样，因此没有针对此测试问题的单一通用解决方案。</p>
-<p>对于文本输入小部件，潜在的解决方案包括禁用光标闪烁行为（如果 API 提供该功能），在捕获位图之前等待光标处于已知状态（例如，如果 API提供一个)，或者从位图比较中排除包含光标的区域。</p>
-<h3 id="避免位图捕获和比较">避免位图捕获和比较</h3>
-<p>虽然有时需要通过捕获和比较位图来验证测试结果，但它可能非常脆弱且需要大量劳动。</p>
-<p>例如，特定小部件在不同平台上可能有不同的外观或具有不同的小部件样式，因此可能需要多次创建参考位图，然后在未来随着 Qt 支持的平台集的发展进行维护。因此，进行影响位图的更改意味着必须在每个支持的平台上重新创建预期的位图，这将需要访问每个平台。</p>
-<p>位图比较也会受到测试机器的屏幕分辨率、位深度、活动主题、配色方案、小部件样式、活动区域设置（货币符号、文本方向等）、字体大小、透明度效果和选择等因素的影响的窗口管理器。</p>
-<p>在可能的情况下，使用编程方式，例如验证对象和变量的属性，而不是捕获和比较位图。</p>
-<h2 id="改进测试输出">改进测试输出</h2>
-<p>以下部分提供了生成可读且有用的测试输出的指南：</p>
-<ul>
-<li><a href="#%E6%98%BE%E5%BC%8F%E5%BF%BD%E7%95%A5%E9%A2%84%E6%9C%9F%E8%AD%A6%E5%91%8A">显式忽略预期警告</a></li>
-<li><a href="#%E6%98%BE%E5%BC%8F%E5%BF%BD%E7%95%A5%E9%A2%84%E6%9C%9F%E8%AD%A6%E5%91%8A">显式忽略预期警告</a></li>
-<li><a href="#%E7%BC%96%E5%86%99%E7%BB%93%E6%9E%84%E8%89%AF%E5%A5%BD%E7%9A%84%E8%AF%8A%E6%96%AD%E4%BB%A3%E7%A0%81">编写结构良好的诊断代码</a></li>
-</ul>
-<h3 id="显式忽略预期警告">显式忽略预期警告</h3>
-<p>如果预期测试会导致 Qt 在控制台上输出警告或调试消息，则应调用QTest::ignoreMessage () 将该消息从测试输出中过滤掉，如果没有输出消息，则测试失败。</p>
-<p>如果只有在调试模式下构建 Qt 时才会输出这样的消息，请使用QLibraryInfo::isDebugBuild () 来确定 Qt 库是否是在调试模式下构建的。使用#ifdef QT_DEBUG是不够的，因为它只会告诉您测试是否是在调试模式下构建的，并且不能保证 Qt 库也是在调试模式下构建的。</p>
-<h3 id="避免打印来自自动测试的调试消息">避免打印来自自动测试的调试消息</h3>
-<p>自动测试不应产生任何未处理的警告或调试消息。这将允许 CI Gate 将新警告或调试消息视为测试失败。</p>
-<p>在开发过程中添加调试消息很好，但是在签入测试之前应该禁用或删除这些消息。</p>
-<h3 id="编写结构良好的诊断代码">编写结构良好的诊断代码</h3>
-<p>如果测试失败，任何有用的诊断输出都应该是常规测试输出的一部分，而不是被注释掉、被预处理器指令禁用或仅在调试版本中启用。如果在持续集成期间测试失败，与启用诊断代码和再次测试相比，在 CI 日志中包含所有相关的诊断输出可以为您节省大量时间。特别是，如果故障发生在您的桌面上没有的平台上。</p>
-<p>测试中的诊断消息应该使用 Qt 的输出机制，例如qDebug()and qWarning()，而不是stdio.horiostream.h输出机制。后者绕过 Qt 的消息处理并阻止-silent命令行选项抑制诊断消息。这可能会导致在大量调试输出中隐藏重要的失败消息。</p>
-<h2 id="编写可测试的代码">编写可测试的代码</h2>
-<p>以下部分提供了编写易于测试的代码的指南：</p>
-<ul>
-<li><a href="#%E6%89%93%E7%A0%B4%E4%BE%9D%E8%B5%96">打破依赖</a></li>
-<li><a href="#%E5%B0%86%E6%89%80%E6%9C%89%E7%B1%BB%E7%BC%96%E8%AF%91%E5%88%B0%E5%BA%93%E4%B8%AD">将所有类编译到库中</a></li>
-</ul>
-<h3 id="打破依赖">打破依赖</h3>
-<p>单元测试的想法是单独使用每个类。由于许多类实例化了其他类，因此不可能单独实例化一个类。因此，您应该使用一种称为依赖注入的技术，它将对象创建与对象使用分开。工厂负责构建对象树。其他对象通过抽象接口操作这些对象。</p>
-<p>这种技术适用于数据驱动的应用程序。对于 GUI 应用程序，这种方法可能很困难，因为对象经常被创建和销毁。为了验证依赖于抽象接口的类的正确行为，可以使用模拟。例如，请参阅Googletest Mocking (gMock) 框架。</p>
-<h3 id="将所有类编译到库中">将所有类编译到库中</h3>
-<p>在中小型项目中，构建脚本通常会列出所有源文件，然后一次性编译可执行文件。这意味着测试的构建脚本必须再次列出所需的源文件。</p>
-<p>在脚本中只列出一次源文件和头文件来构建静态库会更容易。然后该main()函数将链接到静态库以构建可执行文件，并且测试将链接到静态库。</p>
-<p>对于在构建多个程序时使用相同源文件的项目，将共享类构建到每个程序（包括测试程序）可以在运行时加载的动态链接（或共享对象）库中可能更合适. 同样，将编译后的代码放在库中有助于避免重复描述组合哪些组件来制作各种程序。</p>
-<h2 id="设置测试机">设置测试机</h2>
-<p>以下部分讨论由测试机设置引起的常见问题：</p>
-<ul>
-<li><a href="#%E5%B1%8F%E5%B9%95%E4%BF%9D%E6%8A%A4%E7%A8%8B%E5%BA%8F">屏幕保护程序</a></li>
-<li><a href="#%E7%B3%BB%E7%BB%9F%E5%AF%B9%E8%AF%9D%E6%A1%86">系统对话框</a></li>
-<li><a href="#%E6%98%BE%E7%A4%BA%E4%BD%BF%E7%94%A8">显示使用</a></li>
-<li><a href="#%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8">窗口管理器</a></li>
-</ul>
-<p>所有这些问题通常都可以通过明智地使用虚拟化来解决。</p>
-<h3 id="屏幕保护程序">屏幕保护程序</h3>
-<p>屏幕保护程序可能会干扰 GUI 类的某些测试，从而导致测试结果不可靠。应禁用屏幕保护程序以确保测试结果一致和可靠。</p>
-<h3 id="系统对话框">系统对话框</h3>
-<p>操作系统或其他正在运行的应用程序意外显示的对话框可能会从自动测试中涉及的小部件中窃取输入焦点，从而导致不可重现的故障。</p>
-<p>典型问题的示例包括 macOS 上的在线更新通知对话框、病毒扫描程序的误报、病毒签名更新等计划任务、推送到工作站的软件更新以及在堆栈顶部弹出窗口的聊天程序。</p>
-<h3 id="显示使用">显示使用</h3>
-<p>某些测试使用测试机器的显示器、鼠标和键盘，因此如果机器同时用于其他用途或并行运行多个测试，则可能会失败。</p>
-<p>CI 系统使用专用测试机来避免此问题，但如果您没有专用测试机，则可以通过在第二台显示器上运行测试来解决此问题。</p>
-<p>在 Unix 上，还可以在嵌套或虚拟 X 服务器上运行测试，例如 Xephyr。例如，要在 Xephyr 上运行整套测试，请执行以下命令：</p>
-<pre tabindex="0"><code>Xephyr :1 -ac -screen 1920x1200 &gt;/dev/null 2&gt;&amp;1 &amp;
-sleep 5
-DISPLAY=:1 icewm &gt;/dev/null 2&gt;&amp;1 &amp;
-cd tests/auto
-make
-DISPLAY=:1 make -k -j1 check
-</code></pre><p>NVIDIA 二进制驱动程序的用户应该注意 Xephyr 可能无法提供 GLX 扩展。强制 Mesa libGL 可能会有所帮助：</p>
-<pre tabindex="0"><code>export LD_PRELOAD=/usr/lib/mesa-diverted/x86_64-linux-gnu/libGL.so.1
-</code></pre><p>但是，当在 Xephyr 和具有不同 libGL 版本的真实 X 服务器上运行测试时，QML 磁盘缓存可能会使测试崩溃。为避免这种情况，请使用QML_DISABLE_DISK_CACHE=1.</p>
-<p>或者，使用屏幕外插件：</p>
-<pre tabindex="0"><code>TESTARGS=&#34;-platform offscreen&#34; make check -k -j1
-</code></pre><h3 id="窗口管理器">窗口管理器</h3>
-<p>在 Unix 上，至少有两个自动测试（tst_examples和tst_gestures）需要运行窗口管理器。因此，如果在嵌套的 X-server 下运行这些测试，您还必须在该 X-server 中运行窗口管理器。</p>
-<p>您的窗口管理器必须配置为自动定位显示器上的所有窗口。一些窗口管理器，例如 Tab Window Manager (twm)，具有手动定位新窗口的模式，这会阻止测试套件在没有用户交互的情况下运行。</p>
-<p>注意： Tab Window Manager 不适合运行完整的 Qt 自动测试套件，因为tst_gestures自动测试会导致它忘记其配置并恢复到手动窗口放置。</p>
-
-        
-        ]]>
-      </description>
+      <description>Qt 测试最佳实践 我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表</description>
     </item>
-    
     
   </channel>
 </rss>

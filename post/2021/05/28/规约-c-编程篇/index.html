@@ -1,100 +1,225 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【规约】 C&#43;&#43; 编程篇 | 罗泽勋</title>
+<meta name="keywords" content="">
+<meta name="description" content="前言 “码出高效，码出质量”。本文整理了比较常见的 C&#43;&#43; 编程规范，主要来源于华为《软件编程规范总则》。 （一）排版 1.程序块要采用缩进风格编写，缩进">
+<meta name="author" content="">
+<link rel="canonical" href="/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="【规约】 C&#43;&#43; 编程篇" />
+<meta property="og:description" content="前言 “码出高效，码出质量”。本文整理了比较常见的 C&#43;&#43; 编程规范，主要来源于华为《软件编程规范总则》。 （一）排版 1.程序块要采用缩进风格编写，缩进" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-28T11:46:44&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-28T11:46:44&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【规约】 C&#43;&#43; 编程篇"/>
+<meta name="twitter:description" content="前言 “码出高效，码出质量”。本文整理了比较常见的 C&#43;&#43; 编程规范，主要来源于华为《软件编程规范总则》。 （一）排版 1.程序块要采用缩进风格编写，缩进"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "",
+      "item": "/post/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "【规约】 C++ 编程篇",
+      "item": "/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【规约】 C++ 编程篇",
+  "name": "【规约】 C\u002b\u002b 编程篇",
+  "description": "前言 “码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。 （一）排版 1.程序块要采用缩进风格编写，缩进",
+  "keywords": [
     
-    <title>【规约】 C&#43;&#43; 编程篇 - 罗泽勋</title>
-    <meta property="og:title" content="【规约】 C&#43;&#43; 编程篇 - 罗泽勋">
+  ],
+  "articleBody": "前言 “码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。\n（一）排版 1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。\n2.相对独立的程序块之间、变量说明之后必须加空行。\n3.较长的语句（80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。\n4.if、for、do、while、case、switch、default 等语句自占一行，且执行语句部分无论多少都要加括号 {}。\n（二）注释 1.一般情况下，源程序有效注释量必须在 20% 以上。\n2.说明性文件（如头文件 .h 文件、.inc 文件、.def 文件等）头部应进行注释，注释必须列出：版权说明、版本号、生成日期、作者、内容、功能、与其他头文件关系、修改日志等，头文件注释中还应有函数功能简要说明。\n3.源文件头部应进行注释，列出：版权说明、版本号、生成日期、作者、模块目的/功能、主要函数及其功能、修改日志等。\n4.函数头部应进行注释，列出：函数的目的/功能、输入参数、输出参数、返回值、调用关系（函数、表）等。\n5.边写代码边注释，修改代码同时修改响应的注释。不再有用的注释 要删除。\n6.注释格式尽量统一，建议使用“/…………/”。\n7.注释应考虑程序易读性，建议使用中文。\n（三）标识符命名 1.命名规范必须与所使用的系统风格保持一致，并在同一项目中统一，比如采用 UNIX 的全小写加下划线风格或大小写混排的方式，不要将两种方式混合使用。用作特殊标识如标识成员变量或全局变量的 m_ 和 g_，其后加上大小写混排的方式是允许的。\n示例：Add_User 不允许，add_user、AddUser、m_AddUser允许。\n2.用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。\n说明：以下是一些在软件中常用的反义词组。\nadd / remove begin / end create / destroy\ninsert /delete first / last get / release\nincrement / decrement put / get\nadd /delete lock unlock open /close\nmin / max old /new stat / stop\nnext /previous source / target show / hide\nsend / receive source / destination cut /paste up / down\n示例：\nint min_sum;\nint max_sum;\nint add_user( BYTE *user_name );\nint delete_user( BYTE *user_name);\n（四）可测性 1.使用断言来发现软件问题，提高代码可测性。\n（五）程序效率 1.多重循环中，应将最忙的循环放在最内层。\n2.尽量减少循环嵌套层次。\n3.尽量使用乘法或其他方法代替除法特别是浮点运算中的除法（占用较多 CPU 资源）。\n（六）质量保证 1.防止引用已经释放的内存空间。\n2.过程/函数中分配的内存，在过程/函数退出之前要释放。\n3.过程/函数中申请的（为打开文件而使用的）文件句柄，在过程/函数退出之前要关闭。\n4.防止内存操作越界。\n5.编程时，要防止差 1 错误。（",
+  "wordCount" : "1168",
+  "inLanguage": "en",
+  "datePublished": "2021-05-28T11:46:44+08:00",
+  "dateModified": "2021-05-28T11:46:44+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2021/05/28/%E8%A7%84%E7%BA%A6-c-%E7%BC%96%E7%A8%8B%E7%AF%87/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "罗泽勋",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="罗泽勋 (Alt + H)">罗泽勋</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/cn/" title="中文"
+                            aria-label="中文">Cn</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/" title="Program">
+                    <span>Program</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    <meta name="twitter:card" content="summary">
+    <h1 class="post-title">
+      【规约】 C&#43;&#43; 编程篇
+    </h1>
+    <div class="post-meta"><span title='2021-05-28 11:46:44 +0800 CST'>May 28, 2021</span>
 
-    
-      
-    
-
-    
-      
-      <meta property="description" content="“码出高效，码出质量”。本文整理了比较常见的 C&#43;&#43; 编程规范，主要来源于华为《软件编程规范总则》。
-[&amp;hellip;] 1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。
-2.相对独立的程序块之间、变量说明之后必须加空行。
-3.较长的语句（&amp;gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。 &amp;hellip;">
-      <meta property="og:description" content="“码出高效，码出质量”。本文整理了比较常见的 C&#43;&#43; 编程规范，主要来源于华为《软件编程规范总则》。
-[&amp;hellip;] 1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。
-2.相对独立的程序块之间、变量说明之后必须加空行。
-3.较长的语句（&amp;gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。 &amp;hellip;">
-      
-    
-
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
-      
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>【规约】 C&#43;&#43; 编程篇</h1>
-
-
-<h3>
-2021-05-28</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<h3 id="前言">前言</h3>
+</div>
+  </header> 
+  <div class="post-content"><h3 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h3>
 <p>“码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。</p>
-<h3 id="一排版">（一）排版</h3>
+<h3 id="一排版">（一）排版<a hidden class="anchor" aria-hidden="true" href="#一排版">#</a></h3>
 <p>1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。<br>
 2.相对独立的程序块之间、变量说明之后必须加空行。<br>
 3.较长的语句（&gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。<br>
 4.if、for、do、while、case、switch、default 等语句自占一行，且执行语句部分无论多少都要加括号 {}。</p>
-<h3 id="二注释">（二）注释</h3>
+<h3 id="二注释">（二）注释<a hidden class="anchor" aria-hidden="true" href="#二注释">#</a></h3>
 <p>1.一般情况下，源程序有效注释量必须在 20% 以上。<br>
 2.说明性文件（如头文件 .h 文件、.inc 文件、.def 文件等）头部应进行注释，注释必须列出：版权说明、版本号、生成日期、作者、内容、功能、与其他头文件关系、修改日志等，头文件注释中还应有函数功能简要说明。<br>
 3.源文件头部应进行注释，列出：版权说明、版本号、生成日期、作者、模块目的/功能、主要函数及其功能、修改日志等。<br>
@@ -102,7 +227,7 @@
 5.边写代码边注释，修改代码同时修改响应的注释。不再有用的注释 要删除。<br>
 6.注释格式尽量统一，建议使用“/<em>…………</em>/”。<br>
 7.注释应考虑程序易读性，建议使用中文。</p>
-<h3 id="三标识符命名">（三）标识符命名</h3>
+<h3 id="三标识符命名">（三）标识符命名<a hidden class="anchor" aria-hidden="true" href="#三标识符命名">#</a></h3>
 <p>1.命名规范必须与所使用的系统风格保持一致，并在同一项目中统一，比如采用 UNIX 的全小写加下划线风格或大小写混排的方式，不要将两种方式混合使用。用作特殊标识如标识成员变量或全局变量的 m_ 和 g_，其后加上大小写混排的方式是允许的。<br>
 示例：Add_User 不允许，add_user、AddUser、m_AddUser允许。</p>
 <p>2.用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。<br>
@@ -120,13 +245,13 @@ int min_sum;<br>
 int max_sum;<br>
 int add_user( BYTE *user_name );<br>
 int delete_user( BYTE *user_name);</p>
-<h3 id="四可测性">（四）可测性</h3>
+<h3 id="四可测性">（四）可测性<a hidden class="anchor" aria-hidden="true" href="#四可测性">#</a></h3>
 <p>1.使用断言来发现软件问题，提高代码可测性。</p>
-<h3 id="五程序效率">（五）程序效率</h3>
+<h3 id="五程序效率">（五）程序效率<a hidden class="anchor" aria-hidden="true" href="#五程序效率">#</a></h3>
 <p>1.多重循环中，应将最忙的循环放在最内层。<br>
 2.尽量减少循环嵌套层次。<br>
 3.尽量使用乘法或其他方法代替除法特别是浮点运算中的除法（占用较多 CPU 资源）。</p>
-<h3 id="六质量保证">（六）质量保证</h3>
+<h3 id="六质量保证">（六）质量保证<a hidden class="anchor" aria-hidden="true" href="#六质量保证">#</a></h3>
 <p>1.防止引用已经释放的内存空间。<br>
 2.过程/函数中分配的内存，在过程/函数退出之前要释放。<br>
 3.过程/函数中申请的（为打开文件而使用的）文件句柄，在过程/函数退出之前要关闭。<br>
@@ -136,67 +261,82 @@ int delete_user( BYTE *user_name);</p>
 7.Unix 下，多线程的子线程退出必需采用主动退出的方式，即子线程应 return 出口。<br>
 8.时刻注意表达式是否会上溢、下溢。使用变量时要注意其边界值的情况。</p>
 
-</main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2021/05/28/%E8%A7%84%E7%BA%A6-java-%E7%BC%96%E7%A8%8B%E7%AF%87/">【规约】 Java 编程篇</a></span>
-  <span class="nav-next"><a href="/post/2021/06/01/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%B0%8F%E7%99%BD%E7%AF%87/">从零开始搭建个人网站——小白篇</a> &rarr;</span>
-</nav>
+  </div>
 
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
-    
-    url = '\/post\/2021\/05\/28\/%E8%A7%84%E7%BA%A6-java-%E7%BC%96%E7%A8%8B%E7%AF%87\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/post\/2021\/06\/01\/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%B0%8F%E7%99%BD%E7%AF%87\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
-
-
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
+  <footer class="post-footer">
   </footer>
-  </body>
-</html>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="/">罗泽勋</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
