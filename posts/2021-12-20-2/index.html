@@ -63,7 +63,7 @@ Dream&hellip;
 在不断追寻着你
 用双手夺下你的视线
 我总有一天">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -74,6 +74,8 @@ Dream&hellip;
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -116,6 +118,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">愛になりたい</h1>
 
@@ -135,6 +139,25 @@ if (!doNotTrack) {
         </span>
     </div>
 
+     
+  <div class="container">
+    <div id="aplayer"></div>
+</div>
+<script>
+const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    autoplay: true,
+    audio: [
+        {
+            name: '愛になりたい',
+            artist: '工藤夕貴',
+            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/工藤夕貴 - 愛になりたい.mp3',
+            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/工藤夕貴 - 愛になりたい.jpg',
+        }
+    ]
+});
+</script>
+  
     
     
 
@@ -209,6 +232,18 @@ Dream&hellip;<br>
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

@@ -24,7 +24,7 @@ if you will risk
 looking like a fool
 for love
 for your dream">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -35,6 +35,8 @@ for your dream">
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -77,6 +79,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">《你为生存做些什么，我不关心》</h1>
 
@@ -96,6 +100,25 @@ if (!doNotTrack) {
         </span>
     </div>
 
+     
+  <div class="container">
+    <div id="aplayer"></div>
+</div>
+<script>
+const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    autoplay: true,
+    audio: [
+        {
+            name: 'Forrest Gump Suite',
+            artist: 'Alan Silvestri',
+            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Alan_Silvestri_Forrest_Gump_Suite2.mp3',
+            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/George_Davidson_Mariage_D_Amour.jpg',
+        }
+    ]
+});
+</script>
+  
     
     
 
@@ -154,7 +177,7 @@ from fear of further pain.</p>
 抑或因为害怕更大的痛苦而消沉封闭！</p>
 </blockquote>
 <blockquote>
-<p>I want to know
+<p>I want to know 
 if you can sit with pain
 mine or your own<br>
 without moving to hide it<br>
@@ -293,6 +316,18 @@ in the empty moments.</p>
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

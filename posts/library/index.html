@@ -14,7 +14,7 @@
  空闲链表（Free List） 位图（Bitmap） 对象池  “段错误（segment fault）” 或 “非法操作，该内存地址不能 read/write” 🔗典型的非法指针解引用造成的错误。当指针指向一个不允许读写的内存地址，而程序却试图利用指针来读或写该地址时，会出现这个错误。
 普遍原因：
  将指针初始化为 NULL，之后没有给它一个合理的值就开始使用指针 没用初始化栈中的指针，指针的值一般会是随机数，之后就直接开始使用指针  编译链接 🔗各平台文件格式 🔗   平台 可执行文件 目标文件 动态库/共享对象 静态库     Windows exe obj dll lib   Unix/Linux ELF、out o so a   Mac Mach-O o dylib、tbd、framework a、framework    编译链接过程 🔗 预编译（预编译器处理如 #include、#define 等预编译指令，生成 .">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -25,6 +25,8 @@
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -67,6 +69,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">C&#43;&#43; 开发必备之链接装载库</h1>
 
@@ -86,6 +90,7 @@ if (!doNotTrack) {
         </span>
     </div>
 
+    
     
     
 
@@ -629,6 +634,18 @@ DLL 头文件</p>
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

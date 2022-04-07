@@ -24,7 +24,7 @@
   如今的我 生活就像在演戏
   说着言不由衷的话 戴着伪善的面具
   总是拿着微不足道的成就来骗自己">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -35,6 +35,8 @@
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -77,6 +79,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">水手</h1>
 
@@ -96,6 +100,25 @@ if (!doNotTrack) {
         </span>
     </div>
 
+     
+  <div class="container">
+    <div id="aplayer"></div>
+</div>
+<script>
+const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    autoplay: true,
+    audio: [
+        {
+            name: '水手',
+            artist: '郑智化',
+            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/水手.mp3',
+            cover: '',
+        }
+    ]
+});
+</script>
+  
     
     
 
@@ -257,6 +280,18 @@ if (!doNotTrack) {
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

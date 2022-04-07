@@ -20,7 +20,7 @@ Today, I know, this is “AUTHENTICITY”.
   As I began to love myself
 I understood how much it can offend somebody
 if I try to force my desires on this person,">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -31,6 +31,8 @@ if I try to force my desires on this person,">
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -73,6 +75,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">《As I Began to Love Myself》</h1>
 
@@ -92,6 +96,25 @@ if (!doNotTrack) {
         </span>
     </div>
 
+     
+  <div class="container">
+    <div id="aplayer"></div>
+</div>
+<script>
+const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    autoplay: true,
+    audio: [
+        {
+            name: 'Mariage D Amour',
+            artist: 'George Davidson',
+            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/George_Davidson_Mariage_D_Amour.mp3',
+            cover: '',
+        }
+    ]
+});
+</script>
+  
     
     
 
@@ -257,6 +280,18 @@ Today I know “THAT IS LIFE”!</p>
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

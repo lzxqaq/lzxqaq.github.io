@@ -9,7 +9,7 @@
 <meta name="description" content="转载自https://github.com/huihut/interview
 Socket 🔗 Linux Socket 编程（不限 Linux）
  Socket 中的 read()、write() 函数 🔗ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); read() 🔗 read 函数是负责从 fd 中读取内容。 当读成功时，read 返回实际所读的字节数。 如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。 如果错误为 EINTR 说明读是由中断引起的；如果是 ECONNREST 表示网络连接出了问题。  write() 🔗 write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd。 成功时返回写的字节数。失败时返回 -1，并设置 errno 变量。 在网络程序中，当我们向套接字文件描述符写时有俩种可能。 （1）write 的返回值大于 0，表示写了部分或者是全部的数据。 （2）返回的值小于 0，此时出现了错误。 如果错误为 EINTR 表示在写的时候出现了中断错误；如果为 EPIPE 表示网络连接出现了问题（对方已经关闭了连接）。  Socket 中 TCP 的三次握手建立连接 🔗我们知道 TCP 建立连接要进行 “三次握手”，即交换三个分组。大致流程如下：">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -20,6 +20,8 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -62,6 +64,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">C&#43;&#43; 开发必备之网络编程</h1>
 
@@ -81,6 +85,7 @@ if (!doNotTrack) {
         </span>
     </div>
 
+    
     
     
 
@@ -152,6 +157,18 @@ if (!doNotTrack) {
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

@@ -11,7 +11,7 @@
  检查语法，将预处理过的文件编译生成汇编文件 gcc -S demo2.c -o demo2.s    汇编
  将汇编文件生成目标文件（二进制代码文件，即.o 文件） gcc -c demo3.c -o demo3.o    链接
  找到依赖的库文件，将目标文件链接为可执行程序。 gcc demo4.c -o demo4 -L./ -llib1 通过gcc编译器让 demo4 链接自己制作的 lib1 动态库，并把 demo4 编译成可执行程序。    Java 代码编译和执行的过程 🔗 源文件由编译器编译成字节码 字节码由 Java 虚拟机解释运行。因为 Java 程序既要编译同时也要经过 JVM 的解释运行，所以 Java 也被称为半解释语言。  静态和动态 🔗 静态：在编译（编译 &#43; 链接）阶段 动态：在执行阶段  #include &lt;stdio.">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -22,6 +22,8 @@
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -64,6 +66,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">从 Java 到 Qt/C&#43;&#43; 的一些经验总结</h1>
 
@@ -83,6 +87,7 @@ if (!doNotTrack) {
         </span>
     </div>
 
+    
     
     
 
@@ -612,6 +617,18 @@ static 和静态、动态分配内存没关系，static 指 sum 变量的创建�
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

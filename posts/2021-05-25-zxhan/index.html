@@ -12,8 +12,8 @@
 算法参考：Huffman压缩真正的C&#43;&#43;实现
 运行环境：Linux 系统（Windows系统下运行尚有 bug ),开发环境为 QT Creator。
 运行截图：
- 核心实现 🔗void create_node_array();//构造包含字符及其频率的数组 void create_pq();//构造优先级队列 void create_huffman_tree();//构造哈夫曼树 void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表 bool calculate_huffman_codes();//计算哈夫曼编码 bool do_compress();//开始压缩 bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树 void decode_huffman();//根据重构的哈夫曼树解码文件 后续 🔗该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎联系我。如有任何问题，亦可与我一同探讨。">
-<meta name="generator" content="Hugo 0.96.0" />
+核心实现 🔗void create_node_array();//构造包含字符及其频率的数组 void create_pq();//构造优先级队列 void create_huffman_tree();//构造哈夫曼树 void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表 bool calculate_huffman_codes();//计算哈夫曼编码 bool do_compress();//开始压缩 bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树 void decode_huffman();//根据重构的哈夫曼树解码文件 后续 🔗该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎联系我。如有任何问题，亦可与我一同探讨。">
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -24,6 +24,8 @@
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -66,6 +68,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</h1>
 
@@ -85,6 +89,7 @@ if (!doNotTrack) {
         </span>
     </div>
 
+    
     
     
 
@@ -120,6 +125,18 @@ if (!doNotTrack) {
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

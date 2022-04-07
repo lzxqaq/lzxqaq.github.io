@@ -10,7 +10,7 @@
  一、运行时数据区域  程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存   二、垃圾收集  判断一个对象是否可被回收 引用类型 垃圾收集算法 垃圾收集器   三、内存分配和回收策略  Minor Gc 和 Full Gc 内存分配策略 Full GC 的触发条件   四、类加载机制  类的生命周期 类加载过程 类初始化时机 类与类加载器 类加载器分类 双亲委派模型 自定义类加载器实现    一、运行时数据区域  🔗程序计数器  🔗记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。
 Java 虚拟机栈  🔗每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
 可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5&#43; 默认为 1M：">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -21,6 +21,8 @@ Java 虚拟机栈  🔗每个 Java方法在执行的同时会创建一个栈帧�
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -63,6 +65,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">Java 虚拟机</h1>
 
@@ -82,6 +86,7 @@ if (!doNotTrack) {
         </span>
     </div>
 
+    
     
     
 
@@ -200,6 +205,18 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

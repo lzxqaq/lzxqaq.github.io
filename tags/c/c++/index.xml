@@ -85,7 +85,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <guid>/posts/database/</guid>
       <description>转载自https://github.com/huihut/interview
  本节部分知识点来自《数据库系统概论（第 5 版）》
- 基本概念 🔗 数据（data）：描述事物的符号记录称为数据。 数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。 数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。 数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。 实体（entity）：客观存在并可相互区别的事物称为实体。 属性（attribute）：实体所具有的某一特性称为属性。 码（key）：唯一标识实体的属性集称为码。 实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。 实体集（entity set）：同一实体型的集合称为实体集。 联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。 模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。  常用数据模型 🔗 层次模型（hierarchical model） 网状模型（network model） 关系模型（relational model）  关系（relation）：一个关系对应通常说的一张表 元组（tuple）：表中的一行即为一个元组 属性（attribute）：表中的一列即为一个属性 码（key）：表中可以唯一确定一个元组的某个属性组 域（domain）：一组具有相同数据类型的值的集合 分量：元组中的一个属性值 关系模式：对关系的描述，一般表示为 关系名(属性1, 属性2, ..., 属性n)   面向对象数据模型（object oriented data model） 对象关系数据模型（object relational data model） 半结构化数据模型（semistructure data model）  常用 SQL 操作 🔗  对象类型 对象 操作类型   数据库模式 模式 CREATE SCHEMA   基本表 CREATE SCHEMA，ALTER TABLE   视图 CREATE VIEW   索引 CREATE INDEX   数据 基本表和视图 SELECT，INSERT，UPDATE，DELETE，REFERENCES，ALL PRIVILEGES   属性列 SELECT，INSERT，UPDATE，REFERENCES，ALL PRIVILEGES    SQL 语法教程：runoob .</description>
+ 基本概念 🔗 数据（data）：描述事物的符号记录称为数据。 数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。 数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。 数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。 实体（entity）：客观存在并可相互区别的事物称为实体。 属性（attribute）：实体所具有的某一特性称为属性。 码（key）：唯一标识实体的属性集称为码。 实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。 实体集（entity set）：同一实体型的集合称为实体集。 联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。 模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。  常用数据模型 🔗 层次模型（hierarchical model） 网状模型（network model） 关系模型（relational model）  关系（relation）：一个关系对应通常说的一张表 元组（tuple）：表中的一行即为一个元组 属性（attribute）：表中的一列即为一个属性 码（key）：表中可以唯一确定一个元组的某个属性组 域（domain）：一组具有相同数据类型的值的集合 分量：元组中的一个属性值 关系模式：对关系的描述，一般表示为 关系名(属性1, 属性2, ..., 属性n)   面向对象数据模型（object oriented data model） 对象关系数据模型（object relational data model） 半结构化数据模型（semistructure data model）  常用 SQL 操作 🔗对象类型对象操作类型数据库模式模式CREATE SCHEMA基本表CREATE SCHEMA，ALTER TABLE视图CREATE VIEW索引CREATE INDEX数据基本表和视图SELECT，INSERT，UPDATE，DELETE，REFERENCES，ALL PRIVILEGES属性列SELECT，INSERT，UPDATE，REFERENCES，ALL PRIVILEGES SQL 语法教程：runoob .</description>
     </item>
     
     <item>
@@ -186,11 +186,11 @@ new和delete运算符用于动态分配和撤销内存的运算符
   int *a = new int(5) 作用同上,但是同时将整数赋值为5
    开辟数组空间
 一维:
- int *a = new int[100]; // 开辟一个大小为100的整型数组空间  二维:
- int **a = new int[5][6]  三维及其以上:依此类推
+ int *a = new int[100]; // 开辟一个大小为100的整型数组空间 二维:
+ int **a = new int[5][6] 三维及其以上:依此类推
   一般用法: new 类型 [初值]
 (2) delete用法 🔗  int *a = new int;
- delete a; //释放单个int的空间    int *a = new int[5];</description>
+ delete a; //释放单个int的空间   int *a = new int[5];</description>
     </item>
     
     <item>
@@ -202,9 +202,9 @@ new和delete运算符用于动态分配和撤销内存的运算符
       <description>转载自https://github.com/andycai/cprimer
 3.1 char*, char[], string 🔗在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&amp;rsquo;\0&amp;rsquo;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
 C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是以后不能利用&amp;rdquo;=&amp;ldquo;对C字符串进行赋值。对C字符串的操作需要通过&amp;quot;string&amp;quot;文件中定义的字符串处理函数。例如：
-//字符串的初始化 char a[11] = &amp;quot;huanying&amp;quot;; //字符串的赋值 strcpy(a,&amp;quot;nihao&amp;quot;) //获取字符串的长度，不包括&#39;\0&#39;在内 strlen(a); printf(&amp;quot;%s&amp;quot;,a);  在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
+//字符串的初始化char a[11] = &amp;quot;huanying&amp;quot;;//字符串的赋值strcpy(a,&amp;quot;nihao&amp;quot;)//获取字符串的长度，不包括&#39;\0&#39;在内strlen(a);printf(&amp;quot;%s&amp;quot;,a); 在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
 在C++中则把字符串封装成了一种数据类型string,可以直接声明变量并进行赋值等字符串操作。以下是C字符串和C++中string的区别：
- C字符串 string对象 所需的头文件名称 &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; 为什么需要头文件 为了使用字符串函数 为了使用string类 如何声明 char name[20]; string name; 如何初始化 char name[20]=&amp;quot;nihao&amp;quot;; string name = &amp;quot;nihao&amp;quot;; 必须声明字符串长度么？	是 否 使用一个null字符么？ 是 否 怎样实现字符串赋值 strcpy(name,&amp;quot;John&amp;quot;); name = &amp;quot;John&amp;quot;; 其他优点 更快 更易于使用，优选方案 可以赋一个比现有字符更 不能 可以 长的字符串么？  (1) C++常用字符串函数 🔗char s1[]=&amp;quot;I am a student&amp;quot;; char s2[20]=&amp;quot;teacher&amp;quot;; char s3[]=&amp;quot;student&amp;quot;; int result; char s4[20],*p;    串长度 int strlen(char *str)</description>
+ C字符串 string对象所需的头文件名称 &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt;为什么需要头文件 为了使用字符串函数 为了使用string类如何声明 char name[20]; string name;如何初始化 char name[20]=&amp;quot;nihao&amp;quot;; string name = &amp;quot;nihao&amp;quot;;必须声明字符串长度么？	是 否使用一个null字符么？ 是 否怎样实现字符串赋值 strcpy(name,&amp;quot;John&amp;quot;); name = &amp;quot;John&amp;quot;;其他优点 更快 更易于使用，优选方案可以赋一个比现有字符更 不能 可以长的字符串么？  (1) C++常用字符串函数 🔗char s1[]=&amp;quot;I am a student&amp;quot;;char s2[20]=&amp;quot;teacher&amp;quot;;char s3[]=&amp;quot;student&amp;quot;;int result;char s4[20],*p;   串长度 int strlen(char *str)</description>
     </item>
     
     <item>
@@ -215,7 +215,7 @@ C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是
       <guid>/posts/cprimer02/</guid>
       <description>转载自https://github.com/andycai/cprimer
 2.1 refrence 引用 🔗引用是C++中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。
-int m; int &amp;amp;n = m;  n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。
+int m; int &amp;amp;n = m; n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。
 引用的规则：
  引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。 不能有NULL引用，引用必须与合法的存储单元关联（指针则可以是NULL）。 一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。  以下示例程序中，k 被初始化为 i 的引用。语句 k = j 并不能将 k 修改成为 j 的引用，只是把 k 的值改变成为6。由于 k 是 i 的引用，所以 i 的值也变成了6。
 int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6;  引用的主要功能是传递函数的参数和返回值。</description>
@@ -229,9 +229,9 @@ int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6;  �
       <guid>/posts/cprimer01/</guid>
       <description>转载自https://github.com/andycai/cprimer
 1.1 const 🔗(1) const 基础 🔗如果const关键字不涉及到指针，我们很好理解，下面是涉及到指针的情况：
-int b = 500; const int* a = &amp;amp;b; [1] int const *a = &amp;amp;b; [2] int* const a = &amp;amp;b; [3] const int* const a = &amp;amp;b; [4]  如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
+int b = 500;const int* a = &amp;amp;b; [1]int const *a = &amp;amp;b; [2]int* const a = &amp;amp;b; [3]const int* const a = &amp;amp;b; [4] 如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
 因此，[1]和[2]的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；[3]为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a++是错误的；[4]为指针本身和指向的内容均为常量。
-(2) 作为参数 🔗void display(const double&amp;amp; r); void display(const double* r);  说明:
+(2) 作为参数 🔗void display(const double&amp;amp; r);void display(const double* r); 说明:
  在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义 保证引用的变量的值不被改变 const 在 double 前或者后面意思相同，只是不同的人的写法不同  (3) const对象 🔗声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。</description>
     </item>
     

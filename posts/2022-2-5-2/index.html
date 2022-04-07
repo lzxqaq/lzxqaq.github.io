@@ -43,7 +43,7 @@
 だけど俺はこの街を愛し そしてこの街を憎んだ
 但我爱着这个城市 并又憎恨着这座城市
 死にたいくらいに憧れた 東京のバカヤローが">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -54,6 +54,8 @@
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -96,6 +98,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">とんぼ</h1>
 
@@ -115,6 +119,25 @@ if (!doNotTrack) {
         </span>
     </div>
 
+     
+  <div class="container">
+    <div id="aplayer"></div>
+</div>
+<script>
+const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    autoplay: true,
+    audio: [
+        {
+            name: 'とんぼ',
+            artist: '長渕剛',
+            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Tsuyoshi_Nagabuchi_Tonbo.mp3',
+            cover: '',
+        }
+    ]
+});
+</script>
+  
     
     
 
@@ -204,6 +227,18 @@ if (!doNotTrack) {
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

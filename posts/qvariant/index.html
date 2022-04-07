@@ -12,7 +12,7 @@
 公共析构函数
  下列 Message类定义包括以下成员：
 class Message { public:  Message() = default;  ~Message() = default;  Message(const Message &amp;) = default;  Message &amp;operator=(const Message &amp;) = default;   Message(const QString &amp;body, const QStringList &amp;headers);   QStringView body() const;  QStringList headers() const;  private:  QString m_body;  QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -23,6 +23,8 @@ class Message { public:  Message() = default;  ~Message() = default;  Message(co
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -65,6 +67,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">Qt6 Qvariant 与自定义 Qt 类型</h1>
 
@@ -84,6 +88,7 @@ if (!doNotTrack) {
         </span>
     </div>
 
+    
     
     
 
@@ -173,6 +178,18 @@ if (!doNotTrack) {
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

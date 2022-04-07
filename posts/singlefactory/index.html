@@ -11,7 +11,7 @@
 一、图表库的设计 🔗 Sunny软件公司欲基于Java语言开发一套图表库，该图表库可以为应用系统提供各种不同外观的图表，例如柱状图、饼状图、折线图等。Sunny软件公司图表库设计人员希望为应用系统开发人员提供一套灵活易用的图表库，而且可以较为方便地对图表库进行扩展，以便能够在将来增加一些新类型的图表。
  Sunny软件公司图表库设计人员提出了一个初始设计方案，将所有图表的实现代码封装在一个Chart类中，其框架代码如下所示：
 class Chart { private String type; //图表类型  public Chart(Object[][] data, String type) { this.type = type; if (type.equalsIgnoreCase(&#34;histogram&#34;)) {  //初始化柱状图 } else if (type.equalsIgnoreCase(&#34;pie&#34;)) {  //初始化饼状图 } else if (type.equalsIgnoreCase(&#34;line&#34;)) {  //初始化折线图 } }  public void display() { if (this.type.equalsIgnoreCase(&#34;histogram&#34;)) {  //显示柱状图 } else if (this.type.equalsIgnoreCase(&#34;pie&#34;)) {  //显示饼状图 } else if (this.type.equalsIgnoreCase(&#34;line&#34;)) {  //显示折线图 }	} } 客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -22,6 +22,8 @@ class Chart { private String type; //图表类型  public Chart(Object[][] data,
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -64,6 +66,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">简单工厂模式</h1>
 
@@ -83,6 +87,7 @@ if (!doNotTrack) {
         </span>
     </div>
 
+    
     
     
 
@@ -363,6 +368,18 @@ if (!doNotTrack) {
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 

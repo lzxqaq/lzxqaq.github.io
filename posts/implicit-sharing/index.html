@@ -20,7 +20,7 @@
  警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。
  示例 🔗QPixmap p1, p2; p1.load(&#34;image.bmp&#34;); p2 = p1; // p1 and p2 share data  QPainter paint; paint.begin(&amp;p2); // cuts p2 loose from p1 paint.drawText(0,50, &#34;Hi&#34;); paint.end(); 在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。
 所有隐式共享的类 🔗参见 Qt 文档。">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -31,6 +31,8 @@
 
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
  
     
@@ -73,6 +75,8 @@ if (!doNotTrack) {
     <main class="main">
       
 
+
+
 <section id="single">
     <h1 class="title">Qt6 隐式共享</h1>
 
@@ -92,6 +96,7 @@ if (!doNotTrack) {
         </span>
     </div>
 
+    
     
     
 
@@ -133,6 +138,18 @@ if (!doNotTrack) {
     
     
     
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
 
 </section>
 
