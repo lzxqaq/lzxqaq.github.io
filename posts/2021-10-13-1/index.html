@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>Qt单元测试基础笔记 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="一、构建 🔗构建时添加 QT &#43;= testlib 。
+二、测试类 🔗测试类必须从 QObject 继承，头文件 include &lt;QTest&gt; ，并将测试函数声明 private slot
+三、QVERIFY(condition) 宏 🔗检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。
+如果需要在测试失败报告中加入附加信息，可以使用 QVERIFY2(condition, message)。
+如果需要测试日志有更详细的输出，可以使用 QCOMPARE(actual, expected)。
+四、QCOMPARE(actual, expected)宏 🔗使用相等运算符将 actual （实际值）与 expected （预期值）进行比较。如果实际和预期匹配，则继续执行。如果不是，则在测试日志中记录失败，并且测试函数返回而不尝试任何后续检查。
+如果比较失败，QCOMPARE() 会尝试输出值的内容，因此可以从测试日志中看到比较失败的原因。
+对于你自己的类，你可以使用 QTest::toString () 来格式化输出到测试日志中的值。具体可参考 Qt 文档;
+五、可执行文件 🔗如果需要将测试用例成为独立的可执行文件，需要添加以下两行：
+QTEST_MAIN(YourClassName) #include &#34;yourfilename.moc&#34; ">
+<meta name="generator" content="Hugo 0.89.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">Qt单元测试基础笔记</h1>
+
+    <div class="tip">
+        <time datetime="2021-10-13 07:01:19 &#43;0800 CST">2021年10月13日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          45字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <h3 id="一构建">一、构建 <a href="#%e4%b8%80%e6%9e%84%e5%bb%ba" class="anchor">🔗</a></h3><p>构建时添加 <code>QT += testlib</code> 。</p>
+<h3 id="二测试类">二、测试类 <a href="#%e4%ba%8c%e6%b5%8b%e8%af%95%e7%b1%bb" class="anchor">🔗</a></h3><p>测试类必须从 QObject 继承，头文件 <code>include &lt;QTest&gt;</code> ，并将测试函数声明 <code>private slot</code></p>
+<h3 id="三qverifycondition-宏">三、QVERIFY(condition) 宏 <a href="#%e4%b8%89qverifycondition-%e5%ae%8f" class="anchor">🔗</a></h3><p>检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。</p>
+<p>如果需要在测试失败报告中加入附加信息，可以使用 QVERIFY2(condition, message)。</p>
+<p>如果需要测试日志有更详细的输出，可以使用 QCOMPARE(actual, expected)。</p>
+<h3 id="四qcompareactual-expected宏">四、QCOMPARE(actual, expected)宏 <a href="#%e5%9b%9bqcompareactual-expected%e5%ae%8f" class="anchor">🔗</a></h3><p>使用相等运算符将 actual （实际值）与 expected （预期值）进行比较。如果实际和预期匹配，则继续执行。如果不是，则在测试日志中记录失败，并且测试函数返回而不尝试任何后续检查。</p>
+<p>如果比较失败，QCOMPARE() 会尝试输出值的内容，因此可以从测试日志中看到比较失败的原因。</p>
+<p>对于你自己的类，你可以使用 <code>QTest::toString ()</code> 来格式化输出到测试日志中的值。具体可参考 <a href="https://doc.qt.io/qt-6/qtest.html#QCOMPARE" target="_blank" rel="noopener">Qt 文档</a>;</p>
+<h3 id="五可执行文件">五、可执行文件 <a href="#%e4%ba%94%e5%8f%af%e6%89%a7%e8%a1%8c%e6%96%87%e4%bb%b6" class="anchor">🔗</a></h3><p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">QTEST_MAIN(YourClassName)
+#include &#34;yourfilename.moc&#34;
+</code></pre></div>
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/qt">Qt</a>
+            
+        </div>
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

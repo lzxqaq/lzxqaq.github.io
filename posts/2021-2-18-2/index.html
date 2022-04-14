@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>从零开始搭建个人网站（win10,Github,Hugo） | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="准备工作 🔗1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）
+补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。
+2.准备Git。
+（1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
+（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 git config --global user.email &quot;你注册Github所用的邮箱&quot; 回车执行，再输入 git config --global user.name &quot;你的昵称&quot; 回车执行。
+3.安装 Hugo。（官方教程可看这里)
+（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。
+（2）前往这里，找到并下载 hugo_Windows-64bit.zip。解压，如果是一个 hugo_windows_amd64.exe 文件，将它改名为 hugo.exe。
+（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。
+（4）配置环境变量。方法1:在 win10 搜索 cmd，右键以管理员身份打开命令提示符，将 setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m 复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 D:\Hugo\bin 复制进去，确定。">
+<meta name="generator" content="Hugo 0.89.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">从零开始搭建个人网站（win10,Github,Hugo）</h1>
+
+    <div class="tip">
+        <time datetime="2021-02-18 09:03:38 &#43;0800 CST">2021年02月18日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          185字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <h3 id="准备工作">准备工作 <a href="#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c" class="anchor">🔗</a></h3><p>1.注册 Github 帐号。前往 <a href="https://github.com/" target="_blank">github.com</a> 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）</p>
+<p>补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。</p>
+<p>2.准备Git。</p>
+<p>（1）下载安装。前往 <a href="https://git-scm.com/download/win" target="_blank">这里</a> ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。</p>
+<p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
+<p>3.安装 Hugo。（官方教程可看<a href="https://www.gohugo.org/doc/tutorials/installing-on-windows/" target="_blank">这里</a>)</p>
+<p>（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。</p>
+<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank">这里</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
+<p>（4）配置环境变量。方法1:在 win10 搜索 cmd，右键<strong>以管理员身份打开</strong>命令提示符，将 <code>setx &quot;Path&quot; &quot;%PATH%;D:\Hugo\bin&quot; /m </code>复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&gt;编辑-&gt;新建，然后将 <code>D:\Hugo\bin</code> 复制进去，确定。</p>
+<p>（5）验证。重新打开命令提示符（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到 hugo 的帮助文档，就验证成功，否则检查上述步骤是否出错。</p>
+<h3 id="开始">开始 <a href="#%e5%bc%80%e5%a7%8b" class="anchor">🔗</a></h3><p>1.建立博客网站</p>
+<p>（1）使用 Hugo 建立网站。打开命令提示符，执行 <code>D:</code> 切换 D 盘，然后执行 <code>cd D:\Hugo\sites</code> 进入 D:\Hugo\sites 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 <code>cmd </code> 加空格，回车），执行命令 <code>hugo new site blog</code> ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件）</p>
+<p>（2）下载主题模板（以 Hugo.386 为例）。接上述步骤，在命令提示符中 执行 <code>git clone https://gitlab.com/maxlefou/hugo.386 themes/hugo.386 </code>来下载 hugo.386 主题。</p>
+<p>（3）配置。将 hugo.386\exampleSite 文件夹中的 theme.toml 文件复制到文件夹 blog 中，替换原本的。根据需要修改其中的内容。</p>
+<p>（4）预览。命令提示符进入 blog 目录，先执行 <code>hugo</code> ，再执行 <code>hugo server</code>。打开浏览器，访问 localhost:1313。</p>
+<p>2.将网站展示文件存放到 Github 远程仓库。</p>
+<p>（1）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库，在设置 setting 中检查 Github Pages。</p>
+<p>（2）打开命令提示符，进入 blog\public 目录，分别执行</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git init 
+git add .
+git commit -m &#34;first commit&#34;
+git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
+git push --set-upstream origin master
+</code></pre></div><p>输入账号名，密码，完成上传。</p>
+<p>（3）测试。访问 github.com 网站，在你之前创建的仓库可以看到刚刚上传的文件。随后检查 Github Pages 设置，访问提供的 <code>https://你的Github账户名.github.io</code> 访问你的网站，如果没有之前预览的网页，可以等待一会再刷新。</p>
+<p>3.自定义域名（可选、需要一定的时间）</p>
+<p>（1）购买域名。在华为云、阿里云等服务商购买域名。注意：国内购买域名需要实名认证。</p>
+<p>（2）配置。访问 github.com 网站，进入你的仓库，在 setting 中找到 Github Pages，在 Custom domain 输入框中输入你的域名，保存。</p>
+<p>（3）测试。访问你的域名。</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA">博客搭建</a>
+            
+        </div>
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

@@ -110,542 +110,542 @@
 <h2 id="595-big-countries">595. Big Countries</h2>
 <p><a href="https://leetcode.com/problems/big-countries/description/">https://leetcode.com/problems/big-countries/description/</a></p>
 <h3 id="description">Description</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+-----------------+------------+------------+--------------+---------------+
-</span></span><span style="display:flex;"><span>| name            | continent  | area       | population   | gdp           |
-</span></span><span style="display:flex;"><span>+-----------------+------------+------------+--------------+---------------+
-</span></span><span style="display:flex;"><span>| Afghanistan     | Asia       | 652230     | 25500100     | 20343000      |
-</span></span><span style="display:flex;"><span>| Albania         | Europe     | 28748      | 2831741      | 12960000      |
-</span></span><span style="display:flex;"><span>| Algeria         | Africa     | 2381741    | 37100000     | 188681000     |
-</span></span><span style="display:flex;"><span>| Andorra         | Europe     | 468        | 78115        | 3712000       |
-</span></span><span style="display:flex;"><span>| Angola          | Africa     | 1246700    | 20609294     | 100990000     |
-</span></span><span style="display:flex;"><span>+-----------------+------------+------------+--------------+---------------+
-</span></span></code></pre></div><p>查找面积超过 3,000,000 或者人口数超过 25,000,000 的国家。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+--------------+-------------+--------------+
-</span></span><span style="display:flex;"><span>| name         | population  | area         |
-</span></span><span style="display:flex;"><span>+--------------+-------------+--------------+
-</span></span><span style="display:flex;"><span>| Afghanistan  | 25500100    | 652230       |
-</span></span><span style="display:flex;"><span>| Algeria      | 37100000    | 2381741      |
-</span></span><span style="display:flex;"><span>+--------------+-------------+--------------+
-</span></span></code></pre></div><h3 id="solution">Solution</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> name,
-</span></span><span style="display:flex;"><span>    population,
-</span></span><span style="display:flex;"><span>    area
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    World
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    area <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3000000</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">OR</span> population <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">25000000</span>;
-</span></span></code></pre></div><h3 id="sql-schema">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-----------------+------------+------------+--------------+---------------+
+| name            | continent  | area       | population   | gdp           |
++-----------------+------------+------------+--------------+---------------+
+| Afghanistan     | Asia       | 652230     | 25500100     | 20343000      |
+| Albania         | Europe     | 28748      | 2831741      | 12960000      |
+| Algeria         | Africa     | 2381741    | 37100000     | 188681000     |
+| Andorra         | Europe     | 468        | 78115        | 3712000       |
+| Angola          | Africa     | 1246700    | 20609294     | 100990000     |
++-----------------+------------+------------+--------------+---------------+
+</code></pre></div><p>查找面积超过 3,000,000 或者人口数超过 25,000,000 的国家。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+--------------+-------------+--------------+
+| name         | population  | area         |
++--------------+-------------+--------------+
+| Afghanistan  | 25500100    | 652230       |
+| Algeria      | 37100000    | 2381741      |
++--------------+-------------+--------------+
+</code></pre></div><h3 id="solution">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> name,
+    population,
+    area
+<span style="color:#66d9ef">FROM</span>
+    World
+<span style="color:#66d9ef">WHERE</span>
+    area <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3000000</span>
+    <span style="color:#66d9ef">OR</span> population <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">25000000</span>;
+</code></pre></div><h3 id="sql-schema">SQL Schema</h3>
 <p>SQL Schema 用于在本地环境下创建表结构并导入数据，从而方便在本地环境调试。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> World;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> World ( NAME VARCHAR ( <span style="color:#ae81ff">255</span> ), continent VARCHAR ( <span style="color:#ae81ff">255</span> ), area INT, population INT, gdp INT );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> World ( NAME, continent, area, population, gdp )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;Afghanistan&#39;</span>, <span style="color:#e6db74">&#39;Asia&#39;</span>, <span style="color:#e6db74">&#39;652230&#39;</span>, <span style="color:#e6db74">&#39;25500100&#39;</span>, <span style="color:#e6db74">&#39;203430000&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;Albania&#39;</span>, <span style="color:#e6db74">&#39;Europe&#39;</span>, <span style="color:#e6db74">&#39;28748&#39;</span>, <span style="color:#e6db74">&#39;2831741&#39;</span>, <span style="color:#e6db74">&#39;129600000&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;Algeria&#39;</span>, <span style="color:#e6db74">&#39;Africa&#39;</span>, <span style="color:#e6db74">&#39;2381741&#39;</span>, <span style="color:#e6db74">&#39;37100000&#39;</span>, <span style="color:#e6db74">&#39;1886810000&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;Andorra&#39;</span>, <span style="color:#e6db74">&#39;Europe&#39;</span>, <span style="color:#e6db74">&#39;468&#39;</span>, <span style="color:#e6db74">&#39;78115&#39;</span>, <span style="color:#e6db74">&#39;37120000&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;Angola&#39;</span>, <span style="color:#e6db74">&#39;Africa&#39;</span>, <span style="color:#e6db74">&#39;1246700&#39;</span>, <span style="color:#e6db74">&#39;20609294&#39;</span>, <span style="color:#e6db74">&#39;1009900000&#39;</span> );
-</span></span></code></pre></div><h2 id="627-swap-salary">627. Swap Salary</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> World;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> World ( NAME VARCHAR ( <span style="color:#ae81ff">255</span> ), continent VARCHAR ( <span style="color:#ae81ff">255</span> ), area INT, population INT, gdp INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> World ( NAME, continent, area, population, gdp )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#e6db74">&#39;Afghanistan&#39;</span>, <span style="color:#e6db74">&#39;Asia&#39;</span>, <span style="color:#e6db74">&#39;652230&#39;</span>, <span style="color:#e6db74">&#39;25500100&#39;</span>, <span style="color:#e6db74">&#39;203430000&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;Albania&#39;</span>, <span style="color:#e6db74">&#39;Europe&#39;</span>, <span style="color:#e6db74">&#39;28748&#39;</span>, <span style="color:#e6db74">&#39;2831741&#39;</span>, <span style="color:#e6db74">&#39;129600000&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;Algeria&#39;</span>, <span style="color:#e6db74">&#39;Africa&#39;</span>, <span style="color:#e6db74">&#39;2381741&#39;</span>, <span style="color:#e6db74">&#39;37100000&#39;</span>, <span style="color:#e6db74">&#39;1886810000&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;Andorra&#39;</span>, <span style="color:#e6db74">&#39;Europe&#39;</span>, <span style="color:#e6db74">&#39;468&#39;</span>, <span style="color:#e6db74">&#39;78115&#39;</span>, <span style="color:#e6db74">&#39;37120000&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;Angola&#39;</span>, <span style="color:#e6db74">&#39;Africa&#39;</span>, <span style="color:#e6db74">&#39;1246700&#39;</span>, <span style="color:#e6db74">&#39;20609294&#39;</span>, <span style="color:#e6db74">&#39;1009900000&#39;</span> );
+</code></pre></div><h2 id="627-swap-salary">627. Swap Salary</h2>
 <p><a href="https://leetcode.com/problems/swap-salary/description/">https://leetcode.com/problems/swap-salary/description/</a></p>
 <h3 id="description-1">Description</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>| id | name | sex | salary |
-</span></span><span style="display:flex;"><span>|----|------|-----|--------|
-</span></span><span style="display:flex;"><span>| 1  | A    | m   | 2500   |
-</span></span><span style="display:flex;"><span>| 2  | B    | f   | 1500   |
-</span></span><span style="display:flex;"><span>| 3  | C    | m   | 5500   |
-</span></span><span style="display:flex;"><span>| 4  | D    | f   | 500    |
-</span></span></code></pre></div><p>只用一个 SQL 查询，将 sex 字段反转。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>| id | name | sex | salary |
-</span></span><span style="display:flex;"><span>|----|------|-----|--------|
-</span></span><span style="display:flex;"><span>| 1  | A    | f   | 2500   |
-</span></span><span style="display:flex;"><span>| 2  | B    | m   | 1500   |
-</span></span><span style="display:flex;"><span>| 3  | C    | f   | 5500   |
-</span></span><span style="display:flex;"><span>| 4  | D    | m   | 500    |
-</span></span></code></pre></div><h3 id="solution-1">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">| id | name | sex | salary |
+|----|------|-----|--------|
+| 1  | A    | m   | 2500   |
+| 2  | B    | f   | 1500   |
+| 3  | C    | m   | 5500   |
+| 4  | D    | f   | 500    |
+</code></pre></div><p>只用一个 SQL 查询，将 sex 字段反转。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">| id | name | sex | salary |
+|----|------|-----|--------|
+| 1  | A    | f   | 2500   |
+| 2  | B    | m   | 1500   |
+| 3  | C    | f   | 5500   |
+| 4  | D    | m   | 500    |
+</code></pre></div><h3 id="solution-1">Solution</h3>
 <p>两个相等的数异或的结果为 0，而 0 与任何一个数异或的结果为这个数。</p>
-<p>sex  字段只有两个取值：&lsquo;f&rsquo; 和 &rsquo;m&rsquo;，并且有以下规律：</p>
-<pre tabindex="0"><code>&#39;f&#39; ^ (&#39;m&#39; ^ &#39;f&#39;) = &#39;m&#39; ^ (&#39;f&#39; ^ &#39;f&#39;) = &#39;m&#39;
-&#39;m&#39; ^ (&#39;m&#39; ^ &#39;f&#39;) = &#39;f&#39; ^ (&#39;m&#39; ^ &#39;m&#39;) = &#39;f&#39;
-</code></pre><p>因此将 sex 字段和 &rsquo;m&rsquo; ^ &lsquo;f&rsquo; 进行异或操作，最后就能反转 sex 字段。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">UPDATE</span> salary
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> sex <span style="color:#f92672">=</span> CHAR ( ASCII(sex) <span style="color:#f92672">^</span> ASCII( <span style="color:#e6db74">&#39;m&#39;</span> ) <span style="color:#f92672">^</span> ASCII( <span style="color:#e6db74">&#39;f&#39;</span> ) );
-</span></span></code></pre></div><h3 id="sql-schema-1">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> salary;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> salary ( id INT, NAME VARCHAR ( <span style="color:#ae81ff">100</span> ), sex CHAR ( <span style="color:#ae81ff">1</span> ), salary INT );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> salary ( id, NAME, sex, salary )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;m&#39;</span>, <span style="color:#e6db74">&#39;2500&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;f&#39;</span>, <span style="color:#e6db74">&#39;1500&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;3&#39;</span>, <span style="color:#e6db74">&#39;C&#39;</span>, <span style="color:#e6db74">&#39;m&#39;</span>, <span style="color:#e6db74">&#39;5500&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;4&#39;</span>, <span style="color:#e6db74">&#39;D&#39;</span>, <span style="color:#e6db74">&#39;f&#39;</span>, <span style="color:#e6db74">&#39;500&#39;</span> );
-</span></span></code></pre></div><h2 id="620-not-boring-movies">620. Not Boring Movies</h2>
+<p>sex  字段只有两个取值：&lsquo;f&rsquo; 和 &rsquo;m'，并且有以下规律：</p>
+<pre tabindex="0"><code>'f' ^ ('m' ^ 'f') = 'm' ^ ('f' ^ 'f') = 'm'
+'m' ^ ('m' ^ 'f') = 'f' ^ ('m' ^ 'm') = 'f'
+</code></pre><p>因此将 sex 字段和 &rsquo;m' ^ &lsquo;f&rsquo; 进行异或操作，最后就能反转 sex 字段。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">UPDATE</span> salary
+<span style="color:#66d9ef">SET</span> sex <span style="color:#f92672">=</span> CHAR ( ASCII(sex) <span style="color:#f92672">^</span> ASCII( <span style="color:#e6db74">&#39;m&#39;</span> ) <span style="color:#f92672">^</span> ASCII( <span style="color:#e6db74">&#39;f&#39;</span> ) );
+</code></pre></div><h3 id="sql-schema-1">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> salary;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> salary ( id INT, NAME VARCHAR ( <span style="color:#ae81ff">100</span> ), sex CHAR ( <span style="color:#ae81ff">1</span> ), salary INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> salary ( id, NAME, sex, salary )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;m&#39;</span>, <span style="color:#e6db74">&#39;2500&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;f&#39;</span>, <span style="color:#e6db74">&#39;1500&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;3&#39;</span>, <span style="color:#e6db74">&#39;C&#39;</span>, <span style="color:#e6db74">&#39;m&#39;</span>, <span style="color:#e6db74">&#39;5500&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;4&#39;</span>, <span style="color:#e6db74">&#39;D&#39;</span>, <span style="color:#e6db74">&#39;f&#39;</span>, <span style="color:#e6db74">&#39;500&#39;</span> );
+</code></pre></div><h2 id="620-not-boring-movies">620. Not Boring Movies</h2>
 <p><a href="https://leetcode.com/problems/not-boring-movies/description/">https://leetcode.com/problems/not-boring-movies/description/</a></p>
 <h3 id="description-2">Description</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+---------+-----------+--------------+-----------+
-</span></span><span style="display:flex;"><span>|   id    | movie     |  description |  rating   |
-</span></span><span style="display:flex;"><span>+---------+-----------+--------------+-----------+
-</span></span><span style="display:flex;"><span>|   1     | War       |   great 3D   |   8.9     |
-</span></span><span style="display:flex;"><span>|   2     | Science   |   fiction    |   8.5     |
-</span></span><span style="display:flex;"><span>|   3     | irish     |   boring     |   6.2     |
-</span></span><span style="display:flex;"><span>|   4     | Ice song  |   Fantacy    |   8.6     |
-</span></span><span style="display:flex;"><span>|   5     | House card|   Interesting|   9.1     |
-</span></span><span style="display:flex;"><span>+---------+-----------+--------------+-----------+
-</span></span></code></pre></div><p>查找 id 为奇数，并且 description 不是 boring 的电影，按 rating 降序。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+---------+-----------+--------------+-----------+
-</span></span><span style="display:flex;"><span>|   id    | movie     |  description |  rating   |
-</span></span><span style="display:flex;"><span>+---------+-----------+--------------+-----------+
-</span></span><span style="display:flex;"><span>|   5     | House card|   Interesting|   9.1     |
-</span></span><span style="display:flex;"><span>|   1     | War       |   great 3D   |   8.9     |
-</span></span><span style="display:flex;"><span>+---------+-----------+--------------+-----------+
-</span></span></code></pre></div><h3 id="solution-2">Solution</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    cinema
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    id <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> description <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;boring&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
-</span></span><span style="display:flex;"><span>    rating <span style="color:#66d9ef">DESC</span>;
-</span></span></code></pre></div><h3 id="sql-schema-2">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> cinema;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> cinema ( id INT, movie VARCHAR ( <span style="color:#ae81ff">255</span> ), description VARCHAR ( <span style="color:#ae81ff">255</span> ), rating FLOAT ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span> ) );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> cinema ( id, movie, description, rating )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;War&#39;</span>, <span style="color:#e6db74">&#39;great 3D&#39;</span>, <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">9</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Science&#39;</span>, <span style="color:#e6db74">&#39;fiction&#39;</span>, <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">5</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;irish&#39;</span>, <span style="color:#e6db74">&#39;boring&#39;</span>, <span style="color:#ae81ff">6</span>.<span style="color:#ae81ff">2</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Ice song&#39;</span>, <span style="color:#e6db74">&#39;Fantacy&#39;</span>, <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">6</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;House card&#39;</span>, <span style="color:#e6db74">&#39;Interesting&#39;</span>, <span style="color:#ae81ff">9</span>.<span style="color:#ae81ff">1</span> );
-</span></span></code></pre></div><h2 id="596-classes-more-than-5-students">596. Classes More Than 5 Students</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+-----------+--------------+-----------+
+|   id    | movie     |  description |  rating   |
++---------+-----------+--------------+-----------+
+|   1     | War       |   great 3D   |   8.9     |
+|   2     | Science   |   fiction    |   8.5     |
+|   3     | irish     |   boring     |   6.2     |
+|   4     | Ice song  |   Fantacy    |   8.6     |
+|   5     | House card|   Interesting|   9.1     |
++---------+-----------+--------------+-----------+
+</code></pre></div><p>查找 id 为奇数，并且 description 不是 boring 的电影，按 rating 降序。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+-----------+--------------+-----------+
+|   id    | movie     |  description |  rating   |
++---------+-----------+--------------+-----------+
+|   5     | House card|   Interesting|   9.1     |
+|   1     | War       |   great 3D   |   8.9     |
++---------+-----------+--------------+-----------+
+</code></pre></div><h3 id="solution-2">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    <span style="color:#f92672">*</span>
+<span style="color:#66d9ef">FROM</span>
+    cinema
+<span style="color:#66d9ef">WHERE</span>
+    id <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> description <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;boring&#39;</span>
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+    rating <span style="color:#66d9ef">DESC</span>;
+</code></pre></div><h3 id="sql-schema-2">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> cinema;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> cinema ( id INT, movie VARCHAR ( <span style="color:#ae81ff">255</span> ), description VARCHAR ( <span style="color:#ae81ff">255</span> ), rating FLOAT ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> cinema ( id, movie, description, rating )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;War&#39;</span>, <span style="color:#e6db74">&#39;great 3D&#39;</span>, <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">9</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Science&#39;</span>, <span style="color:#e6db74">&#39;fiction&#39;</span>, <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">5</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;irish&#39;</span>, <span style="color:#e6db74">&#39;boring&#39;</span>, <span style="color:#ae81ff">6</span>.<span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Ice song&#39;</span>, <span style="color:#e6db74">&#39;Fantacy&#39;</span>, <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">6</span> ),
+    ( <span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;House card&#39;</span>, <span style="color:#e6db74">&#39;Interesting&#39;</span>, <span style="color:#ae81ff">9</span>.<span style="color:#ae81ff">1</span> );
+</code></pre></div><h2 id="596-classes-more-than-5-students">596. Classes More Than 5 Students</h2>
 <p><a href="https://leetcode.com/problems/classes-more-than-5-students/description/">https://leetcode.com/problems/classes-more-than-5-students/description/</a></p>
 <h3 id="description-3">Description</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+---------+------------+
-</span></span><span style="display:flex;"><span>| student | class      |
-</span></span><span style="display:flex;"><span>+---------+------------+
-</span></span><span style="display:flex;"><span>| A       | Math       |
-</span></span><span style="display:flex;"><span>| B       | English    |
-</span></span><span style="display:flex;"><span>| C       | Math       |
-</span></span><span style="display:flex;"><span>| D       | Biology    |
-</span></span><span style="display:flex;"><span>| E       | Math       |
-</span></span><span style="display:flex;"><span>| F       | Computer   |
-</span></span><span style="display:flex;"><span>| G       | Math       |
-</span></span><span style="display:flex;"><span>| H       | Math       |
-</span></span><span style="display:flex;"><span>| I       | Math       |
-</span></span><span style="display:flex;"><span>+---------+------------+
-</span></span></code></pre></div><p>查找有五名及以上 student 的 class。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+---------+
-</span></span><span style="display:flex;"><span>| class   |
-</span></span><span style="display:flex;"><span>+---------+
-</span></span><span style="display:flex;"><span>| Math    |
-</span></span><span style="display:flex;"><span>+---------+
-</span></span></code></pre></div><h3 id="solution-3">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+------------+
+| student | class      |
++---------+------------+
+| A       | Math       |
+| B       | English    |
+| C       | Math       |
+| D       | Biology    |
+| E       | Math       |
+| F       | Computer   |
+| G       | Math       |
+| H       | Math       |
+| I       | Math       |
++---------+------------+
+</code></pre></div><p>查找有五名及以上 student 的 class。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+
+| class   |
++---------+
+| Math    |
++---------+
+</code></pre></div><h3 id="solution-3">Solution</h3>
 <p>对 class 列进行分组之后，再使用 count 汇总函数统计每个分组的记录个数，之后使用 HAVING 进行筛选。HAVING  针对分组进行筛选，而 WHERE 针对每个记录（行）进行筛选。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    courses
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">HAVING</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">count</span>( <span style="color:#66d9ef">DISTINCT</span> student ) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">5</span>;
-</span></span></code></pre></div><h3 id="sql-schema-3">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> courses;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> courses ( student VARCHAR ( <span style="color:#ae81ff">255</span> ), <span style="color:#66d9ef">class</span> VARCHAR ( <span style="color:#ae81ff">255</span> ) );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> courses ( student, <span style="color:#66d9ef">class</span> )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;English&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;C&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;D&#39;</span>, <span style="color:#e6db74">&#39;Biology&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;E&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;F&#39;</span>, <span style="color:#e6db74">&#39;Computer&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;G&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;H&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;I&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> );
-</span></span></code></pre></div><h2 id="182-duplicate-emails">182. Duplicate Emails</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    <span style="color:#66d9ef">class</span>
+<span style="color:#66d9ef">FROM</span>
+    courses
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
+    <span style="color:#66d9ef">class</span>
+<span style="color:#66d9ef">HAVING</span>
+    <span style="color:#66d9ef">count</span>( <span style="color:#66d9ef">DISTINCT</span> student ) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">5</span>;
+</code></pre></div><h3 id="sql-schema-3">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> courses;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> courses ( student VARCHAR ( <span style="color:#ae81ff">255</span> ), <span style="color:#66d9ef">class</span> VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> courses ( student, <span style="color:#66d9ef">class</span> )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;English&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;C&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;D&#39;</span>, <span style="color:#e6db74">&#39;Biology&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;E&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;F&#39;</span>, <span style="color:#e6db74">&#39;Computer&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;G&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;H&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;I&#39;</span>, <span style="color:#e6db74">&#39;Math&#39;</span> );
+</code></pre></div><h2 id="182-duplicate-emails">182. Duplicate Emails</h2>
 <p><a href="https://leetcode.com/problems/duplicate-emails/description/">https://leetcode.com/problems/duplicate-emails/description/</a></p>
 <h3 id="description-4">Description</h3>
 <p>邮件地址表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+---------+
-</span></span><span style="display:flex;"><span>| Id | Email   |
-</span></span><span style="display:flex;"><span>+----+---------+
-</span></span><span style="display:flex;"><span>| 1  | a@b.com |
-</span></span><span style="display:flex;"><span>| 2  | c@d.com |
-</span></span><span style="display:flex;"><span>| 3  | a@b.com |
-</span></span><span style="display:flex;"><span>+----+---------+
-</span></span></code></pre></div><p>查找重复的邮件地址：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+---------+
-</span></span><span style="display:flex;"><span>| Email   |
-</span></span><span style="display:flex;"><span>+---------+
-</span></span><span style="display:flex;"><span>| a@b.com |
-</span></span><span style="display:flex;"><span>+---------+
-</span></span></code></pre></div><h3 id="solution-4">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+---------+
+| Id | Email   |
++----+---------+
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
++----+---------+
+</code></pre></div><p>查找重复的邮件地址：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+
+| Email   |
++---------+
+| a@b.com |
++---------+
+</code></pre></div><h3 id="solution-4">Solution</h3>
 <p>对 Email 进行分组，如果并使用 COUNT 进行计数统计，结果大于等于 2 的表示 Email  重复。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    Email
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Person
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
-</span></span><span style="display:flex;"><span>    Email
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">HAVING</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">COUNT</span>( <span style="color:#f92672">*</span> ) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>;
-</span></span></code></pre></div><h3 id="sql-schema-4">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> Person;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Person ( Id INT, Email VARCHAR ( <span style="color:#ae81ff">255</span> ) );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Person ( Id, Email )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;a@b.com&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;c@d.com&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;a@b.com&#39;</span> );
-</span></span></code></pre></div><h2 id="196-delete-duplicate-emails">196. Delete Duplicate Emails</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    Email
+<span style="color:#66d9ef">FROM</span>
+    Person
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
+    Email
+<span style="color:#66d9ef">HAVING</span>
+    <span style="color:#66d9ef">COUNT</span>( <span style="color:#f92672">*</span> ) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>;
+</code></pre></div><h3 id="sql-schema-4">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Person;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Person ( Id INT, Email VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Person ( Id, Email )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;a@b.com&#39;</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;c@d.com&#39;</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;a@b.com&#39;</span> );
+</code></pre></div><h2 id="196-delete-duplicate-emails">196. Delete Duplicate Emails</h2>
 <p><a href="https://leetcode.com/problems/delete-duplicate-emails/description/">https://leetcode.com/problems/delete-duplicate-emails/description/</a></p>
 <h3 id="description-5">Description</h3>
 <p>邮件地址表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+---------+
-</span></span><span style="display:flex;"><span>| Id | Email   |
-</span></span><span style="display:flex;"><span>+----+---------+
-</span></span><span style="display:flex;"><span>| 1  | john@example.com |
-</span></span><span style="display:flex;"><span>| 2  | bob@example.com |
-</span></span><span style="display:flex;"><span>| 3  | john@example.com |
-</span></span><span style="display:flex;"><span>+----+---------+
-</span></span></code></pre></div><p>删除重复的邮件地址：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+------------------+
-</span></span><span style="display:flex;"><span>| Id | Email            |
-</span></span><span style="display:flex;"><span>+----+------------------+
-</span></span><span style="display:flex;"><span>| 1  | john@example.com |
-</span></span><span style="display:flex;"><span>| 2  | bob@example.com  |
-</span></span><span style="display:flex;"><span>+----+------------------+
-</span></span></code></pre></div><h3 id="solution-5">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+---------+
+| Id | Email   |
++----+---------+
+| 1  | john@example.com |
+| 2  | bob@example.com |
+| 3  | john@example.com |
++----+---------+
+</code></pre></div><p>删除重复的邮件地址：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+------------------+
+| Id | Email            |
++----+------------------+
+| 1  | john@example.com |
+| 2  | bob@example.com  |
++----+------------------+
+</code></pre></div><h3 id="solution-5">Solution</h3>
 <p>只保留相同 Email 中 Id 最小的那一个，然后删除其它的。</p>
 <p>连接查询：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DELETE</span> p1
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Person p1,
-</span></span><span style="display:flex;"><span>    Person p2
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    p1.Email <span style="color:#f92672">=</span> p2.Email
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> p1.Id <span style="color:#f92672">&gt;</span> p2.Id
-</span></span></code></pre></div><p>子查询：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DELETE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Person
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    id <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> (
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">SELECT</span> id 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">FROM</span> ( 
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">min</span>( id ) <span style="color:#66d9ef">AS</span> id 
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">FROM</span> Person
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> email
-</span></span><span style="display:flex;"><span>        ) <span style="color:#66d9ef">AS</span> m
-</span></span><span style="display:flex;"><span>    );
-</span></span></code></pre></div><p>应该注意的是上述解法额外嵌套了一个 SELECT 语句，如果不这么做，会出现错误：You can&rsquo;t specify target table &lsquo;Person&rsquo; for update in FROM clause。以下演示了这种错误解法。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DELETE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Person
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    id <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> ( 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">min</span>( id ) <span style="color:#66d9ef">AS</span> id 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">FROM</span> Person 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> email 
-</span></span><span style="display:flex;"><span>    );
-</span></span></code></pre></div><p>参考：<a href="https://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-table-for-update-in-from-clause">pMySQL Error 1093 - Can&rsquo;t specify target table for update in FROM clause</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span> p1
+<span style="color:#66d9ef">FROM</span>
+    Person p1,
+    Person p2
+<span style="color:#66d9ef">WHERE</span>
+    p1.Email <span style="color:#f92672">=</span> p2.Email
+    <span style="color:#66d9ef">AND</span> p1.Id <span style="color:#f92672">&gt;</span> p2.Id
+</code></pre></div><p>子查询：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span>
+<span style="color:#66d9ef">FROM</span>
+    Person
+<span style="color:#66d9ef">WHERE</span>
+    id <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> (
+        <span style="color:#66d9ef">SELECT</span> id 
+        <span style="color:#66d9ef">FROM</span> ( 
+            <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">min</span>( id ) <span style="color:#66d9ef">AS</span> id 
+            <span style="color:#66d9ef">FROM</span> Person
+            <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> email
+        ) <span style="color:#66d9ef">AS</span> m
+    );
+</code></pre></div><p>应该注意的是上述解法额外嵌套了一个 SELECT 语句，如果不这么做，会出现错误：You can&rsquo;t specify target table &lsquo;Person&rsquo; for update in FROM clause。以下演示了这种错误解法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span>
+<span style="color:#66d9ef">FROM</span>
+    Person
+<span style="color:#66d9ef">WHERE</span>
+    id <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> ( 
+        <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">min</span>( id ) <span style="color:#66d9ef">AS</span> id 
+        <span style="color:#66d9ef">FROM</span> Person 
+        <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> email 
+    );
+</code></pre></div><p>参考：<a href="https://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-table-for-update-in-from-clause">pMySQL Error 1093 - Can&rsquo;t specify target table for update in FROM clause</a></p>
 <h3 id="sql-schema-5">SQL Schema</h3>
 <p>与 182 相同。</p>
 <h2 id="175-combine-two-tables">175. Combine Two Tables</h2>
 <p><a href="https://leetcode.com/problems/combine-two-tables/description/">https://leetcode.com/problems/combine-two-tables/description/</a></p>
 <h3 id="description-6">Description</h3>
 <p>Person 表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+-------------+---------+
-</span></span><span style="display:flex;"><span>| Column Name | Type    |
-</span></span><span style="display:flex;"><span>+-------------+---------+
-</span></span><span style="display:flex;"><span>| PersonId    | int     |
-</span></span><span style="display:flex;"><span>| FirstName   | varchar |
-</span></span><span style="display:flex;"><span>| LastName    | varchar |
-</span></span><span style="display:flex;"><span>+-------------+---------+
-</span></span><span style="display:flex;"><span>PersonId is the primary key column for this table.
-</span></span></code></pre></div><p>Address 表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+-------------+---------+
-</span></span><span style="display:flex;"><span>| Column Name | Type    |
-</span></span><span style="display:flex;"><span>+-------------+---------+
-</span></span><span style="display:flex;"><span>| AddressId   | int     |
-</span></span><span style="display:flex;"><span>| PersonId    | int     |
-</span></span><span style="display:flex;"><span>| City        | varchar |
-</span></span><span style="display:flex;"><span>| State       | varchar |
-</span></span><span style="display:flex;"><span>+-------------+---------+
-</span></span><span style="display:flex;"><span>AddressId is the primary key column for this table.
-</span></span></code></pre></div><p>查找 FirstName, LastName, City, State 数据，而不管一个用户有没有填地址信息。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| PersonId    | int     |
+| FirstName   | varchar |
+| LastName    | varchar |
++-------------+---------+
+PersonId is the primary key column for this table.
+</code></pre></div><p>Address 表：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| AddressId   | int     |
+| PersonId    | int     |
+| City        | varchar |
+| State       | varchar |
++-------------+---------+
+AddressId is the primary key column for this table.
+</code></pre></div><p>查找 FirstName, LastName, City, State 数据，而不管一个用户有没有填地址信息。</p>
 <h3 id="solution-6">Solution</h3>
 <p>涉及到 Person 和 Address 两个表，在对这两个表执行连接操作时，因为要保留 Person 表中的信息，即使在 Address 表中没有关联的信息也要保留。此时可以用左外连接，将 Person 表放在 LEFT JOIN 的左边。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    FirstName,
-</span></span><span style="display:flex;"><span>    LastName,
-</span></span><span style="display:flex;"><span>    City,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">State</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Person P
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> Address A
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ON</span> P.PersonId <span style="color:#f92672">=</span> A.PersonId;
-</span></span></code></pre></div><h3 id="sql-schema-6">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> Person;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Person ( PersonId INT, FirstName VARCHAR ( <span style="color:#ae81ff">255</span> ), LastName VARCHAR ( <span style="color:#ae81ff">255</span> ) );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> Address;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Address ( AddressId INT, PersonId INT, City VARCHAR ( <span style="color:#ae81ff">255</span> ), <span style="color:#66d9ef">State</span> VARCHAR ( <span style="color:#ae81ff">255</span> ) );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Person ( PersonId, LastName, FirstName )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Wang&#39;</span>, <span style="color:#e6db74">&#39;Allen&#39;</span> );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Address ( AddressId, PersonId, City, <span style="color:#66d9ef">State</span> )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;New York City&#39;</span>, <span style="color:#e6db74">&#39;New York&#39;</span> );
-</span></span></code></pre></div><h2 id="181-employees-earning-more-than-their-managers">181. Employees Earning More Than Their Managers</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    FirstName,
+    LastName,
+    City,
+    <span style="color:#66d9ef">State</span>
+<span style="color:#66d9ef">FROM</span>
+    Person P
+    <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> Address A
+    <span style="color:#66d9ef">ON</span> P.PersonId <span style="color:#f92672">=</span> A.PersonId;
+</code></pre></div><h3 id="sql-schema-6">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Person;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Person ( PersonId INT, FirstName VARCHAR ( <span style="color:#ae81ff">255</span> ), LastName VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Address;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Address ( AddressId INT, PersonId INT, City VARCHAR ( <span style="color:#ae81ff">255</span> ), <span style="color:#66d9ef">State</span> VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Person ( PersonId, LastName, FirstName )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Wang&#39;</span>, <span style="color:#e6db74">&#39;Allen&#39;</span> );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Address ( AddressId, PersonId, City, <span style="color:#66d9ef">State</span> )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;New York City&#39;</span>, <span style="color:#e6db74">&#39;New York&#39;</span> );
+</code></pre></div><h2 id="181-employees-earning-more-than-their-managers">181. Employees Earning More Than Their Managers</h2>
 <p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/description/">https://leetcode.com/problems/employees-earning-more-than-their-managers/description/</a></p>
 <h3 id="description-7">Description</h3>
 <p>Employee 表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+-------+--------+-----------+
-</span></span><span style="display:flex;"><span>| Id | Name  | Salary | ManagerId |
-</span></span><span style="display:flex;"><span>+----+-------+--------+-----------+
-</span></span><span style="display:flex;"><span>| 1  | Joe   | 70000  | 3         |
-</span></span><span style="display:flex;"><span>| 2  | Henry | 80000  | 4         |
-</span></span><span style="display:flex;"><span>| 3  | Sam   | 60000  | NULL      |
-</span></span><span style="display:flex;"><span>| 4  | Max   | 90000  | NULL      |
-</span></span><span style="display:flex;"><span>+----+-------+--------+-----------+
-</span></span></code></pre></div><p>查找薪资大于其经理薪资的员工信息。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-------+--------+-----------+
+| Id | Name  | Salary | ManagerId |
++----+-------+--------+-----------+
+| 1  | Joe   | 70000  | 3         |
+| 2  | Henry | 80000  | 4         |
+| 3  | Sam   | 60000  | NULL      |
+| 4  | Max   | 90000  | NULL      |
++----+-------+--------+-----------+
+</code></pre></div><p>查找薪资大于其经理薪资的员工信息。</p>
 <h3 id="solution-7">Solution</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    E1.NAME <span style="color:#66d9ef">AS</span> Employee
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Employee E1
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Employee E2
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ON</span> E1.ManagerId <span style="color:#f92672">=</span> E2.Id
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> E1.Salary <span style="color:#f92672">&gt;</span> E2.Salary;
-</span></span></code></pre></div><h3 id="sql-schema-7">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> Employee;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Employee ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ), Salary INT, ManagerId INT );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Employee ( Id, NAME, Salary, ManagerId )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Joe&#39;</span>, <span style="color:#ae81ff">70000</span>, <span style="color:#ae81ff">3</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Henry&#39;</span>, <span style="color:#ae81ff">80000</span>, <span style="color:#ae81ff">4</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sam&#39;</span>, <span style="color:#ae81ff">60000</span>, <span style="color:#66d9ef">NULL</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Max&#39;</span>, <span style="color:#ae81ff">90000</span>, <span style="color:#66d9ef">NULL</span> );
-</span></span></code></pre></div><h2 id="183-customers-who-never-order">183. Customers Who Never Order</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    E1.NAME <span style="color:#66d9ef">AS</span> Employee
+<span style="color:#66d9ef">FROM</span>
+    Employee E1
+    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Employee E2
+    <span style="color:#66d9ef">ON</span> E1.ManagerId <span style="color:#f92672">=</span> E2.Id
+    <span style="color:#66d9ef">AND</span> E1.Salary <span style="color:#f92672">&gt;</span> E2.Salary;
+</code></pre></div><h3 id="sql-schema-7">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Employee;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Employee ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ), Salary INT, ManagerId INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Employee ( Id, NAME, Salary, ManagerId )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Joe&#39;</span>, <span style="color:#ae81ff">70000</span>, <span style="color:#ae81ff">3</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Henry&#39;</span>, <span style="color:#ae81ff">80000</span>, <span style="color:#ae81ff">4</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sam&#39;</span>, <span style="color:#ae81ff">60000</span>, <span style="color:#66d9ef">NULL</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Max&#39;</span>, <span style="color:#ae81ff">90000</span>, <span style="color:#66d9ef">NULL</span> );
+</code></pre></div><h2 id="183-customers-who-never-order">183. Customers Who Never Order</h2>
 <p><a href="https://leetcode.com/problems/customers-who-never-order/description/">https://leetcode.com/problems/customers-who-never-order/description/</a></p>
 <h3 id="description-8">Description</h3>
 <p>Customers 表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+-------+
-</span></span><span style="display:flex;"><span>| Id | Name  |
-</span></span><span style="display:flex;"><span>+----+-------+
-</span></span><span style="display:flex;"><span>| 1  | Joe   |
-</span></span><span style="display:flex;"><span>| 2  | Henry |
-</span></span><span style="display:flex;"><span>| 3  | Sam   |
-</span></span><span style="display:flex;"><span>| 4  | Max   |
-</span></span><span style="display:flex;"><span>+----+-------+
-</span></span></code></pre></div><p>Orders 表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+------------+
-</span></span><span style="display:flex;"><span>| Id | CustomerId |
-</span></span><span style="display:flex;"><span>+----+------------+
-</span></span><span style="display:flex;"><span>| 1  | 3          |
-</span></span><span style="display:flex;"><span>| 2  | 1          |
-</span></span><span style="display:flex;"><span>+----+------------+
-</span></span></code></pre></div><p>查找没有订单的顾客信息：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+-----------+
-</span></span><span style="display:flex;"><span>| Customers |
-</span></span><span style="display:flex;"><span>+-----------+
-</span></span><span style="display:flex;"><span>| Henry     |
-</span></span><span style="display:flex;"><span>| Max       |
-</span></span><span style="display:flex;"><span>+-----------+
-</span></span></code></pre></div><h3 id="solution-8">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-------+
+| Id | Name  |
++----+-------+
+| 1  | Joe   |
+| 2  | Henry |
+| 3  | Sam   |
+| 4  | Max   |
++----+-------+
+</code></pre></div><p>Orders 表：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+------------+
+| Id | CustomerId |
++----+------------+
+| 1  | 3          |
+| 2  | 1          |
++----+------------+
+</code></pre></div><p>查找没有订单的顾客信息：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-----------+
+| Customers |
++-----------+
+| Henry     |
+| Max       |
++-----------+
+</code></pre></div><h3 id="solution-8">Solution</h3>
 <p>左外链接</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">C</span>.Name <span style="color:#66d9ef">AS</span> Customers
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Customers <span style="color:#66d9ef">C</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> Orders O
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">C</span>.Id <span style="color:#f92672">=</span> O.CustomerId
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    O.CustomerId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>;
-</span></span></code></pre></div><p>子查询</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    Name <span style="color:#66d9ef">AS</span> Customers
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Customers
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    Id <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> ( 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">SELECT</span> CustomerId 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">FROM</span> Orders 
-</span></span><span style="display:flex;"><span>    );
-</span></span></code></pre></div><h3 id="sql-schema-8">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> Customers;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Customers ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ) );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> Orders;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Orders ( Id INT, CustomerId INT );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Customers ( Id, NAME )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Joe&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Henry&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sam&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Max&#39;</span> );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Orders ( Id, CustomerId )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span> );
-</span></span></code></pre></div><h2 id="184-department-highest-salary">184. Department Highest Salary</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    <span style="color:#66d9ef">C</span>.Name <span style="color:#66d9ef">AS</span> Customers
+<span style="color:#66d9ef">FROM</span>
+    Customers <span style="color:#66d9ef">C</span>
+    <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> Orders O
+    <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">C</span>.Id <span style="color:#f92672">=</span> O.CustomerId
+<span style="color:#66d9ef">WHERE</span>
+    O.CustomerId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>;
+</code></pre></div><p>子查询</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    Name <span style="color:#66d9ef">AS</span> Customers
+<span style="color:#66d9ef">FROM</span>
+    Customers
+<span style="color:#66d9ef">WHERE</span>
+    Id <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> ( 
+        <span style="color:#66d9ef">SELECT</span> CustomerId 
+        <span style="color:#66d9ef">FROM</span> Orders 
+    );
+</code></pre></div><h3 id="sql-schema-8">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Customers;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Customers ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Orders;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Orders ( Id INT, CustomerId INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Customers ( Id, NAME )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Joe&#39;</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Henry&#39;</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sam&#39;</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Max&#39;</span> );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Orders ( Id, CustomerId )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span> );
+</code></pre></div><h2 id="184-department-highest-salary">184. Department Highest Salary</h2>
 <p><a href="https://leetcode.com/problems/department-highest-salary/description/">https://leetcode.com/problems/department-highest-salary/description/</a></p>
 <h3 id="description-9">Description</h3>
 <p>Employee 表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+-------+--------+--------------+
-</span></span><span style="display:flex;"><span>| Id | Name  | Salary | DepartmentId |
-</span></span><span style="display:flex;"><span>+----+-------+--------+--------------+
-</span></span><span style="display:flex;"><span>| 1  | Joe   | 70000  | 1            |
-</span></span><span style="display:flex;"><span>| 2  | Henry | 80000  | 2            |
-</span></span><span style="display:flex;"><span>| 3  | Sam   | 60000  | 2            |
-</span></span><span style="display:flex;"><span>| 4  | Max   | 90000  | 1            |
-</span></span><span style="display:flex;"><span>+----+-------+--------+--------------+
-</span></span></code></pre></div><p>Department 表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+----------+
-</span></span><span style="display:flex;"><span>| Id | Name     |
-</span></span><span style="display:flex;"><span>+----+----------+
-</span></span><span style="display:flex;"><span>| 1  | IT       |
-</span></span><span style="display:flex;"><span>| 2  | Sales    |
-</span></span><span style="display:flex;"><span>+----+----------+
-</span></span></code></pre></div><p>查找一个 Department 中收入最高者的信息：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+------------+----------+--------+
-</span></span><span style="display:flex;"><span>| Department | Employee | Salary |
-</span></span><span style="display:flex;"><span>+------------+----------+--------+
-</span></span><span style="display:flex;"><span>| IT         | Max      | 90000  |
-</span></span><span style="display:flex;"><span>| Sales      | Henry    | 80000  |
-</span></span><span style="display:flex;"><span>+------------+----------+--------+
-</span></span></code></pre></div><h3 id="solution-9">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-------+--------+--------------+
+| Id | Name  | Salary | DepartmentId |
++----+-------+--------+--------------+
+| 1  | Joe   | 70000  | 1            |
+| 2  | Henry | 80000  | 2            |
+| 3  | Sam   | 60000  | 2            |
+| 4  | Max   | 90000  | 1            |
++----+-------+--------+--------------+
+</code></pre></div><p>Department 表：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+----------+
+| Id | Name     |
++----+----------+
+| 1  | IT       |
+| 2  | Sales    |
++----+----------+
+</code></pre></div><p>查找一个 Department 中收入最高者的信息：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+------------+----------+--------+
+| Department | Employee | Salary |
++------------+----------+--------+
+| IT         | Max      | 90000  |
+| Sales      | Henry    | 80000  |
++------------+----------+--------+
+</code></pre></div><h3 id="solution-9">Solution</h3>
 <p>创建一个临时表，包含了部门员工的最大薪资。可以对部门进行分组，然后使用 MAX() 汇总函数取得最大薪资。</p>
 <p>之后使用连接找到一个部门中薪资等于临时表中最大薪资的员工。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    D.NAME Department,
-</span></span><span style="display:flex;"><span>    E.NAME Employee,
-</span></span><span style="display:flex;"><span>    E.Salary
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Employee E,
-</span></span><span style="display:flex;"><span>    Department D,
-</span></span><span style="display:flex;"><span>    ( <span style="color:#66d9ef">SELECT</span> DepartmentId, <span style="color:#66d9ef">MAX</span>( Salary ) Salary 
-</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">FROM</span> Employee 
-</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> DepartmentId ) M
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    E.DepartmentId <span style="color:#f92672">=</span> D.Id
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> E.DepartmentId <span style="color:#f92672">=</span> M.DepartmentId
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> E.Salary <span style="color:#f92672">=</span> M.Salary;
-</span></span></code></pre></div><h3 id="sql-schema-9">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> Employee;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Employee ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ), Salary INT, DepartmentId INT );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> Department;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Department ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ) );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Employee ( Id, NAME, Salary, DepartmentId )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Joe&#39;</span>, <span style="color:#ae81ff">70000</span>, <span style="color:#ae81ff">1</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Henry&#39;</span>, <span style="color:#ae81ff">80000</span>, <span style="color:#ae81ff">2</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sam&#39;</span>, <span style="color:#ae81ff">60000</span>, <span style="color:#ae81ff">2</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Max&#39;</span>, <span style="color:#ae81ff">90000</span>, <span style="color:#ae81ff">1</span> );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Department ( Id, NAME )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;IT&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Sales&#39;</span> );
-</span></span></code></pre></div><h2 id="176-second-highest-salary">176. Second Highest Salary</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    D.NAME Department,
+    E.NAME Employee,
+    E.Salary
+<span style="color:#66d9ef">FROM</span>
+    Employee E,
+    Department D,
+    ( <span style="color:#66d9ef">SELECT</span> DepartmentId, <span style="color:#66d9ef">MAX</span>( Salary ) Salary 
+     <span style="color:#66d9ef">FROM</span> Employee 
+     <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> DepartmentId ) M
+<span style="color:#66d9ef">WHERE</span>
+    E.DepartmentId <span style="color:#f92672">=</span> D.Id
+    <span style="color:#66d9ef">AND</span> E.DepartmentId <span style="color:#f92672">=</span> M.DepartmentId
+    <span style="color:#66d9ef">AND</span> E.Salary <span style="color:#f92672">=</span> M.Salary;
+</code></pre></div><h3 id="sql-schema-9">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> Employee;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Employee ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ), Salary INT, DepartmentId INT );
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> Department;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Department ( Id INT, NAME VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Employee ( Id, NAME, Salary, DepartmentId )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Joe&#39;</span>, <span style="color:#ae81ff">70000</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Henry&#39;</span>, <span style="color:#ae81ff">80000</span>, <span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sam&#39;</span>, <span style="color:#ae81ff">60000</span>, <span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Max&#39;</span>, <span style="color:#ae81ff">90000</span>, <span style="color:#ae81ff">1</span> );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Department ( Id, NAME )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;IT&#39;</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Sales&#39;</span> );
+</code></pre></div><h2 id="176-second-highest-salary">176. Second Highest Salary</h2>
 <p><a href="https://leetcode.com/problems/second-highest-salary/description/">https://leetcode.com/problems/second-highest-salary/description/</a></p>
 <h3 id="description-10">Description</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+--------+
-</span></span><span style="display:flex;"><span>| Id | Salary |
-</span></span><span style="display:flex;"><span>+----+--------+
-</span></span><span style="display:flex;"><span>| 1  | 100    |
-</span></span><span style="display:flex;"><span>| 2  | 200    |
-</span></span><span style="display:flex;"><span>| 3  | 300    |
-</span></span><span style="display:flex;"><span>+----+--------+
-</span></span></code></pre></div><p>查找工资第二高的员工。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+---------------------+
-</span></span><span style="display:flex;"><span>| SecondHighestSalary |
-</span></span><span style="display:flex;"><span>+---------------------+
-</span></span><span style="display:flex;"><span>| 200                 |
-</span></span><span style="display:flex;"><span>+---------------------+
-</span></span></code></pre></div><p>没有找到返回 null 而不是不返回数据。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+--------+
+| Id | Salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+</code></pre></div><p>查找工资第二高的员工。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------------------+
+| SecondHighestSalary |
++---------------------+
+| 200                 |
++---------------------+
+</code></pre></div><p>没有找到返回 null 而不是不返回数据。</p>
 <h3 id="solution-10">Solution</h3>
 <p>为了在没有查找到数据时返回 null，需要在查询结果外面再套一层 SELECT。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> Salary 
-</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">FROM</span> Employee 
-</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> Salary <span style="color:#66d9ef">DESC</span> 
-</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span> ) SecondHighestSalary;
-</span></span></code></pre></div><h3 id="sql-schema-10">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> Employee;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Employee ( Id INT, Salary INT );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Employee ( Id, Salary )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">200</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">300</span> );
-</span></span></code></pre></div><h2 id="177-nth-highest-salary">177. Nth Highest Salary</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> Salary 
+     <span style="color:#66d9ef">FROM</span> Employee 
+     <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> Salary <span style="color:#66d9ef">DESC</span> 
+     <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span> ) SecondHighestSalary;
+</code></pre></div><h3 id="sql-schema-10">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Employee;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Employee ( Id INT, Salary INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Employee ( Id, Salary )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">200</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">300</span> );
+</code></pre></div><h2 id="177-nth-highest-salary">177. Nth Highest Salary</h2>
 <h3 id="description-11">Description</h3>
 <p>查找工资第 N 高的员工。</p>
 <h3 id="solution-11">Solution</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">FUNCTION</span> getNthHighestSalary ( N INT ) <span style="color:#66d9ef">RETURNS</span> INT <span style="color:#66d9ef">BEGIN</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> N <span style="color:#f92672">=</span> N <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">RETURN</span> ( 
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> ( 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> Salary 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">FROM</span> Employee 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> Salary <span style="color:#66d9ef">DESC</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">LIMIT</span> N, <span style="color:#ae81ff">1</span> 
-</span></span><span style="display:flex;"><span>    ) 
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">END</span>
-</span></span></code></pre></div><h3 id="sql-schema-11">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">FUNCTION</span> getNthHighestSalary ( N INT ) <span style="color:#66d9ef">RETURNS</span> INT <span style="color:#66d9ef">BEGIN</span>
+
+<span style="color:#66d9ef">SET</span> N <span style="color:#f92672">=</span> N <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">RETURN</span> ( 
+    <span style="color:#66d9ef">SELECT</span> ( 
+        <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> Salary 
+        <span style="color:#66d9ef">FROM</span> Employee 
+        <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> Salary <span style="color:#66d9ef">DESC</span> 
+        <span style="color:#66d9ef">LIMIT</span> N, <span style="color:#ae81ff">1</span> 
+    ) 
+);
+
+<span style="color:#66d9ef">END</span>
+</code></pre></div><h3 id="sql-schema-11">SQL Schema</h3>
 <p>同 176。</p>
 <h2 id="178-rank-scores">178. Rank Scores</h2>
 <p><a href="https://leetcode.com/problems/rank-scores/description/">https://leetcode.com/problems/rank-scores/description/</a></p>
 <h3 id="description-12">Description</h3>
 <p>得分表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+-------+
-</span></span><span style="display:flex;"><span>| Id | Score |
-</span></span><span style="display:flex;"><span>+----+-------+
-</span></span><span style="display:flex;"><span>| 1  | 3.50  |
-</span></span><span style="display:flex;"><span>| 2  | 3.65  |
-</span></span><span style="display:flex;"><span>| 3  | 4.00  |
-</span></span><span style="display:flex;"><span>| 4  | 3.85  |
-</span></span><span style="display:flex;"><span>| 5  | 4.00  |
-</span></span><span style="display:flex;"><span>| 6  | 3.65  |
-</span></span><span style="display:flex;"><span>+----+-------+
-</span></span></code></pre></div><p>将得分排序，并统计排名。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+-------+------+
-</span></span><span style="display:flex;"><span>| Score | Rank |
-</span></span><span style="display:flex;"><span>+-------+------+
-</span></span><span style="display:flex;"><span>| 4.00  | 1    |
-</span></span><span style="display:flex;"><span>| 4.00  | 1    |
-</span></span><span style="display:flex;"><span>| 3.85  | 2    |
-</span></span><span style="display:flex;"><span>| 3.65  | 3    |
-</span></span><span style="display:flex;"><span>| 3.65  | 3    |
-</span></span><span style="display:flex;"><span>| 3.50  | 4    |
-</span></span><span style="display:flex;"><span>+-------+------+
-</span></span></code></pre></div><h3 id="solution-12">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-------+
+| Id | Score |
++----+-------+
+| 1  | 3.50  |
+| 2  | 3.65  |
+| 3  | 4.00  |
+| 4  | 3.85  |
+| 5  | 4.00  |
+| 6  | 3.65  |
++----+-------+
+</code></pre></div><p>将得分排序，并统计排名。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-------+------+
+| Score | Rank |
++-------+------+
+| 4.00  | 1    |
+| 4.00  | 1    |
+| 3.85  | 2    |
+| 3.65  | 3    |
+| 3.65  | 3    |
+| 3.50  | 4    |
++-------+------+
+</code></pre></div><h3 id="solution-12">Solution</h3>
 <p>要统计某个 score 的排名，只要统计大于等于该 score 的 score 数量。</p>
 <table>
 <thead>
@@ -678,15 +678,15 @@
 </tbody>
 </table>
 <p>使用连接操作找到某个 score 对应的大于等于其值的记录：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Scores S1
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Scores S2
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ON</span> S1.score <span style="color:#f92672">&lt;=</span> S2.score
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
-</span></span><span style="display:flex;"><span>    S1.score <span style="color:#66d9ef">DESC</span>, S1.Id;
-</span></span></code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+	<span style="color:#f92672">*</span>
+<span style="color:#66d9ef">FROM</span>
+    Scores S1
+    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Scores S2
+    <span style="color:#66d9ef">ON</span> S1.score <span style="color:#f92672">&lt;=</span> S2.score
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+    S1.score <span style="color:#66d9ef">DESC</span>, S1.Id;
+</code></pre></div><table>
 <thead>
 <tr>
 <th style="text-align:center">S1.Id</th>
@@ -735,18 +735,18 @@
 </tbody>
 </table>
 <p>可以看到每个 S1.score 都有对应好几条记录，我们再进行分组，并统计每个分组的数量作为 &lsquo;Rank&rsquo;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    S1.score <span style="color:#e6db74">&#39;Score&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#e6db74">&#39;Rank&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Scores S1
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Scores S2
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ON</span> S1.score <span style="color:#f92672">&lt;=</span> S2.score
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
-</span></span><span style="display:flex;"><span>    S1.id, S1.score
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
-</span></span><span style="display:flex;"><span>    S1.score <span style="color:#66d9ef">DESC</span>, S1.Id;
-</span></span></code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    S1.score <span style="color:#e6db74">&#39;Score&#39;</span>,
+    <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#e6db74">&#39;Rank&#39;</span>
+<span style="color:#66d9ef">FROM</span>
+    Scores S1
+    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Scores S2
+    <span style="color:#66d9ef">ON</span> S1.score <span style="color:#f92672">&lt;=</span> S2.score
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
+    S1.id, S1.score
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+    S1.score <span style="color:#66d9ef">DESC</span>, S1.Id;
+</code></pre></div><table>
 <thead>
 <tr>
 <th style="text-align:center">score</th>
@@ -892,144 +892,144 @@
 </tbody>
 </table>
 <p>我们想要的结果是，把分数相同的放在同一个排名，并且相同分数只占一个位置，例如上面的分数，Id=2 和 Id=3 的记录都有相同的分数，并且最高，他们并列第一。而 Id=1 的记录应该排第二名，而不是第三名。所以在进行 COUNT 计数统计时，我们需要使用 COUNT( DISTINCT S2.score ) 从而只统计一次相同的分数。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    S1.score <span style="color:#e6db74">&#39;Score&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">COUNT</span>( <span style="color:#66d9ef">DISTINCT</span> S2.score ) <span style="color:#e6db74">&#39;Rank&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Scores S1
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Scores S2
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ON</span> S1.score <span style="color:#f92672">&lt;=</span> S2.score
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
-</span></span><span style="display:flex;"><span>    S1.id, S1.score
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
-</span></span><span style="display:flex;"><span>    S1.score <span style="color:#66d9ef">DESC</span>;
-</span></span></code></pre></div><h3 id="sql-schema-12">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> Scores;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Scores ( Id INT, Score DECIMAL ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span> ) );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Scores ( Id, Score )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">1</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">1</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">2</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">2</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">3</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">3</span> );
-</span></span></code></pre></div><h2 id="180-consecutive-numbers">180. Consecutive Numbers</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    S1.score <span style="color:#e6db74">&#39;Score&#39;</span>,
+    <span style="color:#66d9ef">COUNT</span>( <span style="color:#66d9ef">DISTINCT</span> S2.score ) <span style="color:#e6db74">&#39;Rank&#39;</span>
+<span style="color:#66d9ef">FROM</span>
+    Scores S1
+    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Scores S2
+    <span style="color:#66d9ef">ON</span> S1.score <span style="color:#f92672">&lt;=</span> S2.score
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>
+    S1.id, S1.score
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+    S1.score <span style="color:#66d9ef">DESC</span>;
+</code></pre></div><h3 id="sql-schema-12">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> Scores;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Scores ( Id INT, Score DECIMAL ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Scores ( Id, Score )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">3</span> ),
+    ( <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">3</span> );
+</code></pre></div><h2 id="180-consecutive-numbers">180. Consecutive Numbers</h2>
 <p><a href="https://leetcode.com/problems/consecutive-numbers/description/">https://leetcode.com/problems/consecutive-numbers/description/</a></p>
 <h3 id="description-13">Description</h3>
 <p>数字表：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+----+-----+
-</span></span><span style="display:flex;"><span>| Id | Num |
-</span></span><span style="display:flex;"><span>+----+-----+
-</span></span><span style="display:flex;"><span>| 1  |  1  |
-</span></span><span style="display:flex;"><span>| 2  |  1  |
-</span></span><span style="display:flex;"><span>| 3  |  1  |
-</span></span><span style="display:flex;"><span>| 4  |  2  |
-</span></span><span style="display:flex;"><span>| 5  |  1  |
-</span></span><span style="display:flex;"><span>| 6  |  2  |
-</span></span><span style="display:flex;"><span>| 7  |  2  |
-</span></span><span style="display:flex;"><span>+----+-----+
-</span></span></code></pre></div><p>查找连续出现三次的数字。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+-----------------+
-</span></span><span style="display:flex;"><span>| ConsecutiveNums |
-</span></span><span style="display:flex;"><span>+-----------------+
-</span></span><span style="display:flex;"><span>| 1               |
-</span></span><span style="display:flex;"><span>+-----------------+
-</span></span></code></pre></div><h3 id="solution-13">Solution</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">DISTINCT</span> L1.num ConsecutiveNums
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    Logs L1,
-</span></span><span style="display:flex;"><span>    Logs L2,
-</span></span><span style="display:flex;"><span>    Logs L3
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> L1.id <span style="color:#f92672">=</span> l2.id <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> L2.id <span style="color:#f92672">=</span> L3.id <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> L1.num <span style="color:#f92672">=</span> L2.num
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> l2.num <span style="color:#f92672">=</span> l3.num;
-</span></span></code></pre></div><h3 id="sql-schema-13">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> LOGS;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> LOGS ( Id INT, Num INT );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> LOGS ( Id, Num )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">1</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">2</span> );
-</span></span></code></pre></div><h2 id="626-exchange-seats">626. Exchange Seats</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+----+-----+
+| Id | Num |
++----+-----+
+| 1  |  1  |
+| 2  |  1  |
+| 3  |  1  |
+| 4  |  2  |
+| 5  |  1  |
+| 6  |  2  |
+| 7  |  2  |
++----+-----+
+</code></pre></div><p>查找连续出现三次的数字。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+-----------------+
+| ConsecutiveNums |
++-----------------+
+| 1               |
++-----------------+
+</code></pre></div><h3 id="solution-13">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+    <span style="color:#66d9ef">DISTINCT</span> L1.num ConsecutiveNums
+<span style="color:#66d9ef">FROM</span>
+    Logs L1,
+    Logs L2,
+    Logs L3
+<span style="color:#66d9ef">WHERE</span> L1.id <span style="color:#f92672">=</span> l2.id <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> L2.id <span style="color:#f92672">=</span> L3.id <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> L1.num <span style="color:#f92672">=</span> L2.num
+    <span style="color:#66d9ef">AND</span> l2.num <span style="color:#f92672">=</span> l3.num;
+</code></pre></div><h3 id="sql-schema-13">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> LOGS;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> LOGS ( Id INT, Num INT );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> LOGS ( Id, Num )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">1</span> ),
+    ( <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span> ),
+    ( <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">2</span> );
+</code></pre></div><h2 id="626-exchange-seats">626. Exchange Seats</h2>
 <p><a href="https://leetcode.com/problems/exchange-seats/description/">https://leetcode.com/problems/exchange-seats/description/</a></p>
 <h3 id="description-14">Description</h3>
 <p>seat 表存储着座位对应的学生。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+---------+---------+
-</span></span><span style="display:flex;"><span>|    id   | student |
-</span></span><span style="display:flex;"><span>+---------+---------+
-</span></span><span style="display:flex;"><span>|    1    | Abbot   |
-</span></span><span style="display:flex;"><span>|    2    | Doris   |
-</span></span><span style="display:flex;"><span>|    3    | Emerson |
-</span></span><span style="display:flex;"><span>|    4    | Green   |
-</span></span><span style="display:flex;"><span>|    5    | Jeames  |
-</span></span><span style="display:flex;"><span>+---------+---------+
-</span></span></code></pre></div><p>要求交换相邻座位的两个学生，如果最后一个座位是奇数，那么不交换这个座位上的学生。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>+---------+---------+
-</span></span><span style="display:flex;"><span>|    id   | student |
-</span></span><span style="display:flex;"><span>+---------+---------+
-</span></span><span style="display:flex;"><span>|    1    | Doris   |
-</span></span><span style="display:flex;"><span>|    2    | Abbot   |
-</span></span><span style="display:flex;"><span>|    3    | Green   |
-</span></span><span style="display:flex;"><span>|    4    | Emerson |
-</span></span><span style="display:flex;"><span>|    5    | Jeames  |
-</span></span><span style="display:flex;"><span>+---------+---------+
-</span></span></code></pre></div><h3 id="solution-14">Solution</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+---------+
+|    id   | student |
++---------+---------+
+|    1    | Abbot   |
+|    2    | Doris   |
+|    3    | Emerson |
+|    4    | Green   |
+|    5    | Jeames  |
++---------+---------+
+</code></pre></div><p>要求交换相邻座位的两个学生，如果最后一个座位是奇数，那么不交换这个座位上的学生。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">+---------+---------+
+|    id   | student |
++---------+---------+
+|    1    | Doris   |
+|    2    | Abbot   |
+|    3    | Green   |
+|    4    | Emerson |
+|    5    | Jeames  |
++---------+---------+
+</code></pre></div><h3 id="solution-14">Solution</h3>
 <p>使用多个 union。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">处理偶数</span> id<span style="color:#960050;background-color:#1e0010">，让</span> id <span style="color:#960050;background-color:#1e0010">减</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">例如</span> <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,... <span style="color:#960050;background-color:#1e0010">变成</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,...
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    s1.id <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AS</span> id,
-</span></span><span style="display:flex;"><span>    s1.student
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    seat s1
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    s1.id <span style="color:#66d9ef">MOD</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">UNION</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">处理奇数</span> id<span style="color:#960050;background-color:#1e0010">，让</span> id <span style="color:#960050;background-color:#1e0010">加</span> <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">。但是如果最大的</span> id <span style="color:#960050;background-color:#1e0010">为奇数，则不做处理</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">例如</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,... <span style="color:#960050;background-color:#1e0010">变成</span> <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,...
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    s2.id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AS</span> id,
-</span></span><span style="display:flex;"><span>    s2.student
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    seat s2
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    s2.id <span style="color:#66d9ef">MOD</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> s2.id <span style="color:#f92672">!=</span> ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">max</span>( s3.id ) <span style="color:#66d9ef">FROM</span> seat s3 ) <span style="color:#66d9ef">UNION</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">如果最大的</span> id <span style="color:#960050;background-color:#1e0010">为奇数，单独取出这个数</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
-</span></span><span style="display:flex;"><span>    s4.id <span style="color:#66d9ef">AS</span> id,
-</span></span><span style="display:flex;"><span>    s4.student
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
-</span></span><span style="display:flex;"><span>    seat s4
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
-</span></span><span style="display:flex;"><span>    s4.id <span style="color:#66d9ef">MOD</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> s4.id <span style="color:#f92672">=</span> ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">max</span>( s5.id ) <span style="color:#66d9ef">FROM</span> seat s5 )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
-</span></span><span style="display:flex;"><span>    id;
-</span></span></code></pre></div><h3 id="sql-schema-14">SQL Schema</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXISTS</span> seat;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> seat ( id INT, student VARCHAR ( <span style="color:#ae81ff">255</span> ) );
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> seat ( id, student )
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;Abbot&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;Doris&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;3&#39;</span>, <span style="color:#e6db74">&#39;Emerson&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;4&#39;</span>, <span style="color:#e6db74">&#39;Green&#39;</span> ),
-</span></span><span style="display:flex;"><span>    ( <span style="color:#e6db74">&#39;5&#39;</span>, <span style="color:#e6db74">&#39;Jeames&#39;</span> );
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">处理偶数</span> id<span style="color:#960050;background-color:#1e0010">，让</span> id <span style="color:#960050;background-color:#1e0010">减</span> <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">例如</span> <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,... <span style="color:#960050;background-color:#1e0010">变成</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,...
+<span style="color:#66d9ef">SELECT</span>
+    s1.id <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AS</span> id,
+    s1.student
+<span style="color:#66d9ef">FROM</span>
+    seat s1
+<span style="color:#66d9ef">WHERE</span>
+    s1.id <span style="color:#66d9ef">MOD</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">UNION</span>
+<span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">处理奇数</span> id<span style="color:#960050;background-color:#1e0010">，让</span> id <span style="color:#960050;background-color:#1e0010">加</span> <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">。但是如果最大的</span> id <span style="color:#960050;background-color:#1e0010">为奇数，则不做处理</span>
+<span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">例如</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,... <span style="color:#960050;background-color:#1e0010">变成</span> <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,...
+<span style="color:#66d9ef">SELECT</span>
+    s2.id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AS</span> id,
+    s2.student
+<span style="color:#66d9ef">FROM</span>
+    seat s2
+<span style="color:#66d9ef">WHERE</span>
+    s2.id <span style="color:#66d9ef">MOD</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> s2.id <span style="color:#f92672">!=</span> ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">max</span>( s3.id ) <span style="color:#66d9ef">FROM</span> seat s3 ) <span style="color:#66d9ef">UNION</span>
+<span style="color:#f92672">##</span> <span style="color:#960050;background-color:#1e0010">如果最大的</span> id <span style="color:#960050;background-color:#1e0010">为奇数，单独取出这个数</span>
+<span style="color:#66d9ef">SELECT</span>
+    s4.id <span style="color:#66d9ef">AS</span> id,
+    s4.student
+<span style="color:#66d9ef">FROM</span>
+    seat s4
+<span style="color:#66d9ef">WHERE</span>
+    s4.id <span style="color:#66d9ef">MOD</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">AND</span> s4.id <span style="color:#f92672">=</span> ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">max</span>( s5.id ) <span style="color:#66d9ef">FROM</span> seat s5 )
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+    id;
+</code></pre></div><h3 id="sql-schema-14">SQL Schema</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">IF</span>
+    <span style="color:#66d9ef">EXISTS</span> seat;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> seat ( id INT, student VARCHAR ( <span style="color:#ae81ff">255</span> ) );
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> seat ( id, student )
+<span style="color:#66d9ef">VALUES</span>
+    ( <span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;Abbot&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;Doris&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;3&#39;</span>, <span style="color:#e6db74">&#39;Emerson&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;4&#39;</span>, <span style="color:#e6db74">&#39;Green&#39;</span> ),
+    ( <span style="color:#e6db74">&#39;5&#39;</span>, <span style="color:#e6db74">&#39;Jeames&#39;</span> );
+</code></pre></div>
 </main>
 
   <footer>

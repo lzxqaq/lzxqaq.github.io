@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qt on Zexun Luo | 罗泽勋</title>
+    <link>/tags/qt/</link>
+    <description>Recent content in Qt on Zexun Luo | 罗泽勋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 13 Dec 2021 08:08:17 +0800</lastBuildDate><atom:link href="/tags/qt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qt6 对象模型</title>
+      <link>/posts/object/</link>
+      <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
+      
+      <guid>/posts/object/</guid>
+      <description>对象模型 🔗标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率和高度灵活性的领域。 Qt 通过将 C++ 的速度与 Qt 对象模型的灵活性相结合来提供这一点。
+Qt 将这些特性添加到 C++ 中：
+ 一种非常强大的无缝对象通信机制，称为 信号和槽 可查询和可设计的 对象属性 强大的 事件和事件过滤器 上下文 用于国际化的 字符串翻译 复杂的间隔驱动 计时器 ，可以在事件驱动的 GUI 中优雅地集成许多任务 分层和可查询 对象树 以自然方式组织对象所有权的 受保护的指针 ( QPointer ) 在引用的对象被销毁时自动设置为 0，这与普通的 C++ 指针不同，后者在对象被销毁时变成悬空指针 动态转换 跨库边界 。 支持 自定义类型 创建。
+ 许多 Qt 功能是使用标准 C++ 技术实现的，基于 继承 QObject 的 。 其他的，比如对象通信机制和动态属性系统，需要 的 元对象系统 Qt自己的 提供 元对象编译器（moc） 。
+元对象系统是一个 C++ 扩展，使该语言更适合真正的组件 GUI 编程。</description>
+    </item>
+    
+    <item>
+      <title>Qt 6 核心内部结构</title>
+      <link>/posts/qt-core/</link>
+      <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
+      
+      <guid>/posts/qt-core/</guid>
+      <description>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示了如何使用它们来实现 Qt 尚未提供的专门功能。
+对象、属性和事件 🔗该 QObject的 类构成Qt的对象模型的基础，是父类的许多Qt类的。 对象模型引入了许多机制，例如元对象系统，它允许运行时内省、操作和调用对象中的属性和方法。 它还作为 Qt 事件系统的基础，这是一种在 之间进行通信的低级方式 QObject 基于 的对象 。 Qt 的信号和槽机制提供了另一种高级通信形式。
+另外， QObject 通过 提供了一个简单的计时机制 QObject::startTimer () 。 或者， QTimer 类为计时器提供高级接口。
+ 对象模型
+元对象系统
+物业系统
+事件系统
+信号和插槽
+—— 基于字符串和基于函子的连接之间的差异
+计时器
+ 容器类 🔗容器 是一种数据结构，其实例是其他对象的集合。 容器的一些示例是：动态数组、队列、链表和关联数组。 Qt 提供了一组通用的、基于模板的容器类，用于在内存中构造数据。
+有关 请参阅 的完整列表 容器类 更多详细信息， 。
+国际化 🔗Qt 使用 Unicode 来编码可显示的文本字符串。 Unicode 为世界上所有常用的书写系统提供支持，是跨平台开发的理想选择。 还可以使用 Qt 强大的国际化系统编写应用程序，以通过一个代码库支持任意数量的不同语言。
+ Qt 中的 Unicode Qt 国际化</description>
+    </item>
+    
+    <item>
+      <title>Qt6 Qvariant 与自定义 Qt 类型</title>
+      <link>/posts/qvariant/</link>
+      <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
+      
+      <guid>/posts/qvariant/</guid>
+      <description>概述 🔗在本文档中，我们采用自定义类型并描述如何将其集成到 Qt 的对象模型中，以便可以像标准 Qt 类型一样存储它。 然后我们展示如何注册自定义类型以允许它在信号和插槽连接中使用。
+创建自定义类型 🔗在开始之前，我们需要确保我们正在创建的自定义类型满足 QMetaType 强加的所有要求。换言之，它必须提供：
+ 公共默认构造函数 公共复制构造函数
+公共析构函数
+ 下列 Message类定义包括以下成员：
+class Message { public: Message() = default; ~Message() = default; Message(const Message &amp;amp;) = default; Message &amp;amp;operator=(const Message &amp;amp;) = default; Message(const QString &amp;amp;body, const QStringList &amp;amp;headers); QStringView body() const; QStringList headers() const; private: QString m_body; QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。
+使用 QMetaType 声明类型 🔗这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。</description>
+    </item>
+    
+    <item>
+      <title>Qt6 顺序容器 QList</title>
+      <link>/posts/qlist/</link>
+      <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
+      
+      <guid>/posts/qlist/</guid>
+      <description>介绍 🔗QList 类是提供动态数组的模板类。该类中的所有函数都是可重入的。另外两个常用的顺序容器 QStack 和 QQueue 继承自 Qlist。
+详细说明 🔗QList 是 Qt 的通用容器类之一。它将其项目存储在相邻的内存位置，并提供基于索引的快速访问。QVector  在 Qt 5 中曾经是一个不同的类，但现在是 QList 的一个简单别名。
+QList 和QVarLengthArray  提供类似的 API 和功能。它们通常可以互换，但会产生性能后果。以下是用例的概述：
+ QList 应该是您的默认首选。 QVarLengthArray提供了一个在堆栈上保留空间的数组，但如果需要，可以动态地增长到堆上。用于通常较小的短寿命容器是很好的。 如果您需要一个真正的链表，它保证在列表中间插入恒定时间并使用迭代器到项目而不是索引，请使用 std::list。  </description>
+    </item>
+    
+    <item>
+      <title>Qt6 隐式共享</title>
+      <link>/posts/implicit-sharing/</link>
+      <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
+      
+      <guid>/posts/implicit-sharing/</guid>
+      <description>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。
+概述 🔗共享类由指向共享数据块的指针组成，该共享数据块包含引用计数和数据。
+创建共享对象时，它将引用计数设置为 1。只要新对象引用共享数据，引用计数就会增加，而当对象取消引用共享数据时，引用计数会减少。当引用计数变为零时，共享数据将被删除。
+在处理共享对象时，有两种方法可以复制对象。我们通常谈论深拷贝和浅拷贝。深拷贝意味着复制一个对象。浅拷贝是引用拷贝，即只是指向共享数据块的指针。就内存和 CPU 而言，进行深度复制的成本可能很高。制作浅拷贝非常快，因为它只涉及设置一个指针和增加引用计数。
+隐式共享对象的对象分配（使用 operator=()）是使用浅拷贝实现的。
+共享的好处是程序不需要不必要地复制数据，从而减少内存使用和数据复制。对象可以很容易地被赋值，作为函数参数发送，并从函数中返回。
+隐式共享大多发生在幕后；程序员很少需要担心它。但是，Qt 的容器迭代器与 STL 的容器迭代器具有不同的行为。阅读隐式共享迭代器问题。
+在多线程应用程序中，会发生隐式共享，如线程和隐式共享类中所述。
+在实现您自己的隐式共享类时，请使用QSharedData和QSharedDataPointer类。
+详细的隐式共享 🔗如果对象即将更改并且引用计数大于 1，则隐式共享会自动将对象从共享块中分离。（这通常称为 copy-on-write 或者 value semantics。）
+隐式共享类可以控制其内部数据。在任何修改其数据的成员函数中，它会在修改数据之前自动分离。但是，请注意容器迭代器的特殊情况；请参阅隐式共享迭代器问题。
+ 警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。
+ 示例 🔗QPixmap p1, p2; p1.load(&amp;#34;image.bmp&amp;#34;); p2 = p1; // p1 and p2 share data  QPainter paint; paint.begin(&amp;amp;p2); // cuts p2 loose from p1 paint.drawText(0,50, &amp;#34;Hi&amp;#34;); paint.end(); 在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。
+所有隐式共享的类 🔗参见 Qt 文档。</description>
+    </item>
+    
+    <item>
+      <title>Qt6 容器类-概述</title>
+      <link>/posts/qt-containers/</link>
+      <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
+      
+      <guid>/posts/qt-containers/</guid>
+      <description>介绍 🔗Qt 库提供了一组通用的基于模板的容器类。这些类可用于存储制定类型的项。例如，您需要一个可调整大小的 QString 数组，请使用 QList。
+这些容器类被设计为比 STL 容器更轻、更安全且更易于使用。如果您不熟悉 STL，或者更喜欢“Qt 方式”实现，您可以使用这些类而不是 STL 类。
+容器类是 隐式共享的，它们是可重入的，并且它们针对速度、低内存消耗和最小的内联代码扩展进行了优化，从而产生更小的可执行文件。此外，在所有用于访问它们的线程将它们用作只读容器的情况下，它们是线程安全的。
+容器提供了遍历的迭代器。STL 样式的迭代器是最有效的迭代器，可以与 Qt 和 STL 的通用算法一起使用。提供 Java 风格的迭代器是为了向后兼容。
+容器类 🔗Qt 提供以下顺序容器：QList、QStack 和 QQueue。对于大多数应用程序，QList 是最好的类型。它提供了非常快速的追加。如果您确实需要链表，请使用 std::list。QStack 和 QQueue 是提供 LIFO 和 FIFO 语义的便利类。QList和QVector在 Qt 6 中被统一。两者都使用来自QVector的数据模型。QVector现在是QList的别名。
+Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet。“Multi”容器方便地支持与单个键关联的多个值。“散列”容器通过使用散列函数而不是对排序集的二分搜索来提供更快的查找。
+作为特殊情况，QCache 和 QContiguousCache 类在有限的缓存存储中提供了有效的对象散列查找。
+   类 简述     QList  这是迄今为止最常用的容器类。它存储可以通过索引访问的给定类型 (T) 的值列表。在内部，它在内存中的相邻位置存储一组给定类型的值。在列表的前面或中间插入可能会很慢，因为它可能导致大量项目必须在内存中移动一个位置。   QVarLengthArray &amp;lt;T, Prealloc &amp;gt; 这提供了一个低级的可变长度数组。在速度特别重要的地方，它可以代替QList使用。   QStack  这是QList 的一个便利子类，提供“后进先出”(LIFO) 语义。它向QList 中已有的函数添加了以下函数：push ()、pop () 和top ()。   QQueue  这是QList的便利子类，提供“先进先出”(FIFO) 语义。它将以下函数添加到QList 中已经存在的函数中：enqueue ()、dequeue () 和head ()。   QSet  这提供了具有快速查找功能的单值数学集。   QMap &amp;lt;Key, T&amp;gt; 这提供了一个字典（关联数组），将 Key 类型的键映射到 T 类型的值。通常每个键都与单个值相关联。QMap以 Key 顺序存储其数据；如果顺序无关紧要QHash是一个更快的选择。   QMultiMap &amp;lt;Key, T&amp;gt; 这是QMap 的一个方便的子类，它为多值映射提供了一个很好的接口，即一个键可以与多个值相关联的映射。   QHash &amp;lt;Key, T&amp;gt; 这与QMap具有几乎相同的 API ，但提供了明显更快的查找。QHash以任意顺序存储其数据。   QMultiHash &amp;lt;Key, T&amp;gt; 这是QHash 的一个便利子类，它为多值散列提供了一个很好的接口。    算法复杂性 🔗下表总结了顺序容器 QList 的算法复杂度。</description>
+    </item>
+    
+    <item>
+      <title>Qt单元测试基础笔记</title>
+      <link>/posts/2021-10-13-1/</link>
+      <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
+      
+      <guid>/posts/2021-10-13-1/</guid>
+      <description>一、构建 🔗构建时添加 QT += testlib 。
+二、测试类 🔗测试类必须从 QObject 继承，头文件 include &amp;lt;QTest&amp;gt; ，并将测试函数声明 private slot
+三、QVERIFY(condition) 宏 🔗检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。
+如果需要在测试失败报告中加入附加信息，可以使用 QVERIFY2(condition, message)。
+如果需要测试日志有更详细的输出，可以使用 QCOMPARE(actual, expected)。
+四、QCOMPARE(actual, expected)宏 🔗使用相等运算符将 actual （实际值）与 expected （预期值）进行比较。如果实际和预期匹配，则继续执行。如果不是，则在测试日志中记录失败，并且测试函数返回而不尝试任何后续检查。
+如果比较失败，QCOMPARE() 会尝试输出值的内容，因此可以从测试日志中看到比较失败的原因。
+对于你自己的类，你可以使用 QTest::toString () 来格式化输出到测试日志中的值。具体可参考 Qt 文档;
+五、可执行文件 🔗如果需要将测试用例成为独立的可执行文件，需要添加以下两行：
+QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </description>
+    </item>
+    
+    <item>
+      <title>Qt测试最佳实践</title>
+      <link>/posts/2021-10-13-2/</link>
+      <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
+      
+      <guid>/posts/2021-10-13-2/</guid>
+      <description>Qt 测试最佳实践 🔗我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表现出错误，并在修复之后通过。在开发新功能时，添加测试以验证它们是否按预期工作。
+符合一组编码标准将使 Qt 自动测试更有可能在所有环境中可靠地工作。例如，有些测试需要从磁盘读取数据。如果没有为如何完成设置标准，则某些测试将无法移植。例如，假设其测试数据文件位于当前工作目录中的测试仅适用于源代码构建。在影子构建中（在源目录之外），测试将无法找到其数据。
+以下章节包含了编写Qt测试的指南。
+ 一般原则 编写可靠的测试 改进测试输出 编写可测试的代码 设置测试机  一般原则 🔗下面的章节提供了编写单元测试的一般指南。
+ 验证测试 赋予测试函数描述性的名称 编写自带的测试函数 测试全栈 让测试快速完成 使用数据驱动的测试 使用覆盖工具 选择适当的机制来排除测试 避免Q_ASSERT  验证测试 🔗编写并提交你的测试以及你的修复或新功能到一个新的分支上。一旦你完成了,你可以检查出你的工作所基于的分支,然后把你的新测试的测试文件检查到这个分支。这可以让你验证测试是否在前一个分支上失败了,因此确实抓住了一个错误或测试了一个新功能。
+例如，如果使用Git版本控制系统，则修复 QDateTime 类中的错误的工作流程可能如下所示：
+ 1.为您的修订和测试创建一个分支： git checkout -b fix-branch 5.14
+2.编写一个测试并修复错误。
+3.用修复版和新的测试版进行构建和测试,以验证新的测试版是否能通过修复版。
+4.将修复程序和测试添加到您的分支： git add tests/auto/corelib/time/qdatetime/tst_qdatetime.cpp src/corelib/time/qdatetime.cpp
+5.提交修复程序并测试您的分支机构： git commit -m &amp;lsquo;Fix bug in QDateTime&amp;rsquo;
+6.要验证测试是否确实捕获了需要您修复的内容，请检出您自己的分支所基于的分支： git checkout 5.14
+7.仅将测试文件检出到5.14分支： git checkout fix-branch &amp;ndash; tests/auto/corelib/time/qdatetime/tst_qdatetime.cpp
+现在只有测试在fix-branch上。其余的源代码树仍在5.14上。
+8.构建并运行测试,以验证它在5.14上失败,因此确实抓住了一个错误。
+9.您现在可以返回到fix分支： git checkout fix-branch</description>
+    </item>
+    
+  </channel>
+</rss>

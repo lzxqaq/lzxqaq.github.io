@@ -17,11 +17,11 @@
       
       <meta property="description" content="有三种使用线程的方法：
 [&amp;hellip;] 需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+public class MyRunnable implements Runnable {@Overridepublic void run(){// ...}}使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
 public &amp;hellip;">
       <meta property="og:description" content="有三种使用线程的方法：
 [&amp;hellip;] 需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+public class MyRunnable implements Runnable {@Overridepublic void run(){// ...}}使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
 public &amp;hellip;">
       
     
@@ -156,7 +156,7 @@ public &amp;hellip;">
     public void func1() {
         synchronized (this) {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &#34; &#34;);
+                System.out.print(i + &quot; &quot;);
             }
         }
     }
@@ -194,7 +194,7 @@ public &amp;hellip;">
     public void func2() {
         synchronized (SynchronizedExample.class) {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &#34; &#34;);
+                System.out.print(i + &quot; &quot;);
             }
         }
     }
@@ -222,13 +222,14 @@ public &amp;hellip;">
         lock.lock();
         try {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &#34; &#34;);
+                System.out.print(i + &quot; &quot;);
             }
         } finally {
             lock.unlock(); // 确保释放锁，从而避免发生死锁。
         }
     }
 }
+
 </code></pre><pre tabindex="0"><code>public static void main(String[] args) {
     LockExample lockExample = new LockExample();
     ExecutorService executorService = Executors.newCachedThreadPool();

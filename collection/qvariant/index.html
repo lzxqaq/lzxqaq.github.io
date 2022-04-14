@@ -138,27 +138,27 @@ private:
     connect(thread, &amp;RenderThread::sendBlock,
             this, &amp;Window::addBlock);
     ...
-    setWindowTitle(tr(&#34;Queued Custom Type&#34;));
+    setWindowTitle(tr(&quot;Queued Custom Type&quot;));
 }
 </code></pre><p>如果一个类型在没有注册的情况下在排队连接中使用，控制台会打印警告； 例如：</p>
-<pre tabindex="0"><code>QObject::connect: Cannot queue arguments of type &#39;Block&#39;
-(Make sure &#39;Block&#39; is registered using qRegisterMetaType().)
+<pre tabindex="0"><code>QObject::connect: Cannot queue arguments of type 'Block'
+(Make sure 'Block' is registered using qRegisterMetaType().)
 </code></pre><h3 id="使类型可打印">使类型可打印</h3>
 <p>为调试目的使自定义类型可打印通常非常有用，如下面的代码所示：</p>
 <pre tabindex="0"><code>    Message message(body, headers);
-    qDebug() &lt;&lt; &#34;Original:&#34; &lt;&lt; message;
+    qDebug() &lt;&lt; &quot;Original:&quot; &lt;&lt; message;
 </code></pre><p>这是通过为该类型创建一个流操作符来实现的，该操作符通常在该类型的头文件中定义：</p>
 <pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);
 </code></pre><p>实现：</p>
 <pre tabindex="0"><code>QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
 {
-    QList&lt;QStringView&gt; pieces = message.body().split(u&#34;\r\n&#34;, Qt::SkipEmptyParts);
+    QList&lt;QStringView&gt; pieces = message.body().split(u&quot;\r\n&quot;, Qt::SkipEmptyParts);
     if (pieces.isEmpty())
-        dbg.nospace() &lt;&lt; &#34;Message()&#34;;
+        dbg.nospace() &lt;&lt; &quot;Message()&quot;;
     else if (pieces.size() == 1)
-        dbg.nospace() &lt;&lt; &#34;Message(&#34; &lt;&lt; pieces.first() &lt;&lt; &#34;)&#34;;
+        dbg.nospace() &lt;&lt; &quot;Message(&quot; &lt;&lt; pieces.first() &lt;&lt; &quot;)&quot;;
     else
-        dbg.nospace() &lt;&lt; &#34;Message(&#34; &lt;&lt; pieces.first() &lt;&lt; &#34; ...)&#34;;
+        dbg.nospace() &lt;&lt; &quot;Message(&quot; &lt;&lt; pieces.first() &lt;&lt; &quot; ...)&quot;;
     return dbg.maybeSpace();
 }
 </code></pre><p>当然，发送到调试流的输出可以根据您的喜好变得简单或复杂。 请注意，此函数返回的值是 QDebug 对象本身，尽管这通常是通过调用 获得的，该 QDebug 的 maySpace () 成员函数 函数 填充 用空格字符 流以使其更具可读性。</p>

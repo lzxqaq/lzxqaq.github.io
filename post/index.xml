@@ -64,7 +64,7 @@
 int main() {
   int m, n;
   int *p, *q;
-  scanf(&#34;%d%d&#34;, &amp;m, &amp;n);
+  scanf(&quot;%d%d&quot;, &amp;m, &amp;n);
   p = (int*)malloc(sizeof(int) * m);
   q = (int*)malloc(sizeof(int) * n);
   return 0;
@@ -81,7 +81,7 @@ void hehe() {
   static int sum = 0;
   k++;
   sum++;
-  printf(&#34;%d %d\n&#34;, k, sum);
+  printf(&quot;%d %d\n&quot;, k, sum);
 }
 int main() {
   int *p;
@@ -111,7 +111,7 @@ void hehe() {
 }
 int main() {
   int k = 3;//局部变量-&gt;栈， 3-&gt;文本区
-  char *str = &#34;Hello&#34;;//str-&gt;栈  &#34;Hello&#34;-&gt;常量区
+  char *str = &quot;Hello&quot;;//str-&gt;栈  &quot;Hello&quot;-&gt;常量区
   int *p = (int*)malloc(sizeof(int));//p-&gt;栈  malloc分配控件-&gt;堆
   hehe();//函数每次结束，栈空间都会释放，而静态区不会
   free(p);
@@ -119,6 +119,7 @@ int main() {
 }
 
 //文本区-&gt;放这个文件编译后的二进制码
+
 </code></pre><h3 id="动态库静态库">动态库、静态库</h3>
 <ul>
 <li>
@@ -187,8 +188,8 @@ private:
 };
 </code></pre><pre tabindex="0"><code>// TemplateLib.cpp : 定义 DLL 应用程序的导出函数。
  
-#include &#34;stdafx.h&#34;
-#include &#34;TemplateLib.h&#34;
+#include &quot;stdafx.h&quot;
+#include &quot;TemplateLib.h&quot;
  
 // 1.利用重载来实例化不同类型的模板，代码量大不说，基本上是重复的代码
 // 2.库的设计者不知道用户会传入什么类型，也就是说设计者不可能实例化每一种类型的模板。
@@ -207,10 +208,10 @@ namespace implement_template_private
 	void	implement_template()
 	{
 		int		idata = 10;
-		char	chr	= &#39;x&#39;;
+		char	chr	= 'x';
 		float	fdata = 20.f;
 		UINT	undata= 9;
-		char*	str	=	&#34;hello&#34;;
+		char*	str	=	&quot;hello&quot;;
  
 		// 这种方式的实例化，代码量比重载方式少许多，但需运行一次该模板函数
 		// 也许在某些时候凭空运行这个函数是不合理的。
@@ -234,6 +235,7 @@ namespace implement_template_private
 	}
  
 };
+
 </code></pre><ul>
 <li>总结：不建议在导出库中使用模板相关的技术，假如你能够确定用户在使用你设计的模板函数时，将传入哪些类型，设计者要将这些类型的模板一一实例化。</li>
 <li>在动态库和静态库使用模板:https://blog.csdn.net/xiexievv/article/details/8500234</li>
@@ -279,7 +281,7 @@ int main() {
 <pre tabindex="0"><code>int arr[5] = {1, 2, 3, 4, 5};
 for (int x : arr) {
   x += 100;
-  cout &lt;&lt; x &lt;&lt; &#39; &#39;;
+  cout &lt;&lt; x &lt;&lt; ' ';
 }
 cout &lt;&lt; arr[0];
 </code></pre><ul>
@@ -305,6 +307,7 @@ cout &lt;&lt; f1(1, 2) &lt;&lt; endl;
 </code></pre><h3 id="类型转换c">类型转换（C++）</h3>
 <pre tabindex="0"><code>  int k;
   k = 3.14;//在 Java 中会报错，在 C/C++ 编译器中正常（k==3）。
+
 </code></pre><ul>
 <li>Java 对类型转换更严格。</li>
 <li>C/C++ 编译器给了程序员太多自由：编译器认为，程序员可以这样写，程序员应该知道他在干什么，也应该为自己的行为负责。</li>
@@ -391,6 +394,7 @@ public:
     //写在这里的只能是赋值
   }
 }
+
 </code></pre><h3 id="对象的复制c">对象的复制（C++）</h3>
 <ul>
 <li>注意浅拷贝、深拷贝。</li>
@@ -429,14 +433,14 @@ Array b = a;
 <pre tabindex="0"><code>class People {
 public:
   void say() {
-    cout &lt;&lt; &#34;I &#39;m a person!&#34; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I 'm a person!&quot; &lt;&lt; endl;
   }
 };
 
 class Student : public People {
 public:
   void say() {
-    cout &lt;&lt; &#34;I&#39;m a student!&#34; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I'm a student!&quot; &lt;&lt; endl;
     }
 };
 
@@ -480,12 +484,12 @@ int main() {
 <li>当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。</li>
 </ul>
 <pre tabindex="0"><code>QPixmap p1, p2;
-p1.load(&#34;image.bmp&#34;);
+p1.load(&quot;image.bmp&quot;);
 p2 = p1;                        // p1 and p2 share data
 
 QPainter paint;
 paint.begin(&amp;p2);               // cuts p2 loose from p1
-paint.drawText(0,50, &#34;Hi&#34;);
+paint.drawText(0,50, &quot;Hi&quot;);
 paint.end();
 </code></pre><ul>
 <li>
@@ -597,7 +601,7 @@ theme: gaia
 _class: lead
 paginate: true
 backgroundColor: #fff
-backgroundImage: url(&#39;https://marp.app/assets/hero-background.svg&#39;)
+backgroundImage: url('https://marp.app/assets/hero-background.svg')
 ---
 
 ![bg left:40% 80%](https://marp.app/assets/marp.svg)
@@ -612,7 +616,7 @@ https://marp.app/
 
 # How to write slides
 
-Split pages by horizontal ruler (`---`). It&#39;s very simple! 😆
+Split pages by horizontal ruler (`---`). It's very simple! 😆
 
 ```markdown
 # Slide 1
@@ -648,7 +652,7 @@ foobar
 <p>就这样过了很久很久，突然有一天，我发现有很多库都需要重新编译，奇怪的是这些库不应该有改动的。一看是依赖的一个底层动态库发生变化，再看，是这个库里的一个 hpp 文件发生变化。大坑，我最开始的时候提醒过的。 那个库本身就有别的坑，实际上它更应该是静态库，但因为客观原因，它暂时还是一个动态库。然后就这样，一个 hpp 文件被嵌入这个底层动态库对外开放的接口里面。它一改动，所有依赖这个库的库都需要重新编译，还真是“牵一发而动全身”啊。</p>
 <h3 id="补充">补充</h3>
 <p>一、#include 指令</p>
-<pre tabindex="0"><code>#include &#34;test.hpp&#34;
+<pre tabindex="0"><code>#include &quot;test.hpp&quot;
 </code></pre><p>C++ 会使用一个预处理器，在进行主编译之前对源文件进行处理，它会在编译程序时自动运行。上面所示 #include &ldquo;test.hpp&rdquo;，该编译指令导致预处理器将 test.hpp 文件的内容添加到程序中。实际上，test.hpp 文件的内容将取代程序中的代码行 #include &ldquo;test.hpp&rdquo;。原始文件没有被修改，而是将源码和 test.hpp 文件组合成一个复合文件，编译的下一个阶段将使用该文件。</p>
 <p>二、头文件名</p>
 <table>
@@ -968,7 +972,7 @@ foobar
 <p>（2）打开命令窗口，进入 blog\public 目录，分别执行</p>
 <pre tabindex="0"><code>git init 
 git add .
-git commit -m &#34;first commit&#34;
+git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
 </code></pre><p>输入 Github 账号名，密码，完成上传。</p>
@@ -1092,7 +1096,7 @@ git push --set-upstream origin master
 <h3 id="五可执行文件">五、可执行文件</h3>
 <p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
 <pre tabindex="0"><code>QTEST_MAIN(YourClassName)
-#include &#34;yourfilename.moc&#34;
+#include &quot;yourfilename.moc&quot;
 </code></pre>
         
         ]]>
@@ -1138,9 +1142,9 @@ git push --set-upstream origin master
 <p>2.if、for、while、do 等语句自占一行，执行语句不得紧跟其后。不论执行语句有多少都要加{}。这样可以防止书写失误。（注：也为了统一风格）</p>
 <p>3.尽可能在定义变量的同时初始化该变量（就近原则）。（注：这样可以减少被野指针折磨的痛苦，强烈建议）</p>
 <h3 id="代码行内的空格">代码行内的空格</h3>
-<p>1.关键字之后要留一个空格。像 if、for、while 等关键字之后应留一个空格再跟左括号 &lsquo;(&rsquo;，以突出关键字。</p>
-<p>2.函数名之后不要留空格，紧跟左括号&rsquo;(&rsquo;，以与关键字区别。</p>
-<p>3.&rsquo;(&lsquo;向后紧跟，&rsquo;)&rsquo;、‘，’、‘；’向前紧跟，紧跟处不留空格。</p>
+<p>1.关键字之后要留一个空格。像 if、for、while 等关键字之后应留一个空格再跟左括号 &lsquo;('，以突出关键字。</p>
+<p>2.函数名之后不要留空格，紧跟左括号&rsquo;('，以与关键字区别。</p>
+<p>3.'(&lsquo;向后紧跟，')'、‘，’、‘；’向前紧跟，紧跟处不留空格。</p>
 <p>4.&rsquo;,&lsquo;之后要留空格，如果&rsquo;;&lsquo;不是一行的结束符号，其后要留空格，如for(initialization; condition; update)。</p>
 <p>5.【建议】对于表达式比较长的 for 语句和 if 语句，为了紧凑起见可以适当地去掉一些空格。（注：如果真的长到影响阅读，可以考虑）</p>
 <h3 id="对齐">对齐</h3>
@@ -1384,7 +1388,7 @@ git push --set-upstream origin master
 <p>（2）打开命令提示符，进入 demosite\public 目录，分别执行</p>
 <pre tabindex="0"><code>git init 
 git add .
-git commit -m &#34;first commit&#34;
+git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
 </code></pre><p>输入账号名，密码，完成上传。</p>
@@ -1512,7 +1516,7 @@ B）领域模型命名规约<br>
 正例：</p>
 <pre tabindex="0"><code>    public static void main(String[] args) {
         // 缩进4个空格，注释内空1格
-        String say = &#34;hello&#34;;
+        String say = &quot;hello&quot;;
         // 运算符左右必须有一个空格
         int flag = 0;
         // 关键词 if 与括号之间必须有一个空格
@@ -1522,14 +1526,13 @@ B）领域模型命名规约<br>
 
         // 左大括号前加空格且不换行，左大括号后换行。
         if (flag == 0) {
-            System.out.println(&#34;world&#34;);
+            System.out.println(&quot;world&quot;);
         //  右大括号前换行，右大括号后有 else，不用换行、
         }
         else {
-            System.out.printLn(&#34;ok&#34;);
+            System.out.printLn(&quot;ok&quot;);
         }
-    }
-</code></pre>
+    }</code></pre>
         
         ]]>
       </description>
@@ -1630,6 +1633,7 @@ bool calculate_huffman_codes();//计算哈夫曼编码
 bool do_compress();//开始压缩
 bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树
 void decode_huffman();//根据重构的哈夫曼树解码文件
+
 </code></pre><h3 id="后续">后续</h3>
 <p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
 
@@ -1723,7 +1727,7 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
 <p>（2）打开命令提示符，进入 blog\public 目录，分别执行</p>
 <pre tabindex="0"><code>git init 
 git add .
-git commit -m &#34;first commit&#34;
+git commit -m &quot;first commit&quot;
 git remote add origin https://github.com/你的Github名字/你的Github名字.github.io.git
 git push --set-upstream origin master
 </code></pre><p>输入账号名，密码，完成上传。</p>
@@ -1881,7 +1885,7 @@ git push --set-upstream origin master
     public void func1() {
         synchronized (this) {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &#34; &#34;);
+                System.out.print(i + &quot; &quot;);
             }
         }
     }
@@ -1919,7 +1923,7 @@ git push --set-upstream origin master
     public void func2() {
         synchronized (SynchronizedExample.class) {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &#34; &#34;);
+                System.out.print(i + &quot; &quot;);
             }
         }
     }
@@ -1947,13 +1951,14 @@ git push --set-upstream origin master
         lock.lock();
         try {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.print(i + &#34; &#34;);
+                System.out.print(i + &quot; &quot;);
             }
         } finally {
             lock.unlock(); // 确保释放锁，从而避免发生死锁。
         }
     }
 }
+
 </code></pre><pre tabindex="0"><code>public static void main(String[] args) {
     LockExample lockExample = new LockExample();
     ExecutorService executorService = Executors.newCachedThreadPool();
@@ -2011,43 +2016,43 @@ git push --set-upstream origin master
 <p>然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。</p>
 <p>事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：</p>
 <pre tabindex="0"><code>    //实验1
-    String s1 = &#34;1&#34;;
-    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
+    String s1 = &quot;1&quot;;
+    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
     char[] value = (char[]) valueField.get(s1);
-    value[0] = &#39;2&#39;;
+    value[0] = '2';
     System.out.println(s1);                 //2
-    System.out.println((s1 == &#34;1&#34;));        //true
+    System.out.println((s1 == &quot;1&quot;));        //true
 </code></pre><p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
 <pre tabindex="0"><code>    //实验2
-    String s2 = new String(&#34;1&#34;);
-    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
+    String s2 = new String(&quot;1&quot;);
+    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
     char[] value2 = (char[]) valueField.get(s2);
-    value2[0] = &#39;2&#39;;
+    value2[0] = '2';
     System.out.println(s2);                //2
-    System.out.println((s2 == &#34;1&#34;));       //false
+    System.out.println((s2 == &quot;1&quot;));       //false
 </code></pre><p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
 <p>到这里，可以停一会了。很多技术文章中都做过类似上面的实验（通过比较创建方式的区别、反射修改等)，来分析 String 、String Pool 的原理和设计理念。但我总觉得以此说明最终的结论还不够严谨、或者说还不够直观。接下来请看——魔鬼实验：</p>
 <pre tabindex="0"><code>    //实验3 
-    String s1 = &#34;1&#34;;
-    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
+    String s1 = &quot;1&quot;;
+    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
     char[] value = (char[]) valueField.get(s1);
-    value[0] = &#39;2&#39;;
+    value[0] = '2';
     System.out.println(s1);                 //2
-    System.out.println((s1 == &#34;1&#34;));        //true
-    System.out.println(&#34;1&#34;);                //2
+    System.out.println((s1 == &quot;1&quot;));        //true
+    System.out.println(&quot;1&quot;);                //2
 </code></pre><p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
 <pre tabindex="0"><code>    //实验4
-    String s2 = new String(&#34;1&#34;);
-    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
+    String s2 = new String(&quot;1&quot;);
+    Field valueField = String.class.getDeclaredField(&quot;value&quot;);
     valueField.setAccessible(true);
     char[] value2 = (char[]) valueField.get(s2);
-    value2[0] = &#39;2&#39;;
+    value2[0] = '2';
     System.out.println(s2);                 //2
-    System.out.println((s2 == &#34;1&#34;));        //false
-    System.out.println(&#34;1&#34;);                //2
+    System.out.println((s2 == &quot;1&quot;));        //false
+    System.out.println(&quot;1&quot;);                //2
 </code></pre><p>同样的，上述实验 4 只是在实验 2 的基础上输出了 <code>&quot;1&quot;</code> 的值。结果 <code>&quot;1&quot;</code> 的值还是 2。</p>
 <p><strong>结论：</strong><br>
 基于对 String 类和字符串常量池（String Pool） 的了解，我对以上实验作出解释（详细理论下回贴出）:</p>

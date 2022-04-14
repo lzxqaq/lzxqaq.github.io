@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>C&#43;&#43; STL 排序 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="日常开发中经常会有排序需求，常见的方法有很多种：选择排序，冒泡排序，归并排序，快速排序等，那我们需要手写排序算法吗？大多数场景下用现成的库函数就够了。STL 的 std::sort 是用得最多的排序算法。
+STL的std::sort函数是基于Musser在1996年提出的内省排序（Introspective sort）算法实现。这个算法是个缝合怪，它汲取了插入排序、堆排序以及快排的优点：
+ 针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。  在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
+示例：
+bool caseInsensitiveLessThan(const QString &amp;s1, const QString &amp;s2) { return s1.toLower() &lt; s2.toLower(); //从小到大排序 } int doSomething() { QStringList list; list &lt;&lt; &#34;AlPha&#34; &lt;&lt; &#34;beTA&#34; &lt;&lt; &#34;gamma&#34; &lt;&lt; &#34;DELTA&#34;; qSort(list.begin(), list.end(), caseInsensitiveLessThan); // list: [ &#34;AlPha&#34;, &#34;beTA&#34;, &#34;DELTA&#34;, &#34;gamma&#34; ] } ">
+<meta name="generator" content="Hugo 0.89.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">C&#43;&#43; STL 排序</h1>
+
+    <div class="tip">
+        <time datetime="2022-04-12 12:26:14 &#43;0800 CST">2022年04月12日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          61字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <p>日常开发中经常会有排序需求，常见的方法有很多种：选择排序，冒泡排序，归并排序，快速排序等，那我们需要手写排序算法吗？大多数场景下用现成的库函数就够了。STL 的 std::sort 是用得最多的排序算法。</p>
+<p>STL的std::sort函数是基于Musser在1996年提出的内省排序（Introspective sort）算法实现。这个算法是个缝合怪，它汲取了插入排序、堆排序以及快排的优点：</p>
+<ul>
+<li>针对大数据量，使用快排，时间复杂度是O(NlogN)；</li>
+<li>若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)；</li>
+<li>当数据规模小于阈值_S_threshold时，改用插入排序。</li>
+</ul>
+<p>在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。</p>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">bool caseInsensitiveLessThan(const QString &amp;s1, const QString &amp;s2)
+{
+    return s1.toLower() &lt; s2.toLower();     //从小到大排序
+}
+
+int doSomething()
+{
+    QStringList list;
+    list &lt;&lt; &#34;AlPha&#34; &lt;&lt; &#34;beTA&#34; &lt;&lt; &#34;gamma&#34; &lt;&lt; &#34;DELTA&#34;;
+    qSort(list.begin(), list.end(), caseInsensitiveLessThan);
+    // list: [ &#34;AlPha&#34;, &#34;beTA&#34;, &#34;DELTA&#34;, &#34;gamma&#34; ]
+}
+</code></pre></div>
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/c/c&#43;&#43;">C/C&#43;&#43;</a>
+            
+        </div>
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

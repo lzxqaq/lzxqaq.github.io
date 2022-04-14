@@ -105,7 +105,7 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
 
     QPainter painter(&amp;pixmap);
     painter.drawRect(10, 10, 80, 80);
-    painter.drawText(20, 30, &#34;Hello World&#34;);
+    painter.drawText(20, 30, &quot;Hello World&quot;);
 
     label-&gt;setPixmap(pixmap);
 
@@ -114,6 +114,7 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
     this-&gt;setLayout(layout);
     this-&gt;resize(200, 200);
 }
+
 </code></pre><p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo1.png" alt="demo1"></p>
 <h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制：</h4>

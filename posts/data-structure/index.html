@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>C&#43;&#43; 开发必备之数据结构 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="转载自https://github.com/huihut/interview
+顺序结构 🔗顺序栈（Sequence Stack） 🔗SqStack.cpp
+顺序栈数据结构和图片
+typedef struct { ElemType *elem; int top; int size; int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
+typedef struct { ElemType * elem; int front; int rear; int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
+SqQueue.rear&#43;&#43;
+循环队列 🔗循环队列图片
+SqQueue.rear = (SqQueue.rear &#43; 1) % SqQueue.maxSize
+顺序表（Sequence List） 🔗SqList.cpp
+顺序表数据结构和图片
+typedef struct { ElemType *elem; int length; int size; int increment; } SqList; 链式结构 🔗LinkList.cpp
+LinkList_with_head.cpp
+链式数据结构
+typedef struct LNode { ElemType data; struct LNode *next; } LNode, *LinkList; 链队列（Link Queue） 🔗链队列图片">
+<meta name="generator" content="Hugo 0.89.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">C&#43;&#43; 开发必备之数据结构</h1>
+
+    <div class="tip">
+        <time datetime="2022-01-14 20:28:54 &#43;0800 CST">2022年01月14日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          525字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <p>转载自<a href="https://github.com/huihut/interview" target="_blank" rel="noopener">https://github.com/huihut/interview</a></p>
+<h3 id="顺序结构">顺序结构 <a href="#%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h3><h4 id="顺序栈sequence-stack">顺序栈（Sequence Stack） <a href="#%e9%a1%ba%e5%ba%8f%e6%a0%88sequence-stack" class="anchor">🔗</a></h4><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/SqStack.cpp" target="_blank" rel="noopener">SqStack.cpp</a></p>
+<p>顺序栈数据结构和图片</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+	ElemType <span style="color:#666">*</span>elem;
+	<span style="color:#0b0;font-weight:bold">int</span> top;
+	<span style="color:#0b0;font-weight:bold">int</span> size;
+	<span style="color:#0b0;font-weight:bold">int</span> increment;
+} SqStack;
+</code></pre></div><p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/SqStack.png" alt=""  />
+</p></p>
+<h4 id="队列sequence-queue">队列（Sequence Queue） <a href="#%e9%98%9f%e5%88%97sequence-queue" class="anchor">🔗</a></h4><p>队列数据结构</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+	ElemType <span style="color:#666">*</span> elem;
+	<span style="color:#0b0;font-weight:bold">int</span> front;
+	<span style="color:#0b0;font-weight:bold">int</span> rear;
+	<span style="color:#0b0;font-weight:bold">int</span> maxSize;
+}SqQueue;
+</code></pre></div><h5 id="非循环队列">非循环队列 <a href="#%e9%9d%9e%e5%be%aa%e7%8e%af%e9%98%9f%e5%88%97" class="anchor">🔗</a></h5><p>非循环队列图片</p>
+<p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/SqQueue.png" alt=""  />
+</p></p>
+<p><code>SqQueue.rear++</code></p>
+<h5 id="循环队列">循环队列 <a href="#%e5%be%aa%e7%8e%af%e9%98%9f%e5%88%97" class="anchor">🔗</a></h5><p>循环队列图片</p>
+<p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/SqLoopStack.png" alt=""  />
+</p></p>
+<p><code>SqQueue.rear = (SqQueue.rear + 1) % SqQueue.maxSize</code></p>
+<h4 id="顺序表sequence-list">顺序表（Sequence List） <a href="#%e9%a1%ba%e5%ba%8f%e8%a1%a8sequence-list" class="anchor">🔗</a></h4><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/SqList.cpp" target="_blank" rel="noopener">SqList.cpp</a></p>
+<p>顺序表数据结构和图片</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+	ElemType <span style="color:#666">*</span>elem;
+	<span style="color:#0b0;font-weight:bold">int</span> length;
+	<span style="color:#0b0;font-weight:bold">int</span> size;
+	<span style="color:#0b0;font-weight:bold">int</span> increment;
+} SqList;
+</code></pre></div><p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/SqList.png" alt=""  />
+</p></p>
+<h3 id="链式结构">链式结构 <a href="#%e9%93%be%e5%bc%8f%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h3><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/LinkList.cpp" target="_blank" rel="noopener">LinkList.cpp</a></p>
+<p><a href="https://github.com/huihut/interview/blob/master/DataStructure/LinkList_with_head.cpp" target="_blank" rel="noopener">LinkList_with_head.cpp</a></p>
+<p>链式数据结构</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">LNode</span> {
+    ElemType data;
+    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">LNode</span> <span style="color:#666">*</span>next;
+} LNode, <span style="color:#666">*</span>LinkList; 
+</code></pre></div><h4 id="链队列link-queue">链队列（Link Queue） <a href="#%e9%93%be%e9%98%9f%e5%88%97link-queue" class="anchor">🔗</a></h4><p>链队列图片</p>
+<p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/LinkQueue.png" alt=""  />
+</p></p>
+<h4 id="线性表的链式表示">线性表的链式表示 <a href="#%e7%ba%bf%e6%80%a7%e8%a1%a8%e7%9a%84%e9%93%be%e5%bc%8f%e8%a1%a8%e7%a4%ba" class="anchor">🔗</a></h4><h5 id="单链表link-list">单链表（Link List） <a href="#%e5%8d%95%e9%93%be%e8%a1%a8link-list" class="anchor">🔗</a></h5><p>单链表图片</p>
+<p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/LinkList.png" alt=""  />
+</p></p>
+<h5 id="双向链表du-link-list">双向链表（Du-Link-List） <a href="#%e5%8f%8c%e5%90%91%e9%93%be%e8%a1%a8du-link-list" class="anchor">🔗</a></h5><p>双向链表图片</p>
+<p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/DuLinkList.png" alt=""  />
+</p></p>
+<h5 id="循环链表cir-link-list">循环链表（Cir-Link-List） <a href="#%e5%be%aa%e7%8e%af%e9%93%be%e8%a1%a8cir-link-list" class="anchor">🔗</a></h5><p>循环链表图片</p>
+<p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/CirLinkList.png" alt=""  />
+</p></p>
+<h3 id="哈希表">哈希表 <a href="#%e5%93%88%e5%b8%8c%e8%a1%a8" class="anchor">🔗</a></h3><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/HashTable.cpp" target="_blank" rel="noopener">HashTable.cpp</a></p>
+<h4 id="概念">概念 <a href="#%e6%a6%82%e5%bf%b5" class="anchor">🔗</a></h4><p>哈希函数：<code>H(key): K -&gt; D , key ∈ K</code></p>
+<h4 id="构造方法">构造方法 <a href="#%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95" class="anchor">🔗</a></h4><ul>
+<li>直接定址法</li>
+<li>除留余数法</li>
+<li>数字分析法</li>
+<li>折叠法</li>
+<li>平方取中法</li>
+</ul>
+<h4 id="冲突处理方法">冲突处理方法 <a href="#%e5%86%b2%e7%aa%81%e5%a4%84%e7%90%86%e6%96%b9%e6%b3%95" class="anchor">🔗</a></h4><ul>
+<li>链地址法：key 相同的用单链表链接</li>
+<li>开放定址法
+<ul>
+<li>线性探测法：key 相同 -&gt; 放到 key 的下一个位置，<code>Hi = (H(key) + i) % m</code></li>
+<li>二次探测法：key 相同 -&gt; 放到 <code>Di = 1^2, -1^2, ..., ±（k)^2,(k&lt;=m/2）</code></li>
+<li>随机探测法：<code>H = (H(key) + 伪随机数) % m</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="线性探测的哈希表数据结构">线性探测的哈希表数据结构 <a href="#%e7%ba%bf%e6%80%a7%e6%8e%a2%e6%b5%8b%e7%9a%84%e5%93%88%e5%b8%8c%e8%a1%a8%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h4><p>线性探测的哈希表数据结构和图片</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#0b0;font-weight:bold">char</span> KeyType;
+
+<span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+	KeyType key;
+}RcdType;
+
+<span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+	RcdType <span style="color:#666">*</span>rcd;
+	<span style="color:#0b0;font-weight:bold">int</span> size;
+	<span style="color:#0b0;font-weight:bold">int</span> count;
+	<span style="color:#0b0;font-weight:bold">bool</span> <span style="color:#666">*</span>tag;
+}HashTable;
+</code></pre></div><p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/HashTable.png" alt=""  />
+</p></p>
+<h3 id="递归">递归 <a href="#%e9%80%92%e5%bd%92" class="anchor">🔗</a></h3><h4 id="概念-1">概念 <a href="#%e6%a6%82%e5%bf%b5-1" class="anchor">🔗</a></h4><p>函数直接或间接地调用自身</p>
+<h4 id="递归与分治">递归与分治 <a href="#%e9%80%92%e5%bd%92%e4%b8%8e%e5%88%86%e6%b2%bb" class="anchor">🔗</a></h4><ul>
+<li>分治法
+<ul>
+<li>问题的分解</li>
+<li>问题规模的分解</li>
+</ul>
+</li>
+<li>折半查找（递归）</li>
+<li>归并排序（递归）</li>
+<li>快速排序（递归）</li>
+</ul>
+<h4 id="递归与迭代">递归与迭代 <a href="#%e9%80%92%e5%bd%92%e4%b8%8e%e8%bf%ad%e4%bb%a3" class="anchor">🔗</a></h4><ul>
+<li>迭代：反复利用变量旧值推出新值</li>
+<li>折半查找（迭代）</li>
+<li>归并排序（迭代）</li>
+</ul>
+<h4 id="广义表">广义表 <a href="#%e5%b9%bf%e4%b9%89%e8%a1%a8" class="anchor">🔗</a></h4><h5 id="头尾链表存储表示">头尾链表存储表示 <a href="#%e5%a4%b4%e5%b0%be%e9%93%be%e8%a1%a8%e5%ad%98%e5%82%a8%e8%a1%a8%e7%a4%ba" class="anchor">🔗</a></h5><p>广义表的头尾链表存储表示和图片</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080;font-style:italic">// 广义表的头尾链表存储表示
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">enum</span> {ATOM, LIST} ElemTag;
+<span style="color:#080;font-style:italic">// ATOM==0：原子，LIST==1：子表
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode</span> {
+    ElemTag tag;
+    <span style="color:#080;font-style:italic">// 公共部分，用于区分原子结点和表结点
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">union</span> {
+        <span style="color:#080;font-style:italic">// 原子结点和表结点的联合部分
+</span><span style="color:#080;font-style:italic"></span>        AtomType atom;
+        <span style="color:#080;font-style:italic">// atom 是原子结点的值域，AtomType 由用户定义
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">struct</span> {
+            <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode</span> <span style="color:#666">*</span>hp, <span style="color:#666">*</span>tp;
+        } ptr;
+        <span style="color:#080;font-style:italic">// ptr 是表结点的指针域，prt.hp 和 ptr.tp 分别指向表头和表尾
+</span><span style="color:#080;font-style:italic"></span>    } a;
+} <span style="color:#666">*</span>GList, GLNode;
+</code></pre></div><p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/GeneralizedList1.png" alt=""  />
+</p></p>
+<h5 id="扩展线性链表存储表示">扩展线性链表存储表示 <a href="#%e6%89%a9%e5%b1%95%e7%ba%bf%e6%80%a7%e9%93%be%e8%a1%a8%e5%ad%98%e5%82%a8%e8%a1%a8%e7%a4%ba" class="anchor">🔗</a></h5><p>扩展线性链表存储表示和图片</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080;font-style:italic">// 广义表的扩展线性链表存储表示
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">enum</span> {ATOM, LIST} ElemTag;
+<span style="color:#080;font-style:italic">// ATOM==0：原子，LIST==1：子表
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode1</span> {
+    ElemTag tag;
+    <span style="color:#080;font-style:italic">// 公共部分，用于区分原子结点和表结点
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">union</span> {
+        <span style="color:#080;font-style:italic">// 原子结点和表结点的联合部分
+</span><span style="color:#080;font-style:italic"></span>        AtomType atom; <span style="color:#080;font-style:italic">// 原子结点的值域
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode1</span> <span style="color:#666">*</span>hp; <span style="color:#080;font-style:italic">// 表结点的表头指针
+</span><span style="color:#080;font-style:italic"></span>    } a;
+    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode1</span> <span style="color:#666">*</span>tp;
+    <span style="color:#080;font-style:italic">// 相当于线性链表的 next，指向下一个元素结点
+</span><span style="color:#080;font-style:italic"></span>} <span style="color:#666">*</span>GList1, GLNode1;
+</code></pre></div><p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/GeneralizedList2.png" alt=""  />
+</p></p>
+<h3 id="二叉树">二叉树 <a href="#%e4%ba%8c%e5%8f%89%e6%a0%91" class="anchor">🔗</a></h3><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/BinaryTree.cpp" target="_blank" rel="noopener">BinaryTree.cpp</a></p>
+<h4 id="性质">性质 <a href="#%e6%80%a7%e8%b4%a8" class="anchor">🔗</a></h4><ol>
+<li>非空二叉树第 i 层最多 2<sup>(i-1)</sup> 个结点 （i &gt;= 1）</li>
+<li>深度为 k 的二叉树最多 2<sup>k</sup> - 1 个结点 （k &gt;= 1）</li>
+<li>度为 0 的结点数为 n<sub>0</sub>，度为 2 的结点数为 n<sub>2</sub>，则 n<sub>0</sub> = n<sub>2</sub> + 1</li>
+<li>有 n 个结点的完全二叉树深度 k = ⌊ log<sub>2</sub>(n) ⌋ + 1</li>
+<li>对于含 n 个结点的完全二叉树中编号为 i （1 &lt;= i &lt;= n） 的结点
+<ol>
+<li>若 i = 1，为根，否则双亲为 ⌊ i / 2 ⌋</li>
+<li>若 2i &gt; n，则 i 结点没有左孩子，否则孩子编号为 2i</li>
+<li>若 2i + 1 &gt; n，则 i 结点没有右孩子，否则孩子编号为 2i + 1</li>
+</ol>
+</li>
+</ol>
+<h4 id="存储结构">存储结构 <a href="#%e5%ad%98%e5%82%a8%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h4><p>二叉树数据结构</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">BiTNode</span>
+{
+    TElemType data;
+    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">BiTNode</span> <span style="color:#666">*</span>lchild, <span style="color:#666">*</span>rchild;
+}BiTNode, <span style="color:#666">*</span>BiTree;
+</code></pre></div><h5 id="顺序存储">顺序存储 <a href="#%e9%a1%ba%e5%ba%8f%e5%ad%98%e5%82%a8" class="anchor">🔗</a></h5><p>二叉树顺序存储图片</p>
+<p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/SqBinaryTree.png" alt=""  />
+</p></p>
+<h5 id="链式存储">链式存储 <a href="#%e9%93%be%e5%bc%8f%e5%ad%98%e5%82%a8" class="anchor">🔗</a></h5><p>二叉树链式存储图片</p>
+<p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/LinkBinaryTree.png" alt=""  />
+</p></p>
+<h4 id="遍历方式">遍历方式 <a href="#%e9%81%8d%e5%8e%86%e6%96%b9%e5%bc%8f" class="anchor">🔗</a></h4><ul>
+<li>先序遍历</li>
+<li>中序遍历</li>
+<li>后续遍历</li>
+<li>层次遍历</li>
+</ul>
+<h4 id="分类">分类 <a href="#%e5%88%86%e7%b1%bb" class="anchor">🔗</a></h4><ul>
+<li>满二叉树</li>
+<li>完全二叉树（堆）
+<ul>
+<li>大顶堆：根 &gt;= 左 &amp;&amp; 根 &gt;= 右</li>
+<li>小顶堆：根 &lt;= 左 &amp;&amp; 根 &lt;= 右</li>
+</ul>
+</li>
+<li>二叉查找树（二叉排序树）：左 &lt; 根 &lt; 右</li>
+<li>平衡二叉树（AVL树）：| 左子树树高 - 右子树树高 | &lt;= 1</li>
+<li>最小失衡树：平衡二叉树插入新结点导致失衡的子树：调整：
+<ul>
+<li>LL型：根的左孩子右旋</li>
+<li>RR型：根的右孩子左旋</li>
+<li>LR型：根的左孩子左旋，再右旋</li>
+<li>RL型：右孩子的左子树，先右旋，再左旋</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他树及森林">其他树及森林 <a href="#%e5%85%b6%e4%bb%96%e6%a0%91%e5%8f%8a%e6%a3%ae%e6%9e%97" class="anchor">🔗</a></h3><h4 id="树的存储结构">树的存储结构 <a href="#%e6%a0%91%e7%9a%84%e5%ad%98%e5%82%a8%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h4><ul>
+<li>双亲表示法</li>
+<li>双亲孩子表示法</li>
+<li>孩子兄弟表示法</li>
+</ul>
+<h4 id="并查集">并查集 <a href="#%e5%b9%b6%e6%9f%a5%e9%9b%86" class="anchor">🔗</a></h4><p>一种不相交的子集所构成的集合 S = {S1, S2, &hellip;, Sn}</p>
+<h4 id="平衡二叉树avl树">平衡二叉树（AVL树） <a href="#%e5%b9%b3%e8%a1%a1%e4%ba%8c%e5%8f%89%e6%a0%91avl%e6%a0%91" class="anchor">🔗</a></h4><h5 id="性质-1">性质 <a href="#%e6%80%a7%e8%b4%a8-1" class="anchor">🔗</a></h5><ul>
+<li>| 左子树树高 - 右子树树高 | &lt;= 1</li>
+<li>平衡二叉树必定是二叉搜索树，反之则不一定</li>
+<li>最小二叉平衡树的节点的公式：<code>F(n)=F(n-1)+F(n-2)+1</code> （1 是根节点，F(n-1) 是左子树的节点数量，F(n-2) 是右子树的节点数量）</li>
+</ul>
+<p>平衡二叉树图片</p>
+<p><p class="markdown-image">
+  <img src="https://gitee.com/huihut/interview/raw/master/images/Self-balancingBinarySearchTree.png" alt=""  />
+</p></p>
+<h5 id="最小失衡树">最小失衡树 <a href="#%e6%9c%80%e5%b0%8f%e5%a4%b1%e8%a1%a1%e6%a0%91" class="anchor">🔗</a></h5><p>平衡二叉树插入新结点导致失衡的子树</p>
+<p>调整：</p>
+<ul>
+<li>LL 型：根的左孩子右旋</li>
+<li>RR 型：根的右孩子左旋</li>
+<li>LR 型：根的左孩子左旋，再右旋</li>
+<li>RL 型：右孩子的左子树，先右旋，再左旋</li>
+</ul>
+<h4 id="红黑树">红黑树 <a href="#%e7%ba%a2%e9%bb%91%e6%a0%91" class="anchor">🔗</a></h4><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/RedBlackTree.cpp" target="_blank" rel="noopener">RedBlackTree.cpp</a></p>
+<h5 id="红黑树的特征是什么">红黑树的特征是什么？ <a href="#%e7%ba%a2%e9%bb%91%e6%a0%91%e7%9a%84%e7%89%b9%e5%be%81%e6%98%af%e4%bb%80%e4%b9%88" class="anchor">🔗</a></h5><ol>
+<li>节点是红色或黑色。</li>
+<li>根是黑色。</li>
+<li>所有叶子都是黑色（叶子是 NIL 节点）。</li>
+<li>每个红色节点必须有两个黑色的子节点。（从每个叶子到根的所有路径上不能有两个连续的红色节点。）（新增节点的父节点必须相同）</li>
+<li>从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点。（新增节点必须为红）</li>
+</ol>
+<h5 id="调整">调整 <a href="#%e8%b0%83%e6%95%b4" class="anchor">🔗</a></h5><ol>
+<li>变色</li>
+<li>左旋</li>
+<li>右旋</li>
+</ol>
+<h5 id="应用">应用 <a href="#%e5%ba%94%e7%94%a8" class="anchor">🔗</a></h5><ul>
+<li>关联数组：如 STL 中的 map、set</li>
+</ul>
+<h5 id="红黑树b-树b-树的区别">红黑树、B 树、B+ 树的区别？ <a href="#%e7%ba%a2%e9%bb%91%e6%a0%91b-%e6%a0%91b-%e6%a0%91%e7%9a%84%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h5><ul>
+<li>红黑树的深度比较大，而 B 树和 B+ 树的深度则相对要小一些</li>
+<li>B+ 树则将数据都保存在叶子节点，同时通过链表的形式将他们连接在一起。</li>
+</ul>
+<h4 id="b-树b-treeb-树b-tree">B 树（B-tree）、B+ 树（B+-tree） <a href="#b-%e6%a0%91b-treeb-%e6%a0%91b-tree" class="anchor">🔗</a></h4><p>B 树、B+ 树图片</p>
+<p><p class="markdown-image">
+  <img src="https://i.stack.imgur.com/l6UyF.png" alt="B 树（B-tree）、B&#43; 树（B&#43;-tree）"  />
+</p></p>
+<h5 id="特点">特点 <a href="#%e7%89%b9%e7%82%b9" class="anchor">🔗</a></h5><ul>
+<li>一般化的二叉查找树（binary search tree）</li>
+<li>“矮胖”，内部（非叶子）节点可以拥有可变数量的子节点（数量范围预先定义好）</li>
+</ul>
+<h5 id="应用-1">应用 <a href="#%e5%ba%94%e7%94%a8-1" class="anchor">🔗</a></h5><ul>
+<li>大部分文件系统、数据库系统都采用B树、B+树作为索引结构</li>
+</ul>
+<h5 id="区别">区别 <a href="#%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h5><ul>
+<li>B+树中只有叶子节点会带有指向记录的指针（ROWID），而B树则所有节点都带有，在内部节点出现的索引项不会再出现在叶子节点中。</li>
+<li>B+树中所有叶子节点都是通过指针连接在一起，而B树不会。</li>
+</ul>
+<h5 id="b树的优点">B树的优点 <a href="#b%e6%a0%91%e7%9a%84%e4%bc%98%e7%82%b9" class="anchor">🔗</a></h5><p>对于在内部节点的数据，可直接得到，不必根据叶子节点来定位。</p>
+<h5 id="b树的优点-1">B+树的优点 <a href="#b%e6%a0%91%e7%9a%84%e4%bc%98%e7%82%b9-1" class="anchor">🔗</a></h5><ul>
+<li>非叶子节点不会带上 ROWID，这样，一个块中可以容纳更多的索引项，一是可以降低树的高度。二是一个内部节点可以定位更多的叶子节点。</li>
+<li>叶子节点之间通过指针来连接，范围扫描将十分简单，而对于B树来说，则需要在叶子节点和内部节点不停的往返移动。</li>
+</ul>
+<blockquote>
+<p>B 树、B+ 树区别来自：<a href="https://stackoverflow.com/questions/870218/differences-between-b-trees-and-b-trees" target="_blank" rel="noopener">differences-between-b-trees-and-b-trees</a>、<a href="https://www.cnblogs.com/ivictor/p/5849061.html" target="_blank" rel="noopener">B树和B+树的区别</a></p>
+</blockquote>
+<h4 id="八叉树">八叉树 <a href="#%e5%85%ab%e5%8f%89%e6%a0%91" class="anchor">🔗</a></h4><p>八叉树图片</p>
+<p><p class="markdown-image">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Octree2.png/400px-Octree2.png" alt=""  />
+</p></p>
+<p>八叉树（octree），或称八元树，是一种用于描述三维空间（划分空间）的树状数据结构。八叉树的每个节点表示一个正方体的体积元素，每个节点有八个子节点，这八个子节点所表示的体积元素加在一起就等于父节点的体积。一般中心点作为节点的分叉中心。</p>
+<h5 id="用途">用途 <a href="#%e7%94%a8%e9%80%94" class="anchor">🔗</a></h5><ul>
+<li>三维计算机图形</li>
+<li>最邻近搜索</li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/c/c&#43;&#43;">C/C&#43;&#43;</a>
+            
+                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+            
+        </div>
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

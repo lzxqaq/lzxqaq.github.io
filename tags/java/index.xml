@@ -1,136 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Java on 罗泽勋</title>
+    <title>Java on Zexun Luo | 罗泽勋</title>
     <link>/tags/java/</link>
-    <description>Recent content in Java on 罗泽勋</description>
+    <description>Recent content in Java on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 28 May 2021 10:36:40 +0800</lastBuildDate>
-    <atom:link href="/tags/java/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 12 Jan 2021 08:46:08 +0800</lastBuildDate><atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>【规约】 Java 编程篇</title>
-      <link>/post/2021/05/28/%E8%A7%84%E7%BA%A6-java-%E7%BC%96%E7%A8%8B%E7%AF%87/</link>
-      <pubDate>Fri, 28 May 2021 10:36:40 +0800</pubDate>
+      <title>Java I/O</title>
+      <link>/posts/2021-01-12-io/</link>
+      <pubDate>Tue, 12 Jan 2021 08:46:08 +0800</pubDate>
       
-      <guid>/post/2021/05/28/%E8%A7%84%E7%BA%A6-java-%E7%BC%96%E7%A8%8B%E7%AF%87/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="前言">前言</h3>
-<p>“码出高效，码出质量”。本文整理了比较常见的 Java 编程规范，主要来源于《阿里巴巴 Java 开发手册》。</p>
-<h3 id="一命名风格">（一）命名风格</h3>
-<p>1.【强制】类名使用 UpperCamelCase风格，但以下情形例外：DO  /  BO  /  DTO  /  VO  /  AO  /  PO  /  UID等。
-正例：MarcoPolo  /  UserDO  /  XmlService  /  TcpUdpDeal  /TaPromotion</p>
-<p>2.【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。<br>
-正例：localValue  /  getHttpMessage()  /  inputUserId</p>
-<p>3.【强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。<br>
-正例：MAX_STOCK_COUNT</p>
-<p>4.【强制】抽象类命名使用 Abstract 或 Base 开头；异常类命名使用 Exception 结尾；测试类命名以它要测试的类的名称开始，以 Test 结尾。</p>
-<p>5.【强制】类型与中括号紧挨起来表示数组。<br>
-正例：int[] arrayDemo;</p>
-<p>6.【强制】POJO 类中布尔类型的变量，都不要加 is 前缀。</p>
-<p>7.【强制】包名统一使用小写，点分隔符之间有且只有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。<br>
-正例：应用工具类包名为 com.alibaba.ai.util、类名为 MessageUtils。</p>
-<p>8.【强制】杜绝完全不规范的缩写，任何自定义编程元素在命名时，使用尽量完整的单词组合来表达其意。</p>
-<p>9.【推荐】如果模块、接口、类、方法使用了设计模式，在命名时需体系那具体模式。</p>
-<p>10.【推荐】接口类的方法和属性不要加任何修饰符号（public 也不要加），保持代码整洁，并加上有效的 Javadoc 注释。</p>
-<p>11.【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的一定时接口，内部的实现类用 Impl 的后缀与接口区别。<br>
-正例：CacheServiceImpl 实现 CacheService。</p>
-<p>12.【参考】各层命名规约：
-A）Service/DAO 层方法命名规约<br>
-1）获取单个对象的方法用 get 做前缀。<br>
-2）获取多个对象的方法用 list 做前缀，复数形式结尾如： listObjects。<br>
-3）获取统计值的方法用 count 做前缀。<br>
-4）插入的方法用 save/insert 做前缀<br>
-5）删除的方法用 remove/delete 做前缀<br>
-6）修改的方法用 update 做前缀<br>
-B）领域模型命名规约<br>
-1）数据对象：xxxDO，xxx 即为数据表名。<br>
-2）数据传输对象：xxxDTO，xxx 为业务领域相关的名称。<br>
-3）展示对象：xxxVO，xxx 一般为网页名称。<br>
-4) POJO 是 DO/DTO/BO/VO 的统称，禁止命名为 xxxPOJO。</p>
-<p>13.【强制】不允许任何魔法值（即未经预先i当以的常量）出现在代码中。<br>
-反例：String key = &ldquo;ID#taobao_&rdquo; + tradeId;</p>
-<p>14.【强制】代码格式，具体见下面正例。
-正例：</p>
-<pre tabindex="0"><code>    public static void main(String[] args) {
-        // 缩进4个空格，注释内空1格
-        String say = &#34;hello&#34;;
-        // 运算符左右必须有一个空格
-        int flag = 0;
-        // 关键词 if 与括号之间必须有一个空格
-        if (flag == 0) {
-            System.out.println(say);
-        }
-
-        // 左大括号前加空格且不换行，左大括号后换行。
-        if (flag == 0) {
-            System.out.println(&#34;world&#34;);
-        //  右大括号前换行，右大括号后有 else，不用换行、
-        }
-        else {
-            System.out.printLn(&#34;ok&#34;);
-        }
-    }
-</code></pre>
-        
-        ]]>
-      </description>
+      <guid>/posts/2021-01-12-io/</guid>
+      <description>一、概览 🔗Java 的 I/O 大概可以分成以下几类：
+ 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO  二、磁盘操作 🔗File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
+public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { System.out.println(dir.getName()); return ; } for (File:file : dir.listFiles()) { listAllFiles(file); } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
+三、字节操作 🔗实现文件复制 🔗public static void copuFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读 buffer.</description>
     </item>
     
-    
-    
     <item>
-      <title>[做点有趣的]Java开发泡泡堂游戏（MVC架构）</title>
-      <link>/post/2021/05/08/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84java%E5%BC%80%E5%8F%91%E6%B3%A1%E6%B3%A1%E5%A0%82%E6%B8%B8%E6%88%8Fmvc%E6%9E%B6%E6%9E%84/</link>
-      <pubDate>Sat, 08 May 2021 11:09:51 +0800</pubDate>
+      <title>Java 并发</title>
+      <link>/posts/2021-01-09-concurrent/</link>
+      <pubDate>Sat, 09 Jan 2021 10:50:16 +0800</pubDate>
       
-      <guid>/post/2021/05/08/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84java%E5%BC%80%E5%8F%91%E6%B3%A1%E6%B3%A1%E5%A0%82%E6%B8%B8%E6%88%8Fmvc%E6%9E%B6%E6%9E%84/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="介绍">介绍</h3>
-<p>本项目是一个很久以前的实训周项目，由我和我的组员 ljr 共同实现。整个项目思路清晰，整体难度不大，但是很多细节需要花功夫。本项目仍存在一些不足的地方，后续可能会进行优化，现在我将项目源代码和一些实现思路开源公布。</p>
-<p>源代码：<a href="https://gitee.com/lzxqaq/CrazyArcade">https://gitee.com/lzxqaq/CrazyArcade</a></p>
-<p>文章介绍：<a href="https://lzxqaq.com/post/java/paopaotang/">https://lzxqaq.com/post/java/paopaotang/</a></p>
-<p>程序运行： 在终端下进入执行程序所在目录，执行 <code>java -jar CrazyArcade.jar</code> 或者双击 <code>CrazyArcade.jar</code>，或者在开发环境中打开源代码，运行 <code>GameStart.java</code>的 <code>main</code> 方法。</p>
-<p>运行环境：Linux、Windows均可。开发环境：IDEA。</p>
-<p>演示视频：</p>
-<p>运行截图：</p>
-<div  align="center">    
- <img src="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade@master/images/CrazyArcade.png" width = "500" height = "200" alt="图片1" align=center />
- <br/>
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade/images/2.png" width = "500" height = "200" alt="图片2" align=center />
- </div>
-<h3 id="功能">功能</h3>
-<p>本项目实现的功能如下：</p>
-<ul>
-<li>绘制游戏启动界面、结束界面、地图、主角、道具</li>
-<li>实现泡泡爆炸</li>
-<li>实现双主角PK（积分制）</li>
-<li>实现道具掉落和相应属性加成</li>
-<li>实现游戏音效和背景音乐</li>
-</ul>
-<p>其中我们对游戏玩法做了调整，大致如下:</p>
-<p>我们把游戏设计为双人pk积分赛模式，在这个模式里面，玩家只要率先达到一定分数既可以赢得比赛。玩家可以通过炸箱子可以得到少量的分数，也可以通过炸掉对手然后戳破包围对手的水泡得到大量分数。而玩家如果被泡泡爆炸击中，会被泡泡包裹一段时间，在这段时间内不可以移动和放泡泡，需要等时间过去或者被对手戳破水泡才能获得自由。但如果玩家被自己放的泡泡炸中，会扣一定的分数。</p>
-<h3 id="思路和架构">思路和架构</h3>
-<p>整个项目采用 MVC 架构，将项目整体分为数据模型层（M）、视图层（V）、控制层（C）。M层负责元素的创建、存储、管理，V层负责所有元素的显示（24帧/秒），C层负责交互（监听用户的操作），同时负责控制游戏的进程。</p>
-<p>选择MVC架构最主要的原因是让这个游戏项目具有良好的可扩展性和更新功能，当然了，一个好的游戏也需要良好的交互功能，漂亮的UI设计。</p>
-<p>架构设计图：</p>
-<div  align="center">    
- <img src="https://cdn.jsdelivr.net/gh/lzxqaq/CrazyArcade@master/images/design.png" width = "500" height = "200" alt="图片名称" align=center /></div>
-<h3 id="包结构">包结构</h3>
-<p>未完待续……</p>
-<h3 id="核心实现">核心实现</h3>
-<p>未完待续……</p>
-<h3 id="后续">后续</h3>
-<p>该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎<a href="https://lzxqaq.com/about/">联系我</a>。如有任何问题，亦可与我一同探讨。</p>
-
-        
-        ]]>
-      </description>
+      <guid>/posts/2021-01-09-concurrent/</guid>
+      <description>一、使用线程 🔗有三种使用线程的方法：
+ 实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类；  实现 Runnable 接口 🔗需要实现接口中的 run() 方法。
+public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+public static void main(String[] args){ MyRunnable instance = new MyRunnable(); Thread thread = new Thread(instance); thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。
+public class MyCallable implements Callable&amp;lt;Integer&amp;gt; { public Integer call(){ return 123; } } public static void main(String[] args) throws ExecutionException,InterruptedException { MyCallable mc = new MyCallble(); FutureTask&amp;lt;Integer&amp;gt; ft = new FutureTask&amp;lt;&amp;gt;(mc); Thread thread = new Thread(ft); thread.</description>
     </item>
     
+    <item>
+      <title>Java 虚拟机</title>
+      <link>/posts/2020-12-25jvm/</link>
+      <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
+      
+      <guid>/posts/2020-12-25jvm/</guid>
+      <description>参考自 CyC2018/CS-Notes
+ 一、运行时数据区域  程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存   二、垃圾收集  判断一个对象是否可被回收 引用类型 垃圾收集算法 垃圾收集器   三、内存分配和回收策略  Minor Gc 和 Full Gc 内存分配策略 Full GC 的触发条件   四、类加载机制  类的生命周期 类加载过程 类初始化时机 类与类加载器 类加载器分类 双亲委派模型 自定义类加载器实现    一、运行时数据区域  🔗程序计数器  🔗记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。
+Java 虚拟机栈  🔗每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
+可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</description>
+    </item>
+    
+    <item>
+      <title>Java 容器</title>
+      <link>/posts/2020-12-24-collection/</link>
+      <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
+      
+      <guid>/posts/2020-12-24-collection/</guid>
+      <description>参考自 CyC2018/CS-Notes
+ 一、概览  Collection Map    一、概览  🔗容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。
+Collection  🔗1.Set
+ TreeSet: 基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet, HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。 HashSet: 基于哈希表的实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。 LinkedHashSet: 具有 HashSet 的查找效率，并且内部使用双向链表维护元素的插入顺序。  2.List
+ ArrayList： 基于动态数组实现，支持随机访问。 Vector： 和 ArrayList 类似，但它是线程安全的。 LinkedList： 基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用做栈、队列和双向队列。  3.Queue
+ LinkedList：可以用它来实现双向队列。 PriorityQueue：基于堆结构实现，可以用它来实现优先队列。  Map  🔗 TreeMap：基于红黑树实现 HashMap：基于哈希表实现 hashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程同时写入 HashTable 不会导致数据不一致。它是遗留类，不应该去使用它，而是使用 ConcurrentHashMap 来支持线程安全，ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。 LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。  </description>
+    </item>
+    
+    <item>
+      <title>String 类真的不可以改变吗？</title>
+      <link>/posts/2020-12-15-2/</link>
+      <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
+      
+      <guid>/posts/2020-12-15-2/</guid>
+      <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。
+然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。
+事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：
+//实验1 String s1 = &amp;#34;1&amp;#34;; Field valueField = String.class.getDeclaredField(&amp;#34;value&amp;#34;); valueField.setAccessible(true); char[] value = (char[]) valueField.get(s1); value[0] = &amp;#39;2&amp;#39;; System.out.println(s1); //2 System.out.println((s1 == &amp;#34;1&amp;#34;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot;  的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
+    </item>
+    
+    <item>
+      <title>Java 基础</title>
+      <link>/posts/2020-12-15-base/</link>
+      <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
+      
+      <guid>/posts/2020-12-15-base/</guid>
+      <description>参考自 CyC2018/CS-Notes
+ 一、数据类型  基本类型 包装类型 缓存池   二、String  概述 不可变的好处 String,StringBuffer and StringBuilder StringPoll new String(&amp;ldquo;abc&amp;rdquo;)   三、运算  参数传递 float与double 隐式类型转换 switch   四、关键字  final static   五、Object通用方法  概览 equals() hashCode() toString() clone()   六、继承  访问权限 抽象类和接口 super 重载和重写   七、反射 八、异常 九、泛型 十、注解 十一、特性  一、数据类型  🔗基本类型  🔗 byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~  boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</description>
+    </item>
     
   </channel>
 </rss>

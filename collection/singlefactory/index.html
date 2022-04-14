@@ -98,25 +98,25 @@ private String type; //图表类型
 
 public Chart(Object[][] data, String type) {
 this.type = type;
-if (type.equalsIgnoreCase(&#34;histogram&#34;)) {
+if (type.equalsIgnoreCase(&quot;histogram&quot;)) {
     //初始化柱状图
 }
-else if (type.equalsIgnoreCase(&#34;pie&#34;)) {
+else if (type.equalsIgnoreCase(&quot;pie&quot;)) {
     //初始化饼状图
 }
-else if (type.equalsIgnoreCase(&#34;line&#34;)) {
+else if (type.equalsIgnoreCase(&quot;line&quot;)) {
     //初始化折线图
 }
 }
 
 public void display() {
-if (this.type.equalsIgnoreCase(&#34;histogram&#34;)) {
+if (this.type.equalsIgnoreCase(&quot;histogram&quot;)) {
     //显示柱状图
 }
-else if (this.type.equalsIgnoreCase(&#34;pie&#34;)) {
+else if (this.type.equalsIgnoreCase(&quot;pie&quot;)) {
     //显示饼状图
 }
-else if (this.type.equalsIgnoreCase(&#34;line&#34;)) {
+else if (this.type.equalsIgnoreCase(&quot;line&quot;)) {
     //显示折线图
 }	
 }
@@ -159,6 +159,7 @@ public void methodSame() {
 //声明抽象业务方法
 public abstract void methodDiff();
 }
+
 </code></pre><p>在具体产品类中实现了抽象产品类中声明的抽象业务方法，不同的具体产品类可以提供不同的实现，典型的具体产品类代码如下所示：</p>
 <pre tabindex="0"><code>class ConcreteProduct extends Product {
 //实现业务方法
@@ -171,11 +172,11 @@ public void methodDiff() {
 //静态工厂方法
 public static Product getProduct(String arg) {
 Product product = null;
-if (arg.equalsIgnoreCase(&#34;A&#34;)) {
+if (arg.equalsIgnoreCase(&quot;A&quot;)) {
     product = new ConcreteProductA();
     //初始化设置product
 }
-else if (arg.equalsIgnoreCase(&#34;B&#34;)) {
+else if (arg.equalsIgnoreCase(&quot;B&quot;)) {
     product = new ConcreteProductB();
     //初始化设置product
 }
@@ -186,7 +187,7 @@ return product;
 <pre tabindex="0"><code>class Client {
 public static void main(String args[]) {
 Product product; 
-product = Factory.getProduct(&#34;A&#34;); //通过工厂类创建产品对象
+product = Factory.getProduct(&quot;A&quot;); //通过工厂类创建产品对象
 product.methodSame();
 product.methodDiff();
 }
@@ -203,33 +204,33 @@ public void display();
 //柱状图类：具体产品类
 class HistogramChart implements Chart {
 public HistogramChart() {
-System.out.println(&#34;创建柱状图！&#34;);
+System.out.println(&quot;创建柱状图！&quot;);
 }
 
 public void display() {
-System.out.println(&#34;显示柱状图！&#34;);
+System.out.println(&quot;显示柱状图！&quot;);
 }
 }
 
 //饼状图类：具体产品类
 class PieChart implements Chart {
 public PieChart() {
-System.out.println(&#34;创建饼状图！&#34;);
+System.out.println(&quot;创建饼状图！&quot;);
 }
 
 public void display() {
-System.out.println(&#34;显示饼状图！&#34;);
+System.out.println(&quot;显示饼状图！&quot;);
 }
 }
 
 //折线图类：具体产品类
 class LineChart implements Chart {
 public LineChart() {
-System.out.println(&#34;创建折线图！&#34;);
+System.out.println(&quot;创建折线图！&quot;);
 }
 
 public void display() {
-System.out.println(&#34;显示折线图！&#34;);
+System.out.println(&quot;显示折线图！&quot;);
 }
 }
 
@@ -238,17 +239,17 @@ class ChartFactory {
 //静态工厂方法
 public static Chart getChart(String type) {
 Chart chart = null;
-if (type.equalsIgnoreCase(&#34;histogram&#34;)) {
+if (type.equalsIgnoreCase(&quot;histogram&quot;)) {
     chart = new HistogramChart();
-    System.out.println(&#34;初始化设置柱状图！&#34;);
+    System.out.println(&quot;初始化设置柱状图！&quot;);
 }
-else if (type.equalsIgnoreCase(&#34;pie&#34;)) {
+else if (type.equalsIgnoreCase(&quot;pie&quot;)) {
     chart = new PieChart();
-    System.out.println(&#34;初始化设置饼状图！&#34;);
+    System.out.println(&quot;初始化设置饼状图！&quot;);
 }
-else if (type.equalsIgnoreCase(&#34;line&#34;)) {
+else if (type.equalsIgnoreCase(&quot;line&quot;)) {
     chart = new LineChart();
-    System.out.println(&#34;初始化设置折线图！&#34;);			
+    System.out.println(&quot;初始化设置折线图！&quot;);			
 }
 return chart;
 }
@@ -257,7 +258,7 @@ return chart;
 <pre tabindex="0"><code>class Client {
 public static void main(String args[]) {
 Chart chart;
-chart = ChartFactory.getChart(&#34;histogram&#34;); //通过静态工厂方法创建产品
+chart = ChartFactory.getChart(&quot;histogram&quot;); //通过静态工厂方法创建产品
 chart.display();
 }
 }
@@ -268,9 +269,9 @@ chart.display();
 
 显示柱状图！
 </code></pre><p>在客户端测试类中，我们使用工厂类的静态工厂方法创建产品对象，如果需要更换产品，只需修改静态工厂方法中的参数即可，例如将柱状图改为饼状图，只需将代码：</p>
-<pre tabindex="0"><code>chart = ChartFactory.getChart(&#34;histogram&#34;);
+<pre tabindex="0"><code>chart = ChartFactory.getChart(&quot;histogram&quot;);
 </code></pre><p>改为：</p>
-<pre tabindex="0"><code>chart = ChartFactory.getChart(&#34;pie&#34;);
+<pre tabindex="0"><code>chart = ChartFactory.getChart(&quot;pie&quot;);
 </code></pre><p>编译并运行程序，输出结果如下：</p>
 <pre tabindex="0"><code>创建饼状图！
 
@@ -280,7 +281,7 @@ chart.display();
 </code></pre><h3 id="四方案的改进">四、方案的改进</h3>
 <p>Sunny软件公司开发人员发现在创建具体Chart对象时，每更换一个Chart对象都需要修改客户端代码中静态工厂方法的参数，客户端代码将要重新编译，这对于客户端而言，违反了“开闭原则”，有没有一种方法能够在不修改客户端代码的前提下更换具体产品对象呢？答案是肯定的，下面将介绍一种常用的实现方式。</p>
 <p>我们可以将静态工厂方法的参数存储在XML或properties格式的配置文件中，如下config.xml所示：</p>
-<pre tabindex="0"><code>&lt;?xml version=&#34;1.0&#34;?&gt;
+<pre tabindex="0"><code>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;config&gt;
 &lt;chartType&gt;histogram&lt;/chartType&gt;
 &lt;/config&gt;
@@ -298,10 +299,10 @@ try {
     DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
     DocumentBuilder builder = dFactory.newDocumentBuilder();
     Document doc;							
-    doc = builder.parse(new File(&#34;config.xml&#34;)); 
+    doc = builder.parse(new File(&quot;config.xml&quot;)); 
 
     //获取包含图表类型的文本节点
-    NodeList nl = doc.getElementsByTagName(&#34;chartType&#34;);
+    NodeList nl = doc.getElementsByTagName(&quot;chartType&quot;);
     Node classNode = nl.item(0).getFirstChild();
     String chartType = classNode.getNodeValue().trim();
     return chartType;

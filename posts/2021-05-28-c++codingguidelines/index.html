@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>【规约】 C&#43;&#43; 编程篇 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="前言 🔗“码出高效，码出质量”。本文整理了比较常见的 C&#43;&#43; 编程规范，主要来源于华为《软件编程规范总则》。
+（一）排版 🔗1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。
+2.相对独立的程序块之间、变量说明之后必须加空行。
+3.较长的语句（&gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。
+4.if、for、do、while、case、switch、default 等语句自占一行，且执行语句部分无论多少都要加括号 {}。
+（二）注释 🔗1.一般情况下，源程序有效注释量必须在 20% 以上。
+2.说明性文件（如头文件 .h 文件、.inc 文件、.def 文件等）头部应进行注释，注释必须列出：版权说明、版本号、生成日期、作者、内容、功能、与其他头文件关系、修改日志等，头文件注释中还应有函数功能简要说明。
+3.源文件头部应进行注释，列出：版权说明、版本号、生成日期、作者、模块目的/功能、主要函数及其功能、修改日志等。
+4.函数头部应进行注释，列出：函数的目的/功能、输入参数、输出参数、返回值、调用关系（函数、表）等。
+5.边写代码边注释，修改代码同时修改响应的注释。不再有用的注释 要删除。
+6.注释格式尽量统一，建议使用“/…………/”。
+7.注释应考虑程序易读性，建议使用中文。
+（三）标识符命名 🔗1.命名规范必须与所使用的系统风格保持一致，并在同一项目中统一，比如采用 UNIX 的全小写加下划线风格或大小写混排的方式，不要将两种方式混合使用。用作特殊标识如标识成员变量或全局变量的 m_ 和 g_，其后加上大小写混排的方式是允许的。
+示例：Add_User 不允许，add_user、AddUser、m_AddUser允许。
+2.用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。
+说明：以下是一些在软件中常用的反义词组。
+add / remove begin / end create / destroy
+insert /delete first / last get / release
+increment / decrement put / get
+add /delete lock unlock open /close
+min / max old /new stat / stop">
+<meta name="generator" content="Hugo 0.89.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">【规约】 C&#43;&#43; 编程篇</h1>
+
+    <div class="tip">
+        <time datetime="2021-05-28 11:46:44 &#43;0800 CST">2021年05月28日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          138字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <h3 id="前言">前言 <a href="#%e5%89%8d%e8%a8%80" class="anchor">🔗</a></h3><p>“码出高效，码出质量”。本文整理了比较常见的 C++ 编程规范，主要来源于华为《软件编程规范总则》。</p>
+<h3 id="一排版">（一）排版 <a href="#%e4%b8%80%e6%8e%92%e7%89%88" class="anchor">🔗</a></h3><p>1.程序块要采用缩进风格编写，缩进的空格数位 4 个。对齐只用空格键，不适用tab键。<br>
+2.相对独立的程序块之间、变量说明之后必须加空行。<br>
+3.较长的语句（&gt;80 字符）要分成多行书写，长表达式要在低优先级操作符划分新行，操作符放在新行之首。<br>
+4.if、for、do、while、case、switch、default 等语句自占一行，且执行语句部分无论多少都要加括号 {}。</p>
+<h3 id="二注释">（二）注释 <a href="#%e4%ba%8c%e6%b3%a8%e9%87%8a" class="anchor">🔗</a></h3><p>1.一般情况下，源程序有效注释量必须在 20% 以上。<br>
+2.说明性文件（如头文件 .h 文件、.inc 文件、.def 文件等）头部应进行注释，注释必须列出：版权说明、版本号、生成日期、作者、内容、功能、与其他头文件关系、修改日志等，头文件注释中还应有函数功能简要说明。<br>
+3.源文件头部应进行注释，列出：版权说明、版本号、生成日期、作者、模块目的/功能、主要函数及其功能、修改日志等。<br>
+4.函数头部应进行注释，列出：函数的目的/功能、输入参数、输出参数、返回值、调用关系（函数、表）等。<br>
+5.边写代码边注释，修改代码同时修改响应的注释。不再有用的注释 要删除。<br>
+6.注释格式尽量统一，建议使用“/<em>…………</em>/”。<br>
+7.注释应考虑程序易读性，建议使用中文。</p>
+<h3 id="三标识符命名">（三）标识符命名 <a href="#%e4%b8%89%e6%a0%87%e8%af%86%e7%ac%a6%e5%91%bd%e5%90%8d" class="anchor">🔗</a></h3><p>1.命名规范必须与所使用的系统风格保持一致，并在同一项目中统一，比如采用 UNIX 的全小写加下划线风格或大小写混排的方式，不要将两种方式混合使用。用作特殊标识如标识成员变量或全局变量的 m_ 和 g_，其后加上大小写混排的方式是允许的。<br>
+示例：Add_User 不允许，add_user、AddUser、m_AddUser允许。</p>
+<p>2.用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。<br>
+说明：以下是一些在软件中常用的反义词组。<br>
+add / remove    begin / end    create / destroy<br>
+insert /delete    first / last    get / release<br>
+increment / decrement    put / get<br>
+add /delete    lock unlock    open /close<br>
+min / max    old /new     stat / stop<br>
+next /previous    source / target    show / hide<br>
+send / receive    source / destination <br>
+cut /paste    up / down<br>
+示例：<br>
+int min_sum;<br>
+int max_sum;<br>
+int add_user( BYTE *user_name );<br>
+int delete_user( BYTE *user_name);</p>
+<h3 id="四可测性">（四）可测性 <a href="#%e5%9b%9b%e5%8f%af%e6%b5%8b%e6%80%a7" class="anchor">🔗</a></h3><p>1.使用断言来发现软件问题，提高代码可测性。</p>
+<h3 id="五程序效率">（五）程序效率 <a href="#%e4%ba%94%e7%a8%8b%e5%ba%8f%e6%95%88%e7%8e%87" class="anchor">🔗</a></h3><p>1.多重循环中，应将最忙的循环放在最内层。<br>
+2.尽量减少循环嵌套层次。<br>
+3.尽量使用乘法或其他方法代替除法特别是浮点运算中的除法（占用较多 CPU 资源）。</p>
+<h3 id="六质量保证">（六）质量保证 <a href="#%e5%85%ad%e8%b4%a8%e9%87%8f%e4%bf%9d%e8%af%81" class="anchor">🔗</a></h3><p>1.防止引用已经释放的内存空间。<br>
+2.过程/函数中分配的内存，在过程/函数退出之前要释放。<br>
+3.过程/函数中申请的（为打开文件而使用的）文件句柄，在过程/函数退出之前要关闭。<br>
+4.防止内存操作越界。<br>
+5.编程时，要防止差 1 错误。（&lt;=、&lt;等注意）<br>
+6.if 语句尽量加上 else 分支，switch 语句必须有 default 分支。<br>
+7.Unix 下，多线程的子线程退出必需采用主动退出的方式，即子线程应 return 出口。<br>
+8.时刻注意表达式是否会上溢、下溢。使用变量时要注意其边界值的情况。</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83">编程规范</a>
+            
+        </div>
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>
