@@ -1,20 +1,19 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>C&#43;&#43; on 罗泽勋</title>
     <link>/tags/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 May 2021 07:12:32 +0800</lastBuildDate>
-    <atom:link href="/tags/c&#43;&#43;/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 25 May 2021 07:12:32 +0800</lastBuildDate><atom:link href="/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[做点有趣的]C&#43;&#43;做一个哈夫曼压缩软件</title>
       <link>/post/2021/05/25/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84c-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%93%88%E5%A4%AB%E6%9B%BC%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6/</link>
       <pubDate>Tue, 25 May 2021 07:12:32 +0800</pubDate>
       
       <guid>/post/2021/05/25/%E5%81%9A%E7%82%B9%E6%9C%89%E8%B6%A3%E7%9A%84c-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%93%88%E5%A4%AB%E6%9B%BC%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h3 id="前言">前言</h3>
@@ -43,8 +42,10 @@ void decode_huffman();//根据重构的哈夫曼树解码文件
         
         ]]>
       </description>
+=======
+      <description>前言 这是以前的一个实训周作业，核心是哈夫曼编码和解码，软件界面由 QT 实现。代码量很小，比较简单。 源代码： https://gitee.com/lzxqaq/zxhan.git 介绍：https://lzxqaq.</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
     
   </channel>
 </rss>

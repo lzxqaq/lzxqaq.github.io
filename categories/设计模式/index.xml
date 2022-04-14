@@ -1,60 +1,28 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>设计模式 on 罗泽勋</title>
     <link>/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 设计模式 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 Jan 2022 08:14:07 +0800</lastBuildDate>
-    <atom:link href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 15 Jan 2022 08:14:07 +0800</lastBuildDate><atom:link href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【转载】C&#43;&#43; 开发必备之设计模式</title>
       <link>/collection/design-pattern/</link>
       <pubDate>Sat, 15 Jan 2022 08:14:07 +0800</pubDate>
       
       <guid>/collection/design-pattern/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
-<blockquote>
-<p>各大设计模式例子参考：<a href="https://blog.csdn.net/liang19890820/article/details/66974516">CSDN专栏 . C++ 设计模式</a> 系列博文</p>
-</blockquote>
-<p><a href="DesignPattern">设计模式工程目录</a></p>
-<h3 id="单例模式">单例模式</h3>
-<p><a href="DesignPattern/SingletonPattern">单例模式例子</a></p>
-<h3 id="抽象工厂模式">抽象工厂模式</h3>
-<p><a href="DesignPattern/AbstractFactoryPattern">抽象工厂模式例子</a></p>
-<h3 id="适配器模式">适配器模式</h3>
-<p><a href="DesignPattern/AdapterPattern">适配器模式例子</a></p>
-<h3 id="桥接模式">桥接模式</h3>
-<p><a href="DesignPattern/BridgePattern">桥接模式例子</a></p>
-<h3 id="观察者模式">观察者模式</h3>
-<p><a href="DesignPattern/ObserverPattern">观察者模式例子</a></p>
-<h3 id="设计模式的六大原则">设计模式的六大原则</h3>
-<ul>
-<li>单一职责原则（SRP，Single Responsibility Principle）</li>
-<li>里氏替换原则（LSP，Liskov Substitution Principle）</li>
-<li>依赖倒置原则（DIP，Dependence Inversion Principle）</li>
-<li>接口隔离原则（ISP，Interface Segregation Principle）</li>
-<li>迪米特法则（LoD，Law of Demeter）</li>
-<li>开放封闭原则（OCP，Open Close Principle）</li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://github.com/huihut/interview 各大设计模式例子参考：CSDN专栏 . C++ 设计模式 系列博文 设计模式工</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】面向对象设计原则之开闭原则</title>
       <link>/collection/oop/</link>
       <pubDate>Tue, 28 Dec 2021 08:07:08 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/oop/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
@@ -95,75 +63,36 @@ chart.display();
         
         ]]>
       </description>
+=======
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 开闭原则是面向对象的可复</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】面向对象设计原则之单一职责原则</title>
       <link>/collection/singleresponsibility/</link>
       <pubDate>Tue, 28 Dec 2021 07:40:16 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/singleresponsibility/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
-<p>单一职责原则是最简单的面向对象设计原则，它用于控制类的粒度大小。单一职责原则定义如下：</p>
-<p>单一职责原则(Single Responsibility Principle, SRP)：一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。</p>
-<p>单一职责原则告诉我们：一个类不能太“累”！在软件系统中，一个类（大到模块，小到方法）承担的职责越多，它被复用的可能性就越小，而且一个类承担的职责过多，就相当于将这些职责耦合在一起，当其中一个职责变化时，可能会影响其他职责的运作，因此要将这些职责进行分离，将不同的职责封装在不同的类中，即将不同的变化原因封装在不同的类中，如果多个职责总是同时发生改变则可将它们封装在同一类中。</p>
-<p>单一职责原则是实现高内聚、低耦合的指导方针，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。</p>
-<p>下面通过一个简单实例来进一步分析单一职责原则：</p>
-<blockquote>
-<p>Sunny软件公司开发人员针对某CRM（Customer Relationship  Management，客户关系管理）系统中客户信息图形统计模块提出了如图1所示初始设计方案：</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/srp.jpg" alt="img">
-图1  初始设计方案结构图</p>
-<blockquote>
-<p>在图1中，CustomerDataChart类中的方法说明如下：getConnection()方法用于连接数据库，findCustomers()用于查询所有的客户信息，createChart()用于创建图表，displayChart()用于显示图表。</p>
-</blockquote>
-<p>现使用单一职责原则对其进行重构。</p>
-<p>在图1中，CustomerDataChart类承担了太多的职责，既包含与数据库相关的方法，又包含与图表生成和显示相关的方法。如果在其他类中也需要连接数据库或者使用findCustomers()方法查询客户信息，则难以实现代码的重用。无论是修改数据库连接方式还是修改图表显示方式都需要修改该类，它不止一个引起它变化的原因，违背了单一职责原则。因此需要对该类进行拆分，使其满足单一职责原则，类CustomerDataChart可拆分为如下三个类：</p>
-<p>(1) DBUtil：负责连接数据库，包含数据库连接方法getConnection()；</p>
-<p>(2) CustomerDAO：负责操作数据库中的Customer表，包含对Customer表的增删改查等方法，如findCustomers()；</p>
-<p>(3) CustomerDataChart：负责图表的生成和显示，包含方法createChart()和displayChart()。</p>
-<p>使用单一职责原则重构后的结构如图2所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/srp2.jpg" alt="img">
-图2  重构后的结构图</p>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 单一职责原则是最简单的面</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】面向对象设计原则概述</title>
       <link>/collection/oop/</link>
       <pubDate>Tue, 28 Dec 2021 06:59:01 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/oop/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
-<p>对于面向对象软件系统的设计而言，在支持可维护性的同时，提高系统的可复用性是一个至关重要的问题，如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。在面向对象设计中，可维护性的复用是以设计原则为基础的。每一个原则都蕴含一些面向对象设计的思想，可以从不同的角度提升一个软件结构的设计水平。</p>
-<p>面向对象设计原则为支持可维护性复用而诞生，这些原则蕴含在很多设计模式中，它们是从许多设计方案中总结出的指导性原则。面向对象设计原则也是我们用于评价一个设计模式的使用效果的重要指标之一，在设计模式的学习中，大家经常会看到诸如“XXX模式符合XXX原则”、“XXX模式违反了XXX原则”这样的语句。</p>
-<p>最常见的7种面向对象设计原则如下表所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/oop.png" alt="img"></p>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 对于面向对象软件系统的设</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】简单工厂模式</title>
       <link>/collection/singlefactory/</link>
       <pubDate>Tue, 28 Dec 2021 06:50:56 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/singlefactory/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
@@ -434,33 +363,19 @@ chart.display();
         
         ]]>
       </description>
+=======
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 工厂模式是最常用的一类创</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>设计模式概述</title>
       <link>/post/2021/12/26/design/</link>
       <pubDate>Sun, 26 Dec 2021 10:10:12 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/post/2021/12/26/design/</guid>
-      <description>
-        <![CDATA[
-        <p>在软件开发生命周期的每一个阶段都存在着一些被认同的模式。</p>
-<p>在软件模式中，设计模式是研究最为深入的分支，设计模式用于在特定的调剂爱你下为一些重复出现的软件设计问题提供合理的、有效的解决方案。</p>
-<p>一般定义：设计模式（Design Pattern)是一套被反复使用、多数人知晓的、进过分类编目的代码设计经验的总结，使用设计模式是为了可重用代码、让代码更容易被他人理解并且保证代码可靠性。</p>
-<p>狭义的设计模式是指 GoF 在《设计模式：可复用面向对象软件的基础》一书中所介绍的23种经典设计模式。不过设计模式并不仅仅只有这23种，越来越多的新模式不断诞生并得以应用。</p>
-<p>23 种设计模式根据用途可分为创建型、结构型和行为型三种。其中创建型模式主要用于描述如何创建对象，结构型模式主要用于描述如何实现类或对象的组合，行为型模式主要用于描述类或对象怎样交互以及怎样分配职责。</p>
-<p>值得注意的是，简单工厂模式没有在 23 种设计模式里面，但一般都会对它进行说明。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-26/design1.png" alt="img"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-26/design2.png" alt="img"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-26/design2.png" alt="img"></p>
-
-        
-        ]]>
-      </description>
+      <description>在软件开发生命周期的每一个阶段都存在着一些被认同的模式。 在软件模式中，设计模式是研究最为深入的分支，设计模式用于在特定的调剂爱你下为一些重复</description>
     </item>
-    
     
   </channel>
 </rss>

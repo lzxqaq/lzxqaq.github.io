@@ -1,75 +1,338 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>罗泽勋</title>
+<meta name="keywords" content="">
+<meta name="description" content=" - 罗泽勋">
+<meta name="author" content="">
+<link rel="canonical" href="/blog/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="/blog/index.xml">
+<link rel="alternate" hreflang="en" href="/blog/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="" />
+<meta property="og:description" content="糸色先生" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/blog/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="糸色先生"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "",
+      "item": "/blog/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="罗泽勋 (Alt + H)">罗泽勋</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/cn/" title="中文"
+                            aria-label="中文">Cn</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span class="active">Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/" title="Program">
+                    <span>Program</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>认知世界形势变化
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>人类同胞们， 我来此召集你们，是要你们了解目前的形势。 每个人都应该意识到我们此时所遭受的危机， 我们彼此互相争斗， 为了共和历史的微小冲突而被分散...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-03-20 10:13:40 +0800 CST'>March 20, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 认知世界形势变化" href="/blog/2022/03/20/%E8%AE%A4%E7%9F%A5%E4%B8%96%E7%95%8C%E5%BD%A2%E5%8A%BF%E5%8F%98%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>在路的尽头，你会找到你自己
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>最近时常回忆起以前的事情，并且想用文字记下一些东西的念头越来越强烈。 回首往昔，能记起来的事却少之又少，其中多数藏在脑海深处久矣。二十多年的人...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-03-16 23:38:01 +0800 CST'>March 16, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 在路的尽头，你会找到你自己" href="/blog/2022/03/16/%E5%9C%A8%E8%B7%AF%E7%9A%84%E5%B0%BD%E5%A4%B4%E4%BD%A0%E4%BC%9A%E6%89%BE%E5%88%B0%E4%BD%A0%E8%87%AA%E5%B7%B1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>《红发少女安妮——虔诚的承诺》
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>一 安妮：希望戴安娜会成为我的知心朋友，我一定会喜欢戴安娜的，而且我相信戴安娜她一定也会喜欢我的。因为今天晚上戴安娜家中的橙光，看起来是离我那...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-09 19:45:15 +0800 CST'>February 9, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 《红发少女安妮——虔诚的承诺》" href="/blog/2022/02/09/%E7%BA%A2%E5%8F%91%E5%B0%91%E5%A5%B3%E5%AE%89%E5%A6%AE%E8%99%94%E8%AF%9A%E7%9A%84%E6%89%BF%E8%AF%BA/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>我现在看清了我真正的敌人
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>前些天，我感觉我的世界崩塌了，可渐渐的，我的心平静了下来，那些一直一直困扰我的问题也随之解开。为了纪念自己进入“不惑”之年，我决定在此发表一...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-05 19:21:37 +0800 CST'>February 5, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 我现在看清了我真正的敌人" href="/blog/2022/02/05/%E6%88%91%E7%8E%B0%E5%9C%A8%E7%9C%8B%E6%B8%85%E4%BA%86%E6%88%91%E7%9C%9F%E6%AD%A3%E7%9A%84%E6%95%8C%E4%BA%BA/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>【音乐】水手
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>苦涩的沙 吹痛脸庞的感觉 像父亲的责骂 母亲的哭泣 永远难忘记 年少的我 喜欢一个人在海边 卷起裤管 光着脚丫 踩在沙滩上 总是幻想海洋的尽头有另一个世界 总是以...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-05 19:21:20 +0800 CST'>February 5, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 【音乐】水手" href="/blog/2022/02/05/%E9%9F%B3%E4%B9%90%E6%B0%B4%E6%89%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>【音乐】追梦赤子心
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>充满鲜花的世界到底在哪里 如果它真的存在那么我一定会去 我想在那里最高的山峰矗立 不在乎它是不是悬崖峭壁 用力活着用力爱哪怕肝脑涂地 不求任何人满意只...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-05 19:21:18 +0800 CST'>February 5, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 【音乐】追梦赤子心" href="/blog/2022/02/05/%E9%9F%B3%E4%B9%90%E8%BF%BD%E6%A2%A6%E8%B5%A4%E5%AD%90%E5%BF%83/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>【音乐】とんぼ
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>コツコツとアスファルトに刻む 脚步声咯噔咯噔刻在沥青路上 足音を踏みしめるたびに 每踩一步时 俺は俺で在り続けたい そう願った 我都祈愿了 要永远保持住本...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-05 19:21:15 +0800 CST'>February 5, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 【音乐】とんぼ" href="/blog/2022/02/05/%E9%9F%B3%E4%B9%90%E3%81%A8%E3%82%93%E3%81%BC/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>我什么也没说
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>很久之前，我见到过这样一个画面：一位年轻的母亲和她的孩子坐公交，她用手抱着小孩，小孩用手抱着手机。她在刷短视频，一遍又一遍。我就这么看着，什...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-05 08:43:08 +0800 CST'>February 5, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 我什么也没说" href="/blog/2022/02/05/%E6%88%91%E4%BB%80%E4%B9%88%E4%B9%9F%E6%B2%A1%E8%AF%B4/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>战斗吧！为了雅典娜！
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>如果说《世界名作系列》是想告诉世人什么是爱，那么《圣斗士星矢》则给我们展示了为爱而战斗的意志。爆发你的小宇宙吧！这样你才有力量去追求你爱的一...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-04 19:59:26 +0800 CST'>February 4, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 战斗吧！为了雅典娜！" href="/blog/2022/02/04/%E6%88%98%E6%96%97%E5%90%A7%E4%B8%BA%E4%BA%86%E9%9B%85%E5%85%B8%E5%A8%9C/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>【音乐】追 - 张国荣
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>这一生也在进取 这分钟却挂念谁 我会说是唯独你不可失去 好风光似幻似虚 谁明人生乐趣 我会说为情为爱仍然是对 谁比你重要 成功了败了也完全无重要 谁比你重要...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-03 20:23:01 +0800 CST'>February 3, 2022</span>&nbsp;·&nbsp;糸色先生</footer>
+  <a class="entry-link" aria-label="post link to 【音乐】追 - 张国荣" href="/blog/2022/02/03/%E9%9F%B3%E4%B9%90%E8%BF%BD-%E5%BC%A0%E5%9B%BD%E8%8D%A3/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="/blog/page/2/">Next Page »</a>
+  </nav>
+</footer>
+    </main>
     
-    <title>生活日志 - 罗泽勋</title>
-    <meta property="og:title" content="生活日志 - 罗泽勋">
-    
-    <meta name="twitter:card" content="summary">
+<footer class="footer">
+    <span>&copy; 2022 <a href="/">罗泽勋</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-    
-      
-    
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
-    
-      
-    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
-      
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li class="active"><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>生活日志</h1>
-
-
-<hr>
-
-
-    </header>
-
+<<<<<<< HEAD
 
 
 
@@ -629,30 +892,34 @@ document.addEventListener('keyup', function(e) {
   }
   if (url) window.location = url;
 });
+=======
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
 </script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
+</script>
+</body>
 
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
-  </footer>
-  </body>
 </html>
-

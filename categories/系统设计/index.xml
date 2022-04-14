@@ -1,20 +1,19 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>系统设计 on 罗泽勋</title>
     <link>/categories/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</link>
     <description>Recent content in 系统设计 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 22 Dec 2021 23:37:55 +0800</lastBuildDate>
-    <atom:link href="/categories/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 22 Dec 2021 23:37:55 +0800</lastBuildDate><atom:link href="/categories/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【转载】缓存</title>
       <link>/collection/2021-12-22-cache/</link>
       <pubDate>Wed, 22 Dec 2021 23:37:55 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2021-12-22-cache/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h1 id="缓存">缓存</h1>
@@ -277,8 +276,10 @@
         
         ]]>
       </description>
+=======
+      <description>缓存 缓存 一、缓存特征 二、缓存位置 三、CDN 四、缓存问题 五、数据分布 六、一致性哈希 七、LRU 参考资料 一、缓存特征 命中率 当某个请求能够通过访问缓</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
     
   </channel>
 </rss>

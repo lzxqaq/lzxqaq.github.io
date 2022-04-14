@@ -1,20 +1,19 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>收录文章 on 罗泽勋</title>
     <link>/collection/</link>
     <description>Recent content in 收录文章 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 07 Mar 2022 18:43:02 +0800</lastBuildDate>
-    <atom:link href="/collection/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 07 Mar 2022 18:43:02 +0800</lastBuildDate><atom:link href="/collection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【转载】Linux Socket 编程（不限 Linux）</title>
       <link>/collection/linuxsocket/</link>
       <pubDate>Mon, 07 Mar 2022 18:43:02 +0800</pubDate>
       
       <guid>/collection/linuxsocket/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>作者：吴秦<br>
@@ -290,9 +289,10 @@ int main(int argc, char** argv)
         
         ]]>
       </description>
+=======
+      <description>作者：吴秦 出处：(http://www.cnblogs.com/skynet/) 1、网络中进程之间如何通信？ 本地的进程间通信（IPC）有很多</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之网络编程</title>
@@ -300,6 +300,7 @@ int main(int argc, char** argv)
       <pubDate>Mon, 07 Mar 2022 18:38:17 +0800</pubDate>
       
       <guid>/collection/networkpg/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -358,9 +359,10 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/huihut/interview Socket Linux Socket 编程（不限 Linux） Socket 中的 read()、write() 函</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之设计模式</title>
@@ -368,39 +370,8 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <pubDate>Sat, 15 Jan 2022 08:14:07 +0800</pubDate>
       
       <guid>/collection/design-pattern/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
-<blockquote>
-<p>各大设计模式例子参考：<a href="https://blog.csdn.net/liang19890820/article/details/66974516">CSDN专栏 . C++ 设计模式</a> 系列博文</p>
-</blockquote>
-<p><a href="DesignPattern">设计模式工程目录</a></p>
-<h3 id="单例模式">单例模式</h3>
-<p><a href="DesignPattern/SingletonPattern">单例模式例子</a></p>
-<h3 id="抽象工厂模式">抽象工厂模式</h3>
-<p><a href="DesignPattern/AbstractFactoryPattern">抽象工厂模式例子</a></p>
-<h3 id="适配器模式">适配器模式</h3>
-<p><a href="DesignPattern/AdapterPattern">适配器模式例子</a></p>
-<h3 id="桥接模式">桥接模式</h3>
-<p><a href="DesignPattern/BridgePattern">桥接模式例子</a></p>
-<h3 id="观察者模式">观察者模式</h3>
-<p><a href="DesignPattern/ObserverPattern">观察者模式例子</a></p>
-<h3 id="设计模式的六大原则">设计模式的六大原则</h3>
-<ul>
-<li>单一职责原则（SRP，Single Responsibility Principle）</li>
-<li>里氏替换原则（LSP，Liskov Substitution Principle）</li>
-<li>依赖倒置原则（DIP，Dependence Inversion Principle）</li>
-<li>接口隔离原则（ISP，Interface Segregation Principle）</li>
-<li>迪米特法则（LoD，Law of Demeter）</li>
-<li>开放封闭原则（OCP，Open Close Principle）</li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://github.com/huihut/interview 各大设计模式例子参考：CSDN专栏 . C++ 设计模式 系列博文 设计模式工</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之链接装载库</title>
@@ -408,6 +379,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <pubDate>Sat, 15 Jan 2022 08:10:50 +0800</pubDate>
       
       <guid>/collection/library/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -973,9 +945,10 @@ DLL 头文件</p>
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/huihut/interview 本节部分知识点来自《程序员的自我修养——链接装载库》 内存、栈、堆</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之数据库</title>
@@ -983,151 +956,8 @@ DLL 头文件</p>
       <pubDate>Sat, 15 Jan 2022 08:08:34 +0800</pubDate>
       
       <guid>/collection/database/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
-<blockquote>
-<p>本节部分知识点来自《数据库系统概论（第 5 版）》</p>
-</blockquote>
-<h3 id="基本概念">基本概念</h3>
-<ul>
-<li>数据（data）：描述事物的符号记录称为数据。</li>
-<li>数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。</li>
-<li>数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。</li>
-<li>数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。</li>
-<li>实体（entity）：客观存在并可相互区别的事物称为实体。</li>
-<li>属性（attribute）：实体所具有的某一特性称为属性。</li>
-<li>码（key）：唯一标识实体的属性集称为码。</li>
-<li>实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。</li>
-<li>实体集（entity set）：同一实体型的集合称为实体集。</li>
-<li>联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。</li>
-<li>模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。</li>
-<li>外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。</li>
-<li>内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。</li>
-</ul>
-<h3 id="常用数据模型">常用数据模型</h3>
-<ul>
-<li>层次模型（hierarchical model）</li>
-<li>网状模型（network model）</li>
-<li>关系模型（relational model）
-<ul>
-<li>关系（relation）：一个关系对应通常说的一张表</li>
-<li>元组（tuple）：表中的一行即为一个元组</li>
-<li>属性（attribute）：表中的一列即为一个属性</li>
-<li>码（key）：表中可以唯一确定一个元组的某个属性组</li>
-<li>域（domain）：一组具有相同数据类型的值的集合</li>
-<li>分量：元组中的一个属性值</li>
-<li>关系模式：对关系的描述，一般表示为 <code>关系名(属性1, 属性2, ..., 属性n)</code></li>
-</ul>
-</li>
-<li>面向对象数据模型（object oriented data model）</li>
-<li>对象关系数据模型（object relational data model）</li>
-<li>半结构化数据模型（semistructure data model）</li>
-</ul>
-<h3 id="常用-sql-操作">常用 SQL 操作</h3>
-<table>
-  <tr>
-    <th>对象类型</th>
-    <th>对象</th>
-    <th>操作类型</th>
-  </tr>
-  <tr>
-    <td rowspan="4">数据库模式</td>
-    <td>模式</td>
-    <td><code>CREATE SCHEMA</code></td>
-  </tr>
-  <tr>
-    <td>基本表</td>
-    <td><code>CREATE SCHEMA</code>，<code>ALTER TABLE</code></td>
-  </tr>
-    <tr>
-    <td>视图</td>
-    <td><code>CREATE VIEW</code></td>
-  </tr>
-    <tr>
-    <td>索引</td>
-    <td><code>CREATE INDEX</code></td>
-  </tr>
-    <tr>
-    <td rowspan="2">数据</td>
-    <td>基本表和视图</td>
-    <td><code>SELECT</code>，<code>INSERT</code>，<code>UPDATE</code>，<code>DELETE</code>，<code>REFERENCES</code>，<code>ALL PRIVILEGES</code></td>
-  </tr>
-    <tr>
-    <td>属性列</td>
-    <td><code>SELECT</code>，<code>INSERT</code>，<code>UPDATE</code>，<code>REFERENCES</code>，<code>ALL PRIVILEGES</code></td>
-  </tr>
-</table>
-<blockquote>
-<p>SQL 语法教程：<a href="http://www.runoob.com/sql/sql-tutorial.html">runoob . SQL 教程</a></p>
-</blockquote>
-<h3 id="关系型数据库">关系型数据库</h3>
-<ul>
-<li>基本关系操作：查询（选择、投影、连接（等值连接、自然连接、外连接（左外连接、右外连接））、除、并、差、交、笛卡尔积等）、插入、删除、修改</li>
-<li>关系模型中的三类完整性约束：实体完整性、参照完整性、用户定义的完整性</li>
-</ul>
-<h4 id="索引">索引</h4>
-<ul>
-<li>数据库索引：顺序索引、B+ 树索引、hash 索引</li>
-<li><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html">MySQL 索引背后的数据结构及算法原理</a></li>
-</ul>
-<h3 id="数据库完整性">数据库完整性</h3>
-<ul>
-<li>数据库的完整性是指数据的正确性和相容性。
-<ul>
-<li>完整性：为了防止数据库中存在不符合语义（不正确）的数据。</li>
-<li>安全性：为了保护数据库防止恶意破坏和非法存取。</li>
-</ul>
-</li>
-<li>触发器：是用户定义在关系表中的一类由事件驱动的特殊过程。</li>
-</ul>
-<h3 id="关系数据理论">关系数据理论</h3>
-<ul>
-<li>数据依赖是一个关系内部属性与属性之间的一种约束关系，是通过属性间值的相等与否体现出来的数据间相关联系。</li>
-<li>最重要的数据依赖：函数依赖、多值依赖。</li>
-</ul>
-<h4 id="范式">范式</h4>
-<ul>
-<li>第一范式（1NF）：属性（字段）是最小单位不可再分。</li>
-<li>第二范式（2NF）：满足 1NF，每个非主属性完全依赖于主键（消除 1NF 非主属性对码的部分函数依赖）。</li>
-<li>第三范式（3NF）：满足 2NF，任何非主属性不依赖于其他非主属性（消除 2NF 非主属性对码的传递函数依赖）。</li>
-<li>鲍依斯-科得范式（BCNF）：满足 3NF，任何非主属性不能对主键子集依赖（消除 3NF 主属性对码的部分和传递函数依赖）。</li>
-<li>第四范式（4NF）：满足 3NF，属性之间不能有非平凡且非函数依赖的多值依赖（消除 3NF 非平凡且非函数依赖的多值依赖）。</li>
-</ul>
-<h3 id="数据库恢复">数据库恢复</h3>
-<ul>
-<li>事务：是用户定义的一个数据库操作序列，这些操作要么全做，要么全不做，是一个不可分割的工作单位。</li>
-<li>事物的 ACID 特性：原子性、一致性、隔离性、持续性。</li>
-<li>恢复的实现技术：建立冗余数据 -&gt; 利用冗余数据实施数据库恢复。</li>
-<li>建立冗余数据常用技术：数据转储（动态海量转储、动态增量转储、静态海量转储、静态增量转储）、登记日志文件。</li>
-</ul>
-<h3 id="并发控制">并发控制</h3>
-<ul>
-<li>事务是并发控制的基本单位。</li>
-<li>并发操作带来的数据不一致性包括：丢失修改、不可重复读、读 “脏” 数据。</li>
-<li>并发控制主要技术：封锁、时间戳、乐观控制法、多版本并发控制等。</li>
-<li>基本封锁类型：排他锁（X 锁 / 写锁）、共享锁（S 锁 / 读锁）。</li>
-<li>活锁死锁：
-<ul>
-<li>活锁：事务永远处于等待状态，可通过先来先服务的策略避免。</li>
-<li>死锁：事务永远不能结束
-<ul>
-<li>预防：一次封锁法、顺序封锁法；</li>
-<li>诊断：超时法、等待图法；</li>
-<li>解除：撤销处理死锁代价最小的事务，并释放此事务的所有的锁，使其他事务得以继续运行下去。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>可串行化调度：多个事务的并发执行是正确的，当且仅当其结果与按某一次序串行地执行这些事务时的结果相同。可串行性时并发事务正确调度的准则。</li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://github.com/huihut/interview 本节部分知识点来自《数据库系统概论（第 5 版）》 基本概念 数据（da</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之计算机网络</title>
@@ -1135,6 +965,7 @@ DLL 头文件</p>
       <pubDate>Sat, 15 Jan 2022 08:06:35 +0800</pubDate>
       
       <guid>/collection/network/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -1713,9 +1544,10 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/huihut/interview 本节部分知识点来自《计算机网络（第 7 版）》 计算机网络体系结构： 各</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之操作系统</title>
@@ -1723,6 +1555,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <pubDate>Fri, 14 Jan 2022 21:02:05 +0800</pubDate>
       
       <guid>/collection/os/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -2055,9 +1888,10 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/huihut/interview 进程与线程 对于有线程系统： 进程是资源分配的独立单位 线程是资源调度</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之算法</title>
@@ -2065,228 +1899,8 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <pubDate>Fri, 14 Jan 2022 20:42:19 +0800</pubDate>
       
       <guid>/collection/algorithm/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
-<h3 id="排序">排序</h3>
-<table>
-<thead>
-<tr>
-<th>排序算法</th>
-<th>平均时间复杂度</th>
-<th>最差时间复杂度</th>
-<th>空间复杂度</th>
-<th>数据对象稳定性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Algorithm/BubbleSort.h">冒泡排序</a></td>
-<td>O(n<sup>2</sup>)</td>
-<td>O(n<sup>2</sup>)</td>
-<td>O(1)</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td><a href="Algorithm/SelectionSort.h">选择排序</a></td>
-<td>O(n<sup>2</sup>)</td>
-<td>O(n<sup>2</sup>)</td>
-<td>O(1)</td>
-<td>数组不稳定、链表稳定</td>
-</tr>
-<tr>
-<td><a href="Algorithm/InsertSort.h">插入排序</a></td>
-<td>O(n<sup>2</sup>)</td>
-<td>O(n<sup>2</sup>)</td>
-<td>O(1)</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td><a href="Algorithm/QuickSort.h">快速排序</a></td>
-<td>O(n*log<sub>2</sub>n)</td>
-<td>O(n<sup>2</sup>)</td>
-<td>O(log<sub>2</sub>n)</td>
-<td>不稳定</td>
-</tr>
-<tr>
-<td><a href="Algorithm/HeapSort.cpp">堆排序</a></td>
-<td>O(n*log<sub>2</sub>n)</td>
-<td>O(n*log<sub>2</sub>n)</td>
-<td>O(1)</td>
-<td>不稳定</td>
-</tr>
-<tr>
-<td><a href="Algorithm/MergeSort.h">归并排序</a></td>
-<td>O(n*log<sub>2</sub>n)</td>
-<td>O(n*log<sub>2</sub>n)</td>
-<td>O(n)</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td><a href="Algorithm/ShellSort.h">希尔排序</a></td>
-<td>O(n*log<sup>2</sup>n)</td>
-<td>O(n<sup>2</sup>)</td>
-<td>O(1)</td>
-<td>不稳定</td>
-</tr>
-<tr>
-<td><a href="Algorithm/CountSort.cpp">计数排序</a></td>
-<td>O(n+m)</td>
-<td>O(n+m)</td>
-<td>O(n+m)</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td><a href="Algorithm/BucketSort.cpp">桶排序</a></td>
-<td>O(n)</td>
-<td>O(n)</td>
-<td>O(m)</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td><a href="Algorithm/RadixSort.h">基数排序</a></td>
-<td>O(k*n)</td>
-<td>O(n<sup>2</sup>)</td>
-<td></td>
-<td>稳定</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<ul>
-<li>均按从小到大排列</li>
-<li>k：代表数值中的 “数位” 个数</li>
-<li>n：代表数据规模</li>
-<li>m：代表数据的最大值减最小值</li>
-<li>来自：<a href="https://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">wikipedia . 排序算法</a></li>
-</ul>
-</blockquote>
-<h3 id="查找">查找</h3>
-<table>
-<thead>
-<tr>
-<th>查找算法</th>
-<th>平均时间复杂度</th>
-<th>空间复杂度</th>
-<th>查找条件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Algorithm/SequentialSearch.h">顺序查找</a></td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>无序或有序</td>
-</tr>
-<tr>
-<td><a href="Algorithm/BinarySearch.h">二分查找（折半查找）</a></td>
-<td>O(log<sub>2</sub>n)</td>
-<td>O(1)</td>
-<td>有序</td>
-</tr>
-<tr>
-<td><a href="Algorithm/InsertionSearch.h">插值查找</a></td>
-<td>O(log<sub>2</sub>(log<sub>2</sub>n))</td>
-<td>O(1)</td>
-<td>有序</td>
-</tr>
-<tr>
-<td><a href="Algorithm/FibonacciSearch.cpp">斐波那契查找</a></td>
-<td>O(log<sub>2</sub>n)</td>
-<td>O(1)</td>
-<td>有序</td>
-</tr>
-<tr>
-<td><a href="DataStructure/HashTable.cpp">哈希查找</a></td>
-<td>O(1)</td>
-<td>O(n)</td>
-<td>无序或有序</td>
-</tr>
-<tr>
-<td><a href="Algorithm/BSTSearch.h">二叉查找树（二叉搜索树查找）</a></td>
-<td>O(log<sub>2</sub>n)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="DataStructure/RedBlackTree.cpp">红黑树</a></td>
-<td>O(log<sub>2</sub>n)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2-3树</td>
-<td>O(log<sub>2</sub>n - log<sub>3</sub>n)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>B树/B+树</td>
-<td>O(log<sub>2</sub>n)</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="图搜索算法">图搜索算法</h3>
-<table>
-<thead>
-<tr>
-<th>图搜索算法</th>
-<th>数据结构</th>
-<th>遍历时间复杂度</th>
-<th>空间复杂度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2">BFS广度优先搜索</a></td>
-<td>邻接矩阵<br/>邻接链表</td>
-<td>O(|v|<sup>2</sup>)<br/>O(|v|+|E|)</td>
-<td>O(|v|<sup>2</sup>)<br/>O(|v|+|E|)</td>
-</tr>
-<tr>
-<td><a href="https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2">DFS深度优先搜索</a></td>
-<td>邻接矩阵<br/>邻接链表</td>
-<td>O(|v|<sup>2</sup>)<br/>O(|v|+|E|)</td>
-<td>O(|v|<sup>2</sup>)<br/>O(|v|+|E|)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="其他算法">其他算法</h3>
-<table>
-<thead>
-<tr>
-<th>算法</th>
-<th>思想</th>
-<th>应用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95">分治法</a></td>
-<td>把一个复杂的问题分成两个或更多的相同或相似的子问题，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并</td>
-<td><a href="https://github.com/huihut/interview/tree/master/Problems/RoundRobinProblem">循环赛日程安排问题</a>、排序算法（快速排序、归并排序）</td>
-</tr>
-<tr>
-<td><a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a></td>
-<td>通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法，适用于有重叠子问题和最优子结构性质的问题</td>
-<td><a href="https://github.com/huihut/interview/tree/master/Problems/KnapsackProblem">背包问题</a>、斐波那契数列</td>
-</tr>
-<tr>
-<td><a href="https://zh.wikipedia.org/wiki/%E8%B4%AA%E5%BF%83%E6%B3%95">贪心法</a></td>
-<td>一种在每一步选择中都采取在当前状态下最好或最优（即最有利）的选择，从而希望导致结果是最好或最优的算法</td>
-<td>旅行推销员问题（最短路径问题）、最小生成树、哈夫曼编码</td>
-</tr>
-</tbody>
-</table>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://github.com/huihut/interview 排序 排序算法 平均时间复杂度 最差时间复杂度 空间复杂度 数据对象稳定性</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之数据结构</title>
@@ -2294,6 +1908,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <pubDate>Fri, 14 Jan 2022 20:28:54 +0800</pubDate>
       
       <guid>/collection/data-structure/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -2599,9 +2214,10 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/huihut/interview 顺序结构 顺序栈（Sequence Stack） SqStack.cpp 顺序栈数据结构和图</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之 STL</title>
@@ -2609,186 +2225,8 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <pubDate>Fri, 14 Jan 2022 20:23:31 +0800</pubDate>
       
       <guid>/collection/c&#43;&#43;stl/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
-<h3 id="stl-索引">STL 索引</h3>
-<p><a href="https://github.com/huihut/interview/tree/master/STL">STL 方法含义索引</a></p>
-<h3 id="stl-容器">STL 容器</h3>
-<table>
-<thead>
-<tr>
-<th>容器</th>
-<th>底层数据结构</th>
-<th>时间复杂度</th>
-<th>有无序</th>
-<th>可不可重复</th>
-<th>其他</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#array">array</a></td>
-<td>数组</td>
-<td>随机读改 O(1)</td>
-<td>无序</td>
-<td>可重复</td>
-<td>支持随机访问</td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#vector">vector</a></td>
-<td>数组</td>
-<td>随机读改、尾部插入、尾部删除 O(1)<br/>头部插入、头部删除 O(n)</td>
-<td>无序</td>
-<td>可重复</td>
-<td>支持随机访问</td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#deque">deque</a></td>
-<td>双端队列</td>
-<td>头尾插入、头尾删除 O(1)</td>
-<td>无序</td>
-<td>可重复</td>
-<td>一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问</td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#forward_list">forward_list</a></td>
-<td>单向链表</td>
-<td>插入、删除 O(1)</td>
-<td>无序</td>
-<td>可重复</td>
-<td>不支持随机访问</td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#list">list</a></td>
-<td>双向链表</td>
-<td>插入、删除 O(1)</td>
-<td>无序</td>
-<td>可重复</td>
-<td>不支持随机访问</td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#stack">stack</a></td>
-<td>deque / list</td>
-<td>顶部插入、顶部删除 O(1)</td>
-<td>无序</td>
-<td>可重复</td>
-<td>deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时</td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#queue">queue</a></td>
-<td>deque / list</td>
-<td>尾部插入、头部删除 O(1)</td>
-<td>无序</td>
-<td>可重复</td>
-<td>deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时</td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#priority_queue">priority_queue</a></td>
-<td>vector + max-heap</td>
-<td>插入、删除 O(log<sub>2</sub>n)</td>
-<td>有序</td>
-<td>可重复</td>
-<td>vector容器+heap处理规则</td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#set">set</a></td>
-<td>红黑树</td>
-<td>插入、删除、查找 O(log<sub>2</sub>n)</td>
-<td>有序</td>
-<td>不可重复</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#multiset">multiset</a></td>
-<td>红黑树</td>
-<td>插入、删除、查找 O(log<sub>2</sub>n)</td>
-<td>有序</td>
-<td>可重复</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#map">map</a></td>
-<td>红黑树</td>
-<td>插入、删除、查找 O(log<sub>2</sub>n)</td>
-<td>有序</td>
-<td>不可重复</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#multimap">multimap</a></td>
-<td>红黑树</td>
-<td>插入、删除、查找 O(log<sub>2</sub>n)</td>
-<td>有序</td>
-<td>可重复</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#unordered_set">unordered_set</a></td>
-<td>哈希表</td>
-<td>插入、删除、查找 O(1) 最差 O(n)</td>
-<td>无序</td>
-<td>不可重复</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#unordered_multiset">unordered_multiset</a></td>
-<td>哈希表</td>
-<td>插入、删除、查找 O(1) 最差 O(n)</td>
-<td>无序</td>
-<td>可重复</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#unordered_map">unordered_map</a></td>
-<td>哈希表</td>
-<td>插入、删除、查找 O(1) 最差 O(n)</td>
-<td>无序</td>
-<td>不可重复</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/huihut/interview/tree/master/STL#unordered_multimap">unordered_multimap</a></td>
-<td>哈希表</td>
-<td>插入、删除、查找 O(1) 最差 O(n)</td>
-<td>无序</td>
-<td>可重复</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="stl-算法">STL 算法</h3>
-<table>
-<thead>
-<tr>
-<th>算法</th>
-<th>底层算法</th>
-<th>时间复杂度</th>
-<th>可不可重复</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://www.cplusplus.com/reference/algorithm/find/">find</a></td>
-<td>顺序查找</td>
-<td>O(n)</td>
-<td>可重复</td>
-</tr>
-<tr>
-<td><a href="https://github.com/gcc-mirror/gcc/blob/master/libstdc++-v3/include/bits/stl_algo.h#L4808">sort</a></td>
-<td><a href="https://en.wikipedia.org/wiki/Introsort">内省排序</a></td>
-<td>O(n*log<sub>2</sub>n)</td>
-<td>可重复</td>
-</tr>
-</tbody>
-</table>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://github.com/huihut/interview STL 索引 STL 方法含义索引 STL 容器 容器 底层数据结构 时间复杂度 有无序 可不可</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之 Effective C&#43;&#43;</title>
@@ -2796,105 +2234,8 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <pubDate>Fri, 14 Jan 2022 20:16:02 +0800</pubDate>
       
       <guid>/collection/effectivec&#43;&#43;/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
-<h3 id="effective-c">Effective C++</h3>
-<ol>
-<li>视 C++ 为一个语言联邦（C、Object-Oriented C++、Template C++、STL）</li>
-<li>宁可以编译器替换预处理器（尽量以 <code>const</code>、<code>enum</code>、<code>inline</code> 替换 <code>#define</code>）</li>
-<li>尽可能使用 const</li>
-<li>确定对象被使用前已先被初始化（构造时赋值（copy 构造函数）比 default 构造后赋值（copy assignment）效率高）</li>
-<li>了解 C++ 默默编写并调用哪些函数（编译器暗自为 class 创建 default 构造函数、copy 构造函数、copy assignment 操作符、析构函数）</li>
-<li>若不想使用编译器自动生成的函数，就应该明确拒绝（将不想使用的成员函数声明为 private，并且不予实现）</li>
-<li>为多态基类声明 virtual 析构函数（如果 class 带有任何 virtual 函数，它就应该拥有一个 virtual 析构函数）</li>
-<li>别让异常逃离析构函数（析构函数应该吞下不传播异常，或者结束程序，而不是吐出异常；如果要处理异常应该在非析构的普通函数处理）</li>
-<li>绝不在构造和析构过程中调用 virtual 函数（因为这类调用从不下降至 derived class）</li>
-<li>令 <code>operator=</code> 返回一个 <code>reference to *this</code> （用于连锁赋值）</li>
-<li>在 <code>operator=</code> 中处理 “自我赋值”</li>
-<li>赋值对象时应确保复制 “对象内的所有成员变量” 及 “所有 base class 成分”（调用基类复制构造函数）</li>
-<li>以对象管理资源（资源在构造函数获得，在析构函数释放，建议使用智能指针，资源取得时机便是初始化时机（Resource Acquisition Is Initialization，RAII））</li>
-<li>在资源管理类中小心 copying 行为（普遍的 RAII class copying 行为是：抑制 copying、引用计数、深度拷贝、转移底部资源拥有权（类似 auto_ptr））</li>
-<li>在资源管理类中提供对原始资源（raw resources）的访问（对原始资源的访问可能经过显式转换或隐式转换，一般而言显示转换比较安全，隐式转换对客户比较方便）</li>
-<li>成对使用 new 和 delete 时要采取相同形式（<code>new</code> 中使用 <code>[]</code> 则 <code>delete []</code>，<code>new</code> 中不使用 <code>[]</code> 则 <code>delete</code>）</li>
-<li>以独立语句将 newed 对象存储于（置入）智能指针（如果不这样做，可能会因为编译器优化，导致难以察觉的资源泄漏）</li>
-<li>让接口容易被正确使用，不易被误用（促进正常使用的办法：接口的一致性、内置类型的行为兼容；阻止误用的办法：建立新类型，限制类型上的操作，约束对象值、消除客户的资源管理责任）</li>
-<li>设计 class 犹如设计 type，需要考虑对象创建、销毁、初始化、赋值、值传递、合法值、继承关系、转换、一般化等等。</li>
-<li>宁以 pass-by-reference-to-const 替换 pass-by-value （前者通常更高效、避免切割问题（slicing problem），但不适用于内置类型、STL迭代器、函数对象）</li>
-<li>必须返回对象时，别妄想返回其 reference（绝不返回 pointer 或 reference 指向一个 local stack 对象，或返回 reference 指向一个 heap-allocated 对象，或返回 pointer 或 reference 指向一个 local static 对象而有可能同时需要多个这样的对象。）</li>
-<li>将成员变量声明为 private（为了封装、一致性、对其读写精确控制等）</li>
-<li>宁以 non-member、non-friend 替换 member 函数（可增加封装性、包裹弹性（packaging flexibility）、机能扩充性）</li>
-<li>若所有参数（包括被this指针所指的那个隐喻参数）皆须要类型转换，请为此采用 non-member 函数</li>
-<li>考虑写一个不抛异常的 swap 函数</li>
-<li>尽可能延后变量定义式的出现时间（可增加程序清晰度并改善程序效率）</li>
-<li>尽量少做转型动作（旧式：<code>(T)expression</code>、<code>T(expression)</code>；新式：<code>const_cast&lt;T&gt;(expression)</code>、<code>dynamic_cast&lt;T&gt;(expression)</code>、<code>reinterpret_cast&lt;T&gt;(expression)</code>、<code>static_cast&lt;T&gt;(expression)</code>、；尽量避免转型、注重效率避免 dynamic_casts、尽量设计成无需转型、可把转型封装成函数、宁可用新式转型）</li>
-<li>避免使用 handles（包括 引用、指针、迭代器）指向对象内部（以增加封装性、使 const 成员函数的行为更像 const、降低 “虚吊号码牌”（dangling handles，如悬空指针等）的可能性）</li>
-<li>为 “异常安全” 而努力是值得的（异常安全函数（Exception-safe functions）即使发生异常也不会泄露资源或允许任何数据结构败坏，分为三种可能的保证：基本型、强列型、不抛异常型）</li>
-<li>透彻了解 inlining 的里里外外（inlining 在大多数 C++ 程序中是编译期的行为；inline 函数是否真正 inline，取决于编译器；大部分编译器拒绝太过复杂（如带有循环或递归）的函数 inlining，而所有对 virtual 函数的调用（除非是最平淡无奇的）也都会使 inlining 落空；inline 造成的代码膨胀可能带来效率损失；inline 函数无法随着程序库的升级而升级）</li>
-<li>将文件间的编译依存关系降至最低（如果使用 object references 或 object pointers 可以完成任务，就不要使用 objects；如果能够，尽量以 class 声明式替换 class 定义式；为声明式和定义式提供不同的头文件）</li>
-<li>确定你的 public 继承塑模出 is-a（是一种）关系（适用于 base classes 身上的每一件事情一定适用于 derived classes 身上，因为每一个 derived class 对象也都是一个 base class 对象）</li>
-<li>避免遮掩继承而来的名字（可使用 using 声明式或转交函数（forwarding functions）来让被遮掩的名字再见天日）</li>
-<li>区分接口继承和实现继承（在 public 继承之下，derived classes 总是继承 base class 的接口；pure virtual 函数只具体指定接口继承；非纯 impure virtual 函数具体指定接口继承及缺省实现继承；non-virtual 函数具体指定接口继承以及强制性实现继承）</li>
-<li>考虑 virtual 函数以外的其他选择（如 Template Method 设计模式的 non-virtual interface（NVI）手法，将 virtual 函数替换为 “函数指针成员变量”，以 <code>tr1::function</code> 成员变量替换 virtual 函数，将继承体系内的 virtual 函数替换为另一个继承体系内的 virtual 函数）</li>
-<li>绝不重新定义继承而来的 non-virtual 函数</li>
-<li>绝不重新定义继承而来的缺省参数值，因为缺省参数值是静态绑定（statically bound），而 virtual 函数却是动态绑定（dynamically bound）</li>
-<li>通过复合塑模 has-a（有一个）或 “根据某物实现出”（在应用域（application domain），复合意味 has-a（有一个）；在实现域（implementation domain），复合意味着 is-implemented-in-terms-of（根据某物实现出））</li>
-<li>明智而审慎地使用 private 继承（private 继承意味着 is-implemented-in-terms-of（根据某物实现出），尽可能使用复合，当 derived class 需要访问 protected base class 的成员，或需要重新定义继承而来的时候 virtual 函数，或需要 empty base 最优化时，才使用 private 继承）</li>
-<li>明智而审慎地使用多重继承（多继承比单一继承复杂，可能导致新的歧义性，以及对 virtual 继承的需要，但确有正当用途，如 “public 继承某个 interface class” 和 “private 继承某个协助实现的 class”；virtual 继承可解决多继承下菱形继承的二义性问题，但会增加大小、速度、初始化及赋值的复杂度等等成本）</li>
-<li>了解隐式接口和编译期多态（class 和 templates 都支持接口（interfaces）和多态（polymorphism）；class 的接口是以签名为中心的显式的（explicit），多态则是通过 virtual 函数发生于运行期；template 的接口是奠基于有效表达式的隐式的（implicit），多态则是通过 template 具现化和函数重载解析（function overloading resolution）发生于编译期）</li>
-<li>了解 typename 的双重意义（声明 template 类型参数是，前缀关键字 class 和 typename 的意义完全相同；请使用关键字 typename 标识嵌套从属类型名称，但不得在基类列（base class lists）或成员初值列（member initialization list）内以它作为 base class 修饰符）</li>
-<li>学习处理模板化基类内的名称（可在 derived class templates 内通过 <code>this-&gt;</code> 指涉 base class templates 内的成员名称，或藉由一个明白写出的 “base class 资格修饰符” 完成）</li>
-<li>将与参数无关的代码抽离 templates（因类型模板参数（non-type template parameters）而造成代码膨胀往往可以通过函数参数或 class 成员变量替换 template 参数来消除；因类型参数（type parameters）而造成的代码膨胀往往可以通过让带有完全相同二进制表述（binary representations）的实现类型（instantiation types）共享实现码）</li>
-<li>运用成员函数模板接受所有兼容类型（请使用成员函数模板（member function templates）生成 “可接受所有兼容类型” 的函数；声明 member templates 用于 “泛化 copy 构造” 或 “泛化 assignment 操作” 时还需要声明正常的 copy 构造函数和 copy assignment 操作符）</li>
-<li>需要类型转换时请为模板定义非成员函数（当我们编写一个 class template，而它所提供之 “与此 template 相关的” 函数支持 “所有参数之隐式类型转换” 时，请将那些函数定义为 “class template 内部的 friend 函数”）</li>
-<li>请使用 traits classes 表现类型信息（traits classes 通过 templates 和 “templates 特化” 使得 “类型相关信息” 在编译期可用，通过重载技术（overloading）实现在编译期对类型执行 if&hellip;else 测试）</li>
-<li>认识 template 元编程（模板元编程（TMP，template metaprogramming）可将工作由运行期移往编译期，因此得以实现早期错误侦测和更高的执行效率；TMP 可被用来生成 “给予政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码）</li>
-<li>了解 new-handler 的行为（set_new_handler 允许客户指定一个在内存分配无法获得满足时被调用的函数；nothrow new 是一个颇具局限的工具，因为它只适用于内存分配（operator new），后继的构造函数调用还是可能抛出异常）</li>
-<li>了解 new 和 delete 的合理替换时机（为了检测运用错误、收集动态分配内存之使用统计信息、增加分配和归还速度、降低缺省内存管理器带来的空间额外开销、弥补缺省分配器中的非最佳齐位、将相关对象成簇集中、获得非传统的行为）</li>
-<li>编写 new 和 delete 时需固守常规（operator new 应该内涵一个无穷循环，并在其中尝试分配内存，如果它无法满足内存需求，就应该调用 new-handler，它也应该有能力处理 0 bytes 申请，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”；operator delete 应该在收到 null 指针时不做任何事，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”）</li>
-<li>写了 placement new 也要写 placement delete（当你写一个 placement operator new，请确定也写出了对应的 placement operator delete，否则可能会发生隐微而时断时续的内存泄漏；当你声明 placement new 和 placement delete，请确定不要无意识（非故意）地遮掩了它们地正常版本）</li>
-<li>不要轻忽编译器的警告</li>
-<li>让自己熟悉包括 TR1 在内的标准程序库（TR1，C++ Technical Report 1，C++11 标准的草稿文件）</li>
-<li>让自己熟悉 Boost（准标准库）</li>
-</ol>
-<h3 id="more-effective-c">More Effective c++</h3>
-<ol>
-<li>仔细区别 pointers 和 references（当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由 pointers 达成，你就应该选择 references；任何其他时候，请采用 pointers）</li>
-<li>最好使用 C++ 转型操作符（<code>static_cast</code>、<code>const_cast</code>、<code>dynamic_cast</code>、<code>reinterpret_cast</code>）</li>
-<li>绝不要以多态（polymorphically）方式处理数组（多态（polymorphism）和指针算术不能混用；数组对象几乎总是会涉及指针的算术运算，所以数组和多态不要混用）</li>
-<li>非必要不提供 default constructor（避免对象中的字段被无意义地初始化）</li>
-<li>对定制的 “类型转换函数” 保持警觉（单自变量 constructors 可通过简易法（explicit 关键字）或代理类（proxy classes）来避免编译器误用；隐式类型转换操作符可改为显式的 member function 来避免非预期行为）</li>
-<li>区别 increment/decrement 操作符的前置（prefix）和后置（postfix）形式（前置式累加后取出，返回一个 reference；后置式取出后累加，返回一个 const 对象；处理用户定制类型时，应该尽可能使用前置式 increment；后置式的实现应以其前置式兄弟为基础）</li>
-<li>千万不要重载 <code>&amp;&amp;</code>，<code>||</code> 和 <code>,</code> 操作符（<code>&amp;&amp;</code> 与 <code>||</code> 的重载会用 “函数调用语义” 取代 “骤死式语义”；<code>,</code> 的重载导致不能保证左侧表达式一定比右侧表达式更早被评估）</li>
-<li>了解各种不同意义的 new 和 delete（<code>new operator</code>、<code>operator new</code>、<code>placement new</code>、<code>operator new[]</code>；<code>delete operator</code>、<code>operator delete</code>、<code>destructor</code>、<code>operator delete[]</code>）</li>
-<li>利用 destructors 避免泄漏资源（在 destructors 释放资源可以避免异常时的资源泄漏）</li>
-<li>在 constructors 内阻止资源泄漏（由于 C++ 只会析构已构造完成的对象，因此在构造函数可以使用 try&hellip;catch 或者 auto_ptr（以及与之相似的 classes） 处理异常时资源泄露问题）</li>
-<li>禁止异常流出 destructors 之外（原因：一、避免 terminate 函数在 exception 传播过程的栈展开（stack-unwinding）机制种被调用；二、协助确保 destructors 完成其应该完成的所有事情）</li>
-<li>了解 “抛出一个 exception” 与 “传递一个参数” 或 “调用一个虚函数” 之间的差异（第一，exception objects 总是会被复制（by pointer 除外），如果以 by value 方式捕捉甚至被复制两次，而传递给函数参数的对象则不一定得复制；第二，“被抛出成为 exceptions” 的对象，其被允许的类型转换动作比 “被传递到函数去” 的对象少；第三，catch 子句以其 “出现于源代码的顺序” 被编译器检验对比，其中第一个匹配成功者便执行，而调用一个虚函数，被选中执行的是那个 “与对象类型最佳吻合” 的函数）</li>
-<li>以 by reference 方式捕获 exceptions（可避免对象删除问题、exception objects 的切割问题，可保留捕捉标准 exceptions 的能力，可约束 exception object 需要复制的次数）</li>
-<li>明智运用 exception specifications（exception specifications 对 “函数希望抛出什么样的 exceptions” 提供了卓越的说明；也有一些缺点，包括编译器只对它们做局部性检验而很容易不经意地违反，与可能会妨碍更上层的 exception 处理函数处理未预期的 exceptions）</li>
-<li>了解异常处理的成本（粗略估计，如果使用 try 语句块，代码大约整体膨胀 5%-10%，执行速度亦大约下降这个数；因此请将你对 try 语句块和 exception specifications 的使用限制于非用不可的地点，并且在真正异常的情况下才抛出 exceptions）</li>
-<li>谨记 80-20 法则（软件的整体性能几乎总是由其构成要素（代码）的一小部分决定的，可使用程序分析器（program profiler）识别出消耗资源的代码）</li>
-<li>考虑使用 lazy evaluation（缓式评估）（可应用于：Reference Counting（引用计数）来避免非必要的对象复制、区分 operator[] 的读和写动作来做不同的事情、Lazy Fetching（缓式取出）来避免非必要的数据库读取动作、Lazy Expression Evaluation（表达式缓评估）来避免非必要的数值计算动作）</li>
-<li>分期摊还预期的计算成本（当你必须支持某些运算而其结构几乎总是被需要，或其结果常常被多次需要的时候，over-eager evaluation（超急评估）可以改善程序效率）</li>
-</ol>
-<h3 id="google-c-style-guide">Google C++ Style Guide</h3>
-<ul>
-<li>英文：<a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a></li>
-<li>中文：<a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents/">C++ 风格指南</a></li>
-</ul>
-<h3 id="其他">其他</h3>
-<ul>
-<li><a href="http://www.stroustrup.com/bs_faq.html">Bjarne Stroustrup 的常见问题</a></li>
-<li><a href="http://www.stroustrup.com/bs_faq2.html">Bjarne Stroustrup 的 C++ 风格和技巧常见问题</a></li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://github.com/huihut/interview Effective C++ 视 C++ 为一个语言联邦（C、Object-Oriented C++</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之 C/C&#43;&#43;基础</title>
@@ -2902,6 +2243,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <pubDate>Tue, 11 Jan 2022 23:20:27 +0800</pubDate>
       
       <guid>/collection/cc&#43;&#43;base/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -3921,79 +3263,27 @@ p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/huihut/interview const 作用 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C Primer 之 new, delete</title>
       <link>/collection/cprimer04/</link>
       <pubDate>Thu, 30 Dec 2021 07:13:11 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/cprimer04/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://github.com/andycai/cprimer">https://github.com/andycai/cprimer</a></p>
-<p>new和delete运算符用于动态分配和撤销内存的运算符</p>
-<h3 id="1-new用法">(1) new用法</h3>
-<ol>
-<li>开辟单变量地址空间</li>
-</ol>
-<ol>
-<li>
-<p>new int;  //开辟一个存放数组的存储空间,返回一个指向该存储空间的地址.int *a = new int 即为将一个int类型的地址赋值给整型指针a.</p>
-</li>
-<li>
-<p>int *a = new int(5) 作用同上,但是同时将整数赋值为5</p>
-</li>
-</ol>
-<ol start="2">
-<li>
-<p>开辟数组空间</p>
-<p>一维:</p>
-<pre><code> int *a = new int[100];  // 开辟一个大小为100的整型数组空间
-</code></pre>
-<p>二维:</p>
-<pre><code> int **a = new int[5][6]
-</code></pre>
-<p>三维及其以上:依此类推</p>
-</li>
-</ol>
-<p>一般用法: new 类型 [初值]</p>
-<h3 id="2-delete用法">(2) delete用法</h3>
-<ol>
-<li>
-<p>int *a = new int;</p>
-<pre><code> delete a;   //释放单个int的空间
-</code></pre>
-</li>
-<li>
-<p>int *a = new int[5];</p>
-<pre><code> delete [] a; //释放int数组空间
-</code></pre>
-</li>
-</ol>
-<p>要访问new所开辟的结构体空间,无法直接通过变量名进行,只能通过赋值的指针进行访问。</p>
-<p>用new和delete可以动态开辟，撤销地址空间。在编程序时,若用完一个变量(一般是暂时存储的数组)，下次需要再用，但却又想省去重新初始化的功夫，可以在每次开始使用时开辟一个空间，在用完后撤销它。</p>
-<h2 id="导航">导航</h2>
-<ul>
-<li><a href="00.md">目录</a></li>
-<li>上一章：<a href="04.md">Chapter 4 - uint8_t, uint16_t, uint32_t, uint64_t</a></li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://github.com/andycai/cprimer new和delete运算符用于动态分配和撤销内存的运算符 (1) new用</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】C Primer 之 char*, char[], string</title>
       <link>/collection/cprimer03/</link>
       <pubDate>Thu, 30 Dec 2021 07:12:45 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/cprimer03/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/andycai/cprimer">https://github.com/andycai/cprimer</a></p>
@@ -4116,16 +3406,18 @@ atoi(&quot;#123&quot;);   //返回0
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/andycai/cprimer 3.1 char*, char[], string 在C中，并没有字符串这个数据类型，而是使用字符数组来保存字</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C Primer 之 指针和引用</title>
       <link>/collection/cprimer02/</link>
       <pubDate>Thu, 30 Dec 2021 07:12:43 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/cprimer02/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/andycai/cprimer">https://github.com/andycai/cprimer</a></p>
@@ -4197,191 +3489,27 @@ cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl; // n = 10
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/andycai/cprimer 2.1 refrence 引用 引用是C++中的概念，初学者容易把引用和指针混淆一起。以下</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C Primer 之 const, inline, static, this</title>
       <link>/collection/cprimer01/</link>
       <pubDate>Thu, 30 Dec 2021 07:12:38 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/cprimer01/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://github.com/andycai/cprimer">https://github.com/andycai/cprimer</a></p>
-<h2 id="11-const">1.1 const</h2>
-<h3 id="1-const-基础">(1) const 基础</h3>
-<p>如果const关键字不涉及到指针，我们很好理解，下面是涉及到指针的情况：</p>
-<pre><code>int b = 500;
-const int* a = &amp;b; [1]
-int const *a = &amp;b; [2]
-int* const a = &amp;b; [3]
-const int* const a = &amp;b; [4]
-</code></pre>
-<p>如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法，
-如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。</p>
-<p>因此，[1]和[2]的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；[3]为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a++是错误的；[4]为指针本身和指向的内容均为常量。</p>
-<h3 id="2-作为参数">(2) 作为参数</h3>
-<pre><code>void display(const double&amp; r);
-void display(const double* r);
-</code></pre>
-<p>说明:</p>
-<ol>
-<li>在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义</li>
-<li>保证引用的变量的值不被改变</li>
-<li>const 在 double 前或者后面意思相同，只是不同的人的写法不同</li>
-</ol>
-<h3 id="3-const对象">(3) const对象</h3>
-<p>声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。</p>
-<h3 id="4-const成员函数">(4) const成员函数</h3>
-<pre><code>类型说明符 函数名(参数表) const;
-void print(int i) const;
-</code></pre>
-<p>说明:</p>
-<ol>
-<li>const 是函数类型的一个组成部分，因此在实现部分也要带 const 关键字</li>
-<li>常成员函数不能更新对象的数据成员，也不能调用该类中没有用 const 修饰的成员函数</li>
-</ol>
-<h3 id="5-使用const的一些建议">(5) 使用const的一些建议</h3>
-<ol>
-<li>要大胆的使用 const，这将给你带来无尽的益处，但前提是你必须搞清楚原委</li>
-<li>要避免最一般的赋值操作错误，如将 const 变量赋值，具体可见思考题</li>
-<li>在参数中使用 const 应该使用引用或指针，而不是一般的对象实例，原因同上</li>
-<li>const 在成员函数中的三种用法（参数、返回值、函数）要很好的使用</li>
-<li>不要轻易的将函数的返回值类型定为 const</li>
-<li>除了重载操作符外一般不要将返回值类型定为对某个对象的 const 引用</li>
-</ol>
-<h2 id="12-inline">1.2 inline</h2>
-<h3 id="1-预处理宏">(1) 预处理宏</h3>
-<p>介绍内联函数之前，有必要介绍一下预处理宏。内联函数的功能和预处理宏的功能相似。相信大家都用过预处理宏，我们会经常定义一些宏，如：</p>
-<pre><code>#define TABLE_COMP(x) ((x)&gt;0 ? (x) : 0) 
-</code></pre>
-<p>就定义了一个宏。</p>
-<p>为什么要使用宏呢？因为函数的调用必须要将程序执行的顺序转移到函数所存放在内存中的某个地址，将函数的程序内容执行完后，再返回到转去执行该函数前的地方。这种转移操作要求在转去执行前要保存现场并记忆执行的地址，转回后要恢复现场，并按原来保存地址继续执行。因此，函数调用要有一定的时间和空间方面的开销，于是将影响其效率。而宏只是在预处理的地方把代码展开，不需要额外的空间和时间方面的开销，所以调用一个宏比调用一个函数更有效率。</p>
-<p>但是宏也有很多的不尽人意的地方。</p>
-<ol>
-<li>宏不能访问对象的私有成员。</li>
-<li>宏的定义很容易产生二意性。</li>
-</ol>
-<p>我们举个例子：</p>
-<pre><code>#define TABLE_MULTI(x) (x*x) 
-</code></pre>
-<p>我们用一个数字去调用它，TABLE_MULTI(10)，这样看上去没有什么错误，结果返回100，是正确的，但是如果我们用TABLE_MULTI(10+10)去调用的话，我们期望的结果是400，而宏的调用结果是(10+10*10+10)，结果是120，这显然不是我们要得到的结果。避免这些错误的方法，<strong>一定要给宏的参数都加上括号</strong>。</p>
-<pre><code>#define TABLE_MULTI(x) ((x)*(x)) 
-</code></pre>
-<p>这样可以确保不会出错，但是，即使使用了这种定义，这个宏依然有可能出错，例如使用TABLE_MULTI(a++)调用它，他们本意是希望得到(a+1)<em>(a+1)的结果，而实际上呢？我们可以看看宏的展开结果: (a++)</em>(a++)，如果a的值是４，我们得到的结果是5<em>6=30。而我们期望的结果是5</em>5=25,这又出现了问题。事实上，在一些C的库函数中也有这些问题。例如: Toupper(*pChar++)就会对pChar执行两次++操作，因为Toupper实际上也是一个宏。</p>
-<h3 id="2-inline-函数">(2) inline 函数</h3>
-<p>我们可以看到宏有一些难以避免的问题，怎么解决呢？</p>
-<p>下面就是用我要介绍的内联函数来解决这些问题，我们可以使用内联函数来取代宏的定义。而且事实上我们可以用内联函数完全取代预处理宏。</p>
-<p>内联函数和宏的区别在于，宏是由预处理器对宏进行替代，而内联函数是通过编译器控制来实现的。而且内联函数是真正的函数，只是在需要用到的时候，内联函数像宏一样的展开，所以取消了函数的参数压栈，减少了调用的开销。你可以象调用函数一样来调用内联函数，而不必担心会产生于处理宏的一些问题。</p>
-<p>我们可以用 inline 来定义内联函数，不过，<strong>任何在类的声明部分定义的函数都会被自动的认为是内联函数</strong>。</p>
-<p>在函数声明或定义中函数返回类型前加上关键字 inline 即把min（）指定为内联。</p>
-<pre><code>inline int min(int first, int secend) {/****/};
-</code></pre>
-<p>我们可以把它作为一般的函数一样调用。但是执行速度确比一般函数的执行速度要快。inline 函数对编译器而言必须是可见的，以便它能够在调用点内展开该函数。与非inline函数不同的是，inline函数必须在调用该函数的每个文本文件中定义。当然，对于同一程序的不同文件，如果C++ inline函数出现的话，其定义必须相同。</p>
-<p>对于由两个文件compute.c和draw.c构成的程序来说，程序员不能定义这样的min()函数，它在compute.c中指一件事情，而在draw.c中指另外一件事情。如果两个定义不相同，程序将会有未定义的行为。</p>
-<p>为保证不会发生这样的事情，建议把inline函数的定义放到头文件中。在每个调用该inline函数的文件中包含该头文件。这种方法保证对每个inline函数只有一个定义，且程序员无需复制代码，并且不可能在程序的生命期中引起无意的不匹配的事情。</p>
-<h3 id="3-inline-函数的编程风格">(3) inline 函数的编程风格</h3>
-<p>关键字inline 必须与函数定义体放在一起才能使函数成为内联，仅将 inline 放在函数声明前面不起任何作用。如下风格的函数Foo 不能成为内联函数：</p>
-<pre><code>inline void Foo(int x, int y);   
-// inline 仅与函数声明放在一起   
-void Foo(int x, int y){}  
-</code></pre>
-<p>而如下风格的函数Foo 则成为内联函数：</p>
-<pre><code>void Foo(int x, int y);   
-inline void Foo(int x, int y)   
-// inline 与函数定义体放在一起{} 
-</code></pre>
-<p>所以说，C++ inline函数是一种“用于实现的关键字”，而不是一种“用于声明的关键字”。一般地，用户可以阅读函数的声明，但是看不到函数的定义。尽管在大多数教科书中内联函数的声明、定义体前面都加了inline 关键字，但我认为inline 不应该出现在函数的声明中。这个细节虽然不会影响函数的功能，但是体现了高质量C++/C 程序设计风格的一个基本原则：声明与定义不可混为一谈，用户没有必要、也不应该知道函数是否需要内联。</p>
-<p>定义在类声明之中的成员函数将自动地成为内联函数，例如：</p>
-<pre><code>class A  
-{  
-public:
-	void Foo(int x, int y) { }   
-	// 自动地成为内联函数  
-} 
-</code></pre>
-<p>将成员函数的定义体放在类声明之中虽然能带来书写上的方便，但不是一种良好的编程风格，上例应该改成：</p>
-<pre><code>// 头文件  
-class A  
-{  
-public:  
-	void Foo(int x, int y);  
-}  
-// 定义文件  
-inline void A::Foo(int x, int y){}  
-</code></pre>
-<p>内联函数在C++类中，应用最广的，应该是用来定义存取函数。我们定义的类中一般会把数据成员定义成私有的或者保护的，这样，外界就不能直接读写我们类成员的数据了。对于私有或者保护成员的读写就必须使用成员接口函数来进行。如果我们把这些读写成员函数定义成内联函数的话，将会获得比较好的效率。</p>
-<pre><code>Class sample {
-Private:
-	int nTest;
-Public:
-	int readtest(){ return nTest;}
-	Void settest(int I) {nTest=I;}
-} 
-</code></pre>
-<p>当然，内联函数也有一定的局限性。就是函数中的执行代码不能太多了，如果，<strong>内联函数的函数体过大，一般的编译器会放弃内联方式</strong>，而采用普通的方式调用函数。这样，内联函数就和普通函数执行效率一样了。</p>
-<h2 id="13-static">1.3 static</h2>
-<h3 id="1-隐藏">(1) 隐藏</h3>
-<p>当我们同时编译多个文件时，所有未加 static 前缀的全局变量和函数都具有全局可见性。</p>
-<h3 id="2-保持变量内容的持久">(2) 保持变量内容的持久</h3>
-<p>存储在静态数据区的变量会在程序刚开始运行时就完成初始化，也是唯一的一次初始化。共有两种变量存储在静态存储区：全局变量和 static 变量，只不过和全局变量比起来，static 可以控制变量的可见范围，说到底 static 还是用来隐藏的。</p>
-<h3 id="3-默认初始化为-0">(3) 默认初始化为 0</h3>
-<p>其实全局变量也具备这一属性，因为全局变量也存储在静态数据区。在静态数据区，内存中所有的字节默认值都是 <strong>0x00</strong>，某些时候这一特点可以减少程序员的工作量。</p>
-<h2 id="14-this-指针">1.4 this 指针</h2>
-<p>先要理解class的意思。class应该理解为一种类型，像int和char一样，是用户自定义的类型。（虽然比 int 和 char 这样 built-in 类型复杂的多，但首先要理解它们一样是类型)。用这个类型可以来声明一个变量，比如int x, myclass my等等。这样就像变量 x 具有 int 类型一样，变量 my 具有 myclass 类型。</p>
-<p>理解了这个，就好解释 this 了，my 里的 this 就是指向 my 的指针。如果还有一个变量myclass mz，mz 的 this 就是指向 mz 的指针。这样就很容易理解this 的类型应该是 myclass *，而对其的解引用 *this 就应该是一个 myclass 类型的变量。</p>
-<p>通常在class定义时要用到类型变量自身时，因为这时候还不知道变量名（为了通用也不可能固定实际的变量名），就用this这样的指针来使用变量自身。</p>
-<h3 id="1-this指针的用处">(1) this指针的用处</h3>
-<p>一个对象的 this 指针并不是对象本身的一部分，不会影响sizeof(对象)的结果。this作用域是在类内部，当在类的非静态成员函数中访问类的非静态成员的时候，编译器会自动将对象本身的地址作为一个隐含参数传递给函数。也就是说，即使你没有写上 this 指针，编译器在编译的时候也是加上 this 的，它作为非静态成员函数的隐含形参，对各成员的访问均通过 this 进行。</p>
-<p>例如，调用 date.SetMonth(9) &lt;===&gt; SetMonth(&amp;date, 9)，this帮助完成了这一转换。</p>
-<h3 id="2-this指针的使用">(2) this指针的使用</h3>
-<p>一种情况就是，在类的非静态成员函数中返回类对象本身的时候，直接使用 return *this；另外一种情况是当参数与成员变量名相同时，如this-&gt;n = n （不能写成n = n）。</p>
-<h3 id="3-this指针程序示例">(3) this指针程序示例</h3>
-<p>this指针是存在与类的成员函数中,指向被调用函数所在的类实例的地址。根据以下程序来说明 this 指针：</p>
-<pre><code>#include&lt;iostream.h&gt;
-class Point
-{ 
-  int x, y;
-public:
-  Point(int a, int b) { x=a; y=b;}
-  Void MovePoint( int a, int b){ x+=a; y+=b;}
-  Void print(){ cout&lt;&lt;&quot;x=&quot;&lt;&lt;x&lt;&lt;&quot;y=&quot;&lt;&lt;y&lt;&lt;endl;}
-};
-void main( )
-{
-   Point point1( 10,10);
-   point1.MovePoint(2,2);
-   point1.print( );
-}
-</code></pre>
-<p>当对象 point1 调用 MovePoint(2,2) 函数时，即将 point1 对象的地址传递给了 this 指针。</p>
-<p>MovePoint 函数的原型应该是 void MovePoint( Point *this, int a, int b);第一个参数是指向该类对象的一个指针，我们在定义成员函数时没看见是因为这个参数在类中是隐含的。这样point1的地址传递给了 this，所以在 MovePoint 函数中便显式的写成：</p>
-<pre><code>void MovePoint(int a, int b) { this-&gt;x +=a; this-&gt; y+= b;}
-</code></pre>
-<p>即可以知道，point1调用该函数后，也就是point1的数据成员被调用并更新了值。即该函数过程可写成 point1.x+= a; point1. y + = b;</p>
-<h3 id="4-关于this指针的一个精典回答">(4) 关于this指针的一个精典回答</h3>
-<p>当你进入一个房子后，你可以看见桌子、椅子、地板等，但是房子你是看不到全貌了。对于一个类的实例来说，你可以看到它的成员函数、成员变量，但是实例本身呢？this 是一个指针，它时时刻刻指向你这个实例本身。</p>
-<h2 id="导航">导航</h2>
-<ul>
-<li><a href="00.md">目录</a></li>
-<li>下一章：<a href="02.md">Chapter 2 - pointers, refrence</a></li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://github.com/andycai/cprimer 1.1 const (1) const 基础 如果const关键字不涉及到指针，我们很好理解，下面是</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】面向对象设计原则之开闭原则</title>
       <link>/collection/oop/</link>
       <pubDate>Tue, 28 Dec 2021 08:07:08 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/oop/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
@@ -4422,75 +3550,36 @@ chart.display();
         
         ]]>
       </description>
+=======
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 开闭原则是面向对象的可复</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】面向对象设计原则之单一职责原则</title>
       <link>/collection/singleresponsibility/</link>
       <pubDate>Tue, 28 Dec 2021 07:40:16 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/singleresponsibility/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
-<p>单一职责原则是最简单的面向对象设计原则，它用于控制类的粒度大小。单一职责原则定义如下：</p>
-<p>单一职责原则(Single Responsibility Principle, SRP)：一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。</p>
-<p>单一职责原则告诉我们：一个类不能太“累”！在软件系统中，一个类（大到模块，小到方法）承担的职责越多，它被复用的可能性就越小，而且一个类承担的职责过多，就相当于将这些职责耦合在一起，当其中一个职责变化时，可能会影响其他职责的运作，因此要将这些职责进行分离，将不同的职责封装在不同的类中，即将不同的变化原因封装在不同的类中，如果多个职责总是同时发生改变则可将它们封装在同一类中。</p>
-<p>单一职责原则是实现高内聚、低耦合的指导方针，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。</p>
-<p>下面通过一个简单实例来进一步分析单一职责原则：</p>
-<blockquote>
-<p>Sunny软件公司开发人员针对某CRM（Customer Relationship  Management，客户关系管理）系统中客户信息图形统计模块提出了如图1所示初始设计方案：</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/srp.jpg" alt="img">
-图1  初始设计方案结构图</p>
-<blockquote>
-<p>在图1中，CustomerDataChart类中的方法说明如下：getConnection()方法用于连接数据库，findCustomers()用于查询所有的客户信息，createChart()用于创建图表，displayChart()用于显示图表。</p>
-</blockquote>
-<p>现使用单一职责原则对其进行重构。</p>
-<p>在图1中，CustomerDataChart类承担了太多的职责，既包含与数据库相关的方法，又包含与图表生成和显示相关的方法。如果在其他类中也需要连接数据库或者使用findCustomers()方法查询客户信息，则难以实现代码的重用。无论是修改数据库连接方式还是修改图表显示方式都需要修改该类，它不止一个引起它变化的原因，违背了单一职责原则。因此需要对该类进行拆分，使其满足单一职责原则，类CustomerDataChart可拆分为如下三个类：</p>
-<p>(1) DBUtil：负责连接数据库，包含数据库连接方法getConnection()；</p>
-<p>(2) CustomerDAO：负责操作数据库中的Customer表，包含对Customer表的增删改查等方法，如findCustomers()；</p>
-<p>(3) CustomerDataChart：负责图表的生成和显示，包含方法createChart()和displayChart()。</p>
-<p>使用单一职责原则重构后的结构如图2所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/srp2.jpg" alt="img">
-图2  重构后的结构图</p>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 单一职责原则是最简单的面</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】面向对象设计原则概述</title>
       <link>/collection/oop/</link>
       <pubDate>Tue, 28 Dec 2021 06:59:01 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/oop/</guid>
-      <description>
-        <![CDATA[
-        <p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
-<p>对于面向对象软件系统的设计而言，在支持可维护性的同时，提高系统的可复用性是一个至关重要的问题，如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。在面向对象设计中，可维护性的复用是以设计原则为基础的。每一个原则都蕴含一些面向对象设计的思想，可以从不同的角度提升一个软件结构的设计水平。</p>
-<p>面向对象设计原则为支持可维护性复用而诞生，这些原则蕴含在很多设计模式中，它们是从许多设计方案中总结出的指导性原则。面向对象设计原则也是我们用于评价一个设计模式的使用效果的重要指标之一，在设计模式的学习中，大家经常会看到诸如“XXX模式符合XXX原则”、“XXX模式违反了XXX原则”这样的语句。</p>
-<p>最常见的7种面向对象设计原则如下表所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/oop.png" alt="img"></p>
-
-        
-        ]]>
-      </description>
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 对于面向对象软件系统的设</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】简单工厂模式</title>
       <link>/collection/singlefactory/</link>
       <pubDate>Tue, 28 Dec 2021 06:50:56 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/singlefactory/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
@@ -4761,16 +3850,18 @@ chart.display();
         
         ]]>
       </description>
+=======
+      <description>转载自https://blog.csdn.net/lovelion/article/details/17517213 工厂模式是最常用的一类创</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】面向对象思想</title>
       <link>/collection/2021-12-22-oop/</link>
       <pubDate>Wed, 22 Dec 2021 23:41:54 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2021-12-22-oop/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h1 id="面向对象思想">面向对象思想</h1>
@@ -5127,16 +4218,18 @@ Vihicle .. N
         
         ]]>
       </description>
+=======
+      <description>面向对象思想 面向对象思想 一、三大特性 封装 继承 多态 二、类图 泛化关系 (Generalization) 实现关系 (Realization) 聚合关系 (Aggregation) 组合关系 (Composition) 关联关系 (Association) 依赖关系 (Dependency) 三、设计原则 S.O.L.I.D 其他常见原</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】缓存</title>
       <link>/collection/2021-12-22-cache/</link>
       <pubDate>Wed, 22 Dec 2021 23:37:55 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2021-12-22-cache/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h1 id="缓存">缓存</h1>
@@ -5399,16 +4492,18 @@ Vihicle .. N
         
         ]]>
       </description>
+=======
+      <description>缓存 缓存 一、缓存特征 二、缓存位置 三、CDN 四、缓存问题 五、数据分布 六、一致性哈希 七、LRU 参考资料 一、缓存特征 命中率 当某个请求能够通过访问缓</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】Redis</title>
       <link>/collection/2021-12-22-redis/</link>
       <pubDate>Wed, 22 Dec 2021 23:34:10 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2021-12-22-redis/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h1 id="redis">Redis</h1>
@@ -5978,16 +5073,18 @@ OK
         
         ]]>
       </description>
+=======
+      <description>Redis Redis 一、概述 二、数据类型 STRING LIST SET HASH ZSET 三、数据结构 字典 跳跃表 四、使用场景 计数器 缓存 查找表 消息队列 会话缓存 分布式锁实现 其它 五、Redis 与 Memcached 数据类</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】SQL 练习</title>
       <link>/collection/2021-12-22-sqldemo/</link>
       <pubDate>Wed, 22 Dec 2021 23:32:38 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2021-12-22-sqldemo/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h1 id="sql-练习">SQL 练习</h1>
@@ -6940,16 +6037,18 @@ AddressId is the primary key column for this table.
         
         ]]>
       </description>
+=======
+      <description>SQL 练习 SQL 练习 595. Big Countries 627. Swap Salary 620. Not Boring Movies 596. Classes More Than 5 Students 182. Duplicate Emails 196. Delete Duplicate Emails 175. Combine Two Tables 181. Employees Earning More Than Their Managers 183. Customers Who Never Order 184. Department Highest Salary 176. Second Highest Salary 177. Nth Highest Salary 178. Rank Scores 180. Consecutive Numbers 626. Exchange Seats 595. Big Countries https://leetcode.com/problems/big-countries/description/</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】Mysql</title>
       <link>/collection/2021-12-22-mysql/</link>
       <pubDate>Wed, 22 Dec 2021 23:30:39 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2021-12-22-mysql/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h1 id="mysql">MySQL</h1>
@@ -7272,16 +6371,18 @@ customer_id_selectivity: 0.0373
         
         ]]>
       </description>
+=======
+      <description>MySQL MySQL 一、索引 B+ Tree 原理 MySQL 索引 索引优化 索引的优点 索引的使用条件 二、查询性能优化 使用 Explain 进行分析 优化数据访问 重构查询方式 三、存储引擎 InnoDB MyISAM 比较 四、数据</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】数据库系统原理</title>
       <link>/collection/2021-12-22-database/</link>
       <pubDate>Wed, 22 Dec 2021 23:28:00 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2021-12-22-database/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h1 id="数据库系统原理">数据库系统原理</h1>
@@ -7830,16 +6931,18 @@ customer_id_selectivity: 0.0373
         
         ]]>
       </description>
+=======
+      <description>数据库系统原理 数据库系统原理 一、事务 概念 ACID AUTOCOMMIT 二、并发一致性问题 丢失修改 读脏数据 不可重复读 幻影读 三、封锁 封锁粒度 封锁类型 封锁协议 MySQL 隐式与显式锁</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 绘制基础</title>
       <link>/collection/paintsystem/</link>
       <pubDate>Mon, 13 Dec 2021 21:28:59 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/paintsystem/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h3 id="绘制系统">绘制系统</h3>
@@ -7911,120 +7014,36 @@ painter.setWindow(QRect(-50, -50, 100, 100));
         
         ]]>
       </description>
+=======
+      <description>绘制系统 Qt 的绘制系统可以使用相同的 API 在屏幕和打印设备上进行绘制，并且主要基于 QPainter 、 QPaintDevice 和 QPaintEngine 类。 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 对象模型</title>
       <link>/collection/object/</link>
       <pubDate>Mon, 13 Dec 2021 08:08:17 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/object/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="对象模型">对象模型</h3>
-<p>标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率和高度灵活性的领域。 Qt 通过将 C++ 的速度与 Qt 对象模型的灵活性相结合来提供这一点。</p>
-<p>Qt 将这些特性添加到 C++ 中：</p>
-<blockquote>
-<p>一种非常强大的无缝对象通信机制，称为 信号和槽
-可查询和可设计的 对象属性
-强大的 事件和事件过滤器
-上下文 用于国际化的 字符串翻译
-复杂的间隔驱动 计时器 ，可以在事件驱动的 GUI 中优雅地集成许多任务
-分层和可查询 对象树 以自然方式组织对象所有权的
-受保护的指针 ( QPointer ) 在引用的对象被销毁时自动设置为 0，这与普通的 C++ 指针不同，后者在对象被销毁时变成悬空指针
-动态转换 跨库边界 。
-支持 自定义类型 创建。</p>
-</blockquote>
-<p>许多 Qt 功能是使用标准 C++ 技术实现的，基于 继承 QObject 的 。 其他的，比如对象通信机制和动态属性系统，需要 的 元对象系统 Qt自己的 提供 元对象编译器（moc） 。</p>
-<p>元对象系统是一个 C++ 扩展，使该语言更适合真正的组件 GUI 编程。</p>
-<h3 id="重要类">重要类</h3>
-<p>这些类构成了 Qt 对象模型的基础。</p>
-<h3 id="qt-对象身份与价值">Qt 对象：身份与价值</h3>
-<p>上面为 Qt 对象模型列出的一些附加功能要求我们将 Qt 对象视为身份，而不是值。 值被复制或分配； 身份被克隆。 克隆意味着创建一个新身份，而不是旧身份的精确副本。 例如，双胞胎有不同的身份。 它们可能看起来相同，但名称不同，位置不同，并且可能拥有完全不同的社交网络。</p>
-<p>那么克隆身份是比复制或分配值更复杂的操作。 我们可以在 Qt 对象模型中看到这意味着什么。</p>
-<p>一个 Qt 对象&hellip;</p>
-<blockquote>
-<p>可能有一个唯一的 QObject::objectName ()。 如果我们复制一个 Qt 对象，我们应该给副本起什么名字？
-在 有一个位置 对象层次结构中 。 如果我们复制一个 Qt 对象，该副本应该位于何处？
-可以连接到其他 Qt 对象以向它们发出信号或接收它们发出的信号。 如果我们复制一个 Qt 对象，我们应该如何将这些连接转移到副本？
-可以 新属性 在运行时向其添加未在 C++ 类中声明的 。 如果我们复制一个 Qt 对象，该副本是否应该包括添加到原始对象的属性？</p>
-</blockquote>
-<p>由于这些原因，Qt 对象应该被视为身份，而不是值。 身份是克隆的，而不是复制或分配的，克隆身份是比复制或分配值更复杂的操作。 因此， QObject的 和所有子类 的QObject （直接或间接）有自己的 拷贝构造函数和赋值操作符 禁用。</p>
-
-        
-        ]]>
-      </description>
+      <description>对象模型 标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt 6 核心内部结构</title>
       <link>/collection/qt-core/</link>
       <pubDate>Mon, 13 Dec 2021 08:00:25 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qt-core/</guid>
-      <description>
-        <![CDATA[
-        <p>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示了如何使用它们来实现 Qt 尚未提供的专门功能。</p>
-<h3 id="对象属性和事件">对象、属性和事件</h3>
-<p>该 QObject的 类构成Qt的对象模型的基础，是父类的许多Qt类的。 对象模型引入了许多机制，例如元对象系统，它允许运行时内省、操作和调用对象中的属性和方法。 它还作为 Qt 事件系统的基础，这是一种在 之间进行通信的低级方式 QObject 基于 的对象 。 Qt 的信号和槽机制提供了另一种高级通信形式。</p>
-<p>另外， QObject 通过 提供了一个简单的计时机制 QObject::startTimer () 。 或者， QTimer 类为计时器提供高级接口。</p>
-<blockquote>
-<p>对象模型<br>
-元对象系统<br>
-物业系统<br>
-事件系统<br>
-信号和插槽<br>
-—— 基于字符串和基于函子的连接之间的差异<br>
-计时器</p>
-</blockquote>
-<h3 id="容器类">容器类</h3>
-<p>容器 是一种数据结构，其实例是其他对象的集合。 容器的一些示例是：动态数组、队列、链表和关联数组。 Qt 提供了一组通用的、基于模板的容器类，用于在内存中构造数据。</p>
-<p>有关 请参阅 的完整列表 容器类 更多详细信息， 。</p>
-<h3 id="国际化">国际化</h3>
-<p>Qt 使用 Unicode 来编码可显示的文本字符串。 Unicode 为世界上所有常用的书写系统提供支持，是跨平台开发的理想选择。 还可以使用 Qt 强大的国际化系统编写应用程序，以通过一个代码库支持任意数量的不同语言。</p>
-<blockquote>
-<p>Qt 中的 Unicode
-Qt 国际化</p>
-</blockquote>
-<h3 id="进程间通信">进程间通信</h3>
-<p>Qt 提供了几个类来支持进程之间的通信。 您还可以使用 启动和管理外部进程 QProcess 类 。</p>
-<blockquote>
-<p>Qt中的进程间通信</p>
-</blockquote>
-<h3 id="线程">线程</h3>
-<p>Qt 提供了以安全且独立于平台的方式管理线程和并行代码的功能。</p>
-<blockquote>
-<p>线程基础
-Qt 中的线程支持</p>
-</blockquote>
-<h3 id="平台支持">平台支持</h3>
-<p>Qt 允许您编写独立于平台的代码，其中相同的代码库可以在不同平台上编译和部署，而无需任何更改。 如果您需要使用特定于平台的功能并与系统库集成，Qt 也为此提供了解决方案。</p>
-<p>Qt 使用 Qt Platform Abstraction (QPA) 与目标平台上的窗口系统集成。 QPA 是窗口系统的抽象，它使得将 Qt 移植到新平台变得简单快捷。 其中一种系统是 Wayland 协议。 Qt 可以与 Wayland 一起用作嵌入式硬件上的轻量级窗口系统，以支持多进程图形用户界面。</p>
-<p>Qt 平台抽象使用 Qt 的插件系统。 该插件系统提供 API 以在特定领域扩展 Qt（例如添加对新图像格式、数据库驱动程序等的支持）以及编写您自己的支持第三方插件的可扩展 Qt 应用程序。</p>
-<blockquote>
-<p>Qt平台抽象
-实现原子操作 - 用于新架构
-如何创建 Qt 插件
-Endian Conversion Functions - 用于处理来自 QtEndian 头文件的字节序的函数</p>
-</blockquote>
-
-        
-        ]]>
-      </description>
+      <description>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 Qvariant 与自定义 Qt 类型</title>
       <link>/collection/qvariant/</link>
       <pubDate>Mon, 13 Dec 2021 07:29:55 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qvariant/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h3 id="概述">概述</h3>
@@ -8108,42 +7127,27 @@ private:
         
         ]]>
       </description>
+=======
+      <description>概述 在本文档中，我们采用自定义类型并描述如何将其集成到 Qt 的对象模型中，以便可以像标准 Qt 类型一样存储它。 然后我们展示如何注册自定义类型以允许它</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 顺序容器 QList</title>
       <link>/collection/qlist/</link>
       <pubDate>Thu, 02 Dec 2021 12:41:29 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qlist/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="介绍">介绍</h3>
-<p>QList 类是提供动态数组的模板类。该类中的所有函数都是可重入的。另外两个常用的顺序容器 QStack 和 QQueue 继承自 Qlist。</p>
-<h3 id="详细说明">详细说明</h3>
-<p>QList<T> 是 Qt 的通用容器类之一。它将其项目存储在相邻的内存位置，并提供基于索引的快速访问。QVector <T> 在 Qt 5 中曾经是一个不同的类，但现在是 QList 的一个简单别名。</p>
-<p>QList<T> 和QVarLengthArray <T> 提供类似的 API 和功能。它们通常可以互换，但会产生性能后果。以下是用例的概述：</p>
-<ul>
-<li>QList 应该是您的默认首选。</li>
-<li>QVarLengthArray提供了一个在堆栈上保留空间的数组，但如果需要，可以动态地增长到堆上。用于通常较小的短寿命容器是很好的。</li>
-<li>如果您需要一个真正的链表，它保证在列表中间插入恒定时间并使用迭代器到项目而不是索引，请使用 std::list。</li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>介绍 QList 类是提供动态数组的模板类。该类中的所有函数都是可重入的。另外两个常用的顺序容器 QStack 和 QQueue 继承自 Qlist。 详细说明 QList 是 Qt 的通用容器类之一。</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 隐式共享</title>
       <link>/collection/implicit-sharing/</link>
       <pubDate>Wed, 01 Dec 2021 22:48:45 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/implicit-sharing/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。</p>
@@ -8178,154 +7182,27 @@ paint.end();
         
         ]]>
       </description>
+=======
+      <description>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt6 容器类-概述</title>
       <link>/collection/qt-containers/</link>
       <pubDate>Wed, 01 Dec 2021 22:05:26 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/qt-containers/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="介绍">介绍</h3>
-<p>Qt 库提供了一组通用的基于模板的容器类。这些类可用于存储制定类型的项。例如，您需要一个可调整大小的 QString 数组，请使用 QList<QString>。</p>
-<p>这些容器类被设计为比 STL 容器更轻、更安全且更易于使用。如果您不熟悉 STL，或者更喜欢“Qt 方式”实现，您可以使用这些类而不是 STL 类。</p>
-<p>容器类是 <a href="/post/2021/12/01/implicit-sharing/">隐式共享的</a>，它们是可重入的，并且它们针对速度、低内存消耗和最小的内联代码扩展进行了优化，从而产生更小的可执行文件。此外，在所有用于访问它们的线程将它们用作只读容器的情况下，它们是线程安全的。</p>
-<p>容器提供了遍历的迭代器。STL 样式的迭代器是最有效的迭代器，可以与 Qt 和 STL 的通用算法一起使用。提供 Java 风格的迭代器是为了向后兼容。</p>
-<h3 id="容器类">容器类</h3>
-<p>Qt 提供以下顺序容器：QList、QStack 和 QQueue。对于大多数应用程序，QList 是最好的类型。它提供了非常快速的追加。如果您确实需要链表，请使用 std::list。QStack 和 QQueue 是提供 LIFO 和 FIFO 语义的便利类。QList和QVector在 Qt 6 中被统一。两者都使用来自QVector的数据模型。QVector现在是QList的别名。</p>
-<p>Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet。“Multi”容器方便地支持与单个键关联的多个值。“散列”容器通过使用散列函数而不是对排序集的二分搜索来提供更快的查找。</p>
-<p>作为特殊情况，QCache 和 QContiguousCache 类在有限的缓存存储中提供了有效的对象散列查找。</p>
-<table>
-<thead>
-<tr>
-<th>类</th>
-<th>简述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QList <T></td>
-<td>这是迄今为止最常用的容器类。它存储可以通过索引访问的给定类型 (T) 的值列表。在内部，它在内存中的相邻位置存储一组给定类型的值。在列表的前面或中间插入可能会很慢，因为它可能导致大量项目必须在内存中移动一个位置。</td>
-</tr>
-<tr>
-<td>QVarLengthArray &lt;T, Prealloc &gt;</td>
-<td>这提供了一个低级的可变长度数组。在速度特别重要的地方，它可以代替QList使用。</td>
-</tr>
-<tr>
-<td>QStack <T></td>
-<td>这是QList 的一个便利子类，提供“后进先出”(LIFO) 语义。它向QList 中已有的函数添加了以下函数：push ()、pop () 和top ()。</td>
-</tr>
-<tr>
-<td>QQueue <T></td>
-<td>这是QList的便利子类，提供“先进先出”(FIFO) 语义。它将以下函数添加到QList 中已经存在的函数中：enqueue ()、dequeue () 和head ()。</td>
-</tr>
-<tr>
-<td>QSet <T></td>
-<td>这提供了具有快速查找功能的单值数学集。</td>
-</tr>
-<tr>
-<td>QMap &lt;Key, T&gt;</td>
-<td>这提供了一个字典（关联数组），将 Key 类型的键映射到 T 类型的值。通常每个键都与单个值相关联。QMap以 Key 顺序存储其数据；如果顺序无关紧要QHash是一个更快的选择。</td>
-</tr>
-<tr>
-<td>QMultiMap &lt;Key, T&gt;</td>
-<td>这是QMap 的一个方便的子类，它为多值映射提供了一个很好的接口，即一个键可以与多个值相关联的映射。</td>
-</tr>
-<tr>
-<td>QHash &lt;Key, T&gt;</td>
-<td>这与QMap具有几乎相同的 API ，但提供了明显更快的查找。QHash以任意顺序存储其数据。</td>
-</tr>
-<tr>
-<td>QMultiHash &lt;Key, T&gt;</td>
-<td>这是QHash 的一个便利子类，它为多值散列提供了一个很好的接口。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="算法复杂性">算法复杂性</h3>
-<p>下表总结了顺序容器 QList 的算法复杂度。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>索引查找</th>
-<th>插入</th>
-<th>前置</th>
-<th>附加</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QList <T></td>
-<td>O(1)</td>
-<td>O(n)</td>
-<td>O(n)</td>
-<td>Amort.O(1)</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>在表中，“Amort.”代表“摊销行为”。例如，“Amort.O(1)”意味着如果你只调用一次函数，你可能会得到 O(n) 的行为，但如果你多次调用它（例如，n 次），平均行为将是 O(1)。</p>
-</blockquote>
-<p>下表总结了 Qt 的关联容器和集合的算法复杂度：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>键查找-平均数</th>
-<th>键查找-最差的情况</th>
-<th>插入-平均数</th>
-<th>插入-最差的情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QMap&lt;Key, T&gt;</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-</tr>
-<tr>
-<td>QMultiMap&lt;Key, T&gt;</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-<td>O(log n )</td>
-</tr>
-<tr>
-<td>QHash&lt;Key, T&gt;</td>
-<td>Amort.O(1)</td>
-<td>O( n )</td>
-<td>Amort.O(1)</td>
-<td>O( n )</td>
-</tr>
-<tr>
-<td>QSet<Key></td>
-<td>Amort.O(1)</td>
-<td>O( n )</td>
-<td>Amort.O(1)</td>
-<td>O( n )</td>
-</tr>
-</tbody>
-</table>
-
-        
-        ]]>
-      </description>
+      <description>介绍 Qt 库提供了一组通用的基于模板的容器类。这些类可用于存储制定类型的项。例如，您需要一个可调整大小的 QString 数组，请使用 QList。 这些容器类被设</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Qt测试最佳实践</title>
       <link>/collection/2021-10-13-2/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2021-10-13-2/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h2 id="qt-测试最佳实践">Qt 测试最佳实践</h2>
@@ -8491,16 +7368,18 @@ DISPLAY=:1 make -k -j1 check
         
         ]]>
       </description>
+=======
+      <description>Qt 测试最佳实践 我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】SQL 语法</title>
       <link>/collection/2020-12-31-sql/</link>
       <pubDate>Thu, 31 Dec 2020 10:12:40 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2020-12-31-sql/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <ul>
@@ -8989,223 +7868,36 @@ SELECT user FROM user;
         
         ]]>
       </description>
+=======
+      <description>一、基础 二、创建表 三、修改表 四、插入 五、更新 六、删除 七、查询 DISTINCT LIMIT 八、排序 九、过滤 十、通配符 十一、计算字段 十二、函数 汇总 文本处理 日期和时间处理</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】Java 虚拟机</title>
       <link>/collection/2020-12-25jvm/</link>
       <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2020-12-25jvm/</guid>
-      <description>
-        <![CDATA[
-        <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA.md">CyC2018/CS-Notes</a></p>
-<ul>
-<li><a href="#1">一、运行时数据区域</a>
-<ul>
-<li><a href="#1.1">程序计数器</a></li>
-<li><a href="#1.2">Java 虚拟机栈</a></li>
-<li><a href="#1.3">本地方法栈</a></li>
-<li><a href="#1.4">堆</a></li>
-<li><a href="#1.5">方法区</a></li>
-<li><a href="#1.6">运行时常量池</a></li>
-<li><a href="#1.7">直接内存</a></li>
-</ul>
-</li>
-<li><a href="#2">二、垃圾收集</a>
-<ul>
-<li><a href="#2.1">判断一个对象是否可被回收</a></li>
-<li><a href="#2.2">引用类型</a></li>
-<li><a href="#2.3">垃圾收集算法</a></li>
-<li><a href="#2.4">垃圾收集器</a></li>
-</ul>
-</li>
-<li><a href="#3">三、内存分配和回收策略</a>
-<ul>
-<li><a href="#3.1">Minor Gc 和 Full Gc</a></li>
-<li><a href="#3.2">内存分配策略</a></li>
-<li><a href="#3.3">Full GC 的触发条件</a></li>
-</ul>
-</li>
-<li><a href="#4">四、类加载机制</a>
-<ul>
-<li><a href="#4.1">类的生命周期</a></li>
-<li><a href="#4.2">类加载过程</a></li>
-<li><a href="#4.3">类初始化时机</a></li>
-<li><a href="#4.4">类与类加载器</a></li>
-<li><a href="#4.5">类加载器分类</a></li>
-<li><a href="#4.6">双亲委派模型</a></li>
-<li><a href="#4.7">自定义类加载器实现</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="一运行时数据区域-a-name1a">一、运行时数据区域 <a name="1"></a></h3>
-<h4 id="程序计数器-a-name11a">程序计数器 <a name="1.1"></a></h4>
-<p>记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。</p>
-<h4 id="java-虚拟机栈-a-name12a">Java 虚拟机栈 <a name="1.2"></a></h4>
-<p>每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。</p>
-<p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</p>
-<pre tabindex="0"><code>java -Xss2M HaskTheJava
-</code></pre><p>该区域可能抛出以下异常：</p>
-<ul>
-<li>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；</li>
-<li>栈进行动态扩展的时如果无法申请到足够的内存，会抛出 OutofMemoryError 异常。</li>
-</ul>
-<h4 id="本地方法栈a-name13a">本地方法栈<a name="1.3"></a></h4>
-<p>本地方法栈与 Java 虚拟机栈类似，他们之间的区别只不过是本地方法栈为本地方法服务。<br>
-本地方法一般是用其他语言（C、C++或汇编语言等等）编写的，并且被编译为基于本机硬件和操作系统的程序，对待这些方法需要特别处理。</p>
-<h4 id="堆-a-name14a">堆 <a name="1.4"></a></h4>
-<p>所有对象都在这里分配内存，是垃圾收集的主要区域（&ldquo;GC堆&rdquo;）。<br>
-现代的垃圾收集器基本都是采用分代收集算法，其主要的思想是针对不同类型的对象采用不同的垃圾回收算法。可以将堆分成两块：</p>
-<ul>
-<li>新生代</li>
-<li>老年代</li>
-</ul>
-<p>堆不需要连续内存，并且可以动态增加其内存，增加失败会抛出 OutOfMemoryError 异常。</p>
-<p>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。</p>
-<pre tabindex="0"><code>java -Xms1M -Xmx2M HackTheJava
-</code></pre><h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
-<p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
-<p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 OutOfMemoryError 异常。</p>
-<p>对这块区域进行垃圾回收的主要目标是对常量池的回收和对类的卸载，但是一般比较难实现。</p>
-<p>HotSpot 虚拟机把它当成永久代来进行垃圾回收。但很难确定永久代的大小，因为它受到很多因素影响，并且每次 Full GC 之后永久代的大小都会改变，所以经常会抛出 OutOfMemoryError 异常。为了更容易管理方法区，从 JDK 1.8 开始，移除永久代，并把方法区移至元空间，它位于本地内存，而不是虚拟机内存。<br>
-方法区是一个 JVM 规范，永久代与元空间都是其一种实现方式。在 JDK 1.8 之后，原来永久代的数据被分到了堆和元空间中。元空间存储类的元信息，静态变量和常量池等放入堆中。</p>
-<h4 id="运行时常量池a-name16a">运行时常量池<a name="1.6"></a></h4>
-<p>运行时常量池是方法区的一部分。</p>
-<p>Class 文件中的常量池（编译器生成的字面量和符号引用）会在类加载后被放入这个区域。</p>
-<p>除了在编译期生成的常量，还允许动态生成，例如 String 类的 intern()。</p>
-<h4 id="直接内存a-name17a">直接内存<a name="1.7"></a></h4>
-<p>在 JDK 1.4 中新引入了 NIO 类，它可以使用 Native 函数库直接分配堆外内存。</p>
-<h3 id="二垃圾回收a-name2a">二、垃圾回收<a name="2"></a></h3>
-<p>垃圾收集主要是针对堆和方法区进行。程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期，线程结束之后就会消失，因此不需要对这三个区域进行垃圾回收。</p>
-<h4 id="判断一个对象是否可被回收a-name21a">判断一个对象是否可被回收<a name="2.1"></a></h4>
-<h5 id="1引用技术算法">1.引用技术算法</h5>
-<p>（相互引用时，两个对象都无法被回收）</p>
-<h5 id="2可达性分析">2.可达性分析</h5>
-<p>以 GC Roots为起始点进行搜索，可达的对象都是存活的，不可达的对象可被回收。
-Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般包含以下内容：</p>
-<ul>
-<li>虚拟机栈中局部变量表中引用的对象</li>
-<li>本地方法栈 JNI 中引用的对象</li>
-<li>方法区中类静态属性引用的对象</li>
-<li>方法区中的常量引用的对象</li>
-</ul>
-<h5 id="3方法区的回收">3.方法区的回收</h5>
-<p>因为方法区主要存放永久代对象，而永久代对象的回收率比新生代低很多，所有在方法区上进行回收性价比不高。</p>
-<p>主要是对常量池的回收和对类的卸载。</p>
-<h5 id="4finalize">4.finalize()</h5>
-<p>类似 C++ 的析构函数，用于关闭外部资源。最好别用，用try-finally等。</p>
-<h4 id="引用类型a-name22a">引用类型<a name="2.2"></a></h4>
-<h5 id="1强引用">1.强引用</h5>
-<p>被强引用关联的对象不会被回收。</p>
-<p>使用 new 一个新对象来创建强引用。</p>
-<h5 id="2软引用">2.软引用</h5>
-<h5 id="3弱引用">3.弱引用</h5>
-<h5 id="4虚引用">4.虚引用</h5>
-<h4 id="垃圾收集算法a-name23a">垃圾收集算法<a name="2.3"></a></h4>
-<h5 id="1标记-清除">1.标记-清除</h5>
-<h5 id="2标记-整理">2.标记-整理</h5>
-<h5 id="3复制">3.复制</h5>
-<h5 id="4分代收集">4.分代收集</h5>
-<p>根据对象存活周期将内存划分为几块，不痛块采用适当的收集算法。</p>
-<p>一般将堆分为新生代和老生代。</p>
-<ul>
-<li>新生代使用：复制算法</li>
-<li>老生代使用：标记-清除 或者 标记-整理 算法</li>
-</ul>
-<h3 id="四类加载机制a-name4a">四、类加载机制<a name="4"></a></h3>
-<p>类是在运行期间第一次使用时动态加载的，而不是一次性加载所有类。因为如果一次性加载，那么会占用很多的内存。</p>
-<h4 id="类的生命周期a-name41a">类的生命周期<a name="4.1"></a></h4>
-<p>包括以下阶段：</p>
-<ul>
-<li>加载</li>
-<li>验证</li>
-<li>准备</li>
-<li>解析</li>
-<li>初始化</li>
-<li>使用</li>
-<li>卸载</li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>参考自 CyC2018/CS-Notes 一、运行时数据区域 程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存 二、垃圾收集 判断一个对象是否可被回收 引用类型 垃圾收集算法</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Java 容器</title>
       <link>/collection/2020-12-24-collection/</link>
       <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2020-12-24-collection/</guid>
-      <description>
-        <![CDATA[
-        <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%AE%B9%E5%99%A8.md">CyC2018/CS-Notes</a></p>
-<ul>
-<li><a href="#1">一、概览</a>
-<ul>
-<li><a href="#1.1">Collection</a></li>
-<li><a href="#1.2">Map</a></li>
-</ul>
-</li>
-</ul>
-<!-- * [二、容器中的设计模式]
-    * [迭代器模式](#2.1)
-    * [适配器模式](#2.2)
-* [三、源码分析](#3)
-    * [ArrayList](#3.1)
-    * [Vector](#3.2)
-    * [CopyOnWriteArrayList](#3.3)
-    * [LinkedList](#3.4)
-    * [HashMap](#3.5)
-    * [ConcurrentHashMap](#3.6)
-    * [LinkedHashMap](#3.7)
-    * [WeakHashMap](#3.8) -->
-<h3 id="一概览-a-name1a">一、概览 <a name="1"></a></h3>
-<p>容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。</p>
-<h4 id="collection-a-name11a">Collection <a name="1.1"></a></h4>
-<p><strong>1.Set</strong></p>
-<ul>
-<li>TreeSet: 基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet, HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。</li>
-<li>HashSet: 基于哈希表的实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。</li>
-<li>LinkedHashSet: 具有 HashSet 的查找效率，并且内部使用双向链表维护元素的插入顺序。</li>
-</ul>
-<p><strong>2.List</strong></p>
-<ul>
-<li>ArrayList： 基于动态数组实现，支持随机访问。</li>
-<li>Vector： 和 ArrayList 类似，但它是线程安全的。</li>
-<li>LinkedList： 基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用做栈、队列和双向队列。</li>
-</ul>
-<p><strong>3.Queue</strong></p>
-<ul>
-<li>LinkedList：可以用它来实现双向队列。</li>
-<li>PriorityQueue：基于堆结构实现，可以用它来实现优先队列。</li>
-</ul>
-<h4 id="map-a-name12a">Map <a name="1.2"></a></h4>
-<ul>
-<li>TreeMap：基于红黑树实现</li>
-<li>HashMap：基于哈希表实现</li>
-<li>hashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程同时写入 HashTable 不会导致数据不一致。它是遗留类，不应该去使用它，而是使用 ConcurrentHashMap 来支持线程安全，ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。</li>
-<li>LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。</li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>参考自 CyC2018/CS-Notes 一、概览 Collection Map 一、概览 容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。 Collection 1.Set TreeSet: 基</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Java 基础</title>
       <link>/collection/2020-12-15-base/</link>
       <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2020-12-15-base/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md">CyC2018/CS-Notes</a></p>
@@ -9719,8 +8411,10 @@ System.out.println(set.size());     // 2
         
         ]]>
       </description>
+=======
+      <description>参考自 CyC2018/CS-Notes 一、数据类型 基本类型 包装类型 缓存池 二、String 概述 不可变的好处 String,StringBuffer and StringBuilder StringPoll new String(&amp;ldquo;abc&amp;rdquo;) 三、运算 参数传递 float与double 隐式类型转换 switch</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
     
   </channel>
 </rss>

@@ -1,96 +1,222 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【转载】面向对象设计原则之单一职责原则 | 罗泽勋</title>
+<meta name="keywords" content="">
+<meta name="description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213 单一职责原则是最简单的面">
+<meta name="author" content="糸色先生">
+<link rel="canonical" href="/collection/singleresponsibility/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/collection/singleresponsibility/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="【转载】面向对象设计原则之单一职责原则" />
+<meta property="og:description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213 单一职责原则是最简单的面" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/collection/singleresponsibility/" /><meta property="article:section" content="collection" />
+<meta property="article:published_time" content="2021-12-28T07:40:16&#43;08:00" />
+<meta property="article:modified_time" content="2021-12-28T07:40:16&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【转载】面向对象设计原则之单一职责原则"/>
+<meta name="twitter:description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213 单一职责原则是最简单的面"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "收录文章",
+      "item": "/collection/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "【转载】面向对象设计原则之单一职责原则",
+      "item": "/collection/singleresponsibility/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【转载】面向对象设计原则之单一职责原则",
+  "name": "【转载】面向对象设计原则之单一职责原则",
+  "description": "转载自https://blog.csdn.net/lovelion/article/details/17517213 单一职责原则是最简单的面",
+  "keywords": [
     
-    <title>【转载】面向对象设计原则之单一职责原则 - 罗泽勋</title>
-    <meta property="og:title" content="【转载】面向对象设计原则之单一职责原则 - 罗泽勋">
+  ],
+  "articleBody": "转载自https://blog.csdn.net/lovelion/article/details/17517213\n单一职责原则是最简单的面向对象设计原则，它用于控制类的粒度大小。单一职责原则定义如下：\n单一职责原则(Single Responsibility Principle, SRP)：一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。\n单一职责原则告诉我们：一个类不能太“累”！在软件系统中，一个类（大到模块，小到方法）承担的职责越多，它被复用的可能性就越小，而且一个类承担的职责过多，就相当于将这些职责耦合在一起，当其中一个职责变化时，可能会影响其他职责的运作，因此要将这些职责进行分离，将不同的职责封装在不同的类中，即将不同的变化原因封装在不同的类中，如果多个职责总是同时发生改变则可将它们封装在同一类中。\n单一职责原则是实现高内聚、低耦合的指导方针，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。\n下面通过一个简单实例来进一步分析单一职责原则：\n Sunny软件公司开发人员针对某CRM（Customer Relationship Management，客户关系管理）系统中客户信息图形统计模块提出了如图1所示初始设计方案：\n 图1 初始设计方案结构图\n 在图1中，CustomerDataChart类中的方法说明如下：getConnection()方法用于连接数据库，findCustomers()用于查询所有的客户信息，createChart()用于创建图表，displayChart()用于显示图表。\n 现使用单一职责原则对其进行重构。\n在图1中，CustomerDataChart类承担了太多的职责，既包含与数据库相关的方法，又包含与图表生成和显示相关的方法。如果在其他类中也需要连接数据库或者使用findCustomers()方法查询客户信息，则难以实现代码的重用。无论是修改数据库连接方式还是修改图表显示方式都需要修改该类，它不止一个引起它变化的原因，违背了单一职责原则。因此需要对该类进行拆分，使其满足单一职责原则，类CustomerDataChart可拆分为如下三个类：\n(1) DBUtil：负责连接数据库，包含数据库连接方法getConnection()；\n(2) CustomerDAO：负责操作数据库中的Customer表，包含对Customer表的增删改查等方法，如findCustomers()；\n(3) CustomerDataChart：负责图表的生成和显示，包含方法createChart()和displayChart()。\n使用单一职责原则重构后的结构如图2所示：\n图2 重构后的结构图\n",
+  "wordCount" : "1122",
+  "inLanguage": "en",
+  "datePublished": "2021-12-28T07:40:16+08:00",
+  "dateModified": "2021-12-28T07:40:16+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "糸色先生"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/collection/singleresponsibility/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "罗泽勋",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="罗泽勋 (Alt + H)">罗泽勋</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/cn/" title="中文"
+                            aria-label="中文">Cn</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/" title="Program">
+                    <span>Program</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    <meta name="twitter:card" content="summary">
+    <h1 class="post-title">
+      【转载】面向对象设计原则之单一职责原则
+    </h1>
+    <div class="post-meta"><span title='2021-12-28 07:40:16 +0800 CST'>December 28, 2021</span>&nbsp;·&nbsp;糸色先生
 
-    
-      
-    
-
-    
-      
-      <meta property="description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213
-单一职责原则是最简单的面向对象设计原则，它用于控制类的粒度大小。单一职责原则定义如下：
-单一职责原则(Single Responsibility Principle, SRP)：一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。
-单一 &amp;hellip;">
-      <meta property="og:description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213
-单一职责原则是最简单的面向对象设计原则，它用于控制类的粒度大小。单一职责原则定义如下：
-单一职责原则(Single Responsibility Principle, SRP)：一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。
-单一 &amp;hellip;">
-      
-    
-
-    
-    
-    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/srp.jpg">
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
-      
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>【转载】面向对象设计原则之单一职责原则</h1>
-
-
-<h3>糸色先生 / 
-2021-12-28</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
+</div>
+  </header> 
+  <div class="post-content"><p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
 <p>单一职责原则是最简单的面向对象设计原则，它用于控制类的粒度大小。单一职责原则定义如下：</p>
 <p>单一职责原则(Single Responsibility Principle, SRP)：一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。</p>
 <p>单一职责原则告诉我们：一个类不能太“累”！在软件系统中，一个类（大到模块，小到方法）承担的职责越多，它被复用的可能性就越小，而且一个类承担的职责过多，就相当于将这些职责耦合在一起，当其中一个职责变化时，可能会影响其他职责的运作，因此要将这些职责进行分离，将不同的职责封装在不同的类中，即将不同的变化原因封装在不同的类中，如果多个职责总是同时发生改变则可将它们封装在同一类中。</p>
@@ -99,7 +225,8 @@
 <blockquote>
 <p>Sunny软件公司开发人员针对某CRM（Customer Relationship  Management，客户关系管理）系统中客户信息图形统计模块提出了如图1所示初始设计方案：</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/srp.jpg" alt="img">
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/srp.jpg" alt="img"  />
+
 图1  初始设计方案结构图</p>
 <blockquote>
 <p>在图1中，CustomerDataChart类中的方法说明如下：getConnection()方法用于连接数据库，findCustomers()用于查询所有的客户信息，createChart()用于创建图表，displayChart()用于显示图表。</p>
@@ -110,70 +237,86 @@
 <p>(2) CustomerDAO：负责操作数据库中的Customer表，包含对Customer表的增删改查等方法，如findCustomers()；</p>
 <p>(3) CustomerDataChart：负责图表的生成和显示，包含方法createChart()和displayChart()。</p>
 <p>使用单一职责原则重构后的结构如图2所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/srp2.jpg" alt="img">
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/srp2.jpg" alt="img"  />
+
 图2  重构后的结构图</p>
 
-</main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/collection/oop/">【转载】面向对象设计原则概述</a></span>
-  <span class="nav-next"><a href="/collection/oop/">【转载】面向对象设计原则之开闭原则</a> &rarr;</span>
-</nav>
+  </div>
 
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
-    
-    url = '\/collection\/oop\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/collection\/oop\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
-
-
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
+  <footer class="post-footer">
   </footer>
-  </body>
-</html>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="/">罗泽勋</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

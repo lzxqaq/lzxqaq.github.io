@@ -1,94 +1,224 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【转载】简单工厂模式 | 罗泽勋</title>
+<meta name="keywords" content="">
+<meta name="description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213 工厂模式是最常用的一类创">
+<meta name="author" content="糸色先生">
+<link rel="canonical" href="/collection/singlefactory/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/collection/singlefactory/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="【转载】简单工厂模式" />
+<meta property="og:description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213 工厂模式是最常用的一类创" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/collection/singlefactory/" /><meta property="article:section" content="collection" />
+<meta property="article:published_time" content="2021-12-28T06:50:56&#43;08:00" />
+<meta property="article:modified_time" content="2021-12-28T06:50:56&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【转载】简单工厂模式"/>
+<meta name="twitter:description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213 工厂模式是最常用的一类创"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "收录文章",
+      "item": "/collection/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "【转载】简单工厂模式",
+      "item": "/collection/singlefactory/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【转载】简单工厂模式",
+  "name": "【转载】简单工厂模式",
+  "description": "转载自https://blog.csdn.net/lovelion/article/details/17517213 工厂模式是最常用的一类创",
+  "keywords": [
     
-    <title>【转载】简单工厂模式 - 罗泽勋</title>
-    <meta property="og:title" content="【转载】简单工厂模式 - 罗泽勋">
+  ],
+  "articleBody": "转载自https://blog.csdn.net/lovelion/article/details/17517213\n工厂模式是最常用的一类创建型设计模式，通常我们所说的工厂模式是指工厂方法模式，它也是使用频率最高的工厂模式。本章将要学习的简单工厂模式是工厂方法模式的“小弟”，它不属于GoF 23种设计模式，但在软件开发中应用也较为频繁，通常将它作为学习其他工厂模式的入门。此外，工厂方法模式还有一位“大哥”——抽象工厂模式。这三种工厂模式各具特色，难度也逐个加大，在软件开发中它们都得到了广泛的应用，成为面向对象软件中常用的创建对象的工具。\n一、图表库的设计  Sunny软件公司欲基于Java语言开发一套图表库，该图表库可以为应用系统提供各种不同外观的图表，例如柱状图、饼状图、折线图等。Sunny软件公司图表库设计人员希望为应用系统开发人员提供一套灵活易用的图表库，而且可以较为方便地对图表库进行扩展，以便能够在将来增加一些新类型的图表。\n Sunny软件公司图表库设计人员提出了一个初始设计方案，将所有图表的实现代码封装在一个Chart类中，其框架代码如下所示：\nclass Chart { private String type; //图表类型 public Chart(Object[][] data, String type) { this.type = type; if (type.equalsIgnoreCase(\"histogram\")) { //初始化柱状图 } else if (type.equalsIgnoreCase(\"pie\")) { //初始化饼状图 } else if (type.equalsIgnoreCase(\"line\")) { //初始化折线图 } } public void display() { if (this.type.equalsIgnoreCase(\"histogram\")) { //显示柱状图 } else if (this.type.equalsIgnoreCase(\"pie\")) { //显示饼状图 } else if (this.type.equalsIgnoreCase(\"line\")) { //显示折线图 }\t} } 客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。\n不难看出，Chart类是一个“巨大的”类，在该类的设计中存在如下几个问题：\n(1) 在Chart类中包含很多“if…else…”代码块，整个类的代码相当冗长，代码越长，阅读难度、维护难度和测试难度也越大；而且大量条件语句的存在还将影响系统的性能，程序在执行过程中需要做大量的条件判断。\n(2) Chart类的职责过重，它负责初始化和显示所有的图表对象，将各种图表对象的初始化代码和显示代码集中在一个类中实现，违反了“单一职责原则”，不利于类的重用和维护；而且将大量的对象初始化代码都写在构造函数中将导致构造函数非常庞大，对象在创建时需要进行条件判断，降低了对象创建的效率。\n(3) 当需要增加新类型的图表时，必须修改Chart类的源代码，违反了“开闭原则”。\n(4) 客户端只能通过new关键字来直接创建Chart对象，Chart类与客户端类耦合度较高，对象的创建和使用无法分离。\n(5) 客户端在创建Chart对象之前可能还需要进行大量初始化设置，例如设置柱状图的颜色、高度等，如果在Chart类的构造函数中没有提供一个默认设置，那就只能由客户端来完成初始设置，这些代码在每次创建Chart对象时都会出现，导致代码的重复。\n面对一个如此巨大、职责如此重，且与客户端代码耦合度非常高的类，我们应该怎么办？本章将要介绍的简单工厂模式将在一定程度上解决上述问题。\n二、简单工厂模式概述 简单工厂模式并不属于GoF 23个经典设计模式，但通常将它作为学习其他工厂模式的基础，它的设计思想很简单，其基本流程如下：\n首先将需要创建的各种不同对象（例如各种不同的Chart对象）的相关代码封装到不同的类中，这些类称为具体产品类，而将它们公共的代码进行抽象和提取后封装在一个抽象产品类中，每一个具体产品类都是抽象产品类的子类；然后提供一个工厂类用于创建各种产品，在工厂类中提供一个创建产品的工厂方法，该方法可以根据所传入的参数不同创建不同的具体产品对象；客户端只需调用工厂类的工厂方法并传入相应的参数即可得到一个产品对象。\n简单工厂模式定义如下：\n简单工厂模式(Simple Factory Pattern)：定义一个工厂类，它可以根据参数的不同返回不同类的实例，被创建的实例通常都具有共同的父类。因为在简单工厂模式中用于创建实例的方法是静态(static)方法，因此简单工厂模式又被称为静态工厂方法(Static Factory Method)模式，它属于类创建型模式。\n简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。简单工厂模式结构比较简单，其核心是工厂类的设计，其结构如图1所示：\n在简单工厂模式结构图中包含如下几个角色：\n  Factory（工厂角色）：工厂角色即工厂类，它是简单工厂模式的核心，负责实现创建所有产品实例的内部逻辑；工厂类可以被外界直接调用，创建所需的产品对象；在工厂类中提供了静态的工厂方法factoryMethod()，它的返回类型为抽象产品类型Product。\n  Product（抽象产品角色）：它是工厂类所创建的所有对象的父类，封装了各种产品对象的公有方法，它的引入将提高系统的灵活性，使得在工厂类中只需定义一个通用的工厂方法，因为所有创建的具体产品对象都是其子类对象。\n  ConcreteProduct（具体产品角色）：它是简单工厂模式的创建目标，所有被创建的对象都充当这个角色的某个具体类的实例。每一个具体产品角色都继承了抽象产品角色，需要实现在抽象产品中声明的抽象方法。\n  在简单工厂模式中，客户端通过工厂类来创建一个产品类的实例，而无须直接使用new关键字来创建对象，它是工厂模式家族中最简单的一员。\n在使用简单工厂模式时，首先需要对产品类进行重构，不能设计一个包罗万象的产品类，而需根据实际情况设计一个产品层次结构，将所有产品类公共的代码移至抽象产品类，并在抽象产品类中声明一些抽象方法，以供不同的具体产品类来实现，典型的抽象产品类代码如下所示：\nabstract class Product { //所有产品类的公共业务方法 public void methodSame() { //公共方法的实现 } //声明抽象业务方法 public abstract void methodDiff(); } 在具体产品类中实现了抽象产品类中声明的抽象业务方法，不同的具体产品类可以提供不同的实现，典型的具体产品类代码如下所示：\nclass ConcreteProduct extends Product { //实现业务方法 public void methodDiff() { //业务方法的实现 } } 简单工厂模式的核心是工厂类，在没有工厂类之前，客户端一般会使用new关键字来直接创建产品对象，而在引入工厂类之后，客户端可以通过工厂类来创建产品，在简单工厂模式中，工厂类提供了一个静态工厂方法供客户端使用，根据所传入的参数不同可以创建不同的产品对象，典型的工厂类代码如下所示：\nclass Factory { //静态工厂方法 public static Product getProduct(String arg) { Product product = null; if (arg.equalsIgnoreCase(\"A\")) { product = new ConcreteProductA(); //初始化设置product } else if (arg.equalsIgnoreCase(\"B\")) { product = new ConcreteProductB(); //初始化设置product } return product; } } 在客户端代码中，我们通过调用工厂类的工厂方法即可得到产品对象，典型代码如下所示：\nclass Client { public static void main(String args[]) { Product product; product = Factory.getProduct(\"A\"); //通过工厂类创建产品对象 product.methodSame(); product.methodDiff(); } } 三、完整解决方案 为了将Chart类的职责分离，同时将Chart对象的创建和使用分离，Sunny软件公司开发人员决定使用简单工厂模式对图表库进行重构，重构后的结构如图2所示：\n在上图中，Chart接口充当抽象产品类，其子类HistogramChart、PieChart和LineChart充当具体产品类，ChartFactory充当工厂类。完整代码如下所示：\n//抽象图表接口：抽象产品类 interface Chart { public void display(); } //柱状图类：具体产品类 class HistogramChart implements Chart { public HistogramChart() { System.out.println(\"创建柱状图！\"); } public void display() { System.out.println(\"显示柱状图！\"); } } //饼状图类：具体产品类 class PieChart implements Chart { public PieChart() { System.out.println(\"创建饼状图！\"); } public void display() { System.out.println(\"显示饼状图！\"); } } //折线图类：具体产品类 class LineChart implements Chart { public LineChart() { System.out.println(\"创建折线图！\"); } public void display() { System.out.println(\"显示折线图！\"); } } //图表工厂类：工厂类 class ChartFactory { //静态工厂方法 public static Chart getChart(String type) { Chart chart = null; if (type.equalsIgnoreCase(\"histogram\")) { chart = new HistogramChart(); System.out.println(\"初始化设置柱状图！\"); } else if (type.equalsIgnoreCase(\"pie\")) { chart = new PieChart(); System.out.println(\"初始化设置饼状图！\"); } else if (type.equalsIgnoreCase(\"line\")) { chart = new LineChart(); System.out.println(\"初始化设置折线图！\");\t} return chart; } } 编写如下客户端测试代码：\nclass Client { public static void main(String args[]) { Chart chart; chart = ChartFactory.getChart(\"histogram\"); //通过静态工厂方法创建产品 chart.display(); } } 编译并运行程序，输出结果如下：\n创建柱状图！ 初始化设置柱状图！ 显示柱状图！ 在客户端测试类中，我们使用工厂类的静态工厂方法创建产品对象，如果需要更换产品，只需修改静态工厂方法中的参数即可，例如将柱状图改为饼状图，只需将代码：\nchart = ChartFactory.getChart(\"histogram\"); 改为：\nchart = ChartFactory.getChart(\"pie\"); 编译并运行程序，输出结果如下：\n创建饼状图！ 初始化设置饼状图！ 显示饼状图！ 四、方案的改进 Sunny软件公司开发人员发现在创建具体Chart对象时，每更换一个Chart对象都需要修改客户端代码中静态工厂方法的参数，客户端代码将要重新编译，这对于客户端而言，违反了“开闭原则”，有没有一种方法能够在不修改客户端代码的前提下更换具体产品对象呢？答案是肯定的，下面将介绍一种常用的实现方式。\n我们可以将静态工厂方法的参数存储在XML或properties格式的配置文件中，如下config.xml所示：\n histogram  再通过一个工具类XMLUtil来读取配置文件中的字符串参数，XMLUtil类的代码如下所示：\nimport javax.xml.parsers.*; import org.w3c.dom.*; import org.xml.sax.SAXException; import java.io.*; public class XMLUtil { //该方法用于从XML配置文件中提取图表类型，并返回类型名 public static String getChartType() { try { //创建文档对象 DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = dFactory.newDocumentBuilder(); Document doc;\tdoc = builder.parse(new File(\"config.xml\")); //获取包含图表类型的文本节点 NodeList nl = doc.getElementsByTagName(\"chartType\"); Node classNode = nl.item(0).getFirstChild(); String chartType = classNode.getNodeValue().trim(); return chartType; } catch(Exception e) { e.printStackTrace(); return null; } } } 在引入了配置文件和工具类XMLUtil之后，客户端代码修改如下：\nclass Client { public static void main(String args[]) { Chart chart; String type = XMLUtil.getChartType(); //读取配置文件中的参数 chart = ChartFactory.getChart(type); //创建产品对象 chart.display(); } } 不难发现，在上述客户端代码中不包含任何与具体图表对象相关的信息，如果需要更换具体图表对象，只需修改配置文件config.xml，无须修改任何源代码，符合“开闭原则”。\n五、简单工厂模式的简化 有时候，为了简化简单工厂模式，我们可以将抽象产品类和工厂类合并，将静态工厂方法移至抽象产品类中，如图3所示：\n在图3中，客户端可以通过产品父类的静态工厂方法，根据参数的不同创建不同类型的产品子类对象，这种做法在JDK等类库和框架中也广泛存在。\n六、简单工厂模式总结 简单工厂模式提供了专门的工厂类用于创建对象，将对象的创建和对象的使用分离开，它作为一种最简单的工厂模式在软件开发中得到了较为广泛的应用。\n 主要优点  简单工厂模式的主要优点如下：\n(1) 工厂类包含必要的判断逻辑，可以决定在什么时候创建哪一个产品类的实例，客户端可以免除直接创建产品对象的职责，而仅仅“消费”产品，简单工厂模式实现了对象创建和使用的分离。\n(2) 客户端无须知道所创建的具体产品类的类名，只需要知道具体产品类所对应的参数即可，对于一些复杂的类名，通过简单工厂模式可以在一定程度减少使用者的记忆量。\n(3) 通过引入配置文件，可以在不修改任何客户端代码的情况下更换和增加新的具体产品类，在一定程度上提高了系统的灵活性。\n主要缺点  简单工厂模式的主要缺点如下：\n(1) 由于工厂类集中了所有产品的创建逻辑，职责过重，一旦不能正常工作，整个系统都要受到影响。\n(2) 使用简单工厂模式势必会增加系统中类的个数（引入了新的工厂类），增加了系统的复杂度和理解难度。\n(3) 系统扩展困难，一旦添加新产品就不得不修改工厂逻辑，在产品类型较多时，有可能造成工厂逻辑过于复杂，不利于系统的扩展和维护。\n(4) 简单工厂模式由于使用了静态工厂方法，造成工厂角色无法形成基于继承的等级结构。\n适用场景  在以下情况下可以考虑使用简单工厂模式：\n(1) 工厂类负责创建的对象比较少，由于创建的对象较少，不会造成工厂方法中的业务逻辑太过复杂。\n(2) 客户端只知道传入工厂类的参数，对于如何创建对象并不关心。\n",
+  "wordCount" : "4837",
+  "inLanguage": "en",
+  "datePublished": "2021-12-28T06:50:56+08:00",
+  "dateModified": "2021-12-28T06:50:56+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "糸色先生"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/collection/singlefactory/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "罗泽勋",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="罗泽勋 (Alt + H)">罗泽勋</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/cn/" title="中文"
+                            aria-label="中文">Cn</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/" title="Program">
+                    <span>Program</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    <meta name="twitter:card" content="summary">
+    <h1 class="post-title">
+      【转载】简单工厂模式
+    </h1>
+    <div class="post-meta"><span title='2021-12-28 06:50:56 +0800 CST'>December 28, 2021</span>&nbsp;·&nbsp;糸色先生
 
-    
-      
-    
-
-    
-      
-      <meta property="description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213
-工厂模式是最常用的一类创建型设计模式，通常我们所说的工厂模式是指工厂方法模式，它也是使用频率最高的工厂模式。本章将要学习的简单工厂模式是工厂方法模式的“小弟”，它不属于GoF 23种设计模式，但在软件开发中应用也较为频繁，通常将它作为学习其他工厂模式的入门。此外，工厂方法模式还有一 &amp;hellip;">
-      <meta property="og:description" content="转载自https://blog.csdn.net/lovelion/article/details/17517213
-工厂模式是最常用的一类创建型设计模式，通常我们所说的工厂模式是指工厂方法模式，它也是使用频率最高的工厂模式。本章将要学习的简单工厂模式是工厂方法模式的“小弟”，它不属于GoF 23种设计模式，但在软件开发中应用也较为频繁，通常将它作为学习其他工厂模式的入门。此外，工厂方法模式还有一 &amp;hellip;">
-      
-    
-
-    
-    
-    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory1.jpeg">
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
-      
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>【转载】简单工厂模式</h1>
-
-
-<h3>糸色先生 / 
-2021-12-28</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
+</div>
+  </header> 
+  <div class="post-content"><p>转载自<a href="https://blog.csdn.net/lovelion/article/details/17517213">https://blog.csdn.net/lovelion/article/details/17517213</a></p>
 <p>工厂模式是最常用的一类创建型设计模式，通常我们所说的工厂模式是指工厂方法模式，它也是使用频率最高的工厂模式。本章将要学习的简单工厂模式是工厂方法模式的“小弟”，它不属于GoF 23种设计模式，但在软件开发中应用也较为频繁，通常将它作为学习其他工厂模式的入门。此外，工厂方法模式还有一位“大哥”——抽象工厂模式。这三种工厂模式各具特色，难度也逐个加大，在软件开发中它们都得到了广泛的应用，成为面向对象软件中常用的创建对象的工具。</p>
-<h3 id="一图表库的设计">一、图表库的设计</h3>
+<h3 id="一图表库的设计">一、图表库的设计<a hidden class="anchor" aria-hidden="true" href="#一图表库的设计">#</a></h3>
 <blockquote>
 <p>Sunny软件公司欲基于Java语言开发一套图表库，该图表库可以为应用系统提供各种不同外观的图表，例如柱状图、饼状图、折线图等。Sunny软件公司图表库设计人员希望为应用系统开发人员提供一套灵活易用的图表库，而且可以较为方便地对图表库进行扩展，以便能够在将来增加一些新类型的图表。</p>
 </blockquote>
@@ -129,13 +259,14 @@ else if (this.type.equalsIgnoreCase(&quot;line&quot;)) {
 <p>(4) 客户端只能通过new关键字来直接创建Chart对象，Chart类与客户端类耦合度较高，对象的创建和使用无法分离。</p>
 <p>(5) 客户端在创建Chart对象之前可能还需要进行大量初始化设置，例如设置柱状图的颜色、高度等，如果在Chart类的构造函数中没有提供一个默认设置，那就只能由客户端来完成初始设置，这些代码在每次创建Chart对象时都会出现，导致代码的重复。</p>
 <p>面对一个如此巨大、职责如此重，且与客户端代码耦合度非常高的类，我们应该怎么办？本章将要介绍的简单工厂模式将在一定程度上解决上述问题。</p>
-<h3 id="二简单工厂模式概述">二、简单工厂模式概述</h3>
+<h3 id="二简单工厂模式概述">二、简单工厂模式概述<a hidden class="anchor" aria-hidden="true" href="#二简单工厂模式概述">#</a></h3>
 <p>简单工厂模式并不属于GoF 23个经典设计模式，但通常将它作为学习其他工厂模式的基础，它的设计思想很简单，其基本流程如下：</p>
 <p>首先将需要创建的各种不同对象（例如各种不同的Chart对象）的相关代码封装到不同的类中，这些类称为具体产品类，而将它们公共的代码进行抽象和提取后封装在一个抽象产品类中，每一个具体产品类都是抽象产品类的子类；然后提供一个工厂类用于创建各种产品，在工厂类中提供一个创建产品的工厂方法，该方法可以根据所传入的参数不同创建不同的具体产品对象；客户端只需调用工厂类的工厂方法并传入相应的参数即可得到一个产品对象。</p>
 <p>简单工厂模式定义如下：</p>
 <p>简单工厂模式(Simple Factory Pattern)：定义一个工厂类，它可以根据参数的不同返回不同类的实例，被创建的实例通常都具有共同的父类。因为在简单工厂模式中用于创建实例的方法是静态(static)方法，因此简单工厂模式又被称为静态工厂方法(Static Factory Method)模式，它属于类创建型模式。</p>
 <p>简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。简单工厂模式结构比较简单，其核心是工厂类的设计，其结构如图1所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory1.jpeg" alt="img"></p>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory1.jpeg" alt="img"  />
+</p>
 <p>在简单工厂模式结构图中包含如下几个角色：</p>
 <ul>
 <li>
@@ -192,9 +323,10 @@ product.methodSame();
 product.methodDiff();
 }
 }
-</code></pre><h3 id="三完整解决方案">三、完整解决方案</h3>
+</code></pre><h3 id="三完整解决方案">三、完整解决方案<a hidden class="anchor" aria-hidden="true" href="#三完整解决方案">#</a></h3>
 <p>为了将Chart类的职责分离，同时将Chart对象的创建和使用分离，Sunny软件公司开发人员决定使用简单工厂模式对图表库进行重构，重构后的结构如图2所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory2.jpeg" alt="img"></p>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory2.jpeg" alt="img"  />
+</p>
 <p>在上图中，Chart接口充当抽象产品类，其子类HistogramChart、PieChart和LineChart充当具体产品类，ChartFactory充当工厂类。完整代码如下所示：</p>
 <pre tabindex="0"><code>//抽象图表接口：抽象产品类
 interface Chart {
@@ -278,7 +410,7 @@ chart.display();
 初始化设置饼状图！
 
 显示饼状图！
-</code></pre><h3 id="四方案的改进">四、方案的改进</h3>
+</code></pre><h3 id="四方案的改进">四、方案的改进<a hidden class="anchor" aria-hidden="true" href="#四方案的改进">#</a></h3>
 <p>Sunny软件公司开发人员发现在创建具体Chart对象时，每更换一个Chart对象都需要修改客户端代码中静态工厂方法的参数，客户端代码将要重新编译，这对于客户端而言，违反了“开闭原则”，有没有一种方法能够在不修改客户端代码的前提下更换具体产品对象呢？答案是肯定的，下面将介绍一种常用的实现方式。</p>
 <p>我们可以将静态工厂方法的参数存储在XML或properties格式的配置文件中，如下config.xml所示：</p>
 <pre tabindex="0"><code>&lt;?xml version=&quot;1.0&quot;?&gt;
@@ -323,11 +455,12 @@ chart.display();
 }
 }
 </code></pre><p>不难发现，在上述客户端代码中不包含任何与具体图表对象相关的信息，如果需要更换具体图表对象，只需修改配置文件config.xml，无须修改任何源代码，符合“开闭原则”。</p>
-<h3 id="五简单工厂模式的简化">五、简单工厂模式的简化</h3>
+<h3 id="五简单工厂模式的简化">五、简单工厂模式的简化<a hidden class="anchor" aria-hidden="true" href="#五简单工厂模式的简化">#</a></h3>
 <p>有时候，为了简化简单工厂模式，我们可以将抽象产品类和工厂类合并，将静态工厂方法移至抽象产品类中，如图3所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory3.jpeg" alt="img"></p>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory3.jpeg" alt="img"  />
+</p>
 <p>在图3中，客户端可以通过产品父类的静态工厂方法，根据参数的不同创建不同类型的产品子类对象，这种做法在JDK等类库和框架中也广泛存在。</p>
-<h3 id="六简单工厂模式总结">六、简单工厂模式总结</h3>
+<h3 id="六简单工厂模式总结">六、简单工厂模式总结<a hidden class="anchor" aria-hidden="true" href="#六简单工厂模式总结">#</a></h3>
 <p>简单工厂模式提供了专门的工厂类用于创建对象，将对象的创建和对象的使用分离开，它作为一种最简单的工厂模式在软件开发中得到了较为广泛的应用。</p>
 <ol>
 <li>主要优点</li>
@@ -351,67 +484,82 @@ chart.display();
 <p>(1) 工厂类负责创建的对象比较少，由于创建的对象较少，不会造成工厂方法中的业务逻辑太过复杂。</p>
 <p>(2) 客户端只知道传入工厂类的参数，对于如何创建对象并不关心。</p>
 
-</main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/collection/2021-12-22-oop/">【转载】面向对象思想</a></span>
-  <span class="nav-next"><a href="/collection/oop/">【转载】面向对象设计原则概述</a> &rarr;</span>
-</nav>
+  </div>
 
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
-    
-    url = '\/collection\/2021-12-22-oop\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/collection\/oop\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
-
-
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
+  <footer class="post-footer">
   </footer>
-  </body>
-</html>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="/">罗泽勋</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

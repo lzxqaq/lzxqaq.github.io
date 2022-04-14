@@ -1,110 +1,244 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【转载】C&#43;&#43; 开发必备之网络编程 | 罗泽勋</title>
+<meta name="keywords" content="">
+<meta name="description" content="转载自https://github.com/huihut/interview Socket Linux Socket 编程（不限 Linux） Socket 中的 read()、write() 函">
+<meta name="author" content="">
+<link rel="canonical" href="/collection/networkpg/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/collection/networkpg/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="【转载】C&#43;&#43; 开发必备之网络编程" />
+<meta property="og:description" content="转载自https://github.com/huihut/interview Socket Linux Socket 编程（不限 Linux） Socket 中的 read()、write() 函" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/collection/networkpg/" /><meta property="article:section" content="collection" />
+<meta property="article:published_time" content="2022-03-07T18:38:17&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-07T18:38:17&#43;08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【转载】C&#43;&#43; 开发必备之网络编程"/>
+<meta name="twitter:description" content="转载自https://github.com/huihut/interview Socket Linux Socket 编程（不限 Linux） Socket 中的 read()、write() 函"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "收录文章",
+      "item": "/collection/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "【转载】C++ 开发必备之网络编程",
+      "item": "/collection/networkpg/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【转载】C++ 开发必备之网络编程",
+  "name": "【转载】C\u002b\u002b 开发必备之网络编程",
+  "description": "转载自https://github.com/huihut/interview Socket Linux Socket 编程（不限 Linux） Socket 中的 read()、write() 函",
+  "keywords": [
     
-    <title>【转载】C&#43;&#43; 开发必备之网络编程 - 罗泽勋</title>
-    <meta property="og:title" content="【转载】C&#43;&#43; 开发必备之网络编程 - 罗泽勋">
+  ],
+  "articleBody": "转载自https://github.com/huihut/interview\nSocket  Linux Socket 编程（不限 Linux）\n Socket 中的 read()、write() 函数 ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); read()  read 函数是负责从 fd 中读取内容。 当读成功时，read 返回实际所读的字节数。 如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。 如果错误为 EINTR 说明读是由中断引起的；如果是 ECONNREST 表示网络连接出了问题。  write()  write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd。 成功时返回写的字节数。失败时返回 -1，并设置 errno 变量。 在网络程序中，当我们向套接字文件描述符写时有俩种可能。 （1）write 的返回值大于 0，表示写了部分或者是全部的数据。 （2）返回的值小于 0，此时出现了错误。 如果错误为 EINTR 表示在写的时候出现了中断错误；如果为 EPIPE 表示网络连接出现了问题（对方已经关闭了连接）。  Socket 中 TCP 的三次握手建立连接 我们知道 TCP 建立连接要进行 “三次握手”，即交换三个分组。大致流程如下：\n 客户端向服务器发送一个 SYN J 服务器向客户端响应一个 SYN K，并对 SYN J 进行确认 ACK J+1 客户端再想服务器发一个确认 ACK K+1  只有就完了三次握手，但是这个三次握手发生在 Socket 的那几个函数中呢？请看下图：\n从图中可以看出：\n 当客户端调用 connect 时，触发了连接请求，向服务器发送了 SYN J 包，这时 connect 进入阻塞状态； 服务器监听到连接请求，即收到 SYN J 包，调用 accept 函数接收请求向客户端发送 SYN K ，ACK J+1，这时 accept 进入阻塞状态； 客户端收到服务器的 SYN K ，ACK J+1 之后，这时 connect 返回，并对 SYN K 进行确认； 服务器收到 ACK K+1 时，accept 返回，至此三次握手完毕，连接建立。  Socket 中 TCP 的四次握手释放连接 上面介绍了 socket 中 TCP 的三次握手建立过程，及其涉及的 socket 函数。现在我们介绍 socket 中的四次握手释放连接的过程，请看下图：\n图示过程如下：\n 某个应用进程首先调用 close 主动关闭连接，这时 TCP 发送一个 FIN M； 另一端接收到 FIN M 之后，执行被动关闭，对这个 FIN 进行确认。它的接收也作为文件结束符传递给应用进程，因为 FIN 的接收意味着应用进程在相应的连接上再也接收不到额外数据； 一段时间之后，接收到文件结束符的应用进程调用 close 关闭它的 socket。这导致它的 TCP 也发送一个 FIN N； 接收到这个 FIN 的源发送端 TCP 对它进行确认。  这样每个方向上都有一个 FIN 和 ACK。\n",
+  "wordCount" : "921",
+  "inLanguage": "en",
+  "datePublished": "2022-03-07T18:38:17+08:00",
+  "dateModified": "2022-03-07T18:38:17+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/collection/networkpg/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "罗泽勋",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="罗泽勋 (Alt + H)">罗泽勋</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/cn/" title="中文"
+                            aria-label="中文">Cn</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/" title="Program">
+                    <span>Program</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    <meta name="twitter:card" content="summary">
+    <h1 class="post-title">
+      【转载】C&#43;&#43; 开发必备之网络编程
+    </h1>
+    <div class="post-meta"><span title='2022-03-07 18:38:17 +0800 CST'>March 7, 2022</span>
 
-    
-      
-    
-
-    
-      
-      <meta property="description" content="转载自https://github.com/huihut/interview
-[&amp;hellip;] Linux Socket 编程（不限 Linux）
-[&amp;hellip;] [&amp;hellip;] ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); &amp;hellip;">
-      <meta property="og:description" content="转载自https://github.com/huihut/interview
-[&amp;hellip;] Linux Socket 编程（不限 Linux）
-[&amp;hellip;] [&amp;hellip;] ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); &amp;hellip;">
-      
-    
-
-    
-    
-    <meta name="twitter:image" content="https://gitee.com/huihut/interview/raw/master/images/socket%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E8%AE%AF.jpg">
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
-      
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>【转载】C&#43;&#43; 开发必备之网络编程</h1>
-
-
-<h3>
-2022-03-07</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
-<h3 id="socket">Socket</h3>
+</div>
+  </header> 
+  <div class="post-content"><p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
+<h3 id="socket">Socket<a hidden class="anchor" aria-hidden="true" href="#socket">#</a></h3>
 <blockquote>
 <p><a href="/post/2022/03/07/linuxsocket/">Linux Socket 编程（不限 Linux）</a></p>
 </blockquote>
+<<<<<<< HEAD
 <p><img src="https://gitee.com/huihut/interview/raw/master/images/socket%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E8%AE%AF.jpg" alt="Socket 客户端服务器通讯"></p>
 <h4 id="socket-中的-readwrite-函数">Socket 中的 read()、write() 函数</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">ssize_t <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
 ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int</span> fd, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>buf, size_t count);
 </code></pre></div><h5 id="read">read()</h5>
+=======
+<p><img loading="lazy" src="https://gitee.com/huihut/interview/raw/master/images/socket%e5%ae%a2%e6%88%b7%e7%ab%af%e6%9c%8d%e5%8a%a1%e5%99%a8%e9%80%9a%e8%ae%af.jpg" alt="Socket 客户端服务器通讯"  />
+</p>
+<h4 id="socket-中的-readwrite-函数">Socket 中的 read()、write() 函数<a hidden class="anchor" aria-hidden="true" href="#socket-中的-readwrite-函数">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ssize_t</span> <span class="nf">read</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">count</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ssize_t</span> <span class="nf">write</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">count</span><span class="p">);</span>
+</span></span></code></pre></div><h5 id="read">read()<a hidden class="anchor" aria-hidden="true" href="#read">#</a></h5>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
 <ul>
 <li>read 函数是负责从 fd 中读取内容。</li>
 <li>当读成功时，read 返回实际所读的字节数。</li>
 <li>如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。</li>
 <li>如果错误为 EINTR 说明读是由中断引起的；如果是 ECONNREST 表示网络连接出了问题。</li>
 </ul>
-<h5 id="write">write()</h5>
+<h5 id="write">write()<a hidden class="anchor" aria-hidden="true" href="#write">#</a></h5>
 <ul>
 <li>write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd。</li>
 <li>成功时返回写的字节数。失败时返回 -1，并设置 errno 变量。</li>
@@ -113,7 +247,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <li>（2）返回的值小于 0，此时出现了错误。</li>
 <li>如果错误为 EINTR 表示在写的时候出现了中断错误；如果为 EPIPE 表示网络连接出现了问题（对方已经关闭了连接）。</li>
 </ul>
-<h4 id="socket-中-tcp-的三次握手建立连接">Socket 中 TCP 的三次握手建立连接</h4>
+<h4 id="socket-中-tcp-的三次握手建立连接">Socket 中 TCP 的三次握手建立连接<a hidden class="anchor" aria-hidden="true" href="#socket-中-tcp-的三次握手建立连接">#</a></h4>
 <p>我们知道 TCP 建立连接要进行 “三次握手”，即交换三个分组。大致流程如下：</p>
 <ol>
 <li>客户端向服务器发送一个 SYN J</li>
@@ -121,7 +255,8 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <li>客户端再想服务器发一个确认 ACK K+1</li>
 </ol>
 <p>只有就完了三次握手，但是这个三次握手发生在 Socket 的那几个函数中呢？请看下图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-3-7/socket3.png" alt="socket 中发送的 TCP 三次握手"></p>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-3-7/socket3.png" alt="socket 中发送的 TCP 三次握手"  />
+</p>
 <p>从图中可以看出：</p>
 <ol>
 <li>当客户端调用 connect 时，触发了连接请求，向服务器发送了 SYN J 包，这时 connect 进入阻塞状态；</li>
@@ -129,9 +264,10 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 <li>客户端收到服务器的 SYN K ，ACK J+1 之后，这时 connect 返回，并对 SYN K 进行确认；</li>
 <li>服务器收到 ACK K+1 时，accept 返回，至此三次握手完毕，连接建立。</li>
 </ol>
-<h4 id="socket-中-tcp-的四次握手释放连接">Socket 中 TCP 的四次握手释放连接</h4>
+<h4 id="socket-中-tcp-的四次握手释放连接">Socket 中 TCP 的四次握手释放连接<a hidden class="anchor" aria-hidden="true" href="#socket-中-tcp-的四次握手释放连接">#</a></h4>
 <p>上面介绍了 socket 中 TCP 的三次握手建立过程，及其涉及的 socket 函数。现在我们介绍 socket 中的四次握手释放连接的过程，请看下图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-3-7/socket4.png" alt="socket 中发送的 TCP 四次握手"></p>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-3-7/socket4.png" alt="socket 中发送的 TCP 四次握手"  />
+</p>
 <p>图示过程如下：</p>
 <ol>
 <li>某个应用进程首先调用 close 主动关闭连接，这时 TCP 发送一个 FIN M；</li>
@@ -141,67 +277,82 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
 </ol>
 <p>这样每个方向上都有一个 FIN 和 ACK。</p>
 
-</main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/collection/design-pattern/">【转载】C&#43;&#43; 开发必备之设计模式</a></span>
-  <span class="nav-next"><a href="/collection/linuxsocket/">【转载】Linux Socket 编程（不限 Linux）</a> &rarr;</span>
-</nav>
+  </div>
 
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
-    
-    url = '\/collection\/design-pattern\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/collection\/linuxsocket\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
-
-
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
+  <footer class="post-footer">
   </footer>
-  </body>
-</html>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="/">罗泽勋</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

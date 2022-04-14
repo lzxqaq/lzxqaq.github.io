@@ -1,20 +1,19 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>网络编程 on 罗泽勋</title>
     <link>/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
     <description>Recent content in 网络编程 on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 07 Mar 2022 18:43:02 +0800</lastBuildDate>
-    <atom:link href="/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 07 Mar 2022 18:43:02 +0800</lastBuildDate><atom:link href="/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【转载】Linux Socket 编程（不限 Linux）</title>
       <link>/collection/linuxsocket/</link>
       <pubDate>Mon, 07 Mar 2022 18:43:02 +0800</pubDate>
       
       <guid>/collection/linuxsocket/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>作者：吴秦<br>
@@ -290,9 +289,10 @@ int main(int argc, char** argv)
         
         ]]>
       </description>
+=======
+      <description>作者：吴秦 出处：(http://www.cnblogs.com/skynet/) 1、网络中进程之间如何通信？ 本地的进程间通信（IPC）有很多</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之网络编程</title>
@@ -300,6 +300,7 @@ int main(int argc, char** argv)
       <pubDate>Mon, 07 Mar 2022 18:38:17 +0800</pubDate>
       
       <guid>/collection/networkpg/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -358,9 +359,10 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/huihut/interview Socket Linux Socket 编程（不限 Linux） Socket 中的 read()、write() 函</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】C&#43;&#43; 开发必备之计算机网络</title>
@@ -368,6 +370,7 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
       <pubDate>Sat, 15 Jan 2022 08:06:35 +0800</pubDate>
       
       <guid>/collection/network/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
@@ -946,8 +949,10 @@ ssize_t <span style="color:#a6e22e">write</span>(<span style="color:#66d9ef">int
         
         ]]>
       </description>
+=======
+      <description>转载自https://github.com/huihut/interview 本节部分知识点来自《计算机网络（第 7 版）》 计算机网络体系结构： 各</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
     
   </channel>
 </rss>

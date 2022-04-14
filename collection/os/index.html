@@ -1,101 +1,220 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【转载】C&#43;&#43; 开发必备之操作系统 | 罗泽勋</title>
+<meta name="keywords" content="">
+<meta name="description" content="转载自https://github.com/huihut/interview 进程与线程 对于有线程系统： 进程是资源分配的独立单位 线程是资源调度">
+<meta name="author" content="">
+<link rel="canonical" href="/collection/os/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/collection/os/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="【转载】C&#43;&#43; 开发必备之操作系统" />
+<meta property="og:description" content="转载自https://github.com/huihut/interview 进程与线程 对于有线程系统： 进程是资源分配的独立单位 线程是资源调度" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/collection/os/" /><meta property="article:section" content="collection" />
+<meta property="article:published_time" content="2022-01-14T21:02:05&#43;08:00" />
+<meta property="article:modified_time" content="2022-01-14T21:02:05&#43;08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【转载】C&#43;&#43; 开发必备之操作系统"/>
+<meta name="twitter:description" content="转载自https://github.com/huihut/interview 进程与线程 对于有线程系统： 进程是资源分配的独立单位 线程是资源调度"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "收录文章",
+      "item": "/collection/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "【转载】C++ 开发必备之操作系统",
+      "item": "/collection/os/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【转载】C++ 开发必备之操作系统",
+  "name": "【转载】C\u002b\u002b 开发必备之操作系统",
+  "description": "转载自https://github.com/huihut/interview 进程与线程 对于有线程系统： 进程是资源分配的独立单位 线程是资源调度",
+  "keywords": [
     
-    <title>【转载】C&#43;&#43; 开发必备之操作系统 - 罗泽勋</title>
-    <meta property="og:title" content="【转载】C&#43;&#43; 开发必备之操作系统 - 罗泽勋">
+  ],
+  "articleBody": "转载自https://github.com/huihut/interview\n进程与线程 对于有线程系统：\n 进程是资源分配的独立单位 线程是资源调度的独立单位  对于无线程系统：\n 进程是资源调度、分配的独立单位  进程之间的通信方式以及优缺点  管道（PIPE）  有名管道：一种半双工的通信方式，它允许无亲缘关系进程间的通信  优点：可以实现任意关系的进程间的通信 缺点：  长期存于系统中，使用不当容易出错 缓冲区有限     无名管道：一种半双工的通信方式，只能在具有亲缘关系的进程间使用（父子进程）  优点：简单方便 缺点：  局限于单向通信 只能创建在它的进程以及其有亲缘关系的进程之间 缓冲区有限       信号量（Semaphore）：一个计数器，可以用来控制多个线程对共享资源的访问  优点：可以同步进程 缺点：信号量有限   信号（Signal）：一种比较复杂的通信方式，用于通知接收进程某个事件已经发生 消息队列（Message Queue）：是消息的链表，存放在内核中并由消息队列标识符标识  优点：可以实现任意进程间的通信，并通过系统调用函数来实现消息发送和接收之间的同步，无需考虑同步问题，方便 缺点：信息的复制需要额外消耗 CPU 的时间，不适宜于信息量大或操作频繁的场合   共享内存（Shared Memory）：映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问  优点：无须复制，快捷，信息量大 缺点：  通信是通过将共享空间缓冲区直接附加到进程的虚拟地址空间中来实现的，因此进程间的读写操作的同步问题 利用内存缓冲区直接交换信息，内存的实体存在于计算机中，只能同一个计算机系统中的诸多进程共享，不方便网络通信     套接字（Socket）：可用于不同计算机间的进程通信  优点：  传输数据为字节级，传输数据可自定义，数据量小效率高 传输数据时间短，性能高 适合于客户端和服务器端之间信息实时交互 可以加密,数据安全性强   缺点：需对传输的数据进行解析，转化成应用级的数据。    线程之间的通信方式  锁机制：包括互斥锁/量（mutex）、读写锁（reader-writer lock）、自旋锁（spin lock）、条件变量（condition）  互斥锁/量（mutex）：提供了以排他方式防止数据结构被并发修改的方法。 读写锁（reader-writer lock）：允许多个线程同时读共享数据，而对写操作是互斥的。 自旋锁（spin lock）与互斥锁类似，都是为了保护共享资源。互斥锁是当资源被占用，申请者进入睡眠状态；而自旋锁则循环检测保持者是否已经释放锁。 条件变量（condition）：可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。   信号量机制(Semaphore)  无名线程信号量 命名线程信号量   信号机制(Signal)：类似进程间的信号处理 屏障（barrier）：屏障允许每个线程等待，直到所有的合作线程都达到某一点，然后从该点继续执行。  线程间的通信目的主要是用于线程同步，所以线程没有像进程通信中的用于数据交换的通信机制\n 进程之间的通信方式以及优缺点来源于：进程线程面试题总结\n 进程之间私有和共享的资源  私有：地址空间、堆、全局变量、栈、寄存器 共享：代码段，公共数据，进程目录，进程 ID  线程之间私有和共享的资源  私有：线程栈，寄存器，程序计数器 共享：堆，地址空间，全局变量，静态变量  多进程与多线程间的对比、优劣与选择 对比    对比维度 多进程 多线程 总结     数据共享、同步 数据共享复杂，需要用 IPC；数据是分开的，同步简单 因为共享进程数据，数据共享简单，但也是因为这个原因导致同步复杂 各有优势   内存、CPU 占用内存多，切换复杂，CPU 利用率低 占用内存少，切换简单，CPU 利用率高 线程占优   创建销毁、切换 创建销毁、切换复杂，速度慢 创建销毁、切换简单，速度很快 线程占优   编程、调试 编程简单，调试简单 编程复杂，调试复杂 进程占优   可靠性 进程间不会互相影响 一个线程挂掉将导致整个进程挂掉 进程占优   分布式 适应于多核、多机分布式；如果一台机器不够，扩展到多台机器比较简单 适应于多核分布式 进程占优    优劣    优劣 多进程 多线程     优点 编程、调试简单，可靠性较高 创建、销毁、切换速度快，内存、资源占用小   缺点 创建、销毁、切换速度慢，内存、资源占用大 编程、调试复杂，可靠性较差    选择  需要频繁创建销毁的优先用线程 需要进行大量计算的优先使用线程 强相关的处理用线程，弱相关的处理用进程 可能要扩展到多机分布的用进程，多核分布的用线程 都满足需求的情况下，用你最熟悉、最拿手的方式   多进程与多线程间的对比、优劣与选择来自：多线程还是多进程的选择及区别\n Linux 内核的同步方式 原因 在现代操作系统里，同一时间可能有多个内核执行流在执行，因此内核其实像多进程多线程编程一样也需要一些同步机制来同步各执行单元对共享数据的访问。尤其是在多处理器系统上，更需要一些同步机制来同步不同处理器上的执行单元对共享的数据的访问。\n同步方式  原子操作 信号量（semaphore） 读写信号量（rw_semaphore） 自旋锁（spinlock） 大内核锁（BKL，Big Kernel Lock） 读写锁（rwlock） 大读者锁（brlock-Big Reader Lock） 读-拷贝修改(RCU，Read-Copy Update) 顺序锁（seqlock）   来自：Linux 内核的同步机制，第 1 部分、Linux 内核的同步机制，第 2 部分\n 死锁 原因  系统资源不足 资源分配不当 进程运行推进顺序不合适  产生条件  互斥 请求和保持 不剥夺 环路  预防  打破互斥条件：改造独占性资源为虚拟资源，大部分资源已无法改造。 打破不可抢占条件：当一进程占有一独占性资源后又申请一独占性资源而无法满足，则退出原占有的资源。 打破占有且申请条件：采用资源预先分配策略，即进程运行前申请全部资源，满足则运行，不然就等待，这样就不会占有且申请。 打破循环等待条件：实现资源有序分配策略，对所有设备实现分类编号，所有进程只能采用按序号递增的形式申请资源。 有序资源分配法 银行家算法  文件系统  Windows：FCB 表 + FAT + 位图 Unix：inode + 混合索引 + 成组链接  主机字节序与网络字节序 主机字节序（CPU 字节序） 概念 主机字节序又叫 CPU 字节序，其不是由操作系统决定的，而是由 CPU 指令集架构决定的。主机字节序分为两种：\n 大端字节序（Big Endian）：高序字节存储在低位地址，低序字节存储在高位地址 小端字节序（Little Endian）：高序字节存储在高位地址，低序字节存储在低位地址  存储方式 32 位整数 0x12345678 是从起始位置为 0x00 的地址开始存放，则：\n   内存地址 0x00 0x01 0x02 0x03     大端 12 34 56 78   小端 78 56 34 12    大端小端图片\n判断大端小端 判断大端小端\n可以这样判断自己 CPU 字节序是大端还是小端：\n#include using namespace std; int main() { int i = 0x12345678; if (*((char*)\u0026i) == 0x12) cout  \"大端\"  endl; else\tcout  \"小端\"  endl; return 0; } 各架构处理器的字节序  x86（Intel、AMD）、MOS Technology 6502、Z80、VAX、PDP-11 等处理器为小端序； Motorola 6800、Motorola 68000、PowerPC 970、System/370、SPARC（除 V9 外）等处理器为大端序； ARM（默认小端序）、PowerPC（除 PowerPC 970 外）、DEC Alpha、SPARC V9、MIPS、PA-RISC 及 IA64 的字节序是可配置的。  网络字节序 网络字节顺序是 TCP/IP 中规定好的一种数据表示格式，它与具体的 CPU 类型、操作系统等无关，从而可以保证数据在不同主机之间传输时能够被正确解释。\n网络字节顺序采用：大端（Big Endian）排列方式。\n页面置换算法 在地址映射过程中，若在页面中发现所要访问的页面不在内存中，则产生缺页中断。当发生缺页中断时，如果操作系统内存中没有空闲页面，则操作系统必须在内存选择一个页面将其移出内存，以便为即将调入的页面让出空间。而用来选择淘汰哪一页的规则叫做页面置换算法。\n分类  全局置换：在整个内存空间置换 局部置换：在本进程中进行置换  算法 全局：\n 工作集算法 缺页率置换算法  局部：\n 最佳置换算法（OPT） 先进先出置换算法（FIFO） 最近最久未使用（LRU）算法 时钟（Clock）置换算法  ",
+  "wordCount" : "3263",
+  "inLanguage": "en",
+  "datePublished": "2022-01-14T21:02:05+08:00",
+  "dateModified": "2022-01-14T21:02:05+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/collection/os/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "罗泽勋",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="罗泽勋 (Alt + H)">罗泽勋</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/cn/" title="中文"
+                            aria-label="中文">Cn</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/" title="Program">
+                    <span>Program</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
     
-    <meta name="twitter:card" content="summary">
+    <h1 class="post-title">
+      【转载】C&#43;&#43; 开发必备之操作系统
+    </h1>
+    <div class="post-meta"><span title='2022-01-14 21:02:05 +0800 CST'>January 14, 2022</span>
 
-    
-      
-    
-
-    
-      
-      <meta property="description" content="转载自https://github.com/huihut/interview
-[&amp;hellip;] 对于有线程系统：
-[&amp;hellip;] 对于无线程系统：
-[&amp;hellip;] 线程间的通信目的主要是用于线程同步，所以线程没有像进程通信中的用于数据交换的通信机制
-[&amp;hellip;] 进程之间的通信方式以及优缺点来源于：进程线程面试题总结
-[&amp;hellip;] 多进程与多线程间的对比、优劣与选择 &amp;hellip;">
-      <meta property="og:description" content="转载自https://github.com/huihut/interview
-[&amp;hellip;] 对于有线程系统：
-[&amp;hellip;] 对于无线程系统：
-[&amp;hellip;] 线程间的通信目的主要是用于线程同步，所以线程没有像进程通信中的用于数据交换的通信机制
-[&amp;hellip;] 进程之间的通信方式以及优缺点来源于：进程线程面试题总结
-[&amp;hellip;] 多进程与多线程间的对比、优劣与选择 &amp;hellip;">
-      
-    
-
-    
-    
-    <meta name="twitter:image" content="https://gitee.com/huihut/interview/raw/master/images/CPU-Big-Endian.svg.png">
-    
-    
-
-    
-    
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
-  </head>
-
-  
-  <body>
-    <header class="masthead">
-      
-
-<h1><a href="/"><img src="/images/logo.png" alt="Zexun Luo" /></a></h1>
-
-
-
-      <nav class="menu">
-  <ul>
-  
-  
-  <li><a href="/">主页</a></li>
-  
-  <li><a href="/about/">关于</a></li>
-  
-  <li><a href="/blog/">日志</a></li>
-  
-  <li><a href="/post/">编程</a></li>
-  
-  <li><a href="/collection/">收录</a></li>
-  
-  <li><a href="/categories/">分类</a></li>
-  
-  <li><a href="/vitae/">简历</a></li>
-  
-  </ul>
-</nav>
-
-    </header>
-    <header class="title">
-      
-<h1>【转载】C&#43;&#43; 开发必备之操作系统</h1>
-
-
-<h3>
-2022-01-14</h3>
-
-<hr>
-
-
-    </header>
-
-
-
-
-
-<main>
-<p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
-<h3 id="进程与线程">进程与线程</h3>
+</div>
+  </header> 
+  <div class="post-content"><p>转载自<a href="https://github.com/huihut/interview">https://github.com/huihut/interview</a></p>
+<h3 id="进程与线程">进程与线程<a hidden class="anchor" aria-hidden="true" href="#进程与线程">#</a></h3>
 <p>对于有线程系统：</p>
 <ul>
 <li>进程是资源分配的独立单位</li>
@@ -105,7 +224,7 @@
 <ul>
 <li>进程是资源调度、分配的独立单位</li>
 </ul>
-<h4 id="进程之间的通信方式以及优缺点">进程之间的通信方式以及优缺点</h4>
+<h4 id="进程之间的通信方式以及优缺点">进程之间的通信方式以及优缺点<a hidden class="anchor" aria-hidden="true" href="#进程之间的通信方式以及优缺点">#</a></h4>
 <ul>
 <li>管道（PIPE）
 <ul>
@@ -172,7 +291,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="线程之间的通信方式">线程之间的通信方式</h4>
+<h4 id="线程之间的通信方式">线程之间的通信方式<a hidden class="anchor" aria-hidden="true" href="#线程之间的通信方式">#</a></h4>
 <ul>
 <li>锁机制：包括互斥锁/量（mutex）、读写锁（reader-writer lock）、自旋锁（spin lock）、条件变量（condition）
 <ul>
@@ -195,18 +314,18 @@
 <blockquote>
 <p>进程之间的通信方式以及优缺点来源于：<a href="http://blog.csdn.net/wujiafei_njgcxy/article/details/77098977">进程线程面试题总结</a></p>
 </blockquote>
-<h4 id="进程之间私有和共享的资源">进程之间私有和共享的资源</h4>
+<h4 id="进程之间私有和共享的资源">进程之间私有和共享的资源<a hidden class="anchor" aria-hidden="true" href="#进程之间私有和共享的资源">#</a></h4>
 <ul>
 <li>私有：地址空间、堆、全局变量、栈、寄存器</li>
 <li>共享：代码段，公共数据，进程目录，进程 ID</li>
 </ul>
-<h4 id="线程之间私有和共享的资源">线程之间私有和共享的资源</h4>
+<h4 id="线程之间私有和共享的资源">线程之间私有和共享的资源<a hidden class="anchor" aria-hidden="true" href="#线程之间私有和共享的资源">#</a></h4>
 <ul>
 <li>私有：线程栈，寄存器，程序计数器</li>
 <li>共享：堆，地址空间，全局变量，静态变量</li>
 </ul>
-<h4 id="多进程与多线程间的对比优劣与选择">多进程与多线程间的对比、优劣与选择</h4>
-<h5 id="对比">对比</h5>
+<h4 id="多进程与多线程间的对比优劣与选择">多进程与多线程间的对比、优劣与选择<a hidden class="anchor" aria-hidden="true" href="#多进程与多线程间的对比优劣与选择">#</a></h4>
+<h5 id="对比">对比<a hidden class="anchor" aria-hidden="true" href="#对比">#</a></h5>
 <table>
 <thead>
 <tr>
@@ -255,7 +374,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="优劣">优劣</h5>
+<h5 id="优劣">优劣<a hidden class="anchor" aria-hidden="true" href="#优劣">#</a></h5>
 <table>
 <thead>
 <tr>
@@ -277,7 +396,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="选择">选择</h5>
+<h5 id="选择">选择<a hidden class="anchor" aria-hidden="true" href="#选择">#</a></h5>
 <ul>
 <li>需要频繁创建销毁的优先用线程</li>
 <li>需要进行大量计算的优先使用线程</li>
@@ -288,10 +407,10 @@
 <blockquote>
 <p>多进程与多线程间的对比、优劣与选择来自：<a href="https://blog.csdn.net/lishenglong666/article/details/8557215">多线程还是多进程的选择及区别</a></p>
 </blockquote>
-<h3 id="linux-内核的同步方式">Linux 内核的同步方式</h3>
-<h4 id="原因">原因</h4>
+<h3 id="linux-内核的同步方式">Linux 内核的同步方式<a hidden class="anchor" aria-hidden="true" href="#linux-内核的同步方式">#</a></h3>
+<h4 id="原因">原因<a hidden class="anchor" aria-hidden="true" href="#原因">#</a></h4>
 <p>在现代操作系统里，同一时间可能有多个内核执行流在执行，因此内核其实像多进程多线程编程一样也需要一些同步机制来同步各执行单元对共享数据的访问。尤其是在多处理器系统上，更需要一些同步机制来同步不同处理器上的执行单元对共享的数据的访问。</p>
-<h4 id="同步方式">同步方式</h4>
+<h4 id="同步方式">同步方式<a hidden class="anchor" aria-hidden="true" href="#同步方式">#</a></h4>
 <ul>
 <li>原子操作</li>
 <li>信号量（semaphore）</li>
@@ -306,21 +425,21 @@
 <blockquote>
 <p>来自：<a href="https://www.ibm.com/developerworks/cn/linux/l-synch/part1/">Linux 内核的同步机制，第 1 部分</a>、<a href="https://www.ibm.com/developerworks/cn/linux/l-synch/part2/">Linux 内核的同步机制，第 2 部分</a></p>
 </blockquote>
-<h3 id="死锁">死锁</h3>
-<h4 id="原因-1">原因</h4>
+<h3 id="死锁">死锁<a hidden class="anchor" aria-hidden="true" href="#死锁">#</a></h3>
+<h4 id="原因-1">原因<a hidden class="anchor" aria-hidden="true" href="#原因-1">#</a></h4>
 <ul>
 <li>系统资源不足</li>
 <li>资源分配不当</li>
 <li>进程运行推进顺序不合适</li>
 </ul>
-<h4 id="产生条件">产生条件</h4>
+<h4 id="产生条件">产生条件<a hidden class="anchor" aria-hidden="true" href="#产生条件">#</a></h4>
 <ul>
 <li>互斥</li>
 <li>请求和保持</li>
 <li>不剥夺</li>
 <li>环路</li>
 </ul>
-<h4 id="预防">预防</h4>
+<h4 id="预防">预防<a hidden class="anchor" aria-hidden="true" href="#预防">#</a></h4>
 <ul>
 <li>打破互斥条件：改造独占性资源为虚拟资源，大部分资源已无法改造。</li>
 <li>打破不可抢占条件：当一进程占有一独占性资源后又申请一独占性资源而无法满足，则退出原占有的资源。</li>
@@ -329,20 +448,20 @@
 <li>有序资源分配法</li>
 <li>银行家算法</li>
 </ul>
-<h3 id="文件系统">文件系统</h3>
+<h3 id="文件系统">文件系统<a hidden class="anchor" aria-hidden="true" href="#文件系统">#</a></h3>
 <ul>
 <li>Windows：FCB 表 + FAT + 位图</li>
 <li>Unix：inode + 混合索引 + 成组链接</li>
 </ul>
-<h3 id="主机字节序与网络字节序">主机字节序与网络字节序</h3>
-<h4 id="主机字节序cpu-字节序">主机字节序（CPU 字节序）</h4>
-<h5 id="概念">概念</h5>
+<h3 id="主机字节序与网络字节序">主机字节序与网络字节序<a hidden class="anchor" aria-hidden="true" href="#主机字节序与网络字节序">#</a></h3>
+<h4 id="主机字节序cpu-字节序">主机字节序（CPU 字节序）<a hidden class="anchor" aria-hidden="true" href="#主机字节序cpu-字节序">#</a></h4>
+<h5 id="概念">概念<a hidden class="anchor" aria-hidden="true" href="#概念">#</a></h5>
 <p>主机字节序又叫 CPU 字节序，其不是由操作系统决定的，而是由 CPU 指令集架构决定的。主机字节序分为两种：</p>
 <ul>
 <li>大端字节序（Big Endian）：高序字节存储在低位地址，低序字节存储在高位地址</li>
 <li>小端字节序（Little Endian）：高序字节存储在高位地址，低序字节存储在低位地址</li>
 </ul>
-<h5 id="存储方式">存储方式</h5>
+<h5 id="存储方式">存储方式<a hidden class="anchor" aria-hidden="true" href="#存储方式">#</a></h5>
 <p>32 位整数 <code>0x12345678</code> 是从起始位置为 <code>0x00</code> 的地址开始存放，则：</p>
 <table>
 <thead>
@@ -372,11 +491,14 @@
 </tbody>
 </table>
 <p>大端小端图片</p>
-<p><img src="https://gitee.com/huihut/interview/raw/master/images/CPU-Big-Endian.svg.png" alt="大端序">
-<img src="https://gitee.com/huihut/interview/raw/master/images/CPU-Little-Endian.svg.png" alt="小端序"></p>
-<h5 id="判断大端小端">判断大端小端</h5>
+<p><img loading="lazy" src="https://gitee.com/huihut/interview/raw/master/images/CPU-Big-Endian.svg.png" alt="大端序"  />
+
+<img loading="lazy" src="https://gitee.com/huihut/interview/raw/master/images/CPU-Little-Endian.svg.png" alt="小端序"  />
+</p>
+<h5 id="判断大端小端">判断大端小端<a hidden class="anchor" aria-hidden="true" href="#判断大端小端">#</a></h5>
 <p>判断大端小端</p>
 <p>可以这样判断自己 CPU 字节序是大端还是小端：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
@@ -392,22 +514,39 @@
 	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 </code></pre></div><h5 id="各架构处理器的字节序">各架构处理器的字节序</h5>
+=======
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mh">0x12345678</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mh">0x12</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;大端&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span>	
+</span></span><span class="line"><span class="cl">		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;小端&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h5 id="各架构处理器的字节序">各架构处理器的字节序<a hidden class="anchor" aria-hidden="true" href="#各架构处理器的字节序">#</a></h5>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
 <ul>
 <li>x86（Intel、AMD）、MOS Technology 6502、Z80、VAX、PDP-11 等处理器为小端序；</li>
 <li>Motorola 6800、Motorola 68000、PowerPC 970、System/370、SPARC（除 V9 外）等处理器为大端序；</li>
 <li>ARM（默认小端序）、PowerPC（除 PowerPC 970 外）、DEC Alpha、SPARC V9、MIPS、PA-RISC 及 IA64 的字节序是可配置的。</li>
 </ul>
-<h4 id="网络字节序">网络字节序</h4>
+<h4 id="网络字节序">网络字节序<a hidden class="anchor" aria-hidden="true" href="#网络字节序">#</a></h4>
 <p>网络字节顺序是 TCP/IP 中规定好的一种数据表示格式，它与具体的 CPU 类型、操作系统等无关，从而可以保证数据在不同主机之间传输时能够被正确解释。</p>
 <p>网络字节顺序采用：大端（Big Endian）排列方式。</p>
-<h3 id="页面置换算法">页面置换算法</h3>
+<h3 id="页面置换算法">页面置换算法<a hidden class="anchor" aria-hidden="true" href="#页面置换算法">#</a></h3>
 <p>在地址映射过程中，若在页面中发现所要访问的页面不在内存中，则产生缺页中断。当发生缺页中断时，如果操作系统内存中没有空闲页面，则操作系统必须在内存选择一个页面将其移出内存，以便为即将调入的页面让出空间。而用来选择淘汰哪一页的规则叫做页面置换算法。</p>
-<h4 id="分类">分类</h4>
+<h4 id="分类">分类<a hidden class="anchor" aria-hidden="true" href="#分类">#</a></h4>
 <ul>
 <li>全局置换：在整个内存空间置换</li>
 <li>局部置换：在本进程中进行置换</li>
 </ul>
-<h4 id="算法">算法</h4>
+<h4 id="算法">算法<a hidden class="anchor" aria-hidden="true" href="#算法">#</a></h4>
 <p>全局：</p>
 <ul>
 <li>工作集算法</li>
@@ -421,67 +560,82 @@
 <li>时钟（Clock）置换算法</li>
 </ul>
 
-</main>
 
-  <footer>
-  
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/collection/algorithm/">【转载】C&#43;&#43; 开发必备之算法</a></span>
-  <span class="nav-next"><a href="/collection/network/">【转载】C&#43;&#43; 开发必备之计算机网络</a> &rarr;</span>
-</nav>
+  </div>
 
-<script type="text/javascript">
-document.addEventListener('keyup', function(e) {
-  if (e.target.nodeName.toUpperCase() != 'BODY') return;
-  var url = false;
-  if (e.which == 37) {  
-    
-    url = '\/collection\/algorithm\/';
-    
-  } else if (e.which == 39) {  
-    
-    url = '\/collection\/network\/';
-    
-  }
-  if (url) window.location = url;
-});
-</script>
-
-
-
-
-
-
-<script src="https://utteranc.es/client.js"
-repo="lzxqaq/site-comment"
-issue-term="title"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
-
-
-
-
-
-
-
-
-<script async src="/js/center-img.js"></script>
-
-<script async src="/js/right-quote.js"></script>
-
-<script async src="/js/external-link.js"></script>
-
-<script async src="/js/alt-title.js"></script>
-
-
-
-  
-  <hr/>
-  © <a href="/">Zexun Luo</a> 2020 - 2022
-  
+  <footer class="post-footer">
   </footer>
-  </body>
-</html>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="/">罗泽勋</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -86,6 +87,227 @@ public static void listAllFiles(File dir){if(dir == null || !dir.exists()){ret
 
 <main>
 <h3 id="一概览">一、概览</h3>
+=======
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Java I/O | 罗泽勋</title>
+<meta name="keywords" content="">
+<meta name="description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc">
+<meta name="author" content="糸色先生">
+<link rel="canonical" href="/post/2021/01/12/java-i/o/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/post/2021/01/12/java-i/o/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="Java I/O" />
+<meta property="og:description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2021/01/12/java-i/o/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-01-12T08:46:08&#43;08:00" />
+<meta property="article:modified_time" content="2021-01-12T08:46:08&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java I/O"/>
+<meta name="twitter:description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "",
+      "item": "/post/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Java I/O",
+      "item": "/post/2021/01/12/java-i/o/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Java I/O",
+  "name": "Java I\/O",
+  "description": "一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc",
+  "keywords": [
+    
+  ],
+  "articleBody": "一、概览 Java 的 I/O 大概可以分成以下几类：\n 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO  二、磁盘操作 File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：\npublic static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { System.out.println(dir.getName()); return ; } for (File:file : dir.listFiles()) { listAllFiles(file); } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。\n三、字节操作 实现文件复制 public static void copuFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读 buffer.length 个字节 // 返回的是实际读取的个数 // 返回 -1 的时候表示读到 eof,即文件结尾 while ((cnt = in.read(buffer, 0, buffer.length)) != -1) { out.write(buffer, 0, cnt); } in.close(); out.close(); } 装饰者模式 Java I/O 使用了装饰者模式来实现。\n实例化一个具有缓存功能的字节流对象时，只需要在 FileInputStream 对象上再套一层 BufferedInputStream 对象即可。\n七、NIO 新的输入/输出（NIO）库是在 JDK1.4中引入的，弥补了原来的 I/O 的不足，提供了高速的、面向块的 I/O。\n",
+  "wordCount" : "392",
+  "inLanguage": "en",
+  "datePublished": "2021-01-12T08:46:08+08:00",
+  "dateModified": "2021-01-12T08:46:08+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "糸色先生"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2021/01/12/java-i/o/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "罗泽勋",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="罗泽勋 (Alt + H)">罗泽勋</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/cn/" title="中文"
+                            aria-label="中文">Cn</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/" title="Program">
+                    <span>Program</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Java I/O
+    </h1>
+    <div class="post-meta"><span title='2021-01-12 08:46:08 +0800 CST'>January 12, 2021</span>&nbsp;·&nbsp;糸色先生
+
+</div>
+  </header> 
+  <div class="post-content"><h3 id="一概览">一、概览<a hidden class="anchor" aria-hidden="true" href="#一概览">#</a></h3>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
 <p>Java 的 I/O 大概可以分成以下几类：</p>
 <ul>
 <li>磁盘操作：File</li>
@@ -94,7 +316,7 @@ public static void listAllFiles(File dir){if(dir == null || !dir.exists()){ret
 <li>网络操作：Socket</li>
 <li>新的输入/输出：NIO</li>
 </ul>
-<h3 id="二磁盘操作">二、磁盘操作</h3>
+<h3 id="二磁盘操作">二、磁盘操作<a hidden class="anchor" aria-hidden="true" href="#二磁盘操作">#</a></h3>
 <p>File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。
 递归地列出一个目录的所有文件：</p>
 <pre tabindex="0"><code>public static void listAllFiles(File dir){
@@ -110,6 +332,7 @@ public static void listAllFiles(File dir){if(dir == null || !dir.exists()){ret
     }
 }
 </code></pre><p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
+<<<<<<< HEAD
 <h3 id="三字节操作">三、字节操作</h3>
 <h4 id="实现文件复制">实现文件复制</h4>
 <pre tabindex="0"><code>public static void copuFile(String src, String dist) throws IOException {
@@ -129,10 +352,32 @@ public static void listAllFiles(File dir){if(dir == null || !dir.exists()){ret
     out.close();
 }
 </code></pre><h4 id="装饰者模式">装饰者模式</h4>
+=======
+<h3 id="三字节操作">三、字节操作<a hidden class="anchor" aria-hidden="true" href="#三字节操作">#</a></h3>
+<h4 id="实现文件复制">实现文件复制<a hidden class="anchor" aria-hidden="true" href="#实现文件复制">#</a></h4>
+<pre tabindex="0"><code>public static void copuFile(String src, String dist) throws IOException {
+    FileInputStream in = new FileInputStream(src);
+    FileOutputStream out = new FileOutStream(dist);
+
+    byte[] buffer = new byte[20 * 1024];
+    int cnt;
+    // read() 最多读 buffer.length 个字节
+    // 返回的是实际读取的个数
+    // 返回 -1 的时候表示读到 eof,即文件结尾
+    while ((cnt = in.read(buffer, 0, buffer.length)) != -1) {
+        out.write(buffer, 0, cnt);
+    }
+
+    in.close();
+    out.close();
+}
+</code></pre><h4 id="装饰者模式">装饰者模式<a hidden class="anchor" aria-hidden="true" href="#装饰者模式">#</a></h4>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
 <p>Java I/O 使用了装饰者模式来实现。</p>
 <p>实例化一个具有缓存功能的字节流对象时，只需要在 FileInputStream 对象上再套一层 BufferedInputStream 对象即可。</p>
-<h3 id="七nio">七、NIO</h3>
+<h3 id="七nio">七、NIO<a hidden class="anchor" aria-hidden="true" href="#七nio">#</a></h3>
 <p>新的输入/输出（NIO）库是在 JDK1.4中引入的，弥补了原来的 I/O 的不足，提供了高速的、面向块的 I/O。</p>
+<<<<<<< HEAD
 
 </main>
 
@@ -198,3 +443,85 @@ async>
   </body>
 </html>
 
+=======
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="/">罗泽勋</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d

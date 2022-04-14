@@ -1,84 +1,28 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Java on 罗泽勋</title>
     <link>/categories/java/</link>
     <description>Recent content in Java on 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 12 Jan 2021 08:46:08 +0800</lastBuildDate>
-    <atom:link href="/categories/java/" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 12 Jan 2021 08:46:08 +0800</lastBuildDate><atom:link href="/categories/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java I/O</title>
       <link>/post/2021/01/12/java-i/o/</link>
       <pubDate>Tue, 12 Jan 2021 08:46:08 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/post/2021/01/12/java-i/o/</guid>
-      <description>
-        <![CDATA[
-        <h3 id="一概览">一、概览</h3>
-<p>Java 的 I/O 大概可以分成以下几类：</p>
-<ul>
-<li>磁盘操作：File</li>
-<li>字节操作：InputStream 和 OutputStream</li>
-<li>对象操作：Serializable</li>
-<li>网络操作：Socket</li>
-<li>新的输入/输出：NIO</li>
-</ul>
-<h3 id="二磁盘操作">二、磁盘操作</h3>
-<p>File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。
-递归地列出一个目录的所有文件：</p>
-<pre tabindex="0"><code>public static void listAllFiles(File dir){
-    if(dir == null || !dir.exists()){
-        return ;
-    }
-    if(dir.isFile()) {
-        System.out.println(dir.getName());
-        return ;
-    }
-    for (File:file : dir.listFiles()) {
-        listAllFiles(file);
-    }
-}
-</code></pre><p>从 Java 7 开始，可以使用 Paths 和 Files 代替 File。</p>
-<h3 id="三字节操作">三、字节操作</h3>
-<h4 id="实现文件复制">实现文件复制</h4>
-<pre tabindex="0"><code>public static void copuFile(String src, String dist) throws IOException {
-    FileInputStream in = new FileInputStream(src);
-    FileOutputStream out = new FileOutStream(dist);
-
-    byte[] buffer = new byte[20 * 1024];
-    int cnt;
-    // read() 最多读 buffer.length 个字节
-    // 返回的是实际读取的个数
-    // 返回 -1 的时候表示读到 eof,即文件结尾
-    while ((cnt = in.read(buffer, 0, buffer.length)) != -1) {
-        out.write(buffer, 0, cnt);
-    }
-
-    in.close();
-    out.close();
-}
-</code></pre><h4 id="装饰者模式">装饰者模式</h4>
-<p>Java I/O 使用了装饰者模式来实现。</p>
-<p>实例化一个具有缓存功能的字节流对象时，只需要在 FileInputStream 对象上再套一层 BufferedInputStream 对象即可。</p>
-<h3 id="七nio">七、NIO</h3>
-<p>新的输入/输出（NIO）库是在 JDK1.4中引入的，弥补了原来的 I/O 的不足，提供了高速的、面向块的 I/O。</p>
-
-        
-        ]]>
-      </description>
+      <description>一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Soc</description>
     </item>
-    
-    
     
     <item>
       <title>Java 并发</title>
       <link>/post/2021/01/09/java-%E5%B9%B6%E5%8F%91/</link>
       <pubDate>Sat, 09 Jan 2021 10:50:16 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/post/2021/01/09/java-%E5%B9%B6%E5%8F%91/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <h3 id="一使用线程">一、使用线程</h3>
@@ -243,223 +187,36 @@
         
         ]]>
       </description>
+=======
+      <description>一、使用线程 有三种使用线程的方法： 实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类； 实现 Runnable 接口 需要实现接口中的 run() 方法。 public class MyRunnable implements Runnable { @Override public void run(){ // ...</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】Java 虚拟机</title>
       <link>/collection/2020-12-25jvm/</link>
       <pubDate>Fri, 25 Dec 2020 15:06:19 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2020-12-25jvm/</guid>
-      <description>
-        <![CDATA[
-        <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA.md">CyC2018/CS-Notes</a></p>
-<ul>
-<li><a href="#1">一、运行时数据区域</a>
-<ul>
-<li><a href="#1.1">程序计数器</a></li>
-<li><a href="#1.2">Java 虚拟机栈</a></li>
-<li><a href="#1.3">本地方法栈</a></li>
-<li><a href="#1.4">堆</a></li>
-<li><a href="#1.5">方法区</a></li>
-<li><a href="#1.6">运行时常量池</a></li>
-<li><a href="#1.7">直接内存</a></li>
-</ul>
-</li>
-<li><a href="#2">二、垃圾收集</a>
-<ul>
-<li><a href="#2.1">判断一个对象是否可被回收</a></li>
-<li><a href="#2.2">引用类型</a></li>
-<li><a href="#2.3">垃圾收集算法</a></li>
-<li><a href="#2.4">垃圾收集器</a></li>
-</ul>
-</li>
-<li><a href="#3">三、内存分配和回收策略</a>
-<ul>
-<li><a href="#3.1">Minor Gc 和 Full Gc</a></li>
-<li><a href="#3.2">内存分配策略</a></li>
-<li><a href="#3.3">Full GC 的触发条件</a></li>
-</ul>
-</li>
-<li><a href="#4">四、类加载机制</a>
-<ul>
-<li><a href="#4.1">类的生命周期</a></li>
-<li><a href="#4.2">类加载过程</a></li>
-<li><a href="#4.3">类初始化时机</a></li>
-<li><a href="#4.4">类与类加载器</a></li>
-<li><a href="#4.5">类加载器分类</a></li>
-<li><a href="#4.6">双亲委派模型</a></li>
-<li><a href="#4.7">自定义类加载器实现</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="一运行时数据区域-a-name1a">一、运行时数据区域 <a name="1"></a></h3>
-<h4 id="程序计数器-a-name11a">程序计数器 <a name="1.1"></a></h4>
-<p>记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。</p>
-<h4 id="java-虚拟机栈-a-name12a">Java 虚拟机栈 <a name="1.2"></a></h4>
-<p>每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。</p>
-<p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</p>
-<pre tabindex="0"><code>java -Xss2M HaskTheJava
-</code></pre><p>该区域可能抛出以下异常：</p>
-<ul>
-<li>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；</li>
-<li>栈进行动态扩展的时如果无法申请到足够的内存，会抛出 OutofMemoryError 异常。</li>
-</ul>
-<h4 id="本地方法栈a-name13a">本地方法栈<a name="1.3"></a></h4>
-<p>本地方法栈与 Java 虚拟机栈类似，他们之间的区别只不过是本地方法栈为本地方法服务。<br>
-本地方法一般是用其他语言（C、C++或汇编语言等等）编写的，并且被编译为基于本机硬件和操作系统的程序，对待这些方法需要特别处理。</p>
-<h4 id="堆-a-name14a">堆 <a name="1.4"></a></h4>
-<p>所有对象都在这里分配内存，是垃圾收集的主要区域（&ldquo;GC堆&rdquo;）。<br>
-现代的垃圾收集器基本都是采用分代收集算法，其主要的思想是针对不同类型的对象采用不同的垃圾回收算法。可以将堆分成两块：</p>
-<ul>
-<li>新生代</li>
-<li>老年代</li>
-</ul>
-<p>堆不需要连续内存，并且可以动态增加其内存，增加失败会抛出 OutOfMemoryError 异常。</p>
-<p>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。</p>
-<pre tabindex="0"><code>java -Xms1M -Xmx2M HackTheJava
-</code></pre><h4 id="方法区a-name15a">方法区<a name="1.5"></a></h4>
-<p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
-<p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 OutOfMemoryError 异常。</p>
-<p>对这块区域进行垃圾回收的主要目标是对常量池的回收和对类的卸载，但是一般比较难实现。</p>
-<p>HotSpot 虚拟机把它当成永久代来进行垃圾回收。但很难确定永久代的大小，因为它受到很多因素影响，并且每次 Full GC 之后永久代的大小都会改变，所以经常会抛出 OutOfMemoryError 异常。为了更容易管理方法区，从 JDK 1.8 开始，移除永久代，并把方法区移至元空间，它位于本地内存，而不是虚拟机内存。<br>
-方法区是一个 JVM 规范，永久代与元空间都是其一种实现方式。在 JDK 1.8 之后，原来永久代的数据被分到了堆和元空间中。元空间存储类的元信息，静态变量和常量池等放入堆中。</p>
-<h4 id="运行时常量池a-name16a">运行时常量池<a name="1.6"></a></h4>
-<p>运行时常量池是方法区的一部分。</p>
-<p>Class 文件中的常量池（编译器生成的字面量和符号引用）会在类加载后被放入这个区域。</p>
-<p>除了在编译期生成的常量，还允许动态生成，例如 String 类的 intern()。</p>
-<h4 id="直接内存a-name17a">直接内存<a name="1.7"></a></h4>
-<p>在 JDK 1.4 中新引入了 NIO 类，它可以使用 Native 函数库直接分配堆外内存。</p>
-<h3 id="二垃圾回收a-name2a">二、垃圾回收<a name="2"></a></h3>
-<p>垃圾收集主要是针对堆和方法区进行。程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期，线程结束之后就会消失，因此不需要对这三个区域进行垃圾回收。</p>
-<h4 id="判断一个对象是否可被回收a-name21a">判断一个对象是否可被回收<a name="2.1"></a></h4>
-<h5 id="1引用技术算法">1.引用技术算法</h5>
-<p>（相互引用时，两个对象都无法被回收）</p>
-<h5 id="2可达性分析">2.可达性分析</h5>
-<p>以 GC Roots为起始点进行搜索，可达的对象都是存活的，不可达的对象可被回收。
-Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般包含以下内容：</p>
-<ul>
-<li>虚拟机栈中局部变量表中引用的对象</li>
-<li>本地方法栈 JNI 中引用的对象</li>
-<li>方法区中类静态属性引用的对象</li>
-<li>方法区中的常量引用的对象</li>
-</ul>
-<h5 id="3方法区的回收">3.方法区的回收</h5>
-<p>因为方法区主要存放永久代对象，而永久代对象的回收率比新生代低很多，所有在方法区上进行回收性价比不高。</p>
-<p>主要是对常量池的回收和对类的卸载。</p>
-<h5 id="4finalize">4.finalize()</h5>
-<p>类似 C++ 的析构函数，用于关闭外部资源。最好别用，用try-finally等。</p>
-<h4 id="引用类型a-name22a">引用类型<a name="2.2"></a></h4>
-<h5 id="1强引用">1.强引用</h5>
-<p>被强引用关联的对象不会被回收。</p>
-<p>使用 new 一个新对象来创建强引用。</p>
-<h5 id="2软引用">2.软引用</h5>
-<h5 id="3弱引用">3.弱引用</h5>
-<h5 id="4虚引用">4.虚引用</h5>
-<h4 id="垃圾收集算法a-name23a">垃圾收集算法<a name="2.3"></a></h4>
-<h5 id="1标记-清除">1.标记-清除</h5>
-<h5 id="2标记-整理">2.标记-整理</h5>
-<h5 id="3复制">3.复制</h5>
-<h5 id="4分代收集">4.分代收集</h5>
-<p>根据对象存活周期将内存划分为几块，不痛块采用适当的收集算法。</p>
-<p>一般将堆分为新生代和老生代。</p>
-<ul>
-<li>新生代使用：复制算法</li>
-<li>老生代使用：标记-清除 或者 标记-整理 算法</li>
-</ul>
-<h3 id="四类加载机制a-name4a">四、类加载机制<a name="4"></a></h3>
-<p>类是在运行期间第一次使用时动态加载的，而不是一次性加载所有类。因为如果一次性加载，那么会占用很多的内存。</p>
-<h4 id="类的生命周期a-name41a">类的生命周期<a name="4.1"></a></h4>
-<p>包括以下阶段：</p>
-<ul>
-<li>加载</li>
-<li>验证</li>
-<li>准备</li>
-<li>解析</li>
-<li>初始化</li>
-<li>使用</li>
-<li>卸载</li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>参考自 CyC2018/CS-Notes 一、运行时数据区域 程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存 二、垃圾收集 判断一个对象是否可被回收 引用类型 垃圾收集算法</description>
     </item>
-    
-    
     
     <item>
       <title>【转载】Java 容器</title>
       <link>/collection/2020-12-24-collection/</link>
       <pubDate>Thu, 24 Dec 2020 16:47:24 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2020-12-24-collection/</guid>
-      <description>
-        <![CDATA[
-        <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%AE%B9%E5%99%A8.md">CyC2018/CS-Notes</a></p>
-<ul>
-<li><a href="#1">一、概览</a>
-<ul>
-<li><a href="#1.1">Collection</a></li>
-<li><a href="#1.2">Map</a></li>
-</ul>
-</li>
-</ul>
-<!-- * [二、容器中的设计模式]
-    * [迭代器模式](#2.1)
-    * [适配器模式](#2.2)
-* [三、源码分析](#3)
-    * [ArrayList](#3.1)
-    * [Vector](#3.2)
-    * [CopyOnWriteArrayList](#3.3)
-    * [LinkedList](#3.4)
-    * [HashMap](#3.5)
-    * [ConcurrentHashMap](#3.6)
-    * [LinkedHashMap](#3.7)
-    * [WeakHashMap](#3.8) -->
-<h3 id="一概览-a-name1a">一、概览 <a name="1"></a></h3>
-<p>容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。</p>
-<h4 id="collection-a-name11a">Collection <a name="1.1"></a></h4>
-<p><strong>1.Set</strong></p>
-<ul>
-<li>TreeSet: 基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet, HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。</li>
-<li>HashSet: 基于哈希表的实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。</li>
-<li>LinkedHashSet: 具有 HashSet 的查找效率，并且内部使用双向链表维护元素的插入顺序。</li>
-</ul>
-<p><strong>2.List</strong></p>
-<ul>
-<li>ArrayList： 基于动态数组实现，支持随机访问。</li>
-<li>Vector： 和 ArrayList 类似，但它是线程安全的。</li>
-<li>LinkedList： 基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用做栈、队列和双向队列。</li>
-</ul>
-<p><strong>3.Queue</strong></p>
-<ul>
-<li>LinkedList：可以用它来实现双向队列。</li>
-<li>PriorityQueue：基于堆结构实现，可以用它来实现优先队列。</li>
-</ul>
-<h4 id="map-a-name12a">Map <a name="1.2"></a></h4>
-<ul>
-<li>TreeMap：基于红黑树实现</li>
-<li>HashMap：基于哈希表实现</li>
-<li>hashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程同时写入 HashTable 不会导致数据不一致。它是遗留类，不应该去使用它，而是使用 ConcurrentHashMap 来支持线程安全，ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。</li>
-<li>LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。</li>
-</ul>
-
-        
-        ]]>
-      </description>
+      <description>参考自 CyC2018/CS-Notes 一、概览 Collection Map 一、概览 容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。 Collection 1.Set TreeSet: 基</description>
     </item>
-    
-    
     
     <item>
       <title>String 类真的不可以改变吗？</title>
       <link>/post/2020/12/15/string-%E7%B1%BB%E7%9C%9F%E7%9A%84%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E5%90%97/</link>
       <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/post/2020/12/15/string-%E7%B1%BB%E7%9C%9F%E7%9A%84%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E5%90%97/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。</p>
@@ -514,16 +271,18 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
         
         ]]>
       </description>
+=======
+      <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
-    
     
     <item>
       <title>【转载】Java 基础</title>
       <link>/collection/2020-12-15-base/</link>
       <pubDate>Tue, 15 Dec 2020 08:32:26 +0800</pubDate>
-      <author>糸色先生</author>
+      
       <guid>/collection/2020-12-15-base/</guid>
+<<<<<<< HEAD
       <description>
         <![CDATA[
         <p>参考自 <a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md">CyC2018/CS-Notes</a></p>
@@ -1037,8 +796,10 @@ System.out.println(set.size());     // 2
         
         ]]>
       </description>
+=======
+      <description>参考自 CyC2018/CS-Notes 一、数据类型 基本类型 包装类型 缓存池 二、String 概述 不可变的好处 String,StringBuffer and StringBuilder StringPoll new String(&amp;ldquo;abc&amp;rdquo;) 三、运算 参数传递 float与double 隐式类型转换 switch</description>
+>>>>>>> 35a30928abf5c3213b754024efc550556652db2d
     </item>
-    
     
   </channel>
 </rss>
