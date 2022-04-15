@@ -77,7 +77,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          978字
+          983字
         </span>
         <span class="split">
           ·
@@ -345,7 +345,10 @@ int main() {
   cout &lt;&lt; a &lt;&lt; endl;
   return 0;
 }
-</code></pre></div><h3 id="新的-for-循环c-11">新的 for 循环（C++ 11） <a href="#%e6%96%b0%e7%9a%84-for-%e5%be%aa%e7%8e%afc-11" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">int arr[5] = {1, 2, 3, 4, 5};
+</code></pre></div><h3 id="虚函数表">虚函数表 <a href="#%e8%99%9a%e5%87%bd%e6%95%b0%e8%a1%a8" class="anchor">🔗</a></h3><p>什么是虚函数表？</p>
+<p>对于一个类来说，如果类中存在虚函数，那么该类的大小就会多4个字节，然而这4个字节就是一个指针的大小，这个指针指向虚函数表。所以，如果对象存在虚函数，那么编译器就会生成一个指向虚函数表的指针，所有的虚函数都存在于这个表中，虚函数表就可以理解为一个数组，每个单元用来存放虚函数的地址。</p>
+<p>虚函数（Virtual Function）是通过一张虚函数表来实现的。简称为V-Table。在这个表中，主要是一个类的虚函数的地址表，这张表解决了继承、覆盖的问题，保证其真实反应实际的函数。这样，在有虚函数的类的实例中分配了指向这个表的指针的内存，所以，当用父类的指针来操作一个子类的时候，这张虚函数表就显得尤为重要了，它就像一个地图一样，指明了实际所应该调用的函数。</p>
+<h3 id="新的-for-循环c-11">新的 for 循环（C++ 11） <a href="#%e6%96%b0%e7%9a%84-for-%e5%be%aa%e7%8e%afc-11" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">int arr[5] = {1, 2, 3, 4, 5};
 for (int x : arr) {
   x += 100;
   cout &lt;&lt; x &lt;&lt; &#39; &#39;;

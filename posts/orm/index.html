@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>Qt 实现数据持久化框架 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="项目大量使用数据库，如何简化数据库操作？直接上 ORM 可能会影响性能，而且也不够灵活，而且 Qt 的 ORM 框架也并不多。不过好消息是，由于 Qt 元对象系统提供的反射功能，我们可以轻松地封装一个数据持久化框架。
+源码和使用可以查看我的Qt 开发脚手架。
+该框架的实现思路参考 MyBatis，利用 Qt 的元对象系统（属性宏）将数据库字段与实体类字段映射，将 SQL 语句放到XML配置文件中，封装了常见的增删改查接口，并使用一个数据库连接池管理数据库的连接。并且，制作使用一个代码生成器，生成 SQL 文件、实体类、持久层、服务层文件。
+于是，开发人员可以从常见的增删改查业务中解脱出来。">
+<meta name="generator" content="Hugo 0.89.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">博客</a>
+	<a href="/tags">归档</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">Qt 实现数据持久化框架</h1>
+
+    <div class="tip">
+        <time datetime="2022-04-15 14:05:59 &#43;0800 CST">2022年04月15日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          20字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <p>项目大量使用数据库，如何简化数据库操作？直接上 ORM 可能会影响性能，而且也不够灵活，而且 Qt 的 ORM 框架也并不多。不过好消息是，由于 Qt 元对象系统提供的反射功能，我们可以轻松地封装一个数据持久化框架。</p>
+<p>源码和使用可以查看我的<a href="https://github.com/lzxqaq/qframework" target="_blank" rel="noopener">Qt 开发脚手架</a>。</p>
+<p>该框架的实现思路参考 MyBatis，利用 Qt 的元对象系统（属性宏）将数据库字段与实体类字段映射，将 SQL 语句放到XML配置文件中，封装了常见的增删改查接口，并使用一个数据库连接池管理数据库的连接。并且，制作使用一个代码生成器，生成 SQL 文件、实体类、持久层、服务层文件。</p>
+<p>于是，开发人员可以从常见的增删改查业务中解脱出来。</p>
+
+    </div>
+
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>
