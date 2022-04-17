@@ -10,7 +10,7 @@
  本节部分知识点来自《计算机网络（第 7 版）》
  计算机网络体系结构：
 各层作用及协议 🔗   分层 作用 协议     物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器）   数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机）   网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）   运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX   会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC   表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII   应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS    物理层 🔗 传输数据的单位：比特 数据传输系统：源系统（源点、发送器） &ndash;&gt; 传输系统 &ndash;&gt; 目的系统（接收器、终点）  通道：">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -50,10 +50,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -606,9 +612,9 @@ if (!doNotTrack) {
 <p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/socket%e5%ae%a2%e6%88%b7%e7%ab%af%e6%9c%8d%e5%8a%a1%e5%99%a8%e9%80%9a%e8%ae%af.jpg" alt="Socket 客户端服务器通讯"  />
 </p></p>
-<h4 id="socket-中的-readwrite-函数">Socket 中的 read()、write() 函数 <a href="#socket-%e4%b8%ad%e7%9a%84-readwrite-%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">ssize_t <span style="color:#00a000">read</span>(<span style="color:#0b0;font-weight:bold">int</span> fd, <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf, size_t count);
-ssize_t <span style="color:#00a000">write</span>(<span style="color:#0b0;font-weight:bold">int</span> fd, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf, size_t count);
-</code></pre></div><h5 id="read">read() <a href="#read" class="anchor">🔗</a></h5><ul>
+<h4 id="socket-中的-readwrite-函数">Socket 中的 read()、write() 函数 <a href="#socket-%e4%b8%ad%e7%9a%84-readwrite-%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ssize_t <span style="color:#00a000">read</span>(<span style="color:#0b0;font-weight:bold">int</span> fd, <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf, size_t count);
+</span></span><span style="display:flex;"><span>ssize_t <span style="color:#00a000">write</span>(<span style="color:#0b0;font-weight:bold">int</span> fd, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf, size_t count);
+</span></span></code></pre></div><h5 id="read">read() <a href="#read" class="anchor">🔗</a></h5><ul>
 <li>read 函数是负责从 fd 中读取内容。</li>
 <li>当读成功时，read 返回实际所读的字节数。</li>
 <li>如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。</li>

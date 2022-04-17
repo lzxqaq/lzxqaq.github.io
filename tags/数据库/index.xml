@@ -65,7 +65,7 @@
 SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。
 SQL 语句不区分大小写，但是数据库表名、列名和值是否区分依赖于具体的 DBMS 以及配置。
 SQL 支持以下三种注释：
-### 注释 SELECT * FROM mytable; -- 注释 /* 注释1 注释2 */ 数据库创建与使用：</description>
+### 注释 SELECT * FROM mytable; -- 注释 /* 注释1  注释2 */ 数据库创建与使用：</description>
     </item>
     
   </channel>

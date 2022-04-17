@@ -11,7 +11,7 @@
  检查语法，将预处理过的文件编译生成汇编文件 gcc -S demo2.c -o demo2.s    汇编
  将汇编文件生成目标文件（二进制代码文件，即.o 文件） gcc -c demo3.c -o demo3.o    链接
  找到依赖的库文件，将目标文件链接为可执行程序。 gcc demo4.c -o demo4 -L./ -llib1 通过gcc编译器让 demo4 链接自己制作的 lib1 动态库，并把 demo4 编译成可执行程序。    Java 代码编译和执行的过程 🔗 源文件由编译器编译成字节码 字节码由 Java 虚拟机解释运行。因为 Java 程序既要编译同时也要经过 JVM 的解释运行，所以 Java 也被称为半解释语言。  静态和动态 🔗 静态：在编译（编译 &#43; 链接）阶段 动态：在执行阶段  #include &lt;stdio.">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -51,10 +51,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -77,7 +83,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          983字
+          984字
         </span>
         <span class="split">
           ·
@@ -132,38 +138,38 @@ if (!doNotTrack) {
 <li>静态：在编译（编译 + 链接）阶段</li>
 <li>动态：在执行阶段</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-int main() {
-  int m, n;
-  int *p, *q;
-  scanf(&#34;%d%d&#34;, &amp;m, &amp;n);
-  p = (int*)malloc(sizeof(int) * m);
-  q = (int*)malloc(sizeof(int) * n);
-  return 0;
-}
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;stdlib.h&gt;
+</span></span><span style="display:flex;"><span>int main() {
+</span></span><span style="display:flex;"><span>  int m, n;
+</span></span><span style="display:flex;"><span>  int *p, *q;
+</span></span><span style="display:flex;"><span>  scanf(&#34;%d%d&#34;, &amp;m, &amp;n);
+</span></span><span style="display:flex;"><span>  p = (int*)malloc(sizeof(int) * m);
+</span></span><span style="display:flex;"><span>  q = (int*)malloc(sizeof(int) * n);
+</span></span><span style="display:flex;"><span>  return 0;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
 <p>m、n、p、q 静态分配内存。局部变量，要占多大空间、往哪里放，在编译时就已经确定。
 malloc 函数动态分配内存，在堆区分配内存，把地址赋值给 p、q。</p>
 </blockquote>
 <p>进一步：静态和动态 + static 关键字</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-void hehe() {
-  int k=0;
-  static int sum = 0;
-  k++;
-  sum++;
-  printf(&#34;%d %d\n&#34;, k, sum);
-}
-int main() {
-  int *p;
-  p = (int*)malloc(sizeof(int));
-  hehe();
-  hehe();
-  return 0;
-}
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;stdlib.h&gt;
+</span></span><span style="display:flex;"><span>void hehe() {
+</span></span><span style="display:flex;"><span>  int k=0;
+</span></span><span style="display:flex;"><span>  static int sum = 0;
+</span></span><span style="display:flex;"><span>  k++;
+</span></span><span style="display:flex;"><span>  sum++;
+</span></span><span style="display:flex;"><span>  printf(&#34;%d %d\n&#34;, k, sum);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>int main() {
+</span></span><span style="display:flex;"><span>  int *p;
+</span></span><span style="display:flex;"><span>  p = (int*)malloc(sizeof(int));
+</span></span><span style="display:flex;"><span>  hehe();
+</span></span><span style="display:flex;"><span>  hehe();
+</span></span><span style="display:flex;"><span>  return 0;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
 <p>k、sum 静态分配内存。局部变量，它们要占多大空间、往哪里放，在编译时就已经确定。
 static 和静态、动态分配内存没关系，static 指 sum 变量的创建和销毁不会随着 hehe() 函数的调用而一次次创建销毁。</p>
 </blockquote>
@@ -173,26 +179,25 @@ static 和静态、动态分配内存没关系，static 指 sum 变量的创建�
 <li>全局/静态 常量</li>
 <li>文本（代码）Text(Code)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-int total = 0;//全局变量-&gt;全局/静态区
-void hehe() {
-  static int he = 0;//静态局部变量，只创建一次，静态区
-  he++;
-  total++;
-}
-int main() {
-  int k = 3;//局部变量-&gt;栈， 3-&gt;文本区
-  char *str = &#34;Hello&#34;;//str-&gt;栈  &#34;Hello&#34;-&gt;常量区
-  int *p = (int*)malloc(sizeof(int));//p-&gt;栈  malloc分配控件-&gt;堆
-  hehe();//函数每次结束，栈空间都会释放，而静态区不会
-  free(p);
-  return 0;
-}
-
-//文本区-&gt;放这个文件编译后的二进制码
-
-</code></pre></div><h3 id="动态库静态库">动态库、静态库 <a href="#%e5%8a%a8%e6%80%81%e5%ba%93%e9%9d%99%e6%80%81%e5%ba%93" class="anchor">🔗</a></h3><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;stdlib.h&gt;
+</span></span><span style="display:flex;"><span>int total = 0;//全局变量-&gt;全局/静态区
+</span></span><span style="display:flex;"><span>void hehe() {
+</span></span><span style="display:flex;"><span>  static int he = 0;//静态局部变量，只创建一次，静态区
+</span></span><span style="display:flex;"><span>  he++;
+</span></span><span style="display:flex;"><span>  total++;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>int main() {
+</span></span><span style="display:flex;"><span>  int k = 3;//局部变量-&gt;栈， 3-&gt;文本区
+</span></span><span style="display:flex;"><span>  char *str = &#34;Hello&#34;;//str-&gt;栈  &#34;Hello&#34;-&gt;常量区
+</span></span><span style="display:flex;"><span>  int *p = (int*)malloc(sizeof(int));//p-&gt;栈  malloc分配控件-&gt;堆
+</span></span><span style="display:flex;"><span>  hehe();//函数每次结束，栈空间都会释放，而静态区不会
+</span></span><span style="display:flex;"><span>  free(p);
+</span></span><span style="display:flex;"><span>  return 0;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//文本区-&gt;放这个文件编译后的二进制码
+</span></span></code></pre></div><h3 id="动态库静态库">动态库、静态库 <a href="#%e5%8a%a8%e6%80%81%e5%ba%93%e9%9d%99%e6%80%81%e5%ba%93" class="anchor">🔗</a></h3><ul>
 <li>
 <p>库是写好的现有的，成熟的，可以复用的代码。</p>
 </li>
@@ -229,84 +234,83 @@ int main() {
 <li>由于模板实例化是在编译时执行，如果在动态库中导出模板类(函数)，因为实际的调用代码是在外部exe中，不在动态库本身中，所以在编译生成动态库的时候是不会生成实例的，这样在编译外部exe的时候就会报链接错误。</li>
 <li>只有将导出库里面的模板函数或者模板类实例化，才能将实例化后模板函数的地址信息和模板类实例化的地址信息保存在导出库中。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">//TemplateLib.h  使用动态库
-#ifdef	TEST_DLL_EXPORTS
-	#define	TEST_API	__declspec(dllexport)
-#else
-	#define TEST_API	__declspec(dllimport)
-#endif
- 
- 
-// 导出模板函数
-template&lt;typename T1&gt;
-TEST_API	void	fun1(T1);
- 
-template&lt;typename T1,typename T2&gt;
-TEST_API	void	fun2(T1 , T2);
- 
- 
-// 模板类
-template&lt;typename T,int size&gt;
-class TEST_API	CTest
-{
-public:
-	CTest()		{};
-	~CTest()	{};
-	T*	GetDataBuff()	{	return m_data;}
-private:
-	T	m_data[size];
-};
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// TemplateLib.cpp : 定义 DLL 应用程序的导出函数。
- 
-#include &#34;stdafx.h&#34;
-#include &#34;TemplateLib.h&#34;
- 
-// 1.利用重载来实例化不同类型的模板，代码量大不说，基本上是重复的代码
-// 2.库的设计者不知道用户会传入什么类型，也就是说设计者不可能实例化每一种类型的模板。
-TEST_API	void fun1(int var1)		{}
- 
-TEST_API	void fun1(char var1)		{}
- 
-template&lt;typename T1,typename T2&gt;
-TEST_API	void fun2( T1 var1, T2 var2)	{}
- 
- 
-// 这个名字空间不作为导出使用，唯一作用是用来例化函数模板和类模板.
-namespace implement_template_private
-{
- 
-	void	implement_template()
-	{
-		int		idata = 10;
-		char	chr	= &#39;x&#39;;
-		float	fdata = 20.f;
-		UINT	undata= 9;
-		char*	str	=	&#34;hello&#34;;
- 
-		// 这种方式的实例化，代码量比重载方式少许多，但需运行一次该模板函数
-		// 也许在某些时候凭空运行这个函数是不合理的。
-		fun2(idata,chr);				// int,char
-		fun2(undata,str);				// UINT,char*
-		fun2&lt;float,char*&gt;(fdata,str);		// float,char* 显示参数
- 
-		// 导出类的实例化。
-		// 1.除了要实例化提供给用户使用的公有成员函数外，这里面还隐含的实例化了构造函数和析构函数.
-		// 2.注意这里每一个模板的实例化都是唯一的。
-		// 3.假如客户如果在项目中使用了CTest&lt;char,30&gt; impl_obj; 将会连接错误， 模板的参数列表必须完全匹配。
-		// 4.假如该模板类非常大，功能非常多，那么实例化工作可以想象是不堪忍受的。
-		// 5.库的设计者不知道用户会传入什么类型，也就是说设计者不可能实例化每一种类型的模板。
-		CTest&lt;char,20&gt;	impl_obj;
-		impl_obj.GetDataBuff();
- 
- 
-		CTest&lt;int,5&gt;	impl_obj2;
-		impl_obj.GetDataBuff();
- 
-	}
- 
-};
-
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//TemplateLib.h  使用动态库
+</span></span><span style="display:flex;"><span>#ifdef	TEST_DLL_EXPORTS
+</span></span><span style="display:flex;"><span>	#define	TEST_API	__declspec(dllexport)
+</span></span><span style="display:flex;"><span>#else
+</span></span><span style="display:flex;"><span>	#define TEST_API	__declspec(dllimport)
+</span></span><span style="display:flex;"><span>#endif
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>// 导出模板函数
+</span></span><span style="display:flex;"><span>template&lt;typename T1&gt;
+</span></span><span style="display:flex;"><span>TEST_API	void	fun1(T1);
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>template&lt;typename T1,typename T2&gt;
+</span></span><span style="display:flex;"><span>TEST_API	void	fun2(T1 , T2);
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>// 模板类
+</span></span><span style="display:flex;"><span>template&lt;typename T,int size&gt;
+</span></span><span style="display:flex;"><span>class TEST_API	CTest
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>	CTest()		{};
+</span></span><span style="display:flex;"><span>	~CTest()	{};
+</span></span><span style="display:flex;"><span>	T*	GetDataBuff()	{	return m_data;}
+</span></span><span style="display:flex;"><span>private:
+</span></span><span style="display:flex;"><span>	T	m_data[size];
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// TemplateLib.cpp : 定义 DLL 应用程序的导出函数。
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>#include &#34;stdafx.h&#34;
+</span></span><span style="display:flex;"><span>#include &#34;TemplateLib.h&#34;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>// 1.利用重载来实例化不同类型的模板，代码量大不说，基本上是重复的代码
+</span></span><span style="display:flex;"><span>// 2.库的设计者不知道用户会传入什么类型，也就是说设计者不可能实例化每一种类型的模板。
+</span></span><span style="display:flex;"><span>TEST_API	void fun1(int var1)		{}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>TEST_API	void fun1(char var1)		{}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>template&lt;typename T1,typename T2&gt;
+</span></span><span style="display:flex;"><span>TEST_API	void fun2( T1 var1, T2 var2)	{}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>// 这个名字空间不作为导出使用，唯一作用是用来例化函数模板和类模板.
+</span></span><span style="display:flex;"><span>namespace implement_template_private
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>	void	implement_template()
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		int		idata = 10;
+</span></span><span style="display:flex;"><span>		char	chr	= &#39;x&#39;;
+</span></span><span style="display:flex;"><span>		float	fdata = 20.f;
+</span></span><span style="display:flex;"><span>		UINT	undata= 9;
+</span></span><span style="display:flex;"><span>		char*	str	=	&#34;hello&#34;;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>		// 这种方式的实例化，代码量比重载方式少许多，但需运行一次该模板函数
+</span></span><span style="display:flex;"><span>		// 也许在某些时候凭空运行这个函数是不合理的。
+</span></span><span style="display:flex;"><span>		fun2(idata,chr);				// int,char
+</span></span><span style="display:flex;"><span>		fun2(undata,str);				// UINT,char*
+</span></span><span style="display:flex;"><span>		fun2&lt;float,char*&gt;(fdata,str);		// float,char* 显示参数
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>		// 导出类的实例化。
+</span></span><span style="display:flex;"><span>		// 1.除了要实例化提供给用户使用的公有成员函数外，这里面还隐含的实例化了构造函数和析构函数.
+</span></span><span style="display:flex;"><span>		// 2.注意这里每一个模板的实例化都是唯一的。
+</span></span><span style="display:flex;"><span>		// 3.假如客户如果在项目中使用了CTest&lt;char,30&gt; impl_obj; 将会连接错误， 模板的参数列表必须完全匹配。
+</span></span><span style="display:flex;"><span>		// 4.假如该模板类非常大，功能非常多，那么实例化工作可以想象是不堪忍受的。
+</span></span><span style="display:flex;"><span>		// 5.库的设计者不知道用户会传入什么类型，也就是说设计者不可能实例化每一种类型的模板。
+</span></span><span style="display:flex;"><span>		CTest&lt;char,20&gt;	impl_obj;
+</span></span><span style="display:flex;"><span>		impl_obj.GetDataBuff();
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>		CTest&lt;int,5&gt;	impl_obj2;
+</span></span><span style="display:flex;"><span>		impl_obj.GetDataBuff();
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><ul>
 <li>总结：不建议在导出库中使用模板相关的技术，假如你能够确定用户在使用你设计的模板函数时，将传入哪些类型，设计者要将这些类型的模板一一实例化。</li>
 <li>在动态库和静态库使用模板:https://blog.csdn.net/xiexievv/article/details/8500234</li>
 </ul>
@@ -325,97 +329,96 @@ namespace implement_template_private
 </li>
 </ul>
 <p>如：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> MyBigDataType&amp; func();
- ...
- auto value = func();
-</code></pre></div><p>因为 auto 会移除表达式类型的引用属性，那么此时以上最后一行的行为就是拷贝构造一MyBigData实例，相信这不是此函数的实现者希望的。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> MyBigDataType&amp; func();
+</span></span><span style="display:flex;"><span> ...
+</span></span><span style="display:flex;"><span> auto value = func();
+</span></span></code></pre></div><p>因为 auto 会移除表达式类型的引用属性，那么此时以上最后一行的行为就是拷贝构造一MyBigData实例，相信这不是此函数的实现者希望的。</p>
 <ul>
 <li>注意：在引用类型、const 等类型上使用 auto 时要小心。</li>
 </ul>
 <h3 id="c-引用">C++ 引用 <a href="#c-%e5%bc%95%e7%94%a8" class="anchor">🔗</a></h3><p>参数传递：注意值传递和引用传递的区别。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include &lt;iostream&gt;
-using namespace std;
-
-void fun(int &amp;k) {
-  k = 2;
-}
-int main() {
-  int a = 1;
-  fun(a);
-  cout &lt;&lt; a &lt;&lt; endl;
-  return 0;
-}
-</code></pre></div><h3 id="虚函数表">虚函数表 <a href="#%e8%99%9a%e5%87%bd%e6%95%b0%e8%a1%a8" class="anchor">🔗</a></h3><p>什么是虚函数表？</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;iostream&gt;
+</span></span><span style="display:flex;"><span>using namespace std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>void fun(int &amp;k) {
+</span></span><span style="display:flex;"><span>  k = 2;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>int main() {
+</span></span><span style="display:flex;"><span>  int a = 1;
+</span></span><span style="display:flex;"><span>  fun(a);
+</span></span><span style="display:flex;"><span>  cout &lt;&lt; a &lt;&lt; endl;
+</span></span><span style="display:flex;"><span>  return 0;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="虚函数表">虚函数表 <a href="#%e8%99%9a%e5%87%bd%e6%95%b0%e8%a1%a8" class="anchor">🔗</a></h3><p>什么是虚函数表？</p>
 <p>对于一个类来说，如果类中存在虚函数，那么该类的大小就会多4个字节，然而这4个字节就是一个指针的大小，这个指针指向虚函数表。所以，如果对象存在虚函数，那么编译器就会生成一个指向虚函数表的指针，所有的虚函数都存在于这个表中，虚函数表就可以理解为一个数组，每个单元用来存放虚函数的地址。</p>
 <p>虚函数（Virtual Function）是通过一张虚函数表来实现的。简称为V-Table。在这个表中，主要是一个类的虚函数的地址表，这张表解决了继承、覆盖的问题，保证其真实反应实际的函数。这样，在有虚函数的类的实例中分配了指向这个表的指针的内存，所以，当用父类的指针来操作一个子类的时候，这张虚函数表就显得尤为重要了，它就像一个地图一样，指明了实际所应该调用的函数。</p>
-<h3 id="新的-for-循环c-11">新的 for 循环（C++ 11） <a href="#%e6%96%b0%e7%9a%84-for-%e5%be%aa%e7%8e%afc-11" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">int arr[5] = {1, 2, 3, 4, 5};
-for (int x : arr) {
-  x += 100;
-  cout &lt;&lt; x &lt;&lt; &#39; &#39;;
-}
-cout &lt;&lt; arr[0];
-</code></pre></div><ul>
+<h3 id="新的-for-循环c-11">新的 for 循环（C++ 11） <a href="#%e6%96%b0%e7%9a%84-for-%e5%be%aa%e7%8e%afc-11" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>int arr[5] = {1, 2, 3, 4, 5};
+</span></span><span style="display:flex;"><span>for (int x : arr) {
+</span></span><span style="display:flex;"><span>  x += 100;
+</span></span><span style="display:flex;"><span>  cout &lt;&lt; x &lt;&lt; &#39; &#39;;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>cout &lt;&lt; arr[0];
+</span></span></code></pre></div><ul>
 <li>arr 到 x 是值传递，可以用 int &amp;x，或者 auto &amp;</li>
 </ul>
 <h3 id="lambdac">lambda（C++） <a href="#lambdac" class="anchor">🔗</a></h3><p>定义一个匿名函数，还可以捕获外部一定范围内的变量。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">auto f1 = [](int a, int b) -&gt; int{return a + b; };
-
-auto f2 = [](auto a, auto b) -&gt; auto{return a + b; };
-
-//编译器就根据 return 语句自动推导出返回值类型。
-auto f3 = [](auto a, auto b){return a + b; };
-
-int c = 9;
-//按值捕获 c 变量，同时不捕获其他变量。
-auto f4 = [c](auto a, auto b){return a + b + c; };
-
-//捕获外部作用域中所有变量（按值捕获）
-auto f5 = [=](auto a, auto b){return a + b + c; };
-
-cout &lt;&lt; f1(1, 2) &lt;&lt; endl;
-</code></pre></div><h3 id="类型转换c">类型转换（C++） <a href="#%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2c" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  int k;
-  k = 3.14;//在 Java 中会报错，在 C/C++ 编译器中正常（k==3）。
-
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>auto f1 = [](int a, int b) -&gt; int{return a + b; };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>auto f2 = [](auto a, auto b) -&gt; auto{return a + b; };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//编译器就根据 return 语句自动推导出返回值类型。
+</span></span><span style="display:flex;"><span>auto f3 = [](auto a, auto b){return a + b; };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>int c = 9;
+</span></span><span style="display:flex;"><span>//按值捕获 c 变量，同时不捕获其他变量。
+</span></span><span style="display:flex;"><span>auto f4 = [c](auto a, auto b){return a + b + c; };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//捕获外部作用域中所有变量（按值捕获）
+</span></span><span style="display:flex;"><span>auto f5 = [=](auto a, auto b){return a + b + c; };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cout &lt;&lt; f1(1, 2) &lt;&lt; endl;
+</span></span></code></pre></div><h3 id="类型转换c">类型转换（C++） <a href="#%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2c" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  int k;
+</span></span><span style="display:flex;"><span>  k = 3.14;//在 Java 中会报错，在 C/C++ 编译器中正常（k==3）。
+</span></span></code></pre></div><ul>
 <li>Java 对类型转换更严格。</li>
 <li>C/C++ 编译器给了程序员太多自由：编译器认为，程序员可以这样写，程序员应该知道他在干什么，也应该为自己的行为负责。</li>
 </ul>
 <h3 id="指针引用java">指针？引用（Java） <a href="#%e6%8c%87%e9%92%88%e5%bc%95%e7%94%a8java" class="anchor">🔗</a></h3><p>Java：基本数据类型（int、long等）、引用数据类型（数组、类、接口）。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Student zs = new Student();     //Java，引用
-Student *pzs = new Student();   //c++，指针
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Student zs = new Student();     //Java，引用
+</span></span><span style="display:flex;"><span>Student *pzs = new Student();   //c++，指针
+</span></span></code></pre></div><ul>
 <li>实质是一样的。</li>
 <li>要注意 Java 中的值传递和引用传递问题，实质上 Java 还是值传递的，只不过对于引用数据类型时，值的内容是它的引用（指针）。</li>
 </ul>
-<h3 id="for-循环java">for 循环（Java） <a href="#for-%e5%be%aa%e7%8e%afjava" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">int[] arr = new int[10];
-
-for (int temp : arr) {
-    temp++;
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">for (Student s : ss) {
-  s.changeSomething();
-}
-</code></pre></div><h3 id="lamdajava">lamda（Java） <a href="#lamdajava" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">(parameters) -&gt; expression
-或
-(parameters) -&gt;{ statements; }
-</code></pre></div><ul>
+<h3 id="for-循环java">for 循环（Java） <a href="#for-%e5%be%aa%e7%8e%afjava" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>int[] arr = new int[10];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>for (int temp : arr) {
+</span></span><span style="display:flex;"><span>    temp++;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>for (Student s : ss) {
+</span></span><span style="display:flex;"><span>  s.changeSomething();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="lamdajava">lamda（Java） <a href="#lamdajava" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(parameters) -&gt; expression
+</span></span><span style="display:flex;"><span>或
+</span></span><span style="display:flex;"><span>(parameters) -&gt;{ statements; }
+</span></span></code></pre></div><ul>
 <li>Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// 1. 不需要参数,返回值为 5  
-() -&gt; 5  
-  
-// 2. 接收一个参数(数字类型),返回其2倍的值  
-x -&gt; 2 * x  
-  
-// 3. 接受2个参数(数字),并返回他们的差值  
-(x, y) -&gt; x – y  
-  
-// 4. 接收2个int型整数,返回他们的和  
-(int x, int y) -&gt; x + y  
-  
-// 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  
-(String s) -&gt; System.out.print(s)
-</code></pre></div><h3 id="理解封装">理解封装 <a href="#%e7%90%86%e8%a7%a3%e5%b0%81%e8%a3%85" class="anchor">🔗</a></h3><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// 1. 不需要参数,返回值为 5  
+</span></span><span style="display:flex;"><span>() -&gt; 5  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>// 2. 接收一个参数(数字类型),返回其2倍的值  
+</span></span><span style="display:flex;"><span>x -&gt; 2 * x  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>// 3. 接受2个参数(数字),并返回他们的差值  
+</span></span><span style="display:flex;"><span>(x, y) -&gt; x – y  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>// 4. 接收2个int型整数,返回他们的和  
+</span></span><span style="display:flex;"><span>(int x, int y) -&gt; x + y  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>// 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  
+</span></span><span style="display:flex;"><span>(String s) -&gt; System.out.print(s)
+</span></span></code></pre></div><h3 id="理解封装">理解封装 <a href="#%e7%90%86%e8%a7%a3%e5%b0%81%e8%a3%85" class="anchor">🔗</a></h3><ul>
 <li>类：某一类东西</li>
 <li>对象：某类东西的实例</li>
 <li>“封”：数据 + 操作
@@ -439,26 +442,25 @@ x -&gt; 2 * x
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include &lt;iostream&gt;
-using namespace std;
-class Note {
-public:
-  int nid;
-  Note(int id) :nid(id) {}
-};
-
-class Student {
-private:
-  int sid;
-  string name;
-  Note nt;
-public:
-  Student(int sid, string name, int id) : sid(sid), name(name), nt(id) {//初始化列表，进行初始化构造
-    //写在这里的只能是赋值
-  }
-}
-
-</code></pre></div><h3 id="对象的复制c">对象的复制（C++） <a href="#%e5%af%b9%e8%b1%a1%e7%9a%84%e5%a4%8d%e5%88%b6c" class="anchor">🔗</a></h3><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;iostream&gt;
+</span></span><span style="display:flex;"><span>using namespace std;
+</span></span><span style="display:flex;"><span>class Note {
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>  int nid;
+</span></span><span style="display:flex;"><span>  Note(int id) :nid(id) {}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class Student {
+</span></span><span style="display:flex;"><span>private:
+</span></span><span style="display:flex;"><span>  int sid;
+</span></span><span style="display:flex;"><span>  string name;
+</span></span><span style="display:flex;"><span>  Note nt;
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>  Student(int sid, string name, int id) : sid(sid), name(name), nt(id) {//初始化列表，进行初始化构造
+</span></span><span style="display:flex;"><span>    //写在这里的只能是赋值
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="对象的复制c">对象的复制（C++） <a href="#%e5%af%b9%e8%b1%a1%e7%9a%84%e5%a4%8d%e5%88%b6c" class="anchor">🔗</a></h3><ul>
 <li>注意浅拷贝、深拷贝。</li>
 <li>默认生成的赋值函数、拷贝构造函数都是浅拷贝（值拷贝），成员变量中有指针变量时，需要自己重写（深拷贝）。</li>
 </ul>
@@ -467,11 +469,11 @@ public:
 <li>不支持默认参数</li>
 <li>显示构造</li>
 </ul>
-<h3 id="对象的复制java">对象的复制（Java） <a href="#%e5%af%b9%e8%b1%a1%e7%9a%84%e5%a4%8d%e5%88%b6java" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Array a = new Array();
-Array b = a;
-</code></pre></div><p>其实是引用的复制。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Array b = new Array(a);
-</code></pre></div><p>对象的复制（返回新对象的引用）</p>
+<h3 id="对象的复制java">对象的复制（Java） <a href="#%e5%af%b9%e8%b1%a1%e7%9a%84%e5%a4%8d%e5%88%b6java" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Array a = new Array();
+</span></span><span style="display:flex;"><span>Array b = a;
+</span></span></code></pre></div><p>其实是引用的复制。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Array b = new Array(a);
+</span></span></code></pre></div><p>对象的复制（返回新对象的引用）</p>
 <h3 id="理解继承">理解“继承” <a href="#%e7%90%86%e8%a7%a3%e7%bb%a7%e6%89%bf" class="anchor">🔗</a></h3><ul>
 <li>目的：代码复用</li>
 <li>代码复用：
@@ -487,49 +489,49 @@ Array b = a;
 </ul>
 <h3 id="多态-需求是什么">多态-需求是什么 <a href="#%e5%a4%9a%e6%80%81-%e9%9c%80%e6%b1%82%e6%98%af%e4%bb%80%e4%b9%88" class="anchor">🔗</a></h3><p>多态：指为不同数据类型的实体提供统一的接口。</p>
 <p>是否有需要使用基类指针（引用）指向（引向）派生类对象？</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class People {
-public:
-  void say() {
-    cout &lt;&lt; &#34;I &#39;m a person!&#34; &lt;&lt; endl;
-  }
-};
-
-class Student : public People {
-public:
-  void say() {
-    cout &lt;&lt; &#34;I&#39;m a student!&#34; &lt;&lt; endl;
-    }
-};
-
-int main() {
-  People *zs = new Student();
-  zs-&gt;say();
-  return 0;
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class People {
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>  void say() {
+</span></span><span style="display:flex;"><span>    cout &lt;&lt; &#34;I &#39;m a person!&#34; &lt;&lt; endl;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class Student : public People {
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>  void say() {
+</span></span><span style="display:flex;"><span>    cout &lt;&lt; &#34;I&#39;m a student!&#34; &lt;&lt; endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>int main() {
+</span></span><span style="display:flex;"><span>  People *zs = new Student();
+</span></span><span style="display:flex;"><span>  zs-&gt;say();
+</span></span><span style="display:flex;"><span>  return 0;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li>这不是真需求，应该用 Student 指针，甚至是 Student 对象。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class People {
-public:
-  void say() {}
-};
-class Student : public People {
-public:
-  void say() {}
-};
-class Teacher : public People {
-public:
-  void say() {}
-};
-void func(People *zs) { zs-&gt;say(); }
-int main() {
-  Student zs;
-  Teacher ls;
-  func(&amp;zs);
-  func(&amp;ls);
-  return 0;
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class People {
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>  void say() {}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>class Student : public People {
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>  void say() {}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>class Teacher : public People {
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>  void say() {}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>void func(People *zs) { zs-&gt;say(); }
+</span></span><span style="display:flex;"><span>int main() {
+</span></span><span style="display:flex;"><span>  Student zs;
+</span></span><span style="display:flex;"><span>  Teacher ls;
+</span></span><span style="display:flex;"><span>  func(&amp;zs);
+</span></span><span style="display:flex;"><span>  func(&amp;ls);
+</span></span><span style="display:flex;"><span>  return 0;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li>拿不同的派生类的对象干同一件事</li>
 <li>func() 和具体的派生类型没关系。</li>
 <li>用相同形式的东西（指针或引用），在具体调用的时候去执行不同对象或实体的行为</li>
@@ -539,15 +541,15 @@ int main() {
 <li>Qt 中的许多 C++ 类使用隐式数据共享来最大化资源使用并最小化复制。</li>
 <li>当作为参数传递时，隐式共享类既安全又高效，因为只有一个指向数据的指针被传递，并且只有当函数写入数据时才会复制数据，即copy-on-write。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">QPixmap p1, p2;
-p1.load(&#34;image.bmp&#34;);
-p2 = p1;                        // p1 and p2 share data
-
-QPainter paint;
-paint.begin(&amp;p2);               // cuts p2 loose from p1
-paint.drawText(0,50, &#34;Hi&#34;);
-paint.end();
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>QPixmap p1, p2;
+</span></span><span style="display:flex;"><span>p1.load(&#34;image.bmp&#34;);
+</span></span><span style="display:flex;"><span>p2 = p1;                        // p1 and p2 share data
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>QPainter paint;
+</span></span><span style="display:flex;"><span>paint.begin(&amp;p2);               // cuts p2 loose from p1
+</span></span><span style="display:flex;"><span>paint.drawText(0,50, &#34;Hi&#34;);
+</span></span><span style="display:flex;"><span>paint.end();
+</span></span></code></pre></div><ul>
 <li>
 <p>隐式共享对象的对象分配（使用 operator=()）是使用浅拷贝实现的。</p>
 </li>

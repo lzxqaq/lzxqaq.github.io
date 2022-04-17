@@ -15,7 +15,7 @@
 六、d-pointer 的其它好处 🔗这里不全都是和二进制兼容有关。d-pointer 还有其它的好处： 隐藏了实现细节 - 我们可以只发布带有头文件和二进制文件的 WidgetLib。源文件可以是闭源代码的。
 头文件很干净，不包含实现细节，可以直接作为 API 参考。由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖） 事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
 七、Qt 中的 d-pointers 🔗在 Qt 中，几乎所有的公有类都使用了 d-pointer。唯一不用的情况是如果事先知道某个类永远不会添加额外的成员变量。例如，像 QPoint, QRect 这些类，我们不期望有新的成员添加，因此它们的数据成员直接保存在类里而没用 d-pointer。">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -55,10 +55,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -114,103 +120,103 @@ if (!doNotTrack) {
 <li>Q_D和Q_Q 宏提供了上边讨论的 QPTR 和 DPTR 的功能.</li>
 <li>Qt 的公有类有一个 Q_DECLARE_PRIVATE 的宏。</li>
 </ul>
-<h3 id="八qt-源码示例">八、Qt 源码示例 <a href="#%e5%85%abqt-%e6%ba%90%e7%a0%81%e7%a4%ba%e4%be%8b" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// 在基类QObject中将d_ptr变为protected类型，
-// 并在基类中添加一protected类型的构造函数，供子类使用
-class QObject
-{
-protected：
-    QObject(QObjectPrivate &amp;dd, QObject *parent = 0); 
-    QScopedPointer&lt;QObjectData&gt; d_ptr;
-    ...
-};
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">//所有的私有类均继承于QObjectPrivate，
-class QWidgetPrivate : public QObjectPrivate
-{
-    Q_OBJECT
-    Q_DECLARE_PUBLIC(QWidget)
-    ...
-};
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">//QWidget 构造函数
-QWidget::QWidget(QWidget *parent, Qt::WindowFlags f)     
-        : QObject(*new QWidgetPrivate, 0), QPaintDevice()  
-{ 
-    ... 
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">//QObject 构造函数
-QObject::QObject(QObject *parent)
-    : d_ptr(new QObjectPrivate)
-{
-    Q_D(QObject);
-    d_ptr-&gt;q_ptr = this;
-};
-QObject::QObject(QObjectPrivate &amp;dd, QObject *parent)
-    : d_ptr(&amp;dd)
-{
-    Q_D(QObject);
-    d_ptr-&gt;q_ptr = this;
-};
-</code></pre></div><p>QWidget中并没有出现d_ptr指针，原来是从Qbject继承而来。QObject中我们新添加的那个protected构造函数传入一个QWidgetPrivate，用此给QObject中的d_ptr赋值，而这便是我们唯一的d_ptr。d_func()中那些类型转换的作用，就是保证我们可以拿到当前正确类型的private指针。</p>
+<h3 id="八qt-源码示例">八、Qt 源码示例 <a href="#%e5%85%abqt-%e6%ba%90%e7%a0%81%e7%a4%ba%e4%be%8b" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// 在基类QObject中将d_ptr变为protected类型，
+</span></span><span style="display:flex;"><span>// 并在基类中添加一protected类型的构造函数，供子类使用
+</span></span><span style="display:flex;"><span>class QObject
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>protected：
+</span></span><span style="display:flex;"><span>    QObject(QObjectPrivate &amp;dd, QObject *parent = 0); 
+</span></span><span style="display:flex;"><span>    QScopedPointer&lt;QObjectData&gt; d_ptr;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//所有的私有类均继承于QObjectPrivate，
+</span></span><span style="display:flex;"><span>class QWidgetPrivate : public QObjectPrivate
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Q_OBJECT
+</span></span><span style="display:flex;"><span>    Q_DECLARE_PUBLIC(QWidget)
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//QWidget 构造函数
+</span></span><span style="display:flex;"><span>QWidget::QWidget(QWidget *parent, Qt::WindowFlags f)     
+</span></span><span style="display:flex;"><span>        : QObject(*new QWidgetPrivate, 0), QPaintDevice()  
+</span></span><span style="display:flex;"><span>{ 
+</span></span><span style="display:flex;"><span>    ... 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//QObject 构造函数
+</span></span><span style="display:flex;"><span>QObject::QObject(QObject *parent)
+</span></span><span style="display:flex;"><span>    : d_ptr(new QObjectPrivate)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Q_D(QObject);
+</span></span><span style="display:flex;"><span>    d_ptr-&gt;q_ptr = this;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>QObject::QObject(QObjectPrivate &amp;dd, QObject *parent)
+</span></span><span style="display:flex;"><span>    : d_ptr(&amp;dd)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Q_D(QObject);
+</span></span><span style="display:flex;"><span>    d_ptr-&gt;q_ptr = this;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>QWidget中并没有出现d_ptr指针，原来是从Qbject继承而来。QObject中我们新添加的那个protected构造函数传入一个QWidgetPrivate，用此给QObject中的d_ptr赋值，而这便是我们唯一的d_ptr。d_func()中那些类型转换的作用，就是保证我们可以拿到当前正确类型的private指针。</p>
 <h3 id="九d-pointer的实现-demo">九、D-Pointer的实现 Demo <a href="#%e4%b9%9dd-pointer%e7%9a%84%e5%ae%9e%e7%8e%b0-demo" class="anchor">🔗</a></h3><ul>
 <li>Person.h</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class PersonPrivate;
-class Person
-{
-    Q_DECLARE_PRIVATE(Person)
-public:
-    Person();
-    ~Person();
-    QString name() const;
-    void setName(const QString &amp;name);
-signals:
-    void calcRequested();
-private:
-    QScopedPointer&lt;PersonPrivate&gt; d_ptr;
-};
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class PersonPrivate;
+</span></span><span style="display:flex;"><span>class Person
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Q_DECLARE_PRIVATE(Person)
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>    Person();
+</span></span><span style="display:flex;"><span>    ~Person();
+</span></span><span style="display:flex;"><span>    QString name() const;
+</span></span><span style="display:flex;"><span>    void setName(const QString &amp;name);
+</span></span><span style="display:flex;"><span>signals:
+</span></span><span style="display:flex;"><span>    void calcRequested();
+</span></span><span style="display:flex;"><span>private:
+</span></span><span style="display:flex;"><span>    QScopedPointer&lt;PersonPrivate&gt; d_ptr;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><ul>
 <li>Person_p.h</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include &#34;Person.h&#34;
-class PersonPrivate
-{
-    Q_DECLARE_PUBLIC(Person)
-public:
-    PersonPrivate(Person *parent);
-    
-    void calc();
-    
-    QString name;
-private:
-    Person * const q_ptr;
-};
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &#34;Person.h&#34;
+</span></span><span style="display:flex;"><span>class PersonPrivate
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Q_DECLARE_PUBLIC(Person)
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>    PersonPrivate(Person *parent);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    void calc();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    QString name;
+</span></span><span style="display:flex;"><span>private:
+</span></span><span style="display:flex;"><span>    Person * const q_ptr;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><ul>
 <li>Person.cpp</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include &#34;Person_p.h&#34;
-Person::Person() : d_ptr(new PersonPrivate(this))
-{
-}
-~Person() {}
-QString Person::name() const
-{
-    Q_D(const Person);
-    return d-&gt;name;
-}
-void Person::setName(const QString &amp;name)
-{
-    Q_D(const Person);
-    d-&gt;name = name;
-}
-PersonPrivate::PersonPrivate(Person *parent) : q_ptr(parent)
-{
-  
-}
-void PersonPrivate::calc()
-{
-    Q_Q(Person);
-    emit q-&gt;calcRequested();
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &#34;Person_p.h&#34;
+</span></span><span style="display:flex;"><span>Person::Person() : d_ptr(new PersonPrivate(this))
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>~Person() {}
+</span></span><span style="display:flex;"><span>QString Person::name() const
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Q_D(const Person);
+</span></span><span style="display:flex;"><span>    return d-&gt;name;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>void Person::setName(const QString &amp;name)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Q_D(const Person);
+</span></span><span style="display:flex;"><span>    d-&gt;name = name;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>PersonPrivate::PersonPrivate(Person *parent) : q_ptr(parent)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>void PersonPrivate::calc()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Q_Q(Person);
+</span></span><span style="display:flex;"><span>    emit q-&gt;calcRequested();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
     </div>
 
     

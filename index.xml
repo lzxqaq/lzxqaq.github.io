@@ -106,7 +106,7 @@ C++ABI的部分内容举例：
 STL的std::sort函数是基于Musser在1996年提出的内省排序（Introspective sort）算法实现。这个算法是个缝合怪，它汲取了插入排序、堆排序以及快排的优点：
  针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。  在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
 示例：
-bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s2) { return s1.toLower() &amp;lt; s2.toLower(); //从小到大排序 } int doSomething() { QStringList list; list &amp;lt;&amp;lt; &amp;#34;AlPha&amp;#34; &amp;lt;&amp;lt; &amp;#34;beTA&amp;#34; &amp;lt;&amp;lt; &amp;#34;gamma&amp;#34; &amp;lt;&amp;lt; &amp;#34;DELTA&amp;#34;; qSort(list.begin(), list.end(), caseInsensitiveLessThan); // list: [ &amp;#34;AlPha&amp;#34;, &amp;#34;beTA&amp;#34;, &amp;#34;DELTA&amp;#34;, &amp;#34;gamma&amp;#34; ] } </description>
+bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s2) {  return s1.toLower() &amp;lt; s2.toLower(); //从小到大排序 }  int doSomething() {  QStringList list;  list &amp;lt;&amp;lt; &amp;#34;AlPha&amp;#34; &amp;lt;&amp;lt; &amp;#34;beTA&amp;#34; &amp;lt;&amp;lt; &amp;#34;gamma&amp;#34; &amp;lt;&amp;lt; &amp;#34;DELTA&amp;#34;;  qSort(list.begin(), list.end(), caseInsensitiveLessThan);  // list: [ &amp;#34;AlPha&amp;#34;, &amp;#34;beTA&amp;#34;, &amp;#34;DELTA&amp;#34;, &amp;#34;gamma&amp;#34; ] } </description>
     </item>
     
     <item>
@@ -177,7 +177,7 @@ socket函数对应于普通文件的打开操作。普通文件的打开操作�
 当我们调用socket创建一个socket时，返回的socket描述字它存在于协议族（address family，AF_XXX）空间中，但没有一个具体的地址。如果想要给它赋值一个地址，就必须调用bind()函数，否则就当调用connect()、listen()时系统会自动随机分配一个端口。
 3.2、bind()函数 🔗正如上面所说bind()函数把一个地址族中的特定地址赋给socket。例如对应AF_INET、AF_INET6就是把一个ipv4或ipv6地址和端口号组合赋给socket。
 int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen); 函数的三个参数分别为：
- sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：  struct sockaddr_in { sa_family_t sin_family; /* address family: AF_INET */ in_port_t sin_port; /* port in network byte order */ struct in_addr sin_addr; /* internet address */ }; /* Internet address.</description>
+ sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：  struct sockaddr_in {  sa_family_t sin_family; /* address family: AF_INET */  in_port_t sin_port; /* port in network byte order */  struct in_addr sin_addr; /* internet address */ };  /* Internet address.</description>
     </item>
     
     <item>
@@ -673,7 +673,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
   我的第二个故事是关于爱与得失的。
   I was lucky —— I found what I loved to do early in life.
   我很幸运，因为我在很早的时候就发现了自己钟爱的东西。
-  Woz and I started Apple in my parents&#39; garage when I was 20. We worked hard, and in ten years Apple had grown from just the two of us in a garage ito a $2 billion company with over 4,000 employess.</description>
+  Woz and I started Apple in my parents&amp;rsquo; garage when I was 20. We worked hard, and in ten years Apple had grown from just the two of us in a garage ito a $2 billion company with over 4,000 employess.</description>
     </item>
     
     <item>
@@ -696,7 +696,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <pubDate>Sun, 23 Jan 2022 22:06:42 +0800</pubDate>
       
       <guid>/posts/2022-1-23/</guid>
-      <description>  </description>
+      <description></description>
     </item>
     
     <item>
@@ -786,17 +786,14 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <description>转载自https://github.com/huihut/interview
 顺序结构 🔗顺序栈（Sequence Stack） 🔗SqStack.cpp
 顺序栈数据结构和图片
-typedef struct { ElemType *elem; int top; int size; int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
-typedef struct { ElemType * elem; int front; int rear; int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
+typedef struct { 	ElemType *elem; 	int top; 	int size; 	int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
+typedef struct { 	ElemType * elem; 	int front; 	int rear; 	int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
 SqQueue.rear++
 循环队列 🔗循环队列图片
 SqQueue.rear = (SqQueue.rear + 1) % SqQueue.maxSize
 顺序表（Sequence List） 🔗SqList.cpp
 顺序表数据结构和图片
-typedef struct { ElemType *elem; int length; int size; int increment; } SqList; 链式结构 🔗LinkList.cpp
-LinkList_with_head.cpp
-链式数据结构
-typedef struct LNode { ElemType data; struct LNode *next; } LNode, *LinkList; 链队列（Link Queue） 🔗链队列图片</description>
+typedef struct { 	ElemType *elem; 	int length; 	int size; 	int increment; } SqList; 链式结构 🔗LinkList.</description>
     </item>
     
     <item>
@@ -829,7 +826,7 @@ Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Tem
       <description>转载自https://github.com/huihut/interview
 const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  const 的指针与引用 🔗 指针  指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer）   引用  指向常量的引用（reference to const） 没有 const reference，因为引用只是对象的别名，引用不是对象，不能用 const 修饰     （为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 p2、p3
  使用 🔗const 使用
-// 类 class A { private: const int a; // 常对象成员，可以使用初始化列表或者类内初始化  public: // 构造函数  A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表  // const可用于对重载函数的区分  int getValue(); // 普通成员函数  int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象  A b; // 普通对象，可以调用全部成员函数  const A a; // 常对象，只能调用常成员函数  const A *p = &amp;amp;a; // 指针变量，指向常对象  const A &amp;amp;q = a; // 指向常对象的引用  // 指针  char greeting[] = &amp;#34;Hello&amp;#34;; char* p1 = greeting; // 指针变量，指向字符数组变量  const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）  char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）  const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗   宏定义 #define const 常量     宏定义，相当于字符替换 常量声明   预处理器处理 编译器处理   无类型安全检查 有类型安全检查   不分配内存 要分配内存   存储在代码段 存储在数据段   可通过 #undef 取消 不可取消    static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。  this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;amp;this）。 在以下场景中，经常需要显式引用 this 指针：  为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。    inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。  使用 🔗inline 使用</description>
+// 类 class A { private:  const int a; // 常对象成员，可以使用初始化列表或者类内初始化  public:  // 构造函数  A() : a(0) { };  A(int x) : a(x) { }; // 初始化列表   // const可用于对重载函数的区分  int getValue(); // 普通成员函数  int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 };  void function() {  // 对象  A b; // 普通对象，可以调用全部成员函数  const A a; // 常对象，只能调用常成员函数  const A *p = &amp;amp;a; // 指针变量，指向常对象  const A &amp;amp;q = a; // 指向常对象的引用   // 指针  char greeting[] = &amp;#34;Hello&amp;#34;;  char* p1 = greeting; // 指针变量，指向字符数组变量  const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）  char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）  const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 }  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗   宏定义 #define const 常量     宏定义，相当于字符替换 常量声明   预处理器处理 编译器处理   无类型安全检查 有类型安全检查   不分配内存 要分配内存   存储在代码段 存储在数据段   可通过 #undef 取消 不可取消    static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。  this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;amp;this）。 在以下场景中，经常需要显式引用 this 指针：  为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。    inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。  使用 🔗inline 使用</description>
     </item>
     
     <item>
@@ -946,7 +943,7 @@ new和delete运算符用于动态分配和撤销内存的运算符
       
       <guid>/posts/cprimer03/</guid>
       <description>转载自https://github.com/andycai/cprimer
-3.1 char*, char[], string 🔗在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&#39;\0&#39;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
+3.1 char*, char[], string 🔗在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&amp;rsquo;\0&amp;rsquo;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
 C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是以后不能利用&amp;rdquo;=&amp;ldquo;对C字符串进行赋值。对C字符串的操作需要通过&amp;quot;string&amp;quot;文件中定义的字符串处理函数。例如：
 //字符串的初始化char a[11] = &amp;quot;huanying&amp;quot;;//字符串的赋值strcpy(a,&amp;quot;nihao&amp;quot;)//获取字符串的长度，不包括&#39;\0&#39;在内strlen(a);printf(&amp;quot;%s&amp;quot;,a); 在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
 在C++中则把字符串封装成了一种数据类型string,可以直接声明变量并进行赋值等字符串操作。以下是C字符串和C++中string的区别：
@@ -1053,10 +1050,7 @@ int b = 500;const int* a = &amp;amp;b; [1]int const *a = &amp;amp;b; [2]int* 
 工厂模式是最常用的一类创建型设计模式，通常我们所说的工厂模式是指工厂方法模式，它也是使用频率最高的工厂模式。本章将要学习的简单工厂模式是工厂方法模式的“小弟”，它不属于GoF 23种设计模式，但在软件开发中应用也较为频繁，通常将它作为学习其他工厂模式的入门。此外，工厂方法模式还有一位“大哥”——抽象工厂模式。这三种工厂模式各具特色，难度也逐个加大，在软件开发中它们都得到了广泛的应用，成为面向对象软件中常用的创建对象的工具。
 一、图表库的设计 🔗 Sunny软件公司欲基于Java语言开发一套图表库，该图表库可以为应用系统提供各种不同外观的图表，例如柱状图、饼状图、折线图等。Sunny软件公司图表库设计人员希望为应用系统开发人员提供一套灵活易用的图表库，而且可以较为方便地对图表库进行扩展，以便能够在将来增加一些新类型的图表。
  Sunny软件公司图表库设计人员提出了一个初始设计方案，将所有图表的实现代码封装在一个Chart类中，其框架代码如下所示：
-class Chart { private String type; //图表类型 public Chart(Object[][] data, String type) { this.type = type; if (type.equalsIgnoreCase(&amp;#34;histogram&amp;#34;)) { //初始化柱状图 } else if (type.equalsIgnoreCase(&amp;#34;pie&amp;#34;)) { //初始化饼状图 } else if (type.equalsIgnoreCase(&amp;#34;line&amp;#34;)) { //初始化折线图 } } public void display() { if (this.type.equalsIgnoreCase(&amp;#34;histogram&amp;#34;)) { //显示柱状图 } else if (this.type.equalsIgnoreCase(&amp;#34;pie&amp;#34;)) { //显示饼状图 } else if (this.type.equalsIgnoreCase(&amp;#34;line&amp;#34;)) { //显示折线图 }	} } 客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。
-不难看出，Chart类是一个“巨大的”类，在该类的设计中存在如下几个问题：
-(1) 在Chart类中包含很多“if…else…”代码块，整个类的代码相当冗长，代码越长，阅读难度、维护难度和测试难度也越大；而且大量条件语句的存在还将影响系统的性能，程序在执行过程中需要做大量的条件判断。
-(2) Chart类的职责过重，它负责初始化和显示所有的图表对象，将各种图表对象的初始化代码和显示代码集中在一个类中实现，违反了“单一职责原则”，不利于类的重用和维护；而且将大量的对象初始化代码都写在构造函数中将导致构造函数非常庞大，对象在创建时需要进行条件判断，降低了对象创建的效率。</description>
+class Chart { private String type; //图表类型  public Chart(Object[][] data, String type) { this.type = type; if (type.equalsIgnoreCase(&amp;#34;histogram&amp;#34;)) {  //初始化柱状图 } else if (type.equalsIgnoreCase(&amp;#34;pie&amp;#34;)) {  //初始化饼状图 } else if (type.equalsIgnoreCase(&amp;#34;line&amp;#34;)) {  //初始化折线图 } }  public void display() { if (this.type.equalsIgnoreCase(&amp;#34;histogram&amp;#34;)) {  //显示柱状图 } else if (this.type.equalsIgnoreCase(&amp;#34;pie&amp;#34;)) {  //显示饼状图 } else if (this.type.equalsIgnoreCase(&amp;#34;line&amp;#34;)) {  //显示折线图 }	} } 客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。</description>
     </item>
     
     <item>
@@ -1607,7 +1601,7 @@ Dream&amp;hellip;
 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使用 了QPainter 和 的QPaintDevice ，除非他们创建自己的设备的种类从应用程序员隐藏。
 这种方法的主要好处是所有绘制都遵循相同的绘制管道，从而可以轻松添加对新功能的支持并为不受支持的功能提供默认实现。
 一、绘图示例 🔗通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。
-示例1 直接绘制： 🔗MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) { QLabel *label = new QLabel(this); label-&amp;gt;resize(100, 100); QPixmap pixmap(100, 100); pixmap.fill(Qt::gray); QPainter painter(&amp;amp;pixmap); painter.drawRect(10, 10, 80, 80); painter.drawText(20, 30, &amp;#34;Hello World&amp;#34;); label-&amp;gt;setPixmap(pixmap); QVBoxLayout *layout = new QVBoxLayout(); layout-&amp;gt;addWidget(label); this-&amp;gt;setLayout(layout); this-&amp;gt;resize(200, 200); } 运行结果：</description>
+示例1 直接绘制： 🔗MainWindow::MainWindow(QWidget *parent)  : QMainWindow(parent) {  QLabel *label = new QLabel(this);  label-&amp;gt;resize(100, 100);   QPixmap pixmap(100, 100);  pixmap.fill(Qt::gray);   QPainter painter(&amp;amp;pixmap);  painter.drawRect(10, 10, 80, 80);  painter.drawText(20, 30, &amp;#34;Hello World&amp;#34;);   label-&amp;gt;setPixmap(pixmap);   QVBoxLayout *layout = new QVBoxLayout();  layout-&amp;gt;addWidget(label);  this-&amp;gt;setLayout(layout);  this-&amp;gt;resize(200, 200); } 运行结果：</description>
     </item>
     
     <item>
@@ -1656,8 +1650,7 @@ Qt 将这些特性添加到 C++ 中：
  公共默认构造函数 公共复制构造函数
 公共析构函数
  下列 Message类定义包括以下成员：
-class Message { public: Message() = default; ~Message() = default; Message(const Message &amp;amp;) = default; Message &amp;amp;operator=(const Message &amp;amp;) = default; Message(const QString &amp;amp;body, const QStringList &amp;amp;headers); QStringView body() const; QStringList headers() const; private: QString m_body; QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。
-使用 QMetaType 声明类型 🔗这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。</description>
+class Message { public:  Message() = default;  ~Message() = default;  Message(const Message &amp;amp;) = default;  Message &amp;amp;operator=(const Message &amp;amp;) = default;   Message(const QString &amp;amp;body, const QStringList &amp;amp;headers);   QStringView body() const;  QStringList headers() const;  private:  QString m_body;  QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。</description>
     </item>
     
     <item>
@@ -1785,7 +1778,7 @@ It&amp;rsquo;s a small, small world
       <guid>/posts/2021-12-11-7/</guid>
       <description>And I Love You So
 The people ask me how
-How I&amp;rsquo;ve lived &amp;lsquo;til now
+How I&amp;rsquo;ve lived &amp;rsquo;til now
 I tell them &amp;ldquo;I don&amp;rsquo;t know&amp;rdquo;
   I guess they understand
 How lonely life has been
@@ -2543,9 +2536,9 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
 代码行 🔗1.一行代码只做一件事情，如只定义一个变量，或只写一条语句。
 2.if、for、while、do 等语句自占一行，执行语句不得紧跟其后。不论执行语句有多少都要加{}。这样可以防止书写失误。（注：也为了统一风格）
 3.尽可能在定义变量的同时初始化该变量（就近原则）。（注：这样可以减少被野指针折磨的痛苦，强烈建议）
-代码行内的空格 🔗1.关键字之后要留一个空格。像 if、for、while 等关键字之后应留一个空格再跟左括号 &amp;lsquo;(&#39;，以突出关键字。
-2.函数名之后不要留空格，紧跟左括号&amp;rsquo;(&#39;，以与关键字区别。
-3.&#39;(&amp;lsquo;向后紧跟，&#39;)&#39;、‘，’、‘；’向前紧跟，紧跟处不留空格。
+代码行内的空格 🔗1.关键字之后要留一个空格。像 if、for、while 等关键字之后应留一个空格再跟左括号 &amp;lsquo;(&amp;rsquo;，以突出关键字。
+2.函数名之后不要留空格，紧跟左括号&amp;rsquo;(&amp;rsquo;，以与关键字区别。
+3.&amp;rsquo;(&amp;lsquo;向后紧跟，&amp;rsquo;)&amp;rsquo;、‘，’、‘；’向前紧跟，紧跟处不留空格。
 4.&amp;rsquo;,&amp;lsquo;之后要留空格，如果&amp;rsquo;;&amp;lsquo;不是一行的结束符号，其后要留空格，如for(initialization; condition; update)。
 5.【建议】对于表达式比较长的 for 语句和 if 语句，为了紧凑起见可以适当地去掉一些空格。（注：如果真的长到影响阅读，可以考虑）
 对齐 🔗1.‘{{’h和‘}}’应独占一行并且位于同一列，同时与引用它们的语句左对齐。
@@ -2921,8 +2914,8 @@ min / max old /new stat / stop</description>
       <guid>/posts/2021-01-12-io/</guid>
       <description>一、概览 🔗Java 的 I/O 大概可以分成以下几类：
  磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO  二、磁盘操作 🔗File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { System.out.println(dir.getName()); return ; } for (File:file : dir.listFiles()) { listAllFiles(file); } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
-三、字节操作 🔗实现文件复制 🔗public static void copuFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读 buffer.</description>
+public static void listAllFiles(File dir){  if(dir == null || !dir.exists()){  return ;  }  if(dir.isFile()) {  System.out.println(dir.getName());  return ;  }  for (File:file : dir.listFiles()) {  listAllFiles(file);  } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
+三、字节操作 🔗实现文件复制 🔗public static void copuFile(String src, String dist) throws IOException {  FileInputStream in = new FileInputStream(src);  FileOutputStream out = new FileOutStream(dist);   byte[] buffer = new byte[20 * 1024];  int cnt;  // read() 最多读 buffer.</description>
     </item>
     
     <item>
@@ -2933,9 +2926,8 @@ public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ ret
       <guid>/posts/2021-01-09-concurrent/</guid>
       <description>一、使用线程 🔗有三种使用线程的方法：
  实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类；  实现 Runnable 接口 🔗需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
-public static void main(String[] args){ MyRunnable instance = new MyRunnable(); Thread thread = new Thread(instance); thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。
-public class MyCallable implements Callable&amp;lt;Integer&amp;gt; { public Integer call(){ return 123; } } public static void main(String[] args) throws ExecutionException,InterruptedException { MyCallable mc = new MyCallble(); FutureTask&amp;lt;Integer&amp;gt; ft = new FutureTask&amp;lt;&amp;gt;(mc); Thread thread = new Thread(ft); thread.</description>
+public class MyRunnable implements Runnable {  @Override  public void run(){  // ...  } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+public static void main(String[] args){  MyRunnable instance = new MyRunnable();  Thread thread = new Thread(instance);  thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。</description>
     </item>
     
     <item>
@@ -2995,7 +2987,7 @@ public class MyCallable implements Callable&amp;lt;Integer&amp;gt; { public Inte
 SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。
 SQL 语句不区分大小写，但是数据库表名、列名和值是否区分依赖于具体的 DBMS 以及配置。
 SQL 支持以下三种注释：
-### 注释 SELECT * FROM mytable; -- 注释 /* 注释1 注释2 */ 数据库创建与使用：</description>
+### 注释 SELECT * FROM mytable; -- 注释 /* 注释1  注释2 */ 数据库创建与使用：</description>
     </item>
     
     <item>
@@ -3086,7 +3078,7 @@ Collection  🔗1.Set
       <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。
 然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。
 事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：
-//实验1 String s1 = &amp;#34;1&amp;#34;; Field valueField = String.class.getDeclaredField(&amp;#34;value&amp;#34;); valueField.setAccessible(true); char[] value = (char[]) valueField.get(s1); value[0] = &amp;#39;2&amp;#39;; System.out.println(s1); //2 System.out.println((s1 == &amp;#34;1&amp;#34;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot;  的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
+ //实验1  String s1 = &amp;#34;1&amp;#34;;  Field valueField = String.class.getDeclaredField(&amp;#34;value&amp;#34;);  valueField.setAccessible(true);  char[] value = (char[]) valueField.get(s1);  value[0] = &amp;#39;2&amp;#39;;  System.out.println(s1); //2  System.out.println((s1 == &amp;#34;1&amp;#34;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot;  的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
     </item>
     
     <item>

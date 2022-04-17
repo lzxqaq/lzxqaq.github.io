@@ -9,18 +9,15 @@
 <meta name="description" content="转载自https://github.com/huihut/interview
 顺序结构 🔗顺序栈（Sequence Stack） 🔗SqStack.cpp
 顺序栈数据结构和图片
-typedef struct { ElemType *elem; int top; int size; int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
-typedef struct { ElemType * elem; int front; int rear; int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
+typedef struct { 	ElemType *elem; 	int top; 	int size; 	int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
+typedef struct { 	ElemType * elem; 	int front; 	int rear; 	int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
 SqQueue.rear&#43;&#43;
 循环队列 🔗循环队列图片
 SqQueue.rear = (SqQueue.rear &#43; 1) % SqQueue.maxSize
 顺序表（Sequence List） 🔗SqList.cpp
 顺序表数据结构和图片
-typedef struct { ElemType *elem; int length; int size; int increment; } SqList; 链式结构 🔗LinkList.cpp
-LinkList_with_head.cpp
-链式数据结构
-typedef struct LNode { ElemType data; struct LNode *next; } LNode, *LinkList; 链队列（Link Queue） 🔗链队列图片">
-<meta name="generator" content="Hugo 0.89.2" />
+typedef struct { 	ElemType *elem; 	int length; 	int size; 	int increment; } SqList; 链式结构 🔗LinkList.">
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -60,10 +57,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -105,23 +108,23 @@ if (!doNotTrack) {
       <p>转载自<a href="https://github.com/huihut/interview" target="_blank" rel="noopener">https://github.com/huihut/interview</a></p>
 <h3 id="顺序结构">顺序结构 <a href="#%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h3><h4 id="顺序栈sequence-stack">顺序栈（Sequence Stack） <a href="#%e9%a1%ba%e5%ba%8f%e6%a0%88sequence-stack" class="anchor">🔗</a></h4><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/SqStack.cpp" target="_blank" rel="noopener">SqStack.cpp</a></p>
 <p>顺序栈数据结构和图片</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
-	ElemType <span style="color:#666">*</span>elem;
-	<span style="color:#0b0;font-weight:bold">int</span> top;
-	<span style="color:#0b0;font-weight:bold">int</span> size;
-	<span style="color:#0b0;font-weight:bold">int</span> increment;
-} SqStack;
-</code></pre></div><p><p class="markdown-image">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	ElemType <span style="color:#666">*</span>elem;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> top;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> size;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> increment;
+</span></span><span style="display:flex;"><span>} SqStack;
+</span></span></code></pre></div><p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/SqStack.png" alt=""  />
 </p></p>
 <h4 id="队列sequence-queue">队列（Sequence Queue） <a href="#%e9%98%9f%e5%88%97sequence-queue" class="anchor">🔗</a></h4><p>队列数据结构</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
-	ElemType <span style="color:#666">*</span> elem;
-	<span style="color:#0b0;font-weight:bold">int</span> front;
-	<span style="color:#0b0;font-weight:bold">int</span> rear;
-	<span style="color:#0b0;font-weight:bold">int</span> maxSize;
-}SqQueue;
-</code></pre></div><h5 id="非循环队列">非循环队列 <a href="#%e9%9d%9e%e5%be%aa%e7%8e%af%e9%98%9f%e5%88%97" class="anchor">🔗</a></h5><p>非循环队列图片</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	ElemType <span style="color:#666">*</span> elem;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> front;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> rear;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> maxSize;
+</span></span><span style="display:flex;"><span>}SqQueue;
+</span></span></code></pre></div><h5 id="非循环队列">非循环队列 <a href="#%e9%9d%9e%e5%be%aa%e7%8e%af%e9%98%9f%e5%88%97" class="anchor">🔗</a></h5><p>非循环队列图片</p>
 <p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/SqQueue.png" alt=""  />
 </p></p>
@@ -133,23 +136,23 @@ if (!doNotTrack) {
 <p><code>SqQueue.rear = (SqQueue.rear + 1) % SqQueue.maxSize</code></p>
 <h4 id="顺序表sequence-list">顺序表（Sequence List） <a href="#%e9%a1%ba%e5%ba%8f%e8%a1%a8sequence-list" class="anchor">🔗</a></h4><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/SqList.cpp" target="_blank" rel="noopener">SqList.cpp</a></p>
 <p>顺序表数据结构和图片</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
-	ElemType <span style="color:#666">*</span>elem;
-	<span style="color:#0b0;font-weight:bold">int</span> length;
-	<span style="color:#0b0;font-weight:bold">int</span> size;
-	<span style="color:#0b0;font-weight:bold">int</span> increment;
-} SqList;
-</code></pre></div><p><p class="markdown-image">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	ElemType <span style="color:#666">*</span>elem;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> length;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> size;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> increment;
+</span></span><span style="display:flex;"><span>} SqList;
+</span></span></code></pre></div><p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/SqList.png" alt=""  />
 </p></p>
 <h3 id="链式结构">链式结构 <a href="#%e9%93%be%e5%bc%8f%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h3><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/LinkList.cpp" target="_blank" rel="noopener">LinkList.cpp</a></p>
 <p><a href="https://github.com/huihut/interview/blob/master/DataStructure/LinkList_with_head.cpp" target="_blank" rel="noopener">LinkList_with_head.cpp</a></p>
 <p>链式数据结构</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">LNode</span> {
-    ElemType data;
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">LNode</span> <span style="color:#666">*</span>next;
-} LNode, <span style="color:#666">*</span>LinkList; 
-</code></pre></div><h4 id="链队列link-queue">链队列（Link Queue） <a href="#%e9%93%be%e9%98%9f%e5%88%97link-queue" class="anchor">🔗</a></h4><p>链队列图片</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">LNode</span> {
+</span></span><span style="display:flex;"><span>    ElemType data;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">LNode</span> <span style="color:#666">*</span>next;
+</span></span><span style="display:flex;"><span>} LNode, <span style="color:#666">*</span>LinkList; 
+</span></span></code></pre></div><h4 id="链队列link-queue">链队列（Link Queue） <a href="#%e9%93%be%e9%98%9f%e5%88%97link-queue" class="anchor">🔗</a></h4><p>链队列图片</p>
 <p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/LinkQueue.png" alt=""  />
 </p></p>
@@ -185,19 +188,19 @@ if (!doNotTrack) {
 </li>
 </ul>
 <h4 id="线性探测的哈希表数据结构">线性探测的哈希表数据结构 <a href="#%e7%ba%bf%e6%80%a7%e6%8e%a2%e6%b5%8b%e7%9a%84%e5%93%88%e5%b8%8c%e8%a1%a8%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h4><p>线性探测的哈希表数据结构和图片</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#0b0;font-weight:bold">char</span> KeyType;
-
-<span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
-	KeyType key;
-}RcdType;
-
-<span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
-	RcdType <span style="color:#666">*</span>rcd;
-	<span style="color:#0b0;font-weight:bold">int</span> size;
-	<span style="color:#0b0;font-weight:bold">int</span> count;
-	<span style="color:#0b0;font-weight:bold">bool</span> <span style="color:#666">*</span>tag;
-}HashTable;
-</code></pre></div><p><p class="markdown-image">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#0b0;font-weight:bold">char</span> KeyType;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	KeyType key;
+</span></span><span style="display:flex;"><span>}RcdType;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	RcdType <span style="color:#666">*</span>rcd;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> size;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> count;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">bool</span> <span style="color:#666">*</span>tag;
+</span></span><span style="display:flex;"><span>}HashTable;
+</span></span></code></pre></div><p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/HashTable.png" alt=""  />
 </p></p>
 <h3 id="递归">递归 <a href="#%e9%80%92%e5%bd%92" class="anchor">🔗</a></h3><h4 id="概念-1">概念 <a href="#%e6%a6%82%e5%bf%b5-1" class="anchor">🔗</a></h4><p>函数直接或间接地调用自身</p>
@@ -218,41 +221,41 @@ if (!doNotTrack) {
 <li>归并排序（迭代）</li>
 </ul>
 <h4 id="广义表">广义表 <a href="#%e5%b9%bf%e4%b9%89%e8%a1%a8" class="anchor">🔗</a></h4><h5 id="头尾链表存储表示">头尾链表存储表示 <a href="#%e5%a4%b4%e5%b0%be%e9%93%be%e8%a1%a8%e5%ad%98%e5%82%a8%e8%a1%a8%e7%a4%ba" class="anchor">🔗</a></h5><p>广义表的头尾链表存储表示和图片</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080;font-style:italic">// 广义表的头尾链表存储表示
-</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">enum</span> {ATOM, LIST} ElemTag;
-<span style="color:#080;font-style:italic">// ATOM==0：原子，LIST==1：子表
-</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode</span> {
-    ElemTag tag;
-    <span style="color:#080;font-style:italic">// 公共部分，用于区分原子结点和表结点
-</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">union</span> {
-        <span style="color:#080;font-style:italic">// 原子结点和表结点的联合部分
-</span><span style="color:#080;font-style:italic"></span>        AtomType atom;
-        <span style="color:#080;font-style:italic">// atom 是原子结点的值域，AtomType 由用户定义
-</span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">struct</span> {
-            <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode</span> <span style="color:#666">*</span>hp, <span style="color:#666">*</span>tp;
-        } ptr;
-        <span style="color:#080;font-style:italic">// ptr 是表结点的指针域，prt.hp 和 ptr.tp 分别指向表头和表尾
-</span><span style="color:#080;font-style:italic"></span>    } a;
-} <span style="color:#666">*</span>GList, GLNode;
-</code></pre></div><p><p class="markdown-image">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 广义表的头尾链表存储表示
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">enum</span> {ATOM, LIST} ElemTag;
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// ATOM==0：原子，LIST==1：子表
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode</span> {
+</span></span><span style="display:flex;"><span>    ElemTag tag;
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 公共部分，用于区分原子结点和表结点
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">union</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// 原子结点和表结点的联合部分
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        AtomType atom;
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// atom 是原子结点的值域，AtomType 由用户定义
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode</span> <span style="color:#666">*</span>hp, <span style="color:#666">*</span>tp;
+</span></span><span style="display:flex;"><span>        } ptr;
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// ptr 是表结点的指针域，prt.hp 和 ptr.tp 分别指向表头和表尾
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    } a;
+</span></span><span style="display:flex;"><span>} <span style="color:#666">*</span>GList, GLNode;
+</span></span></code></pre></div><p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/GeneralizedList1.png" alt=""  />
 </p></p>
 <h5 id="扩展线性链表存储表示">扩展线性链表存储表示 <a href="#%e6%89%a9%e5%b1%95%e7%ba%bf%e6%80%a7%e9%93%be%e8%a1%a8%e5%ad%98%e5%82%a8%e8%a1%a8%e7%a4%ba" class="anchor">🔗</a></h5><p>扩展线性链表存储表示和图片</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080;font-style:italic">// 广义表的扩展线性链表存储表示
-</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">enum</span> {ATOM, LIST} ElemTag;
-<span style="color:#080;font-style:italic">// ATOM==0：原子，LIST==1：子表
-</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode1</span> {
-    ElemTag tag;
-    <span style="color:#080;font-style:italic">// 公共部分，用于区分原子结点和表结点
-</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">union</span> {
-        <span style="color:#080;font-style:italic">// 原子结点和表结点的联合部分
-</span><span style="color:#080;font-style:italic"></span>        AtomType atom; <span style="color:#080;font-style:italic">// 原子结点的值域
-</span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode1</span> <span style="color:#666">*</span>hp; <span style="color:#080;font-style:italic">// 表结点的表头指针
-</span><span style="color:#080;font-style:italic"></span>    } a;
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode1</span> <span style="color:#666">*</span>tp;
-    <span style="color:#080;font-style:italic">// 相当于线性链表的 next，指向下一个元素结点
-</span><span style="color:#080;font-style:italic"></span>} <span style="color:#666">*</span>GList1, GLNode1;
-</code></pre></div><p><p class="markdown-image">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 广义表的扩展线性链表存储表示
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">enum</span> {ATOM, LIST} ElemTag;
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// ATOM==0：原子，LIST==1：子表
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode1</span> {
+</span></span><span style="display:flex;"><span>    ElemTag tag;
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 公共部分，用于区分原子结点和表结点
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">union</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">// 原子结点和表结点的联合部分
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        AtomType atom; <span style="color:#080;font-style:italic">// 原子结点的值域
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode1</span> <span style="color:#666">*</span>hp; <span style="color:#080;font-style:italic">// 表结点的表头指针
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    } a;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">GLNode1</span> <span style="color:#666">*</span>tp;
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 相当于线性链表的 next，指向下一个元素结点
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>} <span style="color:#666">*</span>GList1, GLNode1;
+</span></span></code></pre></div><p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/GeneralizedList2.png" alt=""  />
 </p></p>
 <h3 id="二叉树">二叉树 <a href="#%e4%ba%8c%e5%8f%89%e6%a0%91" class="anchor">🔗</a></h3><p><a href="https://github.com/huihut/interview/blob/master/DataStructure/BinaryTree.cpp" target="_blank" rel="noopener">BinaryTree.cpp</a></p>
@@ -270,12 +273,12 @@ if (!doNotTrack) {
 </li>
 </ol>
 <h4 id="存储结构">存储结构 <a href="#%e5%ad%98%e5%82%a8%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h4><p>二叉树数据结构</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">BiTNode</span>
-{
-    TElemType data;
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">BiTNode</span> <span style="color:#666">*</span>lchild, <span style="color:#666">*</span>rchild;
-}BiTNode, <span style="color:#666">*</span>BiTree;
-</code></pre></div><h5 id="顺序存储">顺序存储 <a href="#%e9%a1%ba%e5%ba%8f%e5%ad%98%e5%82%a8" class="anchor">🔗</a></h5><p>二叉树顺序存储图片</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">BiTNode</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    TElemType data;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">BiTNode</span> <span style="color:#666">*</span>lchild, <span style="color:#666">*</span>rchild;
+</span></span><span style="display:flex;"><span>}BiTNode, <span style="color:#666">*</span>BiTree;
+</span></span></code></pre></div><h5 id="顺序存储">顺序存储 <a href="#%e9%a1%ba%e5%ba%8f%e5%ad%98%e5%82%a8" class="anchor">🔗</a></h5><p>二叉树顺序存储图片</p>
 <p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/SqBinaryTree.png" alt=""  />
 </p></p>

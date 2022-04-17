@@ -16,7 +16,7 @@
 C&#43;&#43;ABI的部分内容举例：
  函数参数传递的方式，比如 x86-64 用寄存器来传函数的前 4 个整数参数 虚函数的调用方式，通常是 vptr/vtbl 然后用 vtbl[offset] 来调用 struct 和 class 的内存布局，通过偏移量来访问数据成员  综上所述，如果可执行程序通过以上说明书访问动态链接库A，以及此库的升级版本A&#43;，若按此说明书上的方法，可以无痛的使用A和A&#43;，那么我们就称库A的这次升级是二进制兼容的。
 四、破坏二进制兼容的常见方式 🔗 添加新的虚函数 取消导出或删除已导出的类。 以任何方式更改类层次结构（添加，删除或重新排序基类）。 改变虚函数声明时的顺序（偏移量改变，导致调用失败） 添加新的非静态成员变量（类的内存布局改变，偏移量也发生变化） 改变非静态成员变量的声明顺序 以任何方式更改模板参数（添加，删除或重新排序）。  五、不会破坏二进制兼容的几种常见方式 🔗 添加非虚函数（包括构造函数） 添加新的类 添加Qt中的信号、槽 添加新的枚举或者在已存在的枚举类型中添加一个枚举值 添加新的静态成员变量 修改成员变量名称（偏移量未改变） 添加Q_OBJECT,Q_PROPERTY, Q_ENUMS ,Q_FLAGS宏，添加这些宏都是修改了moc生成的文件，而不是类本身 重新实现在类层次结构中原始基类定义的虚函数，如果程序链接到先前版本的库，且该库调用了基类中的实现而不是派生类中的实现，是安全的。这很棘手，可能很危险。三思而后行。 移除私有非虚函数，如果它们没有被任何内联函数调用过（并且从未使用过）。 移除私有静态成员变量，如果它们没有被任何内联函数调用过（并且从未使用过）。 更改方法的默认参数。但是，它需要重新编译才能使用实际的新的默认参数值。 导出以前未导出的类。 在类中添加或删除友元声明。  六、库程序员的技巧（解决二进制兼容问题） 🔗编写库时最大的问题是，不能安全地添加数据成员，因为这会改变每个class类，struct结构，或者对象类型数组的大小和布局。">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -56,10 +56,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -150,14 +156,14 @@ if (!doNotTrack) {
 </ul>
 <h3 id="六库程序员的技巧解决二进制兼容问题">六、库程序员的技巧（解决二进制兼容问题） <a href="#%e5%85%ad%e5%ba%93%e7%a8%8b%e5%ba%8f%e5%91%98%e7%9a%84%e6%8a%80%e5%b7%a7%e8%a7%a3%e5%86%b3%e4%ba%8c%e8%bf%9b%e5%88%b6%e5%85%bc%e5%ae%b9%e9%97%ae%e9%a2%98" class="anchor">🔗</a></h3><p>编写库时最大的问题是，不能安全地添加数据成员，因为这会改变每个class类，struct结构，或者对象类型数组的大小和布局。</p>
 <h4 id="1位标志">1.位标志 <a href="#1%e4%bd%8d%e6%a0%87%e5%bf%97" class="anchor">🔗</a></h4><p>位标志是一种例外。 如果对枚举或布尔使用位标志，则至少在下一个字节减去1bit之前是安全的。具有下面成员的类</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">uint m1 : 1;
-uint m2 : 3;
-uint m3 : 1;
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">uint m1 : 1;
-uint m2 : 3;
-uint m3 : 1;
-uint m4 : 2; // new member
-</code></pre></div><p>不会破坏二进制兼容性。 请四舍五入到最多7位（如果已经大于8，则为15位）。使用最后一位可能会在某些编译器上引起问题。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>uint m1 : 1;
+</span></span><span style="display:flex;"><span>uint m2 : 3;
+</span></span><span style="display:flex;"><span>uint m3 : 1;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>uint m1 : 1;
+</span></span><span style="display:flex;"><span>uint m2 : 3;
+</span></span><span style="display:flex;"><span>uint m3 : 1;
+</span></span><span style="display:flex;"><span>uint m4 : 2; // new member
+</span></span></code></pre></div><p>不会破坏二进制兼容性。 请四舍五入到最多7位（如果已经大于8，则为15位）。使用最后一位可能会在某些编译器上引起问题。</p>
 <h4 id="2使用-d-指针-pimpl-机制">2.使用 d 指针( PImpl 机制) <a href="#2%e4%bd%bf%e7%94%a8-d-%e6%8c%87%e9%92%88-pimpl-%e6%9c%ba%e5%88%b6" class="anchor">🔗</a></h4>
     </div>
 

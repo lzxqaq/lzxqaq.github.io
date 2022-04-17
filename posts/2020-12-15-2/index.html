@@ -9,8 +9,8 @@
 <meta name="description" content="对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。
 然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。
 事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：
-//实验1 String s1 = &#34;1&#34;; Field valueField = String.class.getDeclaredField(&#34;value&#34;); valueField.setAccessible(true); char[] value = (char[]) valueField.get(s1); value[0] = &#39;2&#39;; System.out.println(s1); //2 System.out.println((s1 == &#34;1&#34;)); //true 上述实验 1 做的事情就是：用 s1 = &quot;1&quot;  的方式创建字符串，用反射修改它的值为 &quot;2&quot;,最后用它与 &quot;1&quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：">
-<meta name="generator" content="Hugo 0.89.2" />
+ //实验1  String s1 = &#34;1&#34;;  Field valueField = String.class.getDeclaredField(&#34;value&#34;);  valueField.setAccessible(true);  char[] value = (char[]) valueField.get(s1);  value[0] = &#39;2&#39;;  System.out.println(s1); //2  System.out.println((s1 == &#34;1&#34;)); //true 上述实验 1 做的事情就是：用 s1 = &quot;1&quot;  的方式创建字符串，用反射修改它的值为 &quot;2&quot;,最后用它与 &quot;1&quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：">
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -50,10 +50,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -95,45 +101,45 @@ if (!doNotTrack) {
       <p>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。</p>
 <p>然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。</p>
 <p>事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    //实验1
-    String s1 = &#34;1&#34;;
-    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
-    valueField.setAccessible(true);
-    char[] value = (char[]) valueField.get(s1);
-    value[0] = &#39;2&#39;;
-    System.out.println(s1);                 //2
-    System.out.println((s1 == &#34;1&#34;));        //true
-</code></pre></div><p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    //实验2
-    String s2 = new String(&#34;1&#34;);
-    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
-    valueField.setAccessible(true);
-    char[] value2 = (char[]) valueField.get(s2);
-    value2[0] = &#39;2&#39;;
-    System.out.println(s2);                //2
-    System.out.println((s2 == &#34;1&#34;));       //false
-</code></pre></div><p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    //实验1
+</span></span><span style="display:flex;"><span>    String s1 = &#34;1&#34;;
+</span></span><span style="display:flex;"><span>    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
+</span></span><span style="display:flex;"><span>    valueField.setAccessible(true);
+</span></span><span style="display:flex;"><span>    char[] value = (char[]) valueField.get(s1);
+</span></span><span style="display:flex;"><span>    value[0] = &#39;2&#39;;
+</span></span><span style="display:flex;"><span>    System.out.println(s1);                 //2
+</span></span><span style="display:flex;"><span>    System.out.println((s1 == &#34;1&#34;));        //true
+</span></span></code></pre></div><p>上述实验 1 做的事情就是：用 <code>s1 = &quot;1&quot; </code> 的方式创建字符串，用反射修改它的值为 <code>&quot;2&quot;</code>,最后用它与 <code>&quot;1&quot;</code> 比较，结果是 <code>true</code> 。琢磨琢磨，再看下一段代码：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    //实验2
+</span></span><span style="display:flex;"><span>    String s2 = new String(&#34;1&#34;);
+</span></span><span style="display:flex;"><span>    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
+</span></span><span style="display:flex;"><span>    valueField.setAccessible(true);
+</span></span><span style="display:flex;"><span>    char[] value2 = (char[]) valueField.get(s2);
+</span></span><span style="display:flex;"><span>    value2[0] = &#39;2&#39;;
+</span></span><span style="display:flex;"><span>    System.out.println(s2);                //2
+</span></span><span style="display:flex;"><span>    System.out.println((s2 == &#34;1&#34;));       //false
+</span></span></code></pre></div><p>上述实验 2 和实验 1 唯一的区别是字符串创建方式，实验2是通过 <code>new String(&quot;1&quot;)</code> 方式创建，实验1是通过 <code>= &quot;1&quot;</code> 的方式创建。而实验2的结果： <code>s2 == &quot;1&quot;</code> 是 <code>false</code> 。</p>
 <p>到这里，可以停一会了。很多技术文章中都做过类似上面的实验（通过比较创建方式的区别、反射修改等)，来分析 String 、String Pool 的原理和设计理念。但我总觉得以此说明最终的结论还不够严谨、或者说还不够直观。接下来请看——魔鬼实验：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    //实验3 
-    String s1 = &#34;1&#34;;
-    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
-    valueField.setAccessible(true);
-    char[] value = (char[]) valueField.get(s1);
-    value[0] = &#39;2&#39;;
-    System.out.println(s1);                 //2
-    System.out.println((s1 == &#34;1&#34;));        //true
-    System.out.println(&#34;1&#34;);                //2
-</code></pre></div><p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    //实验4
-    String s2 = new String(&#34;1&#34;);
-    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
-    valueField.setAccessible(true);
-    char[] value2 = (char[]) valueField.get(s2);
-    value2[0] = &#39;2&#39;;
-    System.out.println(s2);                 //2
-    System.out.println((s2 == &#34;1&#34;));        //false
-    System.out.println(&#34;1&#34;);                //2
-</code></pre></div><p>同样的，上述实验 4 只是在实验 2 的基础上输出了 <code>&quot;1&quot;</code> 的值。结果 <code>&quot;1&quot;</code> 的值还是 2。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    //实验3 
+</span></span><span style="display:flex;"><span>    String s1 = &#34;1&#34;;
+</span></span><span style="display:flex;"><span>    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
+</span></span><span style="display:flex;"><span>    valueField.setAccessible(true);
+</span></span><span style="display:flex;"><span>    char[] value = (char[]) valueField.get(s1);
+</span></span><span style="display:flex;"><span>    value[0] = &#39;2&#39;;
+</span></span><span style="display:flex;"><span>    System.out.println(s1);                 //2
+</span></span><span style="display:flex;"><span>    System.out.println((s1 == &#34;1&#34;));        //true
+</span></span><span style="display:flex;"><span>    System.out.println(&#34;1&#34;);                //2
+</span></span></code></pre></div><p>不难发现，实验3仅仅只是在实验1的基础上输出了 <code>&quot;1&quot;</code> 的值。然而 <code>&quot;1&quot;</code> 输出的值为 2，这样的结果，也许有人会困惑，没关系,看完几个对比实验，相信你会对相关理论（String 、String Pool 等）有了更直观的认识。接下来，请看终极实验：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    //实验4
+</span></span><span style="display:flex;"><span>    String s2 = new String(&#34;1&#34;);
+</span></span><span style="display:flex;"><span>    Field valueField = String.class.getDeclaredField(&#34;value&#34;);
+</span></span><span style="display:flex;"><span>    valueField.setAccessible(true);
+</span></span><span style="display:flex;"><span>    char[] value2 = (char[]) valueField.get(s2);
+</span></span><span style="display:flex;"><span>    value2[0] = &#39;2&#39;;
+</span></span><span style="display:flex;"><span>    System.out.println(s2);                 //2
+</span></span><span style="display:flex;"><span>    System.out.println((s2 == &#34;1&#34;));        //false
+</span></span><span style="display:flex;"><span>    System.out.println(&#34;1&#34;);                //2
+</span></span></code></pre></div><p>同样的，上述实验 4 只是在实验 2 的基础上输出了 <code>&quot;1&quot;</code> 的值。结果 <code>&quot;1&quot;</code> 的值还是 2。</p>
 <p><strong>结论：</strong><br>
 基于对 String 类和字符串常量池（String Pool） 的了解，我对以上实验作出解释（详细理论下回贴出）:</p>
 <p>实验 3 中 字符串 <code>s1</code> 通过直接赋值字符串常量 <code>&quot;1&quot;</code> 的方式创建，因此 <strong><code>s1</code> 会直接引用字符串常量池中 <code>&quot;1&quot;</code> 对应的对象</strong>。对 <code>s1</code> 的修改，也就是对常量池中 <code>&quot;1&quot;</code> 对象的修改，因此 <code>s1</code> 和 <code>&quot;1&quot;</code> 的值都是修改后的 2，而 <code>s1 == &quot;1&quot;</code> 也是 <code>true</code>,因为它们是同一个对象的引用。</p>

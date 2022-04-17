@@ -12,7 +12,7 @@ int b = 500;const int* a = &amp;b; [1]int const *a = &amp;b; [2]int* const a 
 因此，[1]和[2]的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；[3]为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a&#43;&#43;是错误的；[4]为指针本身和指向的内容均为常量。
 (2) 作为参数 🔗void display(const double&amp; r);void display(const double* r); 说明:
  在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义 保证引用的变量的值不被改变 const 在 double 前或者后面意思相同，只是不同的人的写法不同  (3) const对象 🔗声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -52,10 +52,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	

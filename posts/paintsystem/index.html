@@ -10,8 +10,8 @@
 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使用 了QPainter 和 的QPaintDevice ，除非他们创建自己的设备的种类从应用程序员隐藏。
 这种方法的主要好处是所有绘制都遵循相同的绘制管道，从而可以轻松添加对新功能的支持并为不受支持的功能提供默认实现。
 一、绘图示例 🔗通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。
-示例1 直接绘制： 🔗MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) { QLabel *label = new QLabel(this); label-&gt;resize(100, 100); QPixmap pixmap(100, 100); pixmap.fill(Qt::gray); QPainter painter(&amp;pixmap); painter.drawRect(10, 10, 80, 80); painter.drawText(20, 30, &#34;Hello World&#34;); label-&gt;setPixmap(pixmap); QVBoxLayout *layout = new QVBoxLayout(); layout-&gt;addWidget(label); this-&gt;setLayout(layout); this-&gt;resize(200, 200); } 运行结果：">
-<meta name="generator" content="Hugo 0.89.2" />
+示例1 直接绘制： 🔗MainWindow::MainWindow(QWidget *parent)  : QMainWindow(parent) {  QLabel *label = new QLabel(this);  label-&gt;resize(100, 100);   QPixmap pixmap(100, 100);  pixmap.fill(Qt::gray);   QPainter painter(&amp;pixmap);  painter.drawRect(10, 10, 80, 80);  painter.drawText(20, 30, &#34;Hello World&#34;);   label-&gt;setPixmap(pixmap);   QVBoxLayout *layout = new QVBoxLayout();  layout-&gt;addWidget(label);  this-&gt;setLayout(layout);  this-&gt;resize(200, 200); } 运行结果：">
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -51,10 +51,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -100,39 +106,38 @@ if (!doNotTrack) {
 </p></p>
 <p>这种方法的主要好处是所有绘制都遵循相同的绘制管道，从而可以轻松添加对新功能的支持并为不受支持的功能提供默认实现。</p>
 <h3 id="一绘图示例">一、绘图示例 <a href="#%e4%b8%80%e7%bb%98%e5%9b%be%e7%a4%ba%e4%be%8b" class="anchor">🔗</a></h3><p>通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。</p>
-<h4 id="示例1-直接绘制">示例1 直接绘制： <a href="#%e7%a4%ba%e4%be%8b1-%e7%9b%b4%e6%8e%a5%e7%bb%98%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-{
-    QLabel *label = new QLabel(this);
-    label-&gt;resize(100, 100);
-
-    QPixmap pixmap(100, 100);
-    pixmap.fill(Qt::gray);
-
-    QPainter painter(&amp;pixmap);
-    painter.drawRect(10, 10, 80, 80);
-    painter.drawText(20, 30, &#34;Hello World&#34;);
-
-    label-&gt;setPixmap(pixmap);
-
-    QVBoxLayout *layout = new QVBoxLayout();
-    layout-&gt;addWidget(label);
-    this-&gt;setLayout(layout);
-    this-&gt;resize(200, 200);
-}
-
-</code></pre></div><p>运行结果：</p>
+<h4 id="示例1-直接绘制">示例1 直接绘制： <a href="#%e7%a4%ba%e4%be%8b1-%e7%9b%b4%e6%8e%a5%e7%bb%98%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>MainWindow::MainWindow(QWidget *parent)
+</span></span><span style="display:flex;"><span>    : QMainWindow(parent)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    QLabel *label = new QLabel(this);
+</span></span><span style="display:flex;"><span>    label-&gt;resize(100, 100);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    QPixmap pixmap(100, 100);
+</span></span><span style="display:flex;"><span>    pixmap.fill(Qt::gray);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    QPainter painter(&amp;pixmap);
+</span></span><span style="display:flex;"><span>    painter.drawRect(10, 10, 80, 80);
+</span></span><span style="display:flex;"><span>    painter.drawText(20, 30, &#34;Hello World&#34;);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    label-&gt;setPixmap(pixmap);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    QVBoxLayout *layout = new QVBoxLayout();
+</span></span><span style="display:flex;"><span>    layout-&gt;addWidget(label);
+</span></span><span style="display:flex;"><span>    this-&gt;setLayout(layout);
+</span></span><span style="display:flex;"><span>    this-&gt;resize(200, 200);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>运行结果：</p>
 <p><p class="markdown-image">
   <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo1.png" alt="demo1"  />
 </p></p>
-<h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制： <a href="#%e7%a4%ba%e4%be%8b2-painteventqpaintevent--%e5%87%bd%e6%95%b0%e4%b8%ad%e7%bb%98%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">void MainWindow::paintEvent(QPaintEvent *)
-{
-    QPainter painter(this);
-    painter.setPen(Qt::gray);
-    painter.setBrush(Qt::green);
-    painter.drawRect(10, 10, 50, 50);
-}
-</code></pre></div><p>运行结果：</p>
+<h4 id="示例2-painteventqpaintevent--函数中绘制">示例2 paintEvent(QPaintEvent *) 函数中绘制： <a href="#%e7%a4%ba%e4%be%8b2-painteventqpaintevent--%e5%87%bd%e6%95%b0%e4%b8%ad%e7%bb%98%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>void MainWindow::paintEvent(QPaintEvent *)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    QPainter painter(this);
+</span></span><span style="display:flex;"><span>    painter.setPen(Qt::gray);
+</span></span><span style="display:flex;"><span>    painter.setBrush(Qt::green);
+</span></span><span style="display:flex;"><span>    painter.drawRect(10, 10, 50, 50);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>运行结果：</p>
 <p><p class="markdown-image">
   <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/demo2.png" alt="demo2"  />
 </p></p>
@@ -143,9 +148,9 @@ if (!doNotTrack) {
   <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/coordsys.png" alt="Paint-Base-Draw-Methods"  />
 </p></p>
 <h4 id="window-viewport-转换">Window-Viewport 转换 <a href="#window-viewport-%e8%bd%ac%e6%8d%a2" class="anchor">🔗</a></h4><p>使用 Window-Viewport 转换，您可以使逻辑坐标系适合您的偏好。 该机制还可用于使绘图代码独立于绘图设备。 例如，您可以通过调用 ，使逻辑坐标从 (-50, -50) 扩展到 (50, 50)，以 (0, 0) 为中心 QPainter::setWindow () 函数 ：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">QPainter painter(this);
-painter.setWindow(QRect(-50, -50, 100, 100));
-</code></pre></div><p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>QPainter painter(this);
+</span></span><span style="display:flex;"><span>painter.setWindow(QRect(-50, -50, 100, 100));
+</span></span></code></pre></div><p>现在，逻辑坐标 (-50,-50) 对应于绘制设备的物理坐标 (0, 0)。 独立于绘画设备，您的绘画代码将始终在指定的逻辑坐标上运行。</p>
 <h3 id="三常用函数">三、常用函数 <a href="#%e4%b8%89%e5%b8%b8%e7%94%a8%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><p>下图来自《C++ GUI Programming with Qt 4》，列出了 QPainter 常用的画图方法。</p>
 <p><p class="markdown-image">
   <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-13/Paint-Base-Draw-Methods.png" alt="Paint-Base-Draw-Methods"  />

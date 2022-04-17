@@ -85,8 +85,7 @@ Qt 将这些特性添加到 C++ 中：
  公共默认构造函数 公共复制构造函数
 公共析构函数
  下列 Message类定义包括以下成员：
-class Message { public: Message() = default; ~Message() = default; Message(const Message &amp;amp;) = default; Message &amp;amp;operator=(const Message &amp;amp;) = default; Message(const QString &amp;amp;body, const QStringList &amp;amp;headers); QStringView body() const; QStringList headers() const; private: QString m_body; QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。
-使用 QMetaType 声明类型 🔗这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。</description>
+class Message { public:  Message() = default;  ~Message() = default;  Message(const Message &amp;amp;) = default;  Message &amp;amp;operator=(const Message &amp;amp;) = default;   Message(const QString &amp;amp;body, const QStringList &amp;amp;headers);   QStringView body() const;  QStringList headers() const;  private:  QString m_body;  QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。</description>
     </item>
     
     <item>

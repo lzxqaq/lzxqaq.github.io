@@ -24,8 +24,8 @@ socket函数对应于普通文件的打开操作。普通文件的打开操作�
 当我们调用socket创建一个socket时，返回的socket描述字它存在于协议族（address family，AF_XXX）空间中，但没有一个具体的地址。如果想要给它赋值一个地址，就必须调用bind()函数，否则就当调用connect()、listen()时系统会自动随机分配一个端口。
 3.2、bind()函数 🔗正如上面所说bind()函数把一个地址族中的特定地址赋给socket。例如对应AF_INET、AF_INET6就是把一个ipv4或ipv6地址和端口号组合赋给socket。
 int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen); 函数的三个参数分别为：
- sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：  struct sockaddr_in { sa_family_t sin_family; /* address family: AF_INET */ in_port_t sin_port; /* port in network byte order */ struct in_addr sin_addr; /* internet address */ }; /* Internet address.">
-<meta name="generator" content="Hugo 0.89.2" />
+ sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：  struct sockaddr_in {  sa_family_t sin_family; /* address family: AF_INET */  in_port_t sin_port; /* port in network byte order */  struct in_addr sin_addr; /* internet address */ };  /* Internet address.">
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -65,10 +65,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -141,43 +147,42 @@ if (!doNotTrack) {
 <p>注意：并不是上面的type和protocol可以随意组合的，如SOCK_STREAM不可以跟IPPROTO_UDP组合。当protocol为0时，会自动选择type类型对应的默认协议。</p>
 <p>当我们调用socket创建一个socket时，返回的socket描述字它存在于协议族（address family，AF_XXX）空间中，但没有一个具体的地址。如果想要给它赋值一个地址，就必须调用bind()函数，否则就当调用connect()、listen()时系统会自动随机分配一个端口。</p>
 <h4 id="32bind函数">3.2、bind()函数 <a href="#32bind%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h4><p>正如上面所说bind()函数把一个地址族中的特定地址赋给socket。例如对应AF_INET、AF_INET6就是把一个ipv4或ipv6地址和端口号组合赋给socket。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
-</code></pre></div><p>函数的三个参数分别为：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+</span></span></code></pre></div><p>函数的三个参数分别为：</p>
 <ul>
 <li>sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。</li>
 <li>addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">struct sockaddr_in {
-    sa_family_t    sin_family; /* address family: AF_INET */
-    in_port_t      sin_port;   /* port in network byte order */
-    struct in_addr sin_addr;   /* internet address */
-};
-
-/* Internet address. */
-struct in_addr {
-    uint32_t       s_addr;     /* address in network byte order */
-};
-
-</code></pre></div><p>ipv6对应的是：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">struct sockaddr_in6 { 
-    sa_family_t     sin6_family;   /* AF_INET6 */ 
-    in_port_t       sin6_port;     /* port number */ 
-    uint32_t        sin6_flowinfo; /* IPv6 flow information */ 
-    struct in6_addr sin6_addr;     /* IPv6 address */ 
-    uint32_t        sin6_scope_id; /* Scope ID (new in 2.4) */ 
-};
-
-struct in6_addr { 
-    unsigned char   s6_addr[16];   /* IPv6 address */ 
-};
-</code></pre></div><p>Unix域对应的是：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#define UNIX_PATH_MAX    108
-
-struct sockaddr_un { 
-    sa_family_t sun_family;               /* AF_UNIX */ 
-    char        sun_path[UNIX_PATH_MAX];  /* pathname */ 
-};
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>struct sockaddr_in {
+</span></span><span style="display:flex;"><span>    sa_family_t    sin_family; /* address family: AF_INET */
+</span></span><span style="display:flex;"><span>    in_port_t      sin_port;   /* port in network byte order */
+</span></span><span style="display:flex;"><span>    struct in_addr sin_addr;   /* internet address */
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/* Internet address. */
+</span></span><span style="display:flex;"><span>struct in_addr {
+</span></span><span style="display:flex;"><span>    uint32_t       s_addr;     /* address in network byte order */
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>ipv6对应的是：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>struct sockaddr_in6 { 
+</span></span><span style="display:flex;"><span>    sa_family_t     sin6_family;   /* AF_INET6 */ 
+</span></span><span style="display:flex;"><span>    in_port_t       sin6_port;     /* port number */ 
+</span></span><span style="display:flex;"><span>    uint32_t        sin6_flowinfo; /* IPv6 flow information */ 
+</span></span><span style="display:flex;"><span>    struct in6_addr sin6_addr;     /* IPv6 address */ 
+</span></span><span style="display:flex;"><span>    uint32_t        sin6_scope_id; /* Scope ID (new in 2.4) */ 
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>struct in6_addr { 
+</span></span><span style="display:flex;"><span>    unsigned char   s6_addr[16];   /* IPv6 address */ 
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>Unix域对应的是：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#define UNIX_PATH_MAX    108
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>struct sockaddr_un { 
+</span></span><span style="display:flex;"><span>    sa_family_t sun_family;               /* AF_UNIX */ 
+</span></span><span style="display:flex;"><span>    char        sun_path[UNIX_PATH_MAX];  /* pathname */ 
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><ul>
 <li>addrlen：对应的是地址的长度。</li>
 </ul>
 <p>通常服务器在启动的时候都会绑定一个众所周知的地址（如ip地址+端口号），用于提供服务，客户就可以通过它来接连服务器；而客户端就不用指定，有系统自动分配一个端口号和自身的ip地址组合。这就是为什么通常服务器端在listen之前会调用bind()，而客户端就不会调用，而是在connect()时由系统随机生成一个。</p>
@@ -193,13 +198,13 @@ struct sockaddr_un {
 <p>网络字节序：4个字节的32 bit值以下面的次序传输：首先是0～7bit，其次8～15bit，然后16～23bit，最后是24~31bit。这种传输次序称作大端字节序。由于TCP/IP首部中所有的二进制整数在网络中传输时都要求以这种次序，因此它又称作网络字节序。字节序，顾名思义字节的顺序，就是大于一个字节类型的数据在内存中的存放顺序，一个字节的数据没有顺序的问题了。</p>
 <p>所以：在将一个地址绑定到socket的时候，请先将主机字节序转换成为网络字节序，而不要假定主机字节序跟网络字节序一样使用的是Big-Endian。由于这个问题曾引发过血案！公司项目代码中由于存在这个问题，导致了很多莫名其妙的问题，所以请谨记对主机字节序不要做任何假定，务必将其转化为网络字节序再赋给socket。</p>
 <h4 id="33listenconnect函数">3.3、listen()、connect()函数 <a href="#33listenconnect%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h4><p>如果作为一个服务器，在调用socket()、bind()之后就会调用listen()来监听这个socket，如果客户端这时调用connect()发出连接请求，服务器端就会接收到这个请求。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">int listen(int sockfd, int backlog);
-int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
-</code></pre></div><p>listen函数的第一个参数即为要监听的socket描述字，第二个参数为相应socket可以排队的最大连接个数。socket()函数创建的socket默认是一个主动类型的，listen函数将socket变为被动类型的，等待客户的连接请求。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>int listen(int sockfd, int backlog);
+</span></span><span style="display:flex;"><span>int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+</span></span></code></pre></div><p>listen函数的第一个参数即为要监听的socket描述字，第二个参数为相应socket可以排队的最大连接个数。socket()函数创建的socket默认是一个主动类型的，listen函数将socket变为被动类型的，等待客户的连接请求。</p>
 <p>connect函数的第一个参数即为客户端的socket描述字，第二参数为服务器的socket地址，第三个参数为socket地址的长度。客户端通过调用connect函数来建立与TCP服务器的连接。</p>
 <h4 id="34accept函数">3.4、accept()函数 <a href="#34accept%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h4><p>TCP服务器端依次调用socket()、bind()、listen()之后，就会监听指定的socket地址了。TCP客户端依次调用socket()、connect()之后就想TCP服务器发送了一个连接请求。TCP服务器监听到这个请求之后，就会调用accept()函数取接收请求，这样连接就建立好了。之后就可以开始网络I/O操作了，即类同于普通文件的读写I/O操作。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">int accept(int sockfd, struct sockaddr *addr, socklen_t *
-</code></pre></div><p>accept函数的第一个参数为服务器的socket描述字，第二个参数为指向struct sockaddr *的指针，用于返回客户端的协议地址，第三个参数为协议地址的长度。如果accpet成功，那么其返回值是由内核自动生成的一个全新的描述字，代表与返回客户的TCP连接。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>int accept(int sockfd, struct sockaddr *addr, socklen_t *
+</span></span></code></pre></div><p>accept函数的第一个参数为服务器的socket描述字，第二个参数为指向struct sockaddr *的指针，用于返回客户端的协议地址，第三个参数为协议地址的长度。如果accpet成功，那么其返回值是由内核自动生成的一个全新的描述字，代表与返回客户的TCP连接。</p>
 <p>注意：accept的第一个参数为服务器的socket描述字，是服务器开始调用socket()函数生成的，称为监听socket描述字；而accept函数返回的是已连接的socket描述字。一个服务器通常通常仅仅只创建一个监听socket描述字，它在该服务器的生命周期内一直存在。内核为每个由服务器进程接受的客户连接创建了一个已连接socket描述字，当服务器完成了对某个客户的服务，相应的已连接socket描述字就被关闭。</p>
 <h4 id="35readwrite等函数">3.5、read()、write()等函数 <a href="#35readwrite%e7%ad%89%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h4><p>万事具备只欠东风，至此服务器与客户已经建立好连接了。可以调用网络I/O进行读写操作了，即实现了网咯中不同进程之间的通信！网络I/O操作有下面几组：</p>
 <ul>
@@ -210,31 +215,31 @@ int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 <li>recvfrom()/sendto()</li>
 </ul>
 <p>我推荐使用recvmsg()/sendmsg()函数，这两个函数是最通用的I/O函数，实际上可以把上面的其它函数都替换成这两个函数。它们的声明如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include &lt;unistd.h&gt;
-
-ssize_t read(int fd, void *buf, size_t count);
-ssize_t write(int fd, const void *buf, size_t count);
-
-#include &lt;sys/types.h&gt;
-#include &lt;sys/socket.h&gt;
-
-ssize_t send(int sockfd, const void *buf, size_t len, int flags);
-ssize_t recv(int sockfd, void *buf, size_t len, int flags);
-
-ssize_t sendto(int sockfd, const void *buf, size_t len, int flags,
-                const struct sockaddr *dest_addr, socklen_t addrlen);
-ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
-                struct sockaddr *src_addr, socklen_t *addrlen);
-
-ssize_t sendmsg(int sockfd, const struct msghdr *msg, int flags);
-ssize_t recvmsg(int sockfd, struct msghdr *msg, int flags);
-</code></pre></div><p>read函数是负责从fd中读取内容.当读成功时，read返回实际所读的字节数，如果返回的值是0表示已经读到文件的结束了，小于0表示出现了错误。如果错误为EINTR说明读是由中断引起的，如果是ECONNREST表示网络连接出了问题。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;unistd.h&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssize_t read(int fd, void *buf, size_t count);
+</span></span><span style="display:flex;"><span>ssize_t write(int fd, const void *buf, size_t count);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#include &lt;sys/types.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;sys/socket.h&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssize_t send(int sockfd, const void *buf, size_t len, int flags);
+</span></span><span style="display:flex;"><span>ssize_t recv(int sockfd, void *buf, size_t len, int flags);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssize_t sendto(int sockfd, const void *buf, size_t len, int flags,
+</span></span><span style="display:flex;"><span>                const struct sockaddr *dest_addr, socklen_t addrlen);
+</span></span><span style="display:flex;"><span>ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
+</span></span><span style="display:flex;"><span>                struct sockaddr *src_addr, socklen_t *addrlen);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssize_t sendmsg(int sockfd, const struct msghdr *msg, int flags);
+</span></span><span style="display:flex;"><span>ssize_t recvmsg(int sockfd, struct msghdr *msg, int flags);
+</span></span></code></pre></div><p>read函数是负责从fd中读取内容.当读成功时，read返回实际所读的字节数，如果返回的值是0表示已经读到文件的结束了，小于0表示出现了错误。如果错误为EINTR说明读是由中断引起的，如果是ECONNREST表示网络连接出了问题。</p>
 <p>write函数将buf中的nbytes字节内容写入文件描述符fd.成功时返回写的字节数。失败时返回-1，并设置errno变量。 在网络程序中，当我们向套接字文件描述符写时有俩种可能。1)write的返回值大于0，表示写了部分或者是全部的数据。2)返回的值小于0，此时出现了错误。我们要根据错误类型来处理。如果错误为EINTR表示在写的时候出现了中断错误。如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接)。</p>
 <p>其它的我就不一一介绍这几对I/O函数了，具体参见man文档或者baidu、Google，下面的例子中将使用到send/recv。</p>
 <h4 id="36close函数">3.6、close()函数 <a href="#36close%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h4><p>在服务器与客户端建立连接之后，会进行一些读写操作，完成了读写操作就要关闭相应的socket描述字，好比操作完打开的文件要调用fclose关闭打开的文件。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include &lt;unistd.h&gt;
-int close(int fd);
-</code></pre></div><p>close一个TCP socket的缺省行为时把该socket标记为以关闭，然后立即返回到调用进程。该描述字不能再由调用进程使用，也就是说不能再作为read或write的第一个参数。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;unistd.h&gt;
+</span></span><span style="display:flex;"><span>int close(int fd);
+</span></span></code></pre></div><p>close一个TCP socket的缺省行为时把该socket标记为以关闭，然后立即返回到调用进程。该描述字不能再由调用进程使用，也就是说不能再作为read或write的第一个参数。</p>
 <p>注意：close操作只是使相应socket描述字的引用计数-1，只有当引用计数为0的时候，才会触发TCP客户端向服务器发送终止连接请求。</p>
 <h4 id="4socket中tcp的三次握手建立连接详解">4、socket中TCP的三次握手建立连接详解 <a href="#4socket%e4%b8%adtcp%e7%9a%84%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b%e5%bb%ba%e7%ab%8b%e8%bf%9e%e6%8e%a5%e8%af%a6%e8%a7%a3" class="anchor">🔗</a></h4><p>我们知道tcp建立连接要进行“三次握手”，即交换三个分组。大致流程如下：</p>
 <ul>
@@ -262,111 +267,111 @@ int close(int fd);
 <p>这样每个方向上都有一个FIN和ACK。</p>
 <h3 id="6一个例子实践一下">6、一个例子（实践一下） <a href="#6%e4%b8%80%e4%b8%aa%e4%be%8b%e5%ad%90%e5%ae%9e%e8%b7%b5%e4%b8%80%e4%b8%8b" class="anchor">🔗</a></h3><p>说了这么多了，动手实践一下。下面编写一个简单的服务器、客户端（使用TCP）——服务器端一直监听本机的6666号端口，如果收到连接请求，将接收请求并接收客户端发来的消息；客户端与服务器端建立连接并发送一条消息。</p>
 <p>服务器端代码：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">//服务器端
-#include&lt;stdio.h&gt;
-#include&lt;stdlib.h&gt;
-#include&lt;string.h&gt;
-#include&lt;errno.h&gt;
-#include&lt;sys/types.h&gt;
-#include&lt;sys/socket.h&gt;
-#include&lt;netinet/in.h&gt;
-
-#define MAXLINE 4096
-
-int main(int argc, char** argv)
-{
-    int    listenfd, connfd;
-    struct sockaddr_in     servaddr;
-    char    buff[4096];
-    int     n;
-
-    if( (listenfd = socket(AF_INET, SOCK_STREAM, 0)) == -1 ){
-    printf(&#34;create socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
-    exit(0);
-    }
-
-    memset(&amp;servaddr, 0, sizeof(servaddr));
-    servaddr.sin_family = AF_INET;
-    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    servaddr.sin_port = htons(6666);
-
-    if( bind(listenfd, (struct sockaddr*)&amp;servaddr, sizeof(servaddr)) == -1){
-    printf(&#34;bind socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
-    exit(0);
-    }
-
-    if( listen(listenfd, 10) == -1){
-    printf(&#34;listen socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
-    exit(0);
-    }
-
-    printf(&#34;======waiting for client&#39;s request======\n&#34;);
-    while(1){
-    if( (connfd = accept(listenfd, (struct sockaddr*)NULL, NULL)) == -1){
-        printf(&#34;accept socket error: %s(errno: %d)&#34;,strerror(errno),errno);
-        continue;
-    }
-    n = recv(connfd, buff, MAXLINE, 0);
-    buff[n] = &#39;\0&#39;;
-    printf(&#34;recv msg from client: %s\n&#34;, buff);
-    close(connfd);
-    }
-
-    close(listenfd);
-}
-</code></pre></div><p>客户端代码：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">//客户端
-#include&lt;stdio.h&gt;
-#include&lt;stdlib.h&gt;
-#include&lt;string.h&gt;
-#include&lt;errno.h&gt;
-#include&lt;sys/types.h&gt;
-#include&lt;sys/socket.h&gt;
-#include&lt;netinet/in.h&gt;
-
-#define MAXLINE 4096
-
-int main(int argc, char** argv)
-{
-    int    sockfd, n;
-    char    recvline[4096], sendline[4096];
-    struct sockaddr_in    servaddr;
-
-    if( argc != 2){
-    printf(&#34;usage: ./client &lt;ipaddress&gt;\n&#34;);
-    exit(0);
-    }
-
-    if( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) &lt; 0){
-    printf(&#34;create socket error: %s(errno: %d)\n&#34;, strerror(errno),errno);
-    exit(0);
-    }
-
-    memset(&amp;servaddr, 0, sizeof(servaddr));
-    servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(6666);
-    if( inet_pton(AF_INET, argv[1], &amp;servaddr.sin_addr) &lt;= 0){
-    printf(&#34;inet_pton error for %s\n&#34;,argv[1]);
-    exit(0);
-    }
-
-    if( connect(sockfd, (struct sockaddr*)&amp;servaddr, sizeof(servaddr)) &lt; 0){
-    printf(&#34;connect error: %s(errno: %d)\n&#34;,strerror(errno),errno);
-    exit(0);
-    }
-
-    printf(&#34;send msg to server: \n&#34;);
-    fgets(sendline, 4096, stdin);
-    if( send(sockfd, sendline, strlen(sendline), 0) &lt; 0)
-    {
-    printf(&#34;send msg error: %s(errno: %d)\n&#34;, strerror(errno), errno);
-    exit(0);
-    }
-
-    close(sockfd);
-    exit(0);
-}
-</code></pre></div><p>当然上面的代码很简单，也有很多缺点，这就只是简单的演示socket的基本函数使用。其实不管有多复杂的网络程序，都使用的这些基本函数。上面的服务器使用的是迭代模式的，即只有处理完一个客户端请求才会去处理下一个客户端的请求，这样的服务器处理能力是很弱的，现实中的服务器都需要有并发处理能力！为了需要并发处理，服务器需要fork()一个新的进程或者线程去处理请求等。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//服务器端
+</span></span><span style="display:flex;"><span>#include&lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;stdlib.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;string.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;errno.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;sys/types.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;sys/socket.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;netinet/in.h&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#define MAXLINE 4096
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>int main(int argc, char** argv)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    int    listenfd, connfd;
+</span></span><span style="display:flex;"><span>    struct sockaddr_in     servaddr;
+</span></span><span style="display:flex;"><span>    char    buff[4096];
+</span></span><span style="display:flex;"><span>    int     n;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    if( (listenfd = socket(AF_INET, SOCK_STREAM, 0)) == -1 ){
+</span></span><span style="display:flex;"><span>    printf(&#34;create socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    memset(&amp;servaddr, 0, sizeof(servaddr));
+</span></span><span style="display:flex;"><span>    servaddr.sin_family = AF_INET;
+</span></span><span style="display:flex;"><span>    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+</span></span><span style="display:flex;"><span>    servaddr.sin_port = htons(6666);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    if( bind(listenfd, (struct sockaddr*)&amp;servaddr, sizeof(servaddr)) == -1){
+</span></span><span style="display:flex;"><span>    printf(&#34;bind socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    if( listen(listenfd, 10) == -1){
+</span></span><span style="display:flex;"><span>    printf(&#34;listen socket error: %s(errno: %d)\n&#34;,strerror(errno),errno);
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    printf(&#34;======waiting for client&#39;s request======\n&#34;);
+</span></span><span style="display:flex;"><span>    while(1){
+</span></span><span style="display:flex;"><span>    if( (connfd = accept(listenfd, (struct sockaddr*)NULL, NULL)) == -1){
+</span></span><span style="display:flex;"><span>        printf(&#34;accept socket error: %s(errno: %d)&#34;,strerror(errno),errno);
+</span></span><span style="display:flex;"><span>        continue;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    n = recv(connfd, buff, MAXLINE, 0);
+</span></span><span style="display:flex;"><span>    buff[n] = &#39;\0&#39;;
+</span></span><span style="display:flex;"><span>    printf(&#34;recv msg from client: %s\n&#34;, buff);
+</span></span><span style="display:flex;"><span>    close(connfd);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    close(listenfd);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>客户端代码：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//客户端
+</span></span><span style="display:flex;"><span>#include&lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;stdlib.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;string.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;errno.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;sys/types.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;sys/socket.h&gt;
+</span></span><span style="display:flex;"><span>#include&lt;netinet/in.h&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#define MAXLINE 4096
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>int main(int argc, char** argv)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    int    sockfd, n;
+</span></span><span style="display:flex;"><span>    char    recvline[4096], sendline[4096];
+</span></span><span style="display:flex;"><span>    struct sockaddr_in    servaddr;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    if( argc != 2){
+</span></span><span style="display:flex;"><span>    printf(&#34;usage: ./client &lt;ipaddress&gt;\n&#34;);
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    if( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) &lt; 0){
+</span></span><span style="display:flex;"><span>    printf(&#34;create socket error: %s(errno: %d)\n&#34;, strerror(errno),errno);
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    memset(&amp;servaddr, 0, sizeof(servaddr));
+</span></span><span style="display:flex;"><span>    servaddr.sin_family = AF_INET;
+</span></span><span style="display:flex;"><span>    servaddr.sin_port = htons(6666);
+</span></span><span style="display:flex;"><span>    if( inet_pton(AF_INET, argv[1], &amp;servaddr.sin_addr) &lt;= 0){
+</span></span><span style="display:flex;"><span>    printf(&#34;inet_pton error for %s\n&#34;,argv[1]);
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    if( connect(sockfd, (struct sockaddr*)&amp;servaddr, sizeof(servaddr)) &lt; 0){
+</span></span><span style="display:flex;"><span>    printf(&#34;connect error: %s(errno: %d)\n&#34;,strerror(errno),errno);
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    printf(&#34;send msg to server: \n&#34;);
+</span></span><span style="display:flex;"><span>    fgets(sendline, 4096, stdin);
+</span></span><span style="display:flex;"><span>    if( send(sockfd, sendline, strlen(sendline), 0) &lt; 0)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    printf(&#34;send msg error: %s(errno: %d)\n&#34;, strerror(errno), errno);
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    close(sockfd);
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>当然上面的代码很简单，也有很多缺点，这就只是简单的演示socket的基本函数使用。其实不管有多复杂的网络程序，都使用的这些基本函数。上面的服务器使用的是迭代模式的，即只有处理完一个客户端请求才会去处理下一个客户端的请求，这样的服务器处理能力是很弱的，现实中的服务器都需要有并发处理能力！为了需要并发处理，服务器需要fork()一个新的进程或者线程去处理请求等。</p>
 
     </div>
 

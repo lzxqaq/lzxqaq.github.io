@@ -10,7 +10,7 @@
 什么是 MVVM 🔗MVVM 即 Model-View-ViewModel，它本质上就是MVC 的改进版。MVVM 就是将其中的View 的状态和行为抽象化，让我们将视图 UI 和业务逻辑分开。当然这些事 ViewModel 已经帮我们做了，它可以取出 Model 的数据同时帮忙处理 View 中由于需要展示内容而涉及的业务逻辑。。
 什么是 MVC 🔗 Model：数据模型，用来存储数据 View：视图界面，用来展示UI界面和响应用户交互 Controller：控制器(大管家角色)，监听模型数据的改变和控制视图行为、处理用户交互  为什么是 MVVM 🔗在 MVC 开发模式中，由于Controller主要用来处理各种逻辑和数据转化，复杂业务逻辑界面的Controller非常庞大，维护困难，所以有人想到把Controller的数据和逻辑处理部分从中抽离出来，用一个专门的对象去管理，这个对象就是ViewModel，是Model和View之间的一座桥梁。
 优点 🔗1.逻辑清晰： ViewModel分离了大部分Controller代码，更加清晰和容易维护。 2.方便测试：开发中大部分Bug来至于逻辑处理，由于ViewModel分离了许多逻辑，可以对ViewModel构造单元测试。 3.开发解耦。 4.逻辑清晰。">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -50,10 +50,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	

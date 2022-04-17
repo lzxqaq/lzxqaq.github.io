@@ -10,8 +10,8 @@
 STL的std::sort函数是基于Musser在1996年提出的内省排序（Introspective sort）算法实现。这个算法是个缝合怪，它汲取了插入排序、堆排序以及快排的优点：
  针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。  在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
 示例：
-bool caseInsensitiveLessThan(const QString &amp;s1, const QString &amp;s2) { return s1.toLower() &lt; s2.toLower(); //从小到大排序 } int doSomething() { QStringList list; list &lt;&lt; &#34;AlPha&#34; &lt;&lt; &#34;beTA&#34; &lt;&lt; &#34;gamma&#34; &lt;&lt; &#34;DELTA&#34;; qSort(list.begin(), list.end(), caseInsensitiveLessThan); // list: [ &#34;AlPha&#34;, &#34;beTA&#34;, &#34;DELTA&#34;, &#34;gamma&#34; ] } ">
-<meta name="generator" content="Hugo 0.89.2" />
+bool caseInsensitiveLessThan(const QString &amp;s1, const QString &amp;s2) {  return s1.toLower() &lt; s2.toLower(); //从小到大排序 }  int doSomething() {  QStringList list;  list &lt;&lt; &#34;AlPha&#34; &lt;&lt; &#34;beTA&#34; &lt;&lt; &#34;gamma&#34; &lt;&lt; &#34;DELTA&#34;;  qSort(list.begin(), list.end(), caseInsensitiveLessThan);  // list: [ &#34;AlPha&#34;, &#34;beTA&#34;, &#34;DELTA&#34;, &#34;gamma&#34; ] } ">
+<meta name="generator" content="Hugo 0.95.0" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -51,10 +51,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">博客</a>
-	<a href="/tags">归档</a>
-	<a href="/about">关于</a>
+	
+	
+	
 
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -102,19 +108,19 @@ if (!doNotTrack) {
 </ul>
 <p>在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。</p>
 <p>示例：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">bool caseInsensitiveLessThan(const QString &amp;s1, const QString &amp;s2)
-{
-    return s1.toLower() &lt; s2.toLower();     //从小到大排序
-}
-
-int doSomething()
-{
-    QStringList list;
-    list &lt;&lt; &#34;AlPha&#34; &lt;&lt; &#34;beTA&#34; &lt;&lt; &#34;gamma&#34; &lt;&lt; &#34;DELTA&#34;;
-    qSort(list.begin(), list.end(), caseInsensitiveLessThan);
-    // list: [ &#34;AlPha&#34;, &#34;beTA&#34;, &#34;DELTA&#34;, &#34;gamma&#34; ]
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bool caseInsensitiveLessThan(const QString &amp;s1, const QString &amp;s2)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    return s1.toLower() &lt; s2.toLower();     //从小到大排序
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>int doSomething()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    QStringList list;
+</span></span><span style="display:flex;"><span>    list &lt;&lt; &#34;AlPha&#34; &lt;&lt; &#34;beTA&#34; &lt;&lt; &#34;gamma&#34; &lt;&lt; &#34;DELTA&#34;;
+</span></span><span style="display:flex;"><span>    qSort(list.begin(), list.end(), caseInsensitiveLessThan);
+</span></span><span style="display:flex;"><span>    // list: [ &#34;AlPha&#34;, &#34;beTA&#34;, &#34;DELTA&#34;, &#34;gamma&#34; ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
     </div>
 
     
