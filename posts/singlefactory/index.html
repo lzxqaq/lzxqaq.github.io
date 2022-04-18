@@ -10,8 +10,11 @@
 工厂模式是最常用的一类创建型设计模式，通常我们所说的工厂模式是指工厂方法模式，它也是使用频率最高的工厂模式。本章将要学习的简单工厂模式是工厂方法模式的“小弟”，它不属于GoF 23种设计模式，但在软件开发中应用也较为频繁，通常将它作为学习其他工厂模式的入门。此外，工厂方法模式还有一位“大哥”——抽象工厂模式。这三种工厂模式各具特色，难度也逐个加大，在软件开发中它们都得到了广泛的应用，成为面向对象软件中常用的创建对象的工具。
 一、图表库的设计 🔗 Sunny软件公司欲基于Java语言开发一套图表库，该图表库可以为应用系统提供各种不同外观的图表，例如柱状图、饼状图、折线图等。Sunny软件公司图表库设计人员希望为应用系统开发人员提供一套灵活易用的图表库，而且可以较为方便地对图表库进行扩展，以便能够在将来增加一些新类型的图表。
  Sunny软件公司图表库设计人员提出了一个初始设计方案，将所有图表的实现代码封装在一个Chart类中，其框架代码如下所示：
-class Chart { private String type; //图表类型  public Chart(Object[][] data, String type) { this.type = type; if (type.equalsIgnoreCase(&#34;histogram&#34;)) {  //初始化柱状图 } else if (type.equalsIgnoreCase(&#34;pie&#34;)) {  //初始化饼状图 } else if (type.equalsIgnoreCase(&#34;line&#34;)) {  //初始化折线图 } }  public void display() { if (this.type.equalsIgnoreCase(&#34;histogram&#34;)) {  //显示柱状图 } else if (this.type.equalsIgnoreCase(&#34;pie&#34;)) {  //显示饼状图 } else if (this.type.equalsIgnoreCase(&#34;line&#34;)) {  //显示折线图 }	} } 客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。">
-<meta name="generator" content="Hugo 0.95.0" />
+class Chart { private String type; //图表类型 public Chart(Object[][] data, String type) { this.type = type; if (type.equalsIgnoreCase(&#34;histogram&#34;)) { //初始化柱状图 } else if (type.equalsIgnoreCase(&#34;pie&#34;)) { //初始化饼状图 } else if (type.equalsIgnoreCase(&#34;line&#34;)) { //初始化折线图 } } public void display() { if (this.type.equalsIgnoreCase(&#34;histogram&#34;)) { //显示柱状图 } else if (this.type.equalsIgnoreCase(&#34;pie&#34;)) { //显示饼状图 } else if (this.type.equalsIgnoreCase(&#34;line&#34;)) { //显示折线图 }	} } 客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。
+不难看出，Chart类是一个“巨大的”类，在该类的设计中存在如下几个问题：
+(1) 在Chart类中包含很多“if…else…”代码块，整个类的代码相当冗长，代码越长，阅读难度、维护难度和测试难度也越大；而且大量条件语句的存在还将影响系统的性能，程序在执行过程中需要做大量的条件判断。
+(2) Chart类的职责过重，它负责初始化和显示所有的图表对象，将各种图表对象的初始化代码和显示代码集中在一个类中实现，违反了“单一职责原则”，不利于类的重用和维护；而且将大量的对象初始化代码都写在构造函数中将导致构造函数非常庞大，对象在创建时需要进行条件判断，降低了对象创建的效率。">
+<meta name="generator" content="Hugo 0.89.2" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -105,35 +108,35 @@ if (!doNotTrack) {
 <p>Sunny软件公司欲基于Java语言开发一套图表库，该图表库可以为应用系统提供各种不同外观的图表，例如柱状图、饼状图、折线图等。Sunny软件公司图表库设计人员希望为应用系统开发人员提供一套灵活易用的图表库，而且可以较为方便地对图表库进行扩展，以便能够在将来增加一些新类型的图表。</p>
 </blockquote>
 <p>Sunny软件公司图表库设计人员提出了一个初始设计方案，将所有图表的实现代码封装在一个Chart类中，其框架代码如下所示：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Chart {
-</span></span><span style="display:flex;"><span>private String type; //图表类型
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>public Chart(Object[][] data, String type) {
-</span></span><span style="display:flex;"><span>this.type = type;
-</span></span><span style="display:flex;"><span>if (type.equalsIgnoreCase(&#34;histogram&#34;)) {
-</span></span><span style="display:flex;"><span>    //初始化柱状图
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>else if (type.equalsIgnoreCase(&#34;pie&#34;)) {
-</span></span><span style="display:flex;"><span>    //初始化饼状图
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>else if (type.equalsIgnoreCase(&#34;line&#34;)) {
-</span></span><span style="display:flex;"><span>    //初始化折线图
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>public void display() {
-</span></span><span style="display:flex;"><span>if (this.type.equalsIgnoreCase(&#34;histogram&#34;)) {
-</span></span><span style="display:flex;"><span>    //显示柱状图
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>else if (this.type.equalsIgnoreCase(&#34;pie&#34;)) {
-</span></span><span style="display:flex;"><span>    //显示饼状图
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>else if (this.type.equalsIgnoreCase(&#34;line&#34;)) {
-</span></span><span style="display:flex;"><span>    //显示折线图
-</span></span><span style="display:flex;"><span>}	
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Chart {
+private String type; //图表类型
+
+public Chart(Object[][] data, String type) {
+this.type = type;
+if (type.equalsIgnoreCase(&#34;histogram&#34;)) {
+    //初始化柱状图
+}
+else if (type.equalsIgnoreCase(&#34;pie&#34;)) {
+    //初始化饼状图
+}
+else if (type.equalsIgnoreCase(&#34;line&#34;)) {
+    //初始化折线图
+}
+}
+
+public void display() {
+if (this.type.equalsIgnoreCase(&#34;histogram&#34;)) {
+    //显示柱状图
+}
+else if (this.type.equalsIgnoreCase(&#34;pie&#34;)) {
+    //显示饼状图
+}
+else if (this.type.equalsIgnoreCase(&#34;line&#34;)) {
+    //显示折线图
+}	
+}
+}
+</code></pre></div><p>客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。</p>
 <p>不难看出，Chart类是一个“巨大的”类，在该类的设计中存在如下几个问题：</p>
 <p>(1) 在Chart类中包含很多“if…else…”代码块，整个类的代码相当冗长，代码越长，阅读难度、维护难度和测试难度也越大；而且大量条件语句的存在还将影响系统的性能，程序在执行过程中需要做大量的条件判断。</p>
 <p>(2) Chart类的职责过重，它负责初始化和显示所有的图表对象，将各种图表对象的初始化代码和显示代码集中在一个类中实现，违反了“单一职责原则”，不利于类的重用和维护；而且将大量的对象初始化代码都写在构造函数中将导致构造函数非常庞大，对象在创建时需要进行条件判断，降低了对象创建的效率。</p>
@@ -163,178 +166,179 @@ if (!doNotTrack) {
 </ul>
 <p>在简单工厂模式中，客户端通过工厂类来创建一个产品类的实例，而无须直接使用new关键字来创建对象，它是工厂模式家族中最简单的一员。</p>
 <p>在使用简单工厂模式时，首先需要对产品类进行重构，不能设计一个包罗万象的产品类，而需根据实际情况设计一个产品层次结构，将所有产品类公共的代码移至抽象产品类，并在抽象产品类中声明一些抽象方法，以供不同的具体产品类来实现，典型的抽象产品类代码如下所示：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>abstract class Product {
-</span></span><span style="display:flex;"><span>//所有产品类的公共业务方法
-</span></span><span style="display:flex;"><span>public void methodSame() {
-</span></span><span style="display:flex;"><span>//公共方法的实现
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>//声明抽象业务方法
-</span></span><span style="display:flex;"><span>public abstract void methodDiff();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>在具体产品类中实现了抽象产品类中声明的抽象业务方法，不同的具体产品类可以提供不同的实现，典型的具体产品类代码如下所示：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class ConcreteProduct extends Product {
-</span></span><span style="display:flex;"><span>//实现业务方法
-</span></span><span style="display:flex;"><span>public void methodDiff() {
-</span></span><span style="display:flex;"><span>//业务方法的实现
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>简单工厂模式的核心是工厂类，在没有工厂类之前，客户端一般会使用new关键字来直接创建产品对象，而在引入工厂类之后，客户端可以通过工厂类来创建产品，在简单工厂模式中，工厂类提供了一个静态工厂方法供客户端使用，根据所传入的参数不同可以创建不同的产品对象，典型的工厂类代码如下所示：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Factory {
-</span></span><span style="display:flex;"><span>//静态工厂方法
-</span></span><span style="display:flex;"><span>public static Product getProduct(String arg) {
-</span></span><span style="display:flex;"><span>Product product = null;
-</span></span><span style="display:flex;"><span>if (arg.equalsIgnoreCase(&#34;A&#34;)) {
-</span></span><span style="display:flex;"><span>    product = new ConcreteProductA();
-</span></span><span style="display:flex;"><span>    //初始化设置product
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>else if (arg.equalsIgnoreCase(&#34;B&#34;)) {
-</span></span><span style="display:flex;"><span>    product = new ConcreteProductB();
-</span></span><span style="display:flex;"><span>    //初始化设置product
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>return product;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>在客户端代码中，我们通过调用工厂类的工厂方法即可得到产品对象，典型代码如下所示：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Client {
-</span></span><span style="display:flex;"><span>public static void main(String args[]) {
-</span></span><span style="display:flex;"><span>Product product; 
-</span></span><span style="display:flex;"><span>product = Factory.getProduct(&#34;A&#34;); //通过工厂类创建产品对象
-</span></span><span style="display:flex;"><span>product.methodSame();
-</span></span><span style="display:flex;"><span>product.methodDiff();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="三完整解决方案">三、完整解决方案 <a href="#%e4%b8%89%e5%ae%8c%e6%95%b4%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" class="anchor">🔗</a></h3><p>为了将Chart类的职责分离，同时将Chart对象的创建和使用分离，Sunny软件公司开发人员决定使用简单工厂模式对图表库进行重构，重构后的结构如图2所示：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">abstract class Product {
+//所有产品类的公共业务方法
+public void methodSame() {
+//公共方法的实现
+}
+
+//声明抽象业务方法
+public abstract void methodDiff();
+}
+
+</code></pre></div><p>在具体产品类中实现了抽象产品类中声明的抽象业务方法，不同的具体产品类可以提供不同的实现，典型的具体产品类代码如下所示：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class ConcreteProduct extends Product {
+//实现业务方法
+public void methodDiff() {
+//业务方法的实现
+}
+}
+</code></pre></div><p>简单工厂模式的核心是工厂类，在没有工厂类之前，客户端一般会使用new关键字来直接创建产品对象，而在引入工厂类之后，客户端可以通过工厂类来创建产品，在简单工厂模式中，工厂类提供了一个静态工厂方法供客户端使用，根据所传入的参数不同可以创建不同的产品对象，典型的工厂类代码如下所示：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Factory {
+//静态工厂方法
+public static Product getProduct(String arg) {
+Product product = null;
+if (arg.equalsIgnoreCase(&#34;A&#34;)) {
+    product = new ConcreteProductA();
+    //初始化设置product
+}
+else if (arg.equalsIgnoreCase(&#34;B&#34;)) {
+    product = new ConcreteProductB();
+    //初始化设置product
+}
+return product;
+}
+}
+</code></pre></div><p>在客户端代码中，我们通过调用工厂类的工厂方法即可得到产品对象，典型代码如下所示：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Client {
+public static void main(String args[]) {
+Product product; 
+product = Factory.getProduct(&#34;A&#34;); //通过工厂类创建产品对象
+product.methodSame();
+product.methodDiff();
+}
+}
+</code></pre></div><h3 id="三完整解决方案">三、完整解决方案 <a href="#%e4%b8%89%e5%ae%8c%e6%95%b4%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" class="anchor">🔗</a></h3><p>为了将Chart类的职责分离，同时将Chart对象的创建和使用分离，Sunny软件公司开发人员决定使用简单工厂模式对图表库进行重构，重构后的结构如图2所示：</p>
 <p><p class="markdown-image">
   <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory2.jpeg" alt="img"  />
 </p></p>
 <p>在上图中，Chart接口充当抽象产品类，其子类HistogramChart、PieChart和LineChart充当具体产品类，ChartFactory充当工厂类。完整代码如下所示：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//抽象图表接口：抽象产品类
-</span></span><span style="display:flex;"><span>interface Chart {
-</span></span><span style="display:flex;"><span>public void display();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>//柱状图类：具体产品类
-</span></span><span style="display:flex;"><span>class HistogramChart implements Chart {
-</span></span><span style="display:flex;"><span>public HistogramChart() {
-</span></span><span style="display:flex;"><span>System.out.println(&#34;创建柱状图！&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>public void display() {
-</span></span><span style="display:flex;"><span>System.out.println(&#34;显示柱状图！&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>//饼状图类：具体产品类
-</span></span><span style="display:flex;"><span>class PieChart implements Chart {
-</span></span><span style="display:flex;"><span>public PieChart() {
-</span></span><span style="display:flex;"><span>System.out.println(&#34;创建饼状图！&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>public void display() {
-</span></span><span style="display:flex;"><span>System.out.println(&#34;显示饼状图！&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>//折线图类：具体产品类
-</span></span><span style="display:flex;"><span>class LineChart implements Chart {
-</span></span><span style="display:flex;"><span>public LineChart() {
-</span></span><span style="display:flex;"><span>System.out.println(&#34;创建折线图！&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>public void display() {
-</span></span><span style="display:flex;"><span>System.out.println(&#34;显示折线图！&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>//图表工厂类：工厂类
-</span></span><span style="display:flex;"><span>class ChartFactory {
-</span></span><span style="display:flex;"><span>//静态工厂方法
-</span></span><span style="display:flex;"><span>public static Chart getChart(String type) {
-</span></span><span style="display:flex;"><span>Chart chart = null;
-</span></span><span style="display:flex;"><span>if (type.equalsIgnoreCase(&#34;histogram&#34;)) {
-</span></span><span style="display:flex;"><span>    chart = new HistogramChart();
-</span></span><span style="display:flex;"><span>    System.out.println(&#34;初始化设置柱状图！&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>else if (type.equalsIgnoreCase(&#34;pie&#34;)) {
-</span></span><span style="display:flex;"><span>    chart = new PieChart();
-</span></span><span style="display:flex;"><span>    System.out.println(&#34;初始化设置饼状图！&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>else if (type.equalsIgnoreCase(&#34;line&#34;)) {
-</span></span><span style="display:flex;"><span>    chart = new LineChart();
-</span></span><span style="display:flex;"><span>    System.out.println(&#34;初始化设置折线图！&#34;);			
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>return chart;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>编写如下客户端测试代码：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Client {
-</span></span><span style="display:flex;"><span>public static void main(String args[]) {
-</span></span><span style="display:flex;"><span>Chart chart;
-</span></span><span style="display:flex;"><span>chart = ChartFactory.getChart(&#34;histogram&#34;); //通过静态工厂方法创建产品
-</span></span><span style="display:flex;"><span>chart.display();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>编译并运行程序，输出结果如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>创建柱状图！
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>初始化设置柱状图！
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>显示柱状图！
-</span></span></code></pre></div><p>在客户端测试类中，我们使用工厂类的静态工厂方法创建产品对象，如果需要更换产品，只需修改静态工厂方法中的参数即可，例如将柱状图改为饼状图，只需将代码：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chart = ChartFactory.getChart(&#34;histogram&#34;);
-</span></span></code></pre></div><p>改为：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chart = ChartFactory.getChart(&#34;pie&#34;);
-</span></span></code></pre></div><p>编译并运行程序，输出结果如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>创建饼状图！
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>初始化设置饼状图！
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>显示饼状图！
-</span></span></code></pre></div><h3 id="四方案的改进">四、方案的改进 <a href="#%e5%9b%9b%e6%96%b9%e6%a1%88%e7%9a%84%e6%94%b9%e8%bf%9b" class="anchor">🔗</a></h3><p>Sunny软件公司开发人员发现在创建具体Chart对象时，每更换一个Chart对象都需要修改客户端代码中静态工厂方法的参数，客户端代码将要重新编译，这对于客户端而言，违反了“开闭原则”，有没有一种方法能够在不修改客户端代码的前提下更换具体产品对象呢？答案是肯定的，下面将介绍一种常用的实现方式。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">//抽象图表接口：抽象产品类
+interface Chart {
+public void display();
+}
+
+//柱状图类：具体产品类
+class HistogramChart implements Chart {
+public HistogramChart() {
+System.out.println(&#34;创建柱状图！&#34;);
+}
+
+public void display() {
+System.out.println(&#34;显示柱状图！&#34;);
+}
+}
+
+//饼状图类：具体产品类
+class PieChart implements Chart {
+public PieChart() {
+System.out.println(&#34;创建饼状图！&#34;);
+}
+
+public void display() {
+System.out.println(&#34;显示饼状图！&#34;);
+}
+}
+
+//折线图类：具体产品类
+class LineChart implements Chart {
+public LineChart() {
+System.out.println(&#34;创建折线图！&#34;);
+}
+
+public void display() {
+System.out.println(&#34;显示折线图！&#34;);
+}
+}
+
+//图表工厂类：工厂类
+class ChartFactory {
+//静态工厂方法
+public static Chart getChart(String type) {
+Chart chart = null;
+if (type.equalsIgnoreCase(&#34;histogram&#34;)) {
+    chart = new HistogramChart();
+    System.out.println(&#34;初始化设置柱状图！&#34;);
+}
+else if (type.equalsIgnoreCase(&#34;pie&#34;)) {
+    chart = new PieChart();
+    System.out.println(&#34;初始化设置饼状图！&#34;);
+}
+else if (type.equalsIgnoreCase(&#34;line&#34;)) {
+    chart = new LineChart();
+    System.out.println(&#34;初始化设置折线图！&#34;);			
+}
+return chart;
+}
+}
+</code></pre></div><p>编写如下客户端测试代码：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Client {
+public static void main(String args[]) {
+Chart chart;
+chart = ChartFactory.getChart(&#34;histogram&#34;); //通过静态工厂方法创建产品
+chart.display();
+}
+}
+</code></pre></div><p>编译并运行程序，输出结果如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">创建柱状图！
+
+初始化设置柱状图！
+
+显示柱状图！
+</code></pre></div><p>在客户端测试类中，我们使用工厂类的静态工厂方法创建产品对象，如果需要更换产品，只需修改静态工厂方法中的参数即可，例如将柱状图改为饼状图，只需将代码：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">chart = ChartFactory.getChart(&#34;histogram&#34;);
+</code></pre></div><p>改为：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">chart = ChartFactory.getChart(&#34;pie&#34;);
+</code></pre></div><p>编译并运行程序，输出结果如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">创建饼状图！
+
+初始化设置饼状图！
+
+显示饼状图！
+</code></pre></div><h3 id="四方案的改进">四、方案的改进 <a href="#%e5%9b%9b%e6%96%b9%e6%a1%88%e7%9a%84%e6%94%b9%e8%bf%9b" class="anchor">🔗</a></h3><p>Sunny软件公司开发人员发现在创建具体Chart对象时，每更换一个Chart对象都需要修改客户端代码中静态工厂方法的参数，客户端代码将要重新编译，这对于客户端而言，违反了“开闭原则”，有没有一种方法能够在不修改客户端代码的前提下更换具体产品对象呢？答案是肯定的，下面将介绍一种常用的实现方式。</p>
 <p>我们可以将静态工厂方法的参数存储在XML或properties格式的配置文件中，如下config.xml所示：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;?xml version=&#34;1.0&#34;?&gt;
-</span></span><span style="display:flex;"><span>&lt;config&gt;
-</span></span><span style="display:flex;"><span>&lt;chartType&gt;histogram&lt;/chartType&gt;
-</span></span><span style="display:flex;"><span>&lt;/config&gt;
-</span></span></code></pre></div><p>再通过一个工具类XMLUtil来读取配置文件中的字符串参数，XMLUtil类的代码如下所示：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>import javax.xml.parsers.*;
-</span></span><span style="display:flex;"><span>import org.w3c.dom.*;
-</span></span><span style="display:flex;"><span>import org.xml.sax.SAXException;
-</span></span><span style="display:flex;"><span>import java.io.*;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>public class XMLUtil {
-</span></span><span style="display:flex;"><span>//该方法用于从XML配置文件中提取图表类型，并返回类型名
-</span></span><span style="display:flex;"><span>public static String getChartType() {
-</span></span><span style="display:flex;"><span>try {
-</span></span><span style="display:flex;"><span>    //创建文档对象
-</span></span><span style="display:flex;"><span>    DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
-</span></span><span style="display:flex;"><span>    DocumentBuilder builder = dFactory.newDocumentBuilder();
-</span></span><span style="display:flex;"><span>    Document doc;							
-</span></span><span style="display:flex;"><span>    doc = builder.parse(new File(&#34;config.xml&#34;)); 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    //获取包含图表类型的文本节点
-</span></span><span style="display:flex;"><span>    NodeList nl = doc.getElementsByTagName(&#34;chartType&#34;);
-</span></span><span style="display:flex;"><span>    Node classNode = nl.item(0).getFirstChild();
-</span></span><span style="display:flex;"><span>    String chartType = classNode.getNodeValue().trim();
-</span></span><span style="display:flex;"><span>    return chartType;
-</span></span><span style="display:flex;"><span>}   
-</span></span><span style="display:flex;"><span>catch(Exception e) {
-</span></span><span style="display:flex;"><span>    e.printStackTrace();
-</span></span><span style="display:flex;"><span>    return null;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>在引入了配置文件和工具类XMLUtil之后，客户端代码修改如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Client {
-</span></span><span style="display:flex;"><span>public static void main(String args[]) {
-</span></span><span style="display:flex;"><span>Chart chart;
-</span></span><span style="display:flex;"><span>String type = XMLUtil.getChartType(); //读取配置文件中的参数
-</span></span><span style="display:flex;"><span>chart = ChartFactory.getChart(type); //创建产品对象
-</span></span><span style="display:flex;"><span>chart.display();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>不难发现，在上述客户端代码中不包含任何与具体图表对象相关的信息，如果需要更换具体图表对象，只需修改配置文件config.xml，无须修改任何源代码，符合“开闭原则”。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;?xml version=&#34;1.0&#34;?&gt;
+&lt;config&gt;
+&lt;chartType&gt;histogram&lt;/chartType&gt;
+&lt;/config&gt;
+</code></pre></div><p>再通过一个工具类XMLUtil来读取配置文件中的字符串参数，XMLUtil类的代码如下所示：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import javax.xml.parsers.*;
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+import java.io.*;
+
+public class XMLUtil {
+//该方法用于从XML配置文件中提取图表类型，并返回类型名
+public static String getChartType() {
+try {
+    //创建文档对象
+    DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = dFactory.newDocumentBuilder();
+    Document doc;							
+    doc = builder.parse(new File(&#34;config.xml&#34;)); 
+
+    //获取包含图表类型的文本节点
+    NodeList nl = doc.getElementsByTagName(&#34;chartType&#34;);
+    Node classNode = nl.item(0).getFirstChild();
+    String chartType = classNode.getNodeValue().trim();
+    return chartType;
+}   
+catch(Exception e) {
+    e.printStackTrace();
+    return null;
+}
+}
+}
+</code></pre></div><p>在引入了配置文件和工具类XMLUtil之后，客户端代码修改如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Client {
+public static void main(String args[]) {
+Chart chart;
+String type = XMLUtil.getChartType(); //读取配置文件中的参数
+chart = ChartFactory.getChart(type); //创建产品对象
+chart.display();
+}
+}
+</code></pre></div><p>不难发现，在上述客户端代码中不包含任何与具体图表对象相关的信息，如果需要更换具体图表对象，只需修改配置文件config.xml，无须修改任何源代码，符合“开闭原则”。</p>
 <h3 id="五简单工厂模式的简化">五、简单工厂模式的简化 <a href="#%e4%ba%94%e7%ae%80%e5%8d%95%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f%e7%9a%84%e7%ae%80%e5%8c%96" class="anchor">🔗</a></h3><p>有时候，为了简化简单工厂模式，我们可以将抽象产品类和工厂类合并，将静态工厂方法移至抽象产品类中，如图3所示：</p>
 <p><p class="markdown-image">
   <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-12-28/factory3.jpeg" alt="img"  />

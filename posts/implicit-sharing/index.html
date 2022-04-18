@@ -23,7 +23,7 @@
 隐式共享类可以控制其内部数据。在任何修改其数据的成员函数中，它会在修改数据之前自动分离。但是，请注意容器迭代器的特殊情况；请参阅隐式共享迭代器问题。
  警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。
  示例 🔗QPixmap p1, p2; p1.load(&#34;image.bmp&#34;); p2 = p1; // p1 and p2 share data  QPainter paint; paint.begin(&amp;p2); // cuts p2 loose from p1 paint.drawText(0,50, &#34;Hi&#34;); paint.end(); 在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。">
-<meta name="generator" content="Hugo 0.95.0" />
+<meta name="generator" content="Hugo 0.89.2" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -129,15 +129,15 @@ if (!doNotTrack) {
 <blockquote>
 <p>警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。</p>
 </blockquote>
-<h3 id="示例">示例 <a href="#%e7%a4%ba%e4%be%8b" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>QPixmap p1, p2;
-</span></span><span style="display:flex;"><span>p1.load(<span style="color:#b44">&#34;image.bmp&#34;</span>);
-</span></span><span style="display:flex;"><span>p2 <span style="color:#666">=</span> p1;                        <span style="color:#080;font-style:italic">// p1 and p2 share data
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>QPainter paint;
-</span></span><span style="display:flex;"><span>paint.begin(<span style="color:#666">&amp;</span>p2);               <span style="color:#080;font-style:italic">// cuts p2 loose from p1
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>paint.drawText(<span style="color:#666">0</span>,<span style="color:#666">50</span>, <span style="color:#b44">&#34;Hi&#34;</span>);
-</span></span><span style="display:flex;"><span>paint.end();
-</span></span></code></pre></div><p>在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</p>
+<h3 id="示例">示例 <a href="#%e7%a4%ba%e4%be%8b" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">QPixmap p1, p2;
+p1.load(<span style="color:#b44">&#34;image.bmp&#34;</span>);
+p2 <span style="color:#666">=</span> p1;                        <span style="color:#080;font-style:italic">// p1 and p2 share data
+</span><span style="color:#080;font-style:italic"></span>
+QPainter paint;
+paint.begin(<span style="color:#666">&amp;</span>p2);               <span style="color:#080;font-style:italic">// cuts p2 loose from p1
+</span><span style="color:#080;font-style:italic"></span>paint.drawText(<span style="color:#666">0</span>,<span style="color:#666">50</span>, <span style="color:#b44">&#34;Hi&#34;</span>);
+paint.end();
+</code></pre></div><p>在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</p>
 <h3 id="所有隐式共享的类">所有隐式共享的类 <a href="#%e6%89%80%e6%9c%89%e9%9a%90%e5%bc%8f%e5%85%b1%e4%ba%ab%e7%9a%84%e7%b1%bb" class="anchor">🔗</a></h3><p>参见 <a href="https://doc.qt.io/qt-6/implicit-sharing.html" target="_blank" rel="noopener">Qt 文档</a>。</p>
 
     </div>

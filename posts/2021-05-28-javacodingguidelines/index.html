@@ -22,7 +22,7 @@
 9.【推荐】如果模块、接口、类、方法使用了设计模式，在命名时需体系那具体模式。
 10.【推荐】接口类的方法和属性不要加任何修饰符号（public 也不要加），保持代码整洁，并加上有效的 Javadoc 注释。
 11.【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的一定时接口，内部的实现类用 Impl 的后缀与接口区别。">
-<meta name="generator" content="Hugo 0.95.0" />
+<meta name="generator" content="Hugo 0.89.2" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -145,26 +145,25 @@ B）领域模型命名规约<br>
 反例：String key = &ldquo;ID#taobao_&rdquo; + tradeId;</p>
 <p>14.【强制】代码格式，具体见下面正例。
 正例：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    public static void main(String[] args) {
-</span></span><span style="display:flex;"><span>        // 缩进4个空格，注释内空1格
-</span></span><span style="display:flex;"><span>        String say = &#34;hello&#34;;
-</span></span><span style="display:flex;"><span>        // 运算符左右必须有一个空格
-</span></span><span style="display:flex;"><span>        int flag = 0;
-</span></span><span style="display:flex;"><span>        // 关键词 if 与括号之间必须有一个空格
-</span></span><span style="display:flex;"><span>        if (flag == 0) {
-</span></span><span style="display:flex;"><span>            System.out.println(say);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        // 左大括号前加空格且不换行，左大括号后换行。
-</span></span><span style="display:flex;"><span>        if (flag == 0) {
-</span></span><span style="display:flex;"><span>            System.out.println(&#34;world&#34;);
-</span></span><span style="display:flex;"><span>        //  右大括号前换行，右大括号后有 else，不用换行、
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        else {
-</span></span><span style="display:flex;"><span>            System.out.printLn(&#34;ok&#34;);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    public static void main(String[] args) {
+        // 缩进4个空格，注释内空1格
+        String say = &#34;hello&#34;;
+        // 运算符左右必须有一个空格
+        int flag = 0;
+        // 关键词 if 与括号之间必须有一个空格
+        if (flag == 0) {
+            System.out.println(say);
+        }
+
+        // 左大括号前加空格且不换行，左大括号后换行。
+        if (flag == 0) {
+            System.out.println(&#34;world&#34;);
+        //  右大括号前换行，右大括号后有 else，不用换行、
+        }
+        else {
+            System.out.printLn(&#34;ok&#34;);
+        }
+    }</code></pre></div>
     </div>
 
     

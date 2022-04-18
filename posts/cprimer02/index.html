@@ -12,7 +12,7 @@ int m; int &amp;n = m; n 相当于 m 的别名（绰号），对 n 的任何操
 引用的规则：
  引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。 不能有NULL引用，引用必须与合法的存储单元关联（指针则可以是NULL）。 一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。  以下示例程序中，k 被初始化为 i 的引用。语句 k = j 并不能将 k 修改成为 j 的引用，只是把 k 的值改变成为6。由于 k 是 i 的引用，所以 i 的值也变成了6。
 int i = 5; int j = 6; int &amp;k = i; k = j; // k和i的值都变成了6;  引用的主要功能是传递函数的参数和返回值。">
-<meta name="generator" content="Hugo 0.95.0" />
+<meta name="generator" content="Hugo 0.89.2" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">

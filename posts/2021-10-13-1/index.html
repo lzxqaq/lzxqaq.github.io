@@ -16,7 +16,7 @@
 对于你自己的类，你可以使用 QTest::toString () 来格式化输出到测试日志中的值。具体可参考 Qt 文档;
 五、可执行文件 🔗如果需要将测试用例成为独立的可执行文件，需要添加以下两行：
 QTEST_MAIN(YourClassName) #include &#34;yourfilename.moc&#34; ">
-<meta name="generator" content="Hugo 0.95.0" />
+<meta name="generator" content="Hugo 0.89.2" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -113,9 +113,9 @@ if (!doNotTrack) {
 <p>如果比较失败，QCOMPARE() 会尝试输出值的内容，因此可以从测试日志中看到比较失败的原因。</p>
 <p>对于你自己的类，你可以使用 <code>QTest::toString ()</code> 来格式化输出到测试日志中的值。具体可参考 <a href="https://doc.qt.io/qt-6/qtest.html#QCOMPARE" target="_blank" rel="noopener">Qt 文档</a>;</p>
 <h3 id="五可执行文件">五、可执行文件 <a href="#%e4%ba%94%e5%8f%af%e6%89%a7%e8%a1%8c%e6%96%87%e4%bb%b6" class="anchor">🔗</a></h3><p>如果需要将测试用例成为独立的可执行文件，需要添加以下两行：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>QTEST_MAIN(YourClassName)
-</span></span><span style="display:flex;"><span>#include &#34;yourfilename.moc&#34;
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">QTEST_MAIN(YourClassName)
+#include &#34;yourfilename.moc&#34;
+</code></pre></div>
     </div>
 
     

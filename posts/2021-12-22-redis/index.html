@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="Redis 🔗 Redis  一、概述 二、数据类型  STRING LIST SET HASH ZSET   三、数据结构  字典 跳跃表   四、使用场景  计数器 缓存 查找表 消息队列 会话缓存 分布式锁实现 其它   五、Redis 与 Memcached  数据类型 数据持久化 分布式 内存管理机制   六、键的过期时间 七、数据淘汰策略 八、持久化  RDB 持久化 AOF 持久化   九、事务 十、事件  文件事件 时间事件 事件的调度与执行   十一、复制  连接过程 主从链   十二、Sentinel 十三、分片 十四、一个简单的论坛系统分析  文章信息 点赞功能 对文章进行排序   参考资料    一、概述 🔗Redis 是速度非常快的非关系型（NoSQL）内存键值数据库，可以存储键和五种不同类型的值之间的映射。">
-<meta name="generator" content="Hugo 0.95.0" />
+<meta name="generator" content="Hugo 0.89.2" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -213,200 +213,200 @@ if (!doNotTrack) {
 <p><a href="https://redislabs.com/ebook/part-1-getting-started/chapter-1-getting-to-know-redis/1-2-what-redis-data-structures-look-like/" target="_blank" rel="noopener">What Redis data structures look like</a></p>
 </blockquote>
 <h3 id="string">STRING <a href="#string" class="anchor">🔗</a></h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/6019b2db-bc3e-4408-b6d8-96025f4481d6.png" width="400"/> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&gt; set hello world
-</span></span><span style="display:flex;"><span>OK
-</span></span><span style="display:flex;"><span>&gt; get hello
-</span></span><span style="display:flex;"><span>&#34;world&#34;
-</span></span><span style="display:flex;"><span>&gt; del hello
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; get hello
-</span></span><span style="display:flex;"><span>(nil)
-</span></span></code></pre></div><h3 id="list">LIST <a href="#list" class="anchor">🔗</a></h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/fb327611-7e2b-4f2f-9f5b-38592d408f07.png" width="400"/> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&gt; rpush list-key item
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; rpush list-key item2
-</span></span><span style="display:flex;"><span>(integer) 2
-</span></span><span style="display:flex;"><span>&gt; rpush list-key item
-</span></span><span style="display:flex;"><span>(integer) 3
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; lrange list-key 0 -1
-</span></span><span style="display:flex;"><span>1) &#34;item&#34;
-</span></span><span style="display:flex;"><span>2) &#34;item2&#34;
-</span></span><span style="display:flex;"><span>3) &#34;item&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; lindex list-key 1
-</span></span><span style="display:flex;"><span>&#34;item2&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; lpop list-key
-</span></span><span style="display:flex;"><span>&#34;item&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; lrange list-key 0 -1
-</span></span><span style="display:flex;"><span>1) &#34;item2&#34;
-</span></span><span style="display:flex;"><span>2) &#34;item&#34;
-</span></span></code></pre></div><h3 id="set">SET <a href="#set" class="anchor">🔗</a></h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/cd5fbcff-3f35-43a6-8ffa-082a93ce0f0e.png" width="400"/> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&gt; sadd set-key item
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; sadd set-key item2
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; sadd set-key item3
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; sadd set-key item
-</span></span><span style="display:flex;"><span>(integer) 0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; smembers set-key
-</span></span><span style="display:flex;"><span>1) &#34;item&#34;
-</span></span><span style="display:flex;"><span>2) &#34;item2&#34;
-</span></span><span style="display:flex;"><span>3) &#34;item3&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; sismember set-key item4
-</span></span><span style="display:flex;"><span>(integer) 0
-</span></span><span style="display:flex;"><span>&gt; sismember set-key item
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; srem set-key item2
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; srem set-key item2
-</span></span><span style="display:flex;"><span>(integer) 0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; smembers set-key
-</span></span><span style="display:flex;"><span>1) &#34;item&#34;
-</span></span><span style="display:flex;"><span>2) &#34;item3&#34;
-</span></span></code></pre></div><h3 id="hash">HASH <a href="#hash" class="anchor">🔗</a></h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/7bd202a7-93d4-4f3a-a878-af68ae25539a.png" width="400"/> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&gt; hset hash-key sub-key1 value1
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; hset hash-key sub-key2 value2
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; hset hash-key sub-key1 value1
-</span></span><span style="display:flex;"><span>(integer) 0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; hgetall hash-key
-</span></span><span style="display:flex;"><span>1) &#34;sub-key1&#34;
-</span></span><span style="display:flex;"><span>2) &#34;value1&#34;
-</span></span><span style="display:flex;"><span>3) &#34;sub-key2&#34;
-</span></span><span style="display:flex;"><span>4) &#34;value2&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; hdel hash-key sub-key2
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; hdel hash-key sub-key2
-</span></span><span style="display:flex;"><span>(integer) 0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; hget hash-key sub-key1
-</span></span><span style="display:flex;"><span>&#34;value1&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; hgetall hash-key
-</span></span><span style="display:flex;"><span>1) &#34;sub-key1&#34;
-</span></span><span style="display:flex;"><span>2) &#34;value1&#34;
-</span></span></code></pre></div><h3 id="zset">ZSET <a href="#zset" class="anchor">🔗</a></h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/1202b2d6-9469-4251-bd47-ca6034fb6116.png" width="400"/> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&gt; zadd zset-key 728 member1
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; zadd zset-key 982 member0
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; zadd zset-key 982 member0
-</span></span><span style="display:flex;"><span>(integer) 0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; zrange zset-key 0 -1 withscores
-</span></span><span style="display:flex;"><span>1) &#34;member1&#34;
-</span></span><span style="display:flex;"><span>2) &#34;728&#34;
-</span></span><span style="display:flex;"><span>3) &#34;member0&#34;
-</span></span><span style="display:flex;"><span>4) &#34;982&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; zrangebyscore zset-key 0 800 withscores
-</span></span><span style="display:flex;"><span>1) &#34;member1&#34;
-</span></span><span style="display:flex;"><span>2) &#34;728&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; zrem zset-key member1
-</span></span><span style="display:flex;"><span>(integer) 1
-</span></span><span style="display:flex;"><span>&gt; zrem zset-key member1
-</span></span><span style="display:flex;"><span>(integer) 0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; zrange zset-key 0 -1 withscores
-</span></span><span style="display:flex;"><span>1) &#34;member0&#34;
-</span></span><span style="display:flex;"><span>2) &#34;982&#34;
-</span></span></code></pre></div><h2 id="三数据结构">三、数据结构 <a href="#%e4%b8%89%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h2><h3 id="字典">字典 <a href="#%e5%ad%97%e5%85%b8" class="anchor">🔗</a></h3><p>dictht 是一个散列表结构，使用拉链法解决哈希冲突。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* This is our hash table structure. Every dictionary has two of this as we
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * implement incremental rehashing, for the old to the new table. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> dictht {
-</span></span><span style="display:flex;"><span>    dictEntry <span style="color:#666">**</span>table;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> size;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> sizemask;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> used;
-</span></span><span style="display:flex;"><span>} dictht;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> dictEntry {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>key;
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">union</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>val;
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">uint64_t</span> u64;
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int64_t</span> s64;
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">double</span> d;
-</span></span><span style="display:flex;"><span>    } v;
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> dictEntry <span style="color:#666">*</span>next;
-</span></span><span style="display:flex;"><span>} dictEntry;
-</span></span></code></pre></div><p>Redis 的字典 dict 中包含两个哈希表 dictht，这是为了方便进行 rehash 操作。在扩容时，将其中一个 dictht 上的键值对 rehash 到另一个 dictht 上面，完成之后释放空间并交换两个 dictht 的角色。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> dict {
-</span></span><span style="display:flex;"><span>    dictType <span style="color:#666">*</span>type;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>privdata;
-</span></span><span style="display:flex;"><span>    dictht ht[<span style="color:#666">2</span>];
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">long</span> rehashidx; <span style="color:#080;font-style:italic">/* rehashing not in progress if rehashidx == -1 */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> iterators; <span style="color:#080;font-style:italic">/* number of iterators currently running */</span>
-</span></span><span style="display:flex;"><span>} dict;
-</span></span></code></pre></div><p>rehash 操作不是一次性完成，而是采用渐进方式，这是为了避免一次性执行过多的 rehash 操作给服务器带来过大的负担。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; set hello world
+OK
+&gt; get hello
+&#34;world&#34;
+&gt; del hello
+(integer) 1
+&gt; get hello
+(nil)
+</code></pre></div><h3 id="list">LIST <a href="#list" class="anchor">🔗</a></h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/fb327611-7e2b-4f2f-9f5b-38592d408f07.png" width="400"/> </div><br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; rpush list-key item
+(integer) 1
+&gt; rpush list-key item2
+(integer) 2
+&gt; rpush list-key item
+(integer) 3
+
+&gt; lrange list-key 0 -1
+1) &#34;item&#34;
+2) &#34;item2&#34;
+3) &#34;item&#34;
+
+&gt; lindex list-key 1
+&#34;item2&#34;
+
+&gt; lpop list-key
+&#34;item&#34;
+
+&gt; lrange list-key 0 -1
+1) &#34;item2&#34;
+2) &#34;item&#34;
+</code></pre></div><h3 id="set">SET <a href="#set" class="anchor">🔗</a></h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/cd5fbcff-3f35-43a6-8ffa-082a93ce0f0e.png" width="400"/> </div><br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; sadd set-key item
+(integer) 1
+&gt; sadd set-key item2
+(integer) 1
+&gt; sadd set-key item3
+(integer) 1
+&gt; sadd set-key item
+(integer) 0
+
+&gt; smembers set-key
+1) &#34;item&#34;
+2) &#34;item2&#34;
+3) &#34;item3&#34;
+
+&gt; sismember set-key item4
+(integer) 0
+&gt; sismember set-key item
+(integer) 1
+
+&gt; srem set-key item2
+(integer) 1
+&gt; srem set-key item2
+(integer) 0
+
+&gt; smembers set-key
+1) &#34;item&#34;
+2) &#34;item3&#34;
+</code></pre></div><h3 id="hash">HASH <a href="#hash" class="anchor">🔗</a></h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/7bd202a7-93d4-4f3a-a878-af68ae25539a.png" width="400"/> </div><br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; hset hash-key sub-key1 value1
+(integer) 1
+&gt; hset hash-key sub-key2 value2
+(integer) 1
+&gt; hset hash-key sub-key1 value1
+(integer) 0
+
+&gt; hgetall hash-key
+1) &#34;sub-key1&#34;
+2) &#34;value1&#34;
+3) &#34;sub-key2&#34;
+4) &#34;value2&#34;
+
+&gt; hdel hash-key sub-key2
+(integer) 1
+&gt; hdel hash-key sub-key2
+(integer) 0
+
+&gt; hget hash-key sub-key1
+&#34;value1&#34;
+
+&gt; hgetall hash-key
+1) &#34;sub-key1&#34;
+2) &#34;value1&#34;
+</code></pre></div><h3 id="zset">ZSET <a href="#zset" class="anchor">🔗</a></h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/1202b2d6-9469-4251-bd47-ca6034fb6116.png" width="400"/> </div><br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&gt; zadd zset-key 728 member1
+(integer) 1
+&gt; zadd zset-key 982 member0
+(integer) 1
+&gt; zadd zset-key 982 member0
+(integer) 0
+
+&gt; zrange zset-key 0 -1 withscores
+1) &#34;member1&#34;
+2) &#34;728&#34;
+3) &#34;member0&#34;
+4) &#34;982&#34;
+
+&gt; zrangebyscore zset-key 0 800 withscores
+1) &#34;member1&#34;
+2) &#34;728&#34;
+
+&gt; zrem zset-key member1
+(integer) 1
+&gt; zrem zset-key member1
+(integer) 0
+
+&gt; zrange zset-key 0 -1 withscores
+1) &#34;member0&#34;
+2) &#34;982&#34;
+</code></pre></div><h2 id="三数据结构">三、数据结构 <a href="#%e4%b8%89%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h2><h3 id="字典">字典 <a href="#%e5%ad%97%e5%85%b8" class="anchor">🔗</a></h3><p>dictht 是一个散列表结构，使用拉链法解决哈希冲突。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#080;font-style:italic">/* This is our hash table structure. Every dictionary has two of this as we
+</span><span style="color:#080;font-style:italic"> * implement incremental rehashing, for the old to the new table. */</span>
+<span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> dictht {
+    dictEntry <span style="color:#666">**</span>table;
+    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> size;
+    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> sizemask;
+    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> used;
+} dictht;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> dictEntry {
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>key;
+    <span style="color:#a2f;font-weight:bold">union</span> {
+        <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>val;
+        <span style="color:#0b0;font-weight:bold">uint64_t</span> u64;
+        <span style="color:#0b0;font-weight:bold">int64_t</span> s64;
+        <span style="color:#0b0;font-weight:bold">double</span> d;
+    } v;
+    <span style="color:#a2f;font-weight:bold">struct</span> dictEntry <span style="color:#666">*</span>next;
+} dictEntry;
+</code></pre></div><p>Redis 的字典 dict 中包含两个哈希表 dictht，这是为了方便进行 rehash 操作。在扩容时，将其中一个 dictht 上的键值对 rehash 到另一个 dictht 上面，完成之后释放空间并交换两个 dictht 的角色。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> dict {
+    dictType <span style="color:#666">*</span>type;
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>privdata;
+    dictht ht[<span style="color:#666">2</span>];
+    <span style="color:#0b0;font-weight:bold">long</span> rehashidx; <span style="color:#080;font-style:italic">/* rehashing not in progress if rehashidx == -1 */</span>
+    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> iterators; <span style="color:#080;font-style:italic">/* number of iterators currently running */</span>
+} dict;
+</code></pre></div><p>rehash 操作不是一次性完成，而是采用渐进方式，这是为了避免一次性执行过多的 rehash 操作给服务器带来过大的负担。</p>
 <p>渐进式 rehash 通过记录 dict 的 rehashidx 完成，它从 0 开始，然后每执行一次 rehash 都会递增。例如在一次 rehash 中，要把 dict[0] rehash 到 dict[1]，这一次会把 dict[0] 上 table[rehashidx] 的键值对 rehash 到 dict[1] 上，dict[0] 的 table[rehashidx] 指向 null，并令 rehashidx++。</p>
 <p>在 rehash 期间，每次对字典执行添加、删除、查找或者更新操作时，都会执行一次渐进式 rehash。</p>
 <p>采用渐进式 rehash 会导致字典中的数据分散在两个 dictht 上，因此对字典的查找操作也需要到对应的 dictht 去执行。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* Performs N steps of incremental rehashing. Returns 1 if there are still
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * keys to move from the old to the new hash table, otherwise 0 is returned.
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> *
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * Note that a rehashing step consists in moving a bucket (that may have more
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * than one key as we use chaining) from the old to the new hash table, however
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * since part of the hash table may be composed of empty spaces, it is not
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * guaranteed that this function will rehash even a single bucket, since it
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * will visit at max N*10 empty buckets in total, otherwise the amount of
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * work it does would be unbound and the function may block for a long time. */</span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">dictRehash</span>(dict <span style="color:#666">*</span>d, <span style="color:#0b0;font-weight:bold">int</span> n) {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> empty_visits <span style="color:#666">=</span> n <span style="color:#666">*</span> <span style="color:#666">10</span>; <span style="color:#080;font-style:italic">/* Max number of empty buckets to visit. */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span>dictIsRehashing(d)) <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span> (n<span style="color:#666">--</span> <span style="color:#666">&amp;&amp;</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].used <span style="color:#666">!=</span> <span style="color:#666">0</span>) {
-</span></span><span style="display:flex;"><span>        dictEntry <span style="color:#666">*</span>de, <span style="color:#666">*</span>nextde;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">/* Note that rehashidx can&#39;t overflow as we are sure there are more
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">         * elements because ht[0].used != 0 */</span>
-</span></span><span style="display:flex;"><span>        assert(d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].size <span style="color:#666">&gt;</span> (<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span>) d<span style="color:#666">-&gt;</span>rehashidx);
-</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">while</span> (d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].table[d<span style="color:#666">-&gt;</span>rehashidx] <span style="color:#666">==</span> <span style="color:#a2f">NULL</span>) {
-</span></span><span style="display:flex;"><span>            d<span style="color:#666">-&gt;</span>rehashidx<span style="color:#666">++</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">--</span>empty_visits <span style="color:#666">==</span> <span style="color:#666">0</span>) <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">1</span>;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        de <span style="color:#666">=</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].table[d<span style="color:#666">-&gt;</span>rehashidx];
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic">/* Move all the keys in this bucket from the old to the new hash HT */</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">while</span> (de) {
-</span></span><span style="display:flex;"><span>            <span style="color:#0b0;font-weight:bold">uint64_t</span> h;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            nextde <span style="color:#666">=</span> de<span style="color:#666">-&gt;</span>next;
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-style:italic">/* Get the index in the new hash table */</span>
-</span></span><span style="display:flex;"><span>            h <span style="color:#666">=</span> dictHashKey(d, de<span style="color:#666">-&gt;</span>key) <span style="color:#666">&amp;</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>].sizemask;
-</span></span><span style="display:flex;"><span>            de<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>].table[h];
-</span></span><span style="display:flex;"><span>            d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>].table[h] <span style="color:#666">=</span> de;
-</span></span><span style="display:flex;"><span>            d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].used<span style="color:#666">--</span>;
-</span></span><span style="display:flex;"><span>            d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>].used<span style="color:#666">++</span>;
-</span></span><span style="display:flex;"><span>            de <span style="color:#666">=</span> nextde;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].table[d<span style="color:#666">-&gt;</span>rehashidx] <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
-</span></span><span style="display:flex;"><span>        d<span style="color:#666">-&gt;</span>rehashidx<span style="color:#666">++</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">/* Check if we already rehashed the whole table... */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> (d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].used <span style="color:#666">==</span> <span style="color:#666">0</span>) {
-</span></span><span style="display:flex;"><span>        zfree(d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].table);
-</span></span><span style="display:flex;"><span>        d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>] <span style="color:#666">=</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>];
-</span></span><span style="display:flex;"><span>        _dictReset(<span style="color:#666">&amp;</span>d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>]);
-</span></span><span style="display:flex;"><span>        d<span style="color:#666">-&gt;</span>rehashidx <span style="color:#666">=</span> <span style="color:#666">-</span><span style="color:#666">1</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">/* More to rehash... */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">1</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="跳跃表">跳跃表 <a href="#%e8%b7%b3%e8%b7%83%e8%a1%a8" class="anchor">🔗</a></h3><p>是有序集合的底层实现之一。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#080;font-style:italic">/* Performs N steps of incremental rehashing. Returns 1 if there are still
+</span><span style="color:#080;font-style:italic"> * keys to move from the old to the new hash table, otherwise 0 is returned.
+</span><span style="color:#080;font-style:italic"> *
+</span><span style="color:#080;font-style:italic"> * Note that a rehashing step consists in moving a bucket (that may have more
+</span><span style="color:#080;font-style:italic"> * than one key as we use chaining) from the old to the new hash table, however
+</span><span style="color:#080;font-style:italic"> * since part of the hash table may be composed of empty spaces, it is not
+</span><span style="color:#080;font-style:italic"> * guaranteed that this function will rehash even a single bucket, since it
+</span><span style="color:#080;font-style:italic"> * will visit at max N*10 empty buckets in total, otherwise the amount of
+</span><span style="color:#080;font-style:italic"> * work it does would be unbound and the function may block for a long time. */</span>
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">dictRehash</span>(dict <span style="color:#666">*</span>d, <span style="color:#0b0;font-weight:bold">int</span> n) {
+    <span style="color:#0b0;font-weight:bold">int</span> empty_visits <span style="color:#666">=</span> n <span style="color:#666">*</span> <span style="color:#666">10</span>; <span style="color:#080;font-style:italic">/* Max number of empty buckets to visit. */</span>
+    <span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span>dictIsRehashing(d)) <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+
+    <span style="color:#a2f;font-weight:bold">while</span> (n<span style="color:#666">--</span> <span style="color:#666">&amp;&amp;</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].used <span style="color:#666">!=</span> <span style="color:#666">0</span>) {
+        dictEntry <span style="color:#666">*</span>de, <span style="color:#666">*</span>nextde;
+
+        <span style="color:#080;font-style:italic">/* Note that rehashidx can&#39;t overflow as we are sure there are more
+</span><span style="color:#080;font-style:italic">         * elements because ht[0].used != 0 */</span>
+        assert(d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].size <span style="color:#666">&gt;</span> (<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span>) d<span style="color:#666">-&gt;</span>rehashidx);
+        <span style="color:#a2f;font-weight:bold">while</span> (d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].table[d<span style="color:#666">-&gt;</span>rehashidx] <span style="color:#666">==</span> <span style="color:#a2f">NULL</span>) {
+            d<span style="color:#666">-&gt;</span>rehashidx<span style="color:#666">++</span>;
+            <span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">--</span>empty_visits <span style="color:#666">==</span> <span style="color:#666">0</span>) <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">1</span>;
+        }
+        de <span style="color:#666">=</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].table[d<span style="color:#666">-&gt;</span>rehashidx];
+        <span style="color:#080;font-style:italic">/* Move all the keys in this bucket from the old to the new hash HT */</span>
+        <span style="color:#a2f;font-weight:bold">while</span> (de) {
+            <span style="color:#0b0;font-weight:bold">uint64_t</span> h;
+
+            nextde <span style="color:#666">=</span> de<span style="color:#666">-&gt;</span>next;
+            <span style="color:#080;font-style:italic">/* Get the index in the new hash table */</span>
+            h <span style="color:#666">=</span> dictHashKey(d, de<span style="color:#666">-&gt;</span>key) <span style="color:#666">&amp;</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>].sizemask;
+            de<span style="color:#666">-&gt;</span>next <span style="color:#666">=</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>].table[h];
+            d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>].table[h] <span style="color:#666">=</span> de;
+            d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].used<span style="color:#666">--</span>;
+            d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>].used<span style="color:#666">++</span>;
+            de <span style="color:#666">=</span> nextde;
+        }
+        d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].table[d<span style="color:#666">-&gt;</span>rehashidx] <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
+        d<span style="color:#666">-&gt;</span>rehashidx<span style="color:#666">++</span>;
+    }
+
+    <span style="color:#080;font-style:italic">/* Check if we already rehashed the whole table... */</span>
+    <span style="color:#a2f;font-weight:bold">if</span> (d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].used <span style="color:#666">==</span> <span style="color:#666">0</span>) {
+        zfree(d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>].table);
+        d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">0</span>] <span style="color:#666">=</span> d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>];
+        _dictReset(<span style="color:#666">&amp;</span>d<span style="color:#666">-&gt;</span>ht[<span style="color:#666">1</span>]);
+        d<span style="color:#666">-&gt;</span>rehashidx <span style="color:#666">=</span> <span style="color:#666">-</span><span style="color:#666">1</span>;
+        <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+    }
+
+    <span style="color:#080;font-style:italic">/* More to rehash... */</span>
+    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">1</span>;
+}
+</code></pre></div><h3 id="跳跃表">跳跃表 <a href="#%e8%b7%b3%e8%b7%83%e8%a1%a8" class="anchor">🔗</a></h3><p>是有序集合的底层实现之一。</p>
 <p>跳跃表是基于多指针有序链表实现的，可以看成多个有序链表。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/beba612e-dc5b-4fc2-869d-0b23408ac90a.png" width="600px"/> </div><br>
 <p>在查找时，从上层指针开始查找，找到对应的区间之后再到下一层去查找。下图演示了查找 22 的过程。</p>
@@ -535,32 +535,32 @@ if (!doNotTrack) {
 <p>Redis 将所有时间事件都放在一个无序链表中，通过遍历整个链表查找出已到达的时间事件，并调用相应的事件处理器。</p>
 <h3 id="事件的调度与执行">事件的调度与执行 <a href="#%e4%ba%8b%e4%bb%b6%e7%9a%84%e8%b0%83%e5%ba%a6%e4%b8%8e%e6%89%a7%e8%a1%8c" class="anchor">🔗</a></h3><p>服务器需要不断监听文件事件的套接字才能得到待处理的文件事件，但是不能一直监听，否则时间事件无法在规定的时间内执行，因此监听时间应该根据距离现在最近的时间事件来决定。</p>
 <p>事件调度与执行由 aeProcessEvents 函数负责，伪代码如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">aeProcessEvents</span>():
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 获取到达时间离当前时间最接近的时间事件</span>
-</span></span><span style="display:flex;"><span>    time_event <span style="color:#666">=</span> aeSearchNearestTimer()
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 计算最接近的时间事件距离到达还有多少毫秒</span>
-</span></span><span style="display:flex;"><span>    remaind_ms <span style="color:#666">=</span> time_event<span style="color:#666">.</span>when <span style="color:#666">-</span> unix_ts_now()
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 如果事件已到达，那么 remaind_ms 的值可能为负数，将它设为 0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> remaind_ms <span style="color:#666">&lt;</span> <span style="color:#666">0</span>:
-</span></span><span style="display:flex;"><span>        remaind_ms <span style="color:#666">=</span> <span style="color:#666">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 根据 remaind_ms 的值，创建 timeval</span>
-</span></span><span style="display:flex;"><span>    timeval <span style="color:#666">=</span> create_timeval_with_ms(remaind_ms)
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 阻塞并等待文件事件产生，最大阻塞时间由传入的 timeval 决定</span>
-</span></span><span style="display:flex;"><span>    aeApiPoll(timeval)
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 处理所有已产生的文件事件</span>
-</span></span><span style="display:flex;"><span>    procesFileEvents()
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 处理所有已到达的时间事件</span>
-</span></span><span style="display:flex;"><span>    processTimeEvents()
-</span></span></code></pre></div><p>将 aeProcessEvents 函数置于一个循环里面，加上初始化和清理函数，就构成了 Redis 服务器的主函数，伪代码如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">main</span>():
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 初始化服务器</span>
-</span></span><span style="display:flex;"><span>    init_server()
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 一直处理事件，直到服务器关闭为止</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span> server_is_not_shutdown():
-</span></span><span style="display:flex;"><span>        aeProcessEvents()
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># 服务器关闭，执行清理操作</span>
-</span></span><span style="display:flex;"><span>    clean_server()
-</span></span></code></pre></div><p>从事件处理的角度来看，服务器运行流程如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">aeProcessEvents</span>():
+    <span style="color:#080;font-style:italic"># 获取到达时间离当前时间最接近的时间事件</span>
+    time_event <span style="color:#666">=</span> aeSearchNearestTimer()
+    <span style="color:#080;font-style:italic"># 计算最接近的时间事件距离到达还有多少毫秒</span>
+    remaind_ms <span style="color:#666">=</span> time_event<span style="color:#666">.</span>when <span style="color:#666">-</span> unix_ts_now()
+    <span style="color:#080;font-style:italic"># 如果事件已到达，那么 remaind_ms 的值可能为负数，将它设为 0</span>
+    <span style="color:#a2f;font-weight:bold">if</span> remaind_ms <span style="color:#666">&lt;</span> <span style="color:#666">0</span>:
+        remaind_ms <span style="color:#666">=</span> <span style="color:#666">0</span>
+    <span style="color:#080;font-style:italic"># 根据 remaind_ms 的值，创建 timeval</span>
+    timeval <span style="color:#666">=</span> create_timeval_with_ms(remaind_ms)
+    <span style="color:#080;font-style:italic"># 阻塞并等待文件事件产生，最大阻塞时间由传入的 timeval 决定</span>
+    aeApiPoll(timeval)
+    <span style="color:#080;font-style:italic"># 处理所有已产生的文件事件</span>
+    procesFileEvents()
+    <span style="color:#080;font-style:italic"># 处理所有已到达的时间事件</span>
+    processTimeEvents()
+</code></pre></div><p>将 aeProcessEvents 函数置于一个循环里面，加上初始化和清理函数，就构成了 Redis 服务器的主函数，伪代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">main</span>():
+    <span style="color:#080;font-style:italic"># 初始化服务器</span>
+    init_server()
+    <span style="color:#080;font-style:italic"># 一直处理事件，直到服务器关闭为止</span>
+    <span style="color:#a2f;font-weight:bold">while</span> server_is_not_shutdown():
+        aeProcessEvents()
+    <span style="color:#080;font-style:italic"># 服务器关闭，执行清理操作</span>
+    clean_server()
+</code></pre></div><p>从事件处理的角度来看，服务器运行流程如下：</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c0a9fa91-da2e-4892-8c9f-80206a6f7047.png" width="350"/> </div><br>
 <h2 id="十一复制">十一、复制 <a href="#%e5%8d%81%e4%b8%80%e5%a4%8d%e5%88%b6" class="anchor">🔗</a></h2><p>通过使用 slaveof host port 命令来让一个服务器成为另一个服务器的从服务器。</p>
 <p>一个从服务器只能有一个主服务器，并且不支持主主复制。</p>

@@ -9,8 +9,8 @@
 <meta name="description" content="转载自https://github.com/huihut/interview
 const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  const 的指针与引用 🔗 指针  指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer）   引用  指向常量的引用（reference to const） 没有 const reference，因为引用只是对象的别名，引用不是对象，不能用 const 修饰     （为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 p2、p3
  使用 🔗const 使用
-// 类 class A { private:  const int a; // 常对象成员，可以使用初始化列表或者类内初始化  public:  // 构造函数  A() : a(0) { };  A(int x) : a(x) { }; // 初始化列表   // const可用于对重载函数的区分  int getValue(); // 普通成员函数  int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 };  void function() {  // 对象  A b; // 普通对象，可以调用全部成员函数  const A a; // 常对象，只能调用常成员函数  const A *p = &amp;a; // 指针变量，指向常对象  const A &amp;q = a; // 指向常对象的引用   // 指针  char greeting[] = &#34;Hello&#34;;  char* p1 = greeting; // 指针变量，指向字符数组变量  const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）  char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）  const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 }  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗   宏定义 #define const 常量     宏定义，相当于字符替换 常量声明   预处理器处理 编译器处理   无类型安全检查 有类型安全检查   不分配内存 要分配内存   存储在代码段 存储在数据段   可通过 #undef 取消 不可取消    static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。  this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;this）。 在以下场景中，经常需要显式引用 this 指针：  为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。    inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。  使用 🔗inline 使用">
-<meta name="generator" content="Hugo 0.95.0" />
+// 类 class A { private: const int a; // 常对象成员，可以使用初始化列表或者类内初始化  public: // 构造函数  A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表  // const可用于对重载函数的区分  int getValue(); // 普通成员函数  int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象  A b; // 普通对象，可以调用全部成员函数  const A a; // 常对象，只能调用常成员函数  const A *p = &amp;a; // 指针变量，指向常对象  const A &amp;q = a; // 指向常对象的引用  // 指针  char greeting[] = &#34;Hello&#34;; char* p1 = greeting; // 指针变量，指向字符数组变量  const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）  char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）  const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗   宏定义 #define const 常量     宏定义，相当于字符替换 常量声明   预处理器处理 编译器处理   无类型安全检查 有类型安全检查   不分配内存 要分配内存   存储在代码段 存储在数据段   可通过 #undef 取消 不可取消    static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。  this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;this）。 在以下场景中，经常需要显式引用 this 指针：  为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。    inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。  使用 🔗inline 使用">
+<meta name="generator" content="Hugo 0.89.2" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -123,49 +123,49 @@ if (!doNotTrack) {
 <p>（为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 <code>p2</code>、<code>p3</code></p>
 </blockquote>
 <h4 id="使用">使用 <a href="#%e4%bd%bf%e7%94%a8" class="anchor">🔗</a></h4><p>const 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 类
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">private</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> a;                <span style="color:#080;font-style:italic">// 常对象成员，可以使用初始化列表或者类内初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 构造函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    A() <span style="color:#666">:</span> a(<span style="color:#666">0</span>) { };
-</span></span><span style="display:flex;"><span>    A(<span style="color:#0b0;font-weight:bold">int</span> x) <span style="color:#666">:</span> a(x) { };        <span style="color:#080;font-style:italic">// 初始化列表
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// const可用于对重载函数的区分
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">getValue</span>();             <span style="color:#080;font-style:italic">// 普通成员函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">getValue</span>() <span style="color:#a2f;font-weight:bold">const</span>;       <span style="color:#080;font-style:italic">// 常成员函数，不得修改类中的任何数据成员的值
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 对象
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    A b;                        <span style="color:#080;font-style:italic">// 普通对象，可以调用全部成员函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> A a;                  <span style="color:#080;font-style:italic">// 常对象，只能调用常成员函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> A <span style="color:#666">*</span>p <span style="color:#666">=</span> <span style="color:#666">&amp;</span>a;            <span style="color:#080;font-style:italic">// 指针变量，指向常对象
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> A <span style="color:#666">&amp;</span>q <span style="color:#666">=</span> a;             <span style="color:#080;font-style:italic">// 指向常对象的引用
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 指针
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">char</span> greeting[] <span style="color:#666">=</span> <span style="color:#b44">&#34;Hello&#34;</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> p1 <span style="color:#666">=</span> greeting;                <span style="color:#080;font-style:italic">// 指针变量，指向字符数组变量
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> p2 <span style="color:#666">=</span> greeting;          <span style="color:#080;font-style:italic">// 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">const</span> p3 <span style="color:#666">=</span> greeting;          <span style="color:#080;font-style:italic">// 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">const</span> p4 <span style="color:#666">=</span> greeting;    <span style="color:#080;font-style:italic">// 自身是常量的指针，指向字符数组常量
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function1</span>(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> Var);           <span style="color:#080;font-style:italic">// 传递过来的参数在函数内不可变
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function2</span>(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> Var);         <span style="color:#080;font-style:italic">// 参数指针所指内容为常量
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function3</span>(<span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">const</span> Var);         <span style="color:#080;font-style:italic">// 参数指针为常量
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function4</span>(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&amp;</span> Var);          <span style="color:#080;font-style:italic">// 引用参数在函数内为常量
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 函数返回值
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">function5</span>();      <span style="color:#080;font-style:italic">// 返回一个常数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">*</span> <span style="color:#00a000">function6</span>();     <span style="color:#080;font-style:italic">// 返回一个指向常量的指针变量，使用：const int *p = function6();
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#00a000">function7</span>();     <span style="color:#080;font-style:italic">// 返回一个指向变量的常指针，使用：int* const p = function7();
-</span></span></span></code></pre></div><h4 id="宏定义-define-和-const-常量">宏定义 #define 和 const 常量 <a href="#%e5%ae%8f%e5%ae%9a%e4%b9%89-define-%e5%92%8c-const-%e5%b8%b8%e9%87%8f" class="anchor">🔗</a></h4><table>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080;font-style:italic">// 类
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span>
+{
+<span style="color:#a2f;font-weight:bold">private</span><span style="color:#666">:</span>
+    <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> a;                <span style="color:#080;font-style:italic">// 常对象成员，可以使用初始化列表或者类内初始化
+</span><span style="color:#080;font-style:italic"></span>
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#080;font-style:italic">// 构造函数
+</span><span style="color:#080;font-style:italic"></span>    A() <span style="color:#666">:</span> a(<span style="color:#666">0</span>) { };
+    A(<span style="color:#0b0;font-weight:bold">int</span> x) <span style="color:#666">:</span> a(x) { };        <span style="color:#080;font-style:italic">// 初始化列表
+</span><span style="color:#080;font-style:italic"></span>
+    <span style="color:#080;font-style:italic">// const可用于对重载函数的区分
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">getValue</span>();             <span style="color:#080;font-style:italic">// 普通成员函数
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">getValue</span>() <span style="color:#a2f;font-weight:bold">const</span>;       <span style="color:#080;font-style:italic">// 常成员函数，不得修改类中的任何数据成员的值
+</span><span style="color:#080;font-style:italic"></span>};
+
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function</span>()
+{
+    <span style="color:#080;font-style:italic">// 对象
+</span><span style="color:#080;font-style:italic"></span>    A b;                        <span style="color:#080;font-style:italic">// 普通对象，可以调用全部成员函数
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> A a;                  <span style="color:#080;font-style:italic">// 常对象，只能调用常成员函数
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> A <span style="color:#666">*</span>p <span style="color:#666">=</span> <span style="color:#666">&amp;</span>a;            <span style="color:#080;font-style:italic">// 指针变量，指向常对象
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> A <span style="color:#666">&amp;</span>q <span style="color:#666">=</span> a;             <span style="color:#080;font-style:italic">// 指向常对象的引用
+</span><span style="color:#080;font-style:italic"></span>
+    <span style="color:#080;font-style:italic">// 指针
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">char</span> greeting[] <span style="color:#666">=</span> <span style="color:#b44">&#34;Hello&#34;</span>;
+    <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> p1 <span style="color:#666">=</span> greeting;                <span style="color:#080;font-style:italic">// 指针变量，指向字符数组变量
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> p2 <span style="color:#666">=</span> greeting;          <span style="color:#080;font-style:italic">// 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">const</span> p3 <span style="color:#666">=</span> greeting;          <span style="color:#080;font-style:italic">// 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">const</span> p4 <span style="color:#666">=</span> greeting;    <span style="color:#080;font-style:italic">// 自身是常量的指针，指向字符数组常量
+</span><span style="color:#080;font-style:italic"></span>}
+
+<span style="color:#080;font-style:italic">// 函数
+</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function1</span>(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> Var);           <span style="color:#080;font-style:italic">// 传递过来的参数在函数内不可变
+</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function2</span>(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> Var);         <span style="color:#080;font-style:italic">// 参数指针所指内容为常量
+</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function3</span>(<span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">const</span> Var);         <span style="color:#080;font-style:italic">// 参数指针为常量
+</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">function4</span>(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&amp;</span> Var);          <span style="color:#080;font-style:italic">// 引用参数在函数内为常量
+</span><span style="color:#080;font-style:italic"></span>
+<span style="color:#080;font-style:italic">// 函数返回值
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">function5</span>();      <span style="color:#080;font-style:italic">// 返回一个常数
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">*</span> <span style="color:#00a000">function6</span>();     <span style="color:#080;font-style:italic">// 返回一个指向常量的指针变量，使用：const int *p = function6();
+</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#00a000">function7</span>();     <span style="color:#080;font-style:italic">// 返回一个指向变量的常指针，使用：int* const p = function7();
+</span></code></pre></div><h4 id="宏定义-define-和-const-常量">宏定义 #define 和 const 常量 <a href="#%e5%ae%8f%e5%ae%9a%e4%b9%89-define-%e5%92%8c-const-%e5%b8%b8%e9%87%8f" class="anchor">🔗</a></h4><table>
 <thead>
 <tr>
 <th>宏定义 #define</th>
@@ -227,26 +227,26 @@ if (!doNotTrack) {
 <li>在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。</li>
 </ul>
 <h4 id="使用-1">使用 <a href="#%e4%bd%bf%e7%94%a8-1" class="anchor">🔗</a></h4><p>inline 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 声明1（加 inline，建议使用）
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">functionName</span>(<span style="color:#0b0;font-weight:bold">int</span> first, <span style="color:#0b0;font-weight:bold">int</span> second,...);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 声明2（不加 inline）
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">functionName</span>(<span style="color:#0b0;font-weight:bold">int</span> first, <span style="color:#0b0;font-weight:bold">int</span> second,...);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 定义
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">functionName</span>(<span style="color:#0b0;font-weight:bold">int</span> first, <span style="color:#0b0;font-weight:bold">int</span> second,...) {<span style="color:#080;font-style:italic">/****/</span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 类内定义，隐式内联
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">doA</span>() { <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>; }         <span style="color:#080;font-style:italic">// 隐式内联
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 类外定义，需要显式内联
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">doA</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">int</span> A<span style="color:#666">::</span>doA() { <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>; }   <span style="color:#080;font-style:italic">// 需要显式内联
-</span></span></span></code></pre></div><h4 id="编译器对-inline-函数的处理步骤">编译器对 inline 函数的处理步骤 <a href="#%e7%bc%96%e8%af%91%e5%99%a8%e5%af%b9-inline-%e5%87%bd%e6%95%b0%e7%9a%84%e5%a4%84%e7%90%86%e6%ad%a5%e9%aa%a4" class="anchor">🔗</a></h4><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080;font-style:italic">// 声明1（加 inline，建议使用）
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">functionName</span>(<span style="color:#0b0;font-weight:bold">int</span> first, <span style="color:#0b0;font-weight:bold">int</span> second,...);
+
+<span style="color:#080;font-style:italic">// 声明2（不加 inline）
+</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">functionName</span>(<span style="color:#0b0;font-weight:bold">int</span> first, <span style="color:#0b0;font-weight:bold">int</span> second,...);
+
+<span style="color:#080;font-style:italic">// 定义
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">functionName</span>(<span style="color:#0b0;font-weight:bold">int</span> first, <span style="color:#0b0;font-weight:bold">int</span> second,...) {<span style="color:#080;font-style:italic">/****/</span>};
+
+<span style="color:#080;font-style:italic">// 类内定义，隐式内联
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span> {
+    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">doA</span>() { <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>; }         <span style="color:#080;font-style:italic">// 隐式内联
+</span><span style="color:#080;font-style:italic"></span>}
+
+<span style="color:#080;font-style:italic">// 类外定义，需要显式内联
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span> {
+    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">doA</span>();
+}
+<span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">int</span> A<span style="color:#666">::</span>doA() { <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>; }   <span style="color:#080;font-style:italic">// 需要显式内联
+</span></code></pre></div><h4 id="编译器对-inline-函数的处理步骤">编译器对 inline 函数的处理步骤 <a href="#%e7%bc%96%e8%af%91%e5%99%a8%e5%af%b9-inline-%e5%87%bd%e6%95%b0%e7%9a%84%e5%a4%84%e7%90%86%e6%ad%a5%e9%aa%a4" class="anchor">🔗</a></h4><ol>
 <li>将 inline 函数体复制到 inline 函数调用点处；</li>
 <li>为所用 inline 函数中的局部变量分配内存空间；</li>
 <li>将 inline 函数的的输入参数和返回值映射到调用方法的局部变量空间中；</li>
@@ -274,45 +274,45 @@ if (!doNotTrack) {
 <li><code>inline virtual</code> 唯一可以内联的时候是：编译器知道所调用的对象是哪个类（如 <code>Base::who()</code>），这只有在编译器具有实际对象而不是对象的指针或引用时才会发生。</li>
 </ul>
 <p>虚函数内联使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;  </span><span style="color:#080">
-</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Base</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> who()
-</span></span><span style="display:flex;"><span>	{
-</span></span><span style="display:flex;"><span>		cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;I am Base</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>Base() {}
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Derived</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Base
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> who()  <span style="color:#080;font-style:italic">// 不写inline时隐式内联
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	{
-</span></span><span style="display:flex;"><span>		cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;I am Derived</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">// 此处的虚函数 who()，是通过类（Base）的具体对象（b）来调用的，编译期间就能确定了，所以它可以是内联的，但最终是否内联取决于编译器。 
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	Base b;
-</span></span><span style="display:flex;"><span>	b.who();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">// 此处的虚函数是通过指针调用的，呈现多态性，需要在运行时期间才能确定，所以不能为内联。  
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	Base <span style="color:#666">*</span>ptr <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Derived();
-</span></span><span style="display:flex;"><span>	ptr<span style="color:#666">-&gt;</span>who();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">// 因为Base有虚析构函数（virtual ~Base() {}），所以 delete 时，会先调用派生类（Derived）析构函数，再调用基类（Base）析构函数，防止内存泄漏。
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">delete</span> ptr;
-</span></span><span style="display:flex;"><span>	ptr <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	system(<span style="color:#b44">&#34;pause&#34;</span>);
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>} 
-</span></span></code></pre></div><h3 id="volatile">volatile <a href="#volatile" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">volatile</span> <span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">10</span>; 
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;  </span><span style="color:#080">
+</span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Base</span>
+{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+	<span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> who()
+	{
+		cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;I am Base</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
+	}
+	<span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>Base() {}
+};
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Derived</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Base
+{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+	<span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> who()  <span style="color:#080;font-style:italic">// 不写inline时隐式内联
+</span><span style="color:#080;font-style:italic"></span>	{
+		cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;I am Derived</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
+	}
+};
+
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+{
+	<span style="color:#080;font-style:italic">// 此处的虚函数 who()，是通过类（Base）的具体对象（b）来调用的，编译期间就能确定了，所以它可以是内联的，但最终是否内联取决于编译器。 
+</span><span style="color:#080;font-style:italic"></span>	Base b;
+	b.who();
+
+	<span style="color:#080;font-style:italic">// 此处的虚函数是通过指针调用的，呈现多态性，需要在运行时期间才能确定，所以不能为内联。  
+</span><span style="color:#080;font-style:italic"></span>	Base <span style="color:#666">*</span>ptr <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Derived();
+	ptr<span style="color:#666">-&gt;</span>who();
+
+	<span style="color:#080;font-style:italic">// 因为Base有虚析构函数（virtual ~Base() {}），所以 delete 时，会先调用派生类（Derived）析构函数，再调用基类（Base）析构函数，防止内存泄漏。
+</span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">delete</span> ptr;
+	ptr <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
+
+	system(<span style="color:#b44">&#34;pause&#34;</span>);
+	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+} 
+</code></pre></div><h3 id="volatile">volatile <a href="#volatile" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">volatile</span> <span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">10</span>; 
+</code></pre></div><ul>
 <li>volatile 关键字是一种类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素（操作系统、硬件、其它线程等）更改。所以使用 volatile 告诉编译器不应对这样的对象进行优化。</li>
 <li>volatile 关键字声明的变量，每次访问时都必须从内存中取出值（没有被 volatile 修饰的变量，可能由于编译器的优化，从 CPU 寄存器中取值）</li>
 <li>const 可以是 volatile （如只读的状态寄存器）</li>
@@ -320,29 +320,29 @@ if (!doNotTrack) {
 </ul>
 <h3 id="assert">assert() <a href="#assert" class="anchor">🔗</a></h3><p>断言，是宏，而非函数。assert 宏的原型定义在 <code>&lt;assert.h&gt;</code>（C）、<code>&lt;cassert&gt;</code>（C++）中，其作用是如果它的条件返回错误，则终止程序执行。可以通过定义 <code>NDEBUG</code> 来关闭 assert，但是需要在源代码的开头，<code>include &lt;assert.h&gt;</code> 之前。</p>
 <p>assert() 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#define NDEBUG          </span><span style="color:#080;font-style:italic">// 加上这行，则 assert 不可用
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#include</span> <span style="color:#080">&lt;assert.h&gt;</span><span style="color:#080">
-</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
-</span></span><span style="display:flex;"><span>assert( p <span style="color:#666">!=</span> <span style="color:#a2f">NULL</span> );    <span style="color:#080;font-style:italic">// assert 不可用
-</span></span></span></code></pre></div><h3 id="sizeof">sizeof() <a href="#sizeof" class="anchor">🔗</a></h3><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080">#define NDEBUG          </span><span style="color:#080;font-style:italic">// 加上这行，则 assert 不可用
+</span><span style="color:#080;font-style:italic"></span><span style="color:#080">#include</span> <span style="color:#080">&lt;assert.h&gt;</span><span style="color:#080">
+</span><span style="color:#080"></span>
+assert( p <span style="color:#666">!=</span> <span style="color:#a2f">NULL</span> );    <span style="color:#080;font-style:italic">// assert 不可用
+</span></code></pre></div><h3 id="sizeof">sizeof() <a href="#sizeof" class="anchor">🔗</a></h3><ul>
 <li>sizeof 对数组，得到整个数组所占空间大小。</li>
 <li>sizeof 对指针，得到指针本身所占空间大小。</li>
 </ul>
 <h3 id="pragma-packn">#pragma pack(n) <a href="#pragma-packn" class="anchor">🔗</a></h3><p>设定结构体、联合以及类成员变量以 n 字节方式对齐</p>
 <p>#pragma pack(n) 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#pragma pack(push)  </span><span style="color:#080;font-style:italic">// 保存对齐状态
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#pragma pack(4)     </span><span style="color:#080;font-style:italic">// 设定为 4 字节对齐
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">test</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">char</span> m1;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">double</span> m4;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> m3;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080">#pragma pack(pop)   </span><span style="color:#080;font-style:italic">// 恢复对齐状态
-</span></span></span></code></pre></div><h3 id="位域">位域 <a href="#%e4%bd%8d%e5%9f%9f" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Bit <span style="color:#a0a000">mode</span>: <span style="color:#666">2</span>;    <span style="color:#080;font-style:italic">// mode 占 2 位
-</span></span></span></code></pre></div><p>类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080">#pragma pack(push)  </span><span style="color:#080;font-style:italic">// 保存对齐状态
+</span><span style="color:#080;font-style:italic"></span><span style="color:#080">#pragma pack(4)     </span><span style="color:#080;font-style:italic">// 设定为 4 字节对齐
+</span><span style="color:#080;font-style:italic"></span>
+<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">test</span>
+{
+    <span style="color:#0b0;font-weight:bold">char</span> m1;
+    <span style="color:#0b0;font-weight:bold">double</span> m4;
+    <span style="color:#0b0;font-weight:bold">int</span> m3;
+};
+
+<span style="color:#080">#pragma pack(pop)   </span><span style="color:#080;font-style:italic">// 恢复对齐状态
+</span></code></pre></div><h3 id="位域">位域 <a href="#%e4%bd%8d%e5%9f%9f" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Bit <span style="color:#a0a000">mode</span>: <span style="color:#666">2</span>;    <span style="color:#080;font-style:italic">// mode 占 2 位
+</span></code></pre></div><p>类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。</p>
 <ul>
 <li>位域在内存中的布局是与机器有关的</li>
 <li>位域的类型必须是整型或枚举类型，带符号类型中的位域的行为将因具体实现而定</li>
@@ -354,52 +354,52 @@ if (!doNotTrack) {
 </ul>
 <p><code>extern &quot;C&quot;</code> 的作用是让 C++ 编译器将 <code>extern &quot;C&quot;</code> 声明的代码当作 C 语言代码处理，可以避免 C++ 因符号修饰导致代码不能和C语言库中的符号进行链接的问题。</p>
 <p>extern &ldquo;C&rdquo; 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#ifdef __cplusplus
-</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">extern</span> <span style="color:#b44">&#34;C&#34;</span> {
-</span></span><span style="display:flex;"><span><span style="color:#080">#endif
-</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span><span style="color:#00a000">memset</span>(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>, <span style="color:#0b0;font-weight:bold">int</span>, size_t);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080">#ifdef __cplusplus
-</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>}
-</span></span><span style="display:flex;"><span><span style="color:#080">#endif
-</span></span></span></code></pre></div><h3 id="struct-和-typedef-struct">struct 和 typedef struct <a href="#struct-%e5%92%8c-typedef-struct" class="anchor">🔗</a></h3><h4 id="c-中">C 中 <a href="#c-%e4%b8%ad" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// c
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> Student {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> age; 
-</span></span><span style="display:flex;"><span>} S;
-</span></span></code></pre></div><p>等价于</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// c
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">struct</span> Student { 
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> age; 
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> Student S;
-</span></span></code></pre></div><p>此时 <code>S</code> 等价于 <code>struct Student</code>，但两个标识符名称空间不相同。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080">#ifdef __cplusplus
+</span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">extern</span> <span style="color:#b44">&#34;C&#34;</span> {
+<span style="color:#080">#endif
+</span><span style="color:#080"></span>
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span><span style="color:#00a000">memset</span>(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>, <span style="color:#0b0;font-weight:bold">int</span>, size_t);
+
+<span style="color:#080">#ifdef __cplusplus
+</span><span style="color:#080"></span>}
+<span style="color:#080">#endif
+</span></code></pre></div><h3 id="struct-和-typedef-struct">struct 和 typedef struct <a href="#struct-%e5%92%8c-typedef-struct" class="anchor">🔗</a></h3><h4 id="c-中">C 中 <a href="#c-%e4%b8%ad" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#080;font-style:italic">// c
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> Student {
+    <span style="color:#0b0;font-weight:bold">int</span> age; 
+} S;
+</code></pre></div><p>等价于</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#080;font-style:italic">// c
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">struct</span> Student { 
+    <span style="color:#0b0;font-weight:bold">int</span> age; 
+};
+
+<span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> Student S;
+</code></pre></div><p>此时 <code>S</code> 等价于 <code>struct Student</code>，但两个标识符名称空间不相同。</p>
 <p>另外还可以定义与 <code>struct Student</code> 不冲突的 <code>void Student() {}</code>。</p>
 <h4 id="c-中-1">C++ 中 <a href="#c-%e4%b8%ad-1" class="anchor">🔗</a></h4><p>由于编译器定位符号的规则（搜索规则）改变，导致不同于C语言。</p>
 <p>一、如果在类标识符空间定义了 <code>struct Student {...};</code>，使用 <code>Student me;</code> 时，编译器将搜索全局标识符表，<code>Student</code> 未找到，则在类标识符内搜索。</p>
 <p>即表现为可以使用 <code>Student</code> 也可以使用 <code>struct Student</code>，如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// cpp
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">Student</span> { 
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> age; 
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">f</span>( Student me );       <span style="color:#080;font-style:italic">// 正确，&#34;struct&#34; 关键字可省略
-</span></span></span></code></pre></div><p>二、若定义了与 <code>Student</code> 同名函数之后，则 <code>Student</code> 只代表函数，不代表结构体，如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">Student</span> { 
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> age; 
-</span></span><span style="display:flex;"><span>} S;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">Student</span>() {}           <span style="color:#080;font-style:italic">// 正确，定义后 &#34;Student&#34; 只代表此函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//void S() {}               // 错误，符号 &#34;S&#34; 已经被定义为一个 &#34;struct Student&#34; 的别名
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>() {
-</span></span><span style="display:flex;"><span>    Student(); 
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">Student</span> me;      <span style="color:#080;font-style:italic">// 或者 &#34;S me&#34;;
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="c-中-struct-和-class">C++ 中 struct 和 class <a href="#c-%e4%b8%ad-struct-%e5%92%8c-class" class="anchor">🔗</a></h3><p>总的来说，struct 更适合看成是一个数据结构的实现体，class 更适合看成是一个对象的实现体。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080;font-style:italic">// cpp
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">Student</span> { 
+    <span style="color:#0b0;font-weight:bold">int</span> age; 
+};
+
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">f</span>( Student me );       <span style="color:#080;font-style:italic">// 正确，&#34;struct&#34; 关键字可省略
+</span></code></pre></div><p>二、若定义了与 <code>Student</code> 同名函数之后，则 <code>Student</code> 只代表函数，不代表结构体，如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">Student</span> { 
+    <span style="color:#0b0;font-weight:bold">int</span> age; 
+} S;
+
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">Student</span>() {}           <span style="color:#080;font-style:italic">// 正确，定义后 &#34;Student&#34; 只代表此函数
+</span><span style="color:#080;font-style:italic"></span>
+<span style="color:#080;font-style:italic">//void S() {}               // 错误，符号 &#34;S&#34; 已经被定义为一个 &#34;struct Student&#34; 的别名
+</span><span style="color:#080;font-style:italic"></span>
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>() {
+    Student(); 
+    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">Student</span> me;      <span style="color:#080;font-style:italic">// 或者 &#34;S me&#34;;
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+}
+</code></pre></div><h3 id="c-中-struct-和-class">C++ 中 struct 和 class <a href="#c-%e4%b8%ad-struct-%e5%92%8c-class" class="anchor">🔗</a></h3><p>总的来说，struct 更适合看成是一个数据结构的实现体，class 更适合看成是一个对象的实现体。</p>
 <h4 id="区别">区别 <a href="#%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h4><ul>
 <li>最本质的一个区别就是默认的访问控制
 <ol>
@@ -420,38 +420,38 @@ if (!doNotTrack) {
 <li>全局匿名联合必须是静态（static）的</li>
 </ul>
 <p>union 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span><span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
-</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">union</span> <span style="color:#00f">UnionTest</span> {
-</span></span><span style="display:flex;"><span>    UnionTest() <span style="color:#666">:</span> i(<span style="color:#666">10</span>) {};
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> i;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">double</span> d;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">union</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> i;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">double</span> d;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>() {
-</span></span><span style="display:flex;"><span>    UnionTest u;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">union</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> i;
-</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">double</span> d;
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> u.i <span style="color:#666">&lt;&lt;</span> std<span style="color:#666">::</span>endl;  <span style="color:#080;font-style:italic">// 输出 UnionTest 联合的 10
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#666">::</span>i <span style="color:#666">=</span> <span style="color:#666">20</span>;
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#666">::</span>i <span style="color:#666">&lt;&lt;</span> std<span style="color:#666">::</span>endl;  <span style="color:#080;font-style:italic">// 输出全局静态匿名联合的 20
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>    i <span style="color:#666">=</span> <span style="color:#666">30</span>;
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> i <span style="color:#666">&lt;&lt;</span> std<span style="color:#666">::</span>endl;    <span style="color:#080;font-style:italic">// 输出局部匿名联合的 30
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="c-实现-c-类">C 实现 C++ 类 <a href="#c-%e5%ae%9e%e7%8e%b0-c-%e7%b1%bb" class="anchor">🔗</a></h3><p>C 实现 C++ 的面向对象特性（封装、继承、多态）</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080">#include</span><span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
+</span><span style="color:#080"></span>
+<span style="color:#a2f;font-weight:bold">union</span> <span style="color:#00f">UnionTest</span> {
+    UnionTest() <span style="color:#666">:</span> i(<span style="color:#666">10</span>) {};
+    <span style="color:#0b0;font-weight:bold">int</span> i;
+    <span style="color:#0b0;font-weight:bold">double</span> d;
+};
+
+<span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">union</span> {
+    <span style="color:#0b0;font-weight:bold">int</span> i;
+    <span style="color:#0b0;font-weight:bold">double</span> d;
+};
+
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>() {
+    UnionTest u;
+
+    <span style="color:#a2f;font-weight:bold">union</span> {
+        <span style="color:#0b0;font-weight:bold">int</span> i;
+        <span style="color:#0b0;font-weight:bold">double</span> d;
+    };
+
+    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> u.i <span style="color:#666">&lt;&lt;</span> std<span style="color:#666">::</span>endl;  <span style="color:#080;font-style:italic">// 输出 UnionTest 联合的 10
+</span><span style="color:#080;font-style:italic"></span>
+    <span style="color:#666">::</span>i <span style="color:#666">=</span> <span style="color:#666">20</span>;
+    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#666">::</span>i <span style="color:#666">&lt;&lt;</span> std<span style="color:#666">::</span>endl;  <span style="color:#080;font-style:italic">// 输出全局静态匿名联合的 20
+</span><span style="color:#080;font-style:italic"></span>
+    i <span style="color:#666">=</span> <span style="color:#666">30</span>;
+    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> i <span style="color:#666">&lt;&lt;</span> std<span style="color:#666">::</span>endl;    <span style="color:#080;font-style:italic">// 输出局部匿名联合的 30
+</span><span style="color:#080;font-style:italic"></span>
+    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+}
+</code></pre></div><h3 id="c-实现-c-类">C 实现 C++ 类 <a href="#c-%e5%ae%9e%e7%8e%b0-c-%e7%b1%bb" class="anchor">🔗</a></h3><p>C 实现 C++ 的面向对象特性（封装、继承、多态）</p>
 <ul>
 <li>封装：使用函数指针把属性与方法封装到结构体中</li>
 <li>继承：结构体嵌套</li>
@@ -465,49 +465,49 @@ if (!doNotTrack) {
 <li>explicit 修饰转换函数时，可以防止隐式转换，但 <a href="https://zh.cppreference.com/w/cpp/language/implicit_conversion" target="_blank" rel="noopener">按语境转换</a> 除外</li>
 </ul>
 <p>explicit 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">A</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	A(<span style="color:#0b0;font-weight:bold">int</span>) { }
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">operator</span> <span style="color:#00a000">bool</span>() <span style="color:#a2f;font-weight:bold">const</span> { <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f">true</span>; }
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">B</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">explicit</span> <span style="color:#00a000">B</span>(<span style="color:#0b0;font-weight:bold">int</span>) {}
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">explicit</span> <span style="color:#a2f;font-weight:bold">operator</span> <span style="color:#00a000">bool</span>() <span style="color:#a2f;font-weight:bold">const</span> { <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f">true</span>; }
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">doA</span>(A a) {}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">doB</span>(B b) {}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	A a1(<span style="color:#666">1</span>);		<span style="color:#080;font-style:italic">// OK：直接初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	A a2 <span style="color:#666">=</span> <span style="color:#666">1</span>;		<span style="color:#080;font-style:italic">// OK：复制初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	A a3{ <span style="color:#666">1</span> };		<span style="color:#080;font-style:italic">// OK：直接列表初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	A a4 <span style="color:#666">=</span> { <span style="color:#666">1</span> };		<span style="color:#080;font-style:italic">// OK：复制列表初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	A a5 <span style="color:#666">=</span> (A)<span style="color:#666">1</span>;		<span style="color:#080;font-style:italic">// OK：允许 static_cast 的显式转换 
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	doA(<span style="color:#666">1</span>);			<span style="color:#080;font-style:italic">// OK：允许从 int 到 A 的隐式转换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">if</span> (a1);		<span style="color:#080;font-style:italic">// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> a6(a1);		<span style="color:#080;font-style:italic">// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> a7 <span style="color:#666">=</span> a1;		<span style="color:#080;font-style:italic">// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> a8 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">static_cast</span><span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">bool</span><span style="color:#666">&gt;</span>(a1);  <span style="color:#080;font-style:italic">// OK ：static_cast 进行直接初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	B b1(<span style="color:#666">1</span>);		<span style="color:#080;font-style:italic">// OK：直接初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	B b2 <span style="color:#666">=</span> <span style="color:#666">1</span>;		<span style="color:#080;font-style:italic">// 错误：被 explicit 修饰构造函数的对象不可以复制初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	B b3{ <span style="color:#666">1</span> };		<span style="color:#080;font-style:italic">// OK：直接列表初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	B b4 <span style="color:#666">=</span> { <span style="color:#666">1</span> };		<span style="color:#080;font-style:italic">// 错误：被 explicit 修饰构造函数的对象不可以复制列表初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	B b5 <span style="color:#666">=</span> (B)<span style="color:#666">1</span>;		<span style="color:#080;font-style:italic">// OK：允许 static_cast 的显式转换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	doB(<span style="color:#666">1</span>);			<span style="color:#080;font-style:italic">// 错误：被 explicit 修饰构造函数的对象不可以从 int 到 B 的隐式转换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">if</span> (b1);		<span style="color:#080;font-style:italic">// OK：被 explicit 修饰转换函数 B::operator bool() 的对象可以从 B 到 bool 的按语境转换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> b6(b1);		<span style="color:#080;font-style:italic">// OK：被 explicit 修饰转换函数 B::operator bool() 的对象可以从 B 到 bool 的按语境转换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> b7 <span style="color:#666">=</span> b1;		<span style="color:#080;font-style:italic">// 错误：被 explicit 修饰转换函数 B::operator bool() 的对象不可以隐式转换
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> b8 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">static_cast</span><span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">bool</span><span style="color:#666">&gt;</span>(b1);  <span style="color:#080;font-style:italic">// OK：static_cast 进行直接初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="friend-友元类和友元函数">friend 友元类和友元函数 <a href="#friend-%e5%8f%8b%e5%85%83%e7%b1%bb%e5%92%8c%e5%8f%8b%e5%85%83%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">A</span>
+{
+	A(<span style="color:#0b0;font-weight:bold">int</span>) { }
+	<span style="color:#a2f;font-weight:bold">operator</span> <span style="color:#00a000">bool</span>() <span style="color:#a2f;font-weight:bold">const</span> { <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f">true</span>; }
+};
+
+<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">B</span>
+{
+	<span style="color:#a2f;font-weight:bold">explicit</span> <span style="color:#00a000">B</span>(<span style="color:#0b0;font-weight:bold">int</span>) {}
+	<span style="color:#a2f;font-weight:bold">explicit</span> <span style="color:#a2f;font-weight:bold">operator</span> <span style="color:#00a000">bool</span>() <span style="color:#a2f;font-weight:bold">const</span> { <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f">true</span>; }
+};
+
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">doA</span>(A a) {}
+
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">doB</span>(B b) {}
+
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+{
+	A a1(<span style="color:#666">1</span>);		<span style="color:#080;font-style:italic">// OK：直接初始化
+</span><span style="color:#080;font-style:italic"></span>	A a2 <span style="color:#666">=</span> <span style="color:#666">1</span>;		<span style="color:#080;font-style:italic">// OK：复制初始化
+</span><span style="color:#080;font-style:italic"></span>	A a3{ <span style="color:#666">1</span> };		<span style="color:#080;font-style:italic">// OK：直接列表初始化
+</span><span style="color:#080;font-style:italic"></span>	A a4 <span style="color:#666">=</span> { <span style="color:#666">1</span> };		<span style="color:#080;font-style:italic">// OK：复制列表初始化
+</span><span style="color:#080;font-style:italic"></span>	A a5 <span style="color:#666">=</span> (A)<span style="color:#666">1</span>;		<span style="color:#080;font-style:italic">// OK：允许 static_cast 的显式转换 
+</span><span style="color:#080;font-style:italic"></span>	doA(<span style="color:#666">1</span>);			<span style="color:#080;font-style:italic">// OK：允许从 int 到 A 的隐式转换
+</span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">if</span> (a1);		<span style="color:#080;font-style:italic">// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+</span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> a6(a1);		<span style="color:#080;font-style:italic">// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+</span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> a7 <span style="color:#666">=</span> a1;		<span style="color:#080;font-style:italic">// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+</span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> a8 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">static_cast</span><span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">bool</span><span style="color:#666">&gt;</span>(a1);  <span style="color:#080;font-style:italic">// OK ：static_cast 进行直接初始化
+</span><span style="color:#080;font-style:italic"></span>
+	B b1(<span style="color:#666">1</span>);		<span style="color:#080;font-style:italic">// OK：直接初始化
+</span><span style="color:#080;font-style:italic"></span>	B b2 <span style="color:#666">=</span> <span style="color:#666">1</span>;		<span style="color:#080;font-style:italic">// 错误：被 explicit 修饰构造函数的对象不可以复制初始化
+</span><span style="color:#080;font-style:italic"></span>	B b3{ <span style="color:#666">1</span> };		<span style="color:#080;font-style:italic">// OK：直接列表初始化
+</span><span style="color:#080;font-style:italic"></span>	B b4 <span style="color:#666">=</span> { <span style="color:#666">1</span> };		<span style="color:#080;font-style:italic">// 错误：被 explicit 修饰构造函数的对象不可以复制列表初始化
+</span><span style="color:#080;font-style:italic"></span>	B b5 <span style="color:#666">=</span> (B)<span style="color:#666">1</span>;		<span style="color:#080;font-style:italic">// OK：允许 static_cast 的显式转换
+</span><span style="color:#080;font-style:italic"></span>	doB(<span style="color:#666">1</span>);			<span style="color:#080;font-style:italic">// 错误：被 explicit 修饰构造函数的对象不可以从 int 到 B 的隐式转换
+</span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">if</span> (b1);		<span style="color:#080;font-style:italic">// OK：被 explicit 修饰转换函数 B::operator bool() 的对象可以从 B 到 bool 的按语境转换
+</span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> b6(b1);		<span style="color:#080;font-style:italic">// OK：被 explicit 修饰转换函数 B::operator bool() 的对象可以从 B 到 bool 的按语境转换
+</span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> b7 <span style="color:#666">=</span> b1;		<span style="color:#080;font-style:italic">// 错误：被 explicit 修饰转换函数 B::operator bool() 的对象不可以隐式转换
+</span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">bool</span> b8 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">static_cast</span><span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">bool</span><span style="color:#666">&gt;</span>(b1);  <span style="color:#080;font-style:italic">// OK：static_cast 进行直接初始化
+</span><span style="color:#080;font-style:italic"></span>
+	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+}
+</code></pre></div><h3 id="friend-友元类和友元函数">friend 友元类和友元函数 <a href="#friend-%e5%8f%8b%e5%85%83%e7%b1%bb%e5%92%8c%e5%8f%8b%e5%85%83%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><ul>
 <li>能访问私有成员</li>
 <li>破坏封装性</li>
 <li>友元关系不可传递</li>
@@ -515,84 +515,84 @@ if (!doNotTrack) {
 <li>友元声明的形式及数量不受限制</li>
 </ul>
 <h3 id="using">using <a href="#using" class="anchor">🔗</a></h3><h4 id="using-声明">using 声明 <a href="#using-%e5%a3%b0%e6%98%8e" class="anchor">🔗</a></h4><p>一条 <code>using 声明</code> 语句一次只引入命名空间的一个成员。它使得我们可以清楚知道程序中所引用的到底是哪个名字。如：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> namespace_name<span style="color:#666">::</span>name;
-</span></span></code></pre></div><h4 id="构造函数的-using-声明">构造函数的 using 声明 <a href="#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0%e7%9a%84-using-%e5%a3%b0%e6%98%8e" class="anchor">🔗</a></h4><p>在 C++11 中，派生类能够重用其直接基类定义的构造函数。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Derived</span> <span style="color:#666">:</span> Base {
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">using</span> Base<span style="color:#666">::</span>Base;
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">/* ... */</span>
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><p>如上 using 声明，对于基类的每个构造函数，编译器都生成一个与之对应（形参列表完全相同）的派生类构造函数。生成如下类型构造函数：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Derived(parms) <span style="color:#666">:</span> Base(args) { }
-</span></span></code></pre></div><h4 id="using-指示">using 指示 <a href="#using-%e6%8c%87%e7%a4%ba" class="anchor">🔗</a></h4><p><code>using 指示</code> 使得某个特定命名空间中所有名字都可见，这样我们就无需再为它们添加任何前缀限定符了。如：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> namespace_name name;
-</span></span></code></pre></div><h4 id="尽量少使用-using-指示-污染命名空间">尽量少使用 <code>using 指示</code> 污染命名空间 <a href="#%e5%b0%bd%e9%87%8f%e5%b0%91%e4%bd%bf%e7%94%a8-using-%e6%8c%87%e7%a4%ba-%e6%b1%a1%e6%9f%93%e5%91%bd%e5%90%8d%e7%a9%ba%e9%97%b4" class="anchor">🔗</a></h4><blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">using</span> namespace_name<span style="color:#666">::</span>name;
+</code></pre></div><h4 id="构造函数的-using-声明">构造函数的 using 声明 <a href="#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0%e7%9a%84-using-%e5%a3%b0%e6%98%8e" class="anchor">🔗</a></h4><p>在 C++11 中，派生类能够重用其直接基类定义的构造函数。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Derived</span> <span style="color:#666">:</span> Base {
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#a2f;font-weight:bold">using</span> Base<span style="color:#666">::</span>Base;
+    <span style="color:#080;font-style:italic">/* ... */</span>
+};
+</code></pre></div><p>如上 using 声明，对于基类的每个构造函数，编译器都生成一个与之对应（形参列表完全相同）的派生类构造函数。生成如下类型构造函数：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Derived(parms) <span style="color:#666">:</span> Base(args) { }
+</code></pre></div><h4 id="using-指示">using 指示 <a href="#using-%e6%8c%87%e7%a4%ba" class="anchor">🔗</a></h4><p><code>using 指示</code> 使得某个特定命名空间中所有名字都可见，这样我们就无需再为它们添加任何前缀限定符了。如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">using</span> namespace_name name;
+</code></pre></div><h4 id="尽量少使用-using-指示-污染命名空间">尽量少使用 <code>using 指示</code> 污染命名空间 <a href="#%e5%b0%bd%e9%87%8f%e5%b0%91%e4%bd%bf%e7%94%a8-using-%e6%8c%87%e7%a4%ba-%e6%b1%a1%e6%9f%93%e5%91%bd%e5%90%8d%e7%a9%ba%e9%97%b4" class="anchor">🔗</a></h4><blockquote>
 <p>一般说来，使用 using 命令比使用 using 编译命令更安全，这是由于它<strong>只导入了指定的名称</strong>。如果该名称与局部名称发生冲突，编译器将<strong>发出指示</strong>。using编译命令导入所有的名称，包括可能并不需要的名称。如果与局部名称发生冲突，则<strong>局部名称将覆盖名称空间版本</strong>，而编译器<strong>并不会发出警告</strong>。另外，名称空间的开放性意味着名称空间的名称可能分散在多个地方，这使得难以准确知道添加了哪些名称。</p>
 </blockquote>
 <p>using 使用</p>
 <p>尽量少使用 <code>using 指示</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
-</span></span></code></pre></div><p>应该多使用 <code>using 声明</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> x;
-</span></span><span style="display:flex;"><span>std<span style="color:#666">::</span>cin <span style="color:#666">&gt;&gt;</span> x ;
-</span></span><span style="display:flex;"><span>std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> x <span style="color:#666">&lt;&lt;</span> std<span style="color:#666">::</span>endl;
-</span></span></code></pre></div><p>或者</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> std<span style="color:#666">::</span>cin;
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> std<span style="color:#666">::</span>cout;
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> std<span style="color:#666">::</span>endl;
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> x;
-</span></span><span style="display:flex;"><span>cin <span style="color:#666">&gt;&gt;</span> x;
-</span></span><span style="display:flex;"><span>cout <span style="color:#666">&lt;&lt;</span> x <span style="color:#666">&lt;&lt;</span> endl;
-</span></span></code></pre></div><h3 id="-范围解析运算符">:: 范围解析运算符 <a href="#-%e8%8c%83%e5%9b%b4%e8%a7%a3%e6%9e%90%e8%bf%90%e7%ae%97%e7%ac%a6" class="anchor">🔗</a></h3><h4 id="分类">分类 <a href="#%e5%88%86%e7%b1%bb" class="anchor">🔗</a></h4><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</code></pre></div><p>应该多使用 <code>using 声明</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#0b0;font-weight:bold">int</span> x;
+std<span style="color:#666">::</span>cin <span style="color:#666">&gt;&gt;</span> x ;
+std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> x <span style="color:#666">&lt;&lt;</span> std<span style="color:#666">::</span>endl;
+</code></pre></div><p>或者</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">using</span> std<span style="color:#666">::</span>cin;
+<span style="color:#a2f;font-weight:bold">using</span> std<span style="color:#666">::</span>cout;
+<span style="color:#a2f;font-weight:bold">using</span> std<span style="color:#666">::</span>endl;
+<span style="color:#0b0;font-weight:bold">int</span> x;
+cin <span style="color:#666">&gt;&gt;</span> x;
+cout <span style="color:#666">&lt;&lt;</span> x <span style="color:#666">&lt;&lt;</span> endl;
+</code></pre></div><h3 id="-范围解析运算符">:: 范围解析运算符 <a href="#-%e8%8c%83%e5%9b%b4%e8%a7%a3%e6%9e%90%e8%bf%90%e7%ae%97%e7%ac%a6" class="anchor">🔗</a></h3><h4 id="分类">分类 <a href="#%e5%88%86%e7%b1%bb" class="anchor">🔗</a></h4><ol>
 <li>全局作用域符（<code>::name</code>）：用于类型名称（类、类成员、成员函数、变量等）前，表示作用域为全局命名空间</li>
 <li>类作用域符（<code>class::name</code>）：用于表示指定类型的作用域范围是具体某个类的</li>
 <li>命名空间作用域符（<code>namespace::name</code>）:用于表示指定类型的作用域范围是具体某个命名空间的</li>
 </ol>
 <p>:: 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> count <span style="color:#666">=</span> <span style="color:#666">11</span>;         <span style="color:#080;font-style:italic">// 全局（::）的 count
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span> {
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">int</span> count;   <span style="color:#080;font-style:italic">// 类 A 的 count（A::count）
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>};
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> A<span style="color:#666">::</span>count <span style="color:#666">=</span> <span style="color:#666">21</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">fun</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> count <span style="color:#666">=</span> <span style="color:#666">31</span>;     <span style="color:#080;font-style:italic">// 初始化局部的 count 为 31
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	count <span style="color:#666">=</span> <span style="color:#666">32</span>;         <span style="color:#080;font-style:italic">// 设置局部的 count 的值为 32
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#666">::</span>count <span style="color:#666">=</span> <span style="color:#666">12</span>;       <span style="color:#080;font-style:italic">// 测试 1：设置全局的 count 的值为 12
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	A<span style="color:#666">::</span>count <span style="color:#666">=</span> <span style="color:#666">22</span>;      <span style="color:#080;font-style:italic">// 测试 2：设置类 A 的 count 为 22
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	fun();		        <span style="color:#080;font-style:italic">// 测试 3
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="enum-枚举类型">enum 枚举类型 <a href="#enum-%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8b" class="anchor">🔗</a></h3><h4 id="限定作用域的枚举类型">限定作用域的枚举类型 <a href="#%e9%99%90%e5%ae%9a%e4%bd%9c%e7%94%a8%e5%9f%9f%e7%9a%84%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8b" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">open_modes</span> { input, output, append };
-</span></span></code></pre></div><h4 id="不限定作用域的枚举类型">不限定作用域的枚举类型 <a href="#%e4%b8%8d%e9%99%90%e5%ae%9a%e4%bd%9c%e7%94%a8%e5%9f%9f%e7%9a%84%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8b" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#00f">color</span> { red, yellow, green };
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">enum</span> { floatPrec <span style="color:#666">=</span> <span style="color:#666">6</span>, doublePrec <span style="color:#666">=</span> <span style="color:#666">10</span> };
-</span></span></code></pre></div><h3 id="decltype">decltype <a href="#decltype" class="anchor">🔗</a></h3><p>decltype 关键字用于检查实体的声明类型或表达式的类型及值分类。语法：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">decltype</span> ( expression )
-</span></span></code></pre></div><p>decltype 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 尾置返回允许我们在参数列表之后声明返回类型
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">typename</span> It<span style="color:#666">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">auto</span> fcn(It beg, It end) <span style="color:#666">-&gt;</span> <span style="color:#a2f;font-weight:bold">decltype</span>(<span style="color:#666">*</span>beg)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 处理序列
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">*</span>beg;    <span style="color:#080;font-style:italic">// 返回序列中一个元素的引用
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 为了使用模板参数成员，必须用 typename
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">typename</span> It<span style="color:#666">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">auto</span> fcn2(It beg, It end) <span style="color:#666">-&gt;</span> <span style="color:#a2f;font-weight:bold">typename</span> remove_reference<span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">decltype</span>(<span style="color:#666">*</span>beg)<span style="color:#666">&gt;::</span>type
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 处理序列
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">*</span>beg;    <span style="color:#080;font-style:italic">// 返回序列中一个元素的拷贝
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
-</span></span></code></pre></div><h3 id="引用">引用 <a href="#%e5%bc%95%e7%94%a8" class="anchor">🔗</a></h3><h4 id="左值引用">左值引用 <a href="#%e5%b7%a6%e5%80%bc%e5%bc%95%e7%94%a8" class="anchor">🔗</a></h4><p>常规引用，一般表示对象的身份。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#0b0;font-weight:bold">int</span> count <span style="color:#666">=</span> <span style="color:#666">11</span>;         <span style="color:#080;font-style:italic">// 全局（::）的 count
+</span><span style="color:#080;font-style:italic"></span>
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span> {
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+	<span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">int</span> count;   <span style="color:#080;font-style:italic">// 类 A 的 count（A::count）
+</span><span style="color:#080;font-style:italic"></span>};
+<span style="color:#0b0;font-weight:bold">int</span> A<span style="color:#666">::</span>count <span style="color:#666">=</span> <span style="color:#666">21</span>;
+
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">fun</span>()
+{
+	<span style="color:#0b0;font-weight:bold">int</span> count <span style="color:#666">=</span> <span style="color:#666">31</span>;     <span style="color:#080;font-style:italic">// 初始化局部的 count 为 31
+</span><span style="color:#080;font-style:italic"></span>	count <span style="color:#666">=</span> <span style="color:#666">32</span>;         <span style="color:#080;font-style:italic">// 设置局部的 count 的值为 32
+</span><span style="color:#080;font-style:italic"></span>}
+
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>() {
+	<span style="color:#666">::</span>count <span style="color:#666">=</span> <span style="color:#666">12</span>;       <span style="color:#080;font-style:italic">// 测试 1：设置全局的 count 的值为 12
+</span><span style="color:#080;font-style:italic"></span>
+	A<span style="color:#666">::</span>count <span style="color:#666">=</span> <span style="color:#666">22</span>;      <span style="color:#080;font-style:italic">// 测试 2：设置类 A 的 count 为 22
+</span><span style="color:#080;font-style:italic"></span>
+	fun();		        <span style="color:#080;font-style:italic">// 测试 3
+</span><span style="color:#080;font-style:italic"></span>
+	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+}
+</code></pre></div><h3 id="enum-枚举类型">enum 枚举类型 <a href="#enum-%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8b" class="anchor">🔗</a></h3><h4 id="限定作用域的枚举类型">限定作用域的枚举类型 <a href="#%e9%99%90%e5%ae%9a%e4%bd%9c%e7%94%a8%e5%9f%9f%e7%9a%84%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8b" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">open_modes</span> { input, output, append };
+</code></pre></div><h4 id="不限定作用域的枚举类型">不限定作用域的枚举类型 <a href="#%e4%b8%8d%e9%99%90%e5%ae%9a%e4%bd%9c%e7%94%a8%e5%9f%9f%e7%9a%84%e6%9e%9a%e4%b8%be%e7%b1%bb%e5%9e%8b" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#00f">color</span> { red, yellow, green };
+<span style="color:#a2f;font-weight:bold">enum</span> { floatPrec <span style="color:#666">=</span> <span style="color:#666">6</span>, doublePrec <span style="color:#666">=</span> <span style="color:#666">10</span> };
+</code></pre></div><h3 id="decltype">decltype <a href="#decltype" class="anchor">🔗</a></h3><p>decltype 关键字用于检查实体的声明类型或表达式的类型及值分类。语法：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">decltype</span> ( expression )
+</code></pre></div><p>decltype 使用</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080;font-style:italic">// 尾置返回允许我们在参数列表之后声明返回类型
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">typename</span> It<span style="color:#666">&gt;</span>
+<span style="color:#a2f;font-weight:bold">auto</span> fcn(It beg, It end) <span style="color:#666">-&gt;</span> <span style="color:#a2f;font-weight:bold">decltype</span>(<span style="color:#666">*</span>beg)
+{
+    <span style="color:#080;font-style:italic">// 处理序列
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">*</span>beg;    <span style="color:#080;font-style:italic">// 返回序列中一个元素的引用
+</span><span style="color:#080;font-style:italic"></span>}
+<span style="color:#080;font-style:italic">// 为了使用模板参数成员，必须用 typename
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">typename</span> It<span style="color:#666">&gt;</span>
+<span style="color:#a2f;font-weight:bold">auto</span> fcn2(It beg, It end) <span style="color:#666">-&gt;</span> <span style="color:#a2f;font-weight:bold">typename</span> remove_reference<span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">decltype</span>(<span style="color:#666">*</span>beg)<span style="color:#666">&gt;::</span>type
+{
+    <span style="color:#080;font-style:italic">// 处理序列
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">*</span>beg;    <span style="color:#080;font-style:italic">// 返回序列中一个元素的拷贝
+</span><span style="color:#080;font-style:italic"></span>}
+</code></pre></div><h3 id="引用">引用 <a href="#%e5%bc%95%e7%94%a8" class="anchor">🔗</a></h3><h4 id="左值引用">左值引用 <a href="#%e5%b7%a6%e5%80%bc%e5%bc%95%e7%94%a8" class="anchor">🔗</a></h4><p>常规引用，一般表示对象的身份。</p>
 <h4 id="右值引用">右值引用 <a href="#%e5%8f%b3%e5%80%bc%e5%bc%95%e7%94%a8" class="anchor">🔗</a></h4><p>右值引用就是必须绑定到右值（一个临时对象、将要销毁的对象）的引用，一般表示对象的值。</p>
 <p>右值引用可实现转移语义（Move Sementics）和精确传递（Perfect Forwarding），它的主要目的有两个方面：</p>
 <ul>
@@ -619,55 +619,55 @@ if (!doNotTrack) {
 </ul>
 <h3 id="initializer_list-列表初始化">initializer_list 列表初始化 <a href="#initializer_list-%e5%88%97%e8%a1%a8%e5%88%9d%e5%a7%8b%e5%8c%96" class="anchor">🔗</a></h3><p>用花括号初始化器列表初始化一个对象，其中对应构造函数接受一个 <code>std::initializer_list</code> 参数.</p>
 <p>initializer_list 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
-</span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;vector&gt;</span><span style="color:#080">
-</span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;initializer_list&gt;</span><span style="color:#080">
-</span></span></span><span style="display:flex;"><span><span style="color:#080"></span> 
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">T</span><span style="color:#666">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">S</span> {
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;</span> v;
-</span></span><span style="display:flex;"><span>    S(std<span style="color:#666">::</span>initializer_list<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;</span> l) <span style="color:#666">:</span> v(l) {
-</span></span><span style="display:flex;"><span>         std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;constructed with a &#34;</span> <span style="color:#666">&lt;&lt;</span> l.size() <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;-element list</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">append</span>(std<span style="color:#666">::</span>initializer_list<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;</span> l) {
-</span></span><span style="display:flex;"><span>        v.insert(v.end(), l.begin(), l.end());
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>pair<span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">const</span> T<span style="color:#666">*</span>, std<span style="color:#666">::</span>size_t<span style="color:#666">&gt;</span> c_arr() <span style="color:#a2f;font-weight:bold">const</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">return</span> {<span style="color:#666">&amp;</span>v[<span style="color:#666">0</span>], v.size()};  <span style="color:#080;font-style:italic">// 在 return 语句中复制列表初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>                                   <span style="color:#080;font-style:italic">// 这不使用 std::initializer_list
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    }
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">typename</span> T<span style="color:#666">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> templated_fn(T) {}
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    S<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> s <span style="color:#666">=</span> {<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>, <span style="color:#666">4</span>, <span style="color:#666">5</span>}; <span style="color:#080;font-style:italic">// 复制初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    s.append({<span style="color:#666">6</span>, <span style="color:#666">7</span>, <span style="color:#666">8</span>});      <span style="color:#080;font-style:italic">// 函数调用中的列表初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span> 
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;The vector size is now &#34;</span> <span style="color:#666">&lt;&lt;</span> s.c_arr().second <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34; ints:</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#a2f;font-weight:bold">auto</span> <span style="color:#a0a000">n</span> : s.v)
-</span></span><span style="display:flex;"><span>        std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> n <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39; &#39;</span>;
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39;\n&#39;</span>;
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;Range-for over brace-init-list: </span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#a0a000">x</span> : {<span style="color:#666">-</span><span style="color:#666">1</span>, <span style="color:#666">-</span><span style="color:#666">2</span>, <span style="color:#666">-</span><span style="color:#666">3</span>}) <span style="color:#080;font-style:italic">// auto 的规则令此带范围 for 工作
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> x <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39; &#39;</span>;
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39;\n&#39;</span>;
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">auto</span> al <span style="color:#666">=</span> {<span style="color:#666">10</span>, <span style="color:#666">11</span>, <span style="color:#666">12</span>};   <span style="color:#080;font-style:italic">// auto 的特殊规则
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span> 
-</span></span><span style="display:flex;"><span>    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;The list bound to auto has size() = &#34;</span> <span style="color:#666">&lt;&lt;</span> al.size() <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39;\n&#39;</span>;
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//    templated_fn({1, 2, 3}); // 编译错误！“ {1, 2, 3} ”不是表达式，
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>                             <span style="color:#080;font-style:italic">// 它无类型，故 T 无法推导
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    templated_fn<span style="color:#666">&lt;</span>std<span style="color:#666">::</span>initializer_list<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&gt;</span>({<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>}); <span style="color:#080;font-style:italic">// OK
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    templated_fn<span style="color:#666">&lt;</span>std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&gt;</span>({<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>});           <span style="color:#080;font-style:italic">// 也 OK
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
-</span></span></code></pre></div><h3 id="面向对象">面向对象 <a href="#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1" class="anchor">🔗</a></h3><p>面向对象程序设计（Object-oriented programming，OOP）是种具有对象概念的程序编程典范，同时也是一种程序开发的抽象方针。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
+</span><span style="color:#080">#include</span> <span style="color:#080">&lt;vector&gt;</span><span style="color:#080">
+</span><span style="color:#080">#include</span> <span style="color:#080">&lt;initializer_list&gt;</span><span style="color:#080">
+</span><span style="color:#080"></span> 
+<span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">T</span><span style="color:#666">&gt;</span>
+<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">S</span> {
+    std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;</span> v;
+    S(std<span style="color:#666">::</span>initializer_list<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;</span> l) <span style="color:#666">:</span> v(l) {
+         std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;constructed with a &#34;</span> <span style="color:#666">&lt;&lt;</span> l.size() <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;-element list</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
+    }
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">append</span>(std<span style="color:#666">::</span>initializer_list<span style="color:#666">&lt;</span>T<span style="color:#666">&gt;</span> l) {
+        v.insert(v.end(), l.begin(), l.end());
+    }
+    std<span style="color:#666">::</span>pair<span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">const</span> T<span style="color:#666">*</span>, std<span style="color:#666">::</span>size_t<span style="color:#666">&gt;</span> c_arr() <span style="color:#a2f;font-weight:bold">const</span> {
+        <span style="color:#a2f;font-weight:bold">return</span> {<span style="color:#666">&amp;</span>v[<span style="color:#666">0</span>], v.size()};  <span style="color:#080;font-style:italic">// 在 return 语句中复制列表初始化
+</span><span style="color:#080;font-style:italic"></span>                                   <span style="color:#080;font-style:italic">// 这不使用 std::initializer_list
+</span><span style="color:#080;font-style:italic"></span>    }
+};
+ 
+<span style="color:#a2f;font-weight:bold">template</span> <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">typename</span> T<span style="color:#666">&gt;</span>
+<span style="color:#0b0;font-weight:bold">void</span> templated_fn(T) {}
+ 
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+{
+    S<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> s <span style="color:#666">=</span> {<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>, <span style="color:#666">4</span>, <span style="color:#666">5</span>}; <span style="color:#080;font-style:italic">// 复制初始化
+</span><span style="color:#080;font-style:italic"></span>    s.append({<span style="color:#666">6</span>, <span style="color:#666">7</span>, <span style="color:#666">8</span>});      <span style="color:#080;font-style:italic">// 函数调用中的列表初始化
+</span><span style="color:#080;font-style:italic"></span> 
+    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;The vector size is now &#34;</span> <span style="color:#666">&lt;&lt;</span> s.c_arr().second <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34; ints:</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
+ 
+    <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#a2f;font-weight:bold">auto</span> <span style="color:#a0a000">n</span> : s.v)
+        std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> n <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39; &#39;</span>;
+    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39;\n&#39;</span>;
+ 
+    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;Range-for over brace-init-list: </span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>;
+ 
+    <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#a0a000">x</span> : {<span style="color:#666">-</span><span style="color:#666">1</span>, <span style="color:#666">-</span><span style="color:#666">2</span>, <span style="color:#666">-</span><span style="color:#666">3</span>}) <span style="color:#080;font-style:italic">// auto 的规则令此带范围 for 工作
+</span><span style="color:#080;font-style:italic"></span>        std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> x <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39; &#39;</span>;
+    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39;\n&#39;</span>;
+ 
+    <span style="color:#a2f;font-weight:bold">auto</span> al <span style="color:#666">=</span> {<span style="color:#666">10</span>, <span style="color:#666">11</span>, <span style="color:#666">12</span>};   <span style="color:#080;font-style:italic">// auto 的特殊规则
+</span><span style="color:#080;font-style:italic"></span> 
+    std<span style="color:#666">::</span>cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;The list bound to auto has size() = &#34;</span> <span style="color:#666">&lt;&lt;</span> al.size() <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39;\n&#39;</span>;
+ 
+<span style="color:#080;font-style:italic">//    templated_fn({1, 2, 3}); // 编译错误！“ {1, 2, 3} ”不是表达式，
+</span><span style="color:#080;font-style:italic"></span>                             <span style="color:#080;font-style:italic">// 它无类型，故 T 无法推导
+</span><span style="color:#080;font-style:italic"></span>    templated_fn<span style="color:#666">&lt;</span>std<span style="color:#666">::</span>initializer_list<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&gt;</span>({<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>}); <span style="color:#080;font-style:italic">// OK
+</span><span style="color:#080;font-style:italic"></span>    templated_fn<span style="color:#666">&lt;</span>std<span style="color:#666">::</span>vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&gt;</span>({<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>});           <span style="color:#080;font-style:italic">// 也 OK
+</span><span style="color:#080;font-style:italic"></span>}
+</code></pre></div><h3 id="面向对象">面向对象 <a href="#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1" class="anchor">🔗</a></h3><p>面向对象程序设计（Object-oriented programming，OOP）是种具有对象概念的程序编程典范，同时也是一种程序开发的抽象方针。</p>
 <p><p class="markdown-image">
   <img src="https://gitee.com/huihut/interview/raw/master/images/%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e5%9f%ba%e6%9c%ac%e7%89%b9%e5%be%81.png" alt="面向对象特征"  />
 </p></p>
@@ -697,13 +697,13 @@ if (!doNotTrack) {
 <p><a href="https://catonmat.net/cpp-polymorphism" target="_blank" rel="noopener">The Four Polymorphisms in C++</a></p>
 </blockquote>
 <h4 id="静态多态编译期早绑定">静态多态（编译期/早绑定） <a href="#%e9%9d%99%e6%80%81%e5%a4%9a%e6%80%81%e7%bc%96%e8%af%91%e6%9c%9f%e6%97%a9%e7%bb%91%e5%ae%9a" class="anchor">🔗</a></h4><p>函数重载</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#a2f;font-weight:bold">do</span>(<span style="color:#0b0;font-weight:bold">int</span> a);
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">do</span>(<span style="color:#0b0;font-weight:bold">int</span> a, <span style="color:#0b0;font-weight:bold">int</span> b);
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><h4 id="动态多态运行期期晚绑定">动态多态（运行期期/晚绑定） <a href="#%e5%8a%a8%e6%80%81%e5%a4%9a%e6%80%81%e8%bf%90%e8%a1%8c%e6%9c%9f%e6%9c%9f%e6%99%9a%e7%bb%91%e5%ae%9a" class="anchor">🔗</a></h4><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span>
+{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#a2f;font-weight:bold">do</span>(<span style="color:#0b0;font-weight:bold">int</span> a);
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">do</span>(<span style="color:#0b0;font-weight:bold">int</span> a, <span style="color:#0b0;font-weight:bold">int</span> b);
+};
+</code></pre></div><h4 id="动态多态运行期期晚绑定">动态多态（运行期期/晚绑定） <a href="#%e5%8a%a8%e6%80%81%e5%a4%9a%e6%80%81%e8%bf%90%e8%a1%8c%e6%9c%9f%e6%9c%9f%e6%99%9a%e7%bb%91%e5%ae%9a" class="anchor">🔗</a></h4><ul>
 <li>虚函数：用 virtual 修饰成员函数，使其成为虚函数</li>
 <li>动态绑定：当使用基类的引用或指针调用一个虚函数时将发生动态绑定</li>
 </ul>
@@ -716,65 +716,65 @@ if (!doNotTrack) {
 <li>内联函数不能是表现多态性时的虚函数，解释见：<a href="https://github.com/huihut/interview#%E8%99%9A%E5%87%BD%E6%95%B0virtual%E5%8F%AF%E4%BB%A5%E6%98%AF%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0inline%E5%90%97" target="_blank" rel="noopener">虚函数（virtual）可以是内联函数（inline）吗？</a></li>
 </ul>
 <p>动态多态使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Shape</span>                     <span style="color:#080;font-style:italic">// 形状类
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> calcArea()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        ...
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>Shape();
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Circle</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Shape     <span style="color:#080;font-style:italic">// 圆形类
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> calcArea();
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Rect</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Shape       <span style="color:#080;font-style:italic">// 矩形类
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> calcArea();
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Shape <span style="color:#666">*</span> shape1 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Circle(<span style="color:#666">4.0</span>);
-</span></span><span style="display:flex;"><span>    Shape <span style="color:#666">*</span> shape2 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Rect(<span style="color:#666">5.0</span>, <span style="color:#666">6.0</span>);
-</span></span><span style="display:flex;"><span>    shape1<span style="color:#666">-&gt;</span>calcArea();         <span style="color:#080;font-style:italic">// 调用圆形类里面的方法
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    shape2<span style="color:#666">-&gt;</span>calcArea();         <span style="color:#080;font-style:italic">// 调用矩形类里面的方法
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">delete</span> shape1;
-</span></span><span style="display:flex;"><span>    shape1 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">delete</span> shape2;
-</span></span><span style="display:flex;"><span>    shape2 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="虚析构函数">虚析构函数 <a href="#%e8%99%9a%e6%9e%90%e6%9e%84%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><p>虚析构函数是为了解决基类的指针指向派生类对象，并用基类的指针删除派生类对象。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Shape</span>                     <span style="color:#080;font-style:italic">// 形状类
+</span><span style="color:#080;font-style:italic"></span>{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> calcArea()
+    {
+        ...
+    }
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>Shape();
+};
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Circle</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Shape     <span style="color:#080;font-style:italic">// 圆形类
+</span><span style="color:#080;font-style:italic"></span>{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> calcArea();
+    ...
+};
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Rect</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Shape       <span style="color:#080;font-style:italic">// 矩形类
+</span><span style="color:#080;font-style:italic"></span>{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> calcArea();
+    ...
+};
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+{
+    Shape <span style="color:#666">*</span> shape1 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Circle(<span style="color:#666">4.0</span>);
+    Shape <span style="color:#666">*</span> shape2 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Rect(<span style="color:#666">5.0</span>, <span style="color:#666">6.0</span>);
+    shape1<span style="color:#666">-&gt;</span>calcArea();         <span style="color:#080;font-style:italic">// 调用圆形类里面的方法
+</span><span style="color:#080;font-style:italic"></span>    shape2<span style="color:#666">-&gt;</span>calcArea();         <span style="color:#080;font-style:italic">// 调用矩形类里面的方法
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">delete</span> shape1;
+    shape1 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
+    <span style="color:#a2f;font-weight:bold">delete</span> shape2;
+    shape2 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
+    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+}
+</code></pre></div><h3 id="虚析构函数">虚析构函数 <a href="#%e8%99%9a%e6%9e%90%e6%9e%84%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><p>虚析构函数是为了解决基类的指针指向派生类对象，并用基类的指针删除派生类对象。</p>
 <p>虚析构函数使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Shape</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    Shape();                    <span style="color:#080;font-style:italic">// 构造函数不能是虚函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> <span style="color:#00a000">calcArea</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>Shape();           <span style="color:#080;font-style:italic">// 虚析构函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>};
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Circle</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Shape     <span style="color:#080;font-style:italic">// 圆形类
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> calcArea();
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    Shape <span style="color:#666">*</span> shape1 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Circle(<span style="color:#666">4.0</span>);
-</span></span><span style="display:flex;"><span>    shape1<span style="color:#666">-&gt;</span>calcArea();    
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">delete</span> shape1;  <span style="color:#080;font-style:italic">// 因为Shape有虚析构函数，所以delete释放内存时，先调用子类析构函数，再调用基类析构函数，防止内存泄漏。
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    shape1 <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span><span style="">；</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="纯虚函数">纯虚函数 <a href="#%e7%ba%af%e8%99%9a%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><p>纯虚函数是一种特殊的虚函数，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">A</span>() <span style="color:#666">=</span> <span style="color:#666">0</span>;
-</span></span></code></pre></div><h3 id="虚函数纯虚函数">虚函数、纯虚函数 <a href="#%e8%99%9a%e5%87%bd%e6%95%b0%e7%ba%af%e8%99%9a%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Shape</span>
+{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    Shape();                    <span style="color:#080;font-style:italic">// 构造函数不能是虚函数
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> <span style="color:#00a000">calcArea</span>();
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>Shape();           <span style="color:#080;font-style:italic">// 虚析构函数
+</span><span style="color:#080;font-style:italic"></span>};
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Circle</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Shape     <span style="color:#080;font-style:italic">// 圆形类
+</span><span style="color:#080;font-style:italic"></span>{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">double</span> calcArea();
+    ...
+};
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+{
+    Shape <span style="color:#666">*</span> shape1 <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Circle(<span style="color:#666">4.0</span>);
+    shape1<span style="color:#666">-&gt;</span>calcArea();    
+    <span style="color:#a2f;font-weight:bold">delete</span> shape1;  <span style="color:#080;font-style:italic">// 因为Shape有虚析构函数，所以delete释放内存时，先调用子类析构函数，再调用基类析构函数，防止内存泄漏。
+</span><span style="color:#080;font-style:italic"></span>    shape1 <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
+    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span><span style="">；</span>
+}
+</code></pre></div><h3 id="纯虚函数">纯虚函数 <a href="#%e7%ba%af%e8%99%9a%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><p>纯虚函数是一种特殊的虚函数，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">A</span>() <span style="color:#666">=</span> <span style="color:#666">0</span>;
+</code></pre></div><h3 id="虚函数纯虚函数">虚函数、纯虚函数 <a href="#%e8%99%9a%e5%87%bd%e6%95%b0%e7%ba%af%e8%99%9a%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><ul>
 <li>类里如果声明了虚函数，这个函数是实现的，哪怕是空实现，它的作用就是为了能让这个函数在它的子类里面可以被覆盖（override），这样的话，编译器就可以使用后期绑定来达到多态了。纯虚函数只是一个接口，是个函数的声明而已，它要留到子类里去实现。</li>
 <li>虚函数在子类里面可以不重写；但纯虚函数必须在子类实现才可以实例化子类。</li>
 <li>虚函数的类用于 “实作继承”，继承接口的同时也继承了父类的实现。纯虚函数关注的是接口的统一性，实现由子类完成。</li>
@@ -838,30 +838,30 @@ if (!doNotTrack) {
 <h4 id="mallocfree">malloc、free <a href="#mallocfree" class="anchor">🔗</a></h4><p>用于分配、释放内存</p>
 <p>malloc、free 使用</p>
 <p>申请内存，确认是否申请成功</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>str <span style="color:#666">=</span> (<span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span>) malloc(<span style="color:#666">100</span>);
-</span></span><span style="display:flex;"><span>assert(str <span style="color:#666">!=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>);
-</span></span></code></pre></div><p>释放内存后指针置空</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>free(p); 
-</span></span><span style="display:flex;"><span>p <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
-</span></span></code></pre></div><h4 id="newdelete">new、delete <a href="#newdelete" class="anchor">🔗</a></h4><ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>str <span style="color:#666">=</span> (<span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span>) malloc(<span style="color:#666">100</span>);
+assert(str <span style="color:#666">!=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>);
+</code></pre></div><p>释放内存后指针置空</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">free(p); 
+p <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
+</code></pre></div><h4 id="newdelete">new、delete <a href="#newdelete" class="anchor">🔗</a></h4><ol>
 <li>new / new[]：完成两件事，先底层调用 malloc 分配了内存，然后调用构造函数（创建对象）。</li>
 <li>delete/delete[]：也完成两件事，先调用析构函数（清理资源），然后底层调用 free 释放空间。</li>
 <li>new 在申请内存时会自动计算所需字节数，而 malloc 则需我们自己输入申请内存空间的字节数。</li>
 </ol>
 <p>new、delete 使用</p>
 <p>申请内存，确认是否申请成功</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    T<span style="color:#666">*</span> t <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> T();     <span style="color:#080;font-style:italic">// 先内存分配 ，再构造函数
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">delete</span> t;           <span style="color:#080;font-style:italic">// 先析构函数，再内存释放
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h4 id="定位-new">定位 new <a href="#%e5%ae%9a%e4%bd%8d-new" class="anchor">🔗</a></h4><p>定位 new（placement new）允许我们向 new 传递额外的地址参数，从而在预先指定的内存区域创建对象。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">new</span> (place_address) type
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">new</span> (place_address) type (initializers)
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">new</span> (place_address) type [size]
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">new</span> (place_address) type [size] { braced initializer list }
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+{
+    T<span style="color:#666">*</span> t <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> T();     <span style="color:#080;font-style:italic">// 先内存分配 ，再构造函数
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">delete</span> t;           <span style="color:#080;font-style:italic">// 先析构函数，再内存释放
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+}
+</code></pre></div><h4 id="定位-new">定位 new <a href="#%e5%ae%9a%e4%bd%8d-new" class="anchor">🔗</a></h4><p>定位 new（placement new）允许我们向 new 传递额外的地址参数，从而在预先指定的内存区域创建对象。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">new</span> (place_address) type
+<span style="color:#a2f;font-weight:bold">new</span> (place_address) type (initializers)
+<span style="color:#a2f;font-weight:bold">new</span> (place_address) type [size]
+<span style="color:#a2f;font-weight:bold">new</span> (place_address) type [size] { braced initializer list }
+</code></pre></div><ul>
 <li><code>place_address</code> 是个指针</li>
 <li><code>initializers</code> 提供一个（可能为空的）以逗号分隔的初始值列表</li>
 </ul>
@@ -883,8 +883,8 @@ if (!doNotTrack) {
 <h4 id="只能在栈上">只能在栈上 <a href="#%e5%8f%aa%e8%83%bd%e5%9c%a8%e6%a0%88%e4%b8%8a" class="anchor">🔗</a></h4><p>方法：将 new 和 delete 重载为私有</p>
 <p>原因：在堆上生成对象，使用 new 关键词操作，其过程分为两阶段：第一阶段，使用 new 在堆上寻找可用内存，分配给对象；第二阶段，调用构造函数生成对象。将 new 操作设置为私有，那么第一阶段就无法完成，就不能够在堆上生成对象。</p>
 <h3 id="智能指针">智能指针 <a href="#%e6%99%ba%e8%83%bd%e6%8c%87%e9%92%88" class="anchor">🔗</a></h3><h4 id="c-标准库stl中">C++ 标准库（STL）中 <a href="#c-%e6%a0%87%e5%87%86%e5%ba%93stl%e4%b8%ad" class="anchor">🔗</a></h4><p>头文件：<code>#include &lt;memory&gt;</code></p>
-<h4 id="c-98">C++ 98 <a href="#c-98" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#666">::</span>auto_ptr<span style="color:#666">&lt;</span>std<span style="color:#666">::</span>string<span style="color:#666">&gt;</span> ps (<span style="color:#a2f;font-weight:bold">new</span> std<span style="color:#666">::</span>string(str))<span style="">；</span>
-</span></span></code></pre></div><h4 id="c-11">C++ 11 <a href="#c-11" class="anchor">🔗</a></h4><ol>
+<h4 id="c-98">C++ 98 <a href="#c-98" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#666">::</span>auto_ptr<span style="color:#666">&lt;</span>std<span style="color:#666">::</span>string<span style="color:#666">&gt;</span> ps (<span style="color:#a2f;font-weight:bold">new</span> std<span style="color:#666">::</span>string(str))<span style="">；</span>
+</code></pre></div><h4 id="c-11">C++ 11 <a href="#c-11" class="anchor">🔗</a></h4><ol>
 <li>shared_ptr</li>
 <li>unique_ptr</li>
 <li>weak_ptr</li>
@@ -945,13 +945,13 @@ if (!doNotTrack) {
 <li>由于强制转换为引用类型失败，dynamic_cast 运算符引发 bad_cast 异常。</li>
 </ul>
 <p>bad_cast 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">try</span> {  
-</span></span><span style="display:flex;"><span>    Circle<span style="color:#666">&amp;</span> ref_circle <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">dynamic_cast</span><span style="color:#666">&lt;</span>Circle<span style="color:#666">&amp;&gt;</span>(ref_shape);   
-</span></span><span style="display:flex;"><span>}  
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">catch</span> (bad_cast b) {  
-</span></span><span style="display:flex;"><span>    cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;Caught: &#34;</span> <span style="color:#666">&lt;&lt;</span> b.what();  
-</span></span><span style="display:flex;"><span>} 
-</span></span></code></pre></div><h3 id="运行时类型信息-rtti">运行时类型信息 (RTTI) <a href="#%e8%bf%90%e8%a1%8c%e6%97%b6%e7%b1%bb%e5%9e%8b%e4%bf%a1%e6%81%af-rtti" class="anchor">🔗</a></h3><h4 id="dynamic_cast-1">dynamic_cast <a href="#dynamic_cast-1" class="anchor">🔗</a></h4><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#a2f;font-weight:bold">try</span> {  
+    Circle<span style="color:#666">&amp;</span> ref_circle <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">dynamic_cast</span><span style="color:#666">&lt;</span>Circle<span style="color:#666">&amp;&gt;</span>(ref_shape);   
+}  
+<span style="color:#a2f;font-weight:bold">catch</span> (bad_cast b) {  
+    cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;Caught: &#34;</span> <span style="color:#666">&lt;&lt;</span> b.what();  
+} 
+</code></pre></div><h3 id="运行时类型信息-rtti">运行时类型信息 (RTTI) <a href="#%e8%bf%90%e8%a1%8c%e6%97%b6%e7%b1%bb%e5%9e%8b%e4%bf%a1%e6%81%af-rtti" class="anchor">🔗</a></h3><h4 id="dynamic_cast-1">dynamic_cast <a href="#dynamic_cast-1" class="anchor">🔗</a></h4><ul>
 <li>用于多态类型的转换</li>
 </ul>
 <h4 id="typeid">typeid <a href="#typeid" class="anchor">🔗</a></h4><ul>
@@ -965,66 +965,66 @@ if (!doNotTrack) {
 <li>头文件：<code>typeinfo</code></li>
 </ul>
 <p>typeid、type_info 使用</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
-</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Flyable</span>                       <span style="color:#080;font-style:italic">// 能飞的
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> takeoff() <span style="color:#666">=</span> <span style="color:#666">0</span>;     <span style="color:#080;font-style:italic">// 起飞
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">land</span>() <span style="color:#666">=</span> <span style="color:#666">0</span>;        <span style="color:#080;font-style:italic">// 降落
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>};
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Bird</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Flyable         <span style="color:#080;font-style:italic">// 鸟
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span> foraging() {...}           <span style="color:#080;font-style:italic">// 觅食
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">takeoff</span>() {...}
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">land</span>() {...}
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>Bird(){}
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Plane</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Flyable        <span style="color:#080;font-style:italic">// 飞机
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span> carry() {...}              <span style="color:#080;font-style:italic">// 运输
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">takeoff</span>() {...}
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">land</span>() {...}
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">type_info</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> name() <span style="color:#a2f;font-weight:bold">const</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">bool</span> <span style="color:#a2f;font-weight:bold">operator</span> <span style="color:#666">==</span> (<span style="color:#a2f;font-weight:bold">const</span> type_info <span style="color:#666">&amp;</span> rhs) <span style="color:#a2f;font-weight:bold">const</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">bool</span> <span style="color:#a2f;font-weight:bold">operator</span> <span style="color:#666">!=</span> (<span style="color:#a2f;font-weight:bold">const</span> type_info <span style="color:#666">&amp;</span> rhs) <span style="color:#a2f;font-weight:bold">const</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">before</span>(<span style="color:#a2f;font-weight:bold">const</span> type_info <span style="color:#666">&amp;</span> rhs) <span style="color:#a2f;font-weight:bold">const</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>type_info();
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">private</span><span style="color:#666">:</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">doSomething</span>(Flyable <span style="color:#666">*</span>obj)                 <span style="color:#080;font-style:italic">// 做些事情
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
-</span></span><span style="display:flex;"><span>    obj<span style="color:#666">-&gt;</span>takeoff();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    cout <span style="color:#666">&lt;&lt;</span> <span style="color:#a2f;font-weight:bold">typeid</span>(<span style="color:#666">*</span>obj).name() <span style="color:#666">&lt;&lt;</span> endl;        <span style="color:#080;font-style:italic">// 输出传入对象类型（&#34;class Bird&#34; or &#34;class Plane&#34;）
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(<span style="color:#a2f;font-weight:bold">typeid</span>(<span style="color:#666">*</span>obj) <span style="color:#666">==</span> <span style="color:#a2f;font-weight:bold">typeid</span>(Bird))            <span style="color:#080;font-style:italic">// 判断对象类型
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    {
-</span></span><span style="display:flex;"><span>        Bird <span style="color:#666">*</span>bird <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">dynamic_cast</span><span style="color:#666">&lt;</span>Bird <span style="color:#666">*&gt;</span>(obj); <span style="color:#080;font-style:italic">// 对象转化
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        bird<span style="color:#666">-&gt;</span>foraging();
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    obj<span style="color:#666">-&gt;</span>land();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>(){
-</span></span><span style="display:flex;"><span>	Bird <span style="color:#666">*</span>b <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Bird();
-</span></span><span style="display:flex;"><span>	doSomething(b);
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">delete</span> b;
-</span></span><span style="display:flex;"><span>	b <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
-</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
+</span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Flyable</span>                       <span style="color:#080;font-style:italic">// 能飞的
+</span><span style="color:#080;font-style:italic"></span>{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> takeoff() <span style="color:#666">=</span> <span style="color:#666">0</span>;     <span style="color:#080;font-style:italic">// 起飞
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">land</span>() <span style="color:#666">=</span> <span style="color:#666">0</span>;        <span style="color:#080;font-style:italic">// 降落
+</span><span style="color:#080;font-style:italic"></span>};
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Bird</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Flyable         <span style="color:#080;font-style:italic">// 鸟
+</span><span style="color:#080;font-style:italic"></span>{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#0b0;font-weight:bold">void</span> foraging() {...}           <span style="color:#080;font-style:italic">// 觅食
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">takeoff</span>() {...}
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">land</span>() {...}
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>Bird(){}
+};
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Plane</span> <span style="color:#666">:</span> <span style="color:#a2f;font-weight:bold">public</span> Flyable        <span style="color:#080;font-style:italic">// 飞机
+</span><span style="color:#080;font-style:italic"></span>{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#0b0;font-weight:bold">void</span> carry() {...}              <span style="color:#080;font-style:italic">// 运输
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">takeoff</span>() {...}
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">land</span>() {...}
+};
+
+<span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">type_info</span>
+{
+<span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+    <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span> name() <span style="color:#a2f;font-weight:bold">const</span>;
+    <span style="color:#0b0;font-weight:bold">bool</span> <span style="color:#a2f;font-weight:bold">operator</span> <span style="color:#666">==</span> (<span style="color:#a2f;font-weight:bold">const</span> type_info <span style="color:#666">&amp;</span> rhs) <span style="color:#a2f;font-weight:bold">const</span>;
+    <span style="color:#0b0;font-weight:bold">bool</span> <span style="color:#a2f;font-weight:bold">operator</span> <span style="color:#666">!=</span> (<span style="color:#a2f;font-weight:bold">const</span> type_info <span style="color:#666">&amp;</span> rhs) <span style="color:#a2f;font-weight:bold">const</span>;
+    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">before</span>(<span style="color:#a2f;font-weight:bold">const</span> type_info <span style="color:#666">&amp;</span> rhs) <span style="color:#a2f;font-weight:bold">const</span>;
+    <span style="color:#a2f;font-weight:bold">virtual</span> <span style="color:#666">~</span>type_info();
+<span style="color:#a2f;font-weight:bold">private</span><span style="color:#666">:</span>
+    ...
+};
+
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">doSomething</span>(Flyable <span style="color:#666">*</span>obj)                 <span style="color:#080;font-style:italic">// 做些事情
+</span><span style="color:#080;font-style:italic"></span>{
+    obj<span style="color:#666">-&gt;</span>takeoff();
+
+    cout <span style="color:#666">&lt;&lt;</span> <span style="color:#a2f;font-weight:bold">typeid</span>(<span style="color:#666">*</span>obj).name() <span style="color:#666">&lt;&lt;</span> endl;        <span style="color:#080;font-style:italic">// 输出传入对象类型（&#34;class Bird&#34; or &#34;class Plane&#34;）
+</span><span style="color:#080;font-style:italic"></span>
+    <span style="color:#a2f;font-weight:bold">if</span>(<span style="color:#a2f;font-weight:bold">typeid</span>(<span style="color:#666">*</span>obj) <span style="color:#666">==</span> <span style="color:#a2f;font-weight:bold">typeid</span>(Bird))            <span style="color:#080;font-style:italic">// 判断对象类型
+</span><span style="color:#080;font-style:italic"></span>    {
+        Bird <span style="color:#666">*</span>bird <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">dynamic_cast</span><span style="color:#666">&lt;</span>Bird <span style="color:#666">*&gt;</span>(obj); <span style="color:#080;font-style:italic">// 对象转化
+</span><span style="color:#080;font-style:italic"></span>        bird<span style="color:#666">-&gt;</span>foraging();
+    }
+
+    obj<span style="color:#666">-&gt;</span>land();
+}
+
+<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>(){
+	Bird <span style="color:#666">*</span>b <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Bird();
+	doSomething(b);
+	<span style="color:#a2f;font-weight:bold">delete</span> b;
+	b <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">nullptr</span>;
+	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+}
+</code></pre></div>
     </div>
 
     

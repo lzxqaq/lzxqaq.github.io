@@ -51,7 +51,7 @@ C++ABI的部分内容举例：
 STL的std::sort函数是基于Musser在1996年提出的内省排序（Introspective sort）算法实现。这个算法是个缝合怪，它汲取了插入排序、堆排序以及快排的优点：
  针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。  在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
 示例：
-bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s2) {  return s1.toLower() &amp;lt; s2.toLower(); //从小到大排序 }  int doSomething() {  QStringList list;  list &amp;lt;&amp;lt; &amp;#34;AlPha&amp;#34; &amp;lt;&amp;lt; &amp;#34;beTA&amp;#34; &amp;lt;&amp;lt; &amp;#34;gamma&amp;#34; &amp;lt;&amp;lt; &amp;#34;DELTA&amp;#34;;  qSort(list.begin(), list.end(), caseInsensitiveLessThan);  // list: [ &amp;#34;AlPha&amp;#34;, &amp;#34;beTA&amp;#34;, &amp;#34;DELTA&amp;#34;, &amp;#34;gamma&amp;#34; ] } </description>
+bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s2) { return s1.toLower() &amp;lt; s2.toLower(); //从小到大排序 } int doSomething() { QStringList list; list &amp;lt;&amp;lt; &amp;#34;AlPha&amp;#34; &amp;lt;&amp;lt; &amp;#34;beTA&amp;#34; &amp;lt;&amp;lt; &amp;#34;gamma&amp;#34; &amp;lt;&amp;lt; &amp;#34;DELTA&amp;#34;; qSort(list.begin(), list.end(), caseInsensitiveLessThan); // list: [ &amp;#34;AlPha&amp;#34;, &amp;#34;beTA&amp;#34;, &amp;#34;DELTA&amp;#34;, &amp;#34;gamma&amp;#34; ] } </description>
     </item>
     
     <item>
@@ -78,7 +78,7 @@ socket函数对应于普通文件的打开操作。普通文件的打开操作�
 当我们调用socket创建一个socket时，返回的socket描述字它存在于协议族（address family，AF_XXX）空间中，但没有一个具体的地址。如果想要给它赋值一个地址，就必须调用bind()函数，否则就当调用connect()、listen()时系统会自动随机分配一个端口。
 3.2、bind()函数 🔗正如上面所说bind()函数把一个地址族中的特定地址赋给socket。例如对应AF_INET、AF_INET6就是把一个ipv4或ipv6地址和端口号组合赋给socket。
 int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen); 函数的三个参数分别为：
- sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：  struct sockaddr_in {  sa_family_t sin_family; /* address family: AF_INET */  in_port_t sin_port; /* port in network byte order */  struct in_addr sin_addr; /* internet address */ };  /* Internet address.</description>
+ sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：  struct sockaddr_in { sa_family_t sin_family; /* address family: AF_INET */ in_port_t sin_port; /* port in network byte order */ struct in_addr sin_addr; /* internet address */ }; /* Internet address.</description>
     </item>
     
     <item>
@@ -179,14 +179,17 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <description>转载自https://github.com/huihut/interview
 顺序结构 🔗顺序栈（Sequence Stack） 🔗SqStack.cpp
 顺序栈数据结构和图片
-typedef struct { 	ElemType *elem; 	int top; 	int size; 	int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
-typedef struct { 	ElemType * elem; 	int front; 	int rear; 	int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
+typedef struct { ElemType *elem; int top; int size; int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
+typedef struct { ElemType * elem; int front; int rear; int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
 SqQueue.rear++
 循环队列 🔗循环队列图片
 SqQueue.rear = (SqQueue.rear + 1) % SqQueue.maxSize
 顺序表（Sequence List） 🔗SqList.cpp
 顺序表数据结构和图片
-typedef struct { 	ElemType *elem; 	int length; 	int size; 	int increment; } SqList; 链式结构 🔗LinkList.</description>
+typedef struct { ElemType *elem; int length; int size; int increment; } SqList; 链式结构 🔗LinkList.cpp
+LinkList_with_head.cpp
+链式数据结构
+typedef struct LNode { ElemType data; struct LNode *next; } LNode, *LinkList; 链队列（Link Queue） 🔗链队列图片</description>
     </item>
     
     <item>
@@ -219,7 +222,7 @@ Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Tem
       <description>转载自https://github.com/huihut/interview
 const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  const 的指针与引用 🔗 指针  指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer）   引用  指向常量的引用（reference to const） 没有 const reference，因为引用只是对象的别名，引用不是对象，不能用 const 修饰     （为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 p2、p3
  使用 🔗const 使用
-// 类 class A { private:  const int a; // 常对象成员，可以使用初始化列表或者类内初始化  public:  // 构造函数  A() : a(0) { };  A(int x) : a(x) { }; // 初始化列表   // const可用于对重载函数的区分  int getValue(); // 普通成员函数  int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 };  void function() {  // 对象  A b; // 普通对象，可以调用全部成员函数  const A a; // 常对象，只能调用常成员函数  const A *p = &amp;amp;a; // 指针变量，指向常对象  const A &amp;amp;q = a; // 指向常对象的引用   // 指针  char greeting[] = &amp;#34;Hello&amp;#34;;  char* p1 = greeting; // 指针变量，指向字符数组变量  const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）  char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）  const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 }  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗   宏定义 #define const 常量     宏定义，相当于字符替换 常量声明   预处理器处理 编译器处理   无类型安全检查 有类型安全检查   不分配内存 要分配内存   存储在代码段 存储在数据段   可通过 #undef 取消 不可取消    static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。  this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;amp;this）。 在以下场景中，经常需要显式引用 this 指针：  为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。    inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。  使用 🔗inline 使用</description>
+// 类 class A { private: const int a; // 常对象成员，可以使用初始化列表或者类内初始化  public: // 构造函数  A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表  // const可用于对重载函数的区分  int getValue(); // 普通成员函数  int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象  A b; // 普通对象，可以调用全部成员函数  const A a; // 常对象，只能调用常成员函数  const A *p = &amp;amp;a; // 指针变量，指向常对象  const A &amp;amp;q = a; // 指向常对象的引用  // 指针  char greeting[] = &amp;#34;Hello&amp;#34;; char* p1 = greeting; // 指针变量，指向字符数组变量  const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）  char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）  const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗   宏定义 #define const 常量     宏定义，相当于字符替换 常量声明   预处理器处理 编译器处理   无类型安全检查 有类型安全检查   不分配内存 要分配内存   存储在代码段 存储在数据段   可通过 #undef 取消 不可取消    static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。  this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;amp;this）。 在以下场景中，经常需要显式引用 this 指针：  为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。    inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。  使用 🔗inline 使用</description>
     </item>
     
     <item>
@@ -248,7 +251,7 @@ new和delete运算符用于动态分配和撤销内存的运算符
       
       <guid>/posts/cprimer03/</guid>
       <description>转载自https://github.com/andycai/cprimer
-3.1 char*, char[], string 🔗在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&amp;rsquo;\0&amp;rsquo;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
+3.1 char*, char[], string 🔗在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&#39;\0&#39;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
 C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是以后不能利用&amp;rdquo;=&amp;ldquo;对C字符串进行赋值。对C字符串的操作需要通过&amp;quot;string&amp;quot;文件中定义的字符串处理函数。例如：
 //字符串的初始化char a[11] = &amp;quot;huanying&amp;quot;;//字符串的赋值strcpy(a,&amp;quot;nihao&amp;quot;)//获取字符串的长度，不包括&#39;\0&#39;在内strlen(a);printf(&amp;quot;%s&amp;quot;,a); 在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
 在C++中则把字符串封装成了一种数据类型string,可以直接声明变量并进行赋值等字符串操作。以下是C字符串和C++中string的区别：

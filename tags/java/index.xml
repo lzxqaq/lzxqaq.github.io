@@ -15,8 +15,8 @@
       <guid>/posts/2021-01-12-io/</guid>
       <description>一、概览 🔗Java 的 I/O 大概可以分成以下几类：
  磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO  二、磁盘操作 🔗File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){  if(dir == null || !dir.exists()){  return ;  }  if(dir.isFile()) {  System.out.println(dir.getName());  return ;  }  for (File:file : dir.listFiles()) {  listAllFiles(file);  } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
-三、字节操作 🔗实现文件复制 🔗public static void copuFile(String src, String dist) throws IOException {  FileInputStream in = new FileInputStream(src);  FileOutputStream out = new FileOutStream(dist);   byte[] buffer = new byte[20 * 1024];  int cnt;  // read() 最多读 buffer.</description>
+public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { System.out.println(dir.getName()); return ; } for (File:file : dir.listFiles()) { listAllFiles(file); } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
+三、字节操作 🔗实现文件复制 🔗public static void copuFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读 buffer.</description>
     </item>
     
     <item>
@@ -27,8 +27,9 @@ public static void listAllFiles(File dir){  if(dir == null || !dir.exists()){  r
       <guid>/posts/2021-01-09-concurrent/</guid>
       <description>一、使用线程 🔗有三种使用线程的方法：
  实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类；  实现 Runnable 接口 🔗需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable {  @Override  public void run(){  // ...  } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
-public static void main(String[] args){  MyRunnable instance = new MyRunnable();  Thread thread = new Thread(instance);  thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。</description>
+public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+public static void main(String[] args){ MyRunnable instance = new MyRunnable(); Thread thread = new Thread(instance); thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。
+public class MyCallable implements Callable&amp;lt;Integer&amp;gt; { public Integer call(){ return 123; } } public static void main(String[] args) throws ExecutionException,InterruptedException { MyCallable mc = new MyCallble(); FutureTask&amp;lt;Integer&amp;gt; ft = new FutureTask&amp;lt;&amp;gt;(mc); Thread thread = new Thread(ft); thread.</description>
     </item>
     
     <item>
@@ -66,7 +67,7 @@ Collection  🔗1.Set
       <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。
 然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。
 事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：
- //实验1  String s1 = &amp;#34;1&amp;#34;;  Field valueField = String.class.getDeclaredField(&amp;#34;value&amp;#34;);  valueField.setAccessible(true);  char[] value = (char[]) valueField.get(s1);  value[0] = &amp;#39;2&amp;#39;;  System.out.println(s1); //2  System.out.println((s1 == &amp;#34;1&amp;#34;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot;  的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
+//实验1 String s1 = &amp;#34;1&amp;#34;; Field valueField = String.class.getDeclaredField(&amp;#34;value&amp;#34;); valueField.setAccessible(true); char[] value = (char[]) valueField.get(s1); value[0] = &amp;#39;2&amp;#39;; System.out.println(s1); //2 System.out.println((s1 == &amp;#34;1&amp;#34;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot;  的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
     </item>
     
     <item>
