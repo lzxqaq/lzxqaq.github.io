@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>C&#43;&#43; | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="程序编译过程 🔗static、const、#define 用法和区别 🔗内存模型 🔗内存中的栈和堆分配 🔗面向对象基础 🔗析构函数 🔗构造函数 🔗拷贝函数 🔗多态 🔗纯虚函数 虚函数 🔗虚函数表 🔗访问限定符 public、private、protected 🔗继承原理，虚继承、菱形继承 🔗静态绑定、动态绑定 🔗new delete malloc free 🔗重载、重写、隐藏 🔗智能指针 🔗左值、右值应用、移动语义 🔗类型转换方式 🔗常用的设计模式 🔗线程安全的单例模式 🔗内存溢出和内存泄漏 🔗C&#43;&#43; 11新特性 🔗静态链接库和动态链接库 🔗STL 迭代器、空间配置器理解 🔗常用容器特点、用法以及底层实现 vector、list、deque、set、map、unordermap 🔗">
+<meta name="generator" content="Hugo 0.89.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">C&#43;&#43;</h1>
+
+    <div class="tip">
+        <time datetime="2022-04-22 08:36:23 &#43;0800 CST">2022年04月22日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          36字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <h1 id="程序编译过程">程序编译过程 <a href="#%e7%a8%8b%e5%ba%8f%e7%bc%96%e8%af%91%e8%bf%87%e7%a8%8b" class="anchor">🔗</a></h1><h1 id="staticconstdefine-用法和区别">static、const、#define 用法和区别 <a href="#staticconstdefine-%e7%94%a8%e6%b3%95%e5%92%8c%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h1><h1 id="内存模型">内存模型 <a href="#%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b" class="anchor">🔗</a></h1><h1 id="内存中的栈和堆分配">内存中的栈和堆分配 <a href="#%e5%86%85%e5%ad%98%e4%b8%ad%e7%9a%84%e6%a0%88%e5%92%8c%e5%a0%86%e5%88%86%e9%85%8d" class="anchor">🔗</a></h1><h1 id="面向对象基础">面向对象基础 <a href="#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e5%9f%ba%e7%a1%80" class="anchor">🔗</a></h1><h1 id="析构函数">析构函数 <a href="#%e6%9e%90%e6%9e%84%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h1><h1 id="构造函数">构造函数 <a href="#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h1><h1 id="拷贝函数">拷贝函数 <a href="#%e6%8b%b7%e8%b4%9d%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h1><h1 id="多态">多态 <a href="#%e5%a4%9a%e6%80%81" class="anchor">🔗</a></h1><h1 id="纯虚函数-虚函数">纯虚函数 虚函数 <a href="#%e7%ba%af%e8%99%9a%e5%87%bd%e6%95%b0-%e8%99%9a%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h1><h1 id="虚函数表">虚函数表 <a href="#%e8%99%9a%e5%87%bd%e6%95%b0%e8%a1%a8" class="anchor">🔗</a></h1><h1 id="访问限定符-publicprivateprotected">访问限定符 public、private、protected <a href="#%e8%ae%bf%e9%97%ae%e9%99%90%e5%ae%9a%e7%ac%a6-publicprivateprotected" class="anchor">🔗</a></h1><h1 id="继承原理虚继承菱形继承">继承原理，虚继承、菱形继承 <a href="#%e7%bb%a7%e6%89%bf%e5%8e%9f%e7%90%86%e8%99%9a%e7%bb%a7%e6%89%bf%e8%8f%b1%e5%bd%a2%e7%bb%a7%e6%89%bf" class="anchor">🔗</a></h1><h1 id="静态绑定动态绑定">静态绑定、动态绑定 <a href="#%e9%9d%99%e6%80%81%e7%bb%91%e5%ae%9a%e5%8a%a8%e6%80%81%e7%bb%91%e5%ae%9a" class="anchor">🔗</a></h1><h1 id="new-delete-malloc-free">new delete malloc free <a href="#new-delete-malloc-free" class="anchor">🔗</a></h1><h1 id="重载重写隐藏">重载、重写、隐藏 <a href="#%e9%87%8d%e8%bd%bd%e9%87%8d%e5%86%99%e9%9a%90%e8%97%8f" class="anchor">🔗</a></h1><h1 id="智能指针">智能指针 <a href="#%e6%99%ba%e8%83%bd%e6%8c%87%e9%92%88" class="anchor">🔗</a></h1><h1 id="左值右值应用移动语义">左值、右值应用、移动语义 <a href="#%e5%b7%a6%e5%80%bc%e5%8f%b3%e5%80%bc%e5%ba%94%e7%94%a8%e7%a7%bb%e5%8a%a8%e8%af%ad%e4%b9%89" class="anchor">🔗</a></h1><h1 id="类型转换方式">类型转换方式 <a href="#%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2%e6%96%b9%e5%bc%8f" class="anchor">🔗</a></h1><h1 id="常用的设计模式">常用的设计模式 <a href="#%e5%b8%b8%e7%94%a8%e7%9a%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f" class="anchor">🔗</a></h1><h1 id="线程安全的单例模式">线程安全的单例模式 <a href="#%e7%ba%bf%e7%a8%8b%e5%ae%89%e5%85%a8%e7%9a%84%e5%8d%95%e4%be%8b%e6%a8%a1%e5%bc%8f" class="anchor">🔗</a></h1><h1 id="内存溢出和内存泄漏">内存溢出和内存泄漏 <a href="#%e5%86%85%e5%ad%98%e6%ba%a2%e5%87%ba%e5%92%8c%e5%86%85%e5%ad%98%e6%b3%84%e6%bc%8f" class="anchor">🔗</a></h1><h1 id="c-11新特性">C++ 11新特性 <a href="#c-11%e6%96%b0%e7%89%b9%e6%80%a7" class="anchor">🔗</a></h1><h1 id="静态链接库和动态链接库">静态链接库和动态链接库 <a href="#%e9%9d%99%e6%80%81%e9%93%be%e6%8e%a5%e5%ba%93%e5%92%8c%e5%8a%a8%e6%80%81%e9%93%be%e6%8e%a5%e5%ba%93" class="anchor">🔗</a></h1><h1 id="stl-迭代器空间配置器理解">STL 迭代器、空间配置器理解 <a href="#stl-%e8%bf%ad%e4%bb%a3%e5%99%a8%e7%a9%ba%e9%97%b4%e9%85%8d%e7%bd%ae%e5%99%a8%e7%90%86%e8%a7%a3" class="anchor">🔗</a></h1><h1 id="常用容器特点用法以及底层实现-vectorlistdequesetmapunordermap">常用容器特点、用法以及底层实现 vector、list、deque、set、map、unordermap <a href="#%e5%b8%b8%e7%94%a8%e5%ae%b9%e5%99%a8%e7%89%b9%e7%82%b9%e7%94%a8%e6%b3%95%e4%bb%a5%e5%8f%8a%e5%ba%95%e5%b1%82%e5%ae%9e%e7%8e%b0-vectorlistdequesetmapunordermap" class="anchor">🔗</a></h1>
+    </div>
+
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>
