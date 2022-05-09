@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>C&#43;&#43; 面试题 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="0.C和C&#43;&#43;有什么区别 🔗 C&#43;&#43; 是面向对象的语言，C是面向过程的语言； C&#43;&#43; 引入 new/delete 运算符，取代了 C 中的 malloc/free 库函数。 C&#43;&#43; 引入引用的概念，而 C 中没有； C&#43;&#43; 引入类的概念，而 C 中没有； C&#43;&#43; 引入函数重载的概念，而 C 中没有。  1.C&#43;&#43;11有哪些新特性 🔗 Lambda表达式用于创建匿名函数 自动类型推导 auto 和 decltype 列表初始化 = default 生成默认构造函数，= delete 禁止使用拷贝构造函数 nullptr 关键字，用于解决 NULL 的二义性。 引入 shared_ptr、unique_ptr 等智能指针 右值引用，将引用绑定到右值，如临时对象或字面量 引入线程库 范围 for 循环  2. struct 和 class 有什么区别 🔗 成员的默认访问权限 struct 的成员默认为 public 权限，class 的成员默认为 private 权限。 默认继承权限 struct 的继承按照 public 处理，class 的继承按照 private 处理。  对于一个频繁使用的短小函数，应该使用什么来实现，有什么优缺点？ 🔗应该使用 inline 内联函数，即编译器将 inline 内联函数内的代码替换到函数被调用的地方。">
+<meta name="generator" content="Hugo 0.89.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">C&#43;&#43; 面试题</h1>
+
+    <div class="tip">
+        <time datetime="2022-04-22 08:36:23 &#43;0800 CST">2022年04月22日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          195字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <h1 id="0c和c有什么区别">0.C和C++有什么区别 <a href="#0c%e5%92%8cc%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h1><ul>
+<li>C++ 是面向对象的语言，C是面向过程的语言；</li>
+<li>C++ 引入 new/delete 运算符，取代了 C 中的 malloc/free 库函数。</li>
+<li>C++ 引入引用的概念，而 C 中没有；</li>
+<li>C++ 引入类的概念，而 C 中没有；</li>
+<li>C++ 引入函数重载的概念，而 C 中没有。</li>
+</ul>
+<h1 id="1c11有哪些新特性">1.C++11有哪些新特性 <a href="#1c11%e6%9c%89%e5%93%aa%e4%ba%9b%e6%96%b0%e7%89%b9%e6%80%a7" class="anchor">🔗</a></h1><ul>
+<li>Lambda表达式用于创建匿名函数</li>
+<li>自动类型推导 auto 和 decltype</li>
+<li>列表初始化</li>
+<li>= default 生成默认构造函数，= delete 禁止使用拷贝构造函数</li>
+<li>nullptr 关键字，用于解决 NULL 的二义性。</li>
+<li>引入 shared_ptr、unique_ptr 等智能指针</li>
+<li>右值引用，将引用绑定到右值，如临时对象或字面量</li>
+<li>引入线程库</li>
+<li>范围 for 循环</li>
+</ul>
+<h1 id="2-struct-和-class-有什么区别">2. struct 和 class 有什么区别 <a href="#2-struct-%e5%92%8c-class-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h1><ul>
+<li>成员的默认访问权限
+struct 的成员默认为 public 权限，class 的成员默认为 private 权限。</li>
+<li>默认继承权限
+struct 的继承按照 public 处理，class 的继承按照 private 处理。</li>
+</ul>
+<h1 id="对于一个频繁使用的短小函数应该使用什么来实现有什么优缺点">对于一个频繁使用的短小函数，应该使用什么来实现，有什么优缺点？ <a href="#%e5%af%b9%e4%ba%8e%e4%b8%80%e4%b8%aa%e9%a2%91%e7%b9%81%e4%bd%bf%e7%94%a8%e7%9a%84%e7%9f%ad%e5%b0%8f%e5%87%bd%e6%95%b0%e5%ba%94%e8%af%a5%e4%bd%bf%e7%94%a8%e4%bb%80%e4%b9%88%e6%9d%a5%e5%ae%9e%e7%8e%b0%e6%9c%89%e4%bb%80%e4%b9%88%e4%bc%98%e7%bc%ba%e7%82%b9" class="anchor">🔗</a></h1><p>应该使用 inline 内联函数，即编译器将 inline 内联函数内的代码替换到函数被调用的地方。</p>
+<p>优点：</p>
+<ul>
+<li>在内联函数被调用的地方进行代码的展开，省去函数调用的时间，从而提高程序运行效率</li>
+<li>相比于宏函数，内联函数在代码展开时，编译器会进行语法安全检查或数据类型转换，使用更加安全；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>代码膨胀，产生更多的开销；</li>
+<li>如果内联函数内代码块的执行时间比调用时间长得多，那么效率的提升并没有那么大；</li>
+<li>如果修改内联函数，那么所有调用该函数的代码文件都需要重新编译。</li>
+<li>内联声明只是建议，是否内联由编译器决定，所以实际不可控。</li>
+</ul>
+<h1 id="define-和-inline-有什么区别">#define 和 inline 有什么区别 <a href="#define-%e5%92%8c-inline-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h1><ul>
+<li>#define 宏函数在预处理阶段展开，而 inline 内联函数在编译阶段展开</li>
+<li>#define 宏函数不检查参数类型，而 inline 内联函数检查参数类型，使用更加安全。</li>
+</ul>
+<h1 id="const-关键字有什么作用">const 关键字有什么作用 <a href="#const-%e5%85%b3%e9%94%ae%e5%ad%97%e6%9c%89%e4%bb%80%e4%b9%88%e4%bd%9c%e7%94%a8" class="anchor">🔗</a></h1><ul>
+<li>修饰变量时，表示该变量的值在其生命周期内只读，不能被改变</li>
+<li>修饰指针： int *const;</li>
+<li>修饰指针所指向的对象： const int *；</li>
+<li>修饰引用所绑定的对象：cosnt int &amp;；</li>
+<li>修饰函数的引用形参，可以保护实参不被函数修改；</li>
+<li>修饰非静态成员变量时，不能在类的定义处初始化，必须通过构造函数初始化列表进行初始化；</li>
+<li>修饰静态成员变量时，不能在类内部初始化，一般在类外部进行初始化；</li>
+<li>修饰成员函数时，表示该函数不应该修改非静态成员，但并不可靠，因为指针所指向的对象可能会被修改</li>
+</ul>
+<h1 id="define-和-const-有什么区别">define 和 const 有什么区别 <a href="#define-%e5%92%8c-const-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h1><ul>
+<li>编译器处理方式不同：#define宏是在预处理阶段展开的，不能对宏定义进行调试，而const 常量是在编译阶段使用</li>
+<li>类型和安全检查不同：#define宏没有类型，不做任何类型检查，仅仅是代码展开，可能产生边际效应等错误，而 const 常量有具体类型，在编译阶段会执行类型检查；</li>
+<li>存储方式不同：#define 宏仅仅是代码展开，在多个地方进行字符串替换，不会分配内存，存储于程序的代码段中，而 const 常量会分配内存，但只维持一份拷贝，存储在程序的数据段中。</li>
+<li>定义域不同：#define 宏不受定义域限制，而 const 常量只在定义域内有效。</li>
+</ul>
+<h1 id="explicit-关键字有什么作用">explicit 关键字有什么作用 <a href="#explicit-%e5%85%b3%e9%94%ae%e5%ad%97%e6%9c%89%e4%bb%80%e4%b9%88%e4%bd%9c%e7%94%a8" class="anchor">🔗</a></h1><p>首先，可以用单个实参来调用的构造函数都定义了从形参类型到实参类型的隐式转换，这种转换往往都是非预期的，所以使用 explicit 关键字</p>
+<h1 id="extern-关键字有什么作用">extern 关键字有什么作用 <a href="#extern-%e5%85%b3%e9%94%ae%e5%ad%97%e6%9c%89%e4%bb%80%e4%b9%88%e4%bd%9c%e7%94%a8" class="anchor">🔗</a></h1><ul>
+<li>当 extern 修饰变量或函数时，表示变量或函数的定义在其他文件中，提示编译器在其他模块中寻找其定义；</li>
+<li>当 extern C 时，提示编译器在编译函数时按照 C 的规则去翻译相应的函数名，如果按照 C++ 的规则，函数名会被翻译得变得面目全非，因为 C++ 支持函数的重载。</li>
+</ul>
+<h1 id="static-关键字有什么作用">static 关键字有什么作用 <a href="#static-%e5%85%b3%e9%94%ae%e5%ad%97%e6%9c%89%e4%bb%80%e4%b9%88%e4%bd%9c%e7%94%a8" class="anchor">🔗</a></h1><ul>
+<li>修饰局部变量时，使得该变量在静态存储区分配内存。只能在首次函数调用中进行首次初始化，之后的函数调用不再进行初始化，其生命周期与程序相同，但其作用域为局部作用域，并不能一直被访问。</li>
+<li>修饰全部变量时，使得该变量在静态存储区分配内存，在声明该变量的整个文件中都是可见的，而在文件外是不可见的；</li>
+<li>修饰函数时，在声明该函数的整个文件中都是可见的，而在文件外是不可见的</li>
+</ul>
+<h1 id="newdeletemallocfree关系">new、delete、malloc、free关系 <a href="#newdeletemallocfree%e5%85%b3%e7%b3%bb" class="anchor">🔗</a></h1><p>malloc/free 是标准库函数，new delete 是运算符。它们都可以用于申请动态内存和释放内存。
+对非内部数据类型的对象，malloc、free无法满足动态对象的要求。对象要在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。
+delete 会调用对象的析构函数，free 只会释放内存。new 会调用构造函数，malloc只会分配内存。</p>
+<h1 id="delete-和delete--区别">delete 和delete [] 区别 <a href="#delete-%e5%92%8cdelete--%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h1><p>delete 只会调用一次析构函数，而 delete[] 会调用每一个成员的析构函数。</p>
+<h1 id="子类析构时要调用父类的析构函数吗">子类析构时要调用父类的析构函数吗？ <a href="#%e5%ad%90%e7%b1%bb%e6%9e%90%e6%9e%84%e6%97%b6%e8%a6%81%e8%b0%83%e7%94%a8%e7%88%b6%e7%b1%bb%e7%9a%84%e6%9e%90%e6%9e%84%e5%87%bd%e6%95%b0%e5%90%97" class="anchor">🔗</a></h1><p>不能。析构函数调用的顺序是先派生类的析构，后基类的析构。也就是说基类析构的时候，派生类已经全部销毁了。</p>
+<h1 id="多态虚函数纯虚函数">多态，虚函数，纯虚函数 <a href="#%e5%a4%9a%e6%80%81%e8%99%9a%e5%87%bd%e6%95%b0%e7%ba%af%e8%99%9a%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h1><p>多态：是对不同对象接受相同消息时，产生不同的动作。C++的多态具体体现在运行时和编译时两个方面：运行时的多态性通过继承和虚函数来体现：在程序编译时多态性体现在函数和运算符的重载上。</p>
+<p>虚函数：在基类中冠以关键字 virtual 的成员函数。它提供了一种接口界面。允许派生类中对基类中的虚函数重新定义。</p>
+<p>纯虚函数的作用：在基类中为其派生类保留一个函数的名字，以便派生类根据需要对它进行定义。作为接口而存在 纯虚函数不具备函数的功能，一般不能直接被调用。</p>
+<p>从基类继承来的纯虚函数，在派生类中仍是虚函数。如果一个类中至少有一个纯虚函数，那么这个类被称为抽象类（abstract class）。</p>
+<p>抽象类中不仅包括纯虚函数，也可包括虚函数。抽象类必须用作派生其他类的基类，而不能用于直接创建对象实例。但仍可使用指向抽象类的指针支持运行时多态性。</p>
+<h1 id="重载overload和重写overried的区别">重载overload和重写overried的区别 <a href="#%e9%87%8d%e8%bd%bdoverload%e5%92%8c%e9%87%8d%e5%86%99overried%e7%9a%84%e5%8c%ba%e5%88%ab" class="anchor">🔗</a></h1><p>重载：是指允许存在多个同名函数，而这些函数的参数表不同（或许参数个数不同，或许参数类型不同，或许两者都不同）</p>
+<p>重写：是指子类重新定义父类虚函数的方法。</p>
+<p>从实现原理上来说：编译器根据函数不同的参数表，对同名函数的名称做修饰，然后这些同名函数就成了不同的函数</p>
+
+    </div>
+
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

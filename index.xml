@@ -6,22 +6,46 @@
     <description>Recent content on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 22 Apr 2022 08:36:23 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 May 2022 15:58:10 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022 5 7</title>
+      <link>/posts/2022-5-7/</link>
+      <pubDate>Sat, 07 May 2022 15:58:10 +0800</pubDate>
+      
+      <guid>/posts/2022-5-7/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>C&#43;&#43;</title>
       <link>/posts/2022-4-22/</link>
       <pubDate>Fri, 22 Apr 2022 08:36:23 +0800</pubDate>
       
       <guid>/posts/2022-4-22/</guid>
-      <description>程序编译过程 🔗static、const、#define 用法和区别 🔗内存模型 🔗内存中的栈和堆分配 🔗面向对象基础 🔗析构函数 🔗构造函数 🔗拷贝函数 🔗多态 🔗纯虚函数 虚函数 🔗虚函数表 🔗访问限定符 public、private、protected 🔗继承原理，虚继承、菱形继承 🔗静态绑定、动态绑定 🔗new delete malloc free 🔗重载、重写、隐藏 🔗智能指针 🔗左值、右值应用、移动语义 🔗类型转换方式 🔗常用的设计模式 🔗线程安全的单例模式 🔗内存溢出和内存泄漏 🔗C++ 11新特性 🔗静态链接库和动态链接库 🔗STL 迭代器、空间配置器理解 🔗常用容器特点、用法以及底层实现 vector、list、deque、set、map、unordermap 🔗</description>
+      <description>程序编译过程 🔗  预处理 进行宏定义展开，头文件展开，不检查语法
+  编译 检查语法，将预处理过的文件编译生成汇编文件
+  汇编 将汇编文件生成目标文件（二进制文件）
+  链接 找到依赖的库文件，将目标文件链接位可执行程序
+  static、const、#define 用法和区别 🔗const 🔗 修饰变量，说明该变量不可以被改变 修饰指针，分别指向常量的指针，自身是常量的指针 修饰引用，指向常量的引用，用于形参类型，及避免拷贝，又避免了函数对值的修改 修饰成员函数，说明该成员函数内不能修改成员变量。  static 🔗 修饰普通变量 变量会在静态区分配内存，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统会用默认值初始化它。 修饰普通函数 表明函数的作用范围，在定义函数的文件内才能使用。 修饰成员变量 修饰成员变量使所有的对象只保存一个该变量，不用创建对象也可以访问 修饰成员函数 成员函数使得不需要生成对象就可以访问该函数，但是static 函数不能访问静态成员。  宏定义和const 常量 🔗宏定义：
+ 相当于字符替换 预处理器 无类型安全检查 不分配内存 存储在代码段 可通过 #undef 取消  const 常量：
+ 常量声明 编译器处理 有类型安全检查 要分配内存 存储在数据段 不可取消  内存模型 🔗 栈 由编译器自动分配、释放，存放函数的参数值，局部变量的值等，操作方式类似与数据结构中的栈。 堆 一般是程序员分配、释放，若程序员不释放，程序结束时可能由操作系统回收。它的分配方式类似于链表 全局/静态、常量 全局变量和静态变量的存储是放在一起的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的一块区域。程序结束会由系统释放。 文本（代码） 常量字符串就是放在这里的。  堆和栈区别 🔗🔗 stack: 由系统自动分配。 例如，声明在函数中一个局部变量 int b; 系统自动在栈中为b开辟空间 heap: 需要程序员自己申请，并指明大小。  面向对象基础 🔗析构函数 🔗构造函数 🔗拷贝函数 🔗多态 🔗纯虚函数 虚函数 🔗虚函数表 🔗访问限定符 public、private、protected 🔗继承原理，虚继承、菱形继承 🔗静态绑定、动态绑定 🔗new delete malloc free 🔗重载、重写、隐藏 🔗智能指针 🔗左值、右值应用、移动语义 🔗类型转换方式 🔗常用的设计模式 🔗线程安全的单例模式 🔗内存溢出和内存泄漏 🔗C++ 11 新特性 🔗静态链接库和动态链接库 🔗STL 迭代器、空间配置器理解 🔗常用容器特点、用法以及底层实现 vector、list、deque、set、map、unordermap 🔗</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; 面试题</title>
+      <link>/posts/2022-4-26/</link>
+      <pubDate>Fri, 22 Apr 2022 08:36:23 +0800</pubDate>
+      
+      <guid>/posts/2022-4-26/</guid>
+      <description>0.C和C++有什么区别 🔗 C++ 是面向对象的语言，C是面向过程的语言； C++ 引入 new/delete 运算符，取代了 C 中的 malloc/free 库函数。 C++ 引入引用的概念，而 C 中没有； C++ 引入类的概念，而 C 中没有； C++ 引入函数重载的概念，而 C 中没有。  1.C++11有哪些新特性 🔗 Lambda表达式用于创建匿名函数 自动类型推导 auto 和 decltype 列表初始化 = default 生成默认构造函数，= delete 禁止使用拷贝构造函数 nullptr 关键字，用于解决 NULL 的二义性。 引入 shared_ptr、unique_ptr 等智能指针 右值引用，将引用绑定到右值，如临时对象或字面量 引入线程库 范围 for 循环  2. struct 和 class 有什么区别 🔗 成员的默认访问权限 struct 的成员默认为 public 权限，class 的成员默认为 private 权限。 默认继承权限 struct 的继承按照 public 处理，class 的继承按照 private 处理。  对于一个频繁使用的短小函数，应该使用什么来实现，有什么优缺点？ 🔗应该使用 inline 内联函数，即编译器将 inline 内联函数内的代码替换到函数被调用的地方。</description>
     </item>
     
     <item>
       <title>Qt 多线程和事件循环</title>
-      <link>/posts/2022-4-22-copy-2/</link>
+      <link>/posts/2022-4-22-thread/</link>
       <pubDate>Fri, 22 Apr 2022 08:36:23 +0800</pubDate>
       
-      <guid>/posts/2022-4-22-copy-2/</guid>
+      <guid>/posts/2022-4-22-thread/</guid>
       <description>多线程情况下，Qt中的信号和槽分别在什么线程中执行，如何控制 🔗可以通过connect函数的第五个参数来控制信号槽执行时所在的线程。
 1.自动连接（默认）：如果信号与槽，也就是发送者与接受者在同一线程，等同于直接连接；如果发送者与接受者处在不同线程，等同于队列连接。
 2.直接连接：当信号发射的时候，槽函数直接调用。无论槽函数所属对象在哪个线程，槽函数总在发送者所在线程执行。即槽函数和信号发送者在同一个线程。
