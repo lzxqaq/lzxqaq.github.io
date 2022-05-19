@@ -10,8 +10,8 @@
 比如进度条，就用到多线程。在长耗时操作里（比如IO、计算），如果用单线程，界面会失去响应。
 QThread 两种使用方式 🔗第一种是继承QThread类，将耗时任务代码编写在run函数中。第二种是继承 QObject 类，执行耗时任务，并用 moveToThread 函数。
 Demo
-// 与更新进度条的函数参数保持一致 signals: void progress(int p, const char *msg); ">
-<meta name="generator" content="Hugo 0.89.2" />
+// 与更新进度条的函数参数保持一致 signals:  void progress(int p, const char *msg); ">
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -103,11 +103,10 @@ if (!doNotTrack) {
 <p>比如进度条，就用到多线程。在长耗时操作里（比如IO、计算），如果用单线程，界面会失去响应。</p>
 <h3 id="qthread-两种使用方式">QThread 两种使用方式 <a href="#qthread-%e4%b8%a4%e7%a7%8d%e4%bd%bf%e7%94%a8%e6%96%b9%e5%bc%8f" class="anchor">🔗</a></h3><p>第一种是继承QThread类，将耗时任务代码编写在run函数中。第二种是继承 QObject 类，执行耗时任务，并用 moveToThread 函数。</p>
 <p>Demo</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// 与更新进度条的函数参数保持一致
-signals:
-    void progress(int p, const char *msg);
-
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// 与更新进度条的函数参数保持一致
+</span></span><span style="display:flex;"><span>signals:
+</span></span><span style="display:flex;"><span>    void progress(int p, const char *msg);
+</span></span></code></pre></div>
     </div>
 
     

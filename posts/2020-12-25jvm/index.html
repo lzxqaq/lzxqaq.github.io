@@ -10,7 +10,7 @@
  一、运行时数据区域  程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存   二、垃圾收集  判断一个对象是否可被回收 引用类型 垃圾收集算法 垃圾收集器   三、内存分配和回收策略  Minor Gc 和 Full Gc 内存分配策略 Full GC 的触发条件   四、类加载机制  类的生命周期 类加载过程 类初始化时机 类与类加载器 类加载器分类 双亲委派模型 自定义类加载器实现    一、运行时数据区域  🔗程序计数器  🔗记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。
 Java 虚拟机栈  🔗每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
 可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5&#43; 默认为 1M：">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -141,8 +141,8 @@ if (!doNotTrack) {
 <h3 id="一运行时数据区域-a-name1a">一、运行时数据区域 <a name="1"></a> <a href="#%e4%b8%80%e8%bf%90%e8%a1%8c%e6%97%b6%e6%95%b0%e6%8d%ae%e5%8c%ba%e5%9f%9f-a-name1a" class="anchor">🔗</a></h3><h4 id="程序计数器-a-name11a">程序计数器 <a name="1.1"></a> <a href="#%e7%a8%8b%e5%ba%8f%e8%ae%a1%e6%95%b0%e5%99%a8-a-name11a" class="anchor">🔗</a></h4><p>记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。</p>
 <h4 id="java-虚拟机栈-a-name12a">Java 虚拟机栈 <a name="1.2"></a> <a href="#java-%e8%99%9a%e6%8b%9f%e6%9c%ba%e6%a0%88-a-name12a" class="anchor">🔗</a></h4><p>每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。</p>
 <p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">java -Xss2M HaskTheJava
-</code></pre></div><p>该区域可能抛出以下异常：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>java -Xss2M HaskTheJava
+</span></span></code></pre></div><p>该区域可能抛出以下异常：</p>
 <ul>
 <li>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；</li>
 <li>栈进行动态扩展的时如果无法申请到足够的内存，会抛出 OutofMemoryError 异常。</li>
@@ -157,8 +157,8 @@ if (!doNotTrack) {
 </ul>
 <p>堆不需要连续内存，并且可以动态增加其内存，增加失败会抛出 OutOfMemoryError 异常。</p>
 <p>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">java -Xms1M -Xmx2M HackTheJava
-</code></pre></div><h4 id="方法区a-name15a">方法区<a name="1.5"></a> <a href="#%e6%96%b9%e6%b3%95%e5%8c%baa-name15a" class="anchor">🔗</a></h4><p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>java -Xms1M -Xmx2M HackTheJava
+</span></span></code></pre></div><h4 id="方法区a-name15a">方法区<a name="1.5"></a> <a href="#%e6%96%b9%e6%b3%95%e5%8c%baa-name15a" class="anchor">🔗</a></h4><p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
 <p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 OutOfMemoryError 异常。</p>
 <p>对这块区域进行垃圾回收的主要目标是对常量池的回收和对类的卸载，但是一般比较难实现。</p>
 <p>HotSpot 虚拟机把它当成永久代来进行垃圾回收。但很难确定永久代的大小，因为它受到很多因素影响，并且每次 Full GC 之后永久代的大小都会改变，所以经常会抛出 OutOfMemoryError 异常。为了更容易管理方法区，从 JDK 1.8 开始，移除永久代，并把方法区移至元空间，它位于本地内存，而不是虚拟机内存。<br>

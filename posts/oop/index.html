@@ -24,7 +24,7 @@
 图2 重构后的结构图
 在图2中，我们引入了抽象图表类AbstractChart，且ChartDisplay针对抽象图表类进行编程，并通过setChart()方法由客户端来设置实例化的具体图表对象，在ChartDisplay的display()方法中调用chart对象的display()方法显示图表。如果需要增加一种新的图表，如折线图LineChart，只需要将LineChart也作为AbstractChart的子类，在客户端向ChartDisplay中注入一个LineChart对象即可，无须修改现有类库的源代码。
 注意：因为xml和properties等格式的配置文件是纯文本文件，可以直接通过VI编辑器或记事本进行编辑，且无须编译，因此在软件开发中，一般不把对配置文件的修改认为是对系统源代码的修改。如果一个系统在扩展时只涉及到修改配置文件，而原有的Java代码或C#代码没有做任何修改，该系统即可认为是一个符合开闭原则的系统。">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -128,17 +128,17 @@ if (!doNotTrack) {
 </p></p>
 <p>图1 初始设计方案结构图</p>
 <p>在ChartDisplay类的display()方法中存在如下代码片段：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">......
-if (type.equals(&#34;pie&#34;)) {
-PieChart chart = new PieChart();
-chart.display();
-}
-else if (type.equals(&#34;bar&#34;)) {
-BarChart chart = new BarChart();
-chart.display();
-}
-......
-</code></pre></div><p>在该代码中，如果需要增加一个新的图表类，如折线图LineChart，则需要修改ChartDisplay类的display()方法的源代码，增加新的判断逻辑，违反了开闭原则。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>......
+</span></span><span style="display:flex;"><span>if (type.equals(&#34;pie&#34;)) {
+</span></span><span style="display:flex;"><span>PieChart chart = new PieChart();
+</span></span><span style="display:flex;"><span>chart.display();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>else if (type.equals(&#34;bar&#34;)) {
+</span></span><span style="display:flex;"><span>BarChart chart = new BarChart();
+</span></span><span style="display:flex;"><span>chart.display();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>......
+</span></span></code></pre></div><p>在该代码中，如果需要增加一个新的图表类，如折线图LineChart，则需要修改ChartDisplay类的display()方法的源代码，增加新的判断逻辑，违反了开闭原则。</p>
 <p>现对该系统进行重构，使之符合开闭原则。</p>
 <p>在本实例中，由于在ChartDisplay类的display()方法中针对每一个图表类编程，因此增加新的图表类不得不修改源代码。可以通过抽象化的方式对系统进行重构，使之增加新的图表类时无须修改源代码，满足开闭原则。具体做法如下：</p>
 <p>(1) 增加一个抽象图表类AbstractChart，将各种具体图表类作为其子类；</p>

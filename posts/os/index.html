@@ -10,7 +10,7 @@
 进程与线程 🔗对于有线程系统：
  进程是资源分配的独立单位 线程是资源调度的独立单位  对于无线程系统：
  进程是资源调度、分配的独立单位  进程之间的通信方式以及优缺点 🔗 管道（PIPE）  有名管道：一种半双工的通信方式，它允许无亲缘关系进程间的通信  优点：可以实现任意关系的进程间的通信 缺点：  长期存于系统中，使用不当容易出错 缓冲区有限     无名管道：一种半双工的通信方式，只能在具有亲缘关系的进程间使用（父子进程）  优点：简单方便 缺点：  局限于单向通信 只能创建在它的进程以及其有亲缘关系的进程之间 缓冲区有限       信号量（Semaphore）：一个计数器，可以用来控制多个线程对共享资源的访问  优点：可以同步进程 缺点：信号量有限   信号（Signal）：一种比较复杂的通信方式，用于通知接收进程某个事件已经发生 消息队列（Message Queue）：是消息的链表，存放在内核中并由消息队列标识符标识  优点：可以实现任意进程间的通信，并通过系统调用函数来实现消息发送和接收之间的同步，无需考虑同步问题，方便 缺点：信息的复制需要额外消耗 CPU 的时间，不适宜于信息量大或操作频繁的场合   共享内存（Shared Memory）：映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问  优点：无须复制，快捷，信息量大 缺点：  通信是通过将共享空间缓冲区直接附加到进程的虚拟地址空间中来实现的，因此进程间的读写操作的同步问题 利用内存缓冲区直接交换信息，内存的实体存在于计算机中，只能同一个计算机系统中的诸多进程共享，不方便网络通信     套接字（Socket）：可用于不同计算机间的进程通信  优点：  传输数据为字节级，传输数据可自定义，数据量小效率高 传输数据时间短，性能高 适合于客户端和服务器端之间信息实时交互 可以加密,数据安全性强   缺点：需对传输的数据进行解析，转化成应用级的数据。    线程之间的通信方式 🔗 锁机制：包括互斥锁/量（mutex）、读写锁（reader-writer lock）、自旋锁（spin lock）、条件变量（condition）  互斥锁/量（mutex）：提供了以排他方式防止数据结构被并发修改的方法。 读写锁（reader-writer lock）：允许多个线程同时读共享数据，而对写操作是互斥的。 自旋锁（spin lock）与互斥锁类似，都是为了保护共享资源。互斥锁是当资源被占用，申请者进入睡眠状态；而自旋锁则循环检测保持者是否已经释放锁。 条件变量（condition）：可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。   信号量机制(Semaphore)  无名线程信号量 命名线程信号量   信号机制(Signal)：类似进程间的信号处理 屏障（barrier）：屏障允许每个线程等待，直到所有的合作线程都达到某一点，然后从该点继续执行。  线程间的通信目的主要是用于线程同步，所以线程没有像进程通信中的用于数据交换的通信机制">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -363,21 +363,21 @@ if (!doNotTrack) {
 </p></p>
 <h5 id="判断大端小端">判断大端小端 <a href="#%e5%88%a4%e6%96%ad%e5%a4%a7%e7%ab%af%e5%b0%8f%e7%ab%af" class="anchor">🔗</a></h5><p>判断大端小端</p>
 <p>可以这样判断自己 CPU 字节序是大端还是小端：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
-</span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
-
-<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
-{
-	<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0x12345678</span>;
-
-	<span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">*</span>((<span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span>)<span style="color:#666">&amp;</span>i) <span style="color:#666">==</span> <span style="color:#666">0x12</span>)
-		cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;大端&#34;</span> <span style="color:#666">&lt;&lt;</span> endl;
-	<span style="color:#a2f;font-weight:bold">else</span>	
-		cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;小端&#34;</span> <span style="color:#666">&lt;&lt;</span> endl;
-
-	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-}
-</code></pre></div><h5 id="各架构处理器的字节序">各架构处理器的字节序 <a href="#%e5%90%84%e6%9e%b6%e6%9e%84%e5%a4%84%e7%90%86%e5%99%a8%e7%9a%84%e5%ad%97%e8%8a%82%e5%ba%8f" class="anchor">🔗</a></h5><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;iostream&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0x12345678</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">*</span>((<span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span>)<span style="color:#666">&amp;</span>i) <span style="color:#666">==</span> <span style="color:#666">0x12</span>)
+</span></span><span style="display:flex;"><span>		cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;大端&#34;</span> <span style="color:#666">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">else</span>	
+</span></span><span style="display:flex;"><span>		cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;小端&#34;</span> <span style="color:#666">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="各架构处理器的字节序">各架构处理器的字节序 <a href="#%e5%90%84%e6%9e%b6%e6%9e%84%e5%a4%84%e7%90%86%e5%99%a8%e7%9a%84%e5%ad%97%e8%8a%82%e5%ba%8f" class="anchor">🔗</a></h5><ul>
 <li>x86（Intel、AMD）、MOS Technology 6502、Z80、VAX、PDP-11 等处理器为小端序；</li>
 <li>Motorola 6800、Motorola 68000、PowerPC 970、System/370、SPARC（除 V9 外）等处理器为大端序；</li>
 <li>ARM（默认小端序）、PowerPC（除 PowerPC 970 外）、DEC Alpha、SPARC V9、MIPS、PA-RISC 及 IA64 的字节序是可配置的。</li>

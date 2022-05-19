@@ -35,7 +35,7 @@
 那么，如何在不改变对象的大小的同时添加新的功能呢？
 五、d-pointer 🔗诀窍是通过保存唯一的一个指针而保持一个类库所有公共类的大小不变。这个指针指向一个包含所有数据的私有的（内部的）数据结构。内部结构的大小可以增大或者减小，而不会对应用程序带来副作用，因为指针只会被类库里面的代码访问，从应用程序的视角来看，对象的大小并没有改变 - 它永远是指针的大小。 这个指针被叫做 d-pointer 。
 六、d-pointer 的其它好处 🔗这里不全都是和二进制兼容有关。d-pointer 还有其它的好处： 隐藏了实现细节 - 我们可以只发布带有头文件和二进制文件的 WidgetLib。源文件可以是闭源代码的。
-头文件很干净，不包含实现细节，可以直接作为 API 参考。由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖） 事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
+头文件很干净，不包含实现细节，可以直接作为 API 参考。 由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖）  事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
 七、Qt 中的 d-pointers 🔗在 Qt 中，几乎所有的公有类都使用了 d-pointer。唯一不用的情况是如果事先知道某个类永远不会添加额外的成员变量。例如，像 QPoint, QRect 这些类，我们不期望有新的成员添加，因此它们的数据成员直接保存在类里而没用 d-pointer。</description>
     </item>
     
@@ -85,8 +85,7 @@ Qt 将这些特性添加到 C++ 中：
  公共默认构造函数 公共复制构造函数
 公共析构函数
  下列 Message类定义包括以下成员：
-class Message { public: Message() = default; ~Message() = default; Message(const Message &amp;amp;) = default; Message &amp;amp;operator=(const Message &amp;amp;) = default; Message(const QString &amp;amp;body, const QStringList &amp;amp;headers); QStringView body() const; QStringList headers() const; private: QString m_body; QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。
-使用 QMetaType 声明类型 🔗这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。</description>
+class Message { public:  Message() = default;  ~Message() = default;  Message(const Message &amp;amp;) = default;  Message &amp;amp;operator=(const Message &amp;amp;) = default;   Message(const QString &amp;amp;body, const QStringList &amp;amp;headers);   QStringView body() const;  QStringList headers() const;  private:  QString m_body;  QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。</description>
     </item>
     
     <item>
@@ -143,24 +142,6 @@ Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet
     </item>
     
     <item>
-      <title>Qt单元测试基础笔记</title>
-      <link>/posts/2021-10-13-1/</link>
-      <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
-      
-      <guid>/posts/2021-10-13-1/</guid>
-      <description>一、构建 🔗构建时添加 QT += testlib 。
-二、测试类 🔗测试类必须从 QObject 继承，头文件 include &amp;lt;QTest&amp;gt; ，并将测试函数声明 private slot
-三、QVERIFY(condition) 宏 🔗检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。
-如果需要在测试失败报告中加入附加信息，可以使用 QVERIFY2(condition, message)。
-如果需要测试日志有更详细的输出，可以使用 QCOMPARE(actual, expected)。
-四、QCOMPARE(actual, expected)宏 🔗使用相等运算符将 actual （实际值）与 expected （预期值）进行比较。如果实际和预期匹配，则继续执行。如果不是，则在测试日志中记录失败，并且测试函数返回而不尝试任何后续检查。
-如果比较失败，QCOMPARE() 会尝试输出值的内容，因此可以从测试日志中看到比较失败的原因。
-对于你自己的类，你可以使用 QTest::toString () 来格式化输出到测试日志中的值。具体可参考 Qt 文档;
-五、可执行文件 🔗如果需要将测试用例成为独立的可执行文件，需要添加以下两行：
-QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </description>
-    </item>
-    
-    <item>
       <title>Qt测试最佳实践</title>
       <link>/posts/2021-10-13-2/</link>
       <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
@@ -182,6 +163,24 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
 现在只有测试在fix-branch上。其余的源代码树仍在5.14上。
 8.构建并运行测试,以验证它在5.14上失败,因此确实抓住了一个错误。
 9.您现在可以返回到fix分支： git checkout fix-branch</description>
+    </item>
+    
+    <item>
+      <title>Qt单元测试基础笔记</title>
+      <link>/posts/2021-10-13-1/</link>
+      <pubDate>Wed, 13 Oct 2021 07:01:19 +0800</pubDate>
+      
+      <guid>/posts/2021-10-13-1/</guid>
+      <description>一、构建 🔗构建时添加 QT += testlib 。
+二、测试类 🔗测试类必须从 QObject 继承，头文件 include &amp;lt;QTest&amp;gt; ，并将测试函数声明 private slot
+三、QVERIFY(condition) 宏 🔗检查 condition（条件）是否为真。如果为真，则继续执行。如果没有，则测试日志中会记录失败，并且不会进一步执行测试。
+如果需要在测试失败报告中加入附加信息，可以使用 QVERIFY2(condition, message)。
+如果需要测试日志有更详细的输出，可以使用 QCOMPARE(actual, expected)。
+四、QCOMPARE(actual, expected)宏 🔗使用相等运算符将 actual （实际值）与 expected （预期值）进行比较。如果实际和预期匹配，则继续执行。如果不是，则在测试日志中记录失败，并且测试函数返回而不尝试任何后续检查。
+如果比较失败，QCOMPARE() 会尝试输出值的内容，因此可以从测试日志中看到比较失败的原因。
+对于你自己的类，你可以使用 QTest::toString () 来格式化输出到测试日志中的值。具体可参考 Qt 文档;
+五、可执行文件 🔗如果需要将测试用例成为独立的可执行文件，需要添加以下两行：
+QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </description>
     </item>
     
   </channel>

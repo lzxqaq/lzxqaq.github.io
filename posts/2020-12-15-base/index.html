@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="参考自 CyC2018/CS-Notes
  一、数据类型  基本类型 包装类型 缓存池   二、String  概述 不可变的好处 String,StringBuffer and StringBuilder StringPoll new String(&ldquo;abc&rdquo;)   三、运算  参数传递 float与double 隐式类型转换 switch   四、关键字  final static   五、Object通用方法  概览 equals() hashCode() toString() clone()   六、继承  访问权限 抽象类和接口 super 重载和重写   七、反射 八、异常 九、泛型 十、注解 十一、特性  一、数据类型  🔗基本类型  🔗 byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~  boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -163,32 +163,32 @@ if (!doNotTrack) {
 </ul>
 <p>boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</p>
 <h4 id="包装类型-a-name12a">包装类型 <a name="1.2"></a> <a href="#%e5%8c%85%e8%a3%85%e7%b1%bb%e5%9e%8b-a-name12a" class="anchor">🔗</a></h4><p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱和拆箱完成。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
-int y = x;  //  拆箱 调用了 x.intValue()
-</code></pre></div><h4 id="缓存池-a-name13a">缓存池 <a name="1.3"></a> <a href="#%e7%bc%93%e5%ad%98%e6%b1%a0-a-name13a" class="anchor">🔗</a></h4><p>new Integer(123) 与 Integer.valueOf(123)的区别在于：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Integer x = 2;  //装箱 调用了 Integer.valueOf(2)
+</span></span><span style="display:flex;"><span>int y = x;  //  拆箱 调用了 x.intValue()
+</span></span></code></pre></div><h4 id="缓存池-a-name13a">缓存池 <a name="1.3"></a> <a href="#%e7%bc%93%e5%ad%98%e6%b1%a0-a-name13a" class="anchor">🔗</a></h4><p>new Integer(123) 与 Integer.valueOf(123)的区别在于：</p>
 <ul>
 <li>new Integer(123) 每次都会创建一个对象；</li>
 <li>Integer.valueOf(123) 会使用缓存池中的对象，调用会取得同一个对象的引用。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Integer x = new Integer(123);
-Integer y = new Integer(123);
-System.out.println(x == y);     //false
-Integer z = Integer.valueOf(123);
-Integer k = Integer.valueOf(123);
-System.out.println(z == k);     //true
-</code></pre></div><p>valueOf() 方法的实现，就是先判断值是否存在缓存池中，如果在的话就直接返回缓存池的内容。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public static Integer valueOf(int i){
-    if(i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high){
-        return IntegerCache.cache[i + (-IntegerCache.low)];
-        return new Integer(i);
-    }
-}
-</code></pre></div><p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Integer x = new Integer(123);
+</span></span><span style="display:flex;"><span>Integer y = new Integer(123);
+</span></span><span style="display:flex;"><span>System.out.println(x == y);     //false
+</span></span><span style="display:flex;"><span>Integer z = Integer.valueOf(123);
+</span></span><span style="display:flex;"><span>Integer k = Integer.valueOf(123);
+</span></span><span style="display:flex;"><span>System.out.println(z == k);     //true
+</span></span></code></pre></div><p>valueOf() 方法的实现，就是先判断值是否存在缓存池中，如果在的话就直接返回缓存池的内容。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public static Integer valueOf(int i){
+</span></span><span style="display:flex;"><span>    if(i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high){
+</span></span><span style="display:flex;"><span>        return IntegerCache.cache[i + (-IntegerCache.low)];
+</span></span><span style="display:flex;"><span>        return new Integer(i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
 <p>编译器会在自动装箱过程中调用 valueOf()方法，因此多个值相同且值在缓存池范围内的 Integer 实例使用自动装箱来创建，那么就会引用相同的对象。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Integer m = 123;
-Integer n = 123;
-System.out.priintln(m == n);    //true
-</code></pre></div><p>基本类型对应的缓冲池如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Integer m = 123;
+</span></span><span style="display:flex;"><span>Integer n = 123;
+</span></span><span style="display:flex;"><span>System.out.priintln(m == n);    //true
+</span></span></code></pre></div><p>基本类型对应的缓冲池如下：</p>
 <ul>
 <li>boolean values true and false</li>
 <li>all byte values</li>
@@ -200,17 +200,17 @@ System.out.priintln(m == n);    //true
 在 JDK 1.8 所有的数值类型缓冲池中，Integer 的缓冲池 IntegerCache 很特殊，这个缓冲池的下界是 -128，上界默认是 127，但是这个上界是可以调的，在启动 JVM 的时候，通过 <code>-XX:AutoBoxCacheMax=&lt;size&gt;</code> 来指定 IntegerCache 的大小，该选项在 JVM 初始化的时候会设定一个名为 <code>java.lang.IntegerCache.high</code> 系统属性，然后 IntegerCache 初始化的时候就会读取该系统属性来决定上界。</p>
 <h3 id="二string-a-name2a">二、String <a name="2"></a> <a href="#%e4%ba%8cstring-a-name2a" class="anchor">🔗</a></h3><h4 id="概览a-name21a">概览<a name="2.1"></a> <a href="#%e6%a6%82%e8%a7%88a-name21a" class="anchor">🔗</a></h4><p>String 被声明为 final,因此不可被继承。(Integer 等包装类也不能被继承)<br>
 在 Java 8 中，String 内部使用 char 数组存储数据。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public final class String 
-    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
-    private final char value[];   
-}
-</code></pre></div><p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用的编码。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public final class String
-    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
-        private final byte[] value;
-        private final byte coder;
-    }
-</code></pre></div><p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能在引用其他数组，并且 String 内部没有改变 value 数组的方法。这些表明 String 不能更改的约束规范。实际上可以通过反射来修改 String 内部 value 数组的值，但是这样的做法毫无意义，而且会引发错误。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public final class String 
+</span></span><span style="display:flex;"><span>    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
+</span></span><span style="display:flex;"><span>    private final char value[];   
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用的编码。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public final class String
+</span></span><span style="display:flex;"><span>    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
+</span></span><span style="display:flex;"><span>        private final byte[] value;
+</span></span><span style="display:flex;"><span>        private final byte coder;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能在引用其他数组，并且 String 内部没有改变 value 数组的方法。这些表明 String 不能更改的约束规范。实际上可以通过反射来修改 String 内部 value 数组的值，但是这样的做法毫无意义，而且会引发错误。</p>
 <h4 id="不可变的好处a-name22a">不可变的好处<a name="2.2"></a> <a href="#%e4%b8%8d%e5%8f%af%e5%8f%98%e7%9a%84%e5%a5%bd%e5%a4%84a-name22a" class="anchor">🔗</a></h4><p>1.可以缓存 hash 值</p>
 <p>因为 String 的 hash 值经常被使用，例如 String 用做 HashMap 的 key。不可变的特性使得 hash 值也不可变，因此只需要进行一次计算。</p>
 <p>2.String Pool 的需要</p>
@@ -232,116 +232,115 @@ System.out.priintln(m == n);    //true
 </ul>
 <h4 id="string-poola-name24a">String Pool<a name="2.4"></a> <a href="#string-poola-name24a" class="anchor">🔗</a></h4><p>字符串常量池(String Pool) 保存着所有字符串字面量(literal strings) ,这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool中。<br>
 当一个字符串调用 intern() 方法时，如果 String Pool 中已存在一个字符串和该字符串相等(使用 equals() 方法进行确定)，那么就会返回 String Pool 中字符串的引用；否则，就会在 String Poll 中添加一个新的字符串，并返回这个新字符串的引用。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">String s1 = new String(&#34;aaa&#34;);
-String s2 = new String(&#34;aaa&#34;);
-System.out.println(s1 == s2);    //false
-String s3 = s1.intern();
-String s4 = s2.intern();
-System.out.println(s3 == s4);   //true
-</code></pre></div><p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">String s5 = &#34;bbb&#34;;
-String s6 = &#34;bbb&#34;;
-System.out.println(s5 == s6);   //true
-</code></pre></div><p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>String s1 = new String(&#34;aaa&#34;);
+</span></span><span style="display:flex;"><span>String s2 = new String(&#34;aaa&#34;);
+</span></span><span style="display:flex;"><span>System.out.println(s1 == s2);    //false
+</span></span><span style="display:flex;"><span>String s3 = s1.intern();
+</span></span><span style="display:flex;"><span>String s4 = s2.intern();
+</span></span><span style="display:flex;"><span>System.out.println(s3 == s4);   //true
+</span></span></code></pre></div><p>如果是采用 &ldquo;bbb&rdquo; 这种字面量的形式创建字符串，会自动将字符串放入 String Pool 中。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>String s5 = &#34;bbb&#34;;
+</span></span><span style="display:flex;"><span>String s6 = &#34;bbb&#34;;
+</span></span><span style="display:flex;"><span>System.out.println(s5 == s6);   //true
+</span></span></code></pre></div><p>在 Java 7 之前，String Pool被放在运行时常量池中，它属于永久代。而在 Java 7 ，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
 <h4 id="new-stringabca-name25a">new String(&ldquo;abc&rdquo;)<a name="2.5"></a> <a href="#new-stringabca-name25a" class="anchor">🔗</a></h4><p>使用这种方式一共会创建两个字符串对象（前提是 String Pool  中还没有 &ldquo;abc&rdquo; 字符串对象）。</p>
 <ul>
 <li>&ldquo;abc&rdquo; 属于字符串字面量，因此在编译时期会在 String Pool 中创建一个字符串对象，指向这个 &ldquo;abc&rdquo; 字符串字面量。</li>
 <li>而使用 new 的方式会在堆中创建一个字符串对象。<br>
 创建一个测试类，其 main 方法中使用这种方式来创建字符串对象。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    public class NewStringTest {
-        public static void main(String[] args){
-            String s = new String(&#34;abc&#34;);
-        }
-    }
-</code></pre></div><p>使用 javap -verbose 进行反编译，得到以下内容：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// ...
-Constant pool:
-// ...
-   #2 = Class              #18            // java/lang/String
-   #3 = String             #19            // abc
-// ...
-  #18 = Utf8               java/lang/String
-  #19 = Utf8               abc
-// ...
-  public static void main(java.lang.String[]);
-    descriptor: ([Ljava/lang/String;)V
-    flags: ACC_PUBLIC, ACC_STATIC
-    Code:
-      stack=3, locals=2, args_size=1
-         0: new           #2                  // class java/lang/String
-         3: dup
-         4: ldc           #3                  // String abc
-         6: invokespecial #4                  // Method java/lang/String.&#34;&lt;init&gt;&#34;:(Ljava/lang/String;)V
-         9: astore_1
-// ...
-
-</code></pre></div><p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    public class NewStringTest {
+</span></span><span style="display:flex;"><span>        public static void main(String[] args){
+</span></span><span style="display:flex;"><span>            String s = new String(&#34;abc&#34;);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>使用 javap -verbose 进行反编译，得到以下内容：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// ...
+</span></span><span style="display:flex;"><span>Constant pool:
+</span></span><span style="display:flex;"><span>// ...
+</span></span><span style="display:flex;"><span>   #2 = Class              #18            // java/lang/String
+</span></span><span style="display:flex;"><span>   #3 = String             #19            // abc
+</span></span><span style="display:flex;"><span>// ...
+</span></span><span style="display:flex;"><span>  #18 = Utf8               java/lang/String
+</span></span><span style="display:flex;"><span>  #19 = Utf8               abc
+</span></span><span style="display:flex;"><span>// ...
+</span></span><span style="display:flex;"><span>  public static void main(java.lang.String[]);
+</span></span><span style="display:flex;"><span>    descriptor: ([Ljava/lang/String;)V
+</span></span><span style="display:flex;"><span>    flags: ACC_PUBLIC, ACC_STATIC
+</span></span><span style="display:flex;"><span>    Code:
+</span></span><span style="display:flex;"><span>      stack=3, locals=2, args_size=1
+</span></span><span style="display:flex;"><span>         0: new           #2                  // class java/lang/String
+</span></span><span style="display:flex;"><span>         3: dup
+</span></span><span style="display:flex;"><span>         4: ldc           #3                  // String abc
+</span></span><span style="display:flex;"><span>         6: invokespecial #4                  // Method java/lang/String.&#34;&lt;init&gt;&#34;:(Ljava/lang/String;)V
+</span></span><span style="display:flex;"><span>         9: astore_1
+</span></span><span style="display:flex;"><span>// ...
+</span></span></code></pre></div><p>在 Constant Pool 中，#19 存储这字符串字面量 &ldquo;abc&rdquo;, #3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中， 0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
 <p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public String(String original){
-    this.value = original.value;
-    this.hash = original.hash;
-}
-</code></pre></div><h3 id="三运算a-name3a">三、运算<a name="3"></a> <a href="#%e4%b8%89%e8%bf%90%e7%ae%97a-name3a" class="anchor">🔗</a></h3><h4 id="参数传递a-name31a">参数传递<a name="3.1"></a> <a href="#%e5%8f%82%e6%95%b0%e4%bc%a0%e9%80%92a-name31a" class="anchor">🔗</a></h4><p>以下代码中 Dog dog 的dog是一个指针，存储的是对象的地址。在将一个参数传入一个方法时，本质上是将对象的地址以值得方式传递到形参中。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public class Dog {
-    
-    String name;
-
-    Dog(String name) {
-        this.name = name;
-    }
-
-    String getName() {
-        return this.name;
-    }
-
-    String getObjectAddress() {
-        return super.toString();
-    }
-}
-</code></pre></div><p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class PassByValueExample {
-    public static void main(String[] args) {
-        Dog dog = new Dog(&#34;A&#34;);
-        func(dog);
-        System.out.println(dog.getName());      // B
-    }
-
-    private static void func(Dog dog) {
-        dog.setName(&#34;B&#34;);
-    }
-}
-</code></pre></div><p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public class PassByValueExample {
-    public static void main(String[] args) {
-        Dog dog = new Dog(&#34;A&#34;);
-        System.out.println(dog.getObjectAddress()); // Dog@4554617c
-        func(dog);
-        System.out.println(dog.getObjectAddress()); // Dog@4554617c
-        System.out.println(dog.getName());          // A
-    }
-
-    private static void func(Dog dog) {
-        System.out.println(dog.getObjectAddress()); // Dog@4554617c
-        dog = new Dog(&#34;B&#34;);
-        System.out.println(dog.getObjectAddress()); // Dog@74a14482
-        System.out.println(dog.getName());          // B
-    }
-}
-</code></pre></div><h4 id="float-与-doublea-name32a">float 与 double<a name="3.2"></a> <a href="#float-%e4%b8%8e-doublea-name32a" class="anchor">🔗</a></h4><p>Java 不能隐式执行向下转型，因为这会使得精度降低。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public String(String original){
+</span></span><span style="display:flex;"><span>    this.value = original.value;
+</span></span><span style="display:flex;"><span>    this.hash = original.hash;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="三运算a-name3a">三、运算<a name="3"></a> <a href="#%e4%b8%89%e8%bf%90%e7%ae%97a-name3a" class="anchor">🔗</a></h3><h4 id="参数传递a-name31a">参数传递<a name="3.1"></a> <a href="#%e5%8f%82%e6%95%b0%e4%bc%a0%e9%80%92a-name31a" class="anchor">🔗</a></h4><p>以下代码中 Dog dog 的dog是一个指针，存储的是对象的地址。在将一个参数传入一个方法时，本质上是将对象的地址以值得方式传递到形参中。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class Dog {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    String name;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Dog(String name) {
+</span></span><span style="display:flex;"><span>        this.name = name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    String getName() {
+</span></span><span style="display:flex;"><span>        return this.name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    String getObjectAddress() {
+</span></span><span style="display:flex;"><span>        return super.toString();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class PassByValueExample {
+</span></span><span style="display:flex;"><span>    public static void main(String[] args) {
+</span></span><span style="display:flex;"><span>        Dog dog = new Dog(&#34;A&#34;);
+</span></span><span style="display:flex;"><span>        func(dog);
+</span></span><span style="display:flex;"><span>        System.out.println(dog.getName());      // B
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    private static void func(Dog dog) {
+</span></span><span style="display:flex;"><span>        dog.setName(&#34;B&#34;);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class PassByValueExample {
+</span></span><span style="display:flex;"><span>    public static void main(String[] args) {
+</span></span><span style="display:flex;"><span>        Dog dog = new Dog(&#34;A&#34;);
+</span></span><span style="display:flex;"><span>        System.out.println(dog.getObjectAddress()); // Dog@4554617c
+</span></span><span style="display:flex;"><span>        func(dog);
+</span></span><span style="display:flex;"><span>        System.out.println(dog.getObjectAddress()); // Dog@4554617c
+</span></span><span style="display:flex;"><span>        System.out.println(dog.getName());          // A
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    private static void func(Dog dog) {
+</span></span><span style="display:flex;"><span>        System.out.println(dog.getObjectAddress()); // Dog@4554617c
+</span></span><span style="display:flex;"><span>        dog = new Dog(&#34;B&#34;);
+</span></span><span style="display:flex;"><span>        System.out.println(dog.getObjectAddress()); // Dog@74a14482
+</span></span><span style="display:flex;"><span>        System.out.println(dog.getName());          // B
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="float-与-doublea-name32a">float 与 double<a name="3.2"></a> <a href="#float-%e4%b8%8e-doublea-name32a" class="anchor">🔗</a></h4><p>Java 不能隐式执行向下转型，因为这会使得精度降低。</p>
 <p>1.1 字面量属于 double 类型，不能直接将 1.1 直接赋值给 float 变量，因为这是向下转型。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// float f = 1.1;
-</code></pre></div><p>1.1f 字面量才是 float 类型。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">float f = 1.1f;
-</code></pre></div><h4 id="隐式类型转换a-name33a">隐式类型转换<a name="3.3"></a> <a href="#%e9%9a%90%e5%bc%8f%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2a-name33a" class="anchor">🔗</a></h4><p>因为字面量 1 是 int 类型，它比 short 类型精度要高，因此不能隐式地将 int 类型向下转型为 short 类型。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">short s1 = 1;
-//s1 = s1 + 1;
-</code></pre></div><p>但是使用 += 或者 ++ 运算符会执行隐式类型转换。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">s1 += 1;
-s1++;
-</code></pre></div><p>上面的语句相当于将 s1 + 1 的计算结果进行了向下转型：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">s1 = (short)(s1 + 1);
-</code></pre></div><h4 id="switcha-name34a">switch<a name="3.4"></a> <a href="#switcha-name34a" class="anchor">🔗</a></h4><p>从 Java 7 开始，可以在 switch 条件判断语句中使用 String 对象。<br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// float f = 1.1;
+</span></span></code></pre></div><p>1.1f 字面量才是 float 类型。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>float f = 1.1f;
+</span></span></code></pre></div><h4 id="隐式类型转换a-name33a">隐式类型转换<a name="3.3"></a> <a href="#%e9%9a%90%e5%bc%8f%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2a-name33a" class="anchor">🔗</a></h4><p>因为字面量 1 是 int 类型，它比 short 类型精度要高，因此不能隐式地将 int 类型向下转型为 short 类型。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>short s1 = 1;
+</span></span><span style="display:flex;"><span>//s1 = s1 + 1;
+</span></span></code></pre></div><p>但是使用 += 或者 ++ 运算符会执行隐式类型转换。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>s1 += 1;
+</span></span><span style="display:flex;"><span>s1++;
+</span></span></code></pre></div><p>上面的语句相当于将 s1 + 1 的计算结果进行了向下转型：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>s1 = (short)(s1 + 1);
+</span></span></code></pre></div><h4 id="switcha-name34a">switch<a name="3.4"></a> <a href="#switcha-name34a" class="anchor">🔗</a></h4><p>从 Java 7 开始，可以在 switch 条件判断语句中使用 String 对象。<br>
 switch 不支持 long、float、double，是因为 switch 的设计初衷是对那些只有少数几个值的类型进行等值判断，如果值过于复杂，那么还是用 if 比较合适。</p>
 <h3 id="四关键字a-name4a">四、关键字<a name="4"></a> <a href="#%e5%9b%9b%e5%85%b3%e9%94%ae%e5%ad%97a-name4a" class="anchor">🔗</a></h3><h4 id="finala-name41a">final<a name="4.1"></a> <a href="#finala-name41a" class="anchor">🔗</a></h4><p>1.<strong>数据</strong></p>
 <p>声明数据为常量，可以是编译时的常量，也可以是在运行时被初始化后不能被改变的常量。</p>
@@ -349,11 +348,11 @@ switch 不支持 long、float、double，是因为 switch 的设计初衷是对�
 <li>对于基本类型，final 使数值不变；</li>
 <li>对于引用类型，final 使引用不变，也就不能引用其他对象，但是被引用的对象本身是可以修改的。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">final int x = 1;
-//x = 3;    // cannot assign value to final variable &#39;x&#39;
-final A y = new A();
-y.a = 1;
-</code></pre></div><p>2.<strong>方法</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>final int x = 1;
+</span></span><span style="display:flex;"><span>//x = 3;    // cannot assign value to final variable &#39;x&#39;
+</span></span><span style="display:flex;"><span>final A y = new A();
+</span></span><span style="display:flex;"><span>y.a = 1;
+</span></span></code></pre></div><p>2.<strong>方法</strong></p>
 <p>声明方法不能被子类重写。<br>
 private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。</p>
 <p>3.<strong>类</strong>
@@ -363,78 +362,78 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 <li>静态变量： 又被称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</li>
 <li>实例变量： 每创建一个实例就会产生一个实例变量，它与该实例同生共死。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public class A {
-    private int x;          // 实例变量
-    private static int y;   // 静态变量
-
-    public static void main(String[] args) {
-        // int x = A.x;     // Non-static field &#39;x&#39; cannot be referenced from a static context 
-        A a = new A();
-        int x = a.x;
-        int y = A.y;
-    }
-}
-</code></pre></div><p>2.<strong>静态方法</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class A {
+</span></span><span style="display:flex;"><span>    private int x;          // 实例变量
+</span></span><span style="display:flex;"><span>    private static int y;   // 静态变量
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public static void main(String[] args) {
+</span></span><span style="display:flex;"><span>        // int x = A.x;     // Non-static field &#39;x&#39; cannot be referenced from a static context 
+</span></span><span style="display:flex;"><span>        A a = new A();
+</span></span><span style="display:flex;"><span>        int x = a.x;
+</span></span><span style="display:flex;"><span>        int y = A.y;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>2.<strong>静态方法</strong></p>
 <p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public  abstract class A {
-    public static void func1(){}
-}
-</code></pre></div><p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public class A {
-    private static int x;
-    private int y;
-
-    public static void func1(){
-        int a = x;
-        // int b = y;       // Non-static field &#39;y&#39; cannot be referenced from a static context
-        // int b = this.y;  //&#39;A.this&#39; cannot be referenced from a static context
-    }
-}
-</code></pre></div><p><strong>3.静态语句块</strong><br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public  abstract class A {
+</span></span><span style="display:flex;"><span>    public static void func1(){}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class A {
+</span></span><span style="display:flex;"><span>    private static int x;
+</span></span><span style="display:flex;"><span>    private int y;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public static void func1(){
+</span></span><span style="display:flex;"><span>        int a = x;
+</span></span><span style="display:flex;"><span>        // int b = y;       // Non-static field &#39;y&#39; cannot be referenced from a static context
+</span></span><span style="display:flex;"><span>        // int b = this.y;  //&#39;A.this&#39; cannot be referenced from a static context
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>3.静态语句块</strong><br>
 静态语句块在类初始化时运行一次。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public class A {
-    static {
-        System.out.println(&#34;123&#34;);
-    }
-
-    public static void main(String[] args) {
-        A a1 = new A();
-        A a2 = new A();
-    }
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">123
-</code></pre></div><p><strong>4.静态内部类</strong><br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class A {
+</span></span><span style="display:flex;"><span>    static {
+</span></span><span style="display:flex;"><span>        System.out.println(&#34;123&#34;);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public static void main(String[] args) {
+</span></span><span style="display:flex;"><span>        A a1 = new A();
+</span></span><span style="display:flex;"><span>        A a2 = new A();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>123
+</span></span></code></pre></div><p><strong>4.静态内部类</strong><br>
 非静态内部类依赖于外部类的实例，也就是说需要先创建外部类的实例，才能用这个实例去创建非静态内部类。而静态内部类不需要。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public class OuterClass {
-    class InnerClass {
-    }
-    static class StaticInnerClass {
-    }
-    public static void main(String[] args) {
-        //InnerClass innerClass = new InnerClass();     //  &#39;OuterClass.this&#39; cannot be referenced from a static context
-        OuterClass  outerClass = new OuterClass();
-        InnerClass innerClass = outerClass.new InnerClass();
-        StaticInnerClass staticInnerClass = new StaticInnerClass(); 
-    }
-}
-</code></pre></div><p>静态内部类不能访问外部类的非静态的变量和方法。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class OuterClass {
+</span></span><span style="display:flex;"><span>    class InnerClass {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    static class StaticInnerClass {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    public static void main(String[] args) {
+</span></span><span style="display:flex;"><span>        //InnerClass innerClass = new InnerClass();     //  &#39;OuterClass.this&#39; cannot be referenced from a static context
+</span></span><span style="display:flex;"><span>        OuterClass  outerClass = new OuterClass();
+</span></span><span style="display:flex;"><span>        InnerClass innerClass = outerClass.new InnerClass();
+</span></span><span style="display:flex;"><span>        StaticInnerClass staticInnerClass = new StaticInnerClass(); 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>静态内部类不能访问外部类的非静态的变量和方法。</p>
 <p><strong>5.静态导包</strong>
 在使用静态变量和方法时不用再指明 ClassName,从而简化代码，但可读性大大降低。</p>
 <p><strong>6.初始化顺序</strong><br>
 静态变量和静态语句块优先于实例变量和普通语句块，静态变量和静态语句块的初始化顺序取决于它们在代码中的顺序。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public static String staticField = &#34;静态变量&#34;;
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">static {
-    System.out.println(&#34;静态语句块&#34;);
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public String field = &#34;实例变量&#34;;
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{
-    System.out.println(&#34;普通语句块&#34;);
-}
-</code></pre></div><p>最后才是构造函数的初始化。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public InitialOrderTest(){
-    System.out.println(&#34;构造函数&#34;);
-}
-</code></pre></div><p>存在继承的情况下，初始化顺序为：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public static String staticField = &#34;静态变量&#34;;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>static {
+</span></span><span style="display:flex;"><span>    System.out.println(&#34;静态语句块&#34;);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public String field = &#34;实例变量&#34;;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    System.out.println(&#34;普通语句块&#34;);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>最后才是构造函数的初始化。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public InitialOrderTest(){
+</span></span><span style="display:flex;"><span>    System.out.println(&#34;构造函数&#34;);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>存在继承的情况下，初始化顺序为：</p>
 <ul>
 <li>父类（静态变量、静态语句块）</li>
 <li>子类（静态变量、静态语句块）</li>
@@ -443,81 +442,80 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 <li>子类（实例变量、普通语句块）</li>
 <li>子类（构造函数）</li>
 </ul>
-<h3 id="五object-通用方法a-name5a">五、Object 通用方法<a name="5"></a> <a href="#%e4%ba%94object-%e9%80%9a%e7%94%a8%e6%96%b9%e6%b3%95a-name5a" class="anchor">🔗</a></h3><h4 id="概述a-name51a">概述<a name="5.1"></a> <a href="#%e6%a6%82%e8%bf%b0a-name51a" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public native int hashCode()
-
-public boolean equals(Object obj)
-
-protected native Object clone() throws CloneNotSupportedException
-
-public String toString()
-
-public final native Class&lt;?&gt; getClass()
-
-protected void finalize() throws Throwable
-
-public final native void notify()
-
-public final native void notifyAll()
-
-public final native void wait(long timeout) throws InterruptedException
-
-public final void wait(long timeout, int nanos) throws InterruptedException
-
-public final void wait() throws InterruptedException
-
-</code></pre></div><h4 id="equalsa-name52a">equals()<a name="5.2"></a> <a href="#equalsa-name52a" class="anchor">🔗</a></h4><p><strong>1.等价关系</strong><br>
+<h3 id="五object-通用方法a-name5a">五、Object 通用方法<a name="5"></a> <a href="#%e4%ba%94object-%e9%80%9a%e7%94%a8%e6%96%b9%e6%b3%95a-name5a" class="anchor">🔗</a></h3><h4 id="概述a-name51a">概述<a name="5.1"></a> <a href="#%e6%a6%82%e8%bf%b0a-name51a" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public native int hashCode()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public boolean equals(Object obj)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>protected native Object clone() throws CloneNotSupportedException
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public String toString()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public final native Class&lt;?&gt; getClass()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>protected void finalize() throws Throwable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public final native void notify()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public final native void notifyAll()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public final native void wait(long timeout) throws InterruptedException
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public final void wait(long timeout, int nanos) throws InterruptedException
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public final void wait() throws InterruptedException
+</span></span></code></pre></div><h4 id="equalsa-name52a">equals()<a name="5.2"></a> <a href="#equalsa-name52a" class="anchor">🔗</a></h4><p><strong>1.等价关系</strong><br>
 两个对象具有等价关系，需要满足以下五个条件：自反性、对称性、传递性、一致性、与 null 的比较（对任何不是 null 的对象 x 调用 x.equals(null) 结果都为flase)</p>
 <p><strong>2.等价于相等</strong></p>
 <ul>
 <li>对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。</li>
 <li>对于引用类型，== 判断两个变量是否引用同一个对象，而 equals() 判断引用的对象是否等价。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Integer x = new Integer(1);
-Integer y = new Integer(1);
-System.out.println(x.equals(y));    // true
-System.out.println(x == y);         // false
-</code></pre></div><p><strong>3.实现</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Integer x = new Integer(1);
+</span></span><span style="display:flex;"><span>Integer y = new Integer(1);
+</span></span><span style="display:flex;"><span>System.out.println(x.equals(y));    // true
+</span></span><span style="display:flex;"><span>System.out.println(x == y);         // false
+</span></span></code></pre></div><p><strong>3.实现</strong></p>
 <ul>
 <li>检查是否为同一个对象的引用，如果是直接返回 true；</li>
 <li>检查是否是同一个类型，如果不是，直接返回 false；</li>
 <li>将 Object 对象进行转型；</li>
 <li>判断每个关键域是否相等</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">public class EqualExample {
-    private int x;
-    private int y;
-    private int z;
-
-    public EqualExample(int x, int y, int z){
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
-
-    @Override
-    public boolean equals(Object o){
-        if(this == o) return true;
-        if(o == null || getClass() != o.getClass()) return false;
-
-        EqualExample that = (EqualExample) o;
-        
-        if(x != that.x) return false;
-        if(y != that.y) return false;
-        return z == that.z;
-    }
-}
-</code></pre></div><h4 id="hashcodea-name53a">hashCode()<a name="5.3"></a> <a href="#hashcodea-name53a" class="anchor">🔗</a></h4><p>hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。<br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class EqualExample {
+</span></span><span style="display:flex;"><span>    private int x;
+</span></span><span style="display:flex;"><span>    private int y;
+</span></span><span style="display:flex;"><span>    private int z;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public EqualExample(int x, int y, int z){
+</span></span><span style="display:flex;"><span>        this.x = x;
+</span></span><span style="display:flex;"><span>        this.y = y;
+</span></span><span style="display:flex;"><span>        this.z = z;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Override
+</span></span><span style="display:flex;"><span>    public boolean equals(Object o){
+</span></span><span style="display:flex;"><span>        if(this == o) return true;
+</span></span><span style="display:flex;"><span>        if(o == null || getClass() != o.getClass()) return false;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        EqualExample that = (EqualExample) o;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        if(x != that.x) return false;
+</span></span><span style="display:flex;"><span>        if(y != that.y) return false;
+</span></span><span style="display:flex;"><span>        return z == that.z;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="hashcodea-name53a">hashCode()<a name="5.3"></a> <a href="#hashcodea-name53a" class="anchor">🔗</a></h4><p>hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。<br>
 在覆盖 equals() 方法时应当总是覆盖 hashCode() 方法，保证等价的两个对象哈希值也相等。<br>
 HashSet 和 HashMap 等集合类使用了 hashCode() 方法来计算对象应该存储的位置，因此要将对象添加到这些集合类中，需要让对应的类实现 hashCode() 方法。<br>
 下面的代码中，新建了两个等价的对象，并将它们添加到 HashSet 中，我们希望将两个对象当成一样的，只在集合中添加一个对象。但是 EqualExample 没有实现 hashCode() 方法，因此两个对象的哈希值是不同的，最终导致集合添加了两个等价的对象。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">EqualExample e1 = new EqualExample(1,1,1);
-EqualExample e2 = new EqualExample(1,1,1);
-System.out.println(eq.equal(e2));   // true
-HashSet&lt;EqualExample&gt; set  = new HashSet&lt;&gt;();
-set.add(e1);
-set.add(e2);
-System.out.println(set.size());     // 2
-</code></pre></div><p>理想的哈希函数应当具有均匀性 ，即不相等的对象应当均匀分布到所有可能的哈希值上。这就要求了哈希函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>EqualExample e1 = new EqualExample(1,1,1);
+</span></span><span style="display:flex;"><span>EqualExample e2 = new EqualExample(1,1,1);
+</span></span><span style="display:flex;"><span>System.out.println(eq.equal(e2));   // true
+</span></span><span style="display:flex;"><span>HashSet&lt;EqualExample&gt; set  = new HashSet&lt;&gt;();
+</span></span><span style="display:flex;"><span>set.add(e1);
+</span></span><span style="display:flex;"><span>set.add(e2);
+</span></span><span style="display:flex;"><span>System.out.println(set.size());     // 2
+</span></span></code></pre></div><p>理想的哈希函数应当具有均匀性 ，即不相等的对象应当均匀分布到所有可能的哈希值上。这就要求了哈希函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。</p>
 <p>R 一般取 31，它是一个奇素数。</p>
 <h4 id="tostringa-name54a">toString()<a name="5.4"></a> <a href="#tostringa-name54a" class="anchor">🔗</a></h4><p>默认返回 类名@十六进制数 这种形式，其中 @ 后面的数值为散列码的无符号十六进制表示。</p>
 <h4 id="clonea-name55a">clone()<a name="5.5"></a> <a href="#clonea-name55a" class="anchor">🔗</a></h4><h5 id="1cloneable">1.cloneable <a href="#1cloneable" class="anchor">🔗</a></h5><p>clone() 是 Object 的 protected 方法，它不是 public，一个类不显式去重写 clone()，其他类就不能直接去调用该类实例的 clone() 方法。</p>

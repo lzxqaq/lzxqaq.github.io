@@ -10,7 +10,7 @@
 优点：
  减少耦合：可以独立地开发、测试、优化、使用、理解和修改 减轻维护的负担：可以更容易被理解，并且在调试的时候可以不影响其他模块 有效地调节性能：可以通过剖析来确定哪些模块影响了系统的性能 提高软件的可重用性 降低了构建大型系统的风险：即使整个系统不可用，但是这些独立的模块却有可能是可用的  以下 Person 类封装 name、gender、age 等属性，外界只能通过 get() 方法获取一个 Person 对象的 name 属性和 gender 属性，而无法获取 age 属性，但是 age 属性可以供 work() 方法使用。
 注意到 gender 属性使用 int 数据类型进行存储，封装使得用户注意不到这种实现细节。并且在需要修改 gender 属性使用的数据类型时，也可以在不影响客户端代码的情况下进行。">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -141,33 +141,33 @@ if (!doNotTrack) {
 </ul>
 <p>以下 Person 类封装 name、gender、age 等属性，外界只能通过 get() 方法获取一个 Person 对象的 name 属性和 gender 属性，而无法获取 age 属性，但是 age 属性可以供 work() 方法使用。</p>
 <p>注意到 gender 属性使用 int 数据类型进行存储，封装使得用户注意不到这种实现细节。并且在需要修改 gender 属性使用的数据类型时，也可以在不影响客户端代码的情况下进行。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Person</span> <span style="color:#666">{</span>
-
-    <span style="color:#a2f;font-weight:bold">private</span> String name<span style="color:#666">;</span>
-    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#0b0;font-weight:bold">int</span> gender<span style="color:#666">;</span>
-    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#0b0;font-weight:bold">int</span> age<span style="color:#666">;</span>
-
-    <span style="color:#a2f;font-weight:bold">public</span> String <span style="color:#00a000">getName</span><span style="color:#666">()</span> <span style="color:#666">{</span>
-        <span style="color:#a2f;font-weight:bold">return</span> name<span style="color:#666">;</span>
-    <span style="color:#666">}</span>
-
-    <span style="color:#a2f;font-weight:bold">public</span> String <span style="color:#00a000">getGender</span><span style="color:#666">()</span> <span style="color:#666">{</span>
-        <span style="color:#a2f;font-weight:bold">return</span> gender <span style="color:#666">==</span> 0 <span style="color:#666">?</span> <span style="color:#b44">&#34;man&#34;</span> <span style="color:#666">:</span> <span style="color:#b44">&#34;woman&#34;</span><span style="color:#666">;</span>
-    <span style="color:#666">}</span>
-
-    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">work</span><span style="color:#666">()</span> <span style="color:#666">{</span>
-        <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>18 <span style="color:#666">&lt;=</span> age <span style="color:#666">&amp;&amp;</span> age <span style="color:#666">&lt;=</span> 50<span style="color:#666">)</span> <span style="color:#666">{</span>
-            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>name <span style="color:#666">+</span> <span style="color:#b44">&#34; is working very hard!&#34;</span><span style="color:#666">);</span>
-        <span style="color:#666">}</span> <span style="color:#a2f;font-weight:bold">else</span> <span style="color:#666">{</span>
-            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>name <span style="color:#666">+</span> <span style="color:#b44">&#34; can&#39;t work any more!&#34;</span><span style="color:#666">);</span>
-        <span style="color:#666">}</span>
-    <span style="color:#666">}</span>
-<span style="color:#666">}</span>
-</code></pre></div><h3 id="继承">继承 <a href="#%e7%bb%a7%e6%89%bf" class="anchor">🔗</a></h3><p>继承实现了   <strong>IS-A</strong>   关系，例如 Cat 和 Animal 就是一种 IS-A 关系，因此 Cat 可以继承自 Animal，从而获得 Animal 非 private 的属性和方法。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Person</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">private</span> String name<span style="color:#666">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#0b0;font-weight:bold">int</span> gender<span style="color:#666">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#0b0;font-weight:bold">int</span> age<span style="color:#666">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">public</span> String <span style="color:#00a000">getName</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">return</span> name<span style="color:#666">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">public</span> String <span style="color:#00a000">getGender</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">return</span> gender <span style="color:#666">==</span> 0 <span style="color:#666">?</span> <span style="color:#b44">&#34;man&#34;</span> <span style="color:#666">:</span> <span style="color:#b44">&#34;woman&#34;</span><span style="color:#666">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">work</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>18 <span style="color:#666">&lt;=</span> age <span style="color:#666">&amp;&amp;</span> age <span style="color:#666">&lt;=</span> 50<span style="color:#666">)</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>name <span style="color:#666">+</span> <span style="color:#b44">&#34; is working very hard!&#34;</span><span style="color:#666">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#666">}</span> <span style="color:#a2f;font-weight:bold">else</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>name <span style="color:#666">+</span> <span style="color:#b44">&#34; can&#39;t work any more!&#34;</span><span style="color:#666">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">}</span>
+</span></span></code></pre></div><h3 id="继承">继承 <a href="#%e7%bb%a7%e6%89%bf" class="anchor">🔗</a></h3><p>继承实现了   <strong>IS-A</strong>   关系，例如 Cat 和 Animal 就是一种 IS-A 关系，因此 Cat 可以继承自 Animal，从而获得 Animal 非 private 的属性和方法。</p>
 <p>继承应该遵循里氏替换原则，子类对象必须能够替换掉所有父类对象。</p>
 <p>Cat 可以当做 Animal 来使用，也就是说可以使用 Animal 引用 Cat 对象。父类引用指向子类对象称为   <strong>向上转型</strong>  。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Animal animal <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Cat<span style="color:#666">();</span>
-</code></pre></div><h3 id="多态">多态 <a href="#%e5%a4%9a%e6%80%81" class="anchor">🔗</a></h3><p>多态分为编译时多态和运行时多态：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Animal animal <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Cat<span style="color:#666">();</span>
+</span></span></code></pre></div><h3 id="多态">多态 <a href="#%e5%a4%9a%e6%80%81" class="anchor">🔗</a></h3><p>多态分为编译时多态和运行时多态：</p>
 <ul>
 <li>编译时多态主要指方法的重载</li>
 <li>运行时多态指程序中定义的对象引用所指向的具体类型在运行期间才确定</li>
@@ -179,135 +179,135 @@ if (!doNotTrack) {
 <li>向上转型</li>
 </ul>
 <p>下面的代码中，乐器类（Instrument）有两个子类：Wind 和 Percussion，它们都覆盖了父类的 play() 方法，并且在 main() 方法中使用父类 Instrument 来引用 Wind 和 Percussion 对象。在 Instrument 引用调用 play() 方法时，会执行实际引用对象所在类的 play() 方法，而不是 Instrument 类的方法。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Instrument</span> <span style="color:#666">{</span>
-
-    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">play</span><span style="color:#666">()</span> <span style="color:#666">{</span>
-        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Instument is playing...&#34;</span><span style="color:#666">);</span>
-    <span style="color:#666">}</span>
-<span style="color:#666">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Wind</span> <span style="color:#a2f;font-weight:bold">extends</span> Instrument <span style="color:#666">{</span>
-
-    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">play</span><span style="color:#666">()</span> <span style="color:#666">{</span>
-        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Wind is playing...&#34;</span><span style="color:#666">);</span>
-    <span style="color:#666">}</span>
-<span style="color:#666">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Percussion</span> <span style="color:#a2f;font-weight:bold">extends</span> Instrument <span style="color:#666">{</span>
-
-    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">play</span><span style="color:#666">()</span> <span style="color:#666">{</span>
-        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Percussion is playing...&#34;</span><span style="color:#666">);</span>
-    <span style="color:#666">}</span>
-<span style="color:#666">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Music</span> <span style="color:#666">{</span>
-
-    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
-        List<span style="color:#666">&lt;</span>Instrument<span style="color:#666">&gt;</span> instruments <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ArrayList<span style="color:#666">&lt;&gt;();</span>
-        instruments<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Wind<span style="color:#666">());</span>
-        instruments<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Percussion<span style="color:#666">());</span>
-        <span style="color:#a2f;font-weight:bold">for</span><span style="color:#666">(</span>Instrument instrument <span style="color:#666">:</span> instruments<span style="color:#666">)</span> <span style="color:#666">{</span>
-            instrument<span style="color:#666">.</span><span style="color:#b44">play</span><span style="color:#666">();</span>
-        <span style="color:#666">}</span>
-    <span style="color:#666">}</span>
-<span style="color:#666">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Wind is playing...
-Percussion is playing...
-</code></pre></div><h2 id="二类图">二、类图 <a href="#%e4%ba%8c%e7%b1%bb%e5%9b%be" class="anchor">🔗</a></h2><p>以下类图使用 <a href="https://www.planttext.com/" target="_blank" rel="noopener">PlantUML</a> 绘制，更多语法及使用请参考：http://plantuml.com/ 。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Instrument</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">play</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Instument is playing...&#34;</span><span style="color:#666">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Wind</span> <span style="color:#a2f;font-weight:bold">extends</span> Instrument <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">play</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Wind is playing...&#34;</span><span style="color:#666">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Percussion</span> <span style="color:#a2f;font-weight:bold">extends</span> Instrument <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">play</span><span style="color:#666">()</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Percussion is playing...&#34;</span><span style="color:#666">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Music</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#666">&lt;</span>Instrument<span style="color:#666">&gt;</span> instruments <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ArrayList<span style="color:#666">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        instruments<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Wind<span style="color:#666">());</span>
+</span></span><span style="display:flex;"><span>        instruments<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Percussion<span style="color:#666">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">for</span><span style="color:#666">(</span>Instrument instrument <span style="color:#666">:</span> instruments<span style="color:#666">)</span> <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>            instrument<span style="color:#666">.</span><span style="color:#b44">play</span><span style="color:#666">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Wind is playing...
+</span></span><span style="display:flex;"><span>Percussion is playing...
+</span></span></code></pre></div><h2 id="二类图">二、类图 <a href="#%e4%ba%8c%e7%b1%bb%e5%9b%be" class="anchor">🔗</a></h2><p>以下类图使用 <a href="https://www.planttext.com/" target="_blank" rel="noopener">PlantUML</a> 绘制，更多语法及使用请参考：http://plantuml.com/ 。</p>
 <h3 id="泛化关系-generalization">泛化关系 (Generalization) <a href="#%e6%b3%9b%e5%8c%96%e5%85%b3%e7%b3%bb-generalization" class="anchor">🔗</a></h3><p>用来描述继承关系，在 Java 中使用 extends 关键字。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c0874e0a-dba3-467e-9c86-dd9313e0843e.jpg" width="180px"> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
-
-title Generalization
-
-class Vihical
-class Car
-class Trunck
-
-Vihical &lt;|-- Car
-Vihical &lt;|-- Trunck
-
-@enduml
-</code></pre></div><h3 id="实现关系-realization">实现关系 (Realization) <a href="#%e5%ae%9e%e7%8e%b0%e5%85%b3%e7%b3%bb-realization" class="anchor">🔗</a></h3><p>用来实现一个接口，在 Java 中使用 implements 关键字。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>@startuml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>title Generalization
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class Vihical
+</span></span><span style="display:flex;"><span>class Car
+</span></span><span style="display:flex;"><span>class Trunck
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Vihical &lt;|-- Car
+</span></span><span style="display:flex;"><span>Vihical &lt;|-- Trunck
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@enduml
+</span></span></code></pre></div><h3 id="实现关系-realization">实现关系 (Realization) <a href="#%e5%ae%9e%e7%8e%b0%e5%85%b3%e7%b3%bb-realization" class="anchor">🔗</a></h3><p>用来实现一个接口，在 Java 中使用 implements 关键字。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/83d466bd-946b-4430-854a-cf7b0696d4c8.jpg" width="170px"> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
-
-title Realization
-
-interface MoveBehavior
-class Fly
-class Run
-
-MoveBehavior &lt;|.. Fly
-MoveBehavior &lt;|.. Run
-
-@enduml
-</code></pre></div><h3 id="聚合关系-aggregation">聚合关系 (Aggregation) <a href="#%e8%81%9a%e5%90%88%e5%85%b3%e7%b3%bb-aggregation" class="anchor">🔗</a></h3><p>表示整体由部分组成，但是整体和部分不是强依赖的，整体不存在了部分还是会存在。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>@startuml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>title Realization
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>interface MoveBehavior
+</span></span><span style="display:flex;"><span>class Fly
+</span></span><span style="display:flex;"><span>class Run
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MoveBehavior &lt;|.. Fly
+</span></span><span style="display:flex;"><span>MoveBehavior &lt;|.. Run
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@enduml
+</span></span></code></pre></div><h3 id="聚合关系-aggregation">聚合关系 (Aggregation) <a href="#%e8%81%9a%e5%90%88%e5%85%b3%e7%b3%bb-aggregation" class="anchor">🔗</a></h3><p>表示整体由部分组成，但是整体和部分不是强依赖的，整体不存在了部分还是会存在。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/a0ce43b7-afa8-4397-a96e-5c12a070f2ae.jpg" width="300px"> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
-
-title Aggregation
-
-class Computer
-class Keyboard
-class Mouse
-class Screen
-
-Computer o-- Keyboard
-Computer o-- Mouse
-Computer o-- Screen
-
-@enduml
-</code></pre></div><h3 id="组合关系-composition">组合关系 (Composition) <a href="#%e7%bb%84%e5%90%88%e5%85%b3%e7%b3%bb-composition" class="anchor">🔗</a></h3><p>和聚合不同，组合中整体和部分是强依赖的，整体不存在了部分也不存在了。比如公司和部门，公司没了部门就不存在了。但是公司和员工就属于聚合关系了，因为公司没了员工还在。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>@startuml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>title Aggregation
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class Computer
+</span></span><span style="display:flex;"><span>class Keyboard
+</span></span><span style="display:flex;"><span>class Mouse
+</span></span><span style="display:flex;"><span>class Screen
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Computer o-- Keyboard
+</span></span><span style="display:flex;"><span>Computer o-- Mouse
+</span></span><span style="display:flex;"><span>Computer o-- Screen
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@enduml
+</span></span></code></pre></div><h3 id="组合关系-composition">组合关系 (Composition) <a href="#%e7%bb%84%e5%90%88%e5%85%b3%e7%b3%bb-composition" class="anchor">🔗</a></h3><p>和聚合不同，组合中整体和部分是强依赖的，整体不存在了部分也不存在了。比如公司和部门，公司没了部门就不存在了。但是公司和员工就属于聚合关系了，因为公司没了员工还在。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/6a88a398-c494-41f5-bb62-9f7fb811df7c.jpg" width="280px"> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
-
-title Composition
-
-class Company
-class DepartmentA
-class DepartmentB
-
-Company *-- DepartmentA
-Company *-- DepartmentB
-
-@enduml
-</code></pre></div><h3 id="关联关系-association">关联关系 (Association) <a href="#%e5%85%b3%e8%81%94%e5%85%b3%e7%b3%bb-association" class="anchor">🔗</a></h3><p>表示不同类对象之间有关联，这是一种静态关系，与运行过程的状态无关，在最开始就可以确定。因此也可以用 1 对 1、多对 1、多对多这种关联关系来表示。比如学生和学校就是一种关联关系，一个学校可以有很多学生，但是一个学生只属于一个学校，因此这是一种多对一的关系，在运行开始之前就可以确定。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>@startuml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>title Composition
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class Company
+</span></span><span style="display:flex;"><span>class DepartmentA
+</span></span><span style="display:flex;"><span>class DepartmentB
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Company *-- DepartmentA
+</span></span><span style="display:flex;"><span>Company *-- DepartmentB
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@enduml
+</span></span></code></pre></div><h3 id="关联关系-association">关联关系 (Association) <a href="#%e5%85%b3%e8%81%94%e5%85%b3%e7%b3%bb-association" class="anchor">🔗</a></h3><p>表示不同类对象之间有关联，这是一种静态关系，与运行过程的状态无关，在最开始就可以确定。因此也可以用 1 对 1、多对 1、多对多这种关联关系来表示。比如学生和学校就是一种关联关系，一个学校可以有很多学生，但是一个学生只属于一个学校，因此这是一种多对一的关系，在运行开始之前就可以确定。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/a3e4dc62-0da5-4d22-94f2-140078281812.jpg" width="200px"> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
-
-title Association
-
-class School
-class Student
-
-School &#34;1&#34; - &#34;n&#34; Student
-
-@enduml
-</code></pre></div><h3 id="依赖关系-dependency">依赖关系 (Dependency) <a href="#%e4%be%9d%e8%b5%96%e5%85%b3%e7%b3%bb-dependency" class="anchor">🔗</a></h3><p>和关联关系不同的是，依赖关系是在运行过程中起作用的。A 类和 B 类是依赖关系主要有三种形式：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>@startuml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>title Association
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class School
+</span></span><span style="display:flex;"><span>class Student
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>School &#34;1&#34; - &#34;n&#34; Student
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@enduml
+</span></span></code></pre></div><h3 id="依赖关系-dependency">依赖关系 (Dependency) <a href="#%e4%be%9d%e8%b5%96%e5%85%b3%e7%b3%bb-dependency" class="anchor">🔗</a></h3><p>和关联关系不同的是，依赖关系是在运行过程中起作用的。A 类和 B 类是依赖关系主要有三种形式：</p>
 <ul>
 <li>A 类是 B 类方法的局部变量；</li>
 <li>A 类是 B 类方法的参数；</li>
 <li>A 类向 B 类发送消息，从而影响 B 类发生变化。</li>
 </ul>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/379444c9-f1d1-45cd-b7aa-b0c18427d388.jpg" width="330px"> </div><br>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@startuml
-
-title Dependency
-
-class Vihicle {
-    move(MoveBehavior)
-}
-
-interface MoveBehavior {
-    move()
-}
-
-note &#34;MoveBehavior.move()&#34; as N
-
-Vihicle ..&gt; MoveBehavior
-
-Vihicle .. N
-
-@enduml
-</code></pre></div><h2 id="三设计原则">三、设计原则 <a href="#%e4%b8%89%e8%ae%be%e8%ae%a1%e5%8e%9f%e5%88%99" class="anchor">🔗</a></h2><h3 id="solid">S.O.L.I.D <a href="#solid" class="anchor">🔗</a></h3><table>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>@startuml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>title Dependency
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class Vihicle {
+</span></span><span style="display:flex;"><span>    move(MoveBehavior)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>interface MoveBehavior {
+</span></span><span style="display:flex;"><span>    move()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>note &#34;MoveBehavior.move()&#34; as N
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Vihicle ..&gt; MoveBehavior
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Vihicle .. N
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@enduml
+</span></span></code></pre></div><h2 id="三设计原则">三、设计原则 <a href="#%e4%b8%89%e8%ae%be%e8%ae%a1%e5%8e%9f%e5%88%99" class="anchor">🔗</a></h2><h3 id="solid">S.O.L.I.D <a href="#solid" class="anchor">🔗</a></h3><table>
 <thead>
 <tr>
 <th style="text-align:center">简写</th>
