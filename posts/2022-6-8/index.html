@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>Yosys 学习记录 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="1.基本原理 🔗1.1 抽象层次 🔗数字电路可以在不同的抽象层次上表示。在设计过程中，通常首先使用更高级别的抽象来指定电路。然后，可以将实现理解为在较低的抽象级别上找到功能等效的表示。当使用软件自动完成时，使用术语合成。
+因此，综合是将电路的高级表示自动转换为电路功能等效的低级表示。图2.1列出了不同的抽象层次以及它们与不同类型的合成的关系。
+无论以何种方式获得电路的较低级别表示（合成或手动设计），通常通过比较较低级别和较高级别表示1的仿真结果来验证较低级别表示。因此，即使不使用合成，也必须在所有级别上都有电路的可模拟表示，以便验证设计。
+1.1.1 系统级别 System Level 🔗系统的系统级抽象只关注其最大的构建块，如CPU和计算核心。在这个层次上，通常使用传统的编程语言（如C/C&#43;&#43;或Matlab）来描述电路。有时会使用专门的软件库，用于系统级的模拟电路，如SystemC。
+通常不使用合成工具将电路的系统级表示自动转换为较低级别的表示。但系统级设计工具可用于连接系统级构建块。
+IEEE 1685-2009标准定义了可用于表示系统级设计的IP-XACT文件格式，以及可用于此类系统级设计的构建块
+1.1.2 高级别 high-level 🔗系统的高级抽象（有时称为算法级）也通常使用传统编程语言表示，但使用的功能集较少。例如，当用C表示高级抽象的设计时，指针只能用来模拟硬件中的概念，例如内存接口。不允许全功能动态内存管理，因为它在数字电路中没有相应的概念。
+现有的工具可以将高级代码（通常以C/C&#43;&#43;/SystemC代码的形式以及额外的元数据）合成为行为HDL代码（通常以Verilog或VHDL代码的形式）。除了许多用于高级合成的商业工具外，还有许多用于高级合成的自由／开源软件工具。
+1.1.3 行为级别 Behavioural Level 🔗在行为抽象层，针对硬件描述的语言（如Verilog或VHDL）用于描述电路，但所谓的行为建模至少用于电路描述的一部分。在行为建模中，必须有一种语言功能，允许使用命令式编程来描述数据路径和寄存器。这是Verilog中的always块和VHDL中的process块。 在行为建模中，代码片段与敏感度列表一起提供；信号和条件列表。在模拟中，每当灵敏度列表中的信号改变其值或触发灵敏度列表中的条件时，就会执行代码片段。合成工具必须能够将此表示转换为适当的数据路径，然后再转换为适当类型的寄存器。 例如，考虑以下 Verilog 代码片段：
+always @(posedge clk) y &lt;= a &#43; b; 在模拟中，只要检测到信号 clk 上的正边缘，就执行语句 y&lt;=a&#43;b。然而，合成结果将包含一个始终计算和 a&#43;b 的加法器，然后是一个d型触发器，加法器输出在其d输入端，信号y输出在其Q输出端。
+通常，行为建模中使用的命令式代码片段可以包含条件执行语句（Verilog中的if和case语句）以及循环，只要这些循环可以完全展开。
+有趣的是，除了Yosys之外，似乎没有其他FOSS工具能够执行Verilog或VHDL行为合成.
+1.1.4 寄存器传输级别 Register-Transfer Level (RTL) 🔗在寄存器传输级别，设计由组合数据路径和寄存器（通常为 d型触发器）。下面的Verilog代码片段与前面的Verilog示例等效，但是 采用RTL表示：
+assign tmp = a &#43; b;	// combinatorial data path always @(posedge clk)	// register y &lt;= tmp;	RTL表示的设计通常使用Verilog和VHDL等HDL存储。但只使用了非常有限的功能子集，即对所用寄存器类型进行建模的最小始终块（Verilog）或进程块（VHDL）以及数据路径逻辑的无条件赋值。在这一级别上使用HDL简化了模拟，因为在RTL表示中模拟设计不需要其他工具。">
+<meta name="generator" content="Hugo 0.100.1" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">Yosys 学习记录</h1>
+
+    <div class="tip">
+        <time datetime="2022-06-08 11:32:25 &#43;0800 CST">2022年06月08日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          832字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          4分钟
+        </span>
+    </div>
+
+    
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>目录
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#11-抽象层次">1.1 抽象层次</a></li>
+        <li><a href="#111-系统级别-system-level">1.1.1 系统级别 System Level</a></li>
+        <li><a href="#112-高级别-high-level">1.1.2 高级别 high-level</a></li>
+        <li><a href="#113-行为级别-behavioural-level">1.1.3 行为级别 Behavioural Level</a></li>
+        <li><a href="#114-寄存器传输级别-register-transfer-level-rtl">1.1.4 寄存器传输级别 Register-Transfer Level (RTL)</a></li>
+        <li><a href="#115-逻辑门级-logical-gate-level">1.1.5 逻辑门级 Logical Gate Level</a></li>
+        <li><a href="#116-物理门级别-physical-gate-level">1.1.6 物理门级别 Physical Gate Level</a></li>
+        <li><a href="#117-开关级-switch-level">1.1.7 开关级 Switch Level</a></li>
+        <li><a href="#118-yosys">1.1.8 Yosys</a></li>
+        <li><a href="#12-可综合的-verilog-特征">1.2 可综合的 Verilog 特征</a></li>
+        <li><a href="#121-结构-verilog">1.2.1 结构 Verilog</a></li>
+        <li><a href="#122-表达式">1.2.2 表达式</a></li>
+        <li><a href="#123-行为模型">1.2.3 行为模型</a></li>
+        <li><a href="#124-函数和任务">1.2.4 函数和任务</a></li>
+        <li><a href="#125-条件循环和生成语句">1.2.5 条件、循环和生成语句</a></li>
+        <li><a href="#126-矩阵和存储器">1.2.6 矩阵和存储器</a></li>
+        <li><a href="#13-数字电路合成面临的挑战">1.3 数字电路合成面临的挑战</a></li>
+        <li><a href="#131-标准符合性">1.3.1 标准符合性</a></li>
+        <li><a href="#132-优化">1.3.2 优化</a></li>
+        <li><a href="#133-技术映射">1.3.3 技术映射</a></li>
+        <li><a href="#14-基于脚本的合成流">1.4 基于脚本的合成流</a></li>
+        <li><a href="#15-编译器设计方法">1.5 编译器设计方法</a></li>
+        <li><a href="#151-词法分析">1.5.1 词法分析</a></li>
+        <li><a href="#152-多级编译">1.5.2 多级编译</a></li>
+        <li><a href="#2-方法">2 方法</a></li>
+        <li><a href="#21-数据和控制流">2.1 数据和控制流</a></li>
+        <li><a href="#22-yosys内部格式">2.2 Yosys内部格式</a></li>
+        <li><a href="#23-典型用例">2.3 典型用例</a></li>
+        <li><a href="#3实施概述">3.实施概述</a></li>
+        <li><a href="#31-简化的数据流">3.1 简化的数据流</a></li>
+        <li><a href="#32--rtl-中间语言">3.2  RTL 中间语言</a></li>
+        <li><a href="#321-rtlil-identifiers-标识符">3.2.1 RTLIL Identifiers 标识符</a></li>
+        <li><a href="#322-rtlildesign-and-rtlilmodule">3.2.2 RTLIL::Design and RTLIL::Module</a></li>
+        <li><a href="#323-rtlilcell-and-rtlilwire">3.2.3 RTLIL::Cell and RTLIL::Wire</a></li>
+        <li><a href="#324-rtlilsigspec">3.2.4 RTLIL::SigSpec</a></li>
+        <li><a href="#325-rtlilprocess">3.2.5 RTLIL::Process</a></li>
+        <li><a href="#326-rtlilmemory">3.2.6 RTLIL::Memory</a></li>
+        <li><a href="#33-命令界面和合成脚本">3.3 命令界面和合成脚本</a></li>
+        <li><a href="#34-源树和构建系统">3.4 源树和构建系统</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h1 id="1基本原理">1.基本原理 <a href="#1%e5%9f%ba%e6%9c%ac%e5%8e%9f%e7%90%86" class="anchor">🔗</a></h1><h3 id="11-抽象层次">1.1 抽象层次 <a href="#11-%e6%8a%bd%e8%b1%a1%e5%b1%82%e6%ac%a1" class="anchor">🔗</a></h3><p>数字电路可以在不同的抽象层次上表示。在设计过程中，通常首先使用更高级别的抽象来指定电路。然后，可以将实现理解为在较低的抽象级别上找到功能等效的表示。当使用软件自动完成时，使用术语合成。</p>
+<p>因此，综合是将电路的高级表示自动转换为电路功能等效的低级表示。图2.1列出了不同的抽象层次以及它们与不同类型的合成的关系。</p>
+<p>无论以何种方式获得电路的较低级别表示（合成或手动设计），通常通过比较较低级别和较高级别表示1的仿真结果来验证较低级别表示。因此，即使不使用合成，也必须在所有级别上都有电路的可模拟表示，以便验证设计。</p>
+<h3 id="111-系统级别-system-level">1.1.1 系统级别 System Level <a href="#111-%e7%b3%bb%e7%bb%9f%e7%ba%a7%e5%88%ab-system-level" class="anchor">🔗</a></h3><p>系统的系统级抽象只关注其最大的构建块，如CPU和计算核心。在这个层次上，通常使用传统的编程语言（如C/C++或Matlab）来描述电路。有时会使用专门的软件库，用于系统级的模拟电路，如SystemC。</p>
+<p>通常不使用合成工具将电路的系统级表示自动转换为较低级别的表示。但系统级设计工具可用于连接系统级构建块。</p>
+<p>IEEE 1685-2009标准定义了可用于表示系统级设计的IP-XACT文件格式，以及可用于此类系统级设计的构建块</p>
+<h3 id="112-高级别-high-level">1.1.2 高级别 high-level <a href="#112-%e9%ab%98%e7%ba%a7%e5%88%ab-high-level" class="anchor">🔗</a></h3><p>系统的高级抽象（有时称为算法级）也通常使用传统编程语言表示，但使用的功能集较少。例如，当用C表示高级抽象的设计时，指针只能用来模拟硬件中的概念，例如内存接口。不允许全功能动态内存管理，因为它在数字电路中没有相应的概念。</p>
+<p>现有的工具可以将高级代码（通常以C/C++/SystemC代码的形式以及额外的元数据）合成为行为HDL代码（通常以Verilog或VHDL代码的形式）。除了许多用于高级合成的商业工具外，还有许多用于高级合成的自由／开源软件工具。</p>
+<h3 id="113-行为级别-behavioural-level">1.1.3 行为级别 Behavioural Level <a href="#113-%e8%a1%8c%e4%b8%ba%e7%ba%a7%e5%88%ab-behavioural-level" class="anchor">🔗</a></h3><p>在行为抽象层，针对硬件描述的语言（如Verilog或VHDL）用于描述电路，但所谓的行为建模至少用于电路描述的一部分。在行为建模中，必须有一种语言功能，允许使用命令式编程来描述数据路径和寄存器。这是Verilog中的always块和VHDL中的process块。
+在行为建模中，代码片段与敏感度列表一起提供；信号和条件列表。在模拟中，每当灵敏度列表中的信号改变其值或触发灵敏度列表中的条件时，就会执行代码片段。合成工具必须能够将此表示转换为适当的数据路径，然后再转换为适当类型的寄存器。
+例如，考虑以下 Verilog 代码片段：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    always @(posedge clk)
+</span></span><span style="display:flex;"><span>	        y &lt;= a + b;
+</span></span></code></pre></div><p>在模拟中，只要检测到信号 clk 上的正边缘，就执行语句 y&lt;=a+b。然而，合成结果将包含一个始终计算和 a+b 的加法器，然后是一个d型触发器，加法器输出在其d输入端，信号y输出在其Q输出端。</p>
+<p>通常，行为建模中使用的命令式代码片段可以包含条件执行语句（Verilog中的if和case语句）以及循环，只要这些循环可以完全展开。</p>
+<p>有趣的是，除了Yosys之外，似乎没有其他FOSS工具能够执行Verilog或VHDL行为合成.</p>
+<h3 id="114-寄存器传输级别-register-transfer-level-rtl">1.1.4 寄存器传输级别 Register-Transfer Level (RTL) <a href="#114-%e5%af%84%e5%ad%98%e5%99%a8%e4%bc%a0%e8%be%93%e7%ba%a7%e5%88%ab-register-transfer-level-rtl" class="anchor">🔗</a></h3><p>在寄存器传输级别，设计由组合数据路径和寄存器（通常为
+d型触发器）。下面的Verilog代码片段与前面的Verilog示例等效，但是
+采用RTL表示：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>assign tmp = a + b;	// combinatorial data path
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>always @(posedge clk)	// register
+</span></span><span style="display:flex;"><span>y &lt;= tmp;	
+</span></span></code></pre></div><p>RTL表示的设计通常使用Verilog和VHDL等HDL存储。但只使用了非常有限的功能子集，即对所用寄存器类型进行建模的最小始终块（Verilog）或进程块（VHDL）以及数据路径逻辑的无条件赋值。在这一级别上使用HDL简化了模拟，因为在RTL表示中模拟设计不需要其他工具。</p>
+<p>在RTL级别可以最好地执行许多优化和分析。示例包括FSM检测和优化、内存或其他较大构建块的识别以及可共享资源的识别。
+请注意，RTL是第一个抽象级别，其中电路表示为电路元素（寄存器和组合单元）和信号的图形。这样的图，当编码为单元和连接列表时，称为网表。</p>
+<p>RTL合成很容易，因为网表中的每个电路节点元素都可以简单地替换为等效的门级电路。然而，通常术语 RTL 合成不仅指将RTL网表合成为门级网表，还指在RTL表示中执行许多高度复杂的优化，例如上面列出的示例。
+有许多FOSS工具可以执行RTL合成步骤领域内的独立任务。但似乎没有一种FOSS工具能够涵盖广泛的RTL合成操作。</p>
+<h3 id="115-逻辑门级-logical-gate-level">1.1.5 逻辑门级 Logical Gate Level <a href="#115-%e9%80%bb%e8%be%91%e9%97%a8%e7%ba%a7-logical-gate-level" class="anchor">🔗</a></h3><p>在逻辑门级别，设计由一个网表表示，该网表只使用少量单位单元中的单元，例如基本逻辑门（AND、OR、NOT、XOR等）和寄存器（通常是D型触发器）。</p>
+<p>存在许多可在此级别上使用的网表格式，例如电子设计交换格式（EDIF），但为了便于模拟，通常使用HDL网表。后者是一个HDL文件（Verilog或VHDL），它只使用最基本的语言构造来实例化和连接单元。</p>
+<p>逻辑综合面临两个挑战：第一，在门级网表中寻找优化机会；第二，将逻辑门网表优化（或至少良好）映射到物理可用门类型的等效网表。</p>
+<p>逻辑综合的最简单方法是两级逻辑综合，其中逻辑函数转换为乘积和表示，例如使用卡诺图。这是一种简单的方法，但
+指数最坏情况下的努力，无法有效利用除and/NAND、OR/NOR和NOT门之外的物理门。</p>
+<p>因此，现代逻辑综合工具使用更复杂的多级逻辑综合算法。大多数算法将逻辑函数转换为二元决策图（BDD）或与反相器图（AIG），并从该表示形式开始工作。前者的优点是具有唯一的规范化形式。后者具有更好的最坏情况性能，因此更适合于大型逻辑函数的合成。</p>
+<p>良好的FOSS工具可用于多级逻辑综合。</p>
+<p>Yosys包含基本的逻辑合成功能，但也可以将 ABC 用于逻辑合成步骤。建议使用ABC。</p>
+<h3 id="116-物理门级别-physical-gate-level">1.1.6 物理门级别 Physical Gate Level <a href="#116-%e7%89%a9%e7%90%86%e9%97%a8%e7%ba%a7%e5%88%ab-physical-gate-level" class="anchor">🔗</a></h3><p>在物理门级别上，仅使用目标体系结构上物理可用的门。在某些情况下，这可能只是NAND、NOR和NOT门以及D型寄存器。在其他情况下，这可能包括比逻辑门级使用的单元更复杂的单元（例如，全半加法器）。对于基于FPGA的设计，物理门级表示是LUT的网络列表，带有可选的输出寄存器，因为这些是FPGA逻辑单元的基本构建块。</p>
+<p>对于合成工具链，这种抽象通常是最低级别的。对于基于ASIC的设计，单元库可能包含有关物理单元如何映射到各个开关（晶体管）的更多信息。</p>
+<h3 id="117-开关级-switch-level">1.1.7 开关级 Switch Level <a href="#117-%e5%bc%80%e5%85%b3%e7%ba%a7-switch-level" class="anchor">🔗</a></h3><p>电路的开关级表示是使用单个晶体管作为单元的网表。在Verilog和VHDL中可以进行开关级建模，但在现代设计中很少使用，因为在现代数字ASIC或FPGA流中，物理门被视为逻辑电路的原子构建块。</p>
+<h3 id="118-yosys">1.1.8 Yosys <a href="#118-yosys" class="anchor">🔗</a></h3><p>Yosys是Verilog HDL合成工具。这意味着它将行为设计描述作为输入，并生成设计的RTL、逻辑门或物理门级描述作为输出。Yosys的主要优势是行为和RTL合成。Yosys中存在大量的命令（合成过程），可用于执行行为、rtl和逻辑合成领域内的大量合成任务。Yosys的设计是可扩展的，因此是为专门任务实现定制合成工具的良好基础。</p>
+<h3 id="12-可综合的-verilog-特征">1.2 可综合的 Verilog 特征 <a href="#12-%e5%8f%af%e7%bb%bc%e5%90%88%e7%9a%84-verilog-%e7%89%b9%e5%be%81" class="anchor">🔗</a></h3><p>本节简要概述了可合成Verilog的最重要功能，这些功能是按复杂性的增加顺序构建的。</p>
+<h3 id="121-结构-verilog">1.2.1 结构 Verilog <a href="#121-%e7%bb%93%e6%9e%84-verilog" class="anchor">🔗</a></h3><p>结构化Verilog（也称为Verilog网表）是Verilog语法中的网表。在这种情况下，仅使用以下语言构造：</p>
+<ul>
+<li>恒定值</li>
+<li>电线和端口声明</li>
+<li>将信号静态分配给其他信号</li>
+<li>单元格实例化</li>
+</ul>
+<h3 id="122-表达式">1.2.2 表达式 <a href="#122-%e8%a1%a8%e8%be%be%e5%bc%8f" class="anchor">🔗</a></h3><p>在Verilog接受常量值或信号名称的所有情况下，也可以使用使用算术运算（如+、-和*）、布尔运算（如&amp;（and）、|（or）和^（XOR））以及许多其他运算（比较运算、一元运算符等）的表达式。</p>
+<p>在合成过程中，这些操作符被实现各自功能的单元所取代。</p>
+<p>许多声称能够处理Verilog的FOSS工具实际上只支持基本的结构Verilog和简单表达式。Yosys可用于将功能齐全的可合成Verilog 转换为这个更简单的子集，从而使此类应用程序能够与更丰富的Verilog功能集一起使用。</p>
+<h3 id="123-行为模型">1.2.3 行为模型 <a href="#123-%e8%a1%8c%e4%b8%ba%e6%a8%a1%e5%9e%8b" class="anchor">🔗</a></h3><p>使用Verilog always语句的代码使用行为建模。在行为建模中，通过在特定事件上执行的命令式程序代码来描述电路，即信号的任何变化、上升沿或下降沿。这在模拟过程中是一个非常灵活的构造，但只有在对以下其中一个进行建模时才可进行合成：</p>
+<ul>
+<li>异步或锁逻辑</li>
+</ul>
+<p>在这种情况下，灵敏度列表必须包含always块中使用的所有表达式。语法@*可用于这些情况。此类示例包括：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// asynchronous
+</span></span><span style="display:flex;"><span>2	always  @*  begin
+</span></span><span style="display:flex;"><span>3	if (add_mode)
+</span></span><span style="display:flex;"><span>4	y &lt;= a + b;
+</span></span><span style="display:flex;"><span>5	else
+</span></span><span style="display:flex;"><span>6	y &lt;= a - b;
+</span></span><span style="display:flex;"><span>7	end
+</span></span><span style="display:flex;"><span>8
+</span></span><span style="display:flex;"><span>9	// latched
+</span></span><span style="display:flex;"><span>10	always  @*  begin
+</span></span><span style="display:flex;"><span>11	if (!hold)
+</span></span><span style="display:flex;"><span>12	y &lt;= a + b;
+</span></span><span style="display:flex;"><span>13	end
+</span></span></code></pre></div><blockquote>
+<p>请注意，锁存逻辑通常被认为是糟糕的风格，在许多情况下，它只是HDL设计马虎的结果。因此，每当生成锁存逻辑时，许多合成工具都会生成警告。</p>
+</blockquote>
+<ul>
+<li>同步逻辑（带可选同步复位）</li>
+</ul>
+<p>这是输出端带有d型触发器的逻辑。在这种情况下，灵敏度列表必须仅包含相应的时钟边缘。例子：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>	// counter with synchronous reset
+</span></span><span style="display:flex;"><span>	always @(posedge clk) begin
+</span></span><span style="display:flex;"><span>	if (reset)
+</span></span><span style="display:flex;"><span>	y  &lt;=  0;
+</span></span><span style="display:flex;"><span>	else
+</span></span><span style="display:flex;"><span>	y  &lt;=  y  +  1;
+</span></span><span style="display:flex;"><span>   en
+</span></span></code></pre></div><ul>
+<li>具有异步复位的同步逻辑</li>
+</ul>
+<p>这是一种在输出端带有异步复位的d型触发器的逻辑。在这种情况下，灵敏度列表必须仅包含相应的时钟和复位边缘。重置分支中指定的值必须是常量。例子：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>	// counter with asynchronous reset
+</span></span><span style="display:flex;"><span>	always @(posedge clk, posedge reset) begin
+</span></span><span style="display:flex;"><span>	if (reset)
+</span></span><span style="display:flex;"><span>	y  &lt;=  0;
+</span></span><span style="display:flex;"><span>	else
+</span></span><span style="display:flex;"><span>	y  &lt;=  y  +  1;
+</span></span><span style="display:flex;"><span>   end
+</span></span></code></pre></div><p>许多合成工具支持更广泛的触发器子集，这些触发器可以使用always语句（包括Yosys）建模。但是Verilog综合标准只涵盖上面列出的那些，在编写新设计时，应该将自己限制在这些情况下。</p>
+<p>在行为建模中，可以使用阻塞分配（=）和非阻塞分配（&lt;=）。阻塞与非阻塞分配的概念是Verilog[CI00]中最容易被误解的概念之一。</p>
+<p>阻塞赋值的行为与任何命令式编程语言中的赋值完全相同，而使用非阻塞赋值时，赋值的右侧会立即求值，但左侧寄存器的实际更新会延迟到时间步结束。例如，Verilog代码a&lt;=b；b&lt;=a；交换两个寄存器的值。</p>
+<h3 id="124-函数和任务">1.2.4 函数和任务 <a href="#124-%e5%87%bd%e6%95%b0%e5%92%8c%e4%bb%bb%e5%8a%a1" class="anchor">🔗</a></h3><p>Verilog支持函数和任务捆绑在多个位置使用的语句（类似于命令式编程中的过程）。通过用函数或任务的主体替换函数/任务调用，可以轻松实现这两种构造。</p>
+<h3 id="125-条件循环和生成语句">1.2.5 条件、循环和生成语句 <a href="#125-%e6%9d%a1%e4%bb%b6%e5%be%aa%e7%8e%af%e5%92%8c%e7%94%9f%e6%88%90%e8%af%ad%e5%8f%a5" class="anchor">🔗</a></h3><p>Verilog支持if-else语句和always语句中的for循环。
+它还支持模块级的generate语句中的这两个功能。这可用于根据模块参数（如果有）有选择地启用或禁用模块的部分，或生成一组类似的子电路（用于）。</p>
+<p>虽然always块中的if-else语句是行为建模的一部分，但其他三种情况（至少对于合成工具而言）是内置宏处理器的一部分。因此，合成工具必须能够完全展开所有循环，并使用const folding在generate语句中计算所有if else语句中的条件。</p>
+<h3 id="126-矩阵和存储器">1.2.6 矩阵和存储器 <a href="#126-%e7%9f%a9%e9%98%b5%e5%92%8c%e5%ad%98%e5%82%a8%e5%99%a8" class="anchor">🔗</a></h3><p>Verilog支持阵列。这通常是一种可合成的语言特性。在大多数情况下，可以通过生成可寻址存储器来合成阵列。然而，当使用复杂或异步访问模式时，不可能将阵列建模为内存。在这些情况下，必须使用每个字的单独信号对阵列进行建模，并且必须使用大型多路复用器实现对阵列的所有访问。</p>
+<p>在某些情况下，可以使用内存对阵列进行建模，但这并不理想。考虑以下延迟电路：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> module (clk, in_data, out_data);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	parameter BITS = 8;
+</span></span><span style="display:flex;"><span>	parameter STAGES = 4;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	input clk;
+</span></span><span style="display:flex;"><span>	input [BITS-1:0] in_data;
+</span></span><span style="display:flex;"><span>	output [BITS-1:0] out_data;
+</span></span><span style="display:flex;"><span>	reg [BITS-1:0] ffs [STAGES-1:0];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	integer i;
+</span></span><span style="display:flex;"><span>	always @(posedge clk) begin
+</span></span><span style="display:flex;"><span>	ffs[0] &lt;= in_data;
+</span></span><span style="display:flex;"><span>	for (i = 1; i &lt; STAGES; i = i+1)
+</span></span><span style="display:flex;"><span>	ffs[i] &lt;= ffs[i-1];
+</span></span><span style="display:flex;"><span>	end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    assign  out_data  =  ffs[STAGES-1];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    endmodule
+</span></span></code></pre></div><p>这可以使用带有阶段输入和输出端口的可寻址内存来实现。更好的实现方法是使用一个简单的触发器链（所谓的移位寄存器）。通过首先创建基于内存的实现，然后根据所有端口的静态地址信号对其进行优化，或者直接在语言前端识别此类情况，并将所有内存访问转换为对正确信号的直接访问，可以获得更好的实现。</p>
+<h3 id="13-数字电路合成面临的挑战">1.3 数字电路合成面临的挑战 <a href="#13-%e6%95%b0%e5%ad%97%e7%94%b5%e8%b7%af%e5%90%88%e6%88%90%e9%9d%a2%e4%b8%b4%e7%9a%84%e6%8c%91%e6%88%98" class="anchor">🔗</a></h3><p>本节总结了数字电路综合中最重要的挑战。工具的特点在于它们处理这些主题的能力。</p>
+<h3 id="131-标准符合性">1.3.1 标准符合性 <a href="#131-%e6%a0%87%e5%87%86%e7%ac%a6%e5%90%88%e6%80%a7" class="anchor">🔗</a></h3><p>最重要的挑战是遵守所讨论的HDL标准（对于Verilog，IEEE标准1364.1-2002和1364-2005）。这可以分为两项：</p>
+<ul>
+<li>
+<p>标准实施的完整性</p>
+</li>
+<li>
+<p>标准实施的正确性</p>
+</li>
+</ul>
+<p>完整性对于保证与现有HDL代码的兼容性至关重要。一旦设计经过验证和测试，HDL设计师就很不愿意对设计进行更改，即使只是为了解决新合成工具中缺失的功能而进行的一些小的更改。</p>
+<p>正确性至关重要。在某些领域，这是显而易见的（例如基本行为模型的正确综合）。但对于涉及标准次要细节的领域，例如处理有符号表达式的确切规则，也至关重要，即使HDL代码不针对不同的合成工具。这是因为（与仅由编译器处理的软件源代码不同），在大多数设计流中，HDL代码不仅由合成工具处理，还由一个或多个模拟器处理，有时甚至是一个正式的验证工具。所有这些工具对HDL代码使用相同的解释，这是验证过程的关键。</p>
+<h3 id="132-优化">1.3.2 优化 <a href="#132-%e4%bc%98%e5%8c%96" class="anchor">🔗</a></h3><p>一般来说，很难给出综合工具优化设计的一维描述。首先，因为并非所有优化都适用于所有设计和所有合成任务。一些优化在粗粒度级别（使用加法器或乘法器等复杂单元）上工作（最好），而其他优化在细粒度级别（单比特门）上工作（最好）。一些优化目标区域，另一些优化目标速度。一些在大型设计中效果很好，而另一些则不能很好地扩展，只能应用于小型设计。
+一个好的工具能够在不同的抽象级别上应用广泛的优化，并让设计者控制执行（或跳过）哪些优化以及优化目标是什么。</p>
+<h3 id="133-技术映射">1.3.3 技术映射 <a href="#133-%e6%8a%80%e6%9c%af%e6%98%a0%e5%b0%84" class="anchor">🔗</a></h3><p>技术映射是将设计转换为目标体系结构中可用单元的网络列表的过程。在ASIC流程中，这可能是fab提供的特定于流程的单元库。在FPGA流中，这可能是LUT单元以及专用乘法器等特殊功能单元。在粗颗粒流中，这可能是更复杂的特殊功能单元。
+如果一个开放的、独立于供应商的工具支持广泛的不同类型的目标体系结构，那么它尤其令人感兴趣。</p>
+<h3 id="14-基于脚本的合成流">1.4 基于脚本的合成流 <a href="#14-%e5%9f%ba%e4%ba%8e%e8%84%9a%e6%9c%ac%e7%9a%84%e5%90%88%e6%88%90%e6%b5%81" class="anchor">🔗</a></h3><p>数字设计通常从实现所需功能的高级或系统级模拟开始。然后将该描述手动转换（或重新实现）为可合成的较低级别描述（通常在行为级别），并通过模拟两者并比较模拟结果来验证这两种表示的等效性。</p>
+<p>然后，使用一系列工具将可综合描述转换为较低级别的表示，并再次使用仿真验证结果。该过程如图2.2所示。</p>
+<p>在本例中，系统级模型和行为模型都是手动编写的设计文件。在验证了系统级模型和行为模型的等效性之后，可以使用合成工具生成设计的较低级别表示。最后对RTL模型和门级模型进行了验证，完成了设计过程。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-8/typical_design_flow.png" alt="img"  />
+</p></p>
+<p>（绿色框表示手动创建的模型。橙色框表示由合成工具生成的模型。）</p>
+<p>然而，在任何实际的设计工作中，这个设计过程都会有多次迭代。其原因可能是设计需求变更较晚，或者对低抽象模型的分析（如门级时序分析）表明，为了满足设计需求（如最大可能的时钟速度），需要进行设计变更。</p>
+<p>每当行为模型或系统级模型发生变化时，必须通过重新运行模拟和比较结果来重新验证其等效性。无论何时改变行为模型，都必须重新运行合成，并且必须重新验证合成结果。</p>
+<p>为了保证再现性，重要的是能够使用一组固定的设置轻松地重新运行设计项目中的所有自动步骤。因此，通常可以使用脚本控制合成流中使用的所有程序。这意味着所有功能都可以通过文本命令使用。当这样的工具提供GUI时，这是对命令行界面的补充，而不是替代命令行界面。</p>
+<p>通常，UNIX/Linux环境中的合成流将由shell脚本控制，该脚本以正确的顺序调用所有必需的工具（本例中为合成和模拟/验证）。这些工具中的每一个都将通过包含相应工具的命令的脚本文件进行调用。这些脚本文件将提供该工具所需的所有设置，因此无需手动交互。这些脚本文件被视为设计源，应该像系统级的源代码和行为模型一样，在版本控制下保存。</p>
+<h3 id="15-编译器设计方法">1.5 编译器设计方法 <a href="#15-%e7%bc%96%e8%af%91%e5%99%a8%e8%ae%be%e8%ae%a1%e6%96%b9%e6%b3%95" class="anchor">🔗</a></h3><p>合成工具的某些部分涉及传统上从编译器设计中已知的问题域。本节介绍其中一些域。</p>
+<h3 id="151-词法分析">1.5.1 词法分析 <a href="#151-%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90" class="anchor">🔗</a></h3><p>编译器设计中最著名的概念可能是词法分析和语法分析。这两种方法可以一起轻松地处理复杂的计算机语言。【ASU86】
+词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog输入“assign foo=bar+42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。</p>
+<p>lexer通常由lexer生成器（例如flex[17]）从描述文件生成，该描述文件使用正则表达式来指定应该匹配各个标记的文本模式。</p>
+<p>lexer还负责跳过被忽略的字符（如Verilog中字符串常量和注释外的空格），并将原始文本片段转换为标记值。</p>
+<p>请注意，各个关键字使用不同的标记类型（而不是具有不同标记值的关键字类型）。这是因为解析器通常只能使用标记类型来决定标记的语法角色。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-8/exemplary.png" alt="img"  />
+</p></p>
+<p>然后，解析器将标记列表转换为与计算机语言语法的结果非常相似的解析树。作为lexer，解析器通常也由代码生成器生成.</p>
+<p>让我们考虑以下BNF（在Bison语法中）：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>assign_stmt: TOK_ASSIGN TOK_IDENTIFIER TOK_EQ expr TOK_SEMICOLON;
+</span></span><span style="display:flex;"><span>2 expr: TOK_IDENTIFIER | TOK_NUMBER | expr TOK_PLUS expr;
+</span></span></code></pre></div><p>解析器将令牌列表转换为图2.3中的解析树。请注意，解析树在内存中从来没有作为一个整体存在。相反，解析器按深度优先顺序为解析树的所有内部节点调用用户指定的代码段（所谓的reduce函数）。</p>
+<p>在一些非常简单的应用程序中（例如，堆栈机器的代码生成），可以直接在reduce函数中执行手头的任务。但通常reduce函数仅用于使用解析树中的相关信息构建内存中的数据结构。这种数据结构称为抽象语法树（AST）。</p>
+<p>抽象语法树的确切格式是特定于应用程序的（而解析树和标记列表的格式主要由手边语言的语法决定）。图2.4说明了图2.3中解析树的AST可能是什么样子。</p>
+<p>通常，AST随后被转换为另一种更适合进一步处理的表示。在编译器中，这通常是一种类似于汇编程序的三地址码中间表示。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-8/parse_tree.png" alt="img"  />
+</p></p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-8/ast.png" alt="img"  />
+</p></p>
+<h3 id="152-多级编译">1.5.2 多级编译 <a href="#152-%e5%a4%9a%e7%ba%a7%e7%bc%96%e8%af%91" class="anchor">🔗</a></h3><p>复杂的问题通常在分解成较小的问题时得到最好的解决。对于编译器和合成工具来说，这无疑是正确的。负责解决较小问题的组件可以通过两种不同的方式进行连接：通过单通道管道和使用多通道。</p>
+<p>传统上，解析器和lexer是使用流水线方法连接的：lexer提供一个由解析器调用的函数。此函数从输入中读取数据，直到读取完整的词法标记为止。然后将该标记返回给解析器。因此，lexer不会首先生成词法标记的完整列表，然后将其传递给解析器。相反，它们并行运行，解析器可以在lexer生成标记时使用它们。</p>
+<p>单通道流水线方法的优点是内存占用较低（任何时候都不能将完整的设计保存在内存中），但缺点是交互组件之间的耦合更紧密。</p>
+<p>因此，仅当需要较低的内存占用或组件在概念上也紧密耦合时，才应使用单通管道。解析器及其lexer的情况当然是后者。但是，当数据在两个概念上松散耦合的组件之间传递时，使用多传递方法通常是有益的。</p>
+<p>在多通道方法中，第一个组件处理所有数据，结果存储在内存数据结构中。然后使用此数据调用第二个组件。这降低了复杂性，因为一次只运行一个组件。它还提高了灵活性，因为组件可以更容易地交换。</p>
+<p>大多数现代编译器都是多过程编译器。</p>
+<h3 id="2-方法">2 方法 <a href="#2-%e6%96%b9%e6%b3%95" class="anchor">🔗</a></h3><p>Yosys是一种用于合成（行为）Verilog HDL代码的工具，用于目标架构网表。Yosys面向广泛的应用领域，因此必须灵活且易于适应新任务。本章介绍了实现此工具所遵循的一般方法。</p>
+<h3 id="21-数据和控制流">2.1 数据和控制流 <a href="#21-%e6%95%b0%e6%8d%ae%e5%92%8c%e6%8e%a7%e5%88%b6%e6%b5%81" class="anchor">🔗</a></h3><p>典型综合工具的数据和控制流与典型编译器的数据和控制流非常相似：按预定顺序调用不同的子系统，每个子系统消耗最后一个子系统生成的数据，并为下一个子系统生成数据（见图3.1）。</p>
+<p>第一个要调用的子系统通常称为前端。对于HDL合成工具，它不处理另一个子系统生成的数据，而是读取用户输入，即行为HDL代码。</p>
+<p>使用前一个子系统的数据并为下一个子系统生成数据（通常采用相同或类似的格式）的子系统称为passes。</p>
+<p>执行的最后一个子系统将最后一次传递生成的数据转换为适当的输出格式，并将其写入磁盘文件。此子系统通常称为后端。
+在Yosys中，所有前端、过程和后端都可以作为合成脚本中的命令直接使用。因此，用户只需在合成脚本中按正确的顺序调用过程，就可以轻松创建自定义合成流。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-8/figure3.1.png" alt="img"  />
+</p></p>
+<h3 id="22-yosys内部格式">2.2 Yosys内部格式 <a href="#22-yosys%e5%86%85%e9%83%a8%e6%a0%bc%e5%bc%8f" class="anchor">🔗</a></h3><p>Yosys使用两种不同的内部格式。第一个用于存储Verilog输入文件的抽象语法树（AST）。这种格式简称为AST，由Verilog前端生成。此数据结构由名为AST Frontend1 的子系统使用。然后，这个AST前端以Yosys的主要内部格式生成一个设计，即寄存器传输级中间语言（RTLIL）表示。它通过首先在AST表示中执行大量简化，然后从简化的AST数据结构生成RTLIL来实现。</p>
+<p>所有过程都使用RTLIL表示作为输入和输出。与在不同过程之间使用不同的表示格式相比，这具有以下优势：</p>
+<ul>
+<li>焊道可按不同顺序重新排列，并可移除或插入焊道。</li>
+<li>通过可以简单地通过设计的各个部分，它们不会改变，而无需在格式之间转换。事实上，Yosys将其作为输入接收的相同数据结构传递给输出，并就地执行所有更改。</li>
+<li>所有过程都使用相同的界面，因此在阅读Yosys源代码时，例如在添加其他功能时，可以减少理解过程所需的工作量。</li>
+</ul>
+<p>RTLIL 表示基本上是一种网表表示，具有以下附加功能：</p>
+<ul>
+<li>具有固定功能单元的内部单元库，用于表示RTL数据路径和寄存器单元以及逻辑门级单元（单位门和寄存器）。</li>
+<li>支持多位值，可以使用导线中的单个位以及常量位来表示粗粒度网表。</li>
+<li>支持基本行为结构（if-then else结构和多案例开关，带有用于更新输出的敏感列表）。</li>
+<li>支持多端口存储器。</li>
+</ul>
+<p>RTLIL的使用还有一个缺点，即在所有过程之间都有一个非常强大的格式，即使在不需要更高级功能的门级合成时也是如此。为了降低在低级表示上操作的过程的复杂性，这些过程检查输入RTLIL中使用的特性，并且在使用不受支持的高级构造时无法运行。在这种情况下，必须首先从合成脚本调用将高级构造转换为低级构造的过程。</p>
+<h3 id="23-典型用例">2.3 典型用例 <a href="#23-%e5%85%b8%e5%9e%8b%e7%94%a8%e4%be%8b" class="anchor">🔗</a></h3><p>以下示例脚本可用于合成流中，以使用Liberty文件 cells.lib 所述的单元库将行为Verilog代码从输入文件 design.v 转换为门级网表 synth.v：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>	# read input file to internal representation
+</span></span><span style="display:flex;"><span>	read_verilog design.v
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	# convert high-level behavioral parts (&#34;processes&#34;) to d-type flip-flops and muxes
+</span></span><span style="display:flex;"><span>	proc
+</span></span><span style="display:flex;"><span>	#  perform  some  simple  optimizations
+</span></span><span style="display:flex;"><span>	opt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	# convert high-level memory constructs to d-type flip-flops and multiplexers
+</span></span><span style="display:flex;"><span>	memory
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	#  perform  some  simple  optimizations
+</span></span><span style="display:flex;"><span>	opt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	# convert design to (logical) gate-level netlists
+</span></span><span style="display:flex;"><span>	techmap
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	#  perform  some  simple  optimizations
+</span></span><span style="display:flex;"><span>	opt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	# map internal register types to the ones from the cell library
+</span></span><span style="display:flex;"><span>	dfflibmap -liberty cells.lib
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	# use ABC to map remaining logic to cells from the cell library
+</span></span><span style="display:flex;"><span>	abc -liberty cells.lib
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	#  cleanup
+</span></span><span style="display:flex;"><span>	opt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	# write results to output file
+</span></span><span style="display:flex;"><span>	write_verilog synth.v
+</span></span></code></pre></div><h3 id="3实施概述">3.实施概述 <a href="#3%e5%ae%9e%e6%96%bd%e6%a6%82%e8%bf%b0" class="anchor">🔗</a></h3><p>Yosys是一个可扩展的开源硬件合成工具。它的目标是那些正在寻找易于访问、通用且独立于供应商的综合工具的设计师，以及从事电子设计自动化（EDA）研究并正在寻找可用于测试复杂现实世界设计算法的开放式综合框架的科学家。
+Yosys可以合成Verilog 2005的一大个子集，并已在各种实际设计中进行了测试，包括OpenRISC 1200 CPU【23】、OpenSP430 CPU【22】、OpenCores I2C主机【20】和k68 CPU【21】。
+在撰写本文时，Yosys VHDL前端正在开发中。
+Yosys是用C++编写的（使用新的C++11标准的一些特性）。本章介绍了Yosys的一些基本数据结构。为了简单起见，本章使用了Yosys实现中使用的C++类型名称，尽管本章仅解释了其背后的概念概念，并且可以作为参考，以任何语言实现类似的系统。</p>
+<h3 id="31-简化的数据流">3.1 简化的数据流 <a href="#31-%e7%ae%80%e5%8c%96%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b5%81" class="anchor">🔗</a></h3><p>图4.1显示了Yosys内的简化数据流。图中的矩形表示程序模块，省略号表示用于在程序模块之间交换设计数据的内部数据结构。</p>
+<p>使用其中一个前端模块读入设计数据。Verilog和VHDL代码的高级HDL前端生成一个抽象语法树（AST），然后传递给AST前端。请注意，两个HDL前端使用相同的AST表示，其功能强大到足以覆盖Verilog HDL和VHDL语言。</p>
+<p>然后，AST前端将AST编译为Yosys的主要内部数据格式，即RTL中间语言（RTLIL）。下一节将对此格式进行更详细的描述。
+还有一种RTLIL数据结构的文本表示，可以使用RTLIL前端进行解析。</p>
+<p>然后，可以使用一系列过程来转换设计数据，这些过程都在设计的RTLIL表示上进行操作。</p>
+<p>最后，RTLIL表示中的设计通过一个后端转换回文本，即用于生成Verilog网表的Verilog后端和用于以RTLIL前端可以理解的相同格式写入RTLIL数据的RTLIL后端。</p>
+<p>除了AST前端（由高级HDL前端调用，用户无法直接调用）之外，所有程序模块都由用户调用（通常使用包含Yosys文本命令的合成脚本）。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-8/figure4.1.png" alt="img"  />
+</p></p>
+<p>通过以不同方式组合过程和/或向Yosys添加额外过程，可以使Yosys适应广泛的应用。要实现这一点，关键是（1）所有过程都在相同的数据结构（RTLIL）上运行，（2）此数据结构足够强大，能够在合成的不同阶段表示设计。</p>
+<h3 id="32--rtl-中间语言">3.2  RTL 中间语言 <a href="#32--rtl-%e4%b8%ad%e9%97%b4%e8%af%ad%e8%a8%80" class="anchor">🔗</a></h3><p>Yosys中的所有前端、传球和后端均采用RTLIL表示的设计。唯一的例外是在生成RTLIL数据之前使用AST表示作为中间步骤的高级前端。</p>
+<p>为了避免重新命名RTLIL类，在本文档中，只需使用它们的完整C++名称来引用它们，即包括RTLIL：：名称空间前缀。</p>
+<p>图4.2显示了RTLIL的简化实体关系图（ER图）。在1:N关系中，箭头从N侧指向1。例如，一个RTLIL：：设计包含N个（零到多个）RTLIL：：模块实例。双箭头表示1:1关系。</p>
+<p>设计是RTLIL数据结构的根对象。内存中总是有一个“当前设计”，它传递操作，前端添加数据，后端转换为可导出的格式。但在某些情况下，pass会在内部生成额外的RTLIL：：设计对象。例如，当pass正在读取辅助Verilog文件（如单元库）时，它可能会创建一个额外的RTLIL：：Design对象，并使用另一个对象调用Verilog前端来解析单元库。</p>
+<p>只有一个活动的RTLIL：：Design对象由用户调用的所有前端、过程和后端使用，例如使用合成脚本。然后，RTLIL：：设计包含零到多个RTLIL：：模块对象。这对应于Verilog中的模块或VHDL中的实体。每个模块依次包含三个不同类别的对象：</p>
+<ul>
+<li>RTLIL::Cell and RTLIL::Wire 对象表示经典的网表数据。</li>
+</ul>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-8/figure4.2.png" alt="img"  />
+</p></p>
+<ul>
+<li>
+<p>RTLIL::Process 对象表示来自Verilog always和VHDL进程块的决策树（if-then-else语句等）和同步声明（时钟信号和灵敏度）。</p>
+</li>
+<li>
+<p>RTLIL::Memory 对象表示可寻址内存（数组）。</p>
+</li>
+</ul>
+<p>通常，合成过程的输出是一个网表，即所有RTLIL：：Process和RTLIL：：Memory对象都必须通过合成过程替换为RTLIL：：Cell和RTLIL：：Wire对象。</p>
+<p>HDL前端必须将无法直接映射到这些RTLIL类的所有HDL功能转换为RTLIL兼容的表示形式。这包括Verilog特性，如生成块、循环和参数。</p>
+<p>以下各节对RTLIL的不同部分以及一些设计决策背后的基本原理进行了更详细的描述。</p>
+<h3 id="321-rtlil-identifiers-标识符">3.2.1 RTLIL Identifiers 标识符 <a href="#321-rtlil-identifiers-%e6%a0%87%e8%af%86%e7%ac%a6" class="anchor">🔗</a></h3><p>RTLIL中的所有标识符（如模块名称、端口名称、信号名称、单元类型等）都遵循以下命名约定：它们必须以反斜杠（\）或美元符号（$）开头。</p>
+<p>以反斜杠开头的标识符是公共可见的标识符。通常，它们来自HDL输入文件之一。例如，信号名称“\sig42”很可能是在HDL输入文件中使用名称“sig42”声明的信号。另一方面，信号名称“$sig42”是自动生成的信号名称。后端将所有以美元符号开头的标识符转换为与以反斜杠开头的标识符不冲突的标识符。</p>
+<p>这有三个优点：</p>
+<ul>
+<li>
+<p>首先，自动生成的标识符不可能与用户提供的标识符发生冲突。</p>
+</li>
+<li>
+<p>其次，关于用户最初提供的标识符的信息始终可用，这有助于指导一些优化。例如，“opt\u rmunused”尝试使用用户提供的名称保留信号，但在复制其他信号时，会毫不犹豫地删除具有自动生成名称的信号。</p>
+</li>
+<li>
+<p>第三，寻找合适的自动生成公共可见名称的微妙工作被推迟到一个中心位置。内部自动生成的名称可能包含Yosys开发人员的重要信息，可以在不干扰外部工具的情况下使用。例如，Verilog后端以 <em>integer</em> 的形式分配名称。</p>
+</li>
+</ul>
+<p>RTLIL标识符中不允许使用空格和控制字符（ASCII代码为32或更少的任何字符）；大多数前端和后端在标识符中不支持这些字符。</p>
+<p>为了避免编程错误，RTLIL数据结构检查所有标识符是否以反斜杠或美元符号开头，并且不包含空格或控制字符。违反这些规则会导致运行时错误。</p>
+<p>所有RTLIL标识符都区分大小写。</p>
+<p>某些转换（如展平）可能必须更改用户提供的标识符，以避免名称冲突。发生这种情况时，属性“hdlname”将附加到具有更改标识符的对象。此属性包含一个名称（如果由前端直接发出，或是消除歧义的结果）或多个名称（如果是展开的结果），这些名称之间用空格分隔。“hdlname”属性中指定的所有名称都是公共名称，不包括前导的“\”。</p>
+<h3 id="322-rtlildesign-and-rtlilmodule">3.2.2 RTLIL::Design and RTLIL::Module <a href="#322-rtlildesign-and-rtlilmodule" class="anchor">🔗</a></h3><p>设计对象基本上只是RTLIL：：模块对象的容器。除了RTLIL：：Module对象的列表外，RTLIL：：Design还保留选定对象的列表，即传递的对象应在其上操作。在大多数情况下，选择了整个设计，因此通过对整个设计进行操作。但这种机制对于更复杂的合成作业非常有用，在这些作业中，只有部分设计应该受到某些过程的影响。</p>
+<p>除了图4.2中ER图所示的对象外，RTLIL：：Module对象还包含以下附加属性：</p>
+<ul>
+<li>模块名称</li>
+<li>属性列表</li>
+<li>电线之间的连接列表</li>
+<li>可选前端回调，用于导出模块的参数化变体</li>
+</ul>
+<p>属性可以是Verilog前端导入的Verilog属性，也可以是通过过程分配的属性。它们可以用来存储关于模块的其他元数据，或者只是将它们标记为供合成脚本的某些部分使用，而不是供其他部分使用。</p>
+<p>Verilog和VHDL都支持参数化模块（在VHDL中称为“通用实体”）。RTLIL格式本身不支持参数化模块。相反，每个模块都包含一个回调函数到AST前端，以根据需要生成RTLIL：：模块的参数化变体。然后，此回调返回模块参数化变体的自动生成名称。（参数和模块名称上的哈希用于禁止两次生成相同的参数化变体。对于只有几个参数的模块，将生成直接包含所有参数的名称，而不是哈希字符串。）</p>
+<h3 id="323-rtlilcell-and-rtlilwire">3.2.3 RTLIL::Cell and RTLIL::Wire <a href="#323-rtlilcell-and-rtlilwire" class="anchor">🔗</a></h3><p>模块包含零到多个RTLIL::Cell和RTLIL：：Wire对象。这些类型的对象用于为网表建模。通常，所有合成工作的目标是将所有模块转换为一种状态，在这种状态下，模块的功能仅由给定单元库中的单元实现，并连接这些单元。请注意，模块端口只是具有特殊属性的导线。</p>
+<p>RTLIL::Wire 对象具有以下属性：</p>
+<ul>
+<li>导线名称</li>
+<li>属性列表</li>
+<li>宽度（总线只是宽度大于1的电线）</li>
+<li>总线方向（MSB到LSB，反之亦然）</li>
+<li>最低有效位索引（LSB或MSB，取决于总线方向）</li>
+<li>如果导线是端口：端口号和方向（输入/输出/输入输出）</li>
+</ul>
+<p>与模块一样，属性可以是Verilog前端导入的Verilog属性，也可以是通过过程分配的属性。</p>
+<p>在Yosys中，总线（信号向量）使用宽度大于1的单线对象表示。所以Yosys不会将信号向量转换为单独的信号。这使得RTLIL的某些方面更加复杂，但使Yosys能够用于粗粒度合成，其中目标体系结构的单元在整个信号向量上操作，而不是在单位线上操作。</p>
+<p>在Verilog和VHDL中，总线可以具有任意边界，LSB可以具有最低或最高的位索引。在RTLIL中，位0始终对应LSB；但是，HDL前端的信息会被保留，以便在错误消息、后端输出、约束文件等中正确索引总线。</p>
+<p>RTLIL：：Cell 对象具有以下属性：</p>
+<ul>
+<li>单元格名称和类型</li>
+<li>属性列表</li>
+<li>参数列表（用于参数单元格）</li>
+<li>电池端口以及端口与导线和常数的连接</li>
+</ul>
+<p>通过为每个单元端口分配一个RTLIL：：SigSpec，对端口到导线的连接进行编码。下一节将描述RTLIL：：SigSpec数据类型。</p>
+<h3 id="324-rtlilsigspec">3.2.4 RTLIL::SigSpec <a href="#324-rtlilsigspec" class="anchor">🔗</a></h3><p>“信号”是可以应用于单元格 port. I.e.的所有内容</p>
+<ul>
+<li>任意位宽的任何常量值
+例如：1337、16&rsquo;b0000010100111001、1&rsquo;b1、1&rsquo;bx</li>
+<li>导线的所有位或从导线中选择的位，例如：mywire、mywire、mywire</li>
+<li>上述内容的串联
+例如：{16&rsquo;d1337，mywire}</li>
+</ul>
+<p>RTLIL：：SigSpec数据类型用于表示信号。Cell对象为每个Cell端口包含一个RTLIL：：SigSpec。</p>
+<p>此外，导线之间的连接使用一对RTLIL：：SigSpec对象表示。在不同的位置需要这样的对。因此，为这样一对定义了类型名RTLIL：：SigSig。</p>
+<h3 id="325-rtlilprocess">3.2.5 RTLIL::Process <a href="#325-rtlilprocess" class="anchor">🔗</a></h3><p>当高级HDL前端处理行为代码时，它将其分解为数据路径逻辑（例如，表达式a+b被以a和b为输入的加法器的输出所取代）和建模行为代码控制逻辑的RTLIL：：过程。让我们考虑一个简单的例子：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>	module ff_with_en_and_async_reset(clock, reset, enable, d, q);
+</span></span><span style="display:flex;"><span>	input clock, reset, enable, d;
+</span></span><span style="display:flex;"><span>	output reg q;
+</span></span><span style="display:flex;"><span>	always @(posedge clock, posedge reset)
+</span></span><span style="display:flex;"><span>	if (reset)
+</span></span><span style="display:flex;"><span>	q  &lt;=  0;
+</span></span><span style="display:flex;"><span>	else if (enable)
+</span></span><span style="display:flex;"><span>	q &lt;= d;
+</span></span><span style="display:flex;"><span>	endmodule
+</span></span></code></pre></div><p>在本例中，没有数据路径，因此前端生成的RTLIL：：模块只包含几个RTLIL：：Wire对象和一个RTLIL：：进程。RTLIL语法中的RTLIL：：进程：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>	process $proc$ff_with_en_and_async_reset.v:4$1
+</span></span><span style="display:flex;"><span>	assign $0\q[0:0] \q
+</span></span><span style="display:flex;"><span>	switch \reset
+</span></span><span style="display:flex;"><span>	case 1’1
+</span></span><span style="display:flex;"><span>	assign  $0\q[0:0]  1’0
+</span></span><span style="display:flex;"><span>	case
+</span></span><span style="display:flex;"><span>	switch \enable
+</span></span><span style="display:flex;"><span>	case 1’1
+</span></span><span style="display:flex;"><span>	assign $0\q[0:0] \d
+</span></span><span style="display:flex;"><span>	case
+</span></span><span style="display:flex;"><span>	end
+</span></span><span style="display:flex;"><span>	end
+</span></span><span style="display:flex;"><span>	sync posedge \clock
+</span></span><span style="display:flex;"><span>	update \q $0\q[0:0]
+</span></span><span style="display:flex;"><span>	sync posedge \reset
+</span></span><span style="display:flex;"><span>	update \q $0\q[0:0]
+</span></span><span style="display:flex;"><span>	end
+</span></span></code></pre></div><p>此RTLIL：：流程包含两个RTLIL：：SyncRule对象、两个RTLIL：：SwitchRule对象和五个RTLIL：：CaseRule对象。导线$0\q[0:0]是自动创建的导线，它保存下一个值\q。第2行。12描述应如何计算$0\q[0:0]。第13行。16描述如何使用$0\q[0:0]值来更新。</p>
+<p>一个RTLIL：：Process是一个容器，其中包含零个或多个RTLIL：：SyncRule对象和一个RTLIL：：caserrule对象，该对象称为根case。</p>
+<p>一个RTLIL：：SyncRule对象包含一个（可选）同步条件（信号和边缘类型）、零个或多个赋值（RTLIL：：SigSig）和零个或多个内存写入（RTLIL：：MemWriteAction）。当应该推断锁存器时，总是同步条件用于中断组合循环。</p>
+<p>RTLIL：：CaseRule是零个或多个赋值（RTLIL：：SigSig）和零个或多个RTLIL：：SwitchRule对象的容器。RTLIL：：SwitchRule对象是零个或多个RTLIL：：CaseRule对象的容器。</p>
+<p>在上面的示例中，第2行。12是根案例。此处，首先将旧值\q分配为$0\q[0:0]作为默认值（第2行）。根事例还包含一个RTLIL：：SwitchRule对象（第3…12行）。此类对象与C switch语句非常相似，因为它使用控制信号（\在本例中为reset）来确定哪些情况应处于活动状态。然后，每个案例的RTLIL：：SwitchRule对象包含一个RTLIL：：CaseRule对象。在本例中，有一个case1 for \ reset==1，导致设置$0\q[0:0]（第4行和第5行），还有一个默认case，依次包含一个开关，如果启用，则将$0\q[0:0]设置为\d的值（第6…11行）。</p>
+<p>案例可以指定零个或多个比较值，以确定其是否匹配。每个比较值必须与控制信号的宽度完全相同。当指定了多个比较值时，如果其中任何一个匹配控制信号，则案例匹配；如果指定了零比较值，则大小写始终匹配（即，它是默认大小写）。</p>
+<p>切换从第一个案例到最后一个案例的优先级：多个案例可以匹配，但只有第一个匹配的案例变为活动。这通常合成为优先级编码器。parallel\u case属性允许passes假设匹配的案例不超过一个，full\u case属性允许passes假设只匹配一个案例；如果这些不变量被动态地违反，那么行为是未定义的。当合成器不可见的不变量导致控制信号从不采用某些位模式时，这些属性很有用。</p>
+<p>第13行。16然后，每当时钟或重置上有正时钟边缘时，使q更新。为了生成这样的表示，语言前端必须能够处理阻塞和
+非阻塞分配正确。但是，语言前端不需要识别正确的输出信号的存储元件类型或为决策树生成多路复用器。这是通过处理RTLIL表示的过程来完成的。因此，在进一步处理决策树之前，用针对不同目标体系结构或对决策树执行优化或其他转换的其他算法来替代这些步骤相对容易。</p>
+<p>在大多数合成脚本中，对RTLIL表示中的设计执行的第一个操作之一是识别异步重置。这通常使用proc\u arst pass完成。此过程将上述示例转换为以下RTLIL：：过程：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>	process $proc$ff_with_en_and_async_reset.v:4$1
+</span></span><span style="display:flex;"><span>	assign $0\q[0:0] \q
+</span></span><span style="display:flex;"><span>	switch \enable
+</span></span><span style="display:flex;"><span>	case 1’1
+</span></span><span style="display:flex;"><span>	assign $0\q[0:0] \d
+</span></span><span style="display:flex;"><span>	case
+</span></span><span style="display:flex;"><span>	end
+</span></span><span style="display:flex;"><span>	sync posedge \clock
+</span></span><span style="display:flex;"><span>	update \q $0\q[0:0]
+</span></span><span style="display:flex;"><span>	sync high \reset
+</span></span><span style="display:flex;"><span>	update \q 1’0
+</span></span><span style="display:flex;"><span>	end
+</span></span></code></pre></div><p>此过程已将外部RTLIL：：SwitchRule转换为
+\复位信号。进一步处理将RTLIL：：进程转换为例如具有异步复位的d型触发器和用于启用信号的多路复用器：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>	cell $adff $procdff$6
+</span></span><span style="display:flex;"><span>	parameter \ARST_POLARITY 1’1
+</span></span><span style="display:flex;"><span>	parameter \ARST_VALUE 1’0
+</span></span><span style="display:flex;"><span>	parameter \CLK_POLARITY 1’1
+</span></span><span style="display:flex;"><span>	parameter \WIDTH 1
+</span></span><span style="display:flex;"><span>	connect \ARST \reset
+</span></span><span style="display:flex;"><span>	connect \CLK \clock
+</span></span><span style="display:flex;"><span>	connect  \D  $0\q[0:0]
+</span></span><span style="display:flex;"><span>	connect \Q \q
+</span></span><span style="display:flex;"><span>	end
+</span></span><span style="display:flex;"><span>	cell $mux $procmux$3
+</span></span><span style="display:flex;"><span>	parameter \WIDTH 1
+</span></span><span style="display:flex;"><span>	connect \A \q
+</span></span><span style="display:flex;"><span>	connect \B \d
+</span></span><span style="display:flex;"><span>	connect \S \enable
+</span></span><span style="display:flex;"><span>	connect \Y $0\q[0:0]
+</span></span><span style="display:flex;"><span>	end
+</span></span></code></pre></div><p>不同的焊道组合可能会产生不同的结果。请注意，$adff和$mux是内部单元类型，仍然需要映射到目标单元库中的单元类型。
+一些过程拒绝对仍然包含RTLIL：：Process对象的模块进行操作，因为模块中存在这些对象会增加复杂性。因此，将进程转换为单元网络列表的过程通常在合成脚本的早期调用。proc过程调用一系列其他过程，这些过程以适合大多数合成任务的方式共同执行此转换。</p>
+<h3 id="326-rtlilmemory">3.2.6 RTLIL::Memory <a href="#326-rtlilmemory" class="anchor">🔗</a></h3><p>对于HDL代码中的每个数组（内存），将创建一个RTLIL：：内存对象。内存对象具有以下属性：</p>
+<ul>
+<li>内存名称</li>
+<li>属性列表</li>
+<li>可寻址字的宽度</li>
+<li>以字数表示的内存大小</li>
+</ul>
+<p>语言前端将对内存的所有读访问转换为$memrd单元，并将所有写访问转换为$memwr单元。这些单元由独立的读写端口组成。内存初始化由语言前端转换为$meminit单元。这些单元格上的\MEMID参数用于将它们链接在一起并链接到它们所属的RTLIL：：Memory对象。</p>
+<p>与在语言前端创建一个大型多端口存储单元相比，为各个端口使用单独的单元的基本原理是，可以使用资源共享来整合单独的$memrd和$memwr单元。由于资源共享是一个非常重要的优化问题，不同的合成任务可能有不同的要求，因此可以在单独的过程中进行优化，并在资源共享完成后将RTLIL：：内存对象和$memrd和$memwr单元合并到多端口内存块。</p>
+<p>内存通道执行此转换，并且可以（取决于传递给它的选项）将内存直接转换为d型触发器和地址逻辑，或者生成多端口内存块（使用$mem单元表示）。</p>
+<h3 id="33-命令界面和合成脚本">3.3 命令界面和合成脚本 <a href="#33-%e5%91%bd%e4%bb%a4%e7%95%8c%e9%9d%a2%e5%92%8c%e5%90%88%e6%88%90%e8%84%9a%e6%9c%ac" class="anchor">🔗</a></h3><p>Yosys从合成脚本、命令行参数和交互式命令提示符中读取和处理命令。Yosys命令由命令名和可选的空格分隔的参数列表组成。命令使用换行符或分号（；）终止。将忽略空行和以哈希符号（#）开头的行。参见第。3.3示例合成脚本。</p>
+<p>命令帮助可用于访问命令参考手册。</p>
+<p>大多数命令不仅可以对整个设计进行操作，还可以对设计的选定部分进行操作。例如，dump命令将打印当前设计中的所有选定对象，而dump foobar将仅打印模块foobar，dump*将打印整个设计，而不管当前选择如何。</p>
+<p>选择机制非常强大。例如，命令 dump*/t:$add%x:+[A]*/w:%i将打印连接到$add单元格的\A端口的所有导线。select框架的详细文档可以在select命令的命令参考中找到。</p>
+<h3 id="34-源树和构建系统">3.4 源树和构建系统 <a href="#34-%e6%ba%90%e6%a0%91%e5%92%8c%e6%9e%84%e5%bb%ba%e7%b3%bb%e7%bb%9f" class="anchor">🔗</a></h3><p>Yosys源代码树被组织到以下顶级目录中：</p>
+<ul>
+<li>backends/
+此目录包含每个后端模块的子目录。</li>
+<li>frontends/
+此目录包含每个前端模块的子目录。</li>
+<li>kernel/
+此目录包含Yosys的所有核心功能。这包括用于使用RTLIL数据结构（RTLIL.h和RTLIL.cc）的函数和定义、main（）函数（driver.cc）、用于生成日志消息的内部框架（log.h和log.cc）、用于注册和调用过程的内部框架（register.h和register.cc）、一些不是真正通过的核心命令（select.cc、show.cc，…）和其他几个小型实用程序库。</li>
+<li>passes/
+此目录包含每个过程或过程组的子目录。例如，在编写本文时，目录passes/opt/包含七个passes的代码：opt、opt\u expr、opt\u muxtree、opt\u reduce、opt\u rmdff、opt\u rmunused和opt\u merge。</li>
+<li>techlibs/
+该目录包含内部单元库中单元的仿真模型和标准实现。</li>
+<li>tests/
+此目录包含几个测试用例。大多数较小的测试在调用make-test时自动执行。较大的测试必须手动执行。大多数大型测试都需要下载外部HDL源代码和/或外部工具。测试范围从将综合设计的仿真结果与原始源进行比较，到整个CPU核的逻辑等价性检查。</li>
+</ul>
+<p>顶级Makefile包括前端/<em>/Makefile。inc，传递/</em>/Makefile。inc和后端/*/Makefile。因此，在扩展Yosys时，只需在前端/或后端/使用源代码和Makefile创建一个新目录即可。股份有限公司Yosys内核自动检测与Yosys链接的所有命令。因此，无需向中央命令列表添加其他命令。</p>
+<p>阅读示例源代码以学习如何编写过程的良好起点是 passes/opt/opt_rmdff.cc and  passes/opt/opt_merge.cc。</p>
+<p>有关快速入门指南和构建说明，请参阅顶级自述文件。Yosys构建完全基于Makefiles。</p>
+<p>Qt Creator IDE的用户可以使用make qtcreator生成Qt Creator项目文件。Eclipse IDE的用户可以使用Eclipse“New Project”对话框中的“Makefile Project with Existing Code”项目类型（仅在安装CDT插件后可用）来创建Eclipse项目，以便对Yosys进行扩展编程，或者只需浏览Yosys代码库。</p>
+
+    </div>
+
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

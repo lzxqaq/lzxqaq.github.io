@@ -19,7 +19,7 @@
 那么，如何在不改变对象的大小的同时添加新的功能呢？
 五、d-pointer 🔗诀窍是通过保存唯一的一个指针而保持一个类库所有公共类的大小不变。这个指针指向一个包含所有数据的私有的（内部的）数据结构。内部结构的大小可以增大或者减小，而不会对应用程序带来副作用，因为指针只会被类库里面的代码访问，从应用程序的视角来看，对象的大小并没有改变 - 它永远是指针的大小。 这个指针被叫做 d-pointer 。
 六、d-pointer 的其它好处 🔗这里不全都是和二进制兼容有关。d-pointer 还有其它的好处： 隐藏了实现细节 - 我们可以只发布带有头文件和二进制文件的 WidgetLib。源文件可以是闭源代码的。
-头文件很干净，不包含实现细节，可以直接作为 API 参考。 由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖）  事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
+头文件很干净，不包含实现细节，可以直接作为 API 参考。由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖）事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
 七、Qt 中的 d-pointers 🔗在 Qt 中，几乎所有的公有类都使用了 d-pointer。唯一不用的情况是如果事先知道某个类永远不会添加额外的成员变量。例如，像 QPoint, QRect 这些类，我们不期望有新的成员添加，因此它们的数据成员直接保存在类里而没用 d-pointer。</description>
     </item>
     
@@ -29,16 +29,17 @@
       <pubDate>Wed, 13 Apr 2022 12:26:14 +0800</pubDate>
       
       <guid>/posts/2022-4-13/</guid>
-      <description>一、定义 🔗  二进制兼容：在升级库文件的时候，不必重新编译使用此库的可执行文件或其他库文件，并且程序的功能不被破坏。
-  源码兼容：在升级库文件的时候，不必修改使用此库的可执行文件或其他库文件的源代码，只需重新编译应用程序，即可使程序的功能不被破坏。
-  二进制兼容性可以解决很多麻烦，它会使为特定平台分发软件时变得更容易。 如果不能确保发行版之间的二进制兼容性，人们将不得不提供静态链接的二进制文件。 静态二进制文件很糟糕，因为它们
- 浪费资源（尤其是内存） 程序不能从库的bug修复或功能扩展中受益  二、ABI 和 API 🔗 应用二进制接口（application binary interface，缩写为 ABI）描述了应用程序（或者其他类型）和操作系统之间或其他应用程序的低级接口。ABI涵盖了各种细节，如：数据类型的大小、布局和对齐；调用约定等。
- 在了解二进制兼容和源码兼容两个定义以后，我们再看与其类似且对应的两个概念：ABI和API。ABI不同于API（应用程序接口），API定义了源代码和库之间的接口，因此同样的代码可以在支持这个API的任何系统中编译，然而ABI允许编译好的目标代码在使用兼容ABI的系统中无需改动就能运行。
+      <description>一、定义 🔗 二进制兼容：在升级库文件的时候，不必重新编译使用此库的可执行文件或其他库文件，并且程序的功能不被破坏。
+源码兼容：在升级库文件的时候，不必修改使用此库的可执行文件或其他库文件的源代码，只需重新编译应用程序，即可使程序的功能不被破坏。
+二进制兼容性可以解决很多麻烦，它会使为特定平台分发软件时变得更容易。 如果不能确保发行版之间的二进制兼容性，人们将不得不提供静态链接的二进制文件。 静态二进制文件很糟糕，因为它们
+浪费资源（尤其是内存） 程序不能从库的bug修复或功能扩展中受益 二、ABI 和 API 🔗 应用二进制接口（application binary interface，缩写为 ABI）描述了应用程序（或者其他类型）和操作系统之间或其他应用程序的低级接口。ABI涵盖了各种细节，如：数据类型的大小、布局和对齐；调用约定等。
+在了解二进制兼容和源码兼容两个定义以后，我们再看与其类似且对应的两个概念：ABI和API。ABI不同于API（应用程序接口），API定义了源代码和库之间的接口，因此同样的代码可以在支持这个API的任何系统中编译，然而ABI允许编译好的目标代码在使用兼容ABI的系统中无需改动就能运行。
 举个例子，在Qt和Java两种跨平台程序中，API像是Qt的接口，Qt有着通用接口，源代码只需要在支持Qt的环境下编译即可。ABI更像是Jvm，只要支持Jvm的系统上，都可以运行已有的Java程序。
 三、C++ 的 ABI 🔗ABI更像是一个产品的使用说明书，同理C++的ABI就是如何使用C++生成可执行程序的一张说明书。编译器会根据这个说明书，生成二进制代码。C++的ABI在不同的编译器下会略有不同。
 C++ABI的部分内容举例：
- 函数参数传递的方式，比如 x86-64 用寄存器来传函数的前 4 个整数参数 虚函数的调用方式，通常是 vptr/vtbl 然后用 vtbl[offset] 来调用 struct 和 class 的内存布局，通过偏移量来访问数据成员  综上所述，如果可执行程序通过以上说明书访问动态链接库A，以及此库的升级版本A+，若按此说明书上的方法，可以无痛的使用A和A+，那么我们就称库A的这次升级是二进制兼容的。
-四、破坏二进制兼容的常见方式 🔗 添加新的虚函数 取消导出或删除已导出的类。 以任何方式更改类层次结构（添加，删除或重新排序基类）。 改变虚函数声明时的顺序（偏移量改变，导致调用失败） 添加新的非静态成员变量（类的内存布局改变，偏移量也发生变化） 改变非静态成员变量的声明顺序 以任何方式更改模板参数（添加，删除或重新排序）。  五、不会破坏二进制兼容的几种常见方式 🔗 添加非虚函数（包括构造函数） 添加新的类 添加Qt中的信号、槽 添加新的枚举或者在已存在的枚举类型中添加一个枚举值 添加新的静态成员变量 修改成员变量名称（偏移量未改变） 添加Q_OBJECT,Q_PROPERTY, Q_ENUMS ,Q_FLAGS宏，添加这些宏都是修改了moc生成的文件，而不是类本身 重新实现在类层次结构中原始基类定义的虚函数，如果程序链接到先前版本的库，且该库调用了基类中的实现而不是派生类中的实现，是安全的。这很棘手，可能很危险。三思而后行。 移除私有非虚函数，如果它们没有被任何内联函数调用过（并且从未使用过）。 移除私有静态成员变量，如果它们没有被任何内联函数调用过（并且从未使用过）。 更改方法的默认参数。但是，它需要重新编译才能使用实际的新的默认参数值。 导出以前未导出的类。 在类中添加或删除友元声明。  六、库程序员的技巧（解决二进制兼容问题） 🔗编写库时最大的问题是，不能安全地添加数据成员，因为这会改变每个class类，struct结构，或者对象类型数组的大小和布局。</description>
+函数参数传递的方式，比如 x86-64 用寄存器来传函数的前 4 个整数参数 虚函数的调用方式，通常是 vptr/vtbl 然后用 vtbl[offset] 来调用 struct 和 class 的内存布局，通过偏移量来访问数据成员 综上所述，如果可执行程序通过以上说明书访问动态链接库A，以及此库的升级版本A+，若按此说明书上的方法，可以无痛的使用A和A+，那么我们就称库A的这次升级是二进制兼容的。
+四、破坏二进制兼容的常见方式 🔗 添加新的虚函数 取消导出或删除已导出的类。 以任何方式更改类层次结构（添加，删除或重新排序基类）。 改变虚函数声明时的顺序（偏移量改变，导致调用失败） 添加新的非静态成员变量（类的内存布局改变，偏移量也发生变化） 改变非静态成员变量的声明顺序 以任何方式更改模板参数（添加，删除或重新排序）。 五、不会破坏二进制兼容的几种常见方式 🔗 添加非虚函数（包括构造函数） 添加新的类 添加Qt中的信号、槽 添加新的枚举或者在已存在的枚举类型中添加一个枚举值 添加新的静态成员变量 修改成员变量名称（偏移量未改变） 添加Q_OBJECT,Q_PROPERTY, Q_ENUMS ,Q_FLAGS宏，添加这些宏都是修改了moc生成的文件，而不是类本身 重新实现在类层次结构中原始基类定义的虚函数，如果程序链接到先前版本的库，且该库调用了基类中的实现而不是派生类中的实现，是安全的。这很棘手，可能很危险。三思而后行。 移除私有非虚函数，如果它们没有被任何内联函数调用过（并且从未使用过）。 移除私有静态成员变量，如果它们没有被任何内联函数调用过（并且从未使用过）。 更改方法的默认参数。但是，它需要重新编译才能使用实际的新的默认参数值。 导出以前未导出的类。 在类中添加或删除友元声明。 六、库程序员的技巧（解决二进制兼容问题） 🔗编写库时最大的问题是，不能安全地添加数据成员，因为这会改变每个class类，struct结构，或者对象类型数组的大小和布局。
+1.位标志 🔗位标志是一种例外。 如果对枚举或布尔使用位标志，则至少在下一个字节减去1bit之前是安全的。具有下面成员的类</description>
     </item>
     
     <item>
@@ -49,9 +50,9 @@ C++ABI的部分内容举例：
       <guid>/posts/2022-4-12-sort/</guid>
       <description>日常开发中经常会有排序需求，常见的方法有很多种：选择排序，冒泡排序，归并排序，快速排序等，那我们需要手写排序算法吗？大多数场景下用现成的库函数就够了。STL 的 std::sort 是用得最多的排序算法。
 STL的std::sort函数是基于Musser在1996年提出的内省排序（Introspective sort）算法实现。这个算法是个缝合怪，它汲取了插入排序、堆排序以及快排的优点：
- 针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。  在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
+针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。 在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
 示例：
-bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s2) {  return s1.toLower() &amp;lt; s2.toLower(); //从小到大排序 }  int doSomething() {  QStringList list;  list &amp;lt;&amp;lt; &amp;#34;AlPha&amp;#34; &amp;lt;&amp;lt; &amp;#34;beTA&amp;#34; &amp;lt;&amp;lt; &amp;#34;gamma&amp;#34; &amp;lt;&amp;lt; &amp;#34;DELTA&amp;#34;;  qSort(list.begin(), list.end(), caseInsensitiveLessThan);  // list: [ &amp;#34;AlPha&amp;#34;, &amp;#34;beTA&amp;#34;, &amp;#34;DELTA&amp;#34;, &amp;#34;gamma&amp;#34; ] } </description>
+bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s2) { return s1.toLower() &amp;lt; s2.toLower(); //从小到大排序 } int doSomething() { QStringList list; list &amp;lt;&amp;lt; &amp;#34;AlPha&amp;#34; &amp;lt;&amp;lt; &amp;#34;beTA&amp;#34; &amp;lt;&amp;lt; &amp;#34;gamma&amp;#34; &amp;lt;&amp;lt; &amp;#34;DELTA&amp;#34;; qSort(list.begin(), list.end(), caseInsensitiveLessThan); // list: [ &amp;#34;AlPha&amp;#34;, &amp;#34;beTA&amp;#34;, &amp;#34;DELTA&amp;#34;, &amp;#34;gamma&amp;#34; ] } </description>
     </item>
     
     <item>
@@ -63,22 +64,22 @@ bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s
       <description>作者：吴秦
 出处：(http://www.cnblogs.com/skynet/)
 1、网络中进程之间如何通信？ 🔗本地的进程间通信（IPC）有很多种方式，但可以总结为下面4类：
- 消息传递（管道、FIFO、消息队列） 同步（互斥量、条件变量、读写锁、文件和写记录锁、信号量） 共享内存（匿名的和具名的） 远程过程调用（Solaris门和Sun RPC）  但这些都不是本文的主题！我们要讨论的是网络中进程之间如何通信？首要解决的问题是如何唯一标识一个进程，否则通信无从谈起！在本地可以通过进程PID来唯一标识一个进程，但是在网络中这是行不通的。其实TCP/IP协议族已经帮我们解决了这个问题，网络层的“ip地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。这样利用三元组（ip地址，协议，端口）就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。
+消息传递（管道、FIFO、消息队列） 同步（互斥量、条件变量、读写锁、文件和写记录锁、信号量） 共享内存（匿名的和具名的） 远程过程调用（Solaris门和Sun RPC） 但这些都不是本文的主题！我们要讨论的是网络中进程之间如何通信？首要解决的问题是如何唯一标识一个进程，否则通信无从谈起！在本地可以通过进程PID来唯一标识一个进程，但是在网络中这是行不通的。其实TCP/IP协议族已经帮我们解决了这个问题，网络层的“ip地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。这样利用三元组（ip地址，协议，端口）就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。
 使用TCP/IP协议的应用程序通常采用应用编程接口：UNIX BSD的套接字（socket）和UNIX System V的TLI（已经被淘汰），来实现网络进程之间的通信。就目前而言，几乎所有的应用程序都是采用socket，而现在又是网络时代，网络中进程通信是无处不在，这就是我为什么说“一切皆socket”。
 2、什么是Socket？ 🔗上面我们已经知道网络中的进程是通过socket来通信的，那什么是socket呢？socket起源于Unix，而Unix/Linux基本哲学之一就是“一切皆文件”，都可以用“打开open –&amp;gt; 读写write/read –&amp;gt; 关闭close”模式来操作。我的理解就是Socket就是该模式的一个实现，socket即是一种特殊的文件，一些socket函数就是对其进行的操作（读/写IO、打开、关闭），这些函数我们在后面进行介绍。
- socket一词的起源 在组网领域的首次使用是在1970年2月12日发布的文献IETF RFC33中发现的，撰写者为Stephen Carr、Steve Crocker和Vint Cerf。根据美国计算机历史博物馆的记载，Croker写道：“命名空间的元素都可称为套接字接口。一个套接字接口构成一个连接的一端，而一个连接可完全由一对套接字接口规定。”计算机历史博物馆补充道：“这比BSD的套接字接口定义早了大约12年。”
- 3、socket的基本操作 🔗既然socket是“open—write/read—close”模式的一种实现，那么socket就提供了这些操作对应的函数接口。下面以TCP为例，介绍几个基本的socket接口函数。
+socket一词的起源 在组网领域的首次使用是在1970年2月12日发布的文献IETF RFC33中发现的，撰写者为Stephen Carr、Steve Crocker和Vint Cerf。根据美国计算机历史博物馆的记载，Croker写道：“命名空间的元素都可称为套接字接口。一个套接字接口构成一个连接的一端，而一个连接可完全由一对套接字接口规定。”计算机历史博物馆补充道：“这比BSD的套接字接口定义早了大约12年。”
+3、socket的基本操作 🔗既然socket是“open—write/read—close”模式的一种实现，那么socket就提供了这些操作对应的函数接口。下面以TCP为例，介绍几个基本的socket接口函数。
 3.1、socket()函数 🔗int socket(int domain, int type, int protocol);
 socket函数对应于普通文件的打开操作。普通文件的打开操作返回一个文件描述字，而socket()用于创建一个socket描述符（socket descriptor），它唯一标识一个socket。这个socket描述字跟文件描述字一样，后续的操作都有用到它，把它作为参数，通过它来进行一些读写操作。
 正如可以给fopen的传入不同参数值，以打开不同的文件。创建socket的时候，也可以指定不同的参数创建不同的socket描述符，socket函数的三个参数分别为：
-  domain：即协议域，又称为协议族（family）。常用的协议族有，AF_INET、AF_INET6、AF_LOCAL（或称AF_UNIX，Unix域socket）、AF_ROUTE等等。协议族决定了socket的地址类型，在通信中必须采用对应的地址，如AF_INET决定了要用ipv4地址（32位的）与端口号（16位的）的组合、AF_UNIX决定了要用一个绝对路径名作为地址。
-  type：指定socket类型。常用的socket类型有，SOCK_STREAM、SOCK_DGRAM、SOCK_RAW、SOCK_PACKET、SOCK_SEQPACKET等等（socket的类型有哪些？）。
-  protocol：故名思意，就是指定协议。常用的协议有，IPPROTO_TCP、IPPTOTO_UDP、IPPROTO_SCTP、IPPROTO_TIPC等，它们分别对应TCP传输协议、UDP传输协议、STCP传输协议、TIPC传输协议（这个协议我将会单独开篇讨论！）。
-  注意：并不是上面的type和protocol可以随意组合的，如SOCK_STREAM不可以跟IPPROTO_UDP组合。当protocol为0时，会自动选择type类型对应的默认协议。
+domain：即协议域，又称为协议族（family）。常用的协议族有，AF_INET、AF_INET6、AF_LOCAL（或称AF_UNIX，Unix域socket）、AF_ROUTE等等。协议族决定了socket的地址类型，在通信中必须采用对应的地址，如AF_INET决定了要用ipv4地址（32位的）与端口号（16位的）的组合、AF_UNIX决定了要用一个绝对路径名作为地址。
+type：指定socket类型。常用的socket类型有，SOCK_STREAM、SOCK_DGRAM、SOCK_RAW、SOCK_PACKET、SOCK_SEQPACKET等等（socket的类型有哪些？）。
+protocol：故名思意，就是指定协议。常用的协议有，IPPROTO_TCP、IPPTOTO_UDP、IPPROTO_SCTP、IPPROTO_TIPC等，它们分别对应TCP传输协议、UDP传输协议、STCP传输协议、TIPC传输协议（这个协议我将会单独开篇讨论！）。
+注意：并不是上面的type和protocol可以随意组合的，如SOCK_STREAM不可以跟IPPROTO_UDP组合。当protocol为0时，会自动选择type类型对应的默认协议。
 当我们调用socket创建一个socket时，返回的socket描述字它存在于协议族（address family，AF_XXX）空间中，但没有一个具体的地址。如果想要给它赋值一个地址，就必须调用bind()函数，否则就当调用connect()、listen()时系统会自动随机分配一个端口。
 3.2、bind()函数 🔗正如上面所说bind()函数把一个地址族中的特定地址赋给socket。例如对应AF_INET、AF_INET6就是把一个ipv4或ipv6地址和端口号组合赋给socket。
 int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen); 函数的三个参数分别为：
- sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：  struct sockaddr_in {  sa_family_t sin_family; /* address family: AF_INET */  in_port_t sin_port; /* port in network byte order */  struct in_addr sin_addr; /* internet address */ };  /* Internet address.</description>
+sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是： struct sockaddr_in { sa_family_t sin_family; /* address family: AF_INET */ in_port_t sin_port; /* port in network byte order */ struct in_addr sin_addr; /* internet address */ }; /* Internet address.</description>
     </item>
     
     <item>
@@ -89,7 +90,7 @@ int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen); 函数的�
       <guid>/posts/networkpg/</guid>
       <description>转载自https://github.com/huihut/interview
 Socket 🔗 Linux Socket 编程（不限 Linux）
- Socket 中的 read()、write() 函数 🔗ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); read() 🔗 read 函数是负责从 fd 中读取内容。 当读成功时，read 返回实际所读的字节数。 如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。 如果错误为 EINTR 说明读是由中断引起的；如果是 ECONNREST 表示网络连接出了问题。  write() 🔗 write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd。 成功时返回写的字节数。失败时返回 -1，并设置 errno 变量。 在网络程序中，当我们向套接字文件描述符写时有俩种可能。 （1）write 的返回值大于 0，表示写了部分或者是全部的数据。 （2）返回的值小于 0，此时出现了错误。 如果错误为 EINTR 表示在写的时候出现了中断错误；如果为 EPIPE 表示网络连接出现了问题（对方已经关闭了连接）。  Socket 中 TCP 的三次握手建立连接 🔗我们知道 TCP 建立连接要进行 “三次握手”，即交换三个分组。大致流程如下：</description>
+Socket 中的 read()、write() 函数 🔗ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); read() 🔗 read 函数是负责从 fd 中读取内容。 当读成功时，read 返回实际所读的字节数。 如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。 如果错误为 EINTR 说明读是由中断引起的；如果是 ECONNREST 表示网络连接出了问题。 write() 🔗 write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd。 成功时返回写的字节数。失败时返回 -1，并设置 errno 变量。 在网络程序中，当我们向套接字文件描述符写时有俩种可能。 （1）write 的返回值大于 0，表示写了部分或者是全部的数据。 （2）返回的值小于 0，此时出现了错误。 如果错误为 EINTR 表示在写的时候出现了中断错误；如果为 EPIPE 表示网络连接出现了问题（对方已经关闭了连接）。 Socket 中 TCP 的三次握手建立连接 🔗我们知道 TCP 建立连接要进行 “三次握手”，即交换三个分组。大致流程如下：</description>
     </item>
     
     <item>
@@ -99,14 +100,14 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/design-pattern/</guid>
       <description>转载自https://github.com/huihut/interview
- 各大设计模式例子参考：CSDN专栏 . C++ 设计模式 系列博文
- 设计模式工程目录
+各大设计模式例子参考：CSDN专栏 . C++ 设计模式 系列博文
+设计模式工程目录
 单例模式 🔗单例模式例子
 抽象工厂模式 🔗抽象工厂模式例子
 适配器模式 🔗适配器模式例子
 桥接模式 🔗桥接模式例子
 观察者模式 🔗观察者模式例子
-设计模式的六大原则 🔗 单一职责原则（SRP，Single Responsibility Principle） 里氏替换原则（LSP，Liskov Substitution Principle） 依赖倒置原则（DIP，Dependence Inversion Principle） 接口隔离原则（ISP，Interface Segregation Principle） 迪米特法则（LoD，Law of Demeter） 开放封闭原则（OCP，Open Close Principle）  </description>
+设计模式的六大原则 🔗 单一职责原则（SRP，Single Responsibility Principle） 里氏替换原则（LSP，Liskov Substitution Principle） 依赖倒置原则（DIP，Dependence Inversion Principle） 接口隔离原则（ISP，Interface Segregation Principle） 迪米特法则（LoD，Law of Demeter） 开放封闭原则（OCP，Open Close Principle） </description>
     </item>
     
     <item>
@@ -116,13 +117,13 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/library/</guid>
       <description>转载自https://github.com/huihut/interview
- 本节部分知识点来自《程序员的自我修养——链接装载库》
- 内存、栈、堆 🔗一般应用程序内存空间有如下区域：
- 栈：由操作系统自动分配释放，存放函数的参数值、局部变量等的值，用于维护函数调用的上下文 堆：一般由程序员分配释放，若程序员不释放，程序结束时可能由操作系统回收，用来容纳应用程序动态分配的内存区域 可执行文件映像：存储着可执行文件在内存中的映像，由装载器装载是将可执行文件的内存读取或映射到这里 保留区：保留区并不是一个单一的内存区域，而是对内存中受到保护而禁止访问的内存区域的总称，如通常 C 语言讲无效指针赋值为 0（NULL），因此 0 地址正常情况下不可能有效的访问数据  栈 🔗栈保存了一个函数调用所需要的维护信息，常被称为堆栈帧（Stack Frame）或活动记录（Activate Record），一般包含以下几方面：
- 函数的返回地址和参数 临时变量：包括函数的非静态局部变量以及编译器自动生成的其他临时变量 保存上下文：包括函数调用前后需要保持不变的寄存器  堆 🔗堆分配算法：
- 空闲链表（Free List） 位图（Bitmap） 对象池  “段错误（segment fault）” 或 “非法操作，该内存地址不能 read/write” 🔗典型的非法指针解引用造成的错误。当指针指向一个不允许读写的内存地址，而程序却试图利用指针来读或写该地址时，会出现这个错误。
+本节部分知识点来自《程序员的自我修养——链接装载库》
+内存、栈、堆 🔗一般应用程序内存空间有如下区域：
+栈：由操作系统自动分配释放，存放函数的参数值、局部变量等的值，用于维护函数调用的上下文 堆：一般由程序员分配释放，若程序员不释放，程序结束时可能由操作系统回收，用来容纳应用程序动态分配的内存区域 可执行文件映像：存储着可执行文件在内存中的映像，由装载器装载是将可执行文件的内存读取或映射到这里 保留区：保留区并不是一个单一的内存区域，而是对内存中受到保护而禁止访问的内存区域的总称，如通常 C 语言讲无效指针赋值为 0（NULL），因此 0 地址正常情况下不可能有效的访问数据 栈 🔗栈保存了一个函数调用所需要的维护信息，常被称为堆栈帧（Stack Frame）或活动记录（Activate Record），一般包含以下几方面：
+函数的返回地址和参数 临时变量：包括函数的非静态局部变量以及编译器自动生成的其他临时变量 保存上下文：包括函数调用前后需要保持不变的寄存器 堆 🔗堆分配算法：
+空闲链表（Free List） 位图（Bitmap） 对象池 “段错误（segment fault）” 或 “非法操作，该内存地址不能 read/write” 🔗典型的非法指针解引用造成的错误。当指针指向一个不允许读写的内存地址，而程序却试图利用指针来读或写该地址时，会出现这个错误。
 普遍原因：
- 将指针初始化为 NULL，之后没有给它一个合理的值就开始使用指针 没用初始化栈中的指针，指针的值一般会是随机数，之后就直接开始使用指针  编译链接 🔗各平台文件格式 🔗   平台 可执行文件 目标文件 动态库/共享对象 静态库     Windows exe obj dll lib   Unix/Linux ELF、out o so a   Mac Mach-O o dylib、tbd、framework a、framework    编译链接过程 🔗 预编译（预编译器处理如 #include、#define 等预编译指令，生成 .</description>
+将指针初始化为 NULL，之后没有给它一个合理的值就开始使用指针 没用初始化栈中的指针，指针的值一般会是随机数，之后就直接开始使用指针 编译链接 🔗各平台文件格式 🔗 平台 可执行文件 目标文件 动态库/共享对象 静态库 Windows exe obj dll lib Unix/Linux ELF、out o so a Mac Mach-O o dylib、tbd、framework a、framework 编译链接过程 🔗 预编译（预编译器处理如 #include、#define 等预编译指令，生成 .i 或 .ii 文件） 编译（编译器进行词法分析、语法分析、语义分析、中间代码生成、目标代码生成、优化，生成 .s 文件） 汇编（汇编器把汇编码翻译成机器码，生成 .</description>
     </item>
     
     <item>
@@ -132,8 +133,8 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/database/</guid>
       <description>转载自https://github.com/huihut/interview
- 本节部分知识点来自《数据库系统概论（第 5 版）》
- 基本概念 🔗 数据（data）：描述事物的符号记录称为数据。 数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。 数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。 数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。 实体（entity）：客观存在并可相互区别的事物称为实体。 属性（attribute）：实体所具有的某一特性称为属性。 码（key）：唯一标识实体的属性集称为码。 实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。 实体集（entity set）：同一实体型的集合称为实体集。 联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。 模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。  常用数据模型 🔗 层次模型（hierarchical model） 网状模型（network model） 关系模型（relational model）  关系（relation）：一个关系对应通常说的一张表 元组（tuple）：表中的一行即为一个元组 属性（attribute）：表中的一列即为一个属性 码（key）：表中可以唯一确定一个元组的某个属性组 域（domain）：一组具有相同数据类型的值的集合 分量：元组中的一个属性值 关系模式：对关系的描述，一般表示为 关系名(属性1, 属性2, ..., 属性n)   面向对象数据模型（object oriented data model） 对象关系数据模型（object relational data model） 半结构化数据模型（semistructure data model）  常用 SQL 操作 🔗  对象类型 对象 操作类型   数据库模式 模式 CREATE SCHEMA   基本表 CREATE SCHEMA，ALTER TABLE   视图 CREATE VIEW   索引 CREATE INDEX   数据 基本表和视图 SELECT，INSERT，UPDATE，DELETE，REFERENCES，ALL PRIVILEGES   属性列 SELECT，INSERT，UPDATE，REFERENCES，ALL PRIVILEGES    SQL 语法教程：runoob .</description>
+本节部分知识点来自《数据库系统概论（第 5 版）》
+基本概念 🔗 数据（data）：描述事物的符号记录称为数据。 数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。 数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。 数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。 实体（entity）：客观存在并可相互区别的事物称为实体。 属性（attribute）：实体所具有的某一特性称为属性。 码（key）：唯一标识实体的属性集称为码。 实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。 实体集（entity set）：同一实体型的集合称为实体集。 联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。 模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。 常用数据模型 🔗 层次模型（hierarchical model） 网状模型（network model） 关系模型（relational model） 关系（relation）：一个关系对应通常说的一张表 元组（tuple）：表中的一行即为一个元组 属性（attribute）：表中的一列即为一个属性 码（key）：表中可以唯一确定一个元组的某个属性组 域（domain）：一组具有相同数据类型的值的集合 分量：元组中的一个属性值 关系模式：对关系的描述，一般表示为 关系名(属性1, 属性2, ..., 属性n) 面向对象数据模型（object oriented data model） 对象关系数据模型（object relational data model） 半结构化数据模型（semistructure data model） 常用 SQL 操作 🔗对象类型对象操作类型数据库模式模式CREATE SCHEMA基本表CREATE SCHEMA，ALTER TABLE视图CREATE VIEW索引CREATE INDEX数据基本表和视图SELECT，INSERT，UPDATE，DELETE，REFERENCES，ALL PRIVILEGES属性列SELECT，INSERT，UPDATE，REFERENCES，ALL PRIVILEGESSQL 语法教程：runoob .</description>
     </item>
     
     <item>
@@ -143,9 +144,12 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/network/</guid>
       <description>转载自https://github.com/huihut/interview
- 本节部分知识点来自《计算机网络（第 7 版）》
- 计算机网络体系结构：
-各层作用及协议 🔗   分层 作用 协议     物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器）   数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机）   网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）   运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX   会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC   表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII   应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS    物理层 🔗 传输数据的单位：比特 数据传输系统：源系统（源点、发送器） &amp;ndash;&amp;gt; 传输系统 &amp;ndash;&amp;gt; 目的系统（接收器、终点）  通道：</description>
+本节部分知识点来自《计算机网络（第 7 版）》
+计算机网络体系结构：
+各层作用及协议 🔗 分层 作用 协议 物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器） 数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机） 网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器） 运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX 会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC 表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII 应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS 物理层 🔗 传输数据的单位：比特 数据传输系统：源系统（源点、发送器） &amp;ndash;&amp;gt; 传输系统 &amp;ndash;&amp;gt; 目的系统（接收器、终点） 通道：
+单向通道（单工通道）：只有一个方向通信，没有反方向交互，如广播 双向交替通信（半双工通信）：通信双方都可发消息，但不能同时发送或接收 双向同时通信（全双工通信）：通信双方可以同时发送和接收信息 通道复用技术：
+频分复用（FDM，Frequency Division Multiplexing）：不同用户在不同频带，所用用户在同样时间占用不同带宽资源 时分复用（TDM，Time Division Multiplexing）：不同用户在同一时间段的不同时间片，所有用户在不同时间占用同样的频带宽度 波分复用（WDM，Wavelength Division Multiplexing）：光的频分复用 码分复用（CDM，Code Division Multiplexing）：不同用户使用不同的码，可以在同样时间使用同样频带通信 数据链路层 🔗主要信道：
+点对点信道 广播信道 点对点信道 🔗 数据单元：帧 三个基本问题：</description>
     </item>
     
     <item>
@@ -156,8 +160,10 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <guid>/posts/os/</guid>
       <description>转载自https://github.com/huihut/interview
 进程与线程 🔗对于有线程系统：
- 进程是资源分配的独立单位 线程是资源调度的独立单位  对于无线程系统：
- 进程是资源调度、分配的独立单位  进程之间的通信方式以及优缺点 🔗 管道（PIPE）  有名管道：一种半双工的通信方式，它允许无亲缘关系进程间的通信  优点：可以实现任意关系的进程间的通信 缺点：  长期存于系统中，使用不当容易出错 缓冲区有限     无名管道：一种半双工的通信方式，只能在具有亲缘关系的进程间使用（父子进程）  优点：简单方便 缺点：  局限于单向通信 只能创建在它的进程以及其有亲缘关系的进程之间 缓冲区有限       信号量（Semaphore）：一个计数器，可以用来控制多个线程对共享资源的访问  优点：可以同步进程 缺点：信号量有限   信号（Signal）：一种比较复杂的通信方式，用于通知接收进程某个事件已经发生 消息队列（Message Queue）：是消息的链表，存放在内核中并由消息队列标识符标识  优点：可以实现任意进程间的通信，并通过系统调用函数来实现消息发送和接收之间的同步，无需考虑同步问题，方便 缺点：信息的复制需要额外消耗 CPU 的时间，不适宜于信息量大或操作频繁的场合   共享内存（Shared Memory）：映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问  优点：无须复制，快捷，信息量大 缺点：  通信是通过将共享空间缓冲区直接附加到进程的虚拟地址空间中来实现的，因此进程间的读写操作的同步问题 利用内存缓冲区直接交换信息，内存的实体存在于计算机中，只能同一个计算机系统中的诸多进程共享，不方便网络通信     套接字（Socket）：可用于不同计算机间的进程通信  优点：  传输数据为字节级，传输数据可自定义，数据量小效率高 传输数据时间短，性能高 适合于客户端和服务器端之间信息实时交互 可以加密,数据安全性强   缺点：需对传输的数据进行解析，转化成应用级的数据。    线程之间的通信方式 🔗 锁机制：包括互斥锁/量（mutex）、读写锁（reader-writer lock）、自旋锁（spin lock）、条件变量（condition）  互斥锁/量（mutex）：提供了以排他方式防止数据结构被并发修改的方法。 读写锁（reader-writer lock）：允许多个线程同时读共享数据，而对写操作是互斥的。 自旋锁（spin lock）与互斥锁类似，都是为了保护共享资源。互斥锁是当资源被占用，申请者进入睡眠状态；而自旋锁则循环检测保持者是否已经释放锁。 条件变量（condition）：可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。   信号量机制(Semaphore)  无名线程信号量 命名线程信号量   信号机制(Signal)：类似进程间的信号处理 屏障（barrier）：屏障允许每个线程等待，直到所有的合作线程都达到某一点，然后从该点继续执行。  线程间的通信目的主要是用于线程同步，所以线程没有像进程通信中的用于数据交换的通信机制</description>
+进程是资源分配的独立单位 线程是资源调度的独立单位 对于无线程系统：
+进程是资源调度、分配的独立单位 进程之间的通信方式以及优缺点 🔗 管道（PIPE） 有名管道：一种半双工的通信方式，它允许无亲缘关系进程间的通信 优点：可以实现任意关系的进程间的通信 缺点： 长期存于系统中，使用不当容易出错 缓冲区有限 无名管道：一种半双工的通信方式，只能在具有亲缘关系的进程间使用（父子进程） 优点：简单方便 缺点： 局限于单向通信 只能创建在它的进程以及其有亲缘关系的进程之间 缓冲区有限 信号量（Semaphore）：一个计数器，可以用来控制多个线程对共享资源的访问 优点：可以同步进程 缺点：信号量有限 信号（Signal）：一种比较复杂的通信方式，用于通知接收进程某个事件已经发生 消息队列（Message Queue）：是消息的链表，存放在内核中并由消息队列标识符标识 优点：可以实现任意进程间的通信，并通过系统调用函数来实现消息发送和接收之间的同步，无需考虑同步问题，方便 缺点：信息的复制需要额外消耗 CPU 的时间，不适宜于信息量大或操作频繁的场合 共享内存（Shared Memory）：映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问 优点：无须复制，快捷，信息量大 缺点： 通信是通过将共享空间缓冲区直接附加到进程的虚拟地址空间中来实现的，因此进程间的读写操作的同步问题 利用内存缓冲区直接交换信息，内存的实体存在于计算机中，只能同一个计算机系统中的诸多进程共享，不方便网络通信 套接字（Socket）：可用于不同计算机间的进程通信 优点： 传输数据为字节级，传输数据可自定义，数据量小效率高 传输数据时间短，性能高 适合于客户端和服务器端之间信息实时交互 可以加密,数据安全性强 缺点：需对传输的数据进行解析，转化成应用级的数据。 线程之间的通信方式 🔗 锁机制：包括互斥锁/量（mutex）、读写锁（reader-writer lock）、自旋锁（spin lock）、条件变量（condition） 互斥锁/量（mutex）：提供了以排他方式防止数据结构被并发修改的方法。 读写锁（reader-writer lock）：允许多个线程同时读共享数据，而对写操作是互斥的。 自旋锁（spin lock）与互斥锁类似，都是为了保护共享资源。互斥锁是当资源被占用，申请者进入睡眠状态；而自旋锁则循环检测保持者是否已经释放锁。 条件变量（condition）：可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。 信号量机制(Semaphore) 无名线程信号量 命名线程信号量 信号机制(Signal)：类似进程间的信号处理 屏障（barrier）：屏障允许每个线程等待，直到所有的合作线程都达到某一点，然后从该点继续执行。 线程间的通信目的主要是用于线程同步，所以线程没有像进程通信中的用于数据交换的通信机制
+进程之间的通信方式以及优缺点来源于：进程线程面试题总结
+进程之间私有和共享的资源 🔗 私有：地址空间、堆、全局变量、栈、寄存器 共享：代码段，公共数据，进程目录，进程 ID 线程之间私有和共享的资源 🔗 私有：线程栈，寄存器，程序计数器 共享：堆，地址空间，全局变量，静态变量 多进程与多线程间的对比、优劣与选择 🔗对比 🔗 对比维度 多进程 多线程 总结 数据共享、同步 数据共享复杂，需要用 IPC；数据是分开的，同步简单 因为共享进程数据，数据共享简单，但也是因为这个原因导致同步复杂 各有优势 内存、CPU 占用内存多，切换复杂，CPU 利用率低 占用内存少，切换简单，CPU 利用率高 线程占优 创建销毁、切换 创建销毁、切换复杂，速度慢 创建销毁、切换简单，速度很快 线程占优 编程、调试 编程简单，调试简单 编程复杂，调试复杂 进程占优 可靠性 进程间不会互相影响 一个线程挂掉将导致整个进程挂掉 进程占优 分布式 适应于多核、多机分布式；如果一台机器不够，扩展到多台机器比较简单 适应于多核分布式 进程占优 优劣 🔗 优劣 多进程 多线程 优点 编程、调试简单，可靠性较高 创建、销毁、切换速度快，内存、资源占用小 缺点 创建、销毁、切换速度慢，内存、资源占用大 编程、调试复杂，可靠性较差 选择 🔗 需要频繁创建销毁的优先用线程 需要进行大量计算的优先使用线程 强相关的处理用线程，弱相关的处理用进程 可能要扩展到多机分布的用进程，多核分布的用线程 都满足需求的情况下，用你最熟悉、最拿手的方式 多进程与多线程间的对比、优劣与选择来自：多线程还是多进程的选择及区别</description>
     </item>
     
     <item>
@@ -167,7 +173,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/algorithm/</guid>
       <description>转载自https://github.com/huihut/interview
-排序 🔗   排序算法 平均时间复杂度 最差时间复杂度 空间复杂度 数据对象稳定性     冒泡排序 O(n2) O(n2) O(1) 稳定   选择排序 O(n2) O(n2) O(1) 数组不稳定、链表稳定   插入排序 O(n2) O(n2) O(1) 稳定   快速排序 O(n*log2n) O(n2) O(log2n) 不稳定   堆排序 O(n*log2n) O(n*log2n) O(1) 不稳定   归并排序 O(n*log2n) O(n*log2n) O(n) 稳定   希尔排序 O(n*log2n) O(n2) O(1) 不稳定   计数排序 O(n+m) O(n+m) O(n+m) 稳定   桶排序 O(n) O(n) O(m) 稳定   基数排序 O(k*n) O(n2)  稳定      均按从小到大排列 k：代表数值中的 “数位” 个数 n：代表数据规模 m：代表数据的最大值减最小值 来自：wikipedia .</description>
+排序 🔗 排序算法 平均时间复杂度 最差时间复杂度 空间复杂度 数据对象稳定性 冒泡排序 O(n2) O(n2) O(1) 稳定 选择排序 O(n2) O(n2) O(1) 数组不稳定、链表稳定 插入排序 O(n2) O(n2) O(1) 稳定 快速排序 O(n*log2n) O(n2) O(log2n) 不稳定 堆排序 O(n*log2n) O(n*log2n) O(1) 不稳定 归并排序 O(n*log2n) O(n*log2n) O(n) 稳定 希尔排序 O(n*log2n) O(n2) O(1) 不稳定 计数排序 O(n+m) O(n+m) O(n+m) 稳定 桶排序 O(n) O(n) O(m) 稳定 基数排序 O(k*n) O(n2) 稳定 均按从小到大排列 k：代表数值中的 “数位” 个数 n：代表数据规模 m：代表数据的最大值减最小值 来自：wikipedia . 排序算法 查找 🔗 查找算法 平均时间复杂度 空间复杂度 查找条件 顺序查找 O(n) O(1) 无序或有序 二分查找（折半查找） O(log2n) O(1) 有序 插值查找 O(log2(log2n)) O(1) 有序 斐波那契查找 O(log2n) O(1) 有序 哈希查找 O(1) O(n) 无序或有序 二叉查找树（二叉搜索树查找） O(log2n) 红黑树 O(log2n) 2-3树 O(log2n - log3n) B树/B+树 O(log2n) 图搜索算法 🔗 图搜索算法 数据结构 遍历时间复杂度 空间复杂度 BFS广度优先搜索 邻接矩阵邻接链表 O(|v|2)O(|v|+|E|) O(|v|2)O(|v|+|E|) DFS深度优先搜索 邻接矩阵邻接链表 O(|v|2)O(|v|+|E|) O(|v|2)O(|v|+|E|) 其他算法 🔗 算法 思想 应用 分治法 把一个复杂的问题分成两个或更多的相同或相似的子问题，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并 循环赛日程安排问题、排序算法（快速排序、归并排序） 动态规划 通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法，适用于有重叠子问题和最优子结构性质的问题 背包问题、斐波那契数列 贪心法 一种在每一步选择中都采取在当前状态下最好或最优（即最有利）的选择，从而希望导致结果是最好或最优的算法 旅行推销员问题（最短路径问题）、最小生成树、哈夫曼编码 </description>
     </item>
     
     <item>
@@ -179,14 +185,17 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <description>转载自https://github.com/huihut/interview
 顺序结构 🔗顺序栈（Sequence Stack） 🔗SqStack.cpp
 顺序栈数据结构和图片
-typedef struct { 	ElemType *elem; 	int top; 	int size; 	int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
-typedef struct { 	ElemType * elem; 	int front; 	int rear; 	int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
+typedef struct { ElemType *elem; int top; int size; int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
+typedef struct { ElemType * elem; int front; int rear; int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
 SqQueue.rear++
 循环队列 🔗循环队列图片
 SqQueue.rear = (SqQueue.rear + 1) % SqQueue.maxSize
 顺序表（Sequence List） 🔗SqList.cpp
 顺序表数据结构和图片
-typedef struct { 	ElemType *elem; 	int length; 	int size; 	int increment; } SqList; 链式结构 🔗LinkList.</description>
+typedef struct { ElemType *elem; int length; int size; int increment; } SqList; 链式结构 🔗LinkList.cpp
+LinkList_with_head.cpp
+链式数据结构
+typedef struct LNode { ElemType data; struct LNode *next; } LNode, *LinkList; 链队列（Link Queue） 🔗链队列图片</description>
     </item>
     
     <item>
@@ -197,7 +206,7 @@ typedef struct { 	ElemType *elem; 	int length; 	int size; 	int increment; } SqLi
       <guid>/posts/c&#43;&#43;stl/</guid>
       <description>转载自https://github.com/huihut/interview
 STL 索引 🔗STL 方法含义索引
-STL 容器 🔗   容器 底层数据结构 时间复杂度 有无序 可不可重复 其他     array 数组 随机读改 O(1) 无序 可重复 支持随机访问   vector 数组 随机读改、尾部插入、尾部删除 O(1)头部插入、头部删除 O(n) 无序 可重复 支持随机访问   deque 双端队列 头尾插入、头尾删除 O(1) 无序 可重复 一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问   forward_list 单向链表 插入、删除 O(1) 无序 可重复 不支持随机访问   list 双向链表 插入、删除 O(1) 无序 可重复 不支持随机访问   stack deque / list 顶部插入、顶部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时   queue deque / list 尾部插入、头部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时   priority_queue vector + max-heap 插入、删除 O(log2n) 有序 可重复 vector容器+heap处理规则   set 红黑树 插入、删除、查找 O(log2n) 有序 不可重复    multiset 红黑树 插入、删除、查找 O(log2n) 有序 可重复    map 红黑树 插入、删除、查找 O(log2n) 有序 不可重复    multimap 红黑树 插入、删除、查找 O(log2n) 有序 可重复    unordered_set 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复    unordered_multiset 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复    unordered_map 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复    unordered_multimap 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复     STL 算法 🔗   算法 底层算法 时间复杂度 可不可重复     find 顺序查找 O(n) 可重复   sort 内省排序 O(n*log2n) 可重复    </description>
+STL 容器 🔗 容器 底层数据结构 时间复杂度 有无序 可不可重复 其他 array 数组 随机读改 O(1) 无序 可重复 支持随机访问 vector 数组 随机读改、尾部插入、尾部删除 O(1)头部插入、头部删除 O(n) 无序 可重复 支持随机访问 deque 双端队列 头尾插入、头尾删除 O(1) 无序 可重复 一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问 forward_list 单向链表 插入、删除 O(1) 无序 可重复 不支持随机访问 list 双向链表 插入、删除 O(1) 无序 可重复 不支持随机访问 stack deque / list 顶部插入、顶部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 queue deque / list 尾部插入、头部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 priority_queue vector + max-heap 插入、删除 O(log2n) 有序 可重复 vector容器+heap处理规则 set 红黑树 插入、删除、查找 O(log2n) 有序 不可重复 multiset 红黑树 插入、删除、查找 O(log2n) 有序 可重复 map 红黑树 插入、删除、查找 O(log2n) 有序 不可重复 multimap 红黑树 插入、删除、查找 O(log2n) 有序 可重复 unordered_set 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复 unordered_multiset 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复 unordered_map 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复 unordered_multimap 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复 STL 算法 🔗 算法 底层算法 时间复杂度 可不可重复 find 顺序查找 O(n) 可重复 sort 内省排序 O(n*log2n) 可重复 </description>
     </item>
     
     <item>
@@ -207,7 +216,7 @@ STL 容器 🔗   容器 底层数据结构 时间复杂度 有无序 可不可�
       
       <guid>/posts/effectivec&#43;&#43;/</guid>
       <description>转载自https://github.com/huihut/interview
-Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Template C++、STL） 宁可以编译器替换预处理器（尽量以 const、enum、inline 替换 #define） 尽可能使用 const 确定对象被使用前已先被初始化（构造时赋值（copy 构造函数）比 default 构造后赋值（copy assignment）效率高） 了解 C++ 默默编写并调用哪些函数（编译器暗自为 class 创建 default 构造函数、copy 构造函数、copy assignment 操作符、析构函数） 若不想使用编译器自动生成的函数，就应该明确拒绝（将不想使用的成员函数声明为 private，并且不予实现） 为多态基类声明 virtual 析构函数（如果 class 带有任何 virtual 函数，它就应该拥有一个 virtual 析构函数） 别让异常逃离析构函数（析构函数应该吞下不传播异常，或者结束程序，而不是吐出异常；如果要处理异常应该在非析构的普通函数处理） 绝不在构造和析构过程中调用 virtual 函数（因为这类调用从不下降至 derived class） 令 operator= 返回一个 reference to *this （用于连锁赋值） 在 operator= 中处理 “自我赋值” 赋值对象时应确保复制 “对象内的所有成员变量” 及 “所有 base class 成分”（调用基类复制构造函数） 以对象管理资源（资源在构造函数获得，在析构函数释放，建议使用智能指针，资源取得时机便是初始化时机（Resource Acquisition Is Initialization，RAII）） 在资源管理类中小心 copying 行为（普遍的 RAII class copying 行为是：抑制 copying、引用计数、深度拷贝、转移底部资源拥有权（类似 auto_ptr）） 在资源管理类中提供对原始资源（raw resources）的访问（对原始资源的访问可能经过显式转换或隐式转换，一般而言显示转换比较安全，隐式转换对客户比较方便） 成对使用 new 和 delete 时要采取相同形式（new 中使用 [] 则 delete []，new 中不使用 [] 则 delete） 以独立语句将 newed 对象存储于（置入）智能指针（如果不这样做，可能会因为编译器优化，导致难以察觉的资源泄漏） 让接口容易被正确使用，不易被误用（促进正常使用的办法：接口的一致性、内置类型的行为兼容；阻止误用的办法：建立新类型，限制类型上的操作，约束对象值、消除客户的资源管理责任） 设计 class 犹如设计 type，需要考虑对象创建、销毁、初始化、赋值、值传递、合法值、继承关系、转换、一般化等等。 宁以 pass-by-reference-to-const 替换 pass-by-value （前者通常更高效、避免切割问题（slicing problem），但不适用于内置类型、STL迭代器、函数对象） 必须返回对象时，别妄想返回其 reference（绝不返回 pointer 或 reference 指向一个 local stack 对象，或返回 reference 指向一个 heap-allocated 对象，或返回 pointer 或 reference 指向一个 local static 对象而有可能同时需要多个这样的对象。） 将成员变量声明为 private（为了封装、一致性、对其读写精确控制等） 宁以 non-member、non-friend 替换 member 函数（可增加封装性、包裹弹性（packaging flexibility）、机能扩充性） 若所有参数（包括被this指针所指的那个隐喻参数）皆须要类型转换，请为此采用 non-member 函数 考虑写一个不抛异常的 swap 函数 尽可能延后变量定义式的出现时间（可增加程序清晰度并改善程序效率） 尽量少做转型动作（旧式：(T)expression、T(expression)；新式：const_cast&amp;lt;T&amp;gt;(expression)、dynamic_cast&amp;lt;T&amp;gt;(expression)、reinterpret_cast&amp;lt;T&amp;gt;(expression)、static_cast&amp;lt;T&amp;gt;(expression)、；尽量避免转型、注重效率避免 dynamic_casts、尽量设计成无需转型、可把转型封装成函数、宁可用新式转型） 避免使用 handles（包括 引用、指针、迭代器）指向对象内部（以增加封装性、使 const 成员函数的行为更像 const、降低 “虚吊号码牌”（dangling handles，如悬空指针等）的可能性） 为 “异常安全” 而努力是值得的（异常安全函数（Exception-safe functions）即使发生异常也不会泄露资源或允许任何数据结构败坏，分为三种可能的保证：基本型、强列型、不抛异常型） 透彻了解 inlining 的里里外外（inlining 在大多数 C++ 程序中是编译期的行为；inline 函数是否真正 inline，取决于编译器；大部分编译器拒绝太过复杂（如带有循环或递归）的函数 inlining，而所有对 virtual 函数的调用（除非是最平淡无奇的）也都会使 inlining 落空；inline 造成的代码膨胀可能带来效率损失；inline 函数无法随着程序库的升级而升级） 将文件间的编译依存关系降至最低（如果使用 object references 或 object pointers 可以完成任务，就不要使用 objects；如果能够，尽量以 class 声明式替换 class 定义式；为声明式和定义式提供不同的头文件） 确定你的 public 继承塑模出 is-a（是一种）关系（适用于 base classes 身上的每一件事情一定适用于 derived classes 身上，因为每一个 derived class 对象也都是一个 base class 对象） 避免遮掩继承而来的名字（可使用 using 声明式或转交函数（forwarding functions）来让被遮掩的名字再见天日） 区分接口继承和实现继承（在 public 继承之下，derived classes 总是继承 base class 的接口；pure virtual 函数只具体指定接口继承；非纯 impure virtual 函数具体指定接口继承及缺省实现继承；non-virtual 函数具体指定接口继承以及强制性实现继承） 考虑 virtual 函数以外的其他选择（如 Template Method 设计模式的 non-virtual interface（NVI）手法，将 virtual 函数替换为 “函数指针成员变量”，以 tr1::function 成员变量替换 virtual 函数，将继承体系内的 virtual 函数替换为另一个继承体系内的 virtual 函数） 绝不重新定义继承而来的 non-virtual 函数 绝不重新定义继承而来的缺省参数值，因为缺省参数值是静态绑定（statically bound），而 virtual 函数却是动态绑定（dynamically bound） 通过复合塑模 has-a（有一个）或 “根据某物实现出”（在应用域（application domain），复合意味 has-a（有一个）；在实现域（implementation domain），复合意味着 is-implemented-in-terms-of（根据某物实现出）） 明智而审慎地使用 private 继承（private 继承意味着 is-implemented-in-terms-of（根据某物实现出），尽可能使用复合，当 derived class 需要访问 protected base class 的成员，或需要重新定义继承而来的时候 virtual 函数，或需要 empty base 最优化时，才使用 private 继承） 明智而审慎地使用多重继承（多继承比单一继承复杂，可能导致新的歧义性，以及对 virtual 继承的需要，但确有正当用途，如 “public 继承某个 interface class” 和 “private 继承某个协助实现的 class”；virtual 继承可解决多继承下菱形继承的二义性问题，但会增加大小、速度、初始化及赋值的复杂度等等成本） 了解隐式接口和编译期多态（class 和 templates 都支持接口（interfaces）和多态（polymorphism）；class 的接口是以签名为中心的显式的（explicit），多态则是通过 virtual 函数发生于运行期；template 的接口是奠基于有效表达式的隐式的（implicit），多态则是通过 template 具现化和函数重载解析（function overloading resolution）发生于编译期） 了解 typename 的双重意义（声明 template 类型参数是，前缀关键字 class 和 typename 的意义完全相同；请使用关键字 typename 标识嵌套从属类型名称，但不得在基类列（base class lists）或成员初值列（member initialization list）内以它作为 base class 修饰符） 学习处理模板化基类内的名称（可在 derived class templates 内通过 this-&amp;gt; 指涉 base class templates 内的成员名称，或藉由一个明白写出的 “base class 资格修饰符” 完成） 将与参数无关的代码抽离 templates（因类型模板参数（non-type template parameters）而造成代码膨胀往往可以通过函数参数或 class 成员变量替换 template 参数来消除；因类型参数（type parameters）而造成的代码膨胀往往可以通过让带有完全相同二进制表述（binary representations）的实现类型（instantiation types）共享实现码） 运用成员函数模板接受所有兼容类型（请使用成员函数模板（member function templates）生成 “可接受所有兼容类型” 的函数；声明 member templates 用于 “泛化 copy 构造” 或 “泛化 assignment 操作” 时还需要声明正常的 copy 构造函数和 copy assignment 操作符） 需要类型转换时请为模板定义非成员函数（当我们编写一个 class template，而它所提供之 “与此 template 相关的” 函数支持 “所有参数之隐式类型转换” 时，请将那些函数定义为 “class template 内部的 friend 函数”） 请使用 traits classes 表现类型信息（traits classes 通过 templates 和 “templates 特化” 使得 “类型相关信息” 在编译期可用，通过重载技术（overloading）实现在编译期对类型执行 if&amp;hellip;else 测试） 认识 template 元编程（模板元编程（TMP，template metaprogramming）可将工作由运行期移往编译期，因此得以实现早期错误侦测和更高的执行效率；TMP 可被用来生成 “给予政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码） 了解 new-handler 的行为（set_new_handler 允许客户指定一个在内存分配无法获得满足时被调用的函数；nothrow new 是一个颇具局限的工具，因为它只适用于内存分配（operator new），后继的构造函数调用还是可能抛出异常） 了解 new 和 delete 的合理替换时机（为了检测运用错误、收集动态分配内存之使用统计信息、增加分配和归还速度、降低缺省内存管理器带来的空间额外开销、弥补缺省分配器中的非最佳齐位、将相关对象成簇集中、获得非传统的行为） 编写 new 和 delete 时需固守常规（operator new 应该内涵一个无穷循环，并在其中尝试分配内存，如果它无法满足内存需求，就应该调用 new-handler，它也应该有能力处理 0 bytes 申请，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”；operator delete 应该在收到 null 指针时不做任何事，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”） 写了 placement new 也要写 placement delete（当你写一个 placement operator new，请确定也写出了对应的 placement operator delete，否则可能会发生隐微而时断时续的内存泄漏；当你声明 placement new 和 placement delete，请确定不要无意识（非故意）地遮掩了它们地正常版本） 不要轻忽编译器的警告 让自己熟悉包括 TR1 在内的标准程序库（TR1，C++ Technical Report 1，C++11 标准的草稿文件） 让自己熟悉 Boost（准标准库）  More Effective c++ 🔗 仔细区别 pointers 和 references（当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由 pointers 达成，你就应该选择 references；任何其他时候，请采用 pointers） 最好使用 C++ 转型操作符（static_cast、const_cast、dynamic_cast、reinterpret_cast） 绝不要以多态（polymorphically）方式处理数组（多态（polymorphism）和指针算术不能混用；数组对象几乎总是会涉及指针的算术运算，所以数组和多态不要混用） 非必要不提供 default constructor（避免对象中的字段被无意义地初始化） 对定制的 “类型转换函数” 保持警觉（单自变量 constructors 可通过简易法（explicit 关键字）或代理类（proxy classes）来避免编译器误用；隐式类型转换操作符可改为显式的 member function 来避免非预期行为） 区别 increment/decrement 操作符的前置（prefix）和后置（postfix）形式（前置式累加后取出，返回一个 reference；后置式取出后累加，返回一个 const 对象；处理用户定制类型时，应该尽可能使用前置式 increment；后置式的实现应以其前置式兄弟为基础） 千万不要重载 &amp;amp;&amp;amp;，|| 和 , 操作符（&amp;amp;&amp;amp; 与 || 的重载会用 “函数调用语义” 取代 “骤死式语义”；, 的重载导致不能保证左侧表达式一定比右侧表达式更早被评估） 了解各种不同意义的 new 和 delete（new operator、operator new、placement new、operator new[]；delete operator、operator delete、destructor、operator delete[]） 利用 destructors 避免泄漏资源（在 destructors 释放资源可以避免异常时的资源泄漏） 在 constructors 内阻止资源泄漏（由于 C++ 只会析构已构造完成的对象，因此在构造函数可以使用 try&amp;hellip;catch 或者 auto_ptr（以及与之相似的 classes） 处理异常时资源泄露问题） 禁止异常流出 destructors 之外（原因：一、避免 terminate 函数在 exception 传播过程的栈展开（stack-unwinding）机制种被调用；二、协助确保 destructors 完成其应该完成的所有事情） 了解 “抛出一个 exception” 与 “传递一个参数” 或 “调用一个虚函数” 之间的差异（第一，exception objects 总是会被复制（by pointer 除外），如果以 by value 方式捕捉甚至被复制两次，而传递给函数参数的对象则不一定得复制；第二，“被抛出成为 exceptions” 的对象，其被允许的类型转换动作比 “被传递到函数去” 的对象少；第三，catch 子句以其 “出现于源代码的顺序” 被编译器检验对比，其中第一个匹配成功者便执行，而调用一个虚函数，被选中执行的是那个 “与对象类型最佳吻合” 的函数） 以 by reference 方式捕获 exceptions（可避免对象删除问题、exception objects 的切割问题，可保留捕捉标准 exceptions 的能力，可约束 exception object 需要复制的次数） 明智运用 exception specifications（exception specifications 对 “函数希望抛出什么样的 exceptions” 提供了卓越的说明；也有一些缺点，包括编译器只对它们做局部性检验而很容易不经意地违反，与可能会妨碍更上层的 exception 处理函数处理未预期的 exceptions） 了解异常处理的成本（粗略估计，如果使用 try 语句块，代码大约整体膨胀 5%-10%，执行速度亦大约下降这个数；因此请将你对 try 语句块和 exception specifications 的使用限制于非用不可的地点，并且在真正异常的情况下才抛出 exceptions） 谨记 80-20 法则（软件的整体性能几乎总是由其构成要素（代码）的一小部分决定的，可使用程序分析器（program profiler）识别出消耗资源的代码） 考虑使用 lazy evaluation（缓式评估）（可应用于：Reference Counting（引用计数）来避免非必要的对象复制、区分 operator[] 的读和写动作来做不同的事情、Lazy Fetching（缓式取出）来避免非必要的数据库读取动作、Lazy Expression Evaluation（表达式缓评估）来避免非必要的数值计算动作） 分期摊还预期的计算成本（当你必须支持某些运算而其结构几乎总是被需要，或其结果常常被多次需要的时候，over-eager evaluation（超急评估）可以改善程序效率）  Google C++ Style Guide 🔗 英文：Google C++ Style Guide 中文：C++ 风格指南  其他 🔗 Bjarne Stroustrup 的常见问题 Bjarne Stroustrup 的 C++ 风格和技巧常见问题  </description>
+Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Template C++、STL） 宁可以编译器替换预处理器（尽量以 const、enum、inline 替换 #define） 尽可能使用 const 确定对象被使用前已先被初始化（构造时赋值（copy 构造函数）比 default 构造后赋值（copy assignment）效率高） 了解 C++ 默默编写并调用哪些函数（编译器暗自为 class 创建 default 构造函数、copy 构造函数、copy assignment 操作符、析构函数） 若不想使用编译器自动生成的函数，就应该明确拒绝（将不想使用的成员函数声明为 private，并且不予实现） 为多态基类声明 virtual 析构函数（如果 class 带有任何 virtual 函数，它就应该拥有一个 virtual 析构函数） 别让异常逃离析构函数（析构函数应该吞下不传播异常，或者结束程序，而不是吐出异常；如果要处理异常应该在非析构的普通函数处理） 绝不在构造和析构过程中调用 virtual 函数（因为这类调用从不下降至 derived class） 令 operator= 返回一个 reference to *this （用于连锁赋值） 在 operator= 中处理 “自我赋值” 赋值对象时应确保复制 “对象内的所有成员变量” 及 “所有 base class 成分”（调用基类复制构造函数） 以对象管理资源（资源在构造函数获得，在析构函数释放，建议使用智能指针，资源取得时机便是初始化时机（Resource Acquisition Is Initialization，RAII）） 在资源管理类中小心 copying 行为（普遍的 RAII class copying 行为是：抑制 copying、引用计数、深度拷贝、转移底部资源拥有权（类似 auto_ptr）） 在资源管理类中提供对原始资源（raw resources）的访问（对原始资源的访问可能经过显式转换或隐式转换，一般而言显示转换比较安全，隐式转换对客户比较方便） 成对使用 new 和 delete 时要采取相同形式（new 中使用 [] 则 delete []，new 中不使用 [] 则 delete） 以独立语句将 newed 对象存储于（置入）智能指针（如果不这样做，可能会因为编译器优化，导致难以察觉的资源泄漏） 让接口容易被正确使用，不易被误用（促进正常使用的办法：接口的一致性、内置类型的行为兼容；阻止误用的办法：建立新类型，限制类型上的操作，约束对象值、消除客户的资源管理责任） 设计 class 犹如设计 type，需要考虑对象创建、销毁、初始化、赋值、值传递、合法值、继承关系、转换、一般化等等。 宁以 pass-by-reference-to-const 替换 pass-by-value （前者通常更高效、避免切割问题（slicing problem），但不适用于内置类型、STL迭代器、函数对象） 必须返回对象时，别妄想返回其 reference（绝不返回 pointer 或 reference 指向一个 local stack 对象，或返回 reference 指向一个 heap-allocated 对象，或返回 pointer 或 reference 指向一个 local static 对象而有可能同时需要多个这样的对象。） 将成员变量声明为 private（为了封装、一致性、对其读写精确控制等） 宁以 non-member、non-friend 替换 member 函数（可增加封装性、包裹弹性（packaging flexibility）、机能扩充性） 若所有参数（包括被this指针所指的那个隐喻参数）皆须要类型转换，请为此采用 non-member 函数 考虑写一个不抛异常的 swap 函数 尽可能延后变量定义式的出现时间（可增加程序清晰度并改善程序效率） 尽量少做转型动作（旧式：(T)expression、T(expression)；新式：const_cast&amp;lt;T&amp;gt;(expression)、dynamic_cast&amp;lt;T&amp;gt;(expression)、reinterpret_cast&amp;lt;T&amp;gt;(expression)、static_cast&amp;lt;T&amp;gt;(expression)、；尽量避免转型、注重效率避免 dynamic_casts、尽量设计成无需转型、可把转型封装成函数、宁可用新式转型） 避免使用 handles（包括 引用、指针、迭代器）指向对象内部（以增加封装性、使 const 成员函数的行为更像 const、降低 “虚吊号码牌”（dangling handles，如悬空指针等）的可能性） 为 “异常安全” 而努力是值得的（异常安全函数（Exception-safe functions）即使发生异常也不会泄露资源或允许任何数据结构败坏，分为三种可能的保证：基本型、强列型、不抛异常型） 透彻了解 inlining 的里里外外（inlining 在大多数 C++ 程序中是编译期的行为；inline 函数是否真正 inline，取决于编译器；大部分编译器拒绝太过复杂（如带有循环或递归）的函数 inlining，而所有对 virtual 函数的调用（除非是最平淡无奇的）也都会使 inlining 落空；inline 造成的代码膨胀可能带来效率损失；inline 函数无法随着程序库的升级而升级） 将文件间的编译依存关系降至最低（如果使用 object references 或 object pointers 可以完成任务，就不要使用 objects；如果能够，尽量以 class 声明式替换 class 定义式；为声明式和定义式提供不同的头文件） 确定你的 public 继承塑模出 is-a（是一种）关系（适用于 base classes 身上的每一件事情一定适用于 derived classes 身上，因为每一个 derived class 对象也都是一个 base class 对象） 避免遮掩继承而来的名字（可使用 using 声明式或转交函数（forwarding functions）来让被遮掩的名字再见天日） 区分接口继承和实现继承（在 public 继承之下，derived classes 总是继承 base class 的接口；pure virtual 函数只具体指定接口继承；非纯 impure virtual 函数具体指定接口继承及缺省实现继承；non-virtual 函数具体指定接口继承以及强制性实现继承） 考虑 virtual 函数以外的其他选择（如 Template Method 设计模式的 non-virtual interface（NVI）手法，将 virtual 函数替换为 “函数指针成员变量”，以 tr1::function 成员变量替换 virtual 函数，将继承体系内的 virtual 函数替换为另一个继承体系内的 virtual 函数） 绝不重新定义继承而来的 non-virtual 函数 绝不重新定义继承而来的缺省参数值，因为缺省参数值是静态绑定（statically bound），而 virtual 函数却是动态绑定（dynamically bound） 通过复合塑模 has-a（有一个）或 “根据某物实现出”（在应用域（application domain），复合意味 has-a（有一个）；在实现域（implementation domain），复合意味着 is-implemented-in-terms-of（根据某物实现出）） 明智而审慎地使用 private 继承（private 继承意味着 is-implemented-in-terms-of（根据某物实现出），尽可能使用复合，当 derived class 需要访问 protected base class 的成员，或需要重新定义继承而来的时候 virtual 函数，或需要 empty base 最优化时，才使用 private 继承） 明智而审慎地使用多重继承（多继承比单一继承复杂，可能导致新的歧义性，以及对 virtual 继承的需要，但确有正当用途，如 “public 继承某个 interface class” 和 “private 继承某个协助实现的 class”；virtual 继承可解决多继承下菱形继承的二义性问题，但会增加大小、速度、初始化及赋值的复杂度等等成本） 了解隐式接口和编译期多态（class 和 templates 都支持接口（interfaces）和多态（polymorphism）；class 的接口是以签名为中心的显式的（explicit），多态则是通过 virtual 函数发生于运行期；template 的接口是奠基于有效表达式的隐式的（implicit），多态则是通过 template 具现化和函数重载解析（function overloading resolution）发生于编译期） 了解 typename 的双重意义（声明 template 类型参数是，前缀关键字 class 和 typename 的意义完全相同；请使用关键字 typename 标识嵌套从属类型名称，但不得在基类列（base class lists）或成员初值列（member initialization list）内以它作为 base class 修饰符） 学习处理模板化基类内的名称（可在 derived class templates 内通过 this-&amp;gt; 指涉 base class templates 内的成员名称，或藉由一个明白写出的 “base class 资格修饰符” 完成） 将与参数无关的代码抽离 templates（因类型模板参数（non-type template parameters）而造成代码膨胀往往可以通过函数参数或 class 成员变量替换 template 参数来消除；因类型参数（type parameters）而造成的代码膨胀往往可以通过让带有完全相同二进制表述（binary representations）的实现类型（instantiation types）共享实现码） 运用成员函数模板接受所有兼容类型（请使用成员函数模板（member function templates）生成 “可接受所有兼容类型” 的函数；声明 member templates 用于 “泛化 copy 构造” 或 “泛化 assignment 操作” 时还需要声明正常的 copy 构造函数和 copy assignment 操作符） 需要类型转换时请为模板定义非成员函数（当我们编写一个 class template，而它所提供之 “与此 template 相关的” 函数支持 “所有参数之隐式类型转换” 时，请将那些函数定义为 “class template 内部的 friend 函数”） 请使用 traits classes 表现类型信息（traits classes 通过 templates 和 “templates 特化” 使得 “类型相关信息” 在编译期可用，通过重载技术（overloading）实现在编译期对类型执行 if&amp;hellip;else 测试） 认识 template 元编程（模板元编程（TMP，template metaprogramming）可将工作由运行期移往编译期，因此得以实现早期错误侦测和更高的执行效率；TMP 可被用来生成 “给予政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码） 了解 new-handler 的行为（set_new_handler 允许客户指定一个在内存分配无法获得满足时被调用的函数；nothrow new 是一个颇具局限的工具，因为它只适用于内存分配（operator new），后继的构造函数调用还是可能抛出异常） 了解 new 和 delete 的合理替换时机（为了检测运用错误、收集动态分配内存之使用统计信息、增加分配和归还速度、降低缺省内存管理器带来的空间额外开销、弥补缺省分配器中的非最佳齐位、将相关对象成簇集中、获得非传统的行为） 编写 new 和 delete 时需固守常规（operator new 应该内涵一个无穷循环，并在其中尝试分配内存，如果它无法满足内存需求，就应该调用 new-handler，它也应该有能力处理 0 bytes 申请，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”；operator delete 应该在收到 null 指针时不做任何事，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”） 写了 placement new 也要写 placement delete（当你写一个 placement operator new，请确定也写出了对应的 placement operator delete，否则可能会发生隐微而时断时续的内存泄漏；当你声明 placement new 和 placement delete，请确定不要无意识（非故意）地遮掩了它们地正常版本） 不要轻忽编译器的警告 让自己熟悉包括 TR1 在内的标准程序库（TR1，C++ Technical Report 1，C++11 标准的草稿文件） 让自己熟悉 Boost（准标准库） More Effective c++ 🔗 仔细区别 pointers 和 references（当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由 pointers 达成，你就应该选择 references；任何其他时候，请采用 pointers） 最好使用 C++ 转型操作符（static_cast、const_cast、dynamic_cast、reinterpret_cast） 绝不要以多态（polymorphically）方式处理数组（多态（polymorphism）和指针算术不能混用；数组对象几乎总是会涉及指针的算术运算，所以数组和多态不要混用） 非必要不提供 default constructor（避免对象中的字段被无意义地初始化） 对定制的 “类型转换函数” 保持警觉（单自变量 constructors 可通过简易法（explicit 关键字）或代理类（proxy classes）来避免编译器误用；隐式类型转换操作符可改为显式的 member function 来避免非预期行为） 区别 increment/decrement 操作符的前置（prefix）和后置（postfix）形式（前置式累加后取出，返回一个 reference；后置式取出后累加，返回一个 const 对象；处理用户定制类型时，应该尽可能使用前置式 increment；后置式的实现应以其前置式兄弟为基础） 千万不要重载 &amp;amp;&amp;amp;，|| 和 , 操作符（&amp;amp;&amp;amp; 与 || 的重载会用 “函数调用语义” 取代 “骤死式语义”；, 的重载导致不能保证左侧表达式一定比右侧表达式更早被评估） 了解各种不同意义的 new 和 delete（new operator、operator new、placement new、operator new[]；delete operator、operator delete、destructor、operator delete[]） 利用 destructors 避免泄漏资源（在 destructors 释放资源可以避免异常时的资源泄漏） 在 constructors 内阻止资源泄漏（由于 C++ 只会析构已构造完成的对象，因此在构造函数可以使用 try&amp;hellip;catch 或者 auto_ptr（以及与之相似的 classes） 处理异常时资源泄露问题） 禁止异常流出 destructors 之外（原因：一、避免 terminate 函数在 exception 传播过程的栈展开（stack-unwinding）机制种被调用；二、协助确保 destructors 完成其应该完成的所有事情） 了解 “抛出一个 exception” 与 “传递一个参数” 或 “调用一个虚函数” 之间的差异（第一，exception objects 总是会被复制（by pointer 除外），如果以 by value 方式捕捉甚至被复制两次，而传递给函数参数的对象则不一定得复制；第二，“被抛出成为 exceptions” 的对象，其被允许的类型转换动作比 “被传递到函数去” 的对象少；第三，catch 子句以其 “出现于源代码的顺序” 被编译器检验对比，其中第一个匹配成功者便执行，而调用一个虚函数，被选中执行的是那个 “与对象类型最佳吻合” 的函数） 以 by reference 方式捕获 exceptions（可避免对象删除问题、exception objects 的切割问题，可保留捕捉标准 exceptions 的能力，可约束 exception object 需要复制的次数） 明智运用 exception specifications（exception specifications 对 “函数希望抛出什么样的 exceptions” 提供了卓越的说明；也有一些缺点，包括编译器只对它们做局部性检验而很容易不经意地违反，与可能会妨碍更上层的 exception 处理函数处理未预期的 exceptions） 了解异常处理的成本（粗略估计，如果使用 try 语句块，代码大约整体膨胀 5%-10%，执行速度亦大约下降这个数；因此请将你对 try 语句块和 exception specifications 的使用限制于非用不可的地点，并且在真正异常的情况下才抛出 exceptions） 谨记 80-20 法则（软件的整体性能几乎总是由其构成要素（代码）的一小部分决定的，可使用程序分析器（program profiler）识别出消耗资源的代码） 考虑使用 lazy evaluation（缓式评估）（可应用于：Reference Counting（引用计数）来避免非必要的对象复制、区分 operator[] 的读和写动作来做不同的事情、Lazy Fetching（缓式取出）来避免非必要的数据库读取动作、Lazy Expression Evaluation（表达式缓评估）来避免非必要的数值计算动作） 分期摊还预期的计算成本（当你必须支持某些运算而其结构几乎总是被需要，或其结果常常被多次需要的时候，over-eager evaluation（超急评估）可以改善程序效率） Google C++ Style Guide 🔗 英文：Google C++ Style Guide 中文：C++ 风格指南 其他 🔗 Bjarne Stroustrup 的常见问题 Bjarne Stroustrup 的 C++ 风格和技巧常见问题 </description>
     </item>
     
     <item>
@@ -217,9 +226,9 @@ Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Tem
       
       <guid>/posts/cc&#43;&#43;base/</guid>
       <description>转载自https://github.com/huihut/interview
-const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  const 的指针与引用 🔗 指针  指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer）   引用  指向常量的引用（reference to const） 没有 const reference，因为引用只是对象的别名，引用不是对象，不能用 const 修饰     （为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 p2、p3
- 使用 🔗const 使用
-// 类 class A { private:  const int a; // 常对象成员，可以使用初始化列表或者类内初始化  public:  // 构造函数  A() : a(0) { };  A(int x) : a(x) { }; // 初始化列表   // const可用于对重载函数的区分  int getValue(); // 普通成员函数  int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 };  void function() {  // 对象  A b; // 普通对象，可以调用全部成员函数  const A a; // 常对象，只能调用常成员函数  const A *p = &amp;amp;a; // 指针变量，指向常对象  const A &amp;amp;q = a; // 指向常对象的引用   // 指针  char greeting[] = &amp;#34;Hello&amp;#34;;  char* p1 = greeting; // 指针变量，指向字符数组变量  const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）  char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）  const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 }  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗   宏定义 #define const 常量     宏定义，相当于字符替换 常量声明   预处理器处理 编译器处理   无类型安全检查 有类型安全检查   不分配内存 要分配内存   存储在代码段 存储在数据段   可通过 #undef 取消 不可取消    static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。  this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;amp;this）。 在以下场景中，经常需要显式引用 this 指针：  为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。    inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。  使用 🔗inline 使用</description>
+const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。 const 的指针与引用 🔗 指针 指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer） 引用 指向常量的引用（reference to const） 没有 const reference，因为引用只是对象的别名，引用不是对象，不能用 const 修饰 （为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 p2、p3
+使用 🔗const 使用
+// 类 class A { private: const int a; // 常对象成员，可以使用初始化列表或者类内初始化 public: // 构造函数 A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表 // const可用于对重载函数的区分 int getValue(); // 普通成员函数 int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象 A b; // 普通对象，可以调用全部成员函数 const A a; // 常对象，只能调用常成员函数 const A *p = &amp;amp;a; // 指针变量，指向常对象 const A &amp;amp;q = a; // 指向常对象的引用 // 指针 char greeting[] = &amp;#34;Hello&amp;#34;; char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗 宏定义 #define const 常量 宏定义，相当于字符替换 常量声明 预处理器处理 编译器处理 无类型安全检查 有类型安全检查 不分配内存 要分配内存 存储在代码段 存储在数据段 可通过 #undef 取消 不可取消 static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。 this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;amp;this）。 在以下场景中，经常需要显式引用 this 指针： 为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。 inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。 使用 🔗inline 使用</description>
     </item>
     
     <item>
@@ -230,15 +239,18 @@ const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰
       <guid>/posts/cprimer04/</guid>
       <description>转载自https://github.com/andycai/cprimer
 new和delete运算符用于动态分配和撤销内存的运算符
-(1) new用法 🔗 开辟单变量地址空间    new int; //开辟一个存放数组的存储空间,返回一个指向该存储空间的地址.int *a = new int 即为将一个int类型的地址赋值给整型指针a.
-  int *a = new int(5) 作用同上,但是同时将整数赋值为5
-   开辟数组空间
+(1) new用法 🔗 开辟单变量地址空间 new int; //开辟一个存放数组的存储空间,返回一个指向该存储空间的地址.int *a = new int 即为将一个int类型的地址赋值给整型指针a.
+int *a = new int(5) 作用同上,但是同时将整数赋值为5
+开辟数组空间
 一维:
- int *a = new int[100]; // 开辟一个大小为100的整型数组空间  二维:
- int **a = new int[5][6]  三维及其以上:依此类推
-  一般用法: new 类型 [初值]
-(2) delete用法 🔗  int *a = new int;
- delete a; //释放单个int的空间    int *a = new int[5];</description>
+int *a = new int[100]; // 开辟一个大小为100的整型数组空间二维:
+int **a = new int[5][6]三维及其以上:依此类推
+一般用法: new 类型 [初值]
+(2) delete用法 🔗 int *a = new int;
+delete a; //释放单个int的空间int *a = new int[5];
+delete [] a; //释放int数组空间要访问new所开辟的结构体空间,无法直接通过变量名进行,只能通过赋值的指针进行访问。
+用new和delete可以动态开辟，撤销地址空间。在编程序时,若用完一个变量(一般是暂时存储的数组)，下次需要再用，但却又想省去重新初始化的功夫，可以在每次开始使用时开辟一个空间，在用完后撤销它。
+导航 🔗 目录 上一章：Chapter 4 - uint8_t, uint16_t, uint32_t, uint64_t </description>
     </item>
     
     <item>
@@ -250,9 +262,9 @@ new和delete运算符用于动态分配和撤销内存的运算符
       <description>转载自https://github.com/andycai/cprimer
 3.1 char*, char[], string 🔗在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&amp;rsquo;\0&amp;rsquo;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
 C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是以后不能利用&amp;rdquo;=&amp;ldquo;对C字符串进行赋值。对C字符串的操作需要通过&amp;quot;string&amp;quot;文件中定义的字符串处理函数。例如：
-//字符串的初始化 char a[11] = &amp;quot;huanying&amp;quot;; //字符串的赋值 strcpy(a,&amp;quot;nihao&amp;quot;) //获取字符串的长度，不包括&#39;\0&#39;在内 strlen(a); printf(&amp;quot;%s&amp;quot;,a);  在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
+//字符串的初始化char a[11] = &amp;quot;huanying&amp;quot;;//字符串的赋值strcpy(a,&amp;quot;nihao&amp;quot;)//获取字符串的长度，不包括&#39;\0&#39;在内strlen(a);printf(&amp;quot;%s&amp;quot;,a);在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
 在C++中则把字符串封装成了一种数据类型string,可以直接声明变量并进行赋值等字符串操作。以下是C字符串和C++中string的区别：
- C字符串 string对象 所需的头文件名称 &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; 为什么需要头文件 为了使用字符串函数 为了使用string类 如何声明 char name[20]; string name; 如何初始化 char name[20]=&amp;quot;nihao&amp;quot;; string name = &amp;quot;nihao&amp;quot;; 必须声明字符串长度么？	是 否 使用一个null字符么？ 是 否 怎样实现字符串赋值 strcpy(name,&amp;quot;John&amp;quot;); name = &amp;quot;John&amp;quot;; 其他优点 更快 更易于使用，优选方案 可以赋一个比现有字符更 不能 可以 长的字符串么？  (1) C++常用字符串函数 🔗char s1[]=&amp;quot;I am a student&amp;quot;; char s2[20]=&amp;quot;teacher&amp;quot;; char s3[]=&amp;quot;student&amp;quot;; int result; char s4[20],*p;    串长度 int strlen(char *str)</description>
+C字符串 string对象所需的头文件名称 &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt;为什么需要头文件 为了使用字符串函数 为了使用string类如何声明 char name[20]; string name;如何初始化 char name[20]=&amp;quot;nihao&amp;quot;; string name = &amp;quot;nihao&amp;quot;;必须声明字符串长度么？	是 否使用一个null字符么？ 是 否怎样实现字符串赋值 strcpy(name,&amp;quot;John&amp;quot;); name = &amp;quot;John&amp;quot;;其他优点 更快 更易于使用，优选方案可以赋一个比现有字符更 不能 可以长的字符串么？ (1) C++常用字符串函数 🔗char s1[]=&amp;quot;I am a student&amp;quot;;char s2[20]=&amp;quot;teacher&amp;quot;;char s3[]=&amp;quot;student&amp;quot;;int result;char s4[20],*p;串长度 int strlen(char *str)</description>
     </item>
     
     <item>
@@ -263,10 +275,10 @@ C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是
       <guid>/posts/cprimer02/</guid>
       <description>转载自https://github.com/andycai/cprimer
 2.1 refrence 引用 🔗引用是C++中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。
-int m; int &amp;amp;n = m;  n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。
+int m; int &amp;amp;n = m;n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。
 引用的规则：
- 引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。 不能有NULL引用，引用必须与合法的存储单元关联（指针则可以是NULL）。 一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。  以下示例程序中，k 被初始化为 i 的引用。语句 k = j 并不能将 k 修改成为 j 的引用，只是把 k 的值改变成为6。由于 k 是 i 的引用，所以 i 的值也变成了6。
-int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6;  引用的主要功能是传递函数的参数和返回值。</description>
+引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。 不能有NULL引用，引用必须与合法的存储单元关联（指针则可以是NULL）。 一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。 以下示例程序中，k 被初始化为 i 的引用。语句 k = j 并不能将 k 修改成为 j 的引用，只是把 k 的值改变成为6。由于 k 是 i 的引用，所以 i 的值也变成了6。
+int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6; 引用的主要功能是传递函数的参数和返回值。</description>
     </item>
     
     <item>
@@ -277,10 +289,10 @@ int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6;  �
       <guid>/posts/cprimer01/</guid>
       <description>转载自https://github.com/andycai/cprimer
 1.1 const 🔗(1) const 基础 🔗如果const关键字不涉及到指针，我们很好理解，下面是涉及到指针的情况：
-int b = 500; const int* a = &amp;amp;b; [1] int const *a = &amp;amp;b; [2] int* const a = &amp;amp;b; [3] const int* const a = &amp;amp;b; [4]  如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
+int b = 500;const int* a = &amp;amp;b; [1]int const *a = &amp;amp;b; [2]int* const a = &amp;amp;b; [3]const int* const a = &amp;amp;b; [4]如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
 因此，[1]和[2]的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；[3]为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a++是错误的；[4]为指针本身和指向的内容均为常量。
-(2) 作为参数 🔗void display(const double&amp;amp; r); void display(const double* r);  说明:
- 在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义 保证引用的变量的值不被改变 const 在 double 前或者后面意思相同，只是不同的人的写法不同  (3) const对象 🔗声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。</description>
+(2) 作为参数 🔗void display(const double&amp;amp; r);void display(const double* r);说明:
+在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义 保证引用的变量的值不被改变 const 在 double 前或者后面意思相同，只是不同的人的写法不同 (3) const对象 🔗声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。</description>
     </item>
     
     <item>
@@ -289,20 +301,20 @@ int b = 500; const int* a = &amp;amp;b; [1] int const *a = &amp;amp;b; [2] int* 
       <pubDate>Wed, 15 Dec 2021 12:35:27 +0800</pubDate>
       
       <guid>/posts/cppbase/</guid>
-      <description>一、语法基础 🔗 指针和引用的概念 指针与内存关系 程序编译过程 static、const、#define的用法和区别 C和C++区别 内存模型 内存中的栈和堆分配  二、面对对象基础 🔗  面向对象理解
-  析构函数
-  构造函数
-  拷贝构造
-  多态
-  纯虚函数和虚函数
-  虚函数实现机制
-  虚函数表
-  访问限定符 public、private、protected
-  继承原理、虚继承、菱形继承
-  静态绑定和动态绑定
-  new/delete和malloc/free
-  重载、重写和隐藏
-  三、语法进阶 🔗 智能指针 左值、右值引用和move语义 类型转换方式 常用的设计模式 线程安全的单例模式 内存溢出和内存泄漏 C++11新特性 静态链接库和动态链接库  四、STL 标准模板库 🔗 迭代器、空间配置器理解 常用容器特点、用法以及底层实现vector、list、deque、set、map、unorderedmap  </description>
+      <description>一、语法基础 🔗 指针和引用的概念 指针与内存关系 程序编译过程 static、const、#define的用法和区别 C和C++区别 内存模型 内存中的栈和堆分配 二、面对对象基础 🔗 面向对象理解
+析构函数
+构造函数
+拷贝构造
+多态
+纯虚函数和虚函数
+虚函数实现机制
+虚函数表
+访问限定符 public、private、protected
+继承原理、虚继承、菱形继承
+静态绑定和动态绑定
+new/delete和malloc/free
+重载、重写和隐藏
+三、语法进阶 🔗 智能指针 左值、右值引用和move语义 类型转换方式 常用的设计模式 线程安全的单例模式 内存溢出和内存泄漏 C++11新特性 静态链接库和动态链接库 四、STL 标准模板库 🔗 迭代器、空间配置器理解 常用容器特点、用法以及底层实现vector、list、deque、set、map、unorderedmap </description>
     </item>
     
   </channel>

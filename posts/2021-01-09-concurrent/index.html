@@ -7,10 +7,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="一、使用线程 🔗有三种使用线程的方法：
- 实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类；  实现 Runnable 接口 🔗需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable {  @Override  public void run(){  // ...  } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
-public static void main(String[] args){  MyRunnable instance = new MyRunnable();  Thread thread = new Thread(instance);  thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。">
-<meta name="generator" content="Hugo 0.99.1" />
+实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类； 实现 Runnable 接口 🔗需要实现接口中的 run() 方法。
+public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+public static void main(String[] args){ MyRunnable instance = new MyRunnable(); Thread thread = new Thread(instance); thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。
+public class MyCallable implements Callable&lt;Integer&gt; { public Integer call(){ return 123; } } public static void main(String[] args) throws ExecutionException,InterruptedException { MyCallable mc = new MyCallble(); FutureTask&lt;Integer&gt; ft = new FutureTask&lt;&gt;(mc); Thread thread = new Thread(ft); thread.">
+<meta name="generator" content="Hugo 0.100.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
