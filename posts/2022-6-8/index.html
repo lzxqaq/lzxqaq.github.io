@@ -14,6 +14,7 @@
 IEEE 1685-2009标准定义了可用于表示系统级设计的IP-XACT文件格式，以及可用于此类系统级设计的构建块
 1.1.2 高级别 high-level 🔗系统的高级抽象（有时称为算法级）也通常使用传统编程语言表示，但使用的功能集较少。例如，当用C表示高级抽象的设计时，指针只能用来模拟硬件中的概念，例如内存接口。不允许全功能动态内存管理，因为它在数字电路中没有相应的概念。
 现有的工具可以将高级代码（通常以C/C&#43;&#43;/SystemC代码的形式以及额外的元数据）合成为行为HDL代码（通常以Verilog或VHDL代码的形式）。除了许多用于高级合成的商业工具外，还有许多用于高级合成的自由／开源软件工具。
+<<<<<<< HEAD
 1.1.3 行为级别 Behavioural Level 🔗在行为抽象层，针对硬件描述的语言（如Verilog或VHDL）用于描述电路，但所谓的行为建模至少用于电路描述的一部分。在行为建模中，必须有一种语言功能，允许使用命令式编程来描述数据路径和寄存器。这是Verilog中的always块和VHDL中的process块。 在行为建模中，代码片段与敏感度列表一起提供；信号和条件列表。在模拟中，每当灵敏度列表中的信号改变其值或触发灵敏度列表中的条件时，就会执行代码片段。合成工具必须能够将此表示转换为适当的数据路径，然后再转换为适当类型的寄存器。 例如，考虑以下 Verilog 代码片段：
 always @(posedge clk) y &lt;= a &#43; b; 在模拟中，只要检测到信号 clk 上的正边缘，就执行语句 y&lt;=a&#43;b。然而，合成结果将包含一个始终计算和 a&#43;b 的加法器，然后是一个d型触发器，加法器输出在其d输入端，信号y输出在其Q输出端。
 通常，行为建模中使用的命令式代码片段可以包含条件执行语句（Verilog中的if和case语句）以及循环，只要这些循环可以完全展开。
@@ -21,6 +22,15 @@ always @(posedge clk) y &lt;= a &#43; b; 在模拟中，只要检测到信号 cl
 1.1.4 寄存器传输级别 Register-Transfer Level (RTL) 🔗在寄存器传输级别，设计由组合数据路径和寄存器（通常为 d型触发器）。下面的Verilog代码片段与前面的Verilog示例等效，但是 采用RTL表示：
 assign tmp = a &#43; b;	// combinatorial data path always @(posedge clk)	// register y &lt;= tmp;	RTL表示的设计通常使用Verilog和VHDL等HDL存储。但只使用了非常有限的功能子集，即对所用寄存器类型进行建模的最小始终块（Verilog）或进程块（VHDL）以及数据路径逻辑的无条件赋值。在这一级别上使用HDL简化了模拟，因为在RTL表示中模拟设计不需要其他工具。">
 <meta name="generator" content="Hugo 0.100.1" />
+=======
+1.1.3 行为级别 Behavioural Level 🔗在行为抽象层，针对硬件描述的语言（如Verilog或VHDL）用于描述电路，但所谓的行为建模至少用于电路描述的一部分。在行为建模中，必须有一种语言功能，允许使用命令式编程来描述数据路径和寄存器。这是Verilog中的always块和VHDL中的process块。 在行为建模中，代码片段与敏感度列表一起提供；信号和条件列表。在模拟中，每当灵敏度列表中的信号改变其值或触发灵敏度列表中的条件时，就会执行代码片段。合成工具必须能够将此表示转换为适当的数据路径，然后再转换为适当类型的寄存器。 例如，考虑以下Verilog代码片段：
+ always @(posedge clk) 	y &lt;= a &#43; b; 在模拟中，只要检测到信号 clk 上的正边缘，就执行语句 y&lt;=a&#43;b。然而，合成结果将包含一个始终计算和a&#43;b的加法器，然后是一个d型触发器，加法器输出在其d输入端，信号y输出在其Q输出端。
+通常，行为建模中使用的命令式代码片段可以包含条件执行语句（Verilog中的if和case语句）以及循环，只要这些循环可以完全展开。
+有趣的是，除了Yosys之外，似乎没有其他FOSS工具能够执行Verilog或VHDL行为合成.
+1.1.4 寄存器传输级别 Register-Transfer Level (RTL) 🔗在寄存器传输级别，设计由组合数据路径和寄存器（通常为 d型触发器）。下面的Verilog代码片段与前面的Verilog示例等效，但是 采用RTL表示：
+assign tmp = a &#43; b;	// combinatorial data path 	always @(posedge clk)	// register y &lt;= tmp;	RTL表示的设计通常使用Verilog和VHDL等HDL存储。但只使用了非常有限的功能子集，即对所用寄存器类型进行建模的最小始终块（Verilog）或进程块（VHDL）以及数据路径逻辑的无条件赋值。在这一级别上使用HDL简化了模拟，因为在RTL表示中模拟设计不需要其他工具。">
+<meta name="generator" content="Hugo 0.99.1" />
+>>>>>>> 15b78642b7bdb96f153669b3c3ea6cd09e17a7be
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -92,7 +102,11 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
+<<<<<<< HEAD
           832字
+=======
+          827字
+>>>>>>> 15b78642b7bdb96f153669b3c3ea6cd09e17a7be
         </span>
         <span class="split">
           ·
@@ -179,10 +193,17 @@ if (!doNotTrack) {
 <p>现有的工具可以将高级代码（通常以C/C++/SystemC代码的形式以及额外的元数据）合成为行为HDL代码（通常以Verilog或VHDL代码的形式）。除了许多用于高级合成的商业工具外，还有许多用于高级合成的自由／开源软件工具。</p>
 <h3 id="113-行为级别-behavioural-level">1.1.3 行为级别 Behavioural Level <a href="#113-%e8%a1%8c%e4%b8%ba%e7%ba%a7%e5%88%ab-behavioural-level" class="anchor">🔗</a></h3><p>在行为抽象层，针对硬件描述的语言（如Verilog或VHDL）用于描述电路，但所谓的行为建模至少用于电路描述的一部分。在行为建模中，必须有一种语言功能，允许使用命令式编程来描述数据路径和寄存器。这是Verilog中的always块和VHDL中的process块。
 在行为建模中，代码片段与敏感度列表一起提供；信号和条件列表。在模拟中，每当灵敏度列表中的信号改变其值或触发灵敏度列表中的条件时，就会执行代码片段。合成工具必须能够将此表示转换为适当的数据路径，然后再转换为适当类型的寄存器。
+<<<<<<< HEAD
 例如，考虑以下 Verilog 代码片段：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    always @(posedge clk)
 </span></span><span style="display:flex;"><span>	        y &lt;= a + b;
 </span></span></code></pre></div><p>在模拟中，只要检测到信号 clk 上的正边缘，就执行语句 y&lt;=a+b。然而，合成结果将包含一个始终计算和 a+b 的加法器，然后是一个d型触发器，加法器输出在其d输入端，信号y输出在其Q输出端。</p>
+=======
+例如，考虑以下Verilog代码片段：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    always @(posedge clk)
+</span></span><span style="display:flex;"><span>	        y &lt;= a + b;
+</span></span></code></pre></div><p>在模拟中，只要检测到信号 clk 上的正边缘，就执行语句 y&lt;=a+b。然而，合成结果将包含一个始终计算和a+b的加法器，然后是一个d型触发器，加法器输出在其d输入端，信号y输出在其Q输出端。</p>
+>>>>>>> 15b78642b7bdb96f153669b3c3ea6cd09e17a7be
 <p>通常，行为建模中使用的命令式代码片段可以包含条件执行语句（Verilog中的if和case语句）以及循环，只要这些循环可以完全展开。</p>
 <p>有趣的是，除了Yosys之外，似乎没有其他FOSS工具能够执行Verilog或VHDL行为合成.</p>
 <h3 id="114-寄存器传输级别-register-transfer-level-rtl">1.1.4 寄存器传输级别 Register-Transfer Level (RTL) <a href="#114-%e5%af%84%e5%ad%98%e5%99%a8%e4%bc%a0%e8%be%93%e7%ba%a7%e5%88%ab-register-transfer-level-rtl" class="anchor">🔗</a></h3><p>在寄存器传输级别，设计由组合数据路径和寄存器（通常为
@@ -585,7 +606,11 @@ Yosys是用C++编写的（使用新的C++11标准的一些特性）。本章介�
 <h3 id="33-命令界面和合成脚本">3.3 命令界面和合成脚本 <a href="#33-%e5%91%bd%e4%bb%a4%e7%95%8c%e9%9d%a2%e5%92%8c%e5%90%88%e6%88%90%e8%84%9a%e6%9c%ac" class="anchor">🔗</a></h3><p>Yosys从合成脚本、命令行参数和交互式命令提示符中读取和处理命令。Yosys命令由命令名和可选的空格分隔的参数列表组成。命令使用换行符或分号（；）终止。将忽略空行和以哈希符号（#）开头的行。参见第。3.3示例合成脚本。</p>
 <p>命令帮助可用于访问命令参考手册。</p>
 <p>大多数命令不仅可以对整个设计进行操作，还可以对设计的选定部分进行操作。例如，dump命令将打印当前设计中的所有选定对象，而dump foobar将仅打印模块foobar，dump*将打印整个设计，而不管当前选择如何。</p>
+<<<<<<< HEAD
 <p>选择机制非常强大。例如，命令 dump*/t:$add%x:+[A]*/w:%i将打印连接到$add单元格的\A端口的所有导线。select框架的详细文档可以在select命令的命令参考中找到。</p>
+=======
+<p>选择机制非常强大。例如，命令dump*/t:$add%x:+[A]*/w:%i将打印连接到$add单元格的\A端口的所有导线。select框架的详细文档可以在select命令的命令参考中找到。</p>
+>>>>>>> 15b78642b7bdb96f153669b3c3ea6cd09e17a7be
 <h3 id="34-源树和构建系统">3.4 源树和构建系统 <a href="#34-%e6%ba%90%e6%a0%91%e5%92%8c%e6%9e%84%e5%bb%ba%e7%b3%bb%e7%bb%9f" class="anchor">🔗</a></h3><p>Yosys源代码树被组织到以下顶级目录中：</p>
 <ul>
 <li>backends/

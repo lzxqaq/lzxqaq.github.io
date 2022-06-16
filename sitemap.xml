@@ -3,10 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2022-05-20T14:02:06+08:00</lastmod>
+    <lastmod>2022-06-12T22:35:54+08:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2022-05-20T14:02:06+08:00</lastmod>
+    <lastmod>2022-06-12T22:35:54+08:00</lastmod>
+  </url><url>
+    <loc>/posts/2022-6-12/</loc>
+    <lastmod>2022-06-12T22:35:54+08:00</lastmod>
+  </url><url>
+    <loc>/posts/2022-6-8-verilog/</loc>
+    <lastmod>2022-06-08T22:35:54+08:00</lastmod>
+  </url><url>
+    <loc>/posts/2022-6-7-math/</loc>
+    <lastmod>2022-06-07T22:35:54+08:00</lastmod>
   </url><url>
     <loc>/posts/2022-5-20/</loc>
     <lastmod>2022-05-20T14:02:06+08:00</lastmod>
@@ -166,6 +175,9 @@
   </url><url>
     <loc>/posts/c&#43;&#43;stl/</loc>
     <lastmod>2022-01-14T20:23:31+08:00</lastmod>
+  </url><url>
+    <loc>/posts/effectivec&#43;&#43;/</loc>
+    <lastmod>2022-01-14T20:16:02+08:00</lastmod>
   </url><url>
     <loc>/posts/effectivec&#43;&#43;/</loc>
     <lastmod>2022-01-14T20:16:02+08:00</lastmod>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>数字电路基础之数学逻辑 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="参考自《电子技术基础.数字部分》。
+1. 数字集成电路 🔗电子电路按功能分为模拟电路和数字电路。根据电路的结构特点及其对输入信号相应规则的不同，数字电路可分为组合逻辑电路和时序逻辑电路。数字电路中的电子器件，例如二极管、三极管处于开关状态，时而导通，时而截止，构成电子开关。这些电子开关是组成逻辑门电路的基本器件。逻辑门电路又是数字电路的基本单元。如果将这些门电路集成在一片半导体芯片上就构成了数字集成电路。
+数字电路在集成度方面的发展：专用集成电路（ASIC）制作技术。ASIC是将一个复杂的数字系统制作在一块半导体芯片上，构成系统级芯片（Soc）。用户通过软件编程，将自己设计的数字系统制作在厂家厂家生产的可编程逻辑器件（PLD）半成品芯片上，便得到所需的系统级芯片。
+在材料上的发展：由晶体管-晶体管逻辑门电路（TTL）发展到金属-氧化物-半导体（MOCS）工艺、互补型金属氧化物半导体（CMOS）工艺。
+1.1 数字电路的分析方法 🔗数字电路处理的是数字信号，主要研究的对象是电路的输出与输入之间的逻辑关系，所采用的分析工具是逻辑代数，表达电路输出与输入的关系主要用真值表、功能表、逻辑表达式或波形图。
+借助计算机仿真软件，对电路进行分析，不仅可以进行电路进行电路的功能仿真，显示逻辑仿真的波形结果，以检查逻辑错误，而且可以考虑器件以连线的延迟时间，进行时序仿真，检测电路中存在的冒险竞争、时序错误等问题。
+1.2 数字电路的设计方法 🔗数字电路的设计是从给定的逻辑功能要求出发，确定输入、输出变量，选择适当的逻辑器件，设计出符合要求的逻辑电路。设计过程一般有方案的提出、验证和修改三个阶段。
+借助 EDA 软件可以快速准确地完成电路的设计，设计者提出方案后，利用计算机 EDA 软件进行逻辑分析、性能分析、时序测试，如果发现错误或者方案不理想，可以重复上述过程直至得到满意的电路。
+1.3 数字电路的测试技术 🔗数字电路在正确设计和安装后，必须经过严格的测试方可使用。
+1.4 模拟信号和数字信号 🔗模拟信号：在时间上连续变化，幅值也是连续取值。
+数字信号：时间离散，数值也离散。
+1.5 二值数字逻辑和逻辑电平 🔗在电路中，用电子器件的开关来实现二值数字逻辑，也就是以高、低电平分别表示逻辑 1 和 0 两种状态。数字电压的高、低电平通常称为逻辑电平。
+1.5 数字波形 🔗数字波形是逻辑电平对时间的图形表示。
+1.6 数制 🔗在 verilog 中数字声明时，合法的基数格式有 4 中，包括：十进制(&rsquo;d 或 &lsquo;D)，十六进制(&lsquo;h 或 &lsquo;H)，二进制（&lsquo;b 或 &lsquo;B），八进制（&lsquo;o 或 &lsquo;O）。
+1.7 基本逻辑运算 🔗与运算：只有当一件事的几个条件全部具备之后，这件事情才发生。
+或运算：当一件事情的几个条件中只要有一个条件得到满足，这件事就会发生。
+非运算：一件事情的发生是以其相反的条件作为依据。
+与非运算：与运算和非运算结合在一起。
+或非运算：由或运算和非运算组合在一起。
+异或运算：当两个输入信号相同时，输出为0；当两个输入信号不同时，输出为1。
+同或运算：与异或相反，当两个输入信号相同时，输出为1；当两个输入信号不同时，输出为0。
+1.8 电路图、真值表、逻辑表达式、逻辑图和波形图 🔗电路图和真值表：
+逻辑表达式：
+逻辑图：
+波形图：
+1.9 逻辑代数的基本定律和恒等式 🔗">
+<meta name="generator" content="Hugo 0.100.1" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">数字电路基础之数学逻辑</h1>
+
+    <div class="tip">
+        <time datetime="2022-06-07 22:35:54 &#43;0800 CST">2022年06月07日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          68字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>目录
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-数字电路的分析方法">1.1 数字电路的分析方法</a></li>
+    <li><a href="#12-数字电路的设计方法">1.2 数字电路的设计方法</a></li>
+    <li><a href="#13-数字电路的测试技术">1.3 数字电路的测试技术</a></li>
+    <li><a href="#14-模拟信号和数字信号">1.4 模拟信号和数字信号</a></li>
+    <li><a href="#15-二值数字逻辑和逻辑电平">1.5 二值数字逻辑和逻辑电平</a></li>
+    <li><a href="#15-数字波形">1.5 数字波形</a></li>
+    <li><a href="#16-数制">1.6 数制</a></li>
+    <li><a href="#17-基本逻辑运算">1.7 基本逻辑运算</a></li>
+    <li><a href="#18-电路图真值表逻辑表达式逻辑图和波形图">1.8 电路图、真值表、逻辑表达式、逻辑图和波形图</a></li>
+    <li><a href="#19-逻辑代数的基本定律和恒等式">1.9 逻辑代数的基本定律和恒等式</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <p>参考自《电子技术基础.数字部分》。</p>
+<h1 id="1-数字集成电路">1. 数字集成电路 <a href="#1-%e6%95%b0%e5%ad%97%e9%9b%86%e6%88%90%e7%94%b5%e8%b7%af" class="anchor">🔗</a></h1><p>电子电路按功能分为模拟电路和数字电路。根据电路的结构特点及其对输入信号相应规则的不同，数字电路可分为组合逻辑电路和时序逻辑电路。数字电路中的电子器件，例如二极管、三极管处于开关状态，时而导通，时而截止，构成电子开关。这些电子开关是组成逻辑门电路的基本器件。逻辑门电路又是数字电路的基本单元。如果将这些门电路集成在一片半导体芯片上就构成了数字集成电路。</p>
+<p>数字电路在集成度方面的发展：专用集成电路（ASIC）制作技术。ASIC是将一个复杂的数字系统制作在一块半导体芯片上，构成系统级芯片（Soc）。用户通过软件编程，将自己设计的数字系统制作在厂家厂家生产的可编程逻辑器件（PLD）半成品芯片上，便得到所需的系统级芯片。</p>
+<p>在材料上的发展：由晶体管-晶体管逻辑门电路（TTL）发展到金属-氧化物-半导体（MOCS）工艺、互补型金属氧化物半导体（CMOS）工艺。</p>
+<h2 id="11-数字电路的分析方法">1.1 数字电路的分析方法 <a href="#11-%e6%95%b0%e5%ad%97%e7%94%b5%e8%b7%af%e7%9a%84%e5%88%86%e6%9e%90%e6%96%b9%e6%b3%95" class="anchor">🔗</a></h2><p>数字电路处理的是数字信号，主要研究的对象是电路的输出与输入之间的逻辑关系，所采用的分析工具是逻辑代数，表达电路输出与输入的关系主要用真值表、功能表、逻辑表达式或波形图。</p>
+<p>借助计算机仿真软件，对电路进行分析，不仅可以进行电路进行电路的功能仿真，显示逻辑仿真的波形结果，以检查逻辑错误，而且可以考虑器件以连线的延迟时间，进行时序仿真，检测电路中存在的冒险竞争、时序错误等问题。</p>
+<h2 id="12-数字电路的设计方法">1.2 数字电路的设计方法 <a href="#12-%e6%95%b0%e5%ad%97%e7%94%b5%e8%b7%af%e7%9a%84%e8%ae%be%e8%ae%a1%e6%96%b9%e6%b3%95" class="anchor">🔗</a></h2><p>数字电路的设计是从给定的逻辑功能要求出发，确定输入、输出变量，选择适当的逻辑器件，设计出符合要求的逻辑电路。设计过程一般有方案的提出、验证和修改三个阶段。</p>
+<p>借助 EDA 软件可以快速准确地完成电路的设计，设计者提出方案后，利用计算机 EDA 软件进行逻辑分析、性能分析、时序测试，如果发现错误或者方案不理想，可以重复上述过程直至得到满意的电路。</p>
+<h2 id="13-数字电路的测试技术">1.3 数字电路的测试技术 <a href="#13-%e6%95%b0%e5%ad%97%e7%94%b5%e8%b7%af%e7%9a%84%e6%b5%8b%e8%af%95%e6%8a%80%e6%9c%af" class="anchor">🔗</a></h2><p>数字电路在正确设计和安装后，必须经过严格的测试方可使用。</p>
+<h2 id="14-模拟信号和数字信号">1.4 模拟信号和数字信号 <a href="#14-%e6%a8%a1%e6%8b%9f%e4%bf%a1%e5%8f%b7%e5%92%8c%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7" class="anchor">🔗</a></h2><p>模拟信号：在时间上连续变化，幅值也是连续取值。</p>
+<p>数字信号：时间离散，数值也离散。</p>
+<h2 id="15-二值数字逻辑和逻辑电平">1.5 二值数字逻辑和逻辑电平 <a href="#15-%e4%ba%8c%e5%80%bc%e6%95%b0%e5%ad%97%e9%80%bb%e8%be%91%e5%92%8c%e9%80%bb%e8%be%91%e7%94%b5%e5%b9%b3" class="anchor">🔗</a></h2><p>在电路中，用电子器件的开关来实现二值数字逻辑，也就是以高、低电平分别表示逻辑 1 和 0 两种状态。数字电压的高、低电平通常称为逻辑电平。</p>
+<h2 id="15-数字波形">1.5 数字波形 <a href="#15-%e6%95%b0%e5%ad%97%e6%b3%a2%e5%bd%a2" class="anchor">🔗</a></h2><p>数字波形是逻辑电平对时间的图形表示。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/wave.png" alt="img"  />
+</p></p>
+<h2 id="16-数制">1.6 数制 <a href="#16-%e6%95%b0%e5%88%b6" class="anchor">🔗</a></h2><p>在 verilog 中数字声明时，合法的基数格式有 4 中，包括：十进制(&rsquo;d 或 &lsquo;D)，十六进制(&lsquo;h 或 &lsquo;H)，二进制（&lsquo;b 或 &lsquo;B），八进制（&lsquo;o 或 &lsquo;O）。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/number.png" alt="img"  />
+</p></p>
+<h2 id="17-基本逻辑运算">1.7 基本逻辑运算 <a href="#17-%e5%9f%ba%e6%9c%ac%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97" class="anchor">🔗</a></h2><p>与运算：只有当一件事的几个条件全部具备之后，这件事情才发生。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/and.png" alt="img"  />
+</p></p>
+<p>或运算：当一件事情的几个条件中只要有一个条件得到满足，这件事就会发生。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/or.png" alt="img"  />
+</p></p>
+<p>非运算：一件事情的发生是以其相反的条件作为依据。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/no.png" alt="img"  />
+</p></p>
+<p>与非运算：与运算和非运算结合在一起。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/andno.png" alt="img"  />
+</p></p>
+<p>或非运算：由或运算和非运算组合在一起。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/orno.png" alt="img"  />
+</p></p>
+<p>异或运算：当两个输入信号相同时，输出为0；当两个输入信号不同时，输出为1。</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/a&#43;b.png" alt="img"  />
+</p></p>
+<p>同或运算：与异或相反，当两个输入信号相同时，输出为1；当两个输入信号不同时，输出为0。</p>
+<h2 id="18-电路图真值表逻辑表达式逻辑图和波形图">1.8 电路图、真值表、逻辑表达式、逻辑图和波形图 <a href="#18-%e7%94%b5%e8%b7%af%e5%9b%be%e7%9c%9f%e5%80%bc%e8%a1%a8%e9%80%bb%e8%be%91%e8%a1%a8%e8%be%be%e5%bc%8f%e9%80%bb%e8%be%91%e5%9b%be%e5%92%8c%e6%b3%a2%e5%bd%a2%e5%9b%be" class="anchor">🔗</a></h2><p>电路图和真值表：</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/1_6_1.png" alt="img"  />
+</p></p>
+<p>逻辑表达式：</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/1_6_2.png" alt="img"  />
+</p></p>
+<p>逻辑图：</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/1_6_3.png" alt="img"  />
+</p></p>
+<p>波形图：</p>
+<p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/1_6_4.png" alt="img"  />
+</p></p>
+<h2 id="19-逻辑代数的基本定律和恒等式">1.9 逻辑代数的基本定律和恒等式 <a href="#19-%e9%80%bb%e8%be%91%e4%bb%a3%e6%95%b0%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%ae%9a%e5%be%8b%e5%92%8c%e6%81%92%e7%ad%89%e5%bc%8f" class="anchor">🔗</a></h2><p><p class="markdown-image">
+  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-7/2.png" alt="img"  />
+</p></p>
+
+    </div>
+
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>
