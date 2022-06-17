@@ -39,13 +39,25 @@
     </item>
     
     <item>
+      <title>数字电路基础之组合逻辑电路和时序逻辑电路</title>
+      <link>/posts/2022-6-9/</link>
+      <pubDate>Thu, 09 Jun 2022 11:32:25 +0800</pubDate>
+      
+      <guid>/posts/2022-6-9/</guid>
+      <description>前言 🔗数字系统中常用的各种数字部件，就其结构和工作原理而言可分为两大类，即组合逻辑电路和时序逻辑电路。
+1. 组合逻辑电路 🔗1.1 概念 🔗对于一个逻辑电路，其输出状态在任何时刻只取决于同一时刻的输入状态，而与电路原本的状态无关，这张电路被定义为组合逻辑电路。
+特点：
+输出、输入之间没有反馈延迟通路； 电路中不含具有记忆功能的元件。 </description>
+    </item>
+    
+    <item>
       <title>数字电路基础之 Verilog HDL</title>
       <link>/posts/2022-6-8-verilog/</link>
       <pubDate>Wed, 08 Jun 2022 22:35:54 +0800</pubDate>
       
       <guid>/posts/2022-6-8-verilog/</guid>
       <description>参考资料：
-《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 菜鸟教程： Verilog 教程https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216 1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
+《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 语法学习：菜鸟教程 https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216 1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
 计算机对 HDL 的处理包括两个方面：逻辑仿真和逻辑综合。
 逻辑仿真：用计算机仿真软件对数字逻辑电路的结构和行为进行预测，仿真器对 HDL 描述进行解释，以文本形式或时序波形图形式给出电路的输出。在电路被实现之前，设计人员对仿真结果可以初步判断电路的逻辑功能是否正确。
 逻辑综合：从 HDL 描述的数字逻辑电路模型中导出电路基本元件列表以及元件之间的连接关系（常称为门级网表）的过程。它类似于高级程序设计语言中对一个程序进行编译，得到目标代码的过程。所不同的是，逻辑综合不会产生目标代码，而是产生门级元件及其连接关系的数据库，根据这个数据库可以制作出集成电路或印制电路板（PCB）。

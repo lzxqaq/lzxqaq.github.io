@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="参考资料：
-《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 菜鸟教程： Verilog 教程https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216 1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
+《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 语法学习：菜鸟教程 https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216 1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
 计算机对 HDL 的处理包括两个方面：逻辑仿真和逻辑综合。
 逻辑仿真：用计算机仿真软件对数字逻辑电路的结构和行为进行预测，仿真器对 HDL 描述进行解释，以文本形式或时序波形图形式给出电路的输出。在电路被实现之前，设计人员对仿真结果可以初步判断电路的逻辑功能是否正确。
 逻辑综合：从 HDL 描述的数字逻辑电路模型中导出电路基本元件列表以及元件之间的连接关系（常称为门级网表）的过程。它类似于高级程序设计语言中对一个程序进行编译，得到目标代码的过程。所不同的是，逻辑综合不会产生目标代码，而是产生门级元件及其连接关系的数据库，根据这个数据库可以制作出集成电路或印制电路板（PCB）。
@@ -90,13 +90,13 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          186字
+          395字
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          1分钟
+          2分钟
         </span>
     </div>
 
@@ -133,6 +133,16 @@ if (!doNotTrack) {
       </ul>
     </li>
     <li><a href="#23-编译指令">2.3 编译指令</a></li>
+    <li><a href="#24-连续赋值">2.4 连续赋值</a></li>
+    <li><a href="#25-时延">2.5 时延</a></li>
+    <li><a href="#26-过程结构">2.6 过程结构</a></li>
+    <li><a href="#27-阻塞赋值非阻塞赋值">2.7 阻塞赋值、非阻塞赋值</a></li>
+    <li><a href="#28-时序控制">2.8 时序控制</a>
+      <ul>
+        <li><a href="#281-边沿触发事件控制">2.8.1 边沿触发事件控制</a></li>
+        <li><a href="#281-电平敏感事件控制">2.8.1 电平敏感事件控制</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
           </div>
@@ -149,7 +159,7 @@ if (!doNotTrack) {
 <ol>
 <li>《电子设计基础.数字部分》</li>
 <li>《VerilogHDL程序设计与实践》</li>
-<li>菜鸟教程： Verilog 教程<a href="https://www.runoob.com/w3cnote/verilog-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/verilog-tutorial.html</a></li>
+<li>语法学习：菜鸟教程 <a href="https://www.runoob.com/w3cnote/verilog-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/verilog-tutorial.html</a></li>
 <li>在线练习：<a href="https://hdlbits.01xz.net/wiki/Wire" target="_blank" rel="noopener">https://hdlbits.01xz.net/wiki/Wire</a>；题解：<a href="https://zhuanlan.zhihu.com/c_1131528588117385216" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/c_1131528588117385216</a></li>
 </ol>
 <h1 id="1-硬件描述语言-hdl">1. 硬件描述语言 HDL <a href="#1-%e7%a1%ac%e4%bb%b6%e6%8f%8f%e8%bf%b0%e8%af%ad%e8%a8%80-hdl" class="anchor">🔗</a></h1><p>硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。</p>
@@ -197,7 +207,79 @@ if (!doNotTrack) {
 </span></span></code></pre></div><p>对于上面的向量，我们可以指定某一位或若干相邻位，作为其他逻辑使用。例如：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>wire [9:0]     data_low = data[0:9] ;
 </span></span><span style="display:flex;"><span>addr_temp[3:2] = addr[8:7] + 1&#39;b1 ;
-</span></span></code></pre></div><h2 id="23-编译指令">2.3 编译指令 <a href="#23-%e7%bc%96%e8%af%91%e6%8c%87%e4%bb%a4" class="anchor">🔗</a></h2>
+</span></span></code></pre></div><h2 id="23-编译指令">2.3 编译指令 <a href="#23-%e7%bc%96%e8%af%91%e6%8c%87%e4%bb%a4" class="anchor">🔗</a></h2><ul>
+<li>`define 宏定义， `undef 取消宏定义</li>
+<li>`include ：将另一个 Verilog 文件内嵌进来</li>
+<li>`timescale ： `timescale 编译指令将时间单位与实际时间相关联。例如</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>`timescale 1ns/100ps    //时间单位为1ns，精度为100ps，合法
+</span></span><span style="display:flex;"><span>//`timescale 100ps/1ns  //不合法
+</span></span></code></pre></div><h2 id="24-连续赋值">2.4 连续赋值 <a href="#24-%e8%bf%9e%e7%bb%ad%e8%b5%8b%e5%80%bc" class="anchor">🔗</a></h2><p>assign 全加器，用于对 wire 型变量进行赋值。
+例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>wire      Cout, A, B ;
+</span></span><span style="display:flex;"><span>assign    Cout  = A &amp; B ;     //实现计算A与B的功能
+</span></span></code></pre></div><ul>
+<li>左侧必须是一个标量或者线型向量，而不能是寄存器类型。</li>
+<li>右侧的类型没有要求，可以是标量或线型或存器向量，也可以是函数调用。</li>
+<li>只要 右侧 表达式的操作数有事件发生（值的变化）时，右侧 就会立刻重新计算，同时赋值给 左侧。</li>
+</ul>
+<h2 id="25-时延">2.5 时延 <a href="#25-%e6%97%b6%e5%bb%b6" class="anchor">🔗</a></h2><p>连续赋值延时语句中的延时，用于控制任意操作数发生变化到语句左端赋予新值之间的时间延时。</p>
+<p>时延一般是不可综合的。
+例如</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//普通时延，A&amp;B计算结果延时10个时间单位赋值给Z
+</span></span><span style="display:flex;"><span>wire Z, A, B ;
+</span></span><span style="display:flex;"><span>assign #10    Z = A &amp; B ;
+</span></span></code></pre></div><h2 id="26-过程结构">2.6 过程结构 <a href="#26-%e8%bf%87%e7%a8%8b%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h2><p>一个模块中可以包含多个 initial 和 always 语句，但 2 种语句不能嵌套使用。这些语句在模块间并行执行，与其在模块的前后顺序没有关系。但是 initial 语句或 always 语句内部可以理解为是顺序执行的（非阻塞赋值除外）。每个 initial 语句或 always 语句都会产生一个独立的控制流，执行时间都是从 0 时刻开始。</p>
+<ul>
+<li>
+<p>initial语句：initial 语句从 0 时刻开始执行，只执行一次；initial 理论上来讲是不可综合的，多用于初始化、信号检测等。</p>
+</li>
+<li>
+<p>always 语句：与 initial 语句相反，always 语句是重复执行的。always 语句块从 0 时刻开始执行其中的行为语句；当执行完最后一条语句后，便再次执行语句块中的第一条语句，如此循环反复。由于循环执行的特点，always 语句多用于仿真时钟的产生，信号行为的检测等。</p>
+</li>
+</ul>
+<h2 id="27-阻塞赋值非阻塞赋值">2.7 阻塞赋值、非阻塞赋值 <a href="#27-%e9%98%bb%e5%a1%9e%e8%b5%8b%e5%80%bc%e9%9d%9e%e9%98%bb%e5%a1%9e%e8%b5%8b%e5%80%bc" class="anchor">🔗</a></h2><ul>
+<li>阻塞赋值：顺序执行，即下一条语句执行前，当前语句一定会执行完毕。 =</li>
+<li>并行执行语句，即下一条语句的执行和当前语句的执行是同时进行的，它不会阻塞位于同一个语句块中后面语句的执行。&lt;=</li>
+</ul>
+<h2 id="28-时序控制">2.8 时序控制 <a href="#28-%e6%97%b6%e5%ba%8f%e6%8e%a7%e5%88%b6" class="anchor">🔗</a></h2><h3 id="281-边沿触发事件控制">2.8.1 边沿触发事件控制 <a href="#281-%e8%be%b9%e6%b2%bf%e8%a7%a6%e5%8f%91%e4%ba%8b%e4%bb%b6%e6%8e%a7%e5%88%b6" class="anchor">🔗</a></h3><p>在 Verilog 中，事件是指某一个 reg 或 wire 型变量发生了值的变化。</p>
+<h4 id="一般事件控制">一般事件控制 <a href="#%e4%b8%80%e8%88%ac%e4%ba%8b%e4%bb%b6%e6%8e%a7%e5%88%b6" class="anchor">🔗</a></h4><ul>
+<li>posedge 指信号发生边沿正向跳变</li>
+<li>negedge 指信号发生负向边沿跳变</li>
+</ul>
+<h4 id="命名事件控制">命名事件控制 <a href="#%e5%91%bd%e5%90%8d%e4%ba%8b%e4%bb%b6%e6%8e%a7%e5%88%b6" class="anchor">🔗</a></h4><p>触发信号用 -&gt; 表示。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>实例
+</span></span><span style="display:flex;"><span>event     start_receiving ;
+</span></span><span style="display:flex;"><span>always @( posedge clk_samp) begin
+</span></span><span style="display:flex;"><span>        -&gt; start_receiving ;       //采样时钟上升沿作为时间触发时刻
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>always @(start_receiving) begin
+</span></span><span style="display:flex;"><span>    data_buf = {data_if[0], data_if[1]} ; //触发时刻，对多维数据整合
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><h4 id="敏感列表">敏感列表 <a href="#%e6%95%8f%e6%84%9f%e5%88%97%e8%a1%a8" class="anchor">🔗</a></h4><p>关键字 or 连接多个事件或信号。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//带有低有效复位端的D触发器模型
+</span></span><span style="display:flex;"><span>always @(posedge clk or negedge rstn)    begin      
+</span></span><span style="display:flex;"><span>//always @(posedge clk , negedge rstn)    begin      
+</span></span><span style="display:flex;"><span>//也可以使用逗号陈列多个事件触发
+</span></span><span style="display:flex;"><span>    if（! rstn）begin
+</span></span><span style="display:flex;"><span>        q &lt;= 1&#39;b ;      
+</span></span><span style="display:flex;"><span>    end
+</span></span><span style="display:flex;"><span>    else begin
+</span></span><span style="display:flex;"><span>        q &lt;= d ;
+</span></span><span style="display:flex;"><span>    end
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><h3 id="281-电平敏感事件控制">2.8.1 电平敏感事件控制 <a href="#281-%e7%94%b5%e5%b9%b3%e6%95%8f%e6%84%9f%e4%ba%8b%e4%bb%b6%e6%8e%a7%e5%88%b6" class="anchor">🔗</a></h3><p>使用关键字 wait 来等待某个条件为真，控制后面语句的执行。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>实例
+</span></span><span style="display:flex;"><span>initial begin
+</span></span><span style="display:flex;"><span>    wait (start_enable) ;      //等待 start 信号
+</span></span><span style="display:flex;"><span>    forever begin
+</span></span><span style="display:flex;"><span>        //start信号使能后，在clk_samp上升沿，对数据进行整合
+</span></span><span style="display:flex;"><span>        @(posedge clk_samp)  ;
+</span></span><span style="display:flex;"><span>        data_buf = {data_if[0], data_if[1]} ;      
+</span></span><span style="display:flex;"><span>    end
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div>
     </div>
 
     
