@@ -6,7 +6,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="1. 简介 🔗Yosys是 verilog RTL 综合的一个框架。它目前拥有广泛的Verilog-2005支持，并为各种应用领域提供了一套基本的综合算法。其特点如下：
+<meta name="description" content="参考《yosys manual》
+1. 简介 🔗Yosys是 verilog RTL 综合的一个框架。它目前拥有广泛的Verilog-2005支持，并为各种应用领域提供了一套基本的综合算法。其特点如下：
   能处理所有可合成的Verilog-2005设计
   将Verilog转换为BLIF/EDIF/BTOR/SMT-LIB/simple RTL Verilog等格式
   可以做属性和等价性的检查，做逻辑化简、优化
@@ -18,11 +19,9 @@
 3.2 挑战 🔗标准符合性 🔗  标准实施的完整性
   标准实施的正确性
   优化 Optimizations 🔗一般来说，很难对合成工具优化设计的程度给出一维描述。首先，因为并非所有优化都适用于所有设计和所有合成任务。一个好的工具能够在不同的抽象级别上应用广泛的优化，并提供设计器控制执行（或跳过）哪些优化以及优化目标是什么。
-技术映射 Technology Mapping 🔗技术映射是将设计转换为目标体系结构中可用单元的网络列表的过程
+技术映射 Technology Mapping 🔗技术映射是将设计转换为目标体系结构中可用单元的网络列表的过程。
 3.3 编译器设计方法 🔗3.3.1 词法分析 🔗编译器设计中最著名的概念可能是词法分析和语法分析。这两种方法可以一起轻松地处理复杂的计算机语言。
-词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog输入“assign foo=bar&#43;42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。
-然后，解析器将标记列表转换为与计算机语言语法的结果非常相似的解析树。这种数据结构称为抽象语法树（AST）。
-通常，AST随后被转换为另一种更适合进一步处理的表示。在编译器中，这通常是一种类似于汇编程序的三地址码中间表示。">
+词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog 输入“assign foo=bar&#43;42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。">
 <meta name="generator" content="Hugo 0.99.1" />
 
 
@@ -95,7 +94,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          99字
+          102字
         </span>
         <span class="split">
           ·
@@ -151,7 +150,8 @@ if (!doNotTrack) {
 
 
     <div class="content">
-      <h1 id="1-简介">1. 简介 <a href="#1-%e7%ae%80%e4%bb%8b" class="anchor">🔗</a></h1><p>Yosys是 verilog RTL 综合的一个框架。它目前拥有广泛的Verilog-2005支持，并为各种应用领域提供了一套基本的综合算法。其特点如下：</p>
+      <p>参考《yosys manual》</p>
+<h1 id="1-简介">1. 简介 <a href="#1-%e7%ae%80%e4%bb%8b" class="anchor">🔗</a></h1><p>Yosys是 verilog RTL 综合的一个框架。它目前拥有广泛的Verilog-2005支持，并为各种应用领域提供了一套基本的综合算法。其特点如下：</p>
 <ul>
 <li>
 <p>能处理所有可合成的Verilog-2005设计</p>
@@ -186,9 +186,9 @@ if (!doNotTrack) {
 </li>
 </ul>
 <h3 id="优化-optimizations">优化 Optimizations <a href="#%e4%bc%98%e5%8c%96-optimizations" class="anchor">🔗</a></h3><p>一般来说，很难对合成工具优化设计的程度给出一维描述。首先，因为并非所有优化都适用于所有设计和所有合成任务。一个好的工具能够在不同的抽象级别上应用广泛的优化，并提供设计器控制执行（或跳过）哪些优化以及优化目标是什么。</p>
-<h3 id="技术映射-technology-mapping">技术映射 Technology Mapping <a href="#%e6%8a%80%e6%9c%af%e6%98%a0%e5%b0%84-technology-mapping" class="anchor">🔗</a></h3><p>技术映射是将设计转换为目标体系结构中可用单元的网络列表的过程</p>
+<h3 id="技术映射-technology-mapping">技术映射 Technology Mapping <a href="#%e6%8a%80%e6%9c%af%e6%98%a0%e5%b0%84-technology-mapping" class="anchor">🔗</a></h3><p>技术映射是将设计转换为目标体系结构中可用单元的网络列表的过程。</p>
 <h2 id="33-编译器设计方法">3.3 编译器设计方法 <a href="#33-%e7%bc%96%e8%af%91%e5%99%a8%e8%ae%be%e8%ae%a1%e6%96%b9%e6%b3%95" class="anchor">🔗</a></h2><h3 id="331-词法分析">3.3.1 词法分析 <a href="#331-%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90" class="anchor">🔗</a></h3><p>编译器设计中最著名的概念可能是词法分析和语法分析。这两种方法可以一起轻松地处理复杂的计算机语言。</p>
-<p>词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog输入“assign foo=bar+42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。</p>
+<p>词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog 输入“assign foo=bar+42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。</p>
 <p><p class="markdown-image">
   <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2022-6-8/exemplary.png" alt="img"  />
 </p></p>

@@ -7,14 +7,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="yosys 命令参考文档：https://yosyshq.net/yosys/documentation.html
-abc： 🔗使用ABC进行技术映射（ABC：一个时序综合验证系统）
-read 🔗加载 HDL 设计文件
-read -sv test.v // 参数 -sv 表示支持 SystemVerilog read_verilog 🔗从 verilog 文件中读取 modules
-hierarchy 🔗检查、扩展和清理设计 hierarchy
-hierarchy -top modulename write_ilang(write_rtlil) 🔗将设计写入RTLIL文件
-proc 🔗将进程转换为 netlist
-techmap 🔗通用的技术映射器，将网表转换为门逻辑并执行一些简单的优化。
-write_verilog 🔗将设计出的 netlist 写进新的 verilog 文件">
+1. abc： 🔗使用ABC进行技术映射（ABC：一个时序综合验证系统）
+2. read 🔗加载 HDL 设计文件
+read -sv test.v // 参数 -sv 表示支持 SystemVerilog 3. read_verilog 🔗从 verilog 文件中读取 modules
+4. hierarchy 🔗检查、扩展和清理设计 hierarchy
+hierarchy -top modulename 5. write_ilang(write_rtlil) 🔗将设计写入RTLIL文件
+6. proc 🔗将进程转换为 netlist
+7. techmap 🔗通用的技术映射器，将网表转换为门逻辑并执行一些简单的优化。
+8. write_verilog 🔗将设计出的 netlist 写进新的 verilog 文件">
 <meta name="generator" content="Hugo 0.99.1" />
 
 
@@ -87,7 +87,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          40字
+          48字
         </span>
         <span class="split">
           ·
@@ -109,16 +109,16 @@ if (!doNotTrack) {
 
     <div class="content">
       <p>yosys 命令参考文档：<a href="https://yosyshq.net/yosys/documentation.html" target="_blank" rel="noopener">https://yosyshq.net/yosys/documentation.html</a></p>
-<h1 id="abc">abc： <a href="#abc" class="anchor">🔗</a></h1><p>使用ABC进行技术映射（ABC：一个时序综合验证系统）</p>
-<h1 id="read">read <a href="#read" class="anchor">🔗</a></h1><p>加载 HDL 设计文件</p>
+<h1 id="1-abc">1. abc： <a href="#1-abc" class="anchor">🔗</a></h1><p>使用ABC进行技术映射（ABC：一个时序综合验证系统）</p>
+<h1 id="2-read">2. read <a href="#2-read" class="anchor">🔗</a></h1><p>加载 HDL 设计文件</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>read -sv test.v // 参数 -sv 表示支持 SystemVerilog
-</span></span></code></pre></div><h1 id="read_verilog">read_verilog <a href="#read_verilog" class="anchor">🔗</a></h1><p>从 verilog 文件中读取 modules</p>
-<h1 id="hierarchy">hierarchy <a href="#hierarchy" class="anchor">🔗</a></h1><p>检查、扩展和清理设计 hierarchy</p>
+</span></span></code></pre></div><h1 id="3-read_verilog">3. read_verilog <a href="#3-read_verilog" class="anchor">🔗</a></h1><p>从 verilog 文件中读取 modules</p>
+<h1 id="4-hierarchy">4. hierarchy <a href="#4-hierarchy" class="anchor">🔗</a></h1><p>检查、扩展和清理设计 hierarchy</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hierarchy -top modulename
-</span></span></code></pre></div><h1 id="write_ilangwrite_rtlil">write_ilang(write_rtlil) <a href="#write_ilangwrite_rtlil" class="anchor">🔗</a></h1><p>将设计写入RTLIL文件</p>
-<h1 id="proc">proc <a href="#proc" class="anchor">🔗</a></h1><p>将进程转换为 netlist</p>
-<h1 id="techmap">techmap <a href="#techmap" class="anchor">🔗</a></h1><p>通用的技术映射器，将网表转换为门逻辑并执行一些简单的优化。</p>
-<h1 id="write_verilog">write_verilog <a href="#write_verilog" class="anchor">🔗</a></h1><p>将设计出的 netlist 写进新的 verilog 文件</p>
+</span></span></code></pre></div><h1 id="5-write_ilangwrite_rtlil">5. write_ilang(write_rtlil) <a href="#5-write_ilangwrite_rtlil" class="anchor">🔗</a></h1><p>将设计写入RTLIL文件</p>
+<h1 id="6-proc">6. proc <a href="#6-proc" class="anchor">🔗</a></h1><p>将进程转换为 netlist</p>
+<h1 id="7-techmap">7. techmap <a href="#7-techmap" class="anchor">🔗</a></h1><p>通用的技术映射器，将网表转换为门逻辑并执行一些简单的优化。</p>
+<h1 id="8-write_verilog">8. write_verilog <a href="#8-write_verilog" class="anchor">🔗</a></h1><p>将设计出的 netlist 写进新的 verilog 文件</p>
 
     </div>
 
