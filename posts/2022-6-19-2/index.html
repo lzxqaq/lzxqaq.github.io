@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>yosys 常用命令（持续更新） | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="yosys 命令参考文档：https://yosyshq.net/yosys/documentation.html
+abc： 🔗使用ABC进行技术映射（ABC：一个时序综合验证系统）
+read 🔗加载 HDL 设计文件
+read -sv test.v // 参数 -sv 表示支持 SystemVerilog read_verilog 🔗从 verilog 文件中读取 modules
+hierarchy 🔗检查、扩展和清理设计 hierarchy
+hierarchy -top modulename write_ilang(write_rtlil) 🔗将设计写入RTLIL文件
+proc 🔗将进程转换为 netlist
+techmap 🔗通用的技术映射器，将网表转换为门逻辑并执行一些简单的优化。
+write_verilog 🔗将设计出的 netlist 写进新的 verilog 文件">
+<meta name="generator" content="Hugo 0.99.1" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">yosys 常用命令（持续更新）</h1>
+
+    <div class="tip">
+        <time datetime="2022-06-19 10:56:49 &#43;0800 CST">2022年06月19日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          40字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+        
+  
+
+
+    
+
+
+    <div class="content">
+      <p>yosys 命令参考文档：<a href="https://yosyshq.net/yosys/documentation.html" target="_blank" rel="noopener">https://yosyshq.net/yosys/documentation.html</a></p>
+<h1 id="abc">abc： <a href="#abc" class="anchor">🔗</a></h1><p>使用ABC进行技术映射（ABC：一个时序综合验证系统）</p>
+<h1 id="read">read <a href="#read" class="anchor">🔗</a></h1><p>加载 HDL 设计文件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>read -sv test.v // 参数 -sv 表示支持 SystemVerilog
+</span></span></code></pre></div><h1 id="read_verilog">read_verilog <a href="#read_verilog" class="anchor">🔗</a></h1><p>从 verilog 文件中读取 modules</p>
+<h1 id="hierarchy">hierarchy <a href="#hierarchy" class="anchor">🔗</a></h1><p>检查、扩展和清理设计 hierarchy</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hierarchy -top modulename
+</span></span></code></pre></div><h1 id="write_ilangwrite_rtlil">write_ilang(write_rtlil) <a href="#write_ilangwrite_rtlil" class="anchor">🔗</a></h1><p>将设计写入RTLIL文件</p>
+<h1 id="proc">proc <a href="#proc" class="anchor">🔗</a></h1><p>将进程转换为 netlist</p>
+<h1 id="techmap">techmap <a href="#techmap" class="anchor">🔗</a></h1><p>通用的技术映射器，将网表转换为门逻辑并执行一些简单的优化。</p>
+<h1 id="write_verilog">write_verilog <a href="#write_verilog" class="anchor">🔗</a></h1><p>将设计出的 netlist 写进新的 verilog 文件</p>
+
+    </div>
+
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>
