@@ -50,7 +50,7 @@ write_verilog 🔗将设计出的 netlist 写进新的 verilog 文件</descripti
     </item>
     
     <item>
-      <title>yosys 安装和简单实用</title>
+      <title>yosys 安装和简单使用</title>
       <link>/posts/2022-6-18-3/</link>
       <pubDate>Sat, 18 Jun 2022 20:56:49 +0800</pubDate>
       

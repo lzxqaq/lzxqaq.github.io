@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>eda on Zexun Luo | 罗泽勋</title>
+    <link>/tags/eda/</link>
+    <description>Recent content in eda on Zexun Luo | 罗泽勋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 19 Jun 2022 10:56:49 +0800</lastBuildDate><atom:link href="/tags/eda/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>yosys 常用命令（持续更新）</title>
+      <link>/posts/2022-6-19-2/</link>
+      <pubDate>Sun, 19 Jun 2022 10:56:49 +0800</pubDate>
+      
+      <guid>/posts/2022-6-19-2/</guid>
+      <description>yosys 命令参考文档：https://yosyshq.net/yosys/documentation.html
+abc： 🔗使用ABC进行技术映射（ABC：一个时序综合验证系统）
+read 🔗加载 HDL 设计文件
+read -sv test.v // 参数 -sv 表示支持 SystemVerilog read_verilog 🔗从 verilog 文件中读取 modules
+hierarchy 🔗检查、扩展和清理设计 hierarchy
+hierarchy -top modulename write_ilang(write_rtlil) 🔗将设计写入RTLIL文件
+proc 🔗将进程转换为 netlist
+techmap 🔗通用的技术映射器，将网表转换为门逻辑并执行一些简单的优化。
+write_verilog 🔗将设计出的 netlist 写进新的 verilog 文件</description>
+    </item>
+    
+    <item>
+      <title>yosys 研究</title>
+      <link>/posts/2022-6-19/</link>
+      <pubDate>Sun, 19 Jun 2022 00:56:49 +0800</pubDate>
+      
+      <guid>/posts/2022-6-19/</guid>
+      <description>1. 简介 🔗Yosys是 verilog RTL 综合的一个框架。它目前拥有广泛的Verilog-2005支持，并为各种应用领域提供了一套基本的综合算法。其特点如下：
+  能处理所有可合成的Verilog-2005设计
+  将Verilog转换为BLIF/EDIF/BTOR/SMT-LIB/simple RTL Verilog等格式
+  可以做属性和等价性的检查，做逻辑化简、优化
+  映射到ASIC标准单元库（Liberty文件格式）
+  映射到Xilinx 7系列和Lattice iCE40、ECP5 FPGA, GOWin fpga上等
+  自定义综合流程、扩展自定义的综合算法、扩展针对其他FPGA的综合等
+  2. 实现原理 🔗yosys的实现原理上和编译器非常相似：普通编译器，比如c/c++，是把c/c++语言的程序翻译为机器码，而yosys是把原始输入的行为描述verilog设计，映射翻译为标准库或LUT等资源表述的结构性verilog语言，这种映射变换，首先就是词法分析、语法分析、语义分析、抽象语法树、中间语言，这些和普通编译器都是一样的，不同之处就在于yosys加入了各种逻辑优化、逻辑映射。
+3. 基础原则 🔗3.1 抽象等级 🔗不同的抽象等级和综合。
+3.2 挑战 🔗标准符合性 🔗  标准实施的完整性
+  标准实施的正确性
+  优化 Optimizations 🔗一般来说，很难对合成工具优化设计的程度给出一维描述。首先，因为并非所有优化都适用于所有设计和所有合成任务。一个好的工具能够在不同的抽象级别上应用广泛的优化，并提供设计器控制执行（或跳过）哪些优化以及优化目标是什么。
+技术映射 Technology Mapping 🔗技术映射是将设计转换为目标体系结构中可用单元的网络列表的过程
+3.3 编译器设计方法 🔗3.3.1 词法分析 🔗编译器设计中最著名的概念可能是词法分析和语法分析。这两种方法可以一起轻松地处理复杂的计算机语言。
+词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog输入“assign foo=bar+42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。
+然后，解析器将标记列表转换为与计算机语言语法的结果非常相似的解析树。这种数据结构称为抽象语法树（AST）。
+通常，AST随后被转换为另一种更适合进一步处理的表示。在编译器中，这通常是一种类似于汇编程序的三地址码中间表示。</description>
+    </item>
+    
+    <item>
+      <title>yosys 安装和简单使用</title>
+      <link>/posts/2022-6-18-3/</link>
+      <pubDate>Sat, 18 Jun 2022 20:56:49 +0800</pubDate>
+      
+      <guid>/posts/2022-6-18-3/</guid>
+      <description>一、前言 🔗yosys 是一个开源综合工具，可以使用 C/C++ 扩展其功能。
+官网：https://yosyshq.net/yosys/
+Github：https://github.com/YosysHQ/yosys
+二、编译安装 🔗操作环境： Ubuntu 18.04
+ 安装依赖包  apt-get install build-essential clang bison flex \ 	libreadline-dev gawk tcl-dev libffi-dev git \ 	graphviz xdot pkg-config python3 libboost-system-dev \ 	libboost-python-dev libboost-filesystem-dev zlib1g-dev 下载源码、编译  git clone https://github.com/YosysHQ/yosys.git  cd yosys  make  make install 三、简单使用 🔗脚本方式：
+$ cat synth.ys read -sv test.v hierarchy -top up3down5 proc; opt; techmap; opt write_verilog synth.v  $ .</description>
+    </item>
+    
+    <item>
+      <title>VSCode &#43; iverilog 搭建 verilog 开发环境</title>
+      <link>/posts/2022-6-18-2/</link>
+      <pubDate>Sat, 18 Jun 2022 14:56:49 +0800</pubDate>
+      
+      <guid>/posts/2022-6-18-2/</guid>
+      <description>一、前言 🔗VSCode + iverilog 轻量级、开源 verilog 开发解决方案。
+二、安装 iverilog、gtkwave 🔗iverilog:一个轻量、免费、开源的Verilog编译器，基于C++实现，安装文件中已经包含 GTKWave支持Verilog/VHDL文件的编译和仿真，命令行操作方式，类似gcc编译器，通过testbench文件可以生成对应的仿真波形数据文件
+官方安装文档：https://iverilog.fandom.com/wiki/Installation_Guide
+ macOS 用户：brew install icarus-verilog
+linux（Ubuntu） 用户：sudo apt-get install iverilog
+ gtkwave：查看仿真波形图
+ macOS ：brew install gtkwave linux（Ubuntu）：sudo apt-get install gtkwave
+ 三、安装 VSCode 插件 🔗 Verilog-HDL/SystemVerilog/Bluespec SystemVerilog：提供verilog源文件的语法高亮，自动补全，错误检查（linting）。 Verilog-HDL：提供一个绿色的小按钮，使得你可以一键编译执行一个verilog源文件（其实就是自动帮你在命令行中输入iverilog -o &amp;lt;目标文件&amp;gt; &amp;lt;verilog源文件&amp;gt; ; vvp &amp;lt;源文件&amp;gt;） Verilog Snippet：一键补完固定语法格式的插件。 WaveTrace：查看仿真的波形图  四、配置 🔗打开 VSCode 设置，输入verilog，然后将你的verilog的linter选成iverilog
+五、运行 🔗点击右上角绿色按钮运行，打开 vcd 文件可看波形图。
+六、相关操作命令行版本 🔗1.编译运行
+&amp;gt; iverilog -o hello hello.v //将 hello.v 编译成 hello 脚本文件 &amp;gt; vvp hello //vvp（解释器）解释运行 hello脚本 2.</description>
+    </item>
+    
+    <item>
+      <title>形式验证基础理论</title>
+      <link>/posts/2022-6-12/</link>
+      <pubDate>Sun, 12 Jun 2022 22:35:54 +0800</pubDate>
+      
+      <guid>/posts/2022-6-12/</guid>
+      <description>1. 形式验证 Formal Verification 🔗所谓形式验证，是指从数学上完备地证明或验证电路的实现方案是否确实实现了电路设计所描述的功能。
+形式验证主要验证数字IC设计流程中的各个阶段的代码功能是否一致，包括综合前RTL代码和综合后网表的验证。
+形式验证方法分为等价性验证（Equivalence Checking）、模型检验（Model Checking）和定理证明（Theorem Proving）等。
+下图为形式验证技术
+2. 模型检查 Model Checking 🔗模型检查，也称为属性检查，是一种基于状态的形式验证方法。
+模型检查主要是检查RTL代码是否满足规范中规定的一些特性。在规定这些特性时一般使用特性规范语言，一般也使用基于断言的验证语言。由于这种方法可以在不需要仿真的前提下检查设计中所有可能出现的情况是否满足规定的特性，所以使用这种方法不会遗漏任何的边界情况。
+优点和缺点：一旦将系统模型和属性规范提供给模型检查器，验证过程就将是完全自动的。但是，从模型检查器要处理的状态数来看，模型检查适用于小型系统。
+下图为模型检查的程序
+3. 定理证明 Theorem Proving 🔗定理证明是使用数学推理方法验证所实现的系统是否满足设计要求（或规范）的过程。它是一种基于证据的形式验证方法。
+优点和缺点:定理证明的最大优点是它可以处理非常复杂的系统。但是，定理证明不是完全自动的，需要人工干预才能完成，这需要时间以及操作人员的专业知识。而且，在证明失败的情况下，不会生成Equivalence
+下图为定理证明的程序
+4. 等价性检查 Equivalence Checking（EC） 🔗等价性检查是验证两个设计在功能上是否相同的过程。
+等价性检查主要是检查两个门级网表之间是否一致，保证网表处理后不会改变电路的功能，或者保证网表能正确地实现RTL代码所描述的功能，或者保证两种RTL描述逻辑一致。等价性检查通过对比两个描述来检测它们的等价性。
+等价性检查工具将两个设计读入内存，用形式化数据算法分析彼此的数据结构来进行比较。只要两个设计的所有输出管脚与每一个寄存器或锁存器的功能是一样的，那么就认为两个设计的功能等效。它主要是用来寻找实现中的缺陷，而不是设计中的缺陷，与检验C语言到汇编语言的转换的检测类似。因此这种方法很难发现同时存在于两种要比较的描述中的固有缺陷。
+等价性检查有逻辑等价性检查（LEC）和顺序等价性检查（SEC）。
+下图为等价性检查在 IC 流程的使用场景
+5. 逻辑等价性检查 LEC(CEC) 🔗逻辑等价性检查（Logical Equivalence Checking，LEC），也称为组合等价性检查（Combinational Equivalence Checking，CEC）。
+它是验证两个设计在寄存器之间具有相同组合逻辑的过程。两个被比较的设计也应具有相同数量的寄存器。该技术用于验证不同抽象级别的两个设计在功能上是否相同；例如，门级网表在功能上与布局网表是否相同。
+对组合逻辑来说，不存在状态寄存器，其输出值Z[t]不依赖于前面的输入值Xt-i。这时只要对每个输入向量证明其输出向量相同。
+下图为逻辑等价检查示意图
+6. 时序等价性检查 SEC 🔗时序等价性检查（Sequential EquivalencevChecking），验证两个设计在功能上是否相同的过程，并且在提供相同输入时验证是否有相同的输出。它用于比较两种设计的顺序逻辑，而这两种设计可能有不同的实现。
+对一个时序电路而言，可以把它看成一个有限状态机(FSM，finite-state machine)。电路功能的等价可以用有限状态机的等价来判断。假定有两个状态机A和B，要对它们进行比较。直观的说，当A和B有相同的接口，而且从相同的初始状态出发，两者对有效输入值序列产生相同的输出值序列，则可以说A和B等价。
+下图为时序等价性检查示意图</description>
+    </item>
+    
+    <item>
+      <title>数字电路基础之组合逻辑电路和时序逻辑电路</title>
+      <link>/posts/2022-6-9/</link>
+      <pubDate>Thu, 09 Jun 2022 11:32:25 +0800</pubDate>
+      
+      <guid>/posts/2022-6-9/</guid>
+      <description>前言 🔗数字系统中常用的各种数字部件，就其结构和工作原理而言可分为两大类，即组合逻辑电路和时序逻辑电路。
+1. 组合逻辑电路 🔗1.1 概念 🔗对于一个逻辑电路，其输出状态在任何时刻只取决于同一时刻的输入状态，而与电路原本的状态无关
+特点：
+ 输出、输入之间没有反馈延迟通路； 电路中不含具有记忆功能的元件。  2.时序逻辑电路 🔗而时序电路是一种输出不仅与当前的输入有关，而且与其输出状态的原始状态有关，其相当于在组合逻辑的输入端加上了一个反馈输入，在其电路中有一个存储电路，其可以将输出的状态保持住。
+3.对比 🔗1、组合逻辑电路在逻辑功能上的特点是任意时刻的输出仅仅取决于该时刻的输入，与电路原来的状态无关。
+2、时序逻辑电路在逻辑功能上的特点是任意时刻的输出不仅取决于当时的输入信号，而且还取决于电路原来的状态，或者说，还与以前的输入有关。
+4. 常用组合逻辑电路 🔗 算术运算电路（半加器、全加器、加法器） 编码器、译码器 数据选择、分配、比较器  5. 具有典型时序逻辑电路特征的三种逻辑器件 🔗 计数器 寄存器 顺序脉冲发生器  6. 相关概念 🔗 时钟：时钟是整个系统的同步信号，当时钟出现故障时会带来整体的功能故障。  </description>
+    </item>
+    
+    <item>
+      <title>数字电路基础之 Verilog HDL</title>
+      <link>/posts/2022-6-8-verilog/</link>
+      <pubDate>Wed, 08 Jun 2022 22:35:54 +0800</pubDate>
+      
+      <guid>/posts/2022-6-8-verilog/</guid>
+      <description>参考资料：
+ 《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 语法学习：菜鸟教程 https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216  1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
+计算机对 HDL 的处理包括两个方面：逻辑仿真和逻辑综合。
+逻辑仿真：用计算机仿真软件对数字逻辑电路的结构和行为进行预测，仿真器对 HDL 描述进行解释，以文本形式或时序波形图形式给出电路的输出。在电路被实现之前，设计人员对仿真结果可以初步判断电路的逻辑功能是否正确。
+逻辑综合：从 HDL 描述的数字逻辑电路模型中导出电路基本元件列表以及元件之间的连接关系（常称为门级网表）的过程。它类似于高级程序设计语言中对一个程序进行编译，得到目标代码的过程。所不同的是，逻辑综合不会产生目标代码，而是产生门级元件及其连接关系的数据库，根据这个数据库可以制作出集成电路或印制电路板（PCB）。
+ HDL 语言是并行处理的，具有同一时刻执行多任务的能力。这和一般高级设计语言（例如C语言等）串行执行的特征是不同的。 HDL 有时序的概念。一般的高级编程语言是没有时序的概念的，但在硬件电路中从输入到输出总是有延时存在的，为了描述这一特征，需要引入时延的概念。  1.1 Verilog HDL 描述层次说明 🔗1.1.1 系统级和算法级建模 🔗通常只是用 Verilog HDL 描述系统的功能，不涉及具体实现的细节，实际开发中，设计人员很少应用 Verilog HDL 语言的系统和算法级建模能力。
+1.1.2 寄存器传输级（RTL）建模 🔗RTL 级建模：描述电路时只关注寄存器本身，以及寄存器到寄存器之间的逻辑功能，而不在意寄存器和组合逻辑的实现细节。
+RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可综合描述语言。在 EDA 工具的帮助下，设计人员可以直接在 RTL 级进行电路设计，而无需从逻辑门电路（与门、或门和非门）的较低层次来设计电路。
+在最终实现时，所有的设计都需要映射到门级电路上，RTL 级代码也不例外，只不过 RTL 代码通过 EDA 软件中的逻辑综合工具转化成设计网表，网表基本上由门电路组成。
+1.1.3 门级和开关级建模 🔗门级建模和开关级建模都属于结构描述范畴，都是对电路结构的具体描述，分别把需要的逻辑门单元和 MOS 晶体管调出来，再用连线把这些基本单元连接起来构成电路。
+这两个层次的描述类似于汇编语言和机器语言，虽然精确，但十分耗时 耗力。在大多数 Verilog HDL 程序开发中，基于这两个层次的设计方法已被彻底抛弃。
+1.2 Verilog HDL 语言的可综合性 🔗综合就是将 HDL 语言设计转换为由与门、或门和非门等基本逻辑单元组成的门级连接。因此，可综合语言就是能够通过 EDA 工具自动转化为硬件逻辑的语句。</description>
+    </item>
+    
+    <item>
+      <title>数字电路基础之数学逻辑</title>
+      <link>/posts/2022-6-7-math/</link>
+      <pubDate>Tue, 07 Jun 2022 22:35:54 +0800</pubDate>
+      
+      <guid>/posts/2022-6-7-math/</guid>
+      <description>参考自《电子技术基础.数字部分》。
+1. 数字集成电路 🔗电子电路按功能分为模拟电路和数字电路。根据电路的结构特点及其对输入信号相应规则的不同，数字电路可分为组合逻辑电路和时序逻辑电路。数字电路中的电子器件，例如二极管、三极管处于开关状态，时而导通，时而截止，构成电子开关。这些电子开关是组成逻辑门电路的基本器件。逻辑门电路又是数字电路的基本单元。如果将这些门电路集成在一片半导体芯片上就构成了数字集成电路。
+数字电路在集成度方面的发展：专用集成电路（ASIC）制作技术。ASIC是将一个复杂的数字系统制作在一块半导体芯片上，构成系统级芯片（Soc）。用户通过软件编程，将自己设计的数字系统制作在厂家厂家生产的可编程逻辑器件（PLD）半成品芯片上，便得到所需的系统级芯片。
+在材料上的发展：由晶体管-晶体管逻辑门电路（TTL）发展到金属-氧化物-半导体（MOCS）工艺、互补型金属氧化物半导体（CMOS）工艺。
+1.1 数字电路的分析方法 🔗数字电路处理的是数字信号，主要研究的对象是电路的输出与输入之间的逻辑关系，所采用的分析工具是逻辑代数，表达电路输出与输入的关系主要用真值表、功能表、逻辑表达式或波形图。
+借助计算机仿真软件，对电路进行分析，不仅可以进行电路进行电路的功能仿真，显示逻辑仿真的波形结果，以检查逻辑错误，而且可以考虑器件以连线的延迟时间，进行时序仿真，检测电路中存在的冒险竞争、时序错误等问题。
+1.2 数字电路的设计方法 🔗数字电路的设计是从给定的逻辑功能要求出发，确定输入、输出变量，选择适当的逻辑器件，设计出符合要求的逻辑电路。设计过程一般有方案的提出、验证和修改三个阶段。
+借助 EDA 软件可以快速准确地完成电路的设计，设计者提出方案后，利用计算机 EDA 软件进行逻辑分析、性能分析、时序测试，如果发现错误或者方案不理想，可以重复上述过程直至得到满意的电路。
+1.3 数字电路的测试技术 🔗数字电路在正确设计和安装后，必须经过严格的测试方可使用。
+1.4 模拟信号和数字信号 🔗模拟信号：在时间上连续变化，幅值也是连续取值。
+数字信号：时间离散，数值也离散。
+1.5 二值数字逻辑和逻辑电平 🔗在电路中，用电子器件的开关来实现二值数字逻辑，也就是以高、低电平分别表示逻辑 1 和 0 两种状态。数字电压的高、低电平通常称为逻辑电平。
+1.5 数字波形 🔗数字波形是逻辑电平对时间的图形表示。
+1.6 数制 🔗在 verilog 中数字声明时，合法的基数格式有 4 中，包括：十进制(&amp;rsquo;d 或 &amp;lsquo;D)，十六进制(&amp;lsquo;h 或 &amp;lsquo;H)，二进制（&amp;lsquo;b 或 &amp;lsquo;B），八进制（&amp;lsquo;o 或 &amp;lsquo;O）。
+1.7 基本逻辑运算 🔗与运算：只有当一件事的几个条件全部具备之后，这件事情才发生。
+或运算：当一件事情的几个条件中只要有一个条件得到满足，这件事就会发生。
+非运算：一件事情的发生是以其相反的条件作为依据。
+与非运算：与运算和非运算结合在一起。
+或非运算：由或运算和非运算组合在一起。
+异或运算：当两个输入信号相同时，输出为0；当两个输入信号不同时，输出为1。
+同或运算：与异或相反，当两个输入信号相同时，输出为1；当两个输入信号不同时，输出为0。
+1.8 电路图、真值表、逻辑表达式、逻辑图和波形图 🔗电路图和真值表：
+逻辑表达式：
+逻辑图：
+波形图：
+1.9 逻辑代数的基本定律和恒等式 🔗</description>
+    </item>
+    
+  </channel>
+</rss>
