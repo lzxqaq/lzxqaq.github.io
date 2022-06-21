@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>逻辑等价性检查（LEC） | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="参考
+ 功能ECO理论基础：逻辑等价性检查（LEC）  【A级忍术】形式验证的原理及流程详细总结   一、基础概念 🔗golden：参考模型
+revised：待比较的设计
+逻辑锥Logic Cone：设计（module）就是“以DFF为终点的逻辑块”组成。不仅网表如此，RTL也是一样。所有数字电路都可以用always和assign这两种语法来实现（latch可以看作是DFF的一种）。这些“以DFF为终点的逻辑块”我们把它叫作逻辑锥
+Keypoint Mapping：逻辑锥的终点是DFF的CK（时钟）、Ｄ（数据）、RN（复位）、SN（置位），如果这几个“关键点”的逻辑都相同或者等价，那么这两个逻辑锥的逻辑就等价。
+只要两种设计的所有对应逻辑锥逻辑功能都被验证为等价，就认为两个设计等价。
+二、流程 🔗 设置一些与进行等价性验证有关的设置。例如，若设计中的某些模块不需要进行检查，可以将其设置为“黑盒子”；在验证插入扫描链的网表时，要将测试模式信号与扫描使能信号设置为禁止使能，等等。 进行比较点匹配。采用match令即可。一般来说，等价性检查工具会根据相近的信号命名来选取比较点，并给出比较点的报告。如果工具无法识别某些比较点，或者识别有错误，那么设计者可以手工进行相应设置。 进行验证。采用verify命令即可。 给出报告，如果发现错误，则利用图形化界面进行调试。  ">
+<meta name="generator" content="Hugo 0.99.1" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">逻辑等价性检查（LEC）</h1>
+
+    <div class="tip">
+        <time datetime="2022-06-20 00:16:54 &#43;0800 CST">2022年06月20日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          17字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <p>参考</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/8YsGMea-Kl5nnTsX0UoxgQ" target="_blank" rel="noopener">功能ECO理论基础：逻辑等价性检查（LEC）
+</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/436453322" target="_blank" rel="noopener">【A级忍术】形式验证的原理及流程详细总结
+</a></li>
+</ul>
+<h1 id="一基础概念">一、基础概念 <a href="#%e4%b8%80%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5" class="anchor">🔗</a></h1><p>golden：参考模型</p>
+<p>revised：待比较的设计</p>
+<p>逻辑锥Logic Cone：设计（module）就是“以DFF为终点的逻辑块”组成。不仅网表如此，RTL也是一样。所有数字电路都可以用always和assign这两种语法来实现（latch可以看作是DFF的一种）。这些“以DFF为终点的逻辑块”我们把它叫作逻辑锥</p>
+<p>Keypoint Mapping：逻辑锥的终点是DFF的CK（时钟）、Ｄ（数据）、RN（复位）、SN（置位），如果这几个“关键点”的逻辑都相同或者等价，那么这两个逻辑锥的逻辑就等价。</p>
+<p>只要两种设计的所有对应逻辑锥逻辑功能都被验证为等价，就认为两个设计等价。</p>
+<h1 id="二流程">二、流程 <a href="#%e4%ba%8c%e6%b5%81%e7%a8%8b" class="anchor">🔗</a></h1><ol>
+<li>设置一些与进行等价性验证有关的设置。例如，若设计中的某些模块不需要进行检查，可以将其设置为“黑盒子”；在验证插入扫描链的网表时，要将测试模式信号与扫描使能信号设置为禁止使能，等等。</li>
+<li>进行比较点匹配。采用match令即可。一般来说，等价性检查工具会根据相近的信号命名来选取比较点，并给出比较点的报告。如果工具无法识别某些比较点，或者识别有错误，那么设计者可以手工进行相应设置。</li>
+<li>进行验证。采用verify命令即可。</li>
+<li>给出报告，如果发现错误，则利用图形化界面进行调试。</li>
+</ol>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/eda">eda</a>
+            
+        </div>
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

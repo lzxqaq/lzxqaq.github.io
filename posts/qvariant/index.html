@@ -8,13 +8,11 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="概述 🔗在本文档中，我们采用自定义类型并描述如何将其集成到 Qt 的对象模型中，以便可以像标准 Qt 类型一样存储它。 然后我们展示如何注册自定义类型以允许它在信号和插槽连接中使用。
 创建自定义类型 🔗在开始之前，我们需要确保我们正在创建的自定义类型满足 QMetaType 强加的所有要求。换言之，它必须提供：
-公共默认构造函数 公共复制构造函数
+ 公共默认构造函数 公共复制构造函数
 公共析构函数
-下列 Message类定义包括以下成员：
-class Message { public: Message() = default; ~Message() = default; Message(const Message &amp;) = default; Message &amp;operator=(const Message &amp;) = default; Message(const QString &amp;body, const QStringList &amp;headers); QStringView body() const; QStringList headers() const; private: QString m_body; QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。
-使用 QMetaType 声明类型 🔗这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。
-Qt 中负责自定义类型的类是 QMetaType 。 为了让这个类知道类型，我们在定义它的头文件中的类上 添加 Q_DECLARE_METATYPE() 宏：">
-<meta name="generator" content="Hugo 0.100.1" />
+ 下列 Message类定义包括以下成员：
+class Message { public:  Message() = default;  ~Message() = default;  Message(const Message &amp;) = default;  Message &amp;operator=(const Message &amp;) = default;   Message(const QString &amp;body, const QStringList &amp;headers);   QStringView body() const;  QStringList headers() const;  private:  QString m_body;  QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。">
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
