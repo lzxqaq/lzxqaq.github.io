@@ -9,9 +9,10 @@
 <meta name="description" content="1. 介绍 🔗Hector是一种形式功能验证工具，最强大的优势是验证两个模型之间的 transaction 等价性，用于C/C&#43;&#43; model VS RTL的检查。
 组合电路和C&#43;&#43;函数在输入之间没有时间延迟地执行事务和输出。时钟RTL电路可能需要一个或多个周期来计算事务。在流水线的情况下，多个事务可能在单个设计块中同时执行。事务的持续时间（以时钟周期为单位）可能是固定的或依赖于数据的，但必须有一个已知的上限。
 Hector的一个关键好处是对事务等价性进行建模，在比较的两个模型中，事务的延迟是不同的。Hector在每种设计中都独立地支持事务相关时钟相位的输入约束和输出比较。
-2. 快速开始 🔗2.1 为C/C&#43;&#43;模型编写 Hector 封装器 🔗#include &lt;Hector.h&gt; void hector_wrapper() {  int a, b, mul, madd;  Hector::registerInput(&#34;in_a&#34;, a);  Hector::registerInput(&#34;in_b&#34;, b);  Hector::registerOutput(&#34;out_mul&#34;, mul);  Hector::registerOutput(&#34;out_madd&#34;, madd);  Hector::beginCapture();  compute(a, b, mul, madd);  Hector::endCapture(); } 其中 Hector::registerInput(&quot;in_a&quot;, a);指示应将变量a视为输入，并在Hector的所有后续步骤中将其称为 in_a。
-2.2 声明规范设计 🔗proc compile_spec {} {  create_design -name spec -top hector_wrapper  cppan foo.cc  compile_design spec } cppan 命令分析C&#43;&#43;程序。它将g&#43;&#43;编译器选项和文件列表作为参数。最后 compile_design 命令将名为spec的设计编译为DFG。">
-<meta name="generator" content="Hugo 0.99.1" />
+2. 快速开始 🔗2.1 为C/C&#43;&#43;模型编写 Hector 封装器 🔗#include &lt;Hector.h&gt; void hector_wrapper() { int a, b, mul, madd; Hector::registerInput(&#34;in_a&#34;, a); Hector::registerInput(&#34;in_b&#34;, b); Hector::registerOutput(&#34;out_mul&#34;, mul); Hector::registerOutput(&#34;out_madd&#34;, madd); Hector::beginCapture(); compute(a, b, mul, madd); Hector::endCapture(); } 其中 Hector::registerInput(&quot;in_a&quot;, a);指示应将变量a视为输入，并在Hector的所有后续步骤中将其称为 in_a。
+2.2 声明规范设计 🔗proc compile_spec {} { create_design -name spec -top hector_wrapper cppan foo.cc compile_design spec } cppan 命令分析C&#43;&#43;程序。它将g&#43;&#43;编译器选项和文件列表作为参数。最后 compile_design 命令将名为spec的设计编译为DFG。
+2.3 声明实现设计 🔗proc compile_impl {} { create_design -name impl -top ima –clock clk –reset rst -negReset vcs foo.">
+<meta name="generator" content="Hugo 0.100.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
