@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>Formality 形式验证基本原理 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="1. 相关术语 🔗  Common Compare Points 常见比较点
+ Primary output 顶层输出 Register or latch 寄存器或锁存器 Input of a black-box 黑盒输入    Less Common Compare Points
+ Multiply-driven net Loop Cutpoint 切割点    Logic Cone 逻辑锥
+ 驱动比较点的组合逻辑块（当设计很大的时候，可以分成很多块来比较，这些块就是逻辑锥） 锥底就是需要比较的点，锥底的输入就是要比较的所有输入    2. 原理 🔗2.1 read 读 🔗将参考和实现设计划分为逻辑锥和比较点.
+2.2 match 🔗根据一定的匹配规则（通常是名字），匹配两个设计的锥。
+可能出现的匹配情况：
+ matched 根据用户声明规则 matched Unmatched，不匹配并不说明不通过，也许不匹配的锥对功能不影响  2.3 verify 🔗 对 matched 的锥进行验证，等价即通过，不等价即功能不等价，整个验证没通过。 出现 fail 则 debug  2.">
+<meta name="generator" content="Hugo 0.99.1" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">Formality 形式验证基本原理</h1>
+
+    <div class="tip">
+        <time datetime="2022-06-29 00:30:05 &#43;0800 CST">2022年06月29日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          60字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <h1 id="1-相关术语">1. 相关术语 <a href="#1-%e7%9b%b8%e5%85%b3%e6%9c%af%e8%af%ad" class="anchor">🔗</a></h1><ul>
+<li>
+<p>Common Compare Points 常见比较点</p>
+<ul>
+<li>Primary output 顶层输出</li>
+<li>Register or latch 寄存器或锁存器</li>
+<li>Input of a black-box 黑盒输入</li>
+</ul>
+</li>
+<li>
+<p>Less Common Compare Points</p>
+<ul>
+<li>Multiply-driven net</li>
+<li>Loop</li>
+<li>Cutpoint 切割点</li>
+</ul>
+</li>
+<li>
+<p>Logic Cone 逻辑锥</p>
+<ul>
+<li>驱动比较点的组合逻辑块（当设计很大的时候，可以分成很多块来比较，这些块就是逻辑锥）</li>
+<li>锥底就是需要比较的点，锥底的输入就是要比较的所有输入</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-原理">2. 原理 <a href="#2-%e5%8e%9f%e7%90%86" class="anchor">🔗</a></h1><h2 id="21-read-读">2.1 read 读 <a href="#21-read-%e8%af%bb" class="anchor">🔗</a></h2><p>将参考和实现设计划分为逻辑锥和比较点.</p>
+<h2 id="22-match">2.2 match <a href="#22-match" class="anchor">🔗</a></h2><p>根据一定的匹配规则（通常是名字），匹配两个设计的锥。</p>
+<p>可能出现的匹配情况：</p>
+<ul>
+<li>matched</li>
+<li>根据用户声明规则 matched</li>
+<li>Unmatched，不匹配并不说明不通过，也许不匹配的锥对功能不影响</li>
+</ul>
+<h2 id="23-verify">2.3 verify <a href="#23-verify" class="anchor">🔗</a></h2><ul>
+<li>对 matched 的锥进行验证，等价即通过，不等价即功能不等价，整个验证没通过。</li>
+<li>出现 fail 则 debug</li>
+</ul>
+<h2 id="24-debug">2.4 debug <a href="#24-debug" class="anchor">🔗</a></h2><p>调试</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="/tags/eda">eda</a>
+            
+        </div>
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

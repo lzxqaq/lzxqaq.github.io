@@ -7,18 +7,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="参考资料：
-《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 语法学习：菜鸟教程 https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216 1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
+ 《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 语法学习：菜鸟教程 https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216  1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
 计算机对 HDL 的处理包括两个方面：逻辑仿真和逻辑综合。
 逻辑仿真：用计算机仿真软件对数字逻辑电路的结构和行为进行预测，仿真器对 HDL 描述进行解释，以文本形式或时序波形图形式给出电路的输出。在电路被实现之前，设计人员对仿真结果可以初步判断电路的逻辑功能是否正确。
 逻辑综合：从 HDL 描述的数字逻辑电路模型中导出电路基本元件列表以及元件之间的连接关系（常称为门级网表）的过程。它类似于高级程序设计语言中对一个程序进行编译，得到目标代码的过程。所不同的是，逻辑综合不会产生目标代码，而是产生门级元件及其连接关系的数据库，根据这个数据库可以制作出集成电路或印制电路板（PCB）。
-HDL 语言是并行处理的，具有同一时刻执行多任务的能力。这和一般高级设计语言（例如C语言等）串行执行的特征是不同的。 HDL 有时序的概念。一般的高级编程语言是没有时序的概念的，但在硬件电路中从输入到输出总是有延时存在的，为了描述这一特征，需要引入时延的概念。 1.1 Verilog HDL 描述层次说明 🔗1.1.1 系统级和算法级建模 🔗通常只是用 Verilog HDL 描述系统的功能，不涉及具体实现的细节，实际开发中，设计人员很少应用 Verilog HDL 语言的系统和算法级建模能力。
+ HDL 语言是并行处理的，具有同一时刻执行多任务的能力。这和一般高级设计语言（例如C语言等）串行执行的特征是不同的。 HDL 有时序的概念。一般的高级编程语言是没有时序的概念的，但在硬件电路中从输入到输出总是有延时存在的，为了描述这一特征，需要引入时延的概念。  1.1 Verilog HDL 描述层次说明 🔗1.1.1 系统级和算法级建模 🔗通常只是用 Verilog HDL 描述系统的功能，不涉及具体实现的细节，实际开发中，设计人员很少应用 Verilog HDL 语言的系统和算法级建模能力。
 1.1.2 寄存器传输级（RTL）建模 🔗RTL 级建模：描述电路时只关注寄存器本身，以及寄存器到寄存器之间的逻辑功能，而不在意寄存器和组合逻辑的实现细节。
 RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可综合描述语言。在 EDA 工具的帮助下，设计人员可以直接在 RTL 级进行电路设计，而无需从逻辑门电路（与门、或门和非门）的较低层次来设计电路。
 在最终实现时，所有的设计都需要映射到门级电路上，RTL 级代码也不例外，只不过 RTL 代码通过 EDA 软件中的逻辑综合工具转化成设计网表，网表基本上由门电路组成。
 1.1.3 门级和开关级建模 🔗门级建模和开关级建模都属于结构描述范畴，都是对电路结构的具体描述，分别把需要的逻辑门单元和 MOS 晶体管调出来，再用连线把这些基本单元连接起来构成电路。
 这两个层次的描述类似于汇编语言和机器语言，虽然精确，但十分耗时 耗力。在大多数 Verilog HDL 程序开发中，基于这两个层次的设计方法已被彻底抛弃。
 1.2 Verilog HDL 语言的可综合性 🔗综合就是将 HDL 语言设计转换为由与门、或门和非门等基本逻辑单元组成的门级连接。因此，可综合语言就是能够通过 EDA 工具自动转化为硬件逻辑的语句。">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          395字
+          394字
         </span>
         <span class="split">
           ·
@@ -198,7 +198,7 @@ if (!doNotTrack) {
 </span></span></code></pre></div><h2 id="22-verilog-数据类型">2.2 Verilog 数据类型 <a href="#22-verilog-%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" class="anchor">🔗</a></h2><p>Verilog 最常用的 2 种数据类型就是线网（wire）与寄存器（reg），其余类型可以理解为这两种数据类型的扩展或辅助。</p>
 <h3 id="221-线网wire">2.2.1 线网（wire） <a href="#221-%e7%ba%bf%e7%bd%91wire" class="anchor">🔗</a></h3><p>wire 类型表示硬件单元之间的物理连线，由其连接的器件输出端连续驱动。</p>
 <h3 id="222-寄存器reg">2.2.2 寄存器（reg） <a href="#222-%e5%af%84%e5%ad%98%e5%99%a8reg" class="anchor">🔗</a></h3><p>寄存器（reg）用来表示存储单元，它会保持数据原有的值，直到被改写。</p>
-<p><code> reg    clk_temp; reg    flag1, flag2 ; </code></p>
+<p><code>reg    clk_temp; reg    flag1, flag2 ;</code></p>
 <h3 id="223-向量">2.2.3 向量 <a href="#223-%e5%90%91%e9%87%8f" class="anchor">🔗</a></h3><p>当位宽大于 1 时，wire 或 reg 即可声明为向量的形式。例如：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>reg [3:0]      counter ;    //声明4bit位宽的寄存器counter
 </span></span><span style="display:flex;"><span>wire [32-1:0]  gpio_data;   //声明32bit位宽的线型变量gpio_data

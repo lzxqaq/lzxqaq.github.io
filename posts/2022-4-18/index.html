@@ -10,8 +10,8 @@
 比如进度条，就用到多线程。在长耗时操作里（比如IO、计算），如果用单线程，界面会失去响应。
 QThread 两种使用方式 🔗第一种是继承QThread类，将耗时任务代码编写在run函数中。第二种是继承 QObject 类，执行耗时任务，并用 moveToThread 函数。
 Demo
-// 与更新进度条的函数参数保持一致 signals: void progress(int p, const char *msg); ">
-<meta name="generator" content="Hugo 0.100.1" />
+// 与更新进度条的函数参数保持一致 signals:  void progress(int p, const char *msg); ">
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
