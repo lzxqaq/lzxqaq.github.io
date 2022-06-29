@@ -8,10 +8,10 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="日常开发中经常会有排序需求，常见的方法有很多种：选择排序，冒泡排序，归并排序，快速排序等，那我们需要手写排序算法吗？大多数场景下用现成的库函数就够了。STL 的 std::sort 是用得最多的排序算法。
 STL的std::sort函数是基于Musser在1996年提出的内省排序（Introspective sort）算法实现。这个算法是个缝合怪，它汲取了插入排序、堆排序以及快排的优点：
- 针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。  在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
+针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。 在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
 示例：
-bool caseInsensitiveLessThan(const QString &amp;s1, const QString &amp;s2) {  return s1.toLower() &lt; s2.toLower(); //从小到大排序 }  int doSomething() {  QStringList list;  list &lt;&lt; &#34;AlPha&#34; &lt;&lt; &#34;beTA&#34; &lt;&lt; &#34;gamma&#34; &lt;&lt; &#34;DELTA&#34;;  qSort(list.begin(), list.end(), caseInsensitiveLessThan);  // list: [ &#34;AlPha&#34;, &#34;beTA&#34;, &#34;DELTA&#34;, &#34;gamma&#34; ] } ">
-<meta name="generator" content="Hugo 0.99.1" />
+bool caseInsensitiveLessThan(const QString &amp;s1, const QString &amp;s2) { return s1.toLower() &lt; s2.toLower(); //从小到大排序 } int doSomething() { QStringList list; list &lt;&lt; &#34;AlPha&#34; &lt;&lt; &#34;beTA&#34; &lt;&lt; &#34;gamma&#34; &lt;&lt; &#34;DELTA&#34;; qSort(list.begin(), list.end(), caseInsensitiveLessThan); // list: [ &#34;AlPha&#34;, &#34;beTA&#34;, &#34;DELTA&#34;, &#34;gamma&#34; ] } ">
+<meta name="generator" content="Hugo 0.100.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">

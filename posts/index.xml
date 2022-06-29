@@ -13,13 +13,13 @@
       <pubDate>Wed, 29 Jun 2022 00:30:05 +0800</pubDate>
       
       <guid>/posts/2022-6-26/</guid>
-      <description>1. 相关术语 🔗  Common Compare Points 常见比较点
- Primary output 顶层输出 Register or latch 寄存器或锁存器 Input of a black-box 黑盒输入    Less Common Compare Points
- Multiply-driven net Loop Cutpoint 切割点    Logic Cone 逻辑锥
- 驱动比较点的组合逻辑块（当设计很大的时候，可以分成很多块来比较，这些块就是逻辑锥） 锥底就是需要比较的点，锥底的输入就是要比较的所有输入    2. 原理 🔗2.1 read 读 🔗将参考和实现设计划分为逻辑锥和比较点.
+      <description>1. 相关术语 🔗 Common Compare Points 常见比较点
+Primary output 顶层输出 Register or latch 寄存器或锁存器 Input of a black-box 黑盒输入 Less Common Compare Points
+Multiply-driven net Loop Cutpoint 切割点 Logic Cone 逻辑锥
+驱动比较点的组合逻辑块（当设计很大的时候，可以分成很多块来比较，这些块就是逻辑锥） 锥底就是需要比较的点，锥底的输入就是要比较的所有输入 2. 原理 🔗2.1 read 读 🔗将参考和实现设计划分为逻辑锥和比较点.
 2.2 match 🔗根据一定的匹配规则（通常是名字），匹配两个设计的锥。
 可能出现的匹配情况：
- matched 根据用户声明规则 matched Unmatched，不匹配并不说明不通过，也许不匹配的锥对功能不影响  2.3 verify 🔗 对 matched 的锥进行验证，等价即通过，不等价即功能不等价，整个验证没通过。 出现 fail 则 debug  2.</description>
+matched 根据用户声明规则 matched Unmatched，不匹配并不说明不通过，也许不匹配的锥对功能不影响 2.3 verify 🔗 对 matched 的锥进行验证，等价即通过，不等价即功能不等价，整个验证没通过。 出现 fail 则 debug 2.4 debug 🔗调试</description>
     </item>
     
     <item>
@@ -28,31 +28,25 @@
       <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
       
       <guid>/posts/2022-6-21/</guid>
-      <description>1. rtl 🔗  在电路设计中RTL（Register Transfer Level）表示寄存器传输级。
-  RTL设计由Verilog或者VHDL硬件描述语言描述出理想电路达到的功能。其实际对应的结构是众多算术运算单元（ALU）、多路选择器（MUX）、寄存器等。
-  在ASIC设计中，设计者的任务是给出功能正确的RTL级代码。
-  2. netlist 🔗  电路设计中，网表（netlist）是用于描述电路元件相互之间连接关系的。
-  RTL经过逻辑综合后，其描述的电路进一步展开，转换成用逻辑门和基本触发器相互连接搭建的电路，而用来描述这些逻辑门和触发器之间的连接关系的文件就是门级网表文件。
-  netlist是由quartus、vivado、dc等综合工具生成的。
-  3. hierarchy 🔗  在电路设计中，hierarchy表示设计电路的层次化/结构化结构。
-  层次化电路设计方法实际上是一种模块化设计方法，用户可以将带设计的电路划分为多个子模块，每个子模块下面又可以划分为若干个功能模块，每个功能模块下面又可以划分为若干个基本模块，设计好每个基本模块，定义好每个基本模块之间的连接关系，就可以完成整个电路的设计过程。
-  若利用布尔运算法则说明，则是给设计添加中间变量和逻辑结构。层次化电路中，综合工具会寻找可分解出来的子块进行扁平化处理。
-  4. flatten 🔗  如果利用布尔运算法则说明，flatten扁平化指的是将设计中的中间变量和结构转换掉。
-  具体地讲，flatten扁平化能将RTL代码实际对应的结构描述中的众多算术运算单元（ALU）、多路选择器（MUX）、寄存器等，进一步展开，转换成用AND、OR、NOT、XNOR等逻辑门和DFF、JK或者RS等基本触发器搭建的电路。
-  5. synthesis 🔗  综合是指从高抽象级转换到低抽象级的过程。数字系统可以在多个层次上描述，这些层次由高到低可以分为算法层、寄存器传输层、逻辑层、版图层。
-  通常，综合可分为三个层次，高层次综合、逻辑综合，版图综合。
-  其中逻辑综合具体指使用DC、quartus、vivado等综合工具，根据芯片制造商提供的基本电路单元库，将硬件描述语言描述的RTL级电路转换为网表的过程。
-  另外也要注意verilog中的可综合与不可综合语句。
-  6. techmapping 🔗  technology工艺映射是将逻辑图或网表转化成可以用工艺实现的新的图或网表的过程。</description>
-    </item>
-    
-    <item>
-      <title>形式验证相关术语梳理</title>
-      <link>/posts/2022-6-21/rtl/</link>
-      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
-      
-      <guid>/posts/2022-6-21/rtl/</guid>
-      <description></description>
+      <description>1. rtl 🔗 在电路设计中RTL（Register Transfer Level）表示寄存器传输级。
+RTL设计由Verilog或者VHDL硬件描述语言描述出理想电路达到的功能。其实际对应的结构是众多算术运算单元（ALU）、多路选择器（MUX）、寄存器等。
+在ASIC设计中，设计者的任务是给出功能正确的RTL级代码。
+2. netlist 🔗 电路设计中，网表（netlist）是用于描述电路元件相互之间连接关系的。
+RTL经过逻辑综合后，其描述的电路进一步展开，转换成用逻辑门和基本触发器相互连接搭建的电路，而用来描述这些逻辑门和触发器之间的连接关系的文件就是门级网表文件。
+netlist是由quartus、vivado、dc等综合工具生成的。
+3. hierarchy 🔗 在电路设计中，hierarchy表示设计电路的层次化/结构化结构。
+层次化电路设计方法实际上是一种模块化设计方法，用户可以将带设计的电路划分为多个子模块，每个子模块下面又可以划分为若干个功能模块，每个功能模块下面又可以划分为若干个基本模块，设计好每个基本模块，定义好每个基本模块之间的连接关系，就可以完成整个电路的设计过程。
+若利用布尔运算法则说明，则是给设计添加中间变量和逻辑结构。层次化电路中，综合工具会寻找可分解出来的子块进行扁平化处理。
+4. flatten 🔗 如果利用布尔运算法则说明，flatten扁平化指的是将设计中的中间变量和结构转换掉。
+具体地讲，flatten扁平化能将RTL代码实际对应的结构描述中的众多算术运算单元（ALU）、多路选择器（MUX）、寄存器等，进一步展开，转换成用AND、OR、NOT、XNOR等逻辑门和DFF、JK或者RS等基本触发器搭建的电路。
+5. synthesis 🔗 综合是指从高抽象级转换到低抽象级的过程。数字系统可以在多个层次上描述，这些层次由高到低可以分为算法层、寄存器传输层、逻辑层、版图层。
+通常，综合可分为三个层次，高层次综合、逻辑综合，版图综合。
+其中逻辑综合具体指使用DC、quartus、vivado等综合工具，根据芯片制造商提供的基本电路单元库，将硬件描述语言描述的RTL级电路转换为网表的过程。
+另外也要注意verilog中的可综合与不可综合语句。
+6. techmapping 🔗 technology工艺映射是将逻辑图或网表转化成可以用工艺实现的新的图或网表的过程。
+逻辑综合中,工艺映射是关键的一步。它根据综合第二步骤中的优化所施加的时序和面积约束，从目标工艺库中搜索符合条件的单元来构成实际电路的逻辑网表。
+7. elaborate 🔗 综合包括翻译（translation）+优化（optimization）+映射（techmapping）。elaborate是翻译步骤的一部分。 elaborate是将HDL描述扩展为将所有模块（Verilog）或实体（VHDL）的所有实例表示为唯一对象的过程。它还涉及在整个描述中评估和传播端口、常量和参数（Verilog）或泛型（VHDL）。完成后，您可以仿真或综合您的设计。 8. word-level model 🔗 word-level model表示对rtl电路设计的一种字级表示，一般来说，字级表示模型中会出现类似于input [信号位宽-1 ：0] 端口名，output [信号位宽-1 ：0] 端口名，reg [width-1 : 0] R变量，wire [width-1 : 0] W变量，这种多bit位数据之间直接进行位运算操作。
+9. bit-level model 🔗 bit-level model表示对rtl电路设计的一种位级表示，一般来说，位级表示模型中会出现类似于input [信号位宽-1 ：0] 端口名，output [信号位宽-1 ：0] 端口名，reg [width-1 : 0] R变量，wire [width-1 : 0] W变量这种多bit位数据之间采用其各自的单个bit位如input[0]、input[1]、output[0]、output[1]等逐步进行位运算操作最后得出运算结果。</description>
     </item>
     
     <item>
@@ -64,8 +58,9 @@
       <description>1. 介绍 🔗Hector是一种形式功能验证工具，最强大的优势是验证两个模型之间的 transaction 等价性，用于C/C++ model VS RTL的检查。
 组合电路和C++函数在输入之间没有时间延迟地执行事务和输出。时钟RTL电路可能需要一个或多个周期来计算事务。在流水线的情况下，多个事务可能在单个设计块中同时执行。事务的持续时间（以时钟周期为单位）可能是固定的或依赖于数据的，但必须有一个已知的上限。
 Hector的一个关键好处是对事务等价性进行建模，在比较的两个模型中，事务的延迟是不同的。Hector在每种设计中都独立地支持事务相关时钟相位的输入约束和输出比较。
-2. 快速开始 🔗2.1 为C/C++模型编写 Hector 封装器 🔗#include &amp;lt;Hector.h&amp;gt; void hector_wrapper() {  int a, b, mul, madd;  Hector::registerInput(&amp;#34;in_a&amp;#34;, a);  Hector::registerInput(&amp;#34;in_b&amp;#34;, b);  Hector::registerOutput(&amp;#34;out_mul&amp;#34;, mul);  Hector::registerOutput(&amp;#34;out_madd&amp;#34;, madd);  Hector::beginCapture();  compute(a, b, mul, madd);  Hector::endCapture(); } 其中 Hector::registerInput(&amp;quot;in_a&amp;quot;, a);指示应将变量a视为输入，并在Hector的所有后续步骤中将其称为 in_a。
-2.2 声明规范设计 🔗proc compile_spec {} {  create_design -name spec -top hector_wrapper  cppan foo.cc  compile_design spec } cppan 命令分析C++程序。它将g++编译器选项和文件列表作为参数。最后 compile_design 命令将名为spec的设计编译为DFG。</description>
+2. 快速开始 🔗2.1 为C/C++模型编写 Hector 封装器 🔗#include &amp;lt;Hector.h&amp;gt; void hector_wrapper() { int a, b, mul, madd; Hector::registerInput(&amp;#34;in_a&amp;#34;, a); Hector::registerInput(&amp;#34;in_b&amp;#34;, b); Hector::registerOutput(&amp;#34;out_mul&amp;#34;, mul); Hector::registerOutput(&amp;#34;out_madd&amp;#34;, madd); Hector::beginCapture(); compute(a, b, mul, madd); Hector::endCapture(); } 其中 Hector::registerInput(&amp;quot;in_a&amp;quot;, a);指示应将变量a视为输入，并在Hector的所有后续步骤中将其称为 in_a。
+2.2 声明规范设计 🔗proc compile_spec {} { create_design -name spec -top hector_wrapper cppan foo.cc compile_design spec } cppan 命令分析C++程序。它将g++编译器选项和文件列表作为参数。最后 compile_design 命令将名为spec的设计编译为DFG。
+2.3 声明实现设计 🔗proc compile_impl {} { create_design -name impl -top ima –clock clk –reset rst -negReset vcs foo.</description>
     </item>
     
     <item>
@@ -75,12 +70,12 @@ Hector的一个关键好处是对事务等价性进行建模，在比较的两�
       
       <guid>/posts/2022-6-20/</guid>
       <description>参考
- 功能ECO理论基础：逻辑等价性检查（LEC）  【A级忍术】形式验证的原理及流程详细总结   一、基础概念 🔗golden：参考模型
+功能ECO理论基础：逻辑等价性检查（LEC） 【A级忍术】形式验证的原理及流程详细总结 一、基础概念 🔗golden：参考模型
 revised：待比较的设计
 逻辑锥Logic Cone：设计（module）就是“以DFF为终点的逻辑块”组成。不仅网表如此，RTL也是一样。所有数字电路都可以用always和assign这两种语法来实现（latch可以看作是DFF的一种）。这些“以DFF为终点的逻辑块”我们把它叫作逻辑锥
 Keypoint Mapping：逻辑锥的终点是DFF的CK（时钟）、Ｄ（数据）、RN（复位）、SN（置位），如果这几个“关键点”的逻辑都相同或者等价，那么这两个逻辑锥的逻辑就等价。
 只要两种设计的所有对应逻辑锥逻辑功能都被验证为等价，就认为两个设计等价。
-二、流程 🔗 设置一些与进行等价性验证有关的设置。例如，若设计中的某些模块不需要进行检查，可以将其设置为“黑盒子”；在验证插入扫描链的网表时，要将测试模式信号与扫描使能信号设置为禁止使能，等等。 进行比较点匹配。采用match令即可。一般来说，等价性检查工具会根据相近的信号命名来选取比较点，并给出比较点的报告。如果工具无法识别某些比较点，或者识别有错误，那么设计者可以手工进行相应设置。 进行验证。采用verify命令即可。 给出报告，如果发现错误，则利用图形化界面进行调试。  </description>
+二、流程 🔗 设置一些与进行等价性验证有关的设置。例如，若设计中的某些模块不需要进行检查，可以将其设置为“黑盒子”；在验证插入扫描链的网表时，要将测试模式信号与扫描使能信号设置为禁止使能，等等。 进行比较点匹配。采用match令即可。一般来说，等价性检查工具会根据相近的信号命名来选取比较点，并给出比较点的报告。如果工具无法识别某些比较点，或者识别有错误，那么设计者可以手工进行相应设置。 进行验证。采用verify命令即可。 给出报告，如果发现错误，则利用图形化界面进行调试。 </description>
     </item>
     
     <item>
@@ -108,20 +103,26 @@ hierarchy -top modulename 5. write_ilang(write_rtlil) 🔗将设计写入RTLIL�
       <guid>/posts/2022-6-19/</guid>
       <description>参考《yosys manual》
 1. 简介 🔗Yosys是 verilog RTL 综合的一个框架。它目前拥有广泛的Verilog-2005支持，并为各种应用领域提供了一套基本的综合算法。其特点如下：
-  能处理所有可合成的Verilog-2005设计
-  将Verilog转换为BLIF/EDIF/BTOR/SMT-LIB/simple RTL Verilog等格式
-  可以做属性和等价性的检查，做逻辑化简、优化
-  映射到ASIC标准单元库（Liberty文件格式）
-  映射到Xilinx 7系列和Lattice iCE40、ECP5 FPGA, GOWin fpga上等
-  自定义综合流程、扩展自定义的综合算法、扩展针对其他FPGA的综合等
-  2. 实现原理 🔗yosys的实现原理上和编译器非常相似：普通编译器，比如c/c++，是把c/c++语言的程序翻译为机器码，而yosys是把原始输入的行为描述verilog设计，映射翻译为标准库或LUT等资源表述的结构性verilog语言，这种映射变换，首先就是词法分析、语法分析、语义分析、抽象语法树、中间语言，这些和普通编译器都是一样的，不同之处就在于yosys加入了各种逻辑优化、逻辑映射。
+能处理所有可合成的Verilog-2005设计
+将Verilog转换为BLIF/EDIF/BTOR/SMT-LIB/simple RTL Verilog等格式
+可以做属性和等价性的检查，做逻辑化简、优化
+映射到ASIC标准单元库（Liberty文件格式）
+映射到Xilinx 7系列和Lattice iCE40、ECP5 FPGA, GOWin fpga上等
+自定义综合流程、扩展自定义的综合算法、扩展针对其他FPGA的综合等
+2. 实现原理 🔗yosys的实现原理上和编译器非常相似：普通编译器，比如c/c++，是把c/c++语言的程序翻译为机器码，而yosys是把原始输入的行为描述verilog设计，映射翻译为标准库或LUT等资源表述的结构性verilog语言，这种映射变换，首先就是词法分析、语法分析、语义分析、抽象语法树、中间语言，这些和普通编译器都是一样的，不同之处就在于yosys加入了各种逻辑优化、逻辑映射。
 3. 基础原则 🔗3.1 抽象等级 🔗不同的抽象等级和综合。
-3.2 挑战 🔗标准符合性 🔗  标准实施的完整性
-  标准实施的正确性
-  优化 Optimizations 🔗一般来说，很难对合成工具优化设计的程度给出一维描述。首先，因为并非所有优化都适用于所有设计和所有合成任务。一个好的工具能够在不同的抽象级别上应用广泛的优化，并提供设计器控制执行（或跳过）哪些优化以及优化目标是什么。
+3.2 挑战 🔗标准符合性 🔗 标准实施的完整性
+标准实施的正确性
+优化 Optimizations 🔗一般来说，很难对合成工具优化设计的程度给出一维描述。首先，因为并非所有优化都适用于所有设计和所有合成任务。一个好的工具能够在不同的抽象级别上应用广泛的优化，并提供设计器控制执行（或跳过）哪些优化以及优化目标是什么。
 技术映射 Technology Mapping 🔗技术映射是将设计转换为目标体系结构中可用单元的网络列表的过程。
 3.3 编译器设计方法 🔗3.3.1 词法分析 🔗编译器设计中最著名的概念可能是词法分析和语法分析。这两种方法可以一起轻松地处理复杂的计算机语言。
-词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog 输入“assign foo=bar+42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。</description>
+词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog 输入“assign foo=bar+42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。
+然后，解析器将标记列表转换为与计算机语言语法的结果非常相似的解析树。这种数据结构称为抽象语法树（AST）。
+通常，AST随后被转换为另一种更适合进一步处理的表示。在编译器中，这通常是一种类似于汇编程序的三地址码中间表示。
+4. 实现 🔗4.1 Yosys内部格式 🔗Yosys使用两种不同的内部格式。第一个用于存储Verilog 输入文件的抽象语法树（AST）。这种格式简称为AST，由 Verilog 前端生成。此数据结构由名为AST Frontend1 的子系统使用。然后，这个AST前端以Yosys的主要内部格式生成一个设计，即寄存器传输级中间语言（RTLIL）表示。它通过首先在AST表示中执行大量简化，然后从简化的AST数据结构生成RTLIL来实现。
+RTLIL 基本上是一种 netlist。
+RTLIL的使用还有一个缺点，即在所有过程之间都有一个非常强大的格式，即使在不需要更高级功能的门级合成时也是如此。
+4.2 数据流 🔗下图显示了Yosys内的简化数据流。图中的矩形表示程序模块，省略号表示用于在程序模块之间交换设计数据的内部数据结构。</description>
     </item>
     
     <item>
@@ -134,8 +135,9 @@ hierarchy -top modulename 5. write_ilang(write_rtlil) 🔗将设计写入RTLIL�
 官网：https://yosyshq.net/yosys/
 Github：https://github.com/YosysHQ/yosys
 二、编译安装 🔗操作环境： Ubuntu 18.04
- 安装依赖包  apt-get install build-essential clang bison flex \ 	libreadline-dev gawk tcl-dev libffi-dev git \ 	graphviz xdot pkg-config python3 libboost-system-dev \ 	libboost-python-dev libboost-filesystem-dev zlib1g-dev 下载源码、编译  git clone https://github.com/YosysHQ/yosys.git  cd yosys  make  make install 三、简单使用 🔗脚本方式：
-$ cat synth.ys read -sv test.v hierarchy -top up3down5 proc; opt; techmap; opt write_verilog synth.v  $ .</description>
+安装依赖包 apt-get install build-essential clang bison flex \ libreadline-dev gawk tcl-dev libffi-dev git \ graphviz xdot pkg-config python3 libboost-system-dev \ libboost-python-dev libboost-filesystem-dev zlib1g-dev 下载源码、编译 git clone https://github.com/YosysHQ/yosys.git cd yosys make make install 三、简单使用 🔗脚本方式：
+$ cat synth.ys read -sv test.v hierarchy -top up3down5 proc; opt; techmap; opt write_verilog synth.v $ ./yosys synth.ys 逐步：
+使用 verilog 前端读入 verilog 原始设计文件 yosys&amp;gt; read -sv tests/simple/fiedler-cooley.</description>
     </item>
     
     <item>
@@ -147,11 +149,11 @@ $ cat synth.ys read -sv test.v hierarchy -top up3down5 proc; opt; techmap; opt w
       <description>一、前言 🔗VSCode + iverilog 轻量级、开源 verilog 开发解决方案。
 二、安装 iverilog、gtkwave 🔗iverilog:一个轻量、免费、开源的Verilog编译器，基于C++实现，安装文件中已经包含 GTKWave支持Verilog/VHDL文件的编译和仿真，命令行操作方式，类似gcc编译器，通过testbench文件可以生成对应的仿真波形数据文件
 官方安装文档：https://iverilog.fandom.com/wiki/Installation_Guide
- macOS 用户：brew install icarus-verilog
+macOS 用户：brew install icarus-verilog
 linux（Ubuntu） 用户：sudo apt-get install iverilog
- gtkwave：查看仿真波形图
- macOS ：brew install gtkwave linux（Ubuntu）：sudo apt-get install gtkwave
- 三、安装 VSCode 插件 🔗 Verilog-HDL/SystemVerilog/Bluespec SystemVerilog：提供verilog源文件的语法高亮，自动补全，错误检查（linting）。 Verilog-HDL：提供一个绿色的小按钮，使得你可以一键编译执行一个verilog源文件（其实就是自动帮你在命令行中输入iverilog -o &amp;lt;目标文件&amp;gt; &amp;lt;verilog源文件&amp;gt; ; vvp &amp;lt;源文件&amp;gt;） Verilog Snippet：一键补完固定语法格式的插件。 WaveTrace：查看仿真的波形图  四、配置 🔗打开 VSCode 设置，输入verilog，然后将你的verilog的linter选成iverilog
+gtkwave：查看仿真波形图
+macOS ：brew install gtkwave linux（Ubuntu）：sudo apt-get install gtkwave
+三、安装 VSCode 插件 🔗 Verilog-HDL/SystemVerilog/Bluespec SystemVerilog：提供verilog源文件的语法高亮，自动补全，错误检查（linting）。 Verilog-HDL：提供一个绿色的小按钮，使得你可以一键编译执行一个verilog源文件（其实就是自动帮你在命令行中输入iverilog -o &amp;lt;目标文件&amp;gt; &amp;lt;verilog源文件&amp;gt; ; vvp &amp;lt;源文件&amp;gt;） Verilog Snippet：一键补完固定语法格式的插件。 WaveTrace：查看仿真的波形图 四、配置 🔗打开 VSCode 设置，输入verilog，然后将你的verilog的linter选成iverilog
 五、运行 🔗点击右上角绿色按钮运行，打开 vcd 文件可看波形图。
 六、相关操作命令行版本 🔗1.编译运行
 &amp;gt; iverilog -o hello hello.v //将 hello.v 编译成 hello 脚本文件 &amp;gt; vvp hello //vvp（解释器）解释运行 hello脚本 2.</description>
@@ -166,8 +168,8 @@ linux（Ubuntu） 用户：sudo apt-get install iverilog
       <description>一、前言 🔗在远程开发环境中，使用 VSCode 可明显提高工作效率。
 二、配置 SSH 环境 🔗VSCode remote 远程开发使用 SSH 协议与远程服务端通信，所以需要先配置好 SSH 环境。Git 安装自带 SSH 客户端程序，如果你没安装 Git 的话先安装上。安装 Git 后，在终端执行 ssh 检查是否配置好环境变量，如果提示找不到命令，则需要先配置 ssh 的环境变量（在 Git 的安装路径下找找）。
 三、安装远程插件 🔗在 VSCode 插件中搜索安装 Remote - SSH 插件。
- Remote - SSH：使用 SSH 打开远程计算机上的任何文件夹，并利用 VS Code 的完整功能。
- 四、配置远程 🔗 1.打开侧边栏中的远程资源管理器，点击添加，随后输入 ssh 用户名@地址 或者点击配置并且输入相关配置信息。 2.点击连接，输入密码登陆。 3.登陆成功后，在资源管理器中打开远程文件夹。  五、配置 SSH 免密登陆 🔗 1.在本地主机中生成密钥。执行 ssh-keygen。 2.将公钥文件 id_rsa.pub 中的内容，上传到服务器的 ～/.ssh/authorized_keys 文件中，这里可以使用 scp 等命令传输。  </description>
+Remote - SSH：使用 SSH 打开远程计算机上的任何文件夹，并利用 VS Code 的完整功能。
+四、配置远程 🔗 1.打开侧边栏中的远程资源管理器，点击添加，随后输入 ssh 用户名@地址 或者点击配置并且输入相关配置信息。 2.点击连接，输入密码登陆。 3.登陆成功后，在资源管理器中打开远程文件夹。 五、配置 SSH 免密登陆 🔗 1.在本地主机中生成密钥。执行 ssh-keygen。 2.将公钥文件 id_rsa.pub 中的内容，上传到服务器的 ～/.ssh/authorized_keys 文件中，这里可以使用 scp 等命令传输。 </description>
     </item>
     
     <item>
@@ -180,7 +182,7 @@ linux（Ubuntu） 用户：sudo apt-get install iverilog
 形式验证主要验证数字IC设计流程中的各个阶段的代码功能是否一致，包括综合前RTL代码和综合后网表的验证。
 形式验证方法分为等价性验证（Equivalence Checking）、模型检验（Model Checking）和定理证明（Theorem Proving）等。
 形式验证的应用：
- 1、综合的网表与 RTL 对比做形式验证。确保综合后的网表是想要的。 2、后端网表与综合后的网表对比做形式验证。保证后端没有引入逻辑错误。 3、做 ECO 的时候，ECO 后的网表与 ECO 后的 RTL 做形式验证。  下图为形式验证技术
+1、综合的网表与 RTL 对比做形式验证。确保综合后的网表是想要的。 2、后端网表与综合后的网表对比做形式验证。保证后端没有引入逻辑错误。 3、做 ECO 的时候，ECO 后的网表与 ECO 后的 RTL 做形式验证。 下图为形式验证技术
 2. 模型检查 Model Checking 🔗模型检查，也称为属性检查，是一种基于状态的形式验证方法。
 模型检查主要是检查RTL代码是否满足规范中规定的一些特性。在规定这些特性时一般使用特性规范语言，一般也使用基于断言的验证语言。由于这种方法可以在不需要仿真的前提下检查设计中所有可能出现的情况是否满足规定的特性，所以使用这种方法不会遗漏任何的边界情况。
 优点和缺点：一旦将系统模型和属性规范提供给模型检查器，验证过程就将是完全自动的。但是，从模型检查器要处理的状态数来看，模型检查适用于小型系统。
@@ -198,7 +200,9 @@ linux（Ubuntu） 用户：sudo apt-get install iverilog
 对组合逻辑来说，不存在状态寄存器，其输出值Z[t]不依赖于前面的输入值Xt-i。这时只要对每个输入向量证明其输出向量相同。
 下图为逻辑等价检查示意图
 6. 时序等价性检查 SEC 🔗时序等价性检查（Sequential EquivalencevChecking），验证两个设计在功能上是否相同的过程，并且在提供相同输入时验证是否有相同的输出。它用于比较两种设计的顺序逻辑，而这两种设计可能有不同的实现。
-对一个时序电路而言，可以把它看成一个有限状态机(FSM，finite-state machine)。电路功能的等价可以用有限状态机的等价来判断。假定有两个状态机A和B，要对它们进行比较。直观的说，当A和B有相同的接口，而且从相同的初始状态出发，两者对有效输入值序列产生相同的输出值序列，则可以说A和B等价。</description>
+对一个时序电路而言，可以把它看成一个有限状态机(FSM，finite-state machine)。电路功能的等价可以用有限状态机的等价来判断。假定有两个状态机A和B，要对它们进行比较。直观的说，当A和B有相同的接口，而且从相同的初始状态出发，两者对有效输入值序列产生相同的输出值序列，则可以说A和B等价。
+下图为时序等价性检查示意图
+7. 对比 🔗 Combinational equivalence：用于RTL vs Netlist的检查，检查寄存器之间的组合逻辑在综合前后是否一致，如Formality，Conformal。</description>
     </item>
     
     <item>
@@ -210,10 +214,10 @@ linux（Ubuntu） 用户：sudo apt-get install iverilog
       <description>前言 🔗数字系统中常用的各种数字部件，就其结构和工作原理而言可分为两大类，即组合逻辑电路和时序逻辑电路。
 1. 组合逻辑电路 🔗1.1 概念 🔗对于一个逻辑电路，其输出状态在任何时刻只取决于同一时刻的输入状态，而与电路原本的状态无关
 特点：
- 输出、输入之间没有反馈延迟通路； 电路中不含具有记忆功能的元件。  2.时序逻辑电路 🔗而时序电路是一种输出不仅与当前的输入有关，而且与其输出状态的原始状态有关，其相当于在组合逻辑的输入端加上了一个反馈输入，在其电路中有一个存储电路，其可以将输出的状态保持住。
+输出、输入之间没有反馈延迟通路； 电路中不含具有记忆功能的元件。 2.时序逻辑电路 🔗而时序电路是一种输出不仅与当前的输入有关，而且与其输出状态的原始状态有关，其相当于在组合逻辑的输入端加上了一个反馈输入，在其电路中有一个存储电路，其可以将输出的状态保持住。
 3.对比 🔗1、组合逻辑电路在逻辑功能上的特点是任意时刻的输出仅仅取决于该时刻的输入，与电路原来的状态无关。
 2、时序逻辑电路在逻辑功能上的特点是任意时刻的输出不仅取决于当时的输入信号，而且还取决于电路原来的状态，或者说，还与以前的输入有关。
-4. 常用组合逻辑电路 🔗 算术运算电路（半加器、全加器、加法器） 编码器、译码器 数据选择、分配、比较器  5. 具有典型时序逻辑电路特征的三种逻辑器件 🔗 计数器 寄存器 顺序脉冲发生器  6. 相关概念 🔗 时钟：时钟是整个系统的同步信号，当时钟出现故障时会带来整体的功能故障。  </description>
+4. 常用组合逻辑电路 🔗 算术运算电路（半加器、全加器、加法器） 编码器、译码器 数据选择、分配、比较器 5. 具有典型时序逻辑电路特征的三种逻辑器件 🔗 计数器 寄存器 顺序脉冲发生器 6. 相关概念 🔗 时钟：时钟是整个系统的同步信号，当时钟出现故障时会带来整体的功能故障。 </description>
     </item>
     
     <item>
@@ -223,11 +227,11 @@ linux（Ubuntu） 用户：sudo apt-get install iverilog
       
       <guid>/posts/2022-6-8-verilog/</guid>
       <description>参考资料：
- 《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 语法学习：菜鸟教程 https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216  1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
+《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 语法学习：菜鸟教程 https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216 1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
 计算机对 HDL 的处理包括两个方面：逻辑仿真和逻辑综合。
 逻辑仿真：用计算机仿真软件对数字逻辑电路的结构和行为进行预测，仿真器对 HDL 描述进行解释，以文本形式或时序波形图形式给出电路的输出。在电路被实现之前，设计人员对仿真结果可以初步判断电路的逻辑功能是否正确。
 逻辑综合：从 HDL 描述的数字逻辑电路模型中导出电路基本元件列表以及元件之间的连接关系（常称为门级网表）的过程。它类似于高级程序设计语言中对一个程序进行编译，得到目标代码的过程。所不同的是，逻辑综合不会产生目标代码，而是产生门级元件及其连接关系的数据库，根据这个数据库可以制作出集成电路或印制电路板（PCB）。
- HDL 语言是并行处理的，具有同一时刻执行多任务的能力。这和一般高级设计语言（例如C语言等）串行执行的特征是不同的。 HDL 有时序的概念。一般的高级编程语言是没有时序的概念的，但在硬件电路中从输入到输出总是有延时存在的，为了描述这一特征，需要引入时延的概念。  1.1 Verilog HDL 描述层次说明 🔗1.1.1 系统级和算法级建模 🔗通常只是用 Verilog HDL 描述系统的功能，不涉及具体实现的细节，实际开发中，设计人员很少应用 Verilog HDL 语言的系统和算法级建模能力。
+HDL 语言是并行处理的，具有同一时刻执行多任务的能力。这和一般高级设计语言（例如C语言等）串行执行的特征是不同的。 HDL 有时序的概念。一般的高级编程语言是没有时序的概念的，但在硬件电路中从输入到输出总是有延时存在的，为了描述这一特征，需要引入时延的概念。 1.1 Verilog HDL 描述层次说明 🔗1.1.1 系统级和算法级建模 🔗通常只是用 Verilog HDL 描述系统的功能，不涉及具体实现的细节，实际开发中，设计人员很少应用 Verilog HDL 语言的系统和算法级建模能力。
 1.1.2 寄存器传输级（RTL）建模 🔗RTL 级建模：描述电路时只关注寄存器本身，以及寄存器到寄存器之间的逻辑功能，而不在意寄存器和组合逻辑的实现细节。
 RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可综合描述语言。在 EDA 工具的帮助下，设计人员可以直接在 RTL 级进行电路设计，而无需从逻辑门电路（与门、或门和非门）的较低层次来设计电路。
 在最终实现时，所有的设计都需要映射到门级电路上，RTL 级代码也不例外，只不过 RTL 代码通过 EDA 软件中的逻辑综合工具转化成设计网表，网表基本上由门电路组成。
@@ -267,7 +271,7 @@ RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可�
 逻辑表达式：
 逻辑图：
 波形图：
-1.9 逻辑代数的基本定律和恒等式 🔗</description>
+1.9 逻辑代数的基本定律和恒等式 🔗</description>
     </item>
     
     <item>
@@ -277,7 +281,7 @@ RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可�
       
       <guid>/posts/2022-5-20/</guid>
       <description>— Samuel Ullman 🔗 Youth is not a time of life, it is a state of mind; it is not a matter of rosy cheeks, red lips and supple knees; it is a matter of the will, a quality of the imagination, a vigor of the emotions; it is the freshness of the deep springs of life.
-  Youth means a temperamental predominance of courage over timidity, of the appetite for adventure over the love of ease.</description>
+Youth means a temperamental predominance of courage over timidity, of the appetite for adventure over the love of ease.</description>
     </item>
     
     <item>
@@ -286,13 +290,13 @@ RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可�
       <pubDate>Fri, 22 Apr 2022 08:36:23 +0800</pubDate>
       
       <guid>/posts/2022-4-22/</guid>
-      <description>程序编译过程 🔗  预处理 进行宏定义展开，头文件展开，不检查语法
-  编译 检查语法，将预处理过的文件编译生成汇编文件
-  汇编 将汇编文件生成目标文件（二进制文件）
-  链接 找到依赖的库文件，将目标文件链接位可执行程序
-  static、const、#define 用法和区别 🔗const 🔗 修饰变量，说明该变量不可以被改变 修饰指针，分别指向常量的指针，自身是常量的指针 修饰引用，指向常量的引用，用于形参类型，及避免拷贝，又避免了函数对值的修改 修饰成员函数，说明该成员函数内不能修改成员变量。  static 🔗 修饰普通变量 变量会在静态区分配内存，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统会用默认值初始化它。 修饰普通函数 表明函数的作用范围，在定义函数的文件内才能使用。 修饰成员变量 修饰成员变量使所有的对象只保存一个该变量，不用创建对象也可以访问 修饰成员函数 成员函数使得不需要生成对象就可以访问该函数，但是static 函数不能访问静态成员。  宏定义和const 常量 🔗宏定义：
- 相当于字符替换 预处理器 无类型安全检查 不分配内存 存储在代码段 可通过 #undef 取消  const 常量：
- 常量声明 编译器处理 有类型安全检查 要分配内存 存储在数据段 不可取消  内存模型 🔗 栈 由编译器自动分配、释放，存放函数的参数值，局部变量的值等，操作方式类似与数据结构中的栈。 堆 一般是程序员分配、释放，若程序员不释放，程序结束时可能由操作系统回收。它的分配方式类似于链表 全局/静态、常量 全局变量和静态变量的存储是放在一起的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的一块区域。程序结束会由系统释放。 文本（代码） 常量字符串就是放在这里的。  堆和栈区别 🔗🔗 stack: 由系统自动分配。 例如，声明在函数中一个局部变量 int b; 系统自动在栈中为b开辟空间 heap: 需要程序员自己申请，并指明大小。  面向对象基础 🔗析构函数 🔗构造函数 🔗拷贝函数 🔗多态 🔗纯虚函数 虚函数 🔗虚函数表 🔗访问限定符 public、private、protected 🔗继承原理，虚继承、菱形继承 🔗静态绑定、动态绑定 🔗new delete malloc free 🔗重载、重写、隐藏 🔗智能指针 🔗左值、右值应用、移动语义 🔗类型转换方式 🔗常用的设计模式 🔗线程安全的单例模式 🔗内存溢出和内存泄漏 🔗C++ 11 新特性 🔗静态链接库和动态链接库 🔗STL 迭代器、空间配置器理解 🔗常用容器特点、用法以及底层实现 vector、list、deque、set、map、unordermap 🔗</description>
+      <description>程序编译过程 🔗 预处理 进行宏定义展开，头文件展开，不检查语法
+编译 检查语法，将预处理过的文件编译生成汇编文件
+汇编 将汇编文件生成目标文件（二进制文件）
+链接 找到依赖的库文件，将目标文件链接位可执行程序
+static、const、#define 用法和区别 🔗const 🔗 修饰变量，说明该变量不可以被改变 修饰指针，分别指向常量的指针，自身是常量的指针 修饰引用，指向常量的引用，用于形参类型，及避免拷贝，又避免了函数对值的修改 修饰成员函数，说明该成员函数内不能修改成员变量。 static 🔗 修饰普通变量 变量会在静态区分配内存，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统会用默认值初始化它。 修饰普通函数 表明函数的作用范围，在定义函数的文件内才能使用。 修饰成员变量 修饰成员变量使所有的对象只保存一个该变量，不用创建对象也可以访问 修饰成员函数 成员函数使得不需要生成对象就可以访问该函数，但是static 函数不能访问静态成员。 宏定义和const 常量 🔗宏定义：
+相当于字符替换 预处理器 无类型安全检查 不分配内存 存储在代码段 可通过 #undef 取消 const 常量：
+常量声明 编译器处理 有类型安全检查 要分配内存 存储在数据段 不可取消 内存模型 🔗 栈 由编译器自动分配、释放，存放函数的参数值，局部变量的值等，操作方式类似与数据结构中的栈。 堆 一般是程序员分配、释放，若程序员不释放，程序结束时可能由操作系统回收。它的分配方式类似于链表 全局/静态、常量 全局变量和静态变量的存储是放在一起的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的一块区域。程序结束会由系统释放。 文本（代码） 常量字符串就是放在这里的。 堆和栈区别 🔗 🔗 stack: 由系统自动分配。 例如，声明在函数中一个局部变量 int b; 系统自动在栈中为b开辟空间 heap: 需要程序员自己申请，并指明大小。 面向对象基础 🔗析构函数 🔗构造函数 🔗拷贝函数 🔗多态 🔗纯虚函数 虚函数 🔗虚函数表 🔗访问限定符 public、private、protected 🔗继承原理，虚继承、菱形继承 🔗静态绑定、动态绑定 🔗new delete malloc free 🔗重载、重写、隐藏 🔗智能指针 🔗左值、右值应用、移动语义 🔗类型转换方式 🔗常用的设计模式 🔗线程安全的单例模式 🔗内存溢出和内存泄漏 🔗C++ 11 新特性 🔗静态链接库和动态链接库 🔗STL 迭代器、空间配置器理解 🔗常用容器特点、用法以及底层实现 vector、list、deque、set、map、unordermap 🔗</description>
     </item>
     
     <item>
@@ -301,7 +305,7 @@ RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可�
       <pubDate>Fri, 22 Apr 2022 08:36:23 +0800</pubDate>
       
       <guid>/posts/2022-4-26/</guid>
-      <description>0.C和C++有什么区别 🔗 C++ 是面向对象的语言，C是面向过程的语言； C++ 引入 new/delete 运算符，取代了 C 中的 malloc/free 库函数。 C++ 引入引用的概念，而 C 中没有； C++ 引入类的概念，而 C 中没有； C++ 引入函数重载的概念，而 C 中没有。  1.C++11有哪些新特性 🔗 Lambda表达式用于创建匿名函数 自动类型推导 auto 和 decltype 列表初始化 = default 生成默认构造函数，= delete 禁止使用拷贝构造函数 nullptr 关键字，用于解决 NULL 的二义性。 引入 shared_ptr、unique_ptr 等智能指针 右值引用，将引用绑定到右值，如临时对象或字面量 引入线程库 范围 for 循环  2. struct 和 class 有什么区别 🔗 成员的默认访问权限 struct 的成员默认为 public 权限，class 的成员默认为 private 权限。 默认继承权限 struct 的继承按照 public 处理，class 的继承按照 private 处理。  对于一个频繁使用的短小函数，应该使用什么来实现，有什么优缺点？ 🔗应该使用 inline 内联函数，即编译器将 inline 内联函数内的代码替换到函数被调用的地方。</description>
+      <description>0.C和C++有什么区别 🔗 C++ 是面向对象的语言，C是面向过程的语言； C++ 引入 new/delete 运算符，取代了 C 中的 malloc/free 库函数。 C++ 引入引用的概念，而 C 中没有； C++ 引入类的概念，而 C 中没有； C++ 引入函数重载的概念，而 C 中没有。 1.C++11有哪些新特性 🔗 Lambda表达式用于创建匿名函数 自动类型推导 auto 和 decltype 列表初始化 = default 生成默认构造函数，= delete 禁止使用拷贝构造函数 nullptr 关键字，用于解决 NULL 的二义性。 引入 shared_ptr、unique_ptr 等智能指针 右值引用，将引用绑定到右值，如临时对象或字面量 引入线程库 范围 for 循环 2. struct 和 class 有什么区别 🔗 成员的默认访问权限 struct 的成员默认为 public 权限，class 的成员默认为 private 权限。 默认继承权限 struct 的继承按照 public 处理，class 的继承按照 private 处理。 对于一个频繁使用的短小函数，应该使用什么来实现，有什么优缺点？ 🔗应该使用 inline 内联函数，即编译器将 inline 内联函数内的代码替换到函数被调用的地方。</description>
     </item>
     
     <item>
@@ -341,7 +345,7 @@ postEvent和sendEvent的关系就像Qt::QueuedConnection和Qt::DirectConnection�
 比如进度条，就用到多线程。在长耗时操作里（比如IO、计算），如果用单线程，界面会失去响应。
 QThread 两种使用方式 🔗第一种是继承QThread类，将耗时任务代码编写在run函数中。第二种是继承 QObject 类，执行耗时任务，并用 moveToThread 函数。
 Demo
-// 与更新进度条的函数参数保持一致 signals:  void progress(int p, const char *msg); </description>
+// 与更新进度条的函数参数保持一致 signals: void progress(int p, const char *msg); </description>
     </item>
     
     <item>
@@ -364,7 +368,7 @@ Demo
       <guid>/posts/mvvm/</guid>
       <description>该 MVVM 框架主要用到了 Qt 元对象系统、信号槽连接管理、以及自己搭建的 Ioc 容器，核心源码及使用请看我的 Qt 开发脚手架中 MVVM 部分。
 什么是 MVVM 🔗MVVM 即 Model-View-ViewModel，它本质上就是MVC 的改进版。MVVM 就是将其中的View 的状态和行为抽象化，让我们将视图 UI 和业务逻辑分开。当然这些事 ViewModel 已经帮我们做了，它可以取出 Model 的数据同时帮忙处理 View 中由于需要展示内容而涉及的业务逻辑。。
-什么是 MVC 🔗 Model：数据模型，用来存储数据 View：视图界面，用来展示UI界面和响应用户交互 Controller：控制器(大管家角色)，监听模型数据的改变和控制视图行为、处理用户交互  为什么是 MVVM 🔗在 MVC 开发模式中，由于Controller主要用来处理各种逻辑和数据转化，复杂业务逻辑界面的Controller非常庞大，维护困难，所以有人想到把Controller的数据和逻辑处理部分从中抽离出来，用一个专门的对象去管理，这个对象就是ViewModel，是Model和View之间的一座桥梁。
+什么是 MVC 🔗 Model：数据模型，用来存储数据 View：视图界面，用来展示UI界面和响应用户交互 Controller：控制器(大管家角色)，监听模型数据的改变和控制视图行为、处理用户交互 为什么是 MVVM 🔗在 MVC 开发模式中，由于Controller主要用来处理各种逻辑和数据转化，复杂业务逻辑界面的Controller非常庞大，维护困难，所以有人想到把Controller的数据和逻辑处理部分从中抽离出来，用一个专门的对象去管理，这个对象就是ViewModel，是Model和View之间的一座桥梁。
 优点 🔗1.逻辑清晰： ViewModel分离了大部分Controller代码，更加清晰和容易维护。 2.方便测试：开发中大部分Bug来至于逻辑处理，由于ViewModel分离了许多逻辑，可以对ViewModel构造单元测试。 3.开发解耦。 4.逻辑清晰。
 框架功能与实现 🔗</description>
     </item>
@@ -380,7 +384,7 @@ Demo
 什么是 IoC 🔗IoC全称Inversion of Control，直译为控制反转。IoC 又称为依赖注入（DI：Dependency Injection），它解决了一个最主要的问题：将组件的创建+配置与组件的使用相分离，并且，由IoC容器负责管理组件的生命周期。
 为什么要 Ioc 🔗在传统应用程序中，如果一个系统有大量的组件，其生命周期和相互之间的依赖关系如果由组件自身来维护，不但大大增加了系统的复杂度，而且会导致组件之间极为紧密的耦合，继而给测试和维护带来了极大的困难。
 核心问题是：
- 谁负责创建组件？ 谁负责根据依赖关系组装组件？ 销毁时，如何按依赖顺序正确销毁？  解决这一问题的核心方案就是IoC。
+谁负责创建组件？ 谁负责根据依赖关系组装组件？ 销毁时，如何按依赖顺序正确销毁？ 解决这一问题的核心方案就是IoC。
 在IoC模式下，控制权发生了反转，即从应用程序转移到了IoC容器，所有组件不再由应用程序自己创建和配置，而是由IoC容器负责，这样，应用程序只需要直接使用已经创建好并且配置好的组件。为了能让组件在IoC容器中被“装配”出来，需要某种“注入”机制。</description>
     </item>
     
@@ -412,7 +416,7 @@ Demo
 那么，如何在不改变对象的大小的同时添加新的功能呢？
 五、d-pointer 🔗诀窍是通过保存唯一的一个指针而保持一个类库所有公共类的大小不变。这个指针指向一个包含所有数据的私有的（内部的）数据结构。内部结构的大小可以增大或者减小，而不会对应用程序带来副作用，因为指针只会被类库里面的代码访问，从应用程序的视角来看，对象的大小并没有改变 - 它永远是指针的大小。 这个指针被叫做 d-pointer 。
 六、d-pointer 的其它好处 🔗这里不全都是和二进制兼容有关。d-pointer 还有其它的好处： 隐藏了实现细节 - 我们可以只发布带有头文件和二进制文件的 WidgetLib。源文件可以是闭源代码的。
-头文件很干净，不包含实现细节，可以直接作为 API 参考。 由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖）  事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
+头文件很干净，不包含实现细节，可以直接作为 API 参考。由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖）事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
 七、Qt 中的 d-pointers 🔗在 Qt 中，几乎所有的公有类都使用了 d-pointer。唯一不用的情况是如果事先知道某个类永远不会添加额外的成员变量。例如，像 QPoint, QRect 这些类，我们不期望有新的成员添加，因此它们的数据成员直接保存在类里而没用 d-pointer。</description>
     </item>
     
@@ -422,16 +426,17 @@ Demo
       <pubDate>Wed, 13 Apr 2022 12:26:14 +0800</pubDate>
       
       <guid>/posts/2022-4-13/</guid>
-      <description>一、定义 🔗  二进制兼容：在升级库文件的时候，不必重新编译使用此库的可执行文件或其他库文件，并且程序的功能不被破坏。
-  源码兼容：在升级库文件的时候，不必修改使用此库的可执行文件或其他库文件的源代码，只需重新编译应用程序，即可使程序的功能不被破坏。
-  二进制兼容性可以解决很多麻烦，它会使为特定平台分发软件时变得更容易。 如果不能确保发行版之间的二进制兼容性，人们将不得不提供静态链接的二进制文件。 静态二进制文件很糟糕，因为它们
- 浪费资源（尤其是内存） 程序不能从库的bug修复或功能扩展中受益  二、ABI 和 API 🔗 应用二进制接口（application binary interface，缩写为 ABI）描述了应用程序（或者其他类型）和操作系统之间或其他应用程序的低级接口。ABI涵盖了各种细节，如：数据类型的大小、布局和对齐；调用约定等。
- 在了解二进制兼容和源码兼容两个定义以后，我们再看与其类似且对应的两个概念：ABI和API。ABI不同于API（应用程序接口），API定义了源代码和库之间的接口，因此同样的代码可以在支持这个API的任何系统中编译，然而ABI允许编译好的目标代码在使用兼容ABI的系统中无需改动就能运行。
+      <description>一、定义 🔗 二进制兼容：在升级库文件的时候，不必重新编译使用此库的可执行文件或其他库文件，并且程序的功能不被破坏。
+源码兼容：在升级库文件的时候，不必修改使用此库的可执行文件或其他库文件的源代码，只需重新编译应用程序，即可使程序的功能不被破坏。
+二进制兼容性可以解决很多麻烦，它会使为特定平台分发软件时变得更容易。 如果不能确保发行版之间的二进制兼容性，人们将不得不提供静态链接的二进制文件。 静态二进制文件很糟糕，因为它们
+浪费资源（尤其是内存） 程序不能从库的bug修复或功能扩展中受益 二、ABI 和 API 🔗 应用二进制接口（application binary interface，缩写为 ABI）描述了应用程序（或者其他类型）和操作系统之间或其他应用程序的低级接口。ABI涵盖了各种细节，如：数据类型的大小、布局和对齐；调用约定等。
+在了解二进制兼容和源码兼容两个定义以后，我们再看与其类似且对应的两个概念：ABI和API。ABI不同于API（应用程序接口），API定义了源代码和库之间的接口，因此同样的代码可以在支持这个API的任何系统中编译，然而ABI允许编译好的目标代码在使用兼容ABI的系统中无需改动就能运行。
 举个例子，在Qt和Java两种跨平台程序中，API像是Qt的接口，Qt有着通用接口，源代码只需要在支持Qt的环境下编译即可。ABI更像是Jvm，只要支持Jvm的系统上，都可以运行已有的Java程序。
 三、C++ 的 ABI 🔗ABI更像是一个产品的使用说明书，同理C++的ABI就是如何使用C++生成可执行程序的一张说明书。编译器会根据这个说明书，生成二进制代码。C++的ABI在不同的编译器下会略有不同。
 C++ABI的部分内容举例：
- 函数参数传递的方式，比如 x86-64 用寄存器来传函数的前 4 个整数参数 虚函数的调用方式，通常是 vptr/vtbl 然后用 vtbl[offset] 来调用 struct 和 class 的内存布局，通过偏移量来访问数据成员  综上所述，如果可执行程序通过以上说明书访问动态链接库A，以及此库的升级版本A+，若按此说明书上的方法，可以无痛的使用A和A+，那么我们就称库A的这次升级是二进制兼容的。
-四、破坏二进制兼容的常见方式 🔗 添加新的虚函数 取消导出或删除已导出的类。 以任何方式更改类层次结构（添加，删除或重新排序基类）。 改变虚函数声明时的顺序（偏移量改变，导致调用失败） 添加新的非静态成员变量（类的内存布局改变，偏移量也发生变化） 改变非静态成员变量的声明顺序 以任何方式更改模板参数（添加，删除或重新排序）。  五、不会破坏二进制兼容的几种常见方式 🔗 添加非虚函数（包括构造函数） 添加新的类 添加Qt中的信号、槽 添加新的枚举或者在已存在的枚举类型中添加一个枚举值 添加新的静态成员变量 修改成员变量名称（偏移量未改变） 添加Q_OBJECT,Q_PROPERTY, Q_ENUMS ,Q_FLAGS宏，添加这些宏都是修改了moc生成的文件，而不是类本身 重新实现在类层次结构中原始基类定义的虚函数，如果程序链接到先前版本的库，且该库调用了基类中的实现而不是派生类中的实现，是安全的。这很棘手，可能很危险。三思而后行。 移除私有非虚函数，如果它们没有被任何内联函数调用过（并且从未使用过）。 移除私有静态成员变量，如果它们没有被任何内联函数调用过（并且从未使用过）。 更改方法的默认参数。但是，它需要重新编译才能使用实际的新的默认参数值。 导出以前未导出的类。 在类中添加或删除友元声明。  六、库程序员的技巧（解决二进制兼容问题） 🔗编写库时最大的问题是，不能安全地添加数据成员，因为这会改变每个class类，struct结构，或者对象类型数组的大小和布局。</description>
+函数参数传递的方式，比如 x86-64 用寄存器来传函数的前 4 个整数参数 虚函数的调用方式，通常是 vptr/vtbl 然后用 vtbl[offset] 来调用 struct 和 class 的内存布局，通过偏移量来访问数据成员 综上所述，如果可执行程序通过以上说明书访问动态链接库A，以及此库的升级版本A+，若按此说明书上的方法，可以无痛的使用A和A+，那么我们就称库A的这次升级是二进制兼容的。
+四、破坏二进制兼容的常见方式 🔗 添加新的虚函数 取消导出或删除已导出的类。 以任何方式更改类层次结构（添加，删除或重新排序基类）。 改变虚函数声明时的顺序（偏移量改变，导致调用失败） 添加新的非静态成员变量（类的内存布局改变，偏移量也发生变化） 改变非静态成员变量的声明顺序 以任何方式更改模板参数（添加，删除或重新排序）。 五、不会破坏二进制兼容的几种常见方式 🔗 添加非虚函数（包括构造函数） 添加新的类 添加Qt中的信号、槽 添加新的枚举或者在已存在的枚举类型中添加一个枚举值 添加新的静态成员变量 修改成员变量名称（偏移量未改变） 添加Q_OBJECT,Q_PROPERTY, Q_ENUMS ,Q_FLAGS宏，添加这些宏都是修改了moc生成的文件，而不是类本身 重新实现在类层次结构中原始基类定义的虚函数，如果程序链接到先前版本的库，且该库调用了基类中的实现而不是派生类中的实现，是安全的。这很棘手，可能很危险。三思而后行。 移除私有非虚函数，如果它们没有被任何内联函数调用过（并且从未使用过）。 移除私有静态成员变量，如果它们没有被任何内联函数调用过（并且从未使用过）。 更改方法的默认参数。但是，它需要重新编译才能使用实际的新的默认参数值。 导出以前未导出的类。 在类中添加或删除友元声明。 六、库程序员的技巧（解决二进制兼容问题） 🔗编写库时最大的问题是，不能安全地添加数据成员，因为这会改变每个class类，struct结构，或者对象类型数组的大小和布局。
+1.位标志 🔗位标志是一种例外。 如果对枚举或布尔使用位标志，则至少在下一个字节减去1bit之前是安全的。具有下面成员的类</description>
     </item>
     
     <item>
@@ -442,9 +447,9 @@ C++ABI的部分内容举例：
       <guid>/posts/2022-4-12-sort/</guid>
       <description>日常开发中经常会有排序需求，常见的方法有很多种：选择排序，冒泡排序，归并排序，快速排序等，那我们需要手写排序算法吗？大多数场景下用现成的库函数就够了。STL 的 std::sort 是用得最多的排序算法。
 STL的std::sort函数是基于Musser在1996年提出的内省排序（Introspective sort）算法实现。这个算法是个缝合怪，它汲取了插入排序、堆排序以及快排的优点：
- 针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。  在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
+针对大数据量，使用快排，时间复杂度是O(NlogN)； 若快排递归深度超过阈值__depth_limit ，改用堆排序，防止快排递归过深，同时保持时间复杂度仍是O(NlogN)； 当数据规模小于阈值_S_threshold时，改用插入排序。 在 Qt 6 之前，Qt 容器有专门的排序函数 qSort，在 Qt 6 中已经放弃了该函数，取而代之的是 std::sort，两者的用法是一致的。
 示例：
-bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s2) {  return s1.toLower() &amp;lt; s2.toLower(); //从小到大排序 }  int doSomething() {  QStringList list;  list &amp;lt;&amp;lt; &amp;#34;AlPha&amp;#34; &amp;lt;&amp;lt; &amp;#34;beTA&amp;#34; &amp;lt;&amp;lt; &amp;#34;gamma&amp;#34; &amp;lt;&amp;lt; &amp;#34;DELTA&amp;#34;;  qSort(list.begin(), list.end(), caseInsensitiveLessThan);  // list: [ &amp;#34;AlPha&amp;#34;, &amp;#34;beTA&amp;#34;, &amp;#34;DELTA&amp;#34;, &amp;#34;gamma&amp;#34; ] } </description>
+bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s2) { return s1.toLower() &amp;lt; s2.toLower(); //从小到大排序 } int doSomething() { QStringList list; list &amp;lt;&amp;lt; &amp;#34;AlPha&amp;#34; &amp;lt;&amp;lt; &amp;#34;beTA&amp;#34; &amp;lt;&amp;lt; &amp;#34;gamma&amp;#34; &amp;lt;&amp;lt; &amp;#34;DELTA&amp;#34;; qSort(list.begin(), list.end(), caseInsensitiveLessThan); // list: [ &amp;#34;AlPha&amp;#34;, &amp;#34;beTA&amp;#34;, &amp;#34;DELTA&amp;#34;, &amp;#34;gamma&amp;#34; ] } </description>
     </item>
     
     <item>
@@ -466,7 +471,7 @@ bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s
       <pubDate>Sun, 20 Mar 2022 10:13:40 +0800</pubDate>
       
       <guid>/posts/2022-3-20/</guid>
-      <description> 人类同胞们，
+      <description>人类同胞们，
 我来此召集你们，是要你们了解目前的形势。
 每个人都应该意识到我们此时所遭受的危机，
 我们彼此互相争斗，
@@ -474,11 +479,10 @@ bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s
 现在，更大的危险正向我们靠近。
 这股威胁将会毁灭我们的所有成就……
 —— 阿克图拉斯一世
- 现在，战争、疾病、贫穷、压迫等话题再次进入世界舆论中心。在纷争、嘈杂的社会环境中，我们如何认识世界，并在其中找到自己？
+现在，战争、疾病、贫穷、压迫等话题再次进入世界舆论中心。在纷争、嘈杂的社会环境中，我们如何认识世界，并在其中找到自己？
 现代文明是集统治、科技、文化、宗教的复杂混合体，我们很难对每一方面都有足够的认知。但现代文明是人类的文明，我们可以从自身的角度出发，认识世界的全貌。审视自身，残忍、虚伪、傲慢、背叛和厌世等等人之恶无一不在，但我知道，我们绝不仅有这些，善良、追求美好也一直存在。同样，现在世界不乏纷争、歧视等阴暗，但同时也在追求和平、发展。人不是生来如此的，我们需要不断学习，世界也不是向来如此的。让人类从蛮荒中走向文明，我们现在赖以生存的基础，不是由一个神、一个党派、一个政府建立的，而是由一个又一个人的努力。
- 历史的潮流在不断变化，要是想到达旅途的终点，我们必须不断适应，勇往直前。
-  人类的天性就是不断地推动自己越过新的边界。我们考验自身的极限，我们直面自己的恐惧，我们奋起迎接挑战，最终成为远超我们自身的存在。
- </description>
+历史的潮流在不断变化，要是想到达旅途的终点，我们必须不断适应，勇往直前。
+人类的天性就是不断地推动自己越过新的边界。我们考验自身的极限，我们直面自己的恐惧，我们奋起迎接挑战，最终成为远超我们自身的存在。</description>
     </item>
     
     <item>
@@ -500,22 +504,22 @@ bool caseInsensitiveLessThan(const QString &amp;amp;s1, const QString &amp;amp;s
       <description>作者：吴秦
 出处：(http://www.cnblogs.com/skynet/)
 1、网络中进程之间如何通信？ 🔗本地的进程间通信（IPC）有很多种方式，但可以总结为下面4类：
- 消息传递（管道、FIFO、消息队列） 同步（互斥量、条件变量、读写锁、文件和写记录锁、信号量） 共享内存（匿名的和具名的） 远程过程调用（Solaris门和Sun RPC）  但这些都不是本文的主题！我们要讨论的是网络中进程之间如何通信？首要解决的问题是如何唯一标识一个进程，否则通信无从谈起！在本地可以通过进程PID来唯一标识一个进程，但是在网络中这是行不通的。其实TCP/IP协议族已经帮我们解决了这个问题，网络层的“ip地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。这样利用三元组（ip地址，协议，端口）就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。
+消息传递（管道、FIFO、消息队列） 同步（互斥量、条件变量、读写锁、文件和写记录锁、信号量） 共享内存（匿名的和具名的） 远程过程调用（Solaris门和Sun RPC） 但这些都不是本文的主题！我们要讨论的是网络中进程之间如何通信？首要解决的问题是如何唯一标识一个进程，否则通信无从谈起！在本地可以通过进程PID来唯一标识一个进程，但是在网络中这是行不通的。其实TCP/IP协议族已经帮我们解决了这个问题，网络层的“ip地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。这样利用三元组（ip地址，协议，端口）就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。
 使用TCP/IP协议的应用程序通常采用应用编程接口：UNIX BSD的套接字（socket）和UNIX System V的TLI（已经被淘汰），来实现网络进程之间的通信。就目前而言，几乎所有的应用程序都是采用socket，而现在又是网络时代，网络中进程通信是无处不在，这就是我为什么说“一切皆socket”。
 2、什么是Socket？ 🔗上面我们已经知道网络中的进程是通过socket来通信的，那什么是socket呢？socket起源于Unix，而Unix/Linux基本哲学之一就是“一切皆文件”，都可以用“打开open –&amp;gt; 读写write/read –&amp;gt; 关闭close”模式来操作。我的理解就是Socket就是该模式的一个实现，socket即是一种特殊的文件，一些socket函数就是对其进行的操作（读/写IO、打开、关闭），这些函数我们在后面进行介绍。
- socket一词的起源 在组网领域的首次使用是在1970年2月12日发布的文献IETF RFC33中发现的，撰写者为Stephen Carr、Steve Crocker和Vint Cerf。根据美国计算机历史博物馆的记载，Croker写道：“命名空间的元素都可称为套接字接口。一个套接字接口构成一个连接的一端，而一个连接可完全由一对套接字接口规定。”计算机历史博物馆补充道：“这比BSD的套接字接口定义早了大约12年。”
- 3、socket的基本操作 🔗既然socket是“open—write/read—close”模式的一种实现，那么socket就提供了这些操作对应的函数接口。下面以TCP为例，介绍几个基本的socket接口函数。
+socket一词的起源 在组网领域的首次使用是在1970年2月12日发布的文献IETF RFC33中发现的，撰写者为Stephen Carr、Steve Crocker和Vint Cerf。根据美国计算机历史博物馆的记载，Croker写道：“命名空间的元素都可称为套接字接口。一个套接字接口构成一个连接的一端，而一个连接可完全由一对套接字接口规定。”计算机历史博物馆补充道：“这比BSD的套接字接口定义早了大约12年。”
+3、socket的基本操作 🔗既然socket是“open—write/read—close”模式的一种实现，那么socket就提供了这些操作对应的函数接口。下面以TCP为例，介绍几个基本的socket接口函数。
 3.1、socket()函数 🔗int socket(int domain, int type, int protocol);
 socket函数对应于普通文件的打开操作。普通文件的打开操作返回一个文件描述字，而socket()用于创建一个socket描述符（socket descriptor），它唯一标识一个socket。这个socket描述字跟文件描述字一样，后续的操作都有用到它，把它作为参数，通过它来进行一些读写操作。
 正如可以给fopen的传入不同参数值，以打开不同的文件。创建socket的时候，也可以指定不同的参数创建不同的socket描述符，socket函数的三个参数分别为：
-  domain：即协议域，又称为协议族（family）。常用的协议族有，AF_INET、AF_INET6、AF_LOCAL（或称AF_UNIX，Unix域socket）、AF_ROUTE等等。协议族决定了socket的地址类型，在通信中必须采用对应的地址，如AF_INET决定了要用ipv4地址（32位的）与端口号（16位的）的组合、AF_UNIX决定了要用一个绝对路径名作为地址。
-  type：指定socket类型。常用的socket类型有，SOCK_STREAM、SOCK_DGRAM、SOCK_RAW、SOCK_PACKET、SOCK_SEQPACKET等等（socket的类型有哪些？）。
-  protocol：故名思意，就是指定协议。常用的协议有，IPPROTO_TCP、IPPTOTO_UDP、IPPROTO_SCTP、IPPROTO_TIPC等，它们分别对应TCP传输协议、UDP传输协议、STCP传输协议、TIPC传输协议（这个协议我将会单独开篇讨论！）。
-  注意：并不是上面的type和protocol可以随意组合的，如SOCK_STREAM不可以跟IPPROTO_UDP组合。当protocol为0时，会自动选择type类型对应的默认协议。
+domain：即协议域，又称为协议族（family）。常用的协议族有，AF_INET、AF_INET6、AF_LOCAL（或称AF_UNIX，Unix域socket）、AF_ROUTE等等。协议族决定了socket的地址类型，在通信中必须采用对应的地址，如AF_INET决定了要用ipv4地址（32位的）与端口号（16位的）的组合、AF_UNIX决定了要用一个绝对路径名作为地址。
+type：指定socket类型。常用的socket类型有，SOCK_STREAM、SOCK_DGRAM、SOCK_RAW、SOCK_PACKET、SOCK_SEQPACKET等等（socket的类型有哪些？）。
+protocol：故名思意，就是指定协议。常用的协议有，IPPROTO_TCP、IPPTOTO_UDP、IPPROTO_SCTP、IPPROTO_TIPC等，它们分别对应TCP传输协议、UDP传输协议、STCP传输协议、TIPC传输协议（这个协议我将会单独开篇讨论！）。
+注意：并不是上面的type和protocol可以随意组合的，如SOCK_STREAM不可以跟IPPROTO_UDP组合。当protocol为0时，会自动选择type类型对应的默认协议。
 当我们调用socket创建一个socket时，返回的socket描述字它存在于协议族（address family，AF_XXX）空间中，但没有一个具体的地址。如果想要给它赋值一个地址，就必须调用bind()函数，否则就当调用connect()、listen()时系统会自动随机分配一个端口。
 3.2、bind()函数 🔗正如上面所说bind()函数把一个地址族中的特定地址赋给socket。例如对应AF_INET、AF_INET6就是把一个ipv4或ipv6地址和端口号组合赋给socket。
 int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen); 函数的三个参数分别为：
- sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：  struct sockaddr_in {  sa_family_t sin_family; /* address family: AF_INET */  in_port_t sin_port; /* port in network byte order */  struct in_addr sin_addr; /* internet address */ };  /* Internet address.</description>
+sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。 addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是： struct sockaddr_in { sa_family_t sin_family; /* address family: AF_INET */ in_port_t sin_port; /* port in network byte order */ struct in_addr sin_addr; /* internet address */ }; /* Internet address.</description>
     </item>
     
     <item>
@@ -526,7 +530,7 @@ int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen); 函数的�
       <guid>/posts/networkpg/</guid>
       <description>转载自https://github.com/huihut/interview
 Socket 🔗 Linux Socket 编程（不限 Linux）
- Socket 中的 read()、write() 函数 🔗ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); read() 🔗 read 函数是负责从 fd 中读取内容。 当读成功时，read 返回实际所读的字节数。 如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。 如果错误为 EINTR 说明读是由中断引起的；如果是 ECONNREST 表示网络连接出了问题。  write() 🔗 write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd。 成功时返回写的字节数。失败时返回 -1，并设置 errno 变量。 在网络程序中，当我们向套接字文件描述符写时有俩种可能。 （1）write 的返回值大于 0，表示写了部分或者是全部的数据。 （2）返回的值小于 0，此时出现了错误。 如果错误为 EINTR 表示在写的时候出现了中断错误；如果为 EPIPE 表示网络连接出现了问题（对方已经关闭了连接）。  Socket 中 TCP 的三次握手建立连接 🔗我们知道 TCP 建立连接要进行 “三次握手”，即交换三个分组。大致流程如下：</description>
+Socket 中的 read()、write() 函数 🔗ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); read() 🔗 read 函数是负责从 fd 中读取内容。 当读成功时，read 返回实际所读的字节数。 如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。 如果错误为 EINTR 说明读是由中断引起的；如果是 ECONNREST 表示网络连接出了问题。 write() 🔗 write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd。 成功时返回写的字节数。失败时返回 -1，并设置 errno 变量。 在网络程序中，当我们向套接字文件描述符写时有俩种可能。 （1）write 的返回值大于 0，表示写了部分或者是全部的数据。 （2）返回的值小于 0，此时出现了错误。 如果错误为 EINTR 表示在写的时候出现了中断错误；如果为 EPIPE 表示网络连接出现了问题（对方已经关闭了连接）。 Socket 中 TCP 的三次握手建立连接 🔗我们知道 TCP 建立连接要进行 “三次握手”，即交换三个分组。大致流程如下：</description>
     </item>
     
     <item>
@@ -535,11 +539,11 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <pubDate>Mon, 07 Mar 2022 12:22:40 +0800</pubDate>
       
       <guid>/posts/java2c&#43;&#43;/</guid>
-      <description>C/C++ 代码编译成可执行程序的过程 🔗  预处理
- 进行宏定义展开、头文件展开、条件编译，不检查语法。 gcc -E demo1.c -o demo1.i    编译
- 检查语法，将预处理过的文件编译生成汇编文件 gcc -S demo2.c -o demo2.s    汇编
- 将汇编文件生成目标文件（二进制代码文件，即.o 文件） gcc -c demo3.c -o demo3.o    链接
- 找到依赖的库文件，将目标文件链接为可执行程序。 gcc demo4.c -o demo4 -L./ -llib1 通过gcc编译器让 demo4 链接自己制作的 lib1 动态库，并把 demo4 编译成可执行程序。    Java 代码编译和执行的过程 🔗 源文件由编译器编译成字节码 字节码由 Java 虚拟机解释运行。因为 Java 程序既要编译同时也要经过 JVM 的解释运行，所以 Java 也被称为半解释语言。  静态和动态 🔗 静态：在编译（编译 + 链接）阶段 动态：在执行阶段  #include &amp;lt;stdio.</description>
+      <description>C/C++ 代码编译成可执行程序的过程 🔗 预处理
+进行宏定义展开、头文件展开、条件编译，不检查语法。 gcc -E demo1.c -o demo1.i 编译
+检查语法，将预处理过的文件编译生成汇编文件 gcc -S demo2.c -o demo2.s 汇编
+将汇编文件生成目标文件（二进制代码文件，即.o 文件） gcc -c demo3.c -o demo3.o 链接
+找到依赖的库文件，将目标文件链接为可执行程序。 gcc demo4.c -o demo4 -L./ -llib1 通过gcc编译器让 demo4 链接自己制作的 lib1 动态库，并把 demo4 编译成可执行程序。 Java 代码编译和执行的过程 🔗 源文件由编译器编译成字节码 字节码由 Java 虚拟机解释运行。因为 Java 程序既要编译同时也要经过 JVM 的解释运行，所以 Java 也被称为半解释语言。 静态和动态 🔗 静态：在编译（编译 + 链接）阶段 动态：在执行阶段 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; int main() { int m, n; int *p, *q; scanf(&amp;#34;%d%d&amp;#34;, &amp;amp;m, &amp;amp;n); p = (int*)malloc(sizeof(int) * m); q = (int*)malloc(sizeof(int) * n); return 0; } m、n、p、q 静态分配内存。局部变量，要占多大空间、往哪里放，在编译时就已经确定。 malloc 函数动态分配内存，在堆区分配内存，把地址赋值给 p、q。</description>
     </item>
     
     <item>
@@ -564,28 +568,45 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-2-9/</guid>
       <description>一 🔗 安妮：希望戴安娜会成为我的知心朋友，我一定会喜欢戴安娜的，而且我相信戴安娜她一定也会喜欢我的。因为今天晚上戴安娜家中的橙光，看起来是离我那么近。
- 二 🔗 安妮：雨很快就会停了是不是，还是会一直下个不停呢？
-  马修：你不用担心了，中午以前雨就会停了。
-  安妮：马修，真的吗？
-  玛莉娜：马修的天气预报蛮准的哟。
-  安妮：谢谢老天爷。那我今天就可以去找戴安娜了。
-  玛莉娜：是啊。不过必须过了下午茶时间，我们不能给人家添麻烦。
-  安妮：嗯。
- 三 🔗 玛莉娜：安妮，该出发了。
-  玛莉娜：为什么换衣服？我们只是顺便去借做衣服的样版而已。
-  安妮：可是……
-  玛莉娜：快走吧，再拖下去天都黑了。
-  玛莉娜：怎么回事啊？
-  安妮：玛丽娜，我现在开始担心了。我担心万一，万一戴安娜她看到我，不喜欢我的话，那我该怎么办呢？那这将成为我这一辈子最大最大的失望。
-  玛莉娜：用不着这么紧张。首先，我不希望你用这么一大串的形容词。小孩子用大人的口气说话，太奇怪了。你放心，戴安娜一定会很喜欢你的。不过重要的是她妈妈。如果她妈妈不喜欢你的话，就算戴安娜再喜欢你，那也没用的。如果她知道你对林德太太说粗话，还有你帽子的事，不知道对你有什么看法。你一定要有礼貌守规矩，别再发表你那惊人的言论了。你该不是在发抖吧……
-  安妮：玛丽娜……如果你想要跟一个可能会成为你的好朋友的人见面，你一定也会很激动的。而且，她的妈妈要是不喜欢你的话，那该怎么办呢？
- 四 🔗 贝瑞夫人：你好啊，玛丽娜，好久不见，快请进吧。我想那一位即是你领养的小女孩了。是不是呀。别站在那里，快点进来呀。
-  玛莉娜：她是安妮·夏利。
-  安妮：很高兴见到你，夫人。
-  贝瑞夫人：你好啊。
-  安妮：夫人，托您的福，我很好。虽然我现在的情绪有点紧张，贝瑞夫人。
-  贝瑞夫人：快点进来吧。
-  安妮：玛丽娜，我说的话不会夸张吧。</description>
+二 🔗 安妮：雨很快就会停了是不是，还是会一直下个不停呢？
+马修：你不用担心了，中午以前雨就会停了。
+安妮：马修，真的吗？
+玛莉娜：马修的天气预报蛮准的哟。
+安妮：谢谢老天爷。那我今天就可以去找戴安娜了。
+玛莉娜：是啊。不过必须过了下午茶时间，我们不能给人家添麻烦。
+安妮：嗯。
+三 🔗 玛莉娜：安妮，该出发了。
+玛莉娜：为什么换衣服？我们只是顺便去借做衣服的样版而已。
+安妮：可是……
+玛莉娜：快走吧，再拖下去天都黑了。
+玛莉娜：怎么回事啊？
+安妮：玛丽娜，我现在开始担心了。我担心万一，万一戴安娜她看到我，不喜欢我的话，那我该怎么办呢？那这将成为我这一辈子最大最大的失望。
+玛莉娜：用不着这么紧张。首先，我不希望你用这么一大串的形容词。小孩子用大人的口气说话，太奇怪了。你放心，戴安娜一定会很喜欢你的。不过重要的是她妈妈。如果她妈妈不喜欢你的话，就算戴安娜再喜欢你，那也没用的。如果她知道你对林德太太说粗话，还有你帽子的事，不知道对你有什么看法。你一定要有礼貌守规矩，别再发表你那惊人的言论了。你该不是在发抖吧……
+安妮：玛丽娜……如果你想要跟一个可能会成为你的好朋友的人见面，你一定也会很激动的。而且，她的妈妈要是不喜欢你的话，那该怎么办呢？
+四 🔗 贝瑞夫人：你好啊，玛丽娜，好久不见，快请进吧。我想那一位即是你领养的小女孩了。是不是呀。别站在那里，快点进来呀。
+玛莉娜：她是安妮·夏利。
+安妮：很高兴见到你，夫人。
+贝瑞夫人：你好啊。
+安妮：夫人，托您的福，我很好。虽然我现在的情绪有点紧张，贝瑞夫人。
+贝瑞夫人：快点进来吧。
+安妮：玛丽娜，我说的话不会夸张吧。
+玛莉娜：你的声音应该再小一点。
+贝瑞夫人：这一位就是我的女儿，戴安娜。
+安妮：戴安娜，她就是戴安娜……
+贝瑞夫人：戴安娜，带安妮到花园，让她看看你种的花，不要老是一直看书，这样对眼睛不好。
+戴安娜:好啊。
+五 🔗 安妮：戴安娜，我……我们初次见面，我不知道你会不会喜欢我，会不会把我当成你的好朋友呢？
+戴安娜:会啊，我想我们能够成为好朋友的。我真的好高兴，你能够住到绿色庄园来耶。有个同伴在一起玩，真的是好棒喔。
+安妮：你说的是真的吧！
+戴安娜：这里附近没有其他的女孩子跟我玩，而且我妹妹也还小。
+安妮：那么请你发誓你愿意一辈子当我的好朋友！
+戴安娜:发誓？
+安妮：那是一种承诺啊，而且是很虔诚的承诺喔。
+戴安娜:嗯，我很乐意啊。该怎么做呢？
+安妮：首先，我们必须手拉手，然后……真正的发誓程序应该是在流动的河水上。可是，我们可以把这条小道想成是流动的河水。那我先开始发誓咯。
+安妮：现在我虔诚的发誓，要永远永远对我的好朋友——戴安娜忠诚，就像日月一样的长久。
+安妮：现在把名字换成你的就行了。
+戴安娜：现在我虔诚的发誓，要永远永远对我的好朋友——安妮·夏利忠诚，就像日月一样的长久。</description>
     </item>
     
     <item>
@@ -595,7 +616,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-2-5-5/</guid>
       <description>前些天，我感觉我的世界崩塌了，可渐渐的，我的心平静了下来，那些一直一直困扰我的问题也随之解开。为了纪念自己进入“不惑”之年，我决定在此发表一段重要讲话：
- 我现在看清了我真正的敌人。
+我现在看清了我真正的敌人。
 他在虚空中等待着我，
 拥有着我无法想象的力量……
 为了对抗他，我放弃了所有的一切。
@@ -604,7 +625,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
 还有我爱的人。
 但我不会独自去面对他的。
 因为我即是 Artanis！
- 来人，快把这个中二病拖走！
+来人，快把这个中二病拖走！
 另外，最近疫情严重，不知各位看官身体是否安康？春节假期是否过得愉快？
 话说不知道我这个网站有没有被 Github 沉进北极里，如果人类因疫情而遭受劫难，不知这些文字是否有重见天日的一天？想到这里，庆幸自己没有弄过于复杂的网页……</description>
     </item>
@@ -616,23 +637,43 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-2-5-4/</guid>
       <description>苦涩的沙 吹痛脸庞的感觉
-  像父亲的责骂 母亲的哭泣 永远难忘记
-  年少的我 喜欢一个人在海边
-  卷起裤管 光着脚丫 踩在沙滩上
-  总是幻想海洋的尽头有另一个世界
-  总是以为勇敢的水手是真正的男儿
-  总是一副弱不禁风孬种的样子
-  在受人欺负的时候 总是听见水手说
-  他说 风雨中 这点痛算什么
-  擦干泪 不要怕
-  至少我们还有梦
-  他说 风雨中 这点痛算什么
-  擦干泪 不要问 为什么
-  长大以后 为了理想而努力
-  渐渐的忽略了父亲母亲和故乡的消息
-  如今的我 生活就像在演戏
-  说着言不由衷的话 戴着伪善的面具
-  总是拿着微不足道的成就来骗自己</description>
+像父亲的责骂 母亲的哭泣 永远难忘记
+年少的我 喜欢一个人在海边
+卷起裤管 光着脚丫 踩在沙滩上
+总是幻想海洋的尽头有另一个世界
+总是以为勇敢的水手是真正的男儿
+总是一副弱不禁风孬种的样子
+在受人欺负的时候 总是听见水手说
+他说 风雨中 这点痛算什么
+擦干泪 不要怕
+至少我们还有梦
+他说 风雨中 这点痛算什么
+擦干泪 不要问 为什么
+长大以后 为了理想而努力
+渐渐的忽略了父亲母亲和故乡的消息
+如今的我 生活就像在演戏
+说着言不由衷的话 戴着伪善的面具
+总是拿着微不足道的成就来骗自己
+总是莫名其妙感到一阵的空虚
+总是靠一点酒精的麻醉才能够睡去
+在半睡半醒之间仿佛又听见水手说
+他说 风雨中 这点痛算什么
+擦干泪 不要怕
+至少我们还有梦
+他说 风雨中 这点痛算什么
+擦干泪 不要问 为什么
+寻寻觅觅寻不到活着的证据
+都市的柏油路太硬 踩不出足迹
+骄傲无知的现代人 不知道珍惜
+那一片被文明糟踏过的海洋和天地
+只有远离人群才能找回我自己
+在带着咸味的空气中自由地呼吸
+耳畔又传来汽笛声和水手的笑语
+永远在内心的最深处 听见水手说
+他说 风雨中 这点痛算什么
+擦干泪 不要怕
+至少我们还有梦
+他说 风雨中 这点痛算什么</description>
     </item>
     
     <item>
@@ -642,28 +683,46 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-2-5-3/</guid>
       <description>充满鲜花的世界到底在哪里
-  如果它真的存在那么我一定会去
-  我想在那里最高的山峰矗立
-  不在乎它是不是悬崖峭壁
-  用力活着用力爱哪怕肝脑涂地
-  不求任何人满意只要对得起自己
-  关于理想我从来没选择放弃
-  即使在灰头土脸的日子里
-  也许我没有天分
-  但我有梦的天真
-  我将会去证明用我的一生
-  也许我手比较笨
-  但我愿不停探寻
-  付出所有的青春不留遗憾
-  向前跑 迎着冷眼和嘲笑
-  生命的广阔不历经磨难怎能感到
-  命运它无法让我们跪地求饶
-  就算鲜血洒满了怀抱
-  继续跑 带着赤子的骄傲
-  生命的闪耀不坚持到底怎能看到
-  与其苟延残喘不如纵情燃烧吧
-  有一天会再发芽
-  未来迷人绚烂总在向我召唤</description>
+如果它真的存在那么我一定会去
+我想在那里最高的山峰矗立
+不在乎它是不是悬崖峭壁
+用力活着用力爱哪怕肝脑涂地
+不求任何人满意只要对得起自己
+关于理想我从来没选择放弃
+即使在灰头土脸的日子里
+也许我没有天分
+但我有梦的天真
+我将会去证明用我的一生
+也许我手比较笨
+但我愿不停探寻
+付出所有的青春不留遗憾
+向前跑 迎着冷眼和嘲笑
+生命的广阔不历经磨难怎能感到
+命运它无法让我们跪地求饶
+就算鲜血洒满了怀抱
+继续跑 带着赤子的骄傲
+生命的闪耀不坚持到底怎能看到
+与其苟延残喘不如纵情燃烧吧
+有一天会再发芽
+未来迷人绚烂总在向我召唤
+哪怕只有痛苦作伴也要勇往直前
+我想在那里最蓝的大海扬帆
+绝不管自己能不能回还
+失败后郁郁寡欢
+那是懦夫的表现
+只要一息尚存请握紧双拳
+在天色破晓之前
+我们要更加勇敢
+等待日出时最耀眼的瞬间
+向前跑 迎着冷眼和嘲笑
+生命的广阔不历经磨难怎能感到
+命运它无法让我们跪地求饶
+就算鲜血洒满了怀抱
+继续跑 带着赤子的骄傲
+生命的闪耀不坚持到底怎能看到
+与其苟延残喘不如纵情燃烧吧
+为了心中的美好
+不妥协直到变老</description>
     </item>
     
     <item>
@@ -692,7 +751,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
 被摁倒了的正直
 今ごろになってやけに骨身にしみる
 如今更加 铭心刻骨
-  ああしあわせのとんぼよ どこへ
+ああしあわせのとんぼよ どこへ
 啊 幸福的蜻蜓啊 往哪里
 お前はどこへ飛んで行く
 你往哪里飞去
@@ -700,7 +759,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
 啊 幸福的蜻蜓 你瞧
 舌を出して 笑ってらあ※
 正伸出舌头在笑呢
-  明日からまた冬の風が 横っつらを吹き抜けて行く
+明日からまた冬の風が 横っつらを吹き抜けて行く
 从明天起冬日的风 又将吹过我的侧脸而去
 それでもおめおめと生きぬく 俺を恥らう
 即便如此 仍令厚颜无耻赖活的我感到羞耻
@@ -708,7 +767,9 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
 我就这样冷赤着双脚 数着冰凉的夜晚
 だけど俺はこの街を愛し そしてこの街を憎んだ
 但我爱着这个城市 并又憎恨着这座城市
-死にたいくらいに憧れた 東京のバカヤローが</description>
+死にたいくらいに憧れた 東京のバカヤローが
+曾令我憧憬得要死要活的 东京的混蛋们
+知らん顔して黙ったまま 突っ立ってる</description>
     </item>
     
     <item>
@@ -741,29 +802,54 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-2-3-3/</guid>
       <description>这一生也在进取
-  这分钟却挂念谁
-  我会说是唯独你不可失去
-  好风光似幻似虚
-  谁明人生乐趣
-  我会说为情为爱仍然是对
-  谁比你重要
-  成功了败了也完全无重要
-  谁比你重要
-  狂风与暴雨都因你燃烧
-  一追再追
-  只想追赶生命里一分一秒
-  原来多么可笑
-  你是真正目标
-  一追再追
-  追踪一些生活最基本需要
-  原来早不缺少
-  Oh
-  有了你即使平凡却最重要
-  好光阴纵没太多
-  一分钟那又如何
-  会与你共同渡过都不枉过
-  疯恋多错误更多
-  如能从新做过</description>
+这分钟却挂念谁
+我会说是唯独你不可失去
+好风光似幻似虚
+谁明人生乐趣
+我会说为情为爱仍然是对
+谁比你重要
+成功了败了也完全无重要
+谁比你重要
+狂风与暴雨都因你燃烧
+一追再追
+只想追赶生命里一分一秒
+原来多么可笑
+你是真正目标
+一追再追
+追踪一些生活最基本需要
+原来早不缺少
+Oh
+有了你即使平凡却最重要
+好光阴纵没太多
+一分钟那又如何
+会与你共同渡过都不枉过
+疯恋多错误更多
+如能从新做过
+我会说愿能为你提前做错
+谁比你重要
+成功了败了也完全无重要
+谁比你重要
+狂风与暴雨都因你燃烧
+一追再追
+只想追赶生命里一分一秒
+原来多么可笑
+你是真正目标
+一追再追
+追踪一些生活最基本需要
+原来早不缺少
+Oh
+有了你即使平凡却最重要
+（一追再追）
+只想追赶生命里一分一秒
+原来多么可笑
+你是真正目标
+一追再追
+追踪一些生活最基本需要
+原来早不缺少
+有了你即使平凡却最重要
+只得你
+有了你即使沉睡了
+也在笑</description>
     </item>
     
     <item>
@@ -773,27 +859,54 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-2-3-2/</guid>
       <description>这世界看来很快乐
-  看不出难过
-  始终笑著沉默
-  你不慌不忙
-  自然坦荡
-  脱下了伪装
-  摘去了信仰
-  你不愿多说话
-  你想放纵一下
-  没什么可怕
-  没什么放心不下
-  痛苦地享乐
-  犹豫著堕落
-  YI DA LI DA
-  YI DA LI DA
-  左右不了诱惑
-  你才拒绝寂寞
-  你没有错
-  因为没有谁作对过
-  心安理得
-  于是你堕落
-  YI DA LI DA</description>
+看不出难过
+始终笑著沉默
+你不慌不忙
+自然坦荡
+脱下了伪装
+摘去了信仰
+你不愿多说话
+你想放纵一下
+没什么可怕
+没什么放心不下
+痛苦地享乐
+犹豫著堕落
+YI DA LI DA
+YI DA LI DA
+左右不了诱惑
+你才拒绝寂寞
+你没有错
+因为没有谁作对过
+心安理得
+于是你堕落
+YI DA LI DA
+YI DA LI DA
+来呀来呀
+我陪你
+来呀来呀来呀
+继续继续
+我没什么可说
+想不清后果
+也不准备自责
+我不慌不忙
+自然而坦荡
+绝望地逆流而上
+甘心地自投罗网
+没有别的想法
+只想放纵一下
+就当没发现
+美好背后的虚假
+敷衍著灵魂
+勉强地挣扎
+YI DA LI DA
+YI DA LI DA
+什么也没错过
+其实一无所获
+谈不上失落
+陶醉和麻醉交错
+从这里开始
+无意识地堕落
+YI DA LI DA</description>
     </item>
     
     <item>
@@ -802,7 +915,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <pubDate>Thu, 03 Feb 2022 18:01:32 +0800</pubDate>
       
       <guid>/posts/2022-2-3/</guid>
-      <description> 下雨天小雨点
+      <description>下雨天小雨点
 那一天亲我面
 我喜欢
 街中披雨到处走
@@ -822,7 +935,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
 如何不舍都要放手
 即使有泪流
 亦学习承受
-  下雨天的小雨点
+下雨天的小雨点
 有一天轻抚你面
 你那天
 开始牵我两手
@@ -842,7 +955,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
 如何不舍都要放手
 即使有泪流
 亦学习承受
-  在这天飘飘雨点
+在这天飘飘雨点
 再这般的亲我面
 似不知 当天相隔已久
 现我心懂多了点
@@ -861,8 +974,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
 若飘去
 如何不舍都要放手
 即使有泪流
-亦学习承受
- </description>
+亦学习承受</description>
     </item>
     
     <item>
@@ -872,10 +984,12 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/thoughtsondeath/</guid>
       <description>My third story is about death.
-  我的第三个故事是关于死亡的。
-  When I was 17, I read a quote that went something like: &amp;ldquo;If you live each day as if it was your last, someday you&amp;rsquo;ll most certainly be right.&amp;rdquo;
-  17岁那年，我读到了一句话，它是这样说的：“如果你把每一天都当作生命中的最后一天去过，总有一天你会如愿以偿。”
-  It made an impression on me, and since then, for the past 33 years, I have looked in the mirror every morning and asked myself:</description>
+我的第三个故事是关于死亡的。
+When I was 17, I read a quote that went something like: &amp;ldquo;If you live each day as if it was your last, someday you&amp;rsquo;ll most certainly be right.&amp;rdquo;
+17岁那年，我读到了一句话，它是这样说的：“如果你把每一天都当作生命中的最后一天去过，总有一天你会如愿以偿。”
+It made an impression on me, and since then, for the past 33 years, I have looked in the mirror every morning and asked myself:
+这句话给我留下了深刻的印象。从那时开始，33年过去了，我在每天早晨都会对着镜子问自己：
+&amp;ldquo;If today were the last day of my life, would I want to do what I am about to do today?</description>
     </item>
     
     <item>
@@ -885,27 +999,45 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-1-27-4/</guid>
       <description>鈴なりの花を摘み
-  摘下串串花儿
-  吹く風に夏を知る
-  微风吹拂夏日临
-  おだやかに ああ おだやかに
-  静静地，啊静静地
-  今 ぼんやり遠くをながめてる
-  凝望远方
-  はるかなる空の果て
-  在遥远天尽头
-  想い出が駆けめぐる
-  回忆的思绪萦绕着
-  なだらかな この なだらかな
-  缓缓的，这缓缓的
-  名前さえしらない 坂だけど
-  无名小路上
-  咲く紫は 旅路を彩どる
-  盛开的紫丁香将旅途装扮
-  何処へと鳥は鳴き
-  何处鸟儿歌婉转
-  夢出ずる国をゆく
-  伴我奔向梦之国</description>
+摘下串串花儿
+吹く風に夏を知る
+微风吹拂夏日临
+おだやかに ああ おだやかに
+静静地，啊静静地
+今 ぼんやり遠くをながめてる
+凝望远方
+はるかなる空の果て
+在遥远天尽头
+想い出が駆けめぐる
+回忆的思绪萦绕着
+なだらかな この なだらかな
+缓缓的，这缓缓的
+名前さえしらない 坂だけど
+无名小路上
+咲く紫は 旅路を彩どる
+盛开的紫丁香将旅途装扮
+何処へと鳥は鳴き
+何处鸟儿歌婉转
+夢出ずる国をゆく
+伴我奔向梦之国
+世の中は ああ 世の中は
+这世间，啊这世间
+なぜ こんな急いてと流れてく
+为何来去太匆匆
+今宵は 月が旅路を照らそうぞ
+月色今宵照旅途
+喜びが川となり
+快乐好似河水
+悲しみは虹を呼ぶ
+悲伤呼唤彩虹
+道無きぞ この旅だけど
+旅途前路虽未知
+でも こんなに上手に歩いてる
+亦要如此快乐前行
+稲穂の先が いつしか垂れコウベ
+稻穗轻轻颔首
+咲く紫は 旅路を彩どる
+盛开的紫丁香将旅途装扮</description>
     </item>
     
     <item>
@@ -915,29 +1047,36 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-1-27-3/</guid>
       <description>你问我爱你有多深
-  我爱你有几分
-  我的情也真
-  我的爱也真
-  月亮代表我的心
-  你问我爱你有多深
-  我爱你有几分
-  我的情不移
-  我的爱不变
-  月亮代表我的心
-  轻轻的一个吻
-  已经打动我的心
-  深深的一段情
-  教我思念到如今
-  你问我爱你有多深
-  我爱你有几分
-  你去想一想
-  你去看一看
-  月亮代表我的心
-  轻轻的一个吻
-  已经打动我的心
-  深深的一段情
-  教我思念到如今
-  你问我爱你有多深</description>
+我爱你有几分
+我的情也真
+我的爱也真
+月亮代表我的心
+你问我爱你有多深
+我爱你有几分
+我的情不移
+我的爱不变
+月亮代表我的心
+轻轻的一个吻
+已经打动我的心
+深深的一段情
+教我思念到如今
+你问我爱你有多深
+我爱你有几分
+你去想一想
+你去看一看
+月亮代表我的心
+轻轻的一个吻
+已经打动我的心
+深深的一段情
+教我思念到如今
+你问我爱你有多深
+我爱你有几分
+你去想一想
+你去看一看
+月亮代表我的心
+你去想一想
+你去看一看
+月亮代表我的心</description>
     </item>
     
     <item>
@@ -947,29 +1086,74 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-1-27-2/</guid>
       <description>不知道为何你会远走
-  不知道何时才再有对手
-  我的身心只适应你
-  没气力回头
-  不知道为何你会放手
-  只知道习惯抱你抱了太久
-  怕这双手一失去你
-  令动作颤抖
-  尚记得
-  左手边一脸温柔
-  来自你热暖在枕边消受
-  同样记得
-  当天一脸哀求
-  摇着我右臂
-  就这样而分手
-  从那天起我不辨别前后
-  从那天起我竟调乱左右
-  惯都扭转了
-  呼吸都张不开口
-  你离开了
-  却散落四周
-  从那天起我恋上我左手
-  从那天起我讨厌我右手
-  为何没力气</description>
+不知道何时才再有对手
+我的身心只适应你
+没气力回头
+不知道为何你会放手
+只知道习惯抱你抱了太久
+怕这双手一失去你
+令动作颤抖
+尚记得
+左手边一脸温柔
+来自你热暖在枕边消受
+同样记得
+当天一脸哀求
+摇着我右臂
+就这样而分手
+从那天起我不辨别前后
+从那天起我竟调乱左右
+惯都扭转了
+呼吸都张不开口
+你离开了
+却散落四周
+从那天起我恋上我左手
+从那天起我讨厌我右手
+为何没力气
+去捉紧这一点火花
+天高海深
+有什么可拥有
+不知道为何你会放手
+只知道习惯抱你抱了太久
+怕这双手一失去你
+令动作颤抖
+尚记得
+左手边一脸温柔
+来自你热暖在枕边消受
+同样记得
+当天一脸哀求
+摇着我右臂
+就这样而分手
+从那天起我不辨别前后
+从那天起我竟调乱左右
+习惯都扭转了
+呼吸都张不开口
+你离开了
+却散落四周
+从那天起我恋上我左手
+从那天起我讨厌我右手
+为何没力气
+去捉紧这一点火花
+天高海深
+有什么可拥有
+留住你
+别要走
+无奈怎能够
+除下在左右我的手扣
+有爱难偷
+从那天起我不辨别前后
+从那天起我竟调乱左右
+习惯都扭转了
+呼吸都张不开口
+你离开了
+却散落四周
+从那天起我恋上我左手
+从那天起我讨厌我右手
+为何没力气
+去捉紧这一点火花
+天高海深
+有什么可拥有
+为何没力气
+去捉紧这一点火花</description>
     </item>
     
     <item>
@@ -979,25 +1163,46 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/2022-1-27/</guid>
       <description>我怕来不及 我要抱着你
-  直到感觉你的皱纹
-  有了岁月的痕迹
-  直到肯定你是真的
-  直到失去力气
-  为了你 我愿意
-  动也不能动 也要抱着你
-  直到感觉你的发线
-  有了白雪的痕迹
-  直到视线变得模糊
-  直到不能呼吸
-  让我们 形影不离
-  如果 全世界我也可以放弃
-  只因还有你 值得我去珍惜
-  而你在这里 就是生命的奇迹
-  也许 全世界我也可以放弃
-  就是不愿意 失去你的消息
-  你掌心的痣 我总记得在那里
-  我怕来不及 我要抱着你
-  直到感觉你的发线</description>
+直到感觉你的皱纹
+有了岁月的痕迹
+直到肯定你是真的
+直到失去力气
+为了你 我愿意
+动也不能动 也要抱着你
+直到感觉你的发线
+有了白雪的痕迹
+直到视线变得模糊
+直到不能呼吸
+让我们 形影不离
+如果 全世界我也可以放弃
+只因还有你 值得我去珍惜
+而你在这里 就是生命的奇迹
+也许 全世界我也可以放弃
+就是不愿意 失去你的消息
+你掌心的痣 我总记得在那里
+我怕来不及 我要抱着你
+直到感觉你的发线
+有了白雪的痕迹
+直到视线变得模糊
+直到不能呼吸
+让我们 形影不离
+如果 全世界我也可以放弃
+只因还有你 值得我去珍惜
+而你在这里 就是生命的奇迹
+也许 全世界我也可以忘记
+就是不愿意 失去你的消息
+你掌心的痣 我总记得在那里
+我们好不容易 我们身不由已
+我怕时间太快 不够将你看仔细
+我怕时间太慢 让我日夜担心你
+恨不得一夜之间白头 永不分离
+如果 全世界我也可以放弃
+只因还有你 值得我去珍惜
+而你在这里 就是生命的奇迹
+也许 全世界我也可以忘记
+就是不愿意 失去你的消息
+你掌心的痣 我总记得在那里
+在那里</description>
     </item>
     
     <item>
@@ -1007,11 +1212,12 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/loveandloss/</guid>
       <description>—— Steve Jobs
-  My second story is about love and loss.
-  我的第二个故事是关于爱与得失的。
-  I was lucky —— I found what I loved to do early in life.
-  我很幸运，因为我在很早的时候就发现了自己钟爱的东西。
-  Woz and I started Apple in my parents&amp;rsquo; garage when I was 20. We worked hard, and in ten years Apple had grown from just the two of us in a garage ito a $2 billion company with over 4,000 employess.</description>
+My second story is about love and loss.
+我的第二个故事是关于爱与得失的。
+I was lucky —— I found what I loved to do early in life.
+我很幸运，因为我在很早的时候就发现了自己钟爱的东西。
+Woz and I started Apple in my parents&amp;rsquo; garage when I was 20. We worked hard, and in ten years Apple had grown from just the two of us in a garage ito a $2 billion company with over 4,000 employess.
+我在二十岁的时候就和沃兹在父母的车库里面开创了苹果公司。我们工作很努力，十年之后，苹果公司从那两个车库中的穷光蛋发展到了拥有四千多名雇员、价值超过二十亿的大公司。</description>
     </item>
     
     <item>
@@ -1021,11 +1227,13 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/connectthedots/</guid>
       <description>—— Steve Jobs
-  I am honored to be with you today for your commencement from one of the finest universities in the world.
-  很荣幸与大家一道参加这次的毕业典礼，斯坦福大学是世界上最好的大学之一。
-  Truth be told, I never graduated from college. And this is the closest I&amp;rsquo;ve ever gotten to a college graduation.
-  说实话，我大学还没毕业，今天是我第一次离大学毕业典礼这么近。
-  Today I want to tell you three stories from my life. That&amp;rsquo;s it. That&amp;rsquo;s it.</description>
+I am honored to be with you today for your commencement from one of the finest universities in the world.
+很荣幸与大家一道参加这次的毕业典礼，斯坦福大学是世界上最好的大学之一。
+Truth be told, I never graduated from college. And this is the closest I&amp;rsquo;ve ever gotten to a college graduation.
+说实话，我大学还没毕业，今天是我第一次离大学毕业典礼这么近。
+Today I want to tell you three stories from my life. That&amp;rsquo;s it. That&amp;rsquo;s it. No big deal. Just three stories.
+今天我想向你们讲述我生活中的三个故事。不讲别的，也不是什么大道理，就只是是三个故事。
+The first story is about connecting the dots.</description>
     </item>
     
     <item>
@@ -1044,14 +1252,14 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/design-pattern/</guid>
       <description>转载自https://github.com/huihut/interview
- 各大设计模式例子参考：CSDN专栏 . C++ 设计模式 系列博文
- 设计模式工程目录
+各大设计模式例子参考：CSDN专栏 . C++ 设计模式 系列博文
+设计模式工程目录
 单例模式 🔗单例模式例子
 抽象工厂模式 🔗抽象工厂模式例子
 适配器模式 🔗适配器模式例子
 桥接模式 🔗桥接模式例子
 观察者模式 🔗观察者模式例子
-设计模式的六大原则 🔗 单一职责原则（SRP，Single Responsibility Principle） 里氏替换原则（LSP，Liskov Substitution Principle） 依赖倒置原则（DIP，Dependence Inversion Principle） 接口隔离原则（ISP，Interface Segregation Principle） 迪米特法则（LoD，Law of Demeter） 开放封闭原则（OCP，Open Close Principle）  </description>
+设计模式的六大原则 🔗 单一职责原则（SRP，Single Responsibility Principle） 里氏替换原则（LSP，Liskov Substitution Principle） 依赖倒置原则（DIP，Dependence Inversion Principle） 接口隔离原则（ISP，Interface Segregation Principle） 迪米特法则（LoD，Law of Demeter） 开放封闭原则（OCP，Open Close Principle） </description>
     </item>
     
     <item>
@@ -1061,13 +1269,13 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/library/</guid>
       <description>转载自https://github.com/huihut/interview
- 本节部分知识点来自《程序员的自我修养——链接装载库》
- 内存、栈、堆 🔗一般应用程序内存空间有如下区域：
- 栈：由操作系统自动分配释放，存放函数的参数值、局部变量等的值，用于维护函数调用的上下文 堆：一般由程序员分配释放，若程序员不释放，程序结束时可能由操作系统回收，用来容纳应用程序动态分配的内存区域 可执行文件映像：存储着可执行文件在内存中的映像，由装载器装载是将可执行文件的内存读取或映射到这里 保留区：保留区并不是一个单一的内存区域，而是对内存中受到保护而禁止访问的内存区域的总称，如通常 C 语言讲无效指针赋值为 0（NULL），因此 0 地址正常情况下不可能有效的访问数据  栈 🔗栈保存了一个函数调用所需要的维护信息，常被称为堆栈帧（Stack Frame）或活动记录（Activate Record），一般包含以下几方面：
- 函数的返回地址和参数 临时变量：包括函数的非静态局部变量以及编译器自动生成的其他临时变量 保存上下文：包括函数调用前后需要保持不变的寄存器  堆 🔗堆分配算法：
- 空闲链表（Free List） 位图（Bitmap） 对象池  “段错误（segment fault）” 或 “非法操作，该内存地址不能 read/write” 🔗典型的非法指针解引用造成的错误。当指针指向一个不允许读写的内存地址，而程序却试图利用指针来读或写该地址时，会出现这个错误。
+本节部分知识点来自《程序员的自我修养——链接装载库》
+内存、栈、堆 🔗一般应用程序内存空间有如下区域：
+栈：由操作系统自动分配释放，存放函数的参数值、局部变量等的值，用于维护函数调用的上下文 堆：一般由程序员分配释放，若程序员不释放，程序结束时可能由操作系统回收，用来容纳应用程序动态分配的内存区域 可执行文件映像：存储着可执行文件在内存中的映像，由装载器装载是将可执行文件的内存读取或映射到这里 保留区：保留区并不是一个单一的内存区域，而是对内存中受到保护而禁止访问的内存区域的总称，如通常 C 语言讲无效指针赋值为 0（NULL），因此 0 地址正常情况下不可能有效的访问数据 栈 🔗栈保存了一个函数调用所需要的维护信息，常被称为堆栈帧（Stack Frame）或活动记录（Activate Record），一般包含以下几方面：
+函数的返回地址和参数 临时变量：包括函数的非静态局部变量以及编译器自动生成的其他临时变量 保存上下文：包括函数调用前后需要保持不变的寄存器 堆 🔗堆分配算法：
+空闲链表（Free List） 位图（Bitmap） 对象池 “段错误（segment fault）” 或 “非法操作，该内存地址不能 read/write” 🔗典型的非法指针解引用造成的错误。当指针指向一个不允许读写的内存地址，而程序却试图利用指针来读或写该地址时，会出现这个错误。
 普遍原因：
- 将指针初始化为 NULL，之后没有给它一个合理的值就开始使用指针 没用初始化栈中的指针，指针的值一般会是随机数，之后就直接开始使用指针  编译链接 🔗各平台文件格式 🔗   平台 可执行文件 目标文件 动态库/共享对象 静态库     Windows exe obj dll lib   Unix/Linux ELF、out o so a   Mac Mach-O o dylib、tbd、framework a、framework    编译链接过程 🔗 预编译（预编译器处理如 #include、#define 等预编译指令，生成 .</description>
+将指针初始化为 NULL，之后没有给它一个合理的值就开始使用指针 没用初始化栈中的指针，指针的值一般会是随机数，之后就直接开始使用指针 编译链接 🔗各平台文件格式 🔗 平台 可执行文件 目标文件 动态库/共享对象 静态库 Windows exe obj dll lib Unix/Linux ELF、out o so a Mac Mach-O o dylib、tbd、framework a、framework 编译链接过程 🔗 预编译（预编译器处理如 #include、#define 等预编译指令，生成 .i 或 .ii 文件） 编译（编译器进行词法分析、语法分析、语义分析、中间代码生成、目标代码生成、优化，生成 .s 文件） 汇编（汇编器把汇编码翻译成机器码，生成 .</description>
     </item>
     
     <item>
@@ -1077,8 +1285,8 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/database/</guid>
       <description>转载自https://github.com/huihut/interview
- 本节部分知识点来自《数据库系统概论（第 5 版）》
- 基本概念 🔗 数据（data）：描述事物的符号记录称为数据。 数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。 数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。 数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。 实体（entity）：客观存在并可相互区别的事物称为实体。 属性（attribute）：实体所具有的某一特性称为属性。 码（key）：唯一标识实体的属性集称为码。 实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。 实体集（entity set）：同一实体型的集合称为实体集。 联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。 模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。  常用数据模型 🔗 层次模型（hierarchical model） 网状模型（network model） 关系模型（relational model）  关系（relation）：一个关系对应通常说的一张表 元组（tuple）：表中的一行即为一个元组 属性（attribute）：表中的一列即为一个属性 码（key）：表中可以唯一确定一个元组的某个属性组 域（domain）：一组具有相同数据类型的值的集合 分量：元组中的一个属性值 关系模式：对关系的描述，一般表示为 关系名(属性1, 属性2, ..., 属性n)   面向对象数据模型（object oriented data model） 对象关系数据模型（object relational data model） 半结构化数据模型（semistructure data model）  常用 SQL 操作 🔗  对象类型 对象 操作类型   数据库模式 模式 CREATE SCHEMA   基本表 CREATE SCHEMA，ALTER TABLE   视图 CREATE VIEW   索引 CREATE INDEX   数据 基本表和视图 SELECT，INSERT，UPDATE，DELETE，REFERENCES，ALL PRIVILEGES   属性列 SELECT，INSERT，UPDATE，REFERENCES，ALL PRIVILEGES    SQL 语法教程：runoob .</description>
+本节部分知识点来自《数据库系统概论（第 5 版）》
+基本概念 🔗 数据（data）：描述事物的符号记录称为数据。 数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。 数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。 数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。 实体（entity）：客观存在并可相互区别的事物称为实体。 属性（attribute）：实体所具有的某一特性称为属性。 码（key）：唯一标识实体的属性集称为码。 实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。 实体集（entity set）：同一实体型的集合称为实体集。 联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。 模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。 常用数据模型 🔗 层次模型（hierarchical model） 网状模型（network model） 关系模型（relational model） 关系（relation）：一个关系对应通常说的一张表 元组（tuple）：表中的一行即为一个元组 属性（attribute）：表中的一列即为一个属性 码（key）：表中可以唯一确定一个元组的某个属性组 域（domain）：一组具有相同数据类型的值的集合 分量：元组中的一个属性值 关系模式：对关系的描述，一般表示为 关系名(属性1, 属性2, ..., 属性n) 面向对象数据模型（object oriented data model） 对象关系数据模型（object relational data model） 半结构化数据模型（semistructure data model） 常用 SQL 操作 🔗对象类型对象操作类型数据库模式模式CREATE SCHEMA基本表CREATE SCHEMA，ALTER TABLE视图CREATE VIEW索引CREATE INDEX数据基本表和视图SELECT，INSERT，UPDATE，DELETE，REFERENCES，ALL PRIVILEGES属性列SELECT，INSERT，UPDATE，REFERENCES，ALL PRIVILEGESSQL 语法教程：runoob .</description>
     </item>
     
     <item>
@@ -1088,9 +1296,12 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/network/</guid>
       <description>转载自https://github.com/huihut/interview
- 本节部分知识点来自《计算机网络（第 7 版）》
- 计算机网络体系结构：
-各层作用及协议 🔗   分层 作用 协议     物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器）   数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机）   网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）   运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX   会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC   表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII   应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS    物理层 🔗 传输数据的单位：比特 数据传输系统：源系统（源点、发送器） &amp;ndash;&amp;gt; 传输系统 &amp;ndash;&amp;gt; 目的系统（接收器、终点）  通道：</description>
+本节部分知识点来自《计算机网络（第 7 版）》
+计算机网络体系结构：
+各层作用及协议 🔗 分层 作用 协议 物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器） 数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机） 网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器） 运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX 会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC 表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII 应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS 物理层 🔗 传输数据的单位：比特 数据传输系统：源系统（源点、发送器） &amp;ndash;&amp;gt; 传输系统 &amp;ndash;&amp;gt; 目的系统（接收器、终点） 通道：
+单向通道（单工通道）：只有一个方向通信，没有反方向交互，如广播 双向交替通信（半双工通信）：通信双方都可发消息，但不能同时发送或接收 双向同时通信（全双工通信）：通信双方可以同时发送和接收信息 通道复用技术：
+频分复用（FDM，Frequency Division Multiplexing）：不同用户在不同频带，所用用户在同样时间占用不同带宽资源 时分复用（TDM，Time Division Multiplexing）：不同用户在同一时间段的不同时间片，所有用户在不同时间占用同样的频带宽度 波分复用（WDM，Wavelength Division Multiplexing）：光的频分复用 码分复用（CDM，Code Division Multiplexing）：不同用户使用不同的码，可以在同样时间使用同样频带通信 数据链路层 🔗主要信道：
+点对点信道 广播信道 点对点信道 🔗 数据单元：帧 三个基本问题：</description>
     </item>
     
     <item>
@@ -1101,8 +1312,10 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <guid>/posts/os/</guid>
       <description>转载自https://github.com/huihut/interview
 进程与线程 🔗对于有线程系统：
- 进程是资源分配的独立单位 线程是资源调度的独立单位  对于无线程系统：
- 进程是资源调度、分配的独立单位  进程之间的通信方式以及优缺点 🔗 管道（PIPE）  有名管道：一种半双工的通信方式，它允许无亲缘关系进程间的通信  优点：可以实现任意关系的进程间的通信 缺点：  长期存于系统中，使用不当容易出错 缓冲区有限     无名管道：一种半双工的通信方式，只能在具有亲缘关系的进程间使用（父子进程）  优点：简单方便 缺点：  局限于单向通信 只能创建在它的进程以及其有亲缘关系的进程之间 缓冲区有限       信号量（Semaphore）：一个计数器，可以用来控制多个线程对共享资源的访问  优点：可以同步进程 缺点：信号量有限   信号（Signal）：一种比较复杂的通信方式，用于通知接收进程某个事件已经发生 消息队列（Message Queue）：是消息的链表，存放在内核中并由消息队列标识符标识  优点：可以实现任意进程间的通信，并通过系统调用函数来实现消息发送和接收之间的同步，无需考虑同步问题，方便 缺点：信息的复制需要额外消耗 CPU 的时间，不适宜于信息量大或操作频繁的场合   共享内存（Shared Memory）：映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问  优点：无须复制，快捷，信息量大 缺点：  通信是通过将共享空间缓冲区直接附加到进程的虚拟地址空间中来实现的，因此进程间的读写操作的同步问题 利用内存缓冲区直接交换信息，内存的实体存在于计算机中，只能同一个计算机系统中的诸多进程共享，不方便网络通信     套接字（Socket）：可用于不同计算机间的进程通信  优点：  传输数据为字节级，传输数据可自定义，数据量小效率高 传输数据时间短，性能高 适合于客户端和服务器端之间信息实时交互 可以加密,数据安全性强   缺点：需对传输的数据进行解析，转化成应用级的数据。    线程之间的通信方式 🔗 锁机制：包括互斥锁/量（mutex）、读写锁（reader-writer lock）、自旋锁（spin lock）、条件变量（condition）  互斥锁/量（mutex）：提供了以排他方式防止数据结构被并发修改的方法。 读写锁（reader-writer lock）：允许多个线程同时读共享数据，而对写操作是互斥的。 自旋锁（spin lock）与互斥锁类似，都是为了保护共享资源。互斥锁是当资源被占用，申请者进入睡眠状态；而自旋锁则循环检测保持者是否已经释放锁。 条件变量（condition）：可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。   信号量机制(Semaphore)  无名线程信号量 命名线程信号量   信号机制(Signal)：类似进程间的信号处理 屏障（barrier）：屏障允许每个线程等待，直到所有的合作线程都达到某一点，然后从该点继续执行。  线程间的通信目的主要是用于线程同步，所以线程没有像进程通信中的用于数据交换的通信机制</description>
+进程是资源分配的独立单位 线程是资源调度的独立单位 对于无线程系统：
+进程是资源调度、分配的独立单位 进程之间的通信方式以及优缺点 🔗 管道（PIPE） 有名管道：一种半双工的通信方式，它允许无亲缘关系进程间的通信 优点：可以实现任意关系的进程间的通信 缺点： 长期存于系统中，使用不当容易出错 缓冲区有限 无名管道：一种半双工的通信方式，只能在具有亲缘关系的进程间使用（父子进程） 优点：简单方便 缺点： 局限于单向通信 只能创建在它的进程以及其有亲缘关系的进程之间 缓冲区有限 信号量（Semaphore）：一个计数器，可以用来控制多个线程对共享资源的访问 优点：可以同步进程 缺点：信号量有限 信号（Signal）：一种比较复杂的通信方式，用于通知接收进程某个事件已经发生 消息队列（Message Queue）：是消息的链表，存放在内核中并由消息队列标识符标识 优点：可以实现任意进程间的通信，并通过系统调用函数来实现消息发送和接收之间的同步，无需考虑同步问题，方便 缺点：信息的复制需要额外消耗 CPU 的时间，不适宜于信息量大或操作频繁的场合 共享内存（Shared Memory）：映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问 优点：无须复制，快捷，信息量大 缺点： 通信是通过将共享空间缓冲区直接附加到进程的虚拟地址空间中来实现的，因此进程间的读写操作的同步问题 利用内存缓冲区直接交换信息，内存的实体存在于计算机中，只能同一个计算机系统中的诸多进程共享，不方便网络通信 套接字（Socket）：可用于不同计算机间的进程通信 优点： 传输数据为字节级，传输数据可自定义，数据量小效率高 传输数据时间短，性能高 适合于客户端和服务器端之间信息实时交互 可以加密,数据安全性强 缺点：需对传输的数据进行解析，转化成应用级的数据。 线程之间的通信方式 🔗 锁机制：包括互斥锁/量（mutex）、读写锁（reader-writer lock）、自旋锁（spin lock）、条件变量（condition） 互斥锁/量（mutex）：提供了以排他方式防止数据结构被并发修改的方法。 读写锁（reader-writer lock）：允许多个线程同时读共享数据，而对写操作是互斥的。 自旋锁（spin lock）与互斥锁类似，都是为了保护共享资源。互斥锁是当资源被占用，申请者进入睡眠状态；而自旋锁则循环检测保持者是否已经释放锁。 条件变量（condition）：可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。 信号量机制(Semaphore) 无名线程信号量 命名线程信号量 信号机制(Signal)：类似进程间的信号处理 屏障（barrier）：屏障允许每个线程等待，直到所有的合作线程都达到某一点，然后从该点继续执行。 线程间的通信目的主要是用于线程同步，所以线程没有像进程通信中的用于数据交换的通信机制
+进程之间的通信方式以及优缺点来源于：进程线程面试题总结
+进程之间私有和共享的资源 🔗 私有：地址空间、堆、全局变量、栈、寄存器 共享：代码段，公共数据，进程目录，进程 ID 线程之间私有和共享的资源 🔗 私有：线程栈，寄存器，程序计数器 共享：堆，地址空间，全局变量，静态变量 多进程与多线程间的对比、优劣与选择 🔗对比 🔗 对比维度 多进程 多线程 总结 数据共享、同步 数据共享复杂，需要用 IPC；数据是分开的，同步简单 因为共享进程数据，数据共享简单，但也是因为这个原因导致同步复杂 各有优势 内存、CPU 占用内存多，切换复杂，CPU 利用率低 占用内存少，切换简单，CPU 利用率高 线程占优 创建销毁、切换 创建销毁、切换复杂，速度慢 创建销毁、切换简单，速度很快 线程占优 编程、调试 编程简单，调试简单 编程复杂，调试复杂 进程占优 可靠性 进程间不会互相影响 一个线程挂掉将导致整个进程挂掉 进程占优 分布式 适应于多核、多机分布式；如果一台机器不够，扩展到多台机器比较简单 适应于多核分布式 进程占优 优劣 🔗 优劣 多进程 多线程 优点 编程、调试简单，可靠性较高 创建、销毁、切换速度快，内存、资源占用小 缺点 创建、销毁、切换速度慢，内存、资源占用大 编程、调试复杂，可靠性较差 选择 🔗 需要频繁创建销毁的优先用线程 需要进行大量计算的优先使用线程 强相关的处理用线程，弱相关的处理用进程 可能要扩展到多机分布的用进程，多核分布的用线程 都满足需求的情况下，用你最熟悉、最拿手的方式 多进程与多线程间的对比、优劣与选择来自：多线程还是多进程的选择及区别</description>
     </item>
     
     <item>
@@ -1112,7 +1325,7 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       
       <guid>/posts/algorithm/</guid>
       <description>转载自https://github.com/huihut/interview
-排序 🔗   排序算法 平均时间复杂度 最差时间复杂度 空间复杂度 数据对象稳定性     冒泡排序 O(n2) O(n2) O(1) 稳定   选择排序 O(n2) O(n2) O(1) 数组不稳定、链表稳定   插入排序 O(n2) O(n2) O(1) 稳定   快速排序 O(n*log2n) O(n2) O(log2n) 不稳定   堆排序 O(n*log2n) O(n*log2n) O(1) 不稳定   归并排序 O(n*log2n) O(n*log2n) O(n) 稳定   希尔排序 O(n*log2n) O(n2) O(1) 不稳定   计数排序 O(n+m) O(n+m) O(n+m) 稳定   桶排序 O(n) O(n) O(m) 稳定   基数排序 O(k*n) O(n2)  稳定      均按从小到大排列 k：代表数值中的 “数位” 个数 n：代表数据规模 m：代表数据的最大值减最小值 来自：wikipedia .</description>
+排序 🔗 排序算法 平均时间复杂度 最差时间复杂度 空间复杂度 数据对象稳定性 冒泡排序 O(n2) O(n2) O(1) 稳定 选择排序 O(n2) O(n2) O(1) 数组不稳定、链表稳定 插入排序 O(n2) O(n2) O(1) 稳定 快速排序 O(n*log2n) O(n2) O(log2n) 不稳定 堆排序 O(n*log2n) O(n*log2n) O(1) 不稳定 归并排序 O(n*log2n) O(n*log2n) O(n) 稳定 希尔排序 O(n*log2n) O(n2) O(1) 不稳定 计数排序 O(n+m) O(n+m) O(n+m) 稳定 桶排序 O(n) O(n) O(m) 稳定 基数排序 O(k*n) O(n2) 稳定 均按从小到大排列 k：代表数值中的 “数位” 个数 n：代表数据规模 m：代表数据的最大值减最小值 来自：wikipedia . 排序算法 查找 🔗 查找算法 平均时间复杂度 空间复杂度 查找条件 顺序查找 O(n) O(1) 无序或有序 二分查找（折半查找） O(log2n) O(1) 有序 插值查找 O(log2(log2n)) O(1) 有序 斐波那契查找 O(log2n) O(1) 有序 哈希查找 O(1) O(n) 无序或有序 二叉查找树（二叉搜索树查找） O(log2n) 红黑树 O(log2n) 2-3树 O(log2n - log3n) B树/B+树 O(log2n) 图搜索算法 🔗 图搜索算法 数据结构 遍历时间复杂度 空间复杂度 BFS广度优先搜索 邻接矩阵邻接链表 O(|v|2)O(|v|+|E|) O(|v|2)O(|v|+|E|) DFS深度优先搜索 邻接矩阵邻接链表 O(|v|2)O(|v|+|E|) O(|v|2)O(|v|+|E|) 其他算法 🔗 算法 思想 应用 分治法 把一个复杂的问题分成两个或更多的相同或相似的子问题，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并 循环赛日程安排问题、排序算法（快速排序、归并排序） 动态规划 通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法，适用于有重叠子问题和最优子结构性质的问题 背包问题、斐波那契数列 贪心法 一种在每一步选择中都采取在当前状态下最好或最优（即最有利）的选择，从而希望导致结果是最好或最优的算法 旅行推销员问题（最短路径问题）、最小生成树、哈夫曼编码 </description>
     </item>
     
     <item>
@@ -1124,14 +1337,17 @@ Socket 🔗 Linux Socket 编程（不限 Linux）
       <description>转载自https://github.com/huihut/interview
 顺序结构 🔗顺序栈（Sequence Stack） 🔗SqStack.cpp
 顺序栈数据结构和图片
-typedef struct { 	ElemType *elem; 	int top; 	int size; 	int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
-typedef struct { 	ElemType * elem; 	int front; 	int rear; 	int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
+typedef struct { ElemType *elem; int top; int size; int increment; } SqStack; 队列（Sequence Queue） 🔗队列数据结构
+typedef struct { ElemType * elem; int front; int rear; int maxSize; }SqQueue; 非循环队列 🔗非循环队列图片
 SqQueue.rear++
 循环队列 🔗循环队列图片
 SqQueue.rear = (SqQueue.rear + 1) % SqQueue.maxSize
 顺序表（Sequence List） 🔗SqList.cpp
 顺序表数据结构和图片
-typedef struct { 	ElemType *elem; 	int length; 	int size; 	int increment; } SqList; 链式结构 🔗LinkList.</description>
+typedef struct { ElemType *elem; int length; int size; int increment; } SqList; 链式结构 🔗LinkList.cpp
+LinkList_with_head.cpp
+链式数据结构
+typedef struct LNode { ElemType data; struct LNode *next; } LNode, *LinkList; 链队列（Link Queue） 🔗链队列图片</description>
     </item>
     
     <item>
@@ -1142,7 +1358,7 @@ typedef struct { 	ElemType *elem; 	int length; 	int size; 	int increment; } SqLi
       <guid>/posts/c&#43;&#43;stl/</guid>
       <description>转载自https://github.com/huihut/interview
 STL 索引 🔗STL 方法含义索引
-STL 容器 🔗   容器 底层数据结构 时间复杂度 有无序 可不可重复 其他     array 数组 随机读改 O(1) 无序 可重复 支持随机访问   vector 数组 随机读改、尾部插入、尾部删除 O(1)头部插入、头部删除 O(n) 无序 可重复 支持随机访问   deque 双端队列 头尾插入、头尾删除 O(1) 无序 可重复 一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问   forward_list 单向链表 插入、删除 O(1) 无序 可重复 不支持随机访问   list 双向链表 插入、删除 O(1) 无序 可重复 不支持随机访问   stack deque / list 顶部插入、顶部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时   queue deque / list 尾部插入、头部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时   priority_queue vector + max-heap 插入、删除 O(log2n) 有序 可重复 vector容器+heap处理规则   set 红黑树 插入、删除、查找 O(log2n) 有序 不可重复    multiset 红黑树 插入、删除、查找 O(log2n) 有序 可重复    map 红黑树 插入、删除、查找 O(log2n) 有序 不可重复    multimap 红黑树 插入、删除、查找 O(log2n) 有序 可重复    unordered_set 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复    unordered_multiset 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复    unordered_map 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复    unordered_multimap 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复     STL 算法 🔗   算法 底层算法 时间复杂度 可不可重复     find 顺序查找 O(n) 可重复   sort 内省排序 O(n*log2n) 可重复    </description>
+STL 容器 🔗 容器 底层数据结构 时间复杂度 有无序 可不可重复 其他 array 数组 随机读改 O(1) 无序 可重复 支持随机访问 vector 数组 随机读改、尾部插入、尾部删除 O(1)头部插入、头部删除 O(n) 无序 可重复 支持随机访问 deque 双端队列 头尾插入、头尾删除 O(1) 无序 可重复 一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问 forward_list 单向链表 插入、删除 O(1) 无序 可重复 不支持随机访问 list 双向链表 插入、删除 O(1) 无序 可重复 不支持随机访问 stack deque / list 顶部插入、顶部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 queue deque / list 尾部插入、头部删除 O(1) 无序 可重复 deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 priority_queue vector + max-heap 插入、删除 O(log2n) 有序 可重复 vector容器+heap处理规则 set 红黑树 插入、删除、查找 O(log2n) 有序 不可重复 multiset 红黑树 插入、删除、查找 O(log2n) 有序 可重复 map 红黑树 插入、删除、查找 O(log2n) 有序 不可重复 multimap 红黑树 插入、删除、查找 O(log2n) 有序 可重复 unordered_set 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复 unordered_multiset 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复 unordered_map 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 不可重复 unordered_multimap 哈希表 插入、删除、查找 O(1) 最差 O(n) 无序 可重复 STL 算法 🔗 算法 底层算法 时间复杂度 可不可重复 find 顺序查找 O(n) 可重复 sort 内省排序 O(n*log2n) 可重复 </description>
     </item>
     
     <item>
@@ -1152,7 +1368,7 @@ STL 容器 🔗   容器 底层数据结构 时间复杂度 有无序 可不可�
       
       <guid>/posts/effectivec&#43;&#43;/</guid>
       <description>转载自https://github.com/huihut/interview
-Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Template C++、STL） 宁可以编译器替换预处理器（尽量以 const、enum、inline 替换 #define） 尽可能使用 const 确定对象被使用前已先被初始化（构造时赋值（copy 构造函数）比 default 构造后赋值（copy assignment）效率高） 了解 C++ 默默编写并调用哪些函数（编译器暗自为 class 创建 default 构造函数、copy 构造函数、copy assignment 操作符、析构函数） 若不想使用编译器自动生成的函数，就应该明确拒绝（将不想使用的成员函数声明为 private，并且不予实现） 为多态基类声明 virtual 析构函数（如果 class 带有任何 virtual 函数，它就应该拥有一个 virtual 析构函数） 别让异常逃离析构函数（析构函数应该吞下不传播异常，或者结束程序，而不是吐出异常；如果要处理异常应该在非析构的普通函数处理） 绝不在构造和析构过程中调用 virtual 函数（因为这类调用从不下降至 derived class） 令 operator= 返回一个 reference to *this （用于连锁赋值） 在 operator= 中处理 “自我赋值” 赋值对象时应确保复制 “对象内的所有成员变量” 及 “所有 base class 成分”（调用基类复制构造函数） 以对象管理资源（资源在构造函数获得，在析构函数释放，建议使用智能指针，资源取得时机便是初始化时机（Resource Acquisition Is Initialization，RAII）） 在资源管理类中小心 copying 行为（普遍的 RAII class copying 行为是：抑制 copying、引用计数、深度拷贝、转移底部资源拥有权（类似 auto_ptr）） 在资源管理类中提供对原始资源（raw resources）的访问（对原始资源的访问可能经过显式转换或隐式转换，一般而言显示转换比较安全，隐式转换对客户比较方便） 成对使用 new 和 delete 时要采取相同形式（new 中使用 [] 则 delete []，new 中不使用 [] 则 delete） 以独立语句将 newed 对象存储于（置入）智能指针（如果不这样做，可能会因为编译器优化，导致难以察觉的资源泄漏） 让接口容易被正确使用，不易被误用（促进正常使用的办法：接口的一致性、内置类型的行为兼容；阻止误用的办法：建立新类型，限制类型上的操作，约束对象值、消除客户的资源管理责任） 设计 class 犹如设计 type，需要考虑对象创建、销毁、初始化、赋值、值传递、合法值、继承关系、转换、一般化等等。 宁以 pass-by-reference-to-const 替换 pass-by-value （前者通常更高效、避免切割问题（slicing problem），但不适用于内置类型、STL迭代器、函数对象） 必须返回对象时，别妄想返回其 reference（绝不返回 pointer 或 reference 指向一个 local stack 对象，或返回 reference 指向一个 heap-allocated 对象，或返回 pointer 或 reference 指向一个 local static 对象而有可能同时需要多个这样的对象。） 将成员变量声明为 private（为了封装、一致性、对其读写精确控制等） 宁以 non-member、non-friend 替换 member 函数（可增加封装性、包裹弹性（packaging flexibility）、机能扩充性） 若所有参数（包括被this指针所指的那个隐喻参数）皆须要类型转换，请为此采用 non-member 函数 考虑写一个不抛异常的 swap 函数 尽可能延后变量定义式的出现时间（可增加程序清晰度并改善程序效率） 尽量少做转型动作（旧式：(T)expression、T(expression)；新式：const_cast&amp;lt;T&amp;gt;(expression)、dynamic_cast&amp;lt;T&amp;gt;(expression)、reinterpret_cast&amp;lt;T&amp;gt;(expression)、static_cast&amp;lt;T&amp;gt;(expression)、；尽量避免转型、注重效率避免 dynamic_casts、尽量设计成无需转型、可把转型封装成函数、宁可用新式转型） 避免使用 handles（包括 引用、指针、迭代器）指向对象内部（以增加封装性、使 const 成员函数的行为更像 const、降低 “虚吊号码牌”（dangling handles，如悬空指针等）的可能性） 为 “异常安全” 而努力是值得的（异常安全函数（Exception-safe functions）即使发生异常也不会泄露资源或允许任何数据结构败坏，分为三种可能的保证：基本型、强列型、不抛异常型） 透彻了解 inlining 的里里外外（inlining 在大多数 C++ 程序中是编译期的行为；inline 函数是否真正 inline，取决于编译器；大部分编译器拒绝太过复杂（如带有循环或递归）的函数 inlining，而所有对 virtual 函数的调用（除非是最平淡无奇的）也都会使 inlining 落空；inline 造成的代码膨胀可能带来效率损失；inline 函数无法随着程序库的升级而升级） 将文件间的编译依存关系降至最低（如果使用 object references 或 object pointers 可以完成任务，就不要使用 objects；如果能够，尽量以 class 声明式替换 class 定义式；为声明式和定义式提供不同的头文件） 确定你的 public 继承塑模出 is-a（是一种）关系（适用于 base classes 身上的每一件事情一定适用于 derived classes 身上，因为每一个 derived class 对象也都是一个 base class 对象） 避免遮掩继承而来的名字（可使用 using 声明式或转交函数（forwarding functions）来让被遮掩的名字再见天日） 区分接口继承和实现继承（在 public 继承之下，derived classes 总是继承 base class 的接口；pure virtual 函数只具体指定接口继承；非纯 impure virtual 函数具体指定接口继承及缺省实现继承；non-virtual 函数具体指定接口继承以及强制性实现继承） 考虑 virtual 函数以外的其他选择（如 Template Method 设计模式的 non-virtual interface（NVI）手法，将 virtual 函数替换为 “函数指针成员变量”，以 tr1::function 成员变量替换 virtual 函数，将继承体系内的 virtual 函数替换为另一个继承体系内的 virtual 函数） 绝不重新定义继承而来的 non-virtual 函数 绝不重新定义继承而来的缺省参数值，因为缺省参数值是静态绑定（statically bound），而 virtual 函数却是动态绑定（dynamically bound） 通过复合塑模 has-a（有一个）或 “根据某物实现出”（在应用域（application domain），复合意味 has-a（有一个）；在实现域（implementation domain），复合意味着 is-implemented-in-terms-of（根据某物实现出）） 明智而审慎地使用 private 继承（private 继承意味着 is-implemented-in-terms-of（根据某物实现出），尽可能使用复合，当 derived class 需要访问 protected base class 的成员，或需要重新定义继承而来的时候 virtual 函数，或需要 empty base 最优化时，才使用 private 继承） 明智而审慎地使用多重继承（多继承比单一继承复杂，可能导致新的歧义性，以及对 virtual 继承的需要，但确有正当用途，如 “public 继承某个 interface class” 和 “private 继承某个协助实现的 class”；virtual 继承可解决多继承下菱形继承的二义性问题，但会增加大小、速度、初始化及赋值的复杂度等等成本） 了解隐式接口和编译期多态（class 和 templates 都支持接口（interfaces）和多态（polymorphism）；class 的接口是以签名为中心的显式的（explicit），多态则是通过 virtual 函数发生于运行期；template 的接口是奠基于有效表达式的隐式的（implicit），多态则是通过 template 具现化和函数重载解析（function overloading resolution）发生于编译期） 了解 typename 的双重意义（声明 template 类型参数是，前缀关键字 class 和 typename 的意义完全相同；请使用关键字 typename 标识嵌套从属类型名称，但不得在基类列（base class lists）或成员初值列（member initialization list）内以它作为 base class 修饰符） 学习处理模板化基类内的名称（可在 derived class templates 内通过 this-&amp;gt; 指涉 base class templates 内的成员名称，或藉由一个明白写出的 “base class 资格修饰符” 完成） 将与参数无关的代码抽离 templates（因类型模板参数（non-type template parameters）而造成代码膨胀往往可以通过函数参数或 class 成员变量替换 template 参数来消除；因类型参数（type parameters）而造成的代码膨胀往往可以通过让带有完全相同二进制表述（binary representations）的实现类型（instantiation types）共享实现码） 运用成员函数模板接受所有兼容类型（请使用成员函数模板（member function templates）生成 “可接受所有兼容类型” 的函数；声明 member templates 用于 “泛化 copy 构造” 或 “泛化 assignment 操作” 时还需要声明正常的 copy 构造函数和 copy assignment 操作符） 需要类型转换时请为模板定义非成员函数（当我们编写一个 class template，而它所提供之 “与此 template 相关的” 函数支持 “所有参数之隐式类型转换” 时，请将那些函数定义为 “class template 内部的 friend 函数”） 请使用 traits classes 表现类型信息（traits classes 通过 templates 和 “templates 特化” 使得 “类型相关信息” 在编译期可用，通过重载技术（overloading）实现在编译期对类型执行 if&amp;hellip;else 测试） 认识 template 元编程（模板元编程（TMP，template metaprogramming）可将工作由运行期移往编译期，因此得以实现早期错误侦测和更高的执行效率；TMP 可被用来生成 “给予政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码） 了解 new-handler 的行为（set_new_handler 允许客户指定一个在内存分配无法获得满足时被调用的函数；nothrow new 是一个颇具局限的工具，因为它只适用于内存分配（operator new），后继的构造函数调用还是可能抛出异常） 了解 new 和 delete 的合理替换时机（为了检测运用错误、收集动态分配内存之使用统计信息、增加分配和归还速度、降低缺省内存管理器带来的空间额外开销、弥补缺省分配器中的非最佳齐位、将相关对象成簇集中、获得非传统的行为） 编写 new 和 delete 时需固守常规（operator new 应该内涵一个无穷循环，并在其中尝试分配内存，如果它无法满足内存需求，就应该调用 new-handler，它也应该有能力处理 0 bytes 申请，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”；operator delete 应该在收到 null 指针时不做任何事，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”） 写了 placement new 也要写 placement delete（当你写一个 placement operator new，请确定也写出了对应的 placement operator delete，否则可能会发生隐微而时断时续的内存泄漏；当你声明 placement new 和 placement delete，请确定不要无意识（非故意）地遮掩了它们地正常版本） 不要轻忽编译器的警告 让自己熟悉包括 TR1 在内的标准程序库（TR1，C++ Technical Report 1，C++11 标准的草稿文件） 让自己熟悉 Boost（准标准库）  More Effective c++ 🔗 仔细区别 pointers 和 references（当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由 pointers 达成，你就应该选择 references；任何其他时候，请采用 pointers） 最好使用 C++ 转型操作符（static_cast、const_cast、dynamic_cast、reinterpret_cast） 绝不要以多态（polymorphically）方式处理数组（多态（polymorphism）和指针算术不能混用；数组对象几乎总是会涉及指针的算术运算，所以数组和多态不要混用） 非必要不提供 default constructor（避免对象中的字段被无意义地初始化） 对定制的 “类型转换函数” 保持警觉（单自变量 constructors 可通过简易法（explicit 关键字）或代理类（proxy classes）来避免编译器误用；隐式类型转换操作符可改为显式的 member function 来避免非预期行为） 区别 increment/decrement 操作符的前置（prefix）和后置（postfix）形式（前置式累加后取出，返回一个 reference；后置式取出后累加，返回一个 const 对象；处理用户定制类型时，应该尽可能使用前置式 increment；后置式的实现应以其前置式兄弟为基础） 千万不要重载 &amp;amp;&amp;amp;，|| 和 , 操作符（&amp;amp;&amp;amp; 与 || 的重载会用 “函数调用语义” 取代 “骤死式语义”；, 的重载导致不能保证左侧表达式一定比右侧表达式更早被评估） 了解各种不同意义的 new 和 delete（new operator、operator new、placement new、operator new[]；delete operator、operator delete、destructor、operator delete[]） 利用 destructors 避免泄漏资源（在 destructors 释放资源可以避免异常时的资源泄漏） 在 constructors 内阻止资源泄漏（由于 C++ 只会析构已构造完成的对象，因此在构造函数可以使用 try&amp;hellip;catch 或者 auto_ptr（以及与之相似的 classes） 处理异常时资源泄露问题） 禁止异常流出 destructors 之外（原因：一、避免 terminate 函数在 exception 传播过程的栈展开（stack-unwinding）机制种被调用；二、协助确保 destructors 完成其应该完成的所有事情） 了解 “抛出一个 exception” 与 “传递一个参数” 或 “调用一个虚函数” 之间的差异（第一，exception objects 总是会被复制（by pointer 除外），如果以 by value 方式捕捉甚至被复制两次，而传递给函数参数的对象则不一定得复制；第二，“被抛出成为 exceptions” 的对象，其被允许的类型转换动作比 “被传递到函数去” 的对象少；第三，catch 子句以其 “出现于源代码的顺序” 被编译器检验对比，其中第一个匹配成功者便执行，而调用一个虚函数，被选中执行的是那个 “与对象类型最佳吻合” 的函数） 以 by reference 方式捕获 exceptions（可避免对象删除问题、exception objects 的切割问题，可保留捕捉标准 exceptions 的能力，可约束 exception object 需要复制的次数） 明智运用 exception specifications（exception specifications 对 “函数希望抛出什么样的 exceptions” 提供了卓越的说明；也有一些缺点，包括编译器只对它们做局部性检验而很容易不经意地违反，与可能会妨碍更上层的 exception 处理函数处理未预期的 exceptions） 了解异常处理的成本（粗略估计，如果使用 try 语句块，代码大约整体膨胀 5%-10%，执行速度亦大约下降这个数；因此请将你对 try 语句块和 exception specifications 的使用限制于非用不可的地点，并且在真正异常的情况下才抛出 exceptions） 谨记 80-20 法则（软件的整体性能几乎总是由其构成要素（代码）的一小部分决定的，可使用程序分析器（program profiler）识别出消耗资源的代码） 考虑使用 lazy evaluation（缓式评估）（可应用于：Reference Counting（引用计数）来避免非必要的对象复制、区分 operator[] 的读和写动作来做不同的事情、Lazy Fetching（缓式取出）来避免非必要的数据库读取动作、Lazy Expression Evaluation（表达式缓评估）来避免非必要的数值计算动作） 分期摊还预期的计算成本（当你必须支持某些运算而其结构几乎总是被需要，或其结果常常被多次需要的时候，over-eager evaluation（超急评估）可以改善程序效率）  Google C++ Style Guide 🔗 英文：Google C++ Style Guide 中文：C++ 风格指南  其他 🔗 Bjarne Stroustrup 的常见问题 Bjarne Stroustrup 的 C++ 风格和技巧常见问题  </description>
+Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Template C++、STL） 宁可以编译器替换预处理器（尽量以 const、enum、inline 替换 #define） 尽可能使用 const 确定对象被使用前已先被初始化（构造时赋值（copy 构造函数）比 default 构造后赋值（copy assignment）效率高） 了解 C++ 默默编写并调用哪些函数（编译器暗自为 class 创建 default 构造函数、copy 构造函数、copy assignment 操作符、析构函数） 若不想使用编译器自动生成的函数，就应该明确拒绝（将不想使用的成员函数声明为 private，并且不予实现） 为多态基类声明 virtual 析构函数（如果 class 带有任何 virtual 函数，它就应该拥有一个 virtual 析构函数） 别让异常逃离析构函数（析构函数应该吞下不传播异常，或者结束程序，而不是吐出异常；如果要处理异常应该在非析构的普通函数处理） 绝不在构造和析构过程中调用 virtual 函数（因为这类调用从不下降至 derived class） 令 operator= 返回一个 reference to *this （用于连锁赋值） 在 operator= 中处理 “自我赋值” 赋值对象时应确保复制 “对象内的所有成员变量” 及 “所有 base class 成分”（调用基类复制构造函数） 以对象管理资源（资源在构造函数获得，在析构函数释放，建议使用智能指针，资源取得时机便是初始化时机（Resource Acquisition Is Initialization，RAII）） 在资源管理类中小心 copying 行为（普遍的 RAII class copying 行为是：抑制 copying、引用计数、深度拷贝、转移底部资源拥有权（类似 auto_ptr）） 在资源管理类中提供对原始资源（raw resources）的访问（对原始资源的访问可能经过显式转换或隐式转换，一般而言显示转换比较安全，隐式转换对客户比较方便） 成对使用 new 和 delete 时要采取相同形式（new 中使用 [] 则 delete []，new 中不使用 [] 则 delete） 以独立语句将 newed 对象存储于（置入）智能指针（如果不这样做，可能会因为编译器优化，导致难以察觉的资源泄漏） 让接口容易被正确使用，不易被误用（促进正常使用的办法：接口的一致性、内置类型的行为兼容；阻止误用的办法：建立新类型，限制类型上的操作，约束对象值、消除客户的资源管理责任） 设计 class 犹如设计 type，需要考虑对象创建、销毁、初始化、赋值、值传递、合法值、继承关系、转换、一般化等等。 宁以 pass-by-reference-to-const 替换 pass-by-value （前者通常更高效、避免切割问题（slicing problem），但不适用于内置类型、STL迭代器、函数对象） 必须返回对象时，别妄想返回其 reference（绝不返回 pointer 或 reference 指向一个 local stack 对象，或返回 reference 指向一个 heap-allocated 对象，或返回 pointer 或 reference 指向一个 local static 对象而有可能同时需要多个这样的对象。） 将成员变量声明为 private（为了封装、一致性、对其读写精确控制等） 宁以 non-member、non-friend 替换 member 函数（可增加封装性、包裹弹性（packaging flexibility）、机能扩充性） 若所有参数（包括被this指针所指的那个隐喻参数）皆须要类型转换，请为此采用 non-member 函数 考虑写一个不抛异常的 swap 函数 尽可能延后变量定义式的出现时间（可增加程序清晰度并改善程序效率） 尽量少做转型动作（旧式：(T)expression、T(expression)；新式：const_cast&amp;lt;T&amp;gt;(expression)、dynamic_cast&amp;lt;T&amp;gt;(expression)、reinterpret_cast&amp;lt;T&amp;gt;(expression)、static_cast&amp;lt;T&amp;gt;(expression)、；尽量避免转型、注重效率避免 dynamic_casts、尽量设计成无需转型、可把转型封装成函数、宁可用新式转型） 避免使用 handles（包括 引用、指针、迭代器）指向对象内部（以增加封装性、使 const 成员函数的行为更像 const、降低 “虚吊号码牌”（dangling handles，如悬空指针等）的可能性） 为 “异常安全” 而努力是值得的（异常安全函数（Exception-safe functions）即使发生异常也不会泄露资源或允许任何数据结构败坏，分为三种可能的保证：基本型、强列型、不抛异常型） 透彻了解 inlining 的里里外外（inlining 在大多数 C++ 程序中是编译期的行为；inline 函数是否真正 inline，取决于编译器；大部分编译器拒绝太过复杂（如带有循环或递归）的函数 inlining，而所有对 virtual 函数的调用（除非是最平淡无奇的）也都会使 inlining 落空；inline 造成的代码膨胀可能带来效率损失；inline 函数无法随着程序库的升级而升级） 将文件间的编译依存关系降至最低（如果使用 object references 或 object pointers 可以完成任务，就不要使用 objects；如果能够，尽量以 class 声明式替换 class 定义式；为声明式和定义式提供不同的头文件） 确定你的 public 继承塑模出 is-a（是一种）关系（适用于 base classes 身上的每一件事情一定适用于 derived classes 身上，因为每一个 derived class 对象也都是一个 base class 对象） 避免遮掩继承而来的名字（可使用 using 声明式或转交函数（forwarding functions）来让被遮掩的名字再见天日） 区分接口继承和实现继承（在 public 继承之下，derived classes 总是继承 base class 的接口；pure virtual 函数只具体指定接口继承；非纯 impure virtual 函数具体指定接口继承及缺省实现继承；non-virtual 函数具体指定接口继承以及强制性实现继承） 考虑 virtual 函数以外的其他选择（如 Template Method 设计模式的 non-virtual interface（NVI）手法，将 virtual 函数替换为 “函数指针成员变量”，以 tr1::function 成员变量替换 virtual 函数，将继承体系内的 virtual 函数替换为另一个继承体系内的 virtual 函数） 绝不重新定义继承而来的 non-virtual 函数 绝不重新定义继承而来的缺省参数值，因为缺省参数值是静态绑定（statically bound），而 virtual 函数却是动态绑定（dynamically bound） 通过复合塑模 has-a（有一个）或 “根据某物实现出”（在应用域（application domain），复合意味 has-a（有一个）；在实现域（implementation domain），复合意味着 is-implemented-in-terms-of（根据某物实现出）） 明智而审慎地使用 private 继承（private 继承意味着 is-implemented-in-terms-of（根据某物实现出），尽可能使用复合，当 derived class 需要访问 protected base class 的成员，或需要重新定义继承而来的时候 virtual 函数，或需要 empty base 最优化时，才使用 private 继承） 明智而审慎地使用多重继承（多继承比单一继承复杂，可能导致新的歧义性，以及对 virtual 继承的需要，但确有正当用途，如 “public 继承某个 interface class” 和 “private 继承某个协助实现的 class”；virtual 继承可解决多继承下菱形继承的二义性问题，但会增加大小、速度、初始化及赋值的复杂度等等成本） 了解隐式接口和编译期多态（class 和 templates 都支持接口（interfaces）和多态（polymorphism）；class 的接口是以签名为中心的显式的（explicit），多态则是通过 virtual 函数发生于运行期；template 的接口是奠基于有效表达式的隐式的（implicit），多态则是通过 template 具现化和函数重载解析（function overloading resolution）发生于编译期） 了解 typename 的双重意义（声明 template 类型参数是，前缀关键字 class 和 typename 的意义完全相同；请使用关键字 typename 标识嵌套从属类型名称，但不得在基类列（base class lists）或成员初值列（member initialization list）内以它作为 base class 修饰符） 学习处理模板化基类内的名称（可在 derived class templates 内通过 this-&amp;gt; 指涉 base class templates 内的成员名称，或藉由一个明白写出的 “base class 资格修饰符” 完成） 将与参数无关的代码抽离 templates（因类型模板参数（non-type template parameters）而造成代码膨胀往往可以通过函数参数或 class 成员变量替换 template 参数来消除；因类型参数（type parameters）而造成的代码膨胀往往可以通过让带有完全相同二进制表述（binary representations）的实现类型（instantiation types）共享实现码） 运用成员函数模板接受所有兼容类型（请使用成员函数模板（member function templates）生成 “可接受所有兼容类型” 的函数；声明 member templates 用于 “泛化 copy 构造” 或 “泛化 assignment 操作” 时还需要声明正常的 copy 构造函数和 copy assignment 操作符） 需要类型转换时请为模板定义非成员函数（当我们编写一个 class template，而它所提供之 “与此 template 相关的” 函数支持 “所有参数之隐式类型转换” 时，请将那些函数定义为 “class template 内部的 friend 函数”） 请使用 traits classes 表现类型信息（traits classes 通过 templates 和 “templates 特化” 使得 “类型相关信息” 在编译期可用，通过重载技术（overloading）实现在编译期对类型执行 if&amp;hellip;else 测试） 认识 template 元编程（模板元编程（TMP，template metaprogramming）可将工作由运行期移往编译期，因此得以实现早期错误侦测和更高的执行效率；TMP 可被用来生成 “给予政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码） 了解 new-handler 的行为（set_new_handler 允许客户指定一个在内存分配无法获得满足时被调用的函数；nothrow new 是一个颇具局限的工具，因为它只适用于内存分配（operator new），后继的构造函数调用还是可能抛出异常） 了解 new 和 delete 的合理替换时机（为了检测运用错误、收集动态分配内存之使用统计信息、增加分配和归还速度、降低缺省内存管理器带来的空间额外开销、弥补缺省分配器中的非最佳齐位、将相关对象成簇集中、获得非传统的行为） 编写 new 和 delete 时需固守常规（operator new 应该内涵一个无穷循环，并在其中尝试分配内存，如果它无法满足内存需求，就应该调用 new-handler，它也应该有能力处理 0 bytes 申请，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”；operator delete 应该在收到 null 指针时不做任何事，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”） 写了 placement new 也要写 placement delete（当你写一个 placement operator new，请确定也写出了对应的 placement operator delete，否则可能会发生隐微而时断时续的内存泄漏；当你声明 placement new 和 placement delete，请确定不要无意识（非故意）地遮掩了它们地正常版本） 不要轻忽编译器的警告 让自己熟悉包括 TR1 在内的标准程序库（TR1，C++ Technical Report 1，C++11 标准的草稿文件） 让自己熟悉 Boost（准标准库） More Effective c++ 🔗 仔细区别 pointers 和 references（当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由 pointers 达成，你就应该选择 references；任何其他时候，请采用 pointers） 最好使用 C++ 转型操作符（static_cast、const_cast、dynamic_cast、reinterpret_cast） 绝不要以多态（polymorphically）方式处理数组（多态（polymorphism）和指针算术不能混用；数组对象几乎总是会涉及指针的算术运算，所以数组和多态不要混用） 非必要不提供 default constructor（避免对象中的字段被无意义地初始化） 对定制的 “类型转换函数” 保持警觉（单自变量 constructors 可通过简易法（explicit 关键字）或代理类（proxy classes）来避免编译器误用；隐式类型转换操作符可改为显式的 member function 来避免非预期行为） 区别 increment/decrement 操作符的前置（prefix）和后置（postfix）形式（前置式累加后取出，返回一个 reference；后置式取出后累加，返回一个 const 对象；处理用户定制类型时，应该尽可能使用前置式 increment；后置式的实现应以其前置式兄弟为基础） 千万不要重载 &amp;amp;&amp;amp;，|| 和 , 操作符（&amp;amp;&amp;amp; 与 || 的重载会用 “函数调用语义” 取代 “骤死式语义”；, 的重载导致不能保证左侧表达式一定比右侧表达式更早被评估） 了解各种不同意义的 new 和 delete（new operator、operator new、placement new、operator new[]；delete operator、operator delete、destructor、operator delete[]） 利用 destructors 避免泄漏资源（在 destructors 释放资源可以避免异常时的资源泄漏） 在 constructors 内阻止资源泄漏（由于 C++ 只会析构已构造完成的对象，因此在构造函数可以使用 try&amp;hellip;catch 或者 auto_ptr（以及与之相似的 classes） 处理异常时资源泄露问题） 禁止异常流出 destructors 之外（原因：一、避免 terminate 函数在 exception 传播过程的栈展开（stack-unwinding）机制种被调用；二、协助确保 destructors 完成其应该完成的所有事情） 了解 “抛出一个 exception” 与 “传递一个参数” 或 “调用一个虚函数” 之间的差异（第一，exception objects 总是会被复制（by pointer 除外），如果以 by value 方式捕捉甚至被复制两次，而传递给函数参数的对象则不一定得复制；第二，“被抛出成为 exceptions” 的对象，其被允许的类型转换动作比 “被传递到函数去” 的对象少；第三，catch 子句以其 “出现于源代码的顺序” 被编译器检验对比，其中第一个匹配成功者便执行，而调用一个虚函数，被选中执行的是那个 “与对象类型最佳吻合” 的函数） 以 by reference 方式捕获 exceptions（可避免对象删除问题、exception objects 的切割问题，可保留捕捉标准 exceptions 的能力，可约束 exception object 需要复制的次数） 明智运用 exception specifications（exception specifications 对 “函数希望抛出什么样的 exceptions” 提供了卓越的说明；也有一些缺点，包括编译器只对它们做局部性检验而很容易不经意地违反，与可能会妨碍更上层的 exception 处理函数处理未预期的 exceptions） 了解异常处理的成本（粗略估计，如果使用 try 语句块，代码大约整体膨胀 5%-10%，执行速度亦大约下降这个数；因此请将你对 try 语句块和 exception specifications 的使用限制于非用不可的地点，并且在真正异常的情况下才抛出 exceptions） 谨记 80-20 法则（软件的整体性能几乎总是由其构成要素（代码）的一小部分决定的，可使用程序分析器（program profiler）识别出消耗资源的代码） 考虑使用 lazy evaluation（缓式评估）（可应用于：Reference Counting（引用计数）来避免非必要的对象复制、区分 operator[] 的读和写动作来做不同的事情、Lazy Fetching（缓式取出）来避免非必要的数据库读取动作、Lazy Expression Evaluation（表达式缓评估）来避免非必要的数值计算动作） 分期摊还预期的计算成本（当你必须支持某些运算而其结构几乎总是被需要，或其结果常常被多次需要的时候，over-eager evaluation（超急评估）可以改善程序效率） Google C++ Style Guide 🔗 英文：Google C++ Style Guide 中文：C++ 风格指南 其他 🔗 Bjarne Stroustrup 的常见问题 Bjarne Stroustrup 的 C++ 风格和技巧常见问题 </description>
     </item>
     
     <item>
@@ -1162,7 +1378,7 @@ Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Tem
       
       <guid>/posts/effectivec&#43;&#43;/</guid>
       <description>转载自https://github.com/huihut/interview
-Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Template C++、STL） 宁可以编译器替换预处理器（尽量以 const、enum、inline 替换 #define） 尽可能使用 const 确定对象被使用前已先被初始化（构造时赋值（copy 构造函数）比 default 构造后赋值（copy assignment）效率高） 了解 C++ 默默编写并调用哪些函数（编译器暗自为 class 创建 default 构造函数、copy 构造函数、copy assignment 操作符、析构函数） 若不想使用编译器自动生成的函数，就应该明确拒绝（将不想使用的成员函数声明为 private，并且不予实现） 为多态基类声明 virtual 析构函数（如果 class 带有任何 virtual 函数，它就应该拥有一个 virtual 析构函数） 别让异常逃离析构函数（析构函数应该吞下不传播异常，或者结束程序，而不是吐出异常；如果要处理异常应该在非析构的普通函数处理） 绝不在构造和析构过程中调用 virtual 函数（因为这类调用从不下降至 derived class） 令 operator= 返回一个 reference to *this （用于连锁赋值） 在 operator= 中处理 “自我赋值” 赋值对象时应确保复制 “对象内的所有成员变量” 及 “所有 base class 成分”（调用基类复制构造函数） 以对象管理资源（资源在构造函数获得，在析构函数释放，建议使用智能指针，资源取得时机便是初始化时机（Resource Acquisition Is Initialization，RAII）） 在资源管理类中小心 copying 行为（普遍的 RAII class copying 行为是：抑制 copying、引用计数、深度拷贝、转移底部资源拥有权（类似 auto_ptr）） 在资源管理类中提供对原始资源（raw resources）的访问（对原始资源的访问可能经过显式转换或隐式转换，一般而言显示转换比较安全，隐式转换对客户比较方便） 成对使用 new 和 delete 时要采取相同形式（new 中使用 [] 则 delete []，new 中不使用 [] 则 delete） 以独立语句将 newed 对象存储于（置入）智能指针（如果不这样做，可能会因为编译器优化，导致难以察觉的资源泄漏） 让接口容易被正确使用，不易被误用（促进正常使用的办法：接口的一致性、内置类型的行为兼容；阻止误用的办法：建立新类型，限制类型上的操作，约束对象值、消除客户的资源管理责任） 设计 class 犹如设计 type，需要考虑对象创建、销毁、初始化、赋值、值传递、合法值、继承关系、转换、一般化等等。 宁以 pass-by-reference-to-const 替换 pass-by-value （前者通常更高效、避免切割问题（slicing problem），但不适用于内置类型、STL迭代器、函数对象） 必须返回对象时，别妄想返回其 reference（绝不返回 pointer 或 reference 指向一个 local stack 对象，或返回 reference 指向一个 heap-allocated 对象，或返回 pointer 或 reference 指向一个 local static 对象而有可能同时需要多个这样的对象。） 将成员变量声明为 private（为了封装、一致性、对其读写精确控制等） 宁以 non-member、non-friend 替换 member 函数（可增加封装性、包裹弹性（packaging flexibility）、机能扩充性） 若所有参数（包括被this指针所指的那个隐喻参数）皆须要类型转换，请为此采用 non-member 函数 考虑写一个不抛异常的 swap 函数 尽可能延后变量定义式的出现时间（可增加程序清晰度并改善程序效率） 尽量少做转型动作（旧式：(T)expression、T(expression)；新式：const_cast&amp;lt;T&amp;gt;(expression)、dynamic_cast&amp;lt;T&amp;gt;(expression)、reinterpret_cast&amp;lt;T&amp;gt;(expression)、static_cast&amp;lt;T&amp;gt;(expression)、；尽量避免转型、注重效率避免 dynamic_casts、尽量设计成无需转型、可把转型封装成函数、宁可用新式转型） 避免使用 handles（包括 引用、指针、迭代器）指向对象内部（以增加封装性、使 const 成员函数的行为更像 const、降低 “虚吊号码牌”（dangling handles，如悬空指针等）的可能性） 为 “异常安全” 而努力是值得的（异常安全函数（Exception-safe functions）即使发生异常也不会泄露资源或允许任何数据结构败坏，分为三种可能的保证：基本型、强列型、不抛异常型） 透彻了解 inlining 的里里外外（inlining 在大多数 C++ 程序中是编译期的行为；inline 函数是否真正 inline，取决于编译器；大部分编译器拒绝太过复杂（如带有循环或递归）的函数 inlining，而所有对 virtual 函数的调用（除非是最平淡无奇的）也都会使 inlining 落空；inline 造成的代码膨胀可能带来效率损失；inline 函数无法随着程序库的升级而升级） 将文件间的编译依存关系降至最低（如果使用 object references 或 object pointers 可以完成任务，就不要使用 objects；如果能够，尽量以 class 声明式替换 class 定义式；为声明式和定义式提供不同的头文件） 确定你的 public 继承塑模出 is-a（是一种）关系（适用于 base classes 身上的每一件事情一定适用于 derived classes 身上，因为每一个 derived class 对象也都是一个 base class 对象） 避免遮掩继承而来的名字（可使用 using 声明式或转交函数（forwarding functions）来让被遮掩的名字再见天日） 区分接口继承和实现继承（在 public 继承之下，derived classes 总是继承 base class 的接口；pure virtual 函数只具体指定接口继承；非纯 impure virtual 函数具体指定接口继承及缺省实现继承；non-virtual 函数具体指定接口继承以及强制性实现继承） 考虑 virtual 函数以外的其他选择（如 Template Method 设计模式的 non-virtual interface（NVI）手法，将 virtual 函数替换为 “函数指针成员变量”，以 tr1::function 成员变量替换 virtual 函数，将继承体系内的 virtual 函数替换为另一个继承体系内的 virtual 函数） 绝不重新定义继承而来的 non-virtual 函数 绝不重新定义继承而来的缺省参数值，因为缺省参数值是静态绑定（statically bound），而 virtual 函数却是动态绑定（dynamically bound） 通过复合塑模 has-a（有一个）或 “根据某物实现出”（在应用域（application domain），复合意味 has-a（有一个）；在实现域（implementation domain），复合意味着 is-implemented-in-terms-of（根据某物实现出）） 明智而审慎地使用 private 继承（private 继承意味着 is-implemented-in-terms-of（根据某物实现出），尽可能使用复合，当 derived class 需要访问 protected base class 的成员，或需要重新定义继承而来的时候 virtual 函数，或需要 empty base 最优化时，才使用 private 继承） 明智而审慎地使用多重继承（多继承比单一继承复杂，可能导致新的歧义性，以及对 virtual 继承的需要，但确有正当用途，如 “public 继承某个 interface class” 和 “private 继承某个协助实现的 class”；virtual 继承可解决多继承下菱形继承的二义性问题，但会增加大小、速度、初始化及赋值的复杂度等等成本） 了解隐式接口和编译期多态（class 和 templates 都支持接口（interfaces）和多态（polymorphism）；class 的接口是以签名为中心的显式的（explicit），多态则是通过 virtual 函数发生于运行期；template 的接口是奠基于有效表达式的隐式的（implicit），多态则是通过 template 具现化和函数重载解析（function overloading resolution）发生于编译期） 了解 typename 的双重意义（声明 template 类型参数是，前缀关键字 class 和 typename 的意义完全相同；请使用关键字 typename 标识嵌套从属类型名称，但不得在基类列（base class lists）或成员初值列（member initialization list）内以它作为 base class 修饰符） 学习处理模板化基类内的名称（可在 derived class templates 内通过 this-&amp;gt; 指涉 base class templates 内的成员名称，或藉由一个明白写出的 “base class 资格修饰符” 完成） 将与参数无关的代码抽离 templates（因类型模板参数（non-type template parameters）而造成代码膨胀往往可以通过函数参数或 class 成员变量替换 template 参数来消除；因类型参数（type parameters）而造成的代码膨胀往往可以通过让带有完全相同二进制表述（binary representations）的实现类型（instantiation types）共享实现码） 运用成员函数模板接受所有兼容类型（请使用成员函数模板（member function templates）生成 “可接受所有兼容类型” 的函数；声明 member templates 用于 “泛化 copy 构造” 或 “泛化 assignment 操作” 时还需要声明正常的 copy 构造函数和 copy assignment 操作符） 需要类型转换时请为模板定义非成员函数（当我们编写一个 class template，而它所提供之 “与此 template 相关的” 函数支持 “所有参数之隐式类型转换” 时，请将那些函数定义为 “class template 内部的 friend 函数”） 请使用 traits classes 表现类型信息（traits classes 通过 templates 和 “templates 特化” 使得 “类型相关信息” 在编译期可用，通过重载技术（overloading）实现在编译期对类型执行 if&amp;hellip;else 测试） 认识 template 元编程（模板元编程（TMP，template metaprogramming）可将工作由运行期移往编译期，因此得以实现早期错误侦测和更高的执行效率；TMP 可被用来生成 “给予政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码） 了解 new-handler 的行为（set_new_handler 允许客户指定一个在内存分配无法获得满足时被调用的函数；nothrow new 是一个颇具局限的工具，因为它只适用于内存分配（operator new），后继的构造函数调用还是可能抛出异常） 了解 new 和 delete 的合理替换时机（为了检测运用错误、收集动态分配内存之使用统计信息、增加分配和归还速度、降低缺省内存管理器带来的空间额外开销、弥补缺省分配器中的非最佳齐位、将相关对象成簇集中、获得非传统的行为） 编写 new 和 delete 时需固守常规（operator new 应该内涵一个无穷循环，并在其中尝试分配内存，如果它无法满足内存需求，就应该调用 new-handler，它也应该有能力处理 0 bytes 申请，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”；operator delete 应该在收到 null 指针时不做任何事，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”） 写了 placement new 也要写 placement delete（当你写一个 placement operator new，请确定也写出了对应的 placement operator delete，否则可能会发生隐微而时断时续的内存泄漏；当你声明 placement new 和 placement delete，请确定不要无意识（非故意）地遮掩了它们地正常版本） 不要轻忽编译器的警告 让自己熟悉包括 TR1 在内的标准程序库（TR1，C++ Technical Report 1，C++11 标准的草稿文件） 让自己熟悉 Boost（准标准库）  More Effective c++ 🔗 仔细区别 pointers 和 references（当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由 pointers 达成，你就应该选择 references；任何其他时候，请采用 pointers） 最好使用 C++ 转型操作符（static_cast、const_cast、dynamic_cast、reinterpret_cast） 绝不要以多态（polymorphically）方式处理数组（多态（polymorphism）和指针算术不能混用；数组对象几乎总是会涉及指针的算术运算，所以数组和多态不要混用） 非必要不提供 default constructor（避免对象中的字段被无意义地初始化） 对定制的 “类型转换函数” 保持警觉（单自变量 constructors 可通过简易法（explicit 关键字）或代理类（proxy classes）来避免编译器误用；隐式类型转换操作符可改为显式的 member function 来避免非预期行为） 区别 increment/decrement 操作符的前置（prefix）和后置（postfix）形式（前置式累加后取出，返回一个 reference；后置式取出后累加，返回一个 const 对象；处理用户定制类型时，应该尽可能使用前置式 increment；后置式的实现应以其前置式兄弟为基础） 千万不要重载 &amp;amp;&amp;amp;，|| 和 , 操作符（&amp;amp;&amp;amp; 与 || 的重载会用 “函数调用语义” 取代 “骤死式语义”；, 的重载导致不能保证左侧表达式一定比右侧表达式更早被评估） 了解各种不同意义的 new 和 delete（new operator、operator new、placement new、operator new[]；delete operator、operator delete、destructor、operator delete[]） 利用 destructors 避免泄漏资源（在 destructors 释放资源可以避免异常时的资源泄漏） 在 constructors 内阻止资源泄漏（由于 C++ 只会析构已构造完成的对象，因此在构造函数可以使用 try&amp;hellip;catch 或者 auto_ptr（以及与之相似的 classes） 处理异常时资源泄露问题） 禁止异常流出 destructors 之外（原因：一、避免 terminate 函数在 exception 传播过程的栈展开（stack-unwinding）机制种被调用；二、协助确保 destructors 完成其应该完成的所有事情） 了解 “抛出一个 exception” 与 “传递一个参数” 或 “调用一个虚函数” 之间的差异（第一，exception objects 总是会被复制（by pointer 除外），如果以 by value 方式捕捉甚至被复制两次，而传递给函数参数的对象则不一定得复制；第二，“被抛出成为 exceptions” 的对象，其被允许的类型转换动作比 “被传递到函数去” 的对象少；第三，catch 子句以其 “出现于源代码的顺序” 被编译器检验对比，其中第一个匹配成功者便执行，而调用一个虚函数，被选中执行的是那个 “与对象类型最佳吻合” 的函数） 以 by reference 方式捕获 exceptions（可避免对象删除问题、exception objects 的切割问题，可保留捕捉标准 exceptions 的能力，可约束 exception object 需要复制的次数） 明智运用 exception specifications（exception specifications 对 “函数希望抛出什么样的 exceptions” 提供了卓越的说明；也有一些缺点，包括编译器只对它们做局部性检验而很容易不经意地违反，与可能会妨碍更上层的 exception 处理函数处理未预期的 exceptions） 了解异常处理的成本（粗略估计，如果使用 try 语句块，代码大约整体膨胀 5%-10%，执行速度亦大约下降这个数；因此请将你对 try 语句块和 exception specifications 的使用限制于非用不可的地点，并且在真正异常的情况下才抛出 exceptions） 谨记 80-20 法则（软件的整体性能几乎总是由其构成要素（代码）的一小部分决定的，可使用程序分析器（program profiler）识别出消耗资源的代码） 考虑使用 lazy evaluation（缓式评估）（可应用于：Reference Counting（引用计数）来避免非必要的对象复制、区分 operator[] 的读和写动作来做不同的事情、Lazy Fetching（缓式取出）来避免非必要的数据库读取动作、Lazy Expression Evaluation（表达式缓评估）来避免非必要的数值计算动作） 分期摊还预期的计算成本（当你必须支持某些运算而其结构几乎总是被需要，或其结果常常被多次需要的时候，over-eager evaluation（超急评估）可以改善程序效率）  Google C++ Style Guide 🔗 英文：Google C++ Style Guide 中文：C++ 风格指南  其他 🔗 Bjarne Stroustrup 的常见问题 Bjarne Stroustrup 的 C++ 风格和技巧常见问题  </description>
+Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Template C++、STL） 宁可以编译器替换预处理器（尽量以 const、enum、inline 替换 #define） 尽可能使用 const 确定对象被使用前已先被初始化（构造时赋值（copy 构造函数）比 default 构造后赋值（copy assignment）效率高） 了解 C++ 默默编写并调用哪些函数（编译器暗自为 class 创建 default 构造函数、copy 构造函数、copy assignment 操作符、析构函数） 若不想使用编译器自动生成的函数，就应该明确拒绝（将不想使用的成员函数声明为 private，并且不予实现） 为多态基类声明 virtual 析构函数（如果 class 带有任何 virtual 函数，它就应该拥有一个 virtual 析构函数） 别让异常逃离析构函数（析构函数应该吞下不传播异常，或者结束程序，而不是吐出异常；如果要处理异常应该在非析构的普通函数处理） 绝不在构造和析构过程中调用 virtual 函数（因为这类调用从不下降至 derived class） 令 operator= 返回一个 reference to *this （用于连锁赋值） 在 operator= 中处理 “自我赋值” 赋值对象时应确保复制 “对象内的所有成员变量” 及 “所有 base class 成分”（调用基类复制构造函数） 以对象管理资源（资源在构造函数获得，在析构函数释放，建议使用智能指针，资源取得时机便是初始化时机（Resource Acquisition Is Initialization，RAII）） 在资源管理类中小心 copying 行为（普遍的 RAII class copying 行为是：抑制 copying、引用计数、深度拷贝、转移底部资源拥有权（类似 auto_ptr）） 在资源管理类中提供对原始资源（raw resources）的访问（对原始资源的访问可能经过显式转换或隐式转换，一般而言显示转换比较安全，隐式转换对客户比较方便） 成对使用 new 和 delete 时要采取相同形式（new 中使用 [] 则 delete []，new 中不使用 [] 则 delete） 以独立语句将 newed 对象存储于（置入）智能指针（如果不这样做，可能会因为编译器优化，导致难以察觉的资源泄漏） 让接口容易被正确使用，不易被误用（促进正常使用的办法：接口的一致性、内置类型的行为兼容；阻止误用的办法：建立新类型，限制类型上的操作，约束对象值、消除客户的资源管理责任） 设计 class 犹如设计 type，需要考虑对象创建、销毁、初始化、赋值、值传递、合法值、继承关系、转换、一般化等等。 宁以 pass-by-reference-to-const 替换 pass-by-value （前者通常更高效、避免切割问题（slicing problem），但不适用于内置类型、STL迭代器、函数对象） 必须返回对象时，别妄想返回其 reference（绝不返回 pointer 或 reference 指向一个 local stack 对象，或返回 reference 指向一个 heap-allocated 对象，或返回 pointer 或 reference 指向一个 local static 对象而有可能同时需要多个这样的对象。） 将成员变量声明为 private（为了封装、一致性、对其读写精确控制等） 宁以 non-member、non-friend 替换 member 函数（可增加封装性、包裹弹性（packaging flexibility）、机能扩充性） 若所有参数（包括被this指针所指的那个隐喻参数）皆须要类型转换，请为此采用 non-member 函数 考虑写一个不抛异常的 swap 函数 尽可能延后变量定义式的出现时间（可增加程序清晰度并改善程序效率） 尽量少做转型动作（旧式：(T)expression、T(expression)；新式：const_cast&amp;lt;T&amp;gt;(expression)、dynamic_cast&amp;lt;T&amp;gt;(expression)、reinterpret_cast&amp;lt;T&amp;gt;(expression)、static_cast&amp;lt;T&amp;gt;(expression)、；尽量避免转型、注重效率避免 dynamic_casts、尽量设计成无需转型、可把转型封装成函数、宁可用新式转型） 避免使用 handles（包括 引用、指针、迭代器）指向对象内部（以增加封装性、使 const 成员函数的行为更像 const、降低 “虚吊号码牌”（dangling handles，如悬空指针等）的可能性） 为 “异常安全” 而努力是值得的（异常安全函数（Exception-safe functions）即使发生异常也不会泄露资源或允许任何数据结构败坏，分为三种可能的保证：基本型、强列型、不抛异常型） 透彻了解 inlining 的里里外外（inlining 在大多数 C++ 程序中是编译期的行为；inline 函数是否真正 inline，取决于编译器；大部分编译器拒绝太过复杂（如带有循环或递归）的函数 inlining，而所有对 virtual 函数的调用（除非是最平淡无奇的）也都会使 inlining 落空；inline 造成的代码膨胀可能带来效率损失；inline 函数无法随着程序库的升级而升级） 将文件间的编译依存关系降至最低（如果使用 object references 或 object pointers 可以完成任务，就不要使用 objects；如果能够，尽量以 class 声明式替换 class 定义式；为声明式和定义式提供不同的头文件） 确定你的 public 继承塑模出 is-a（是一种）关系（适用于 base classes 身上的每一件事情一定适用于 derived classes 身上，因为每一个 derived class 对象也都是一个 base class 对象） 避免遮掩继承而来的名字（可使用 using 声明式或转交函数（forwarding functions）来让被遮掩的名字再见天日） 区分接口继承和实现继承（在 public 继承之下，derived classes 总是继承 base class 的接口；pure virtual 函数只具体指定接口继承；非纯 impure virtual 函数具体指定接口继承及缺省实现继承；non-virtual 函数具体指定接口继承以及强制性实现继承） 考虑 virtual 函数以外的其他选择（如 Template Method 设计模式的 non-virtual interface（NVI）手法，将 virtual 函数替换为 “函数指针成员变量”，以 tr1::function 成员变量替换 virtual 函数，将继承体系内的 virtual 函数替换为另一个继承体系内的 virtual 函数） 绝不重新定义继承而来的 non-virtual 函数 绝不重新定义继承而来的缺省参数值，因为缺省参数值是静态绑定（statically bound），而 virtual 函数却是动态绑定（dynamically bound） 通过复合塑模 has-a（有一个）或 “根据某物实现出”（在应用域（application domain），复合意味 has-a（有一个）；在实现域（implementation domain），复合意味着 is-implemented-in-terms-of（根据某物实现出）） 明智而审慎地使用 private 继承（private 继承意味着 is-implemented-in-terms-of（根据某物实现出），尽可能使用复合，当 derived class 需要访问 protected base class 的成员，或需要重新定义继承而来的时候 virtual 函数，或需要 empty base 最优化时，才使用 private 继承） 明智而审慎地使用多重继承（多继承比单一继承复杂，可能导致新的歧义性，以及对 virtual 继承的需要，但确有正当用途，如 “public 继承某个 interface class” 和 “private 继承某个协助实现的 class”；virtual 继承可解决多继承下菱形继承的二义性问题，但会增加大小、速度、初始化及赋值的复杂度等等成本） 了解隐式接口和编译期多态（class 和 templates 都支持接口（interfaces）和多态（polymorphism）；class 的接口是以签名为中心的显式的（explicit），多态则是通过 virtual 函数发生于运行期；template 的接口是奠基于有效表达式的隐式的（implicit），多态则是通过 template 具现化和函数重载解析（function overloading resolution）发生于编译期） 了解 typename 的双重意义（声明 template 类型参数是，前缀关键字 class 和 typename 的意义完全相同；请使用关键字 typename 标识嵌套从属类型名称，但不得在基类列（base class lists）或成员初值列（member initialization list）内以它作为 base class 修饰符） 学习处理模板化基类内的名称（可在 derived class templates 内通过 this-&amp;gt; 指涉 base class templates 内的成员名称，或藉由一个明白写出的 “base class 资格修饰符” 完成） 将与参数无关的代码抽离 templates（因类型模板参数（non-type template parameters）而造成代码膨胀往往可以通过函数参数或 class 成员变量替换 template 参数来消除；因类型参数（type parameters）而造成的代码膨胀往往可以通过让带有完全相同二进制表述（binary representations）的实现类型（instantiation types）共享实现码） 运用成员函数模板接受所有兼容类型（请使用成员函数模板（member function templates）生成 “可接受所有兼容类型” 的函数；声明 member templates 用于 “泛化 copy 构造” 或 “泛化 assignment 操作” 时还需要声明正常的 copy 构造函数和 copy assignment 操作符） 需要类型转换时请为模板定义非成员函数（当我们编写一个 class template，而它所提供之 “与此 template 相关的” 函数支持 “所有参数之隐式类型转换” 时，请将那些函数定义为 “class template 内部的 friend 函数”） 请使用 traits classes 表现类型信息（traits classes 通过 templates 和 “templates 特化” 使得 “类型相关信息” 在编译期可用，通过重载技术（overloading）实现在编译期对类型执行 if&amp;hellip;else 测试） 认识 template 元编程（模板元编程（TMP，template metaprogramming）可将工作由运行期移往编译期，因此得以实现早期错误侦测和更高的执行效率；TMP 可被用来生成 “给予政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码） 了解 new-handler 的行为（set_new_handler 允许客户指定一个在内存分配无法获得满足时被调用的函数；nothrow new 是一个颇具局限的工具，因为它只适用于内存分配（operator new），后继的构造函数调用还是可能抛出异常） 了解 new 和 delete 的合理替换时机（为了检测运用错误、收集动态分配内存之使用统计信息、增加分配和归还速度、降低缺省内存管理器带来的空间额外开销、弥补缺省分配器中的非最佳齐位、将相关对象成簇集中、获得非传统的行为） 编写 new 和 delete 时需固守常规（operator new 应该内涵一个无穷循环，并在其中尝试分配内存，如果它无法满足内存需求，就应该调用 new-handler，它也应该有能力处理 0 bytes 申请，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”；operator delete 应该在收到 null 指针时不做任何事，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”） 写了 placement new 也要写 placement delete（当你写一个 placement operator new，请确定也写出了对应的 placement operator delete，否则可能会发生隐微而时断时续的内存泄漏；当你声明 placement new 和 placement delete，请确定不要无意识（非故意）地遮掩了它们地正常版本） 不要轻忽编译器的警告 让自己熟悉包括 TR1 在内的标准程序库（TR1，C++ Technical Report 1，C++11 标准的草稿文件） 让自己熟悉 Boost（准标准库） More Effective c++ 🔗 仔细区别 pointers 和 references（当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由 pointers 达成，你就应该选择 references；任何其他时候，请采用 pointers） 最好使用 C++ 转型操作符（static_cast、const_cast、dynamic_cast、reinterpret_cast） 绝不要以多态（polymorphically）方式处理数组（多态（polymorphism）和指针算术不能混用；数组对象几乎总是会涉及指针的算术运算，所以数组和多态不要混用） 非必要不提供 default constructor（避免对象中的字段被无意义地初始化） 对定制的 “类型转换函数” 保持警觉（单自变量 constructors 可通过简易法（explicit 关键字）或代理类（proxy classes）来避免编译器误用；隐式类型转换操作符可改为显式的 member function 来避免非预期行为） 区别 increment/decrement 操作符的前置（prefix）和后置（postfix）形式（前置式累加后取出，返回一个 reference；后置式取出后累加，返回一个 const 对象；处理用户定制类型时，应该尽可能使用前置式 increment；后置式的实现应以其前置式兄弟为基础） 千万不要重载 &amp;amp;&amp;amp;，|| 和 , 操作符（&amp;amp;&amp;amp; 与 || 的重载会用 “函数调用语义” 取代 “骤死式语义”；, 的重载导致不能保证左侧表达式一定比右侧表达式更早被评估） 了解各种不同意义的 new 和 delete（new operator、operator new、placement new、operator new[]；delete operator、operator delete、destructor、operator delete[]） 利用 destructors 避免泄漏资源（在 destructors 释放资源可以避免异常时的资源泄漏） 在 constructors 内阻止资源泄漏（由于 C++ 只会析构已构造完成的对象，因此在构造函数可以使用 try&amp;hellip;catch 或者 auto_ptr（以及与之相似的 classes） 处理异常时资源泄露问题） 禁止异常流出 destructors 之外（原因：一、避免 terminate 函数在 exception 传播过程的栈展开（stack-unwinding）机制种被调用；二、协助确保 destructors 完成其应该完成的所有事情） 了解 “抛出一个 exception” 与 “传递一个参数” 或 “调用一个虚函数” 之间的差异（第一，exception objects 总是会被复制（by pointer 除外），如果以 by value 方式捕捉甚至被复制两次，而传递给函数参数的对象则不一定得复制；第二，“被抛出成为 exceptions” 的对象，其被允许的类型转换动作比 “被传递到函数去” 的对象少；第三，catch 子句以其 “出现于源代码的顺序” 被编译器检验对比，其中第一个匹配成功者便执行，而调用一个虚函数，被选中执行的是那个 “与对象类型最佳吻合” 的函数） 以 by reference 方式捕获 exceptions（可避免对象删除问题、exception objects 的切割问题，可保留捕捉标准 exceptions 的能力，可约束 exception object 需要复制的次数） 明智运用 exception specifications（exception specifications 对 “函数希望抛出什么样的 exceptions” 提供了卓越的说明；也有一些缺点，包括编译器只对它们做局部性检验而很容易不经意地违反，与可能会妨碍更上层的 exception 处理函数处理未预期的 exceptions） 了解异常处理的成本（粗略估计，如果使用 try 语句块，代码大约整体膨胀 5%-10%，执行速度亦大约下降这个数；因此请将你对 try 语句块和 exception specifications 的使用限制于非用不可的地点，并且在真正异常的情况下才抛出 exceptions） 谨记 80-20 法则（软件的整体性能几乎总是由其构成要素（代码）的一小部分决定的，可使用程序分析器（program profiler）识别出消耗资源的代码） 考虑使用 lazy evaluation（缓式评估）（可应用于：Reference Counting（引用计数）来避免非必要的对象复制、区分 operator[] 的读和写动作来做不同的事情、Lazy Fetching（缓式取出）来避免非必要的数据库读取动作、Lazy Expression Evaluation（表达式缓评估）来避免非必要的数值计算动作） 分期摊还预期的计算成本（当你必须支持某些运算而其结构几乎总是被需要，或其结果常常被多次需要的时候，over-eager evaluation（超急评估）可以改善程序效率） Google C++ Style Guide 🔗 英文：Google C++ Style Guide 中文：C++ 风格指南 其他 🔗 Bjarne Stroustrup 的常见问题 Bjarne Stroustrup 的 C++ 风格和技巧常见问题 </description>
     </item>
     
     <item>
@@ -1172,9 +1388,9 @@ Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Tem
       
       <guid>/posts/cc&#43;&#43;base/</guid>
       <description>转载自https://github.com/huihut/interview
-const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  const 的指针与引用 🔗 指针  指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer）   引用  指向常量的引用（reference to const） 没有 const reference，因为引用只是对象的别名，引用不是对象，不能用 const 修饰     （为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 p2、p3
- 使用 🔗const 使用
-// 类 class A { private:  const int a; // 常对象成员，可以使用初始化列表或者类内初始化  public:  // 构造函数  A() : a(0) { };  A(int x) : a(x) { }; // 初始化列表   // const可用于对重载函数的区分  int getValue(); // 普通成员函数  int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 };  void function() {  // 对象  A b; // 普通对象，可以调用全部成员函数  const A a; // 常对象，只能调用常成员函数  const A *p = &amp;amp;a; // 指针变量，指向常对象  const A &amp;amp;q = a; // 指向常对象的引用   // 指针  char greeting[] = &amp;#34;Hello&amp;#34;;  char* p1 = greeting; // 指针变量，指向字符数组变量  const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）  char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）  const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 }  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗   宏定义 #define const 常量     宏定义，相当于字符替换 常量声明   预处理器处理 编译器处理   无类型安全检查 有类型安全检查   不分配内存 要分配内存   存储在代码段 存储在数据段   可通过 #undef 取消 不可取消    static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。  this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;amp;this）。 在以下场景中，经常需要显式引用 this 指针：  为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。    inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。  使用 🔗inline 使用</description>
+const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。 const 的指针与引用 🔗 指针 指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer） 引用 指向常量的引用（reference to const） 没有 const reference，因为引用只是对象的别名，引用不是对象，不能用 const 修饰 （为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 p2、p3
+使用 🔗const 使用
+// 类 class A { private: const int a; // 常对象成员，可以使用初始化列表或者类内初始化 public: // 构造函数 A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表 // const可用于对重载函数的区分 int getValue(); // 普通成员函数 int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象 A b; // 普通对象，可以调用全部成员函数 const A a; // 常对象，只能调用常成员函数 const A *p = &amp;amp;a; // 指针变量，指向常对象 const A &amp;amp;q = a; // 指向常对象的引用 // 指针 char greeting[] = &amp;#34;Hello&amp;#34;; char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗 宏定义 #define const 常量 宏定义，相当于字符替换 常量声明 预处理器处理 编译器处理 无类型安全检查 有类型安全检查 不分配内存 要分配内存 存储在代码段 存储在数据段 可通过 #undef 取消 不可取消 static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。 this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;amp;this）。 在以下场景中，经常需要显式引用 this 指针： 为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。 inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。 使用 🔗inline 使用</description>
     </item>
     
     <item>
@@ -1184,29 +1400,36 @@ const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰
       
       <guid>/posts/rashomon/</guid>
       <description>乞丐：（大笑）这倒像是是实话了。
-  砍柴人：我可不撒谎，是我亲眼看见来的。
-  乞丐：那也靠不住。
-  砍柴人：是真的，我可不撒谎。
-  乞丐：撒谎的人才不会说自己是说谎的呢。
-  云游和尚：这真是可怕的事了。若是任何人都不能相信，那么这个世界就成了地狱。
-  乞丐：没错，这世界就是个地狱。
-  云游和尚：不，我相信人。我不想把世界看成地狱。
-  乞丐：光说好听的话是不中用的。你倒想想看，刚才那三个人的话，又该相信谁的哪一句才好呢？
-  砍柴人：不懂……简直就是不懂。
-  乞丐：没有什么值得大惊小怪的。人做的事根本就是无法琢磨的。
-  婴儿：（啼哭）
-  砍柴人：你这是干什么？
-  乞丐：你才干什么呢。
-  砍柴人：你的心也太狠了。
-  乞丐：心狠？这小衣服反正早晚都会叫人剥去的。我拿走又有什么不对呢？
-  砍柴人：你是恶鬼么！
-  乞丐：恶鬼？我要是恶鬼，这个崽子的爹娘又该是什么？自己任性地图个痛快，搞出来的崽子也不想养活？把孩子扔了的他们才是真的恶鬼。
-  砍柴人：不对，这跟你说的不一样。你瞧，这小衣服上还缝着长命百岁的符咒呢。你替扔孩子的爹娘想想看吧，一定是有万不得已的苦衷啊。
-  乞丐：什么事都替别人着想，那就没完没了。
-  砍柴人：这也太自私自利……
-  乞丐：自私自利为什么不行？这是个人不如狗的世界。谁要不自顾自就活不成啊。
-  砍柴人：混蛋。是啊，谁都只是自私自利，只会给自己的自私自利行为辩护。那强盗！那女的！那男人！还有你也是！
-  乞丐：难道你就不是吗？真可笑。纠察使署的官差们也许能被你糊弄过去，可我不会。我问你……那女人的短刀哪儿去了？多襄丸也说是镶螺钿的好家伙。那把短刀哪儿去了？难道落在草里就没了吗？不是你偷了，还有谁呀？看来被我说中了啊。贼喊捉贼的你，才叫自私自利。还有什么说的吗？没有的话，我先走了。（大笑）</description>
+砍柴人：我可不撒谎，是我亲眼看见来的。
+乞丐：那也靠不住。
+砍柴人：是真的，我可不撒谎。
+乞丐：撒谎的人才不会说自己是说谎的呢。
+云游和尚：这真是可怕的事了。若是任何人都不能相信，那么这个世界就成了地狱。
+乞丐：没错，这世界就是个地狱。
+云游和尚：不，我相信人。我不想把世界看成地狱。
+乞丐：光说好听的话是不中用的。你倒想想看，刚才那三个人的话，又该相信谁的哪一句才好呢？
+砍柴人：不懂……简直就是不懂。
+乞丐：没有什么值得大惊小怪的。人做的事根本就是无法琢磨的。
+婴儿：（啼哭）
+砍柴人：你这是干什么？
+乞丐：你才干什么呢。
+砍柴人：你的心也太狠了。
+乞丐：心狠？这小衣服反正早晚都会叫人剥去的。我拿走又有什么不对呢？
+砍柴人：你是恶鬼么！
+乞丐：恶鬼？我要是恶鬼，这个崽子的爹娘又该是什么？自己任性地图个痛快，搞出来的崽子也不想养活？把孩子扔了的他们才是真的恶鬼。
+砍柴人：不对，这跟你说的不一样。你瞧，这小衣服上还缝着长命百岁的符咒呢。你替扔孩子的爹娘想想看吧，一定是有万不得已的苦衷啊。
+乞丐：什么事都替别人着想，那就没完没了。
+砍柴人：这也太自私自利……
+乞丐：自私自利为什么不行？这是个人不如狗的世界。谁要不自顾自就活不成啊。
+砍柴人：混蛋。是啊，谁都只是自私自利，只会给自己的自私自利行为辩护。那强盗！那女的！那男人！还有你也是！
+乞丐：难道你就不是吗？真可笑。纠察使署的官差们也许能被你糊弄过去，可我不会。我问你……那女人的短刀哪儿去了？多襄丸也说是镶螺钿的好家伙。那把短刀哪儿去了？难道落在草里就没了吗？不是你偷了，还有谁呀？看来被我说中了啊。贼喊捉贼的你，才叫自私自利。还有什么说的吗？没有的话，我先走了。（大笑）
+婴儿：（啼哭）
+砍柴人：（伸手去抱孩子）
+云游和尚：你想干嘛，还想剥这孩子的贴身布衫吗？
+砍柴人：我家里有六个孩子，养六个还是再添这一个，都一样辛苦。
+云游和尚：我为我说的话感到惭愧。
+砍柴人：在如今这世道，凡是人都不能不怀疑他啊。惭愧的该是我。我自己就摸不清自己的心眼。
+云游和尚：不，我得感激你。谢谢你，亏得你，我还是可以相信人的。</description>
     </item>
     
     <item>
@@ -1226,19 +1449,20 @@ const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰
       
       <guid>/posts/asibegantolovemyself/</guid>
       <description>—— Charlie Chaplin
-  As I began to love myself
+As I began to love myself
 I found that anguish and emotional suffering
 are only warning signs
 that I was living against my own truth.
 Today, I know, this is “AUTHENTICITY”.
-  当我真正开始爱自己
+当我真正开始爱自己
 我才意识到，所有的痛苦和情感的折磨
 仅仅是在提醒
 我的生活背离了真正的自己
 今日，我明白了，这叫做“真实“
-  As I began to love myself
+As I began to love myself
 I understood how much it can offend somebody
-if I try to force my desires on this person,</description>
+if I try to force my desires on this person,
+even though I knew the time was not right</description>
     </item>
     
     <item>
@@ -1260,7 +1484,7 @@ if I try to force my desires on this person,</description>
       <guid>/posts/2021-12-30/</guid>
       <description>when the day meets the night, when the knife meets the fork, when you meet your soulmate.
 —— Jessie
- 在高中那会，我开始喜欢听电台音频。也不知道为了学英语，还是为了找到一个声音塞满思绪。这时，我遇到了 SoulmateEnglish 频道，刚听到 Jessie 的音频，我至今还记得那份感动。遗憾的是，SoulmateEnglish 频道很多年没更新了，我也以为再也不会遇见这个声音了。
+在高中那会，我开始喜欢听电台音频。也不知道为了学英语，还是为了找到一个声音塞满思绪。这时，我遇到了 SoulmateEnglish 频道，刚听到 Jessie 的音频，我至今还记得那份感动。遗憾的是，SoulmateEnglish 频道很多年没更新了，我也以为再也不会遇见这个声音了。
 然而缘总是很奇妙，在很久很久后的一天，我抓住了它的尾巴。在某个的平台里，我发现了活跃中的 SoulmateEnglish 频道，我当时感觉非常高兴，就在最新的作品下留言，Jessie 回复了。
 我认为互联网最大的魅力便在于此，沿着历史的痕迹，你可以了解一个人的过往，了解当时他/她的喜怒哀乐，只要有两台设备，它就可以让两个人跨越时间、空间的界限，进行交流。</description>
     </item>
@@ -1273,15 +1497,18 @@ if I try to force my desires on this person,</description>
       <guid>/posts/cprimer04/</guid>
       <description>转载自https://github.com/andycai/cprimer
 new和delete运算符用于动态分配和撤销内存的运算符
-(1) new用法 🔗 开辟单变量地址空间    new int; //开辟一个存放数组的存储空间,返回一个指向该存储空间的地址.int *a = new int 即为将一个int类型的地址赋值给整型指针a.
-  int *a = new int(5) 作用同上,但是同时将整数赋值为5
-   开辟数组空间
+(1) new用法 🔗 开辟单变量地址空间 new int; //开辟一个存放数组的存储空间,返回一个指向该存储空间的地址.int *a = new int 即为将一个int类型的地址赋值给整型指针a.
+int *a = new int(5) 作用同上,但是同时将整数赋值为5
+开辟数组空间
 一维:
- int *a = new int[100]; // 开辟一个大小为100的整型数组空间  二维:
- int **a = new int[5][6]  三维及其以上:依此类推
-  一般用法: new 类型 [初值]
-(2) delete用法 🔗  int *a = new int;
- delete a; //释放单个int的空间    int *a = new int[5];</description>
+int *a = new int[100]; // 开辟一个大小为100的整型数组空间二维:
+int **a = new int[5][6]三维及其以上:依此类推
+一般用法: new 类型 [初值]
+(2) delete用法 🔗 int *a = new int;
+delete a; //释放单个int的空间int *a = new int[5];
+delete [] a; //释放int数组空间要访问new所开辟的结构体空间,无法直接通过变量名进行,只能通过赋值的指针进行访问。
+用new和delete可以动态开辟，撤销地址空间。在编程序时,若用完一个变量(一般是暂时存储的数组)，下次需要再用，但却又想省去重新初始化的功夫，可以在每次开始使用时开辟一个空间，在用完后撤销它。
+导航 🔗 目录 上一章：Chapter 4 - uint8_t, uint16_t, uint32_t, uint64_t </description>
     </item>
     
     <item>
@@ -1293,9 +1520,9 @@ new和delete运算符用于动态分配和撤销内存的运算符
       <description>转载自https://github.com/andycai/cprimer
 3.1 char*, char[], string 🔗在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&amp;rsquo;\0&amp;rsquo;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
 C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是以后不能利用&amp;rdquo;=&amp;ldquo;对C字符串进行赋值。对C字符串的操作需要通过&amp;quot;string&amp;quot;文件中定义的字符串处理函数。例如：
-//字符串的初始化 char a[11] = &amp;quot;huanying&amp;quot;; //字符串的赋值 strcpy(a,&amp;quot;nihao&amp;quot;) //获取字符串的长度，不包括&#39;\0&#39;在内 strlen(a); printf(&amp;quot;%s&amp;quot;,a);  在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
+//字符串的初始化char a[11] = &amp;quot;huanying&amp;quot;;//字符串的赋值strcpy(a,&amp;quot;nihao&amp;quot;)//获取字符串的长度，不包括&#39;\0&#39;在内strlen(a);printf(&amp;quot;%s&amp;quot;,a);在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
 在C++中则把字符串封装成了一种数据类型string,可以直接声明变量并进行赋值等字符串操作。以下是C字符串和C++中string的区别：
- C字符串 string对象 所需的头文件名称 &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; 为什么需要头文件 为了使用字符串函数 为了使用string类 如何声明 char name[20]; string name; 如何初始化 char name[20]=&amp;quot;nihao&amp;quot;; string name = &amp;quot;nihao&amp;quot;; 必须声明字符串长度么？	是 否 使用一个null字符么？ 是 否 怎样实现字符串赋值 strcpy(name,&amp;quot;John&amp;quot;); name = &amp;quot;John&amp;quot;; 其他优点 更快 更易于使用，优选方案 可以赋一个比现有字符更 不能 可以 长的字符串么？  (1) C++常用字符串函数 🔗char s1[]=&amp;quot;I am a student&amp;quot;; char s2[20]=&amp;quot;teacher&amp;quot;; char s3[]=&amp;quot;student&amp;quot;; int result; char s4[20],*p;    串长度 int strlen(char *str)</description>
+C字符串 string对象所需的头文件名称 &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt;为什么需要头文件 为了使用字符串函数 为了使用string类如何声明 char name[20]; string name;如何初始化 char name[20]=&amp;quot;nihao&amp;quot;; string name = &amp;quot;nihao&amp;quot;;必须声明字符串长度么？	是 否使用一个null字符么？ 是 否怎样实现字符串赋值 strcpy(name,&amp;quot;John&amp;quot;); name = &amp;quot;John&amp;quot;;其他优点 更快 更易于使用，优选方案可以赋一个比现有字符更 不能 可以长的字符串么？ (1) C++常用字符串函数 🔗char s1[]=&amp;quot;I am a student&amp;quot;;char s2[20]=&amp;quot;teacher&amp;quot;;char s3[]=&amp;quot;student&amp;quot;;int result;char s4[20],*p;串长度 int strlen(char *str)</description>
     </item>
     
     <item>
@@ -1306,10 +1533,10 @@ C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是
       <guid>/posts/cprimer02/</guid>
       <description>转载自https://github.com/andycai/cprimer
 2.1 refrence 引用 🔗引用是C++中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。
-int m; int &amp;amp;n = m;  n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。
+int m; int &amp;amp;n = m;n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。
 引用的规则：
- 引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。 不能有NULL引用，引用必须与合法的存储单元关联（指针则可以是NULL）。 一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。  以下示例程序中，k 被初始化为 i 的引用。语句 k = j 并不能将 k 修改成为 j 的引用，只是把 k 的值改变成为6。由于 k 是 i 的引用，所以 i 的值也变成了6。
-int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6;  引用的主要功能是传递函数的参数和返回值。</description>
+引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。 不能有NULL引用，引用必须与合法的存储单元关联（指针则可以是NULL）。 一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。 以下示例程序中，k 被初始化为 i 的引用。语句 k = j 并不能将 k 修改成为 j 的引用，只是把 k 的值改变成为6。由于 k 是 i 的引用，所以 i 的值也变成了6。
+int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6; 引用的主要功能是传递函数的参数和返回值。</description>
     </item>
     
     <item>
@@ -1320,10 +1547,10 @@ int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6;  �
       <guid>/posts/cprimer01/</guid>
       <description>转载自https://github.com/andycai/cprimer
 1.1 const 🔗(1) const 基础 🔗如果const关键字不涉及到指针，我们很好理解，下面是涉及到指针的情况：
-int b = 500; const int* a = &amp;amp;b; [1] int const *a = &amp;amp;b; [2] int* const a = &amp;amp;b; [3] const int* const a = &amp;amp;b; [4]  如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
+int b = 500;const int* a = &amp;amp;b; [1]int const *a = &amp;amp;b; [2]int* const a = &amp;amp;b; [3]const int* const a = &amp;amp;b; [4]如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
 因此，[1]和[2]的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；[3]为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a++是错误的；[4]为指针本身和指向的内容均为常量。
-(2) 作为参数 🔗void display(const double&amp;amp; r); void display(const double* r);  说明:
- 在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义 保证引用的变量的值不被改变 const 在 double 前或者后面意思相同，只是不同的人的写法不同  (3) const对象 🔗声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。</description>
+(2) 作为参数 🔗void display(const double&amp;amp; r);void display(const double* r);说明:
+在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义 保证引用的变量的值不被改变 const 在 double 前或者后面意思相同，只是不同的人的写法不同 (3) const对象 🔗声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。</description>
     </item>
     
     <item>
@@ -1334,12 +1561,12 @@ int b = 500; const int* a = &amp;amp;b; [1] int const *a = &amp;amp;b; [2] int* 
       <guid>/posts/oop/</guid>
       <description>转载自https://blog.csdn.net/lovelion/article/details/17517213
 开闭原则是面向对象的可复用设计的第一块基石，它是最重要的面向对象设计原则。开闭原则由Bertrand Meyer于1988年提出，其定义如下：
- 开闭原则(Open-Closed Principle, OCP)：一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。
- 在开闭原则的定义中，软件实体可以指一个软件模块、一个由多个类组成的局部结构或一个独立的类。
+开闭原则(Open-Closed Principle, OCP)：一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。
+在开闭原则的定义中，软件实体可以指一个软件模块、一个由多个类组成的局部结构或一个独立的类。
 任何软件都需要面临一个很重要的问题，即它们的需求会随时间的推移而发生变化。当软件系统需要面对新的需求时，我们应该尽量保证系统的设计框架是稳定的。如果一个软件设计符合开闭原则，那么可以非常方便地对系统进行扩展，而且在扩展时无须修改现有代码，使得软件系统在拥有适应性和灵活性的同时具备较好的稳定性和延续性。随着软件规模越来越大，软件寿命越来越长，软件维护成本越来越高，设计满足开闭原则的软件系统也变得越来越重要。
 为了满足开闭原则，需要对系统进行抽象化设计，抽象化是开闭原则的关键。在Java、C#等编程语言中，可以为系统定义一个相对稳定的抽象层，而将不同的实现行为移至具体的实现层中完成。在很多面向对象编程语言中都提供了接口、抽象类等机制，可以通过它们定义系统的抽象层，再通过具体类来进行扩展。如果需要修改系统的行为，无须对抽象层进行任何改动，只需要增加新的具体类来实现新的业务功能即可，实现在不修改已有代码的基础上扩展系统的功能，达到开闭原则的要求。
- Sunny软件公司开发的CRM系统可以显示各种类型的图表，如饼状图和柱状图等，为了支持多种图表显示方式，原始设计方案如图1所示：
- 图1 初始设计方案结构图
+Sunny软件公司开发的CRM系统可以显示各种类型的图表，如饼状图和柱状图等，为了支持多种图表显示方式，原始设计方案如图1所示：
+图1 初始设计方案结构图
 在ChartDisplay类的display()方法中存在如下代码片段：
 ...... if (type.equals(&amp;#34;pie&amp;#34;)) { PieChart chart = new PieChart(); chart.display(); } else if (type.equals(&amp;#34;bar&amp;#34;)) { BarChart chart = new BarChart(); chart.display(); } ...... 在该代码中，如果需要增加一个新的图表类，如折线图LineChart，则需要修改ChartDisplay类的display()方法的源代码，增加新的判断逻辑，违反了开闭原则。
 现对该系统进行重构，使之符合开闭原则。
@@ -1364,10 +1591,10 @@ int b = 500; const int* a = &amp;amp;b; [1] int const *a = &amp;amp;b; [2] int* 
 单一职责原则告诉我们：一个类不能太“累”！在软件系统中，一个类（大到模块，小到方法）承担的职责越多，它被复用的可能性就越小，而且一个类承担的职责过多，就相当于将这些职责耦合在一起，当其中一个职责变化时，可能会影响其他职责的运作，因此要将这些职责进行分离，将不同的职责封装在不同的类中，即将不同的变化原因封装在不同的类中，如果多个职责总是同时发生改变则可将它们封装在同一类中。
 单一职责原则是实现高内聚、低耦合的指导方针，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。
 下面通过一个简单实例来进一步分析单一职责原则：
- Sunny软件公司开发人员针对某CRM（Customer Relationship Management，客户关系管理）系统中客户信息图形统计模块提出了如图1所示初始设计方案：
- 图1 初始设计方案结构图
- 在图1中，CustomerDataChart类中的方法说明如下：getConnection()方法用于连接数据库，findCustomers()用于查询所有的客户信息，createChart()用于创建图表，displayChart()用于显示图表。
- 现使用单一职责原则对其进行重构。
+Sunny软件公司开发人员针对某CRM（Customer Relationship Management，客户关系管理）系统中客户信息图形统计模块提出了如图1所示初始设计方案：
+图1 初始设计方案结构图
+在图1中，CustomerDataChart类中的方法说明如下：getConnection()方法用于连接数据库，findCustomers()用于查询所有的客户信息，createChart()用于创建图表，displayChart()用于显示图表。
+现使用单一职责原则对其进行重构。
 在图1中，CustomerDataChart类承担了太多的职责，既包含与数据库相关的方法，又包含与图表生成和显示相关的方法。如果在其他类中也需要连接数据库或者使用findCustomers()方法查询客户信息，则难以实现代码的重用。无论是修改数据库连接方式还是修改图表显示方式都需要修改该类，它不止一个引起它变化的原因，违背了单一职责原则。因此需要对该类进行拆分，使其满足单一职责原则，类CustomerDataChart可拆分为如下三个类：
 (1) DBUtil：负责连接数据库，包含数据库连接方法getConnection()；
 (2) CustomerDAO：负责操作数据库中的Customer表，包含对Customer表的增删改查等方法，如findCustomers()；
@@ -1397,8 +1624,11 @@ int b = 500; const int* a = &amp;amp;b; [1] int const *a = &amp;amp;b; [2] int* 
       <description>转载自https://blog.csdn.net/lovelion/article/details/17517213
 工厂模式是最常用的一类创建型设计模式，通常我们所说的工厂模式是指工厂方法模式，它也是使用频率最高的工厂模式。本章将要学习的简单工厂模式是工厂方法模式的“小弟”，它不属于GoF 23种设计模式，但在软件开发中应用也较为频繁，通常将它作为学习其他工厂模式的入门。此外，工厂方法模式还有一位“大哥”——抽象工厂模式。这三种工厂模式各具特色，难度也逐个加大，在软件开发中它们都得到了广泛的应用，成为面向对象软件中常用的创建对象的工具。
 一、图表库的设计 🔗 Sunny软件公司欲基于Java语言开发一套图表库，该图表库可以为应用系统提供各种不同外观的图表，例如柱状图、饼状图、折线图等。Sunny软件公司图表库设计人员希望为应用系统开发人员提供一套灵活易用的图表库，而且可以较为方便地对图表库进行扩展，以便能够在将来增加一些新类型的图表。
- Sunny软件公司图表库设计人员提出了一个初始设计方案，将所有图表的实现代码封装在一个Chart类中，其框架代码如下所示：
-class Chart { private String type; //图表类型  public Chart(Object[][] data, String type) { this.type = type; if (type.equalsIgnoreCase(&amp;#34;histogram&amp;#34;)) {  //初始化柱状图 } else if (type.equalsIgnoreCase(&amp;#34;pie&amp;#34;)) {  //初始化饼状图 } else if (type.equalsIgnoreCase(&amp;#34;line&amp;#34;)) {  //初始化折线图 } }  public void display() { if (this.type.equalsIgnoreCase(&amp;#34;histogram&amp;#34;)) {  //显示柱状图 } else if (this.type.equalsIgnoreCase(&amp;#34;pie&amp;#34;)) {  //显示饼状图 } else if (this.type.equalsIgnoreCase(&amp;#34;line&amp;#34;)) {  //显示折线图 }	} } 客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。</description>
+Sunny软件公司图表库设计人员提出了一个初始设计方案，将所有图表的实现代码封装在一个Chart类中，其框架代码如下所示：
+class Chart { private String type; //图表类型 public Chart(Object[][] data, String type) { this.type = type; if (type.equalsIgnoreCase(&amp;#34;histogram&amp;#34;)) { //初始化柱状图 } else if (type.equalsIgnoreCase(&amp;#34;pie&amp;#34;)) { //初始化饼状图 } else if (type.equalsIgnoreCase(&amp;#34;line&amp;#34;)) { //初始化折线图 } } public void display() { if (this.type.equalsIgnoreCase(&amp;#34;histogram&amp;#34;)) { //显示柱状图 } else if (this.type.equalsIgnoreCase(&amp;#34;pie&amp;#34;)) { //显示饼状图 } else if (this.type.equalsIgnoreCase(&amp;#34;line&amp;#34;)) { //显示折线图 }	} } 客户端代码通过调用Chart类的构造函数来创建图表对象，根据参数type的不同可以得到不同类型的图表，然后再调用display()方法来显示相应的图表。
+不难看出，Chart类是一个“巨大的”类，在该类的设计中存在如下几个问题：
+(1) 在Chart类中包含很多“if…else…”代码块，整个类的代码相当冗长，代码越长，阅读难度、维护难度和测试难度也越大；而且大量条件语句的存在还将影响系统的性能，程序在执行过程中需要做大量的条件判断。
+(2) Chart类的职责过重，它负责初始化和显示所有的图表对象，将各种图表对象的初始化代码和显示代码集中在一个类中实现，违反了“单一职责原则”，不利于类的重用和维护；而且将大量的对象初始化代码都写在构造函数中将导致构造函数非常庞大，对象在创建时需要进行条件判断，降低了对象创建的效率。</description>
     </item>
     
     <item>
@@ -1469,10 +1699,11 @@ class Chart { private String type; //图表类型  public Chart(Object[][] data,
       <pubDate>Wed, 22 Dec 2021 23:41:54 +0800</pubDate>
       
       <guid>/posts/2021-12-22-oop/</guid>
-      <description>面向对象思想 🔗 面向对象思想  一、三大特性  封装 继承 多态   二、类图  泛化关系 (Generalization) 实现关系 (Realization) 聚合关系 (Aggregation) 组合关系 (Composition) 关联关系 (Association) 依赖关系 (Dependency)   三、设计原则  S.O.L.I.D 其他常见原则   参考资料    一、三大特性 🔗封装 🔗利用抽象数据类型将数据和基于数据的操作封装在一起，使其构成一个不可分割的独立实体。数据被保护在抽象数据类型的内部，尽可能地隐藏内部的细节，只保留一些对外的接口使其与外部发生联系。用户无需关心对象内部的细节，但可以通过对象对外提供的接口来访问该对象。
+      <description>面向对象思想 🔗面向对象思想 一、三大特性 封装 继承 多态 二、类图 泛化关系 (Generalization) 实现关系 (Realization) 聚合关系 (Aggregation) 组合关系 (Composition) 关联关系 (Association) 依赖关系 (Dependency) 三、设计原则 S.O.L.I.D 其他常见原则 参考资料 一、三大特性 🔗封装 🔗利用抽象数据类型将数据和基于数据的操作封装在一起，使其构成一个不可分割的独立实体。数据被保护在抽象数据类型的内部，尽可能地隐藏内部的细节，只保留一些对外的接口使其与外部发生联系。用户无需关心对象内部的细节，但可以通过对象对外提供的接口来访问该对象。
 优点：
- 减少耦合：可以独立地开发、测试、优化、使用、理解和修改 减轻维护的负担：可以更容易被理解，并且在调试的时候可以不影响其他模块 有效地调节性能：可以通过剖析来确定哪些模块影响了系统的性能 提高软件的可重用性 降低了构建大型系统的风险：即使整个系统不可用，但是这些独立的模块却有可能是可用的  以下 Person 类封装 name、gender、age 等属性，外界只能通过 get() 方法获取一个 Person 对象的 name 属性和 gender 属性，而无法获取 age 属性，但是 age 属性可以供 work() 方法使用。
-注意到 gender 属性使用 int 数据类型进行存储，封装使得用户注意不到这种实现细节。并且在需要修改 gender 属性使用的数据类型时，也可以在不影响客户端代码的情况下进行。</description>
+减少耦合：可以独立地开发、测试、优化、使用、理解和修改 减轻维护的负担：可以更容易被理解，并且在调试的时候可以不影响其他模块 有效地调节性能：可以通过剖析来确定哪些模块影响了系统的性能 提高软件的可重用性 降低了构建大型系统的风险：即使整个系统不可用，但是这些独立的模块却有可能是可用的 以下 Person 类封装 name、gender、age 等属性，外界只能通过 get() 方法获取一个 Person 对象的 name 属性和 gender 属性，而无法获取 age 属性，但是 age 属性可以供 work() 方法使用。
+注意到 gender 属性使用 int 数据类型进行存储，封装使得用户注意不到这种实现细节。并且在需要修改 gender 属性使用的数据类型时，也可以在不影响客户端代码的情况下进行。
+public class Person { private String name; private int gender; private int age; public String getName() { return name; } public String getGender() { return gender == 0 ?</description>
     </item>
     
     <item>
@@ -1481,21 +1712,22 @@ class Chart { private String type; //图表类型  public Chart(Object[][] data,
       <pubDate>Wed, 22 Dec 2021 23:37:55 +0800</pubDate>
       
       <guid>/posts/2021-12-22-cache/</guid>
-      <description>缓存 🔗 缓存  一、缓存特征 二、缓存位置 三、CDN 四、缓存问题 五、数据分布 六、一致性哈希 七、LRU 参考资料    一、缓存特征 🔗命中率 🔗当某个请求能够通过访问缓存而得到响应时，称为缓存命中。
+      <description>缓存 🔗缓存 一、缓存特征 二、缓存位置 三、CDN 四、缓存问题 五、数据分布 六、一致性哈希 七、LRU 参考资料 一、缓存特征 🔗命中率 🔗当某个请求能够通过访问缓存而得到响应时，称为缓存命中。
 缓存命中率越高，缓存的利用率也就越高。
 最大空间 🔗缓存通常位于内存中，内存的空间通常比磁盘空间小的多，因此缓存的最大空间不可能非常大。
 当缓存存放的数据量超过最大空间时，就需要淘汰部分数据来存放新到达的数据。
-淘汰策略 🔗  FIFO（First In First Out）：先进先出策略，在实时性的场景下，需要经常访问最新的数据，那么就可以使用 FIFO，使得最先进入的数据（最晚的数据）被淘汰。
-  LRU（Least Recently Used）：最近最久未使用策略，优先淘汰最久未使用的数据，也就是上次被访问时间距离现在最久的数据。该策略可以保证内存中的数据都是热点数据，也就是经常被访问的数据，从而保证缓存命中率。
-  LFU（Least Frequently Used）：最不经常使用策略，优先淘汰一段时间内使用次数最少的数据。
-  二、缓存位置 🔗浏览器 🔗当 HTTP 响应允许进行缓存时，浏览器会将 HTML、CSS、JavaScript、图片等静态资源进行缓存。
+淘汰策略 🔗 FIFO（First In First Out）：先进先出策略，在实时性的场景下，需要经常访问最新的数据，那么就可以使用 FIFO，使得最先进入的数据（最晚的数据）被淘汰。
+LRU（Least Recently Used）：最近最久未使用策略，优先淘汰最久未使用的数据，也就是上次被访问时间距离现在最久的数据。该策略可以保证内存中的数据都是热点数据，也就是经常被访问的数据，从而保证缓存命中率。
+LFU（Least Frequently Used）：最不经常使用策略，优先淘汰一段时间内使用次数最少的数据。
+二、缓存位置 🔗浏览器 🔗当 HTTP 响应允许进行缓存时，浏览器会将 HTML、CSS、JavaScript、图片等静态资源进行缓存。
 ISP 🔗网络服务提供商（ISP）是网络访问的第一跳，通过将数据缓存在 ISP 中能够大大提高用户的访问速度。
 反向代理 🔗反向代理位于服务器之前，请求与响应都需要经过反向代理。通过将数据缓存在反向代理，在用户请求反向代理时就可以直接使用缓存进行响应。
 本地缓存 🔗使用 Guava Cache 将数据缓存在服务器本地内存中，服务器代码可以直接读取本地内存中的缓存，速度非常快。
 分布式缓存 🔗使用 Redis、Memcache 等分布式缓存将数据缓存在分布式缓存系统中。
 相对于本地缓存来说，分布式缓存单独部署，可以根据需求分配硬件资源。不仅如此，服务器集群都可以访问分布式缓存，而本地缓存需要在服务器集群之间进行同步，实现难度和性能开销上都非常大。
 数据库缓存 🔗MySQL 等数据库管理系统具有自己的查询缓存机制来提高查询效率。
-Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数据类型包装类的创建效率，设计了字符串常量池及 Byte、Short、Character、Integer、Long、Boolean 这六种包装类缓冲池。</description>
+Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数据类型包装类的创建效率，设计了字符串常量池及 Byte、Short、Character、Integer、Long、Boolean 这六种包装类缓冲池。
+CPU 多级缓存 🔗CPU 为了解决运算速度与主存 IO 速度不匹配的问题，引入了多级缓存结构，同时使用 MESI 等缓存一致性协议来解决多核 CPU 缓存数据一致性的问题。</description>
     </item>
     
     <item>
@@ -1504,7 +1736,10 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
       <pubDate>Wed, 22 Dec 2021 23:34:10 +0800</pubDate>
       
       <guid>/posts/2021-12-22-redis/</guid>
-      <description>Redis 🔗 Redis  一、概述 二、数据类型  STRING LIST SET HASH ZSET   三、数据结构  字典 跳跃表   四、使用场景  计数器 缓存 查找表 消息队列 会话缓存 分布式锁实现 其它   五、Redis 与 Memcached  数据类型 数据持久化 分布式 内存管理机制   六、键的过期时间 七、数据淘汰策略 八、持久化  RDB 持久化 AOF 持久化   九、事务 十、事件  文件事件 时间事件 事件的调度与执行   十一、复制  连接过程 主从链   十二、Sentinel 十三、分片 十四、一个简单的论坛系统分析  文章信息 点赞功能 对文章进行排序   参考资料    一、概述 🔗Redis 是速度非常快的非关系型（NoSQL）内存键值数据库，可以存储键和五种不同类型的值之间的映射。</description>
+      <description>Redis 🔗Redis 一、概述 二、数据类型 STRING LIST SET HASH ZSET 三、数据结构 字典 跳跃表 四、使用场景 计数器 缓存 查找表 消息队列 会话缓存 分布式锁实现 其它 五、Redis 与 Memcached 数据类型 数据持久化 分布式 内存管理机制 六、键的过期时间 七、数据淘汰策略 八、持久化 RDB 持久化 AOF 持久化 九、事务 十、事件 文件事件 时间事件 事件的调度与执行 十一、复制 连接过程 主从链 十二、Sentinel 十三、分片 十四、一个简单的论坛系统分析 文章信息 点赞功能 对文章进行排序 参考资料 一、概述 🔗Redis 是速度非常快的非关系型（NoSQL）内存键值数据库，可以存储键和五种不同类型的值之间的映射。
+键的类型只能为字符串，值支持五种数据类型：字符串、列表、集合、散列表、有序集合。
+Redis 支持很多特性，例如将内存中的数据持久化到硬盘中，使用复制来扩展读性能，使用分片来扩展写性能。
+二、数据类型 🔗 数据类型 可以存储的值 操作 STRING 字符串、整数或者浮点数 对整个字符串或者字符串的其中一部分执行操作&amp;lt;/br&amp;gt; 对整数和浮点数执行自增或者自减操作 LIST 列表 从两端压入或者弹出元素 &amp;lt;/br&amp;gt; 对单个或者多个元素进行修剪，&amp;lt;/br&amp;gt; 只保留一个范围内的元素 SET 无序集合 添加、获取、移除单个元素&amp;lt;/br&amp;gt; 检查一个元素是否存在于集合中&amp;lt;/br&amp;gt; 计算交集、并集、差集&amp;lt;/br&amp;gt; 从集合里面随机获取元素 HASH 包含键值对的无序散列表 添加、获取、移除单个键值对&amp;lt;/br&amp;gt; 获取所有键值对&amp;lt;/br&amp;gt; 检查某个键是否存在 ZSET 有序集合 添加、获取、删除元素&amp;lt;/br&amp;gt; 根据分值范围或者成员来获取元素&amp;lt;/br&amp;gt; 计算一个键的排名 What Redis data structures look like</description>
     </item>
     
     <item>
@@ -1513,7 +1748,8 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
       <pubDate>Wed, 22 Dec 2021 23:32:38 +0800</pubDate>
       
       <guid>/posts/2021-12-22-sqldemo/</guid>
-      <description>SQL 练习 🔗 SQL 练习  595. Big Countries 627. Swap Salary 620. Not Boring Movies 596. Classes More Than 5 Students 182. Duplicate Emails 196. Delete Duplicate Emails 175. Combine Two Tables 181. Employees Earning More Than Their Managers 183. Customers Who Never Order 184. Department Highest Salary 176. Second Highest Salary 177. Nth Highest Salary 178. Rank Scores 180. Consecutive Numbers 626. Exchange Seats    595. Big Countries 🔗https://leetcode.</description>
+      <description>SQL 练习 🔗SQL 练习 595. Big Countries 627. Swap Salary 620. Not Boring Movies 596. Classes More Than 5 Students 182. Duplicate Emails 196. Delete Duplicate Emails 175. Combine Two Tables 181. Employees Earning More Than Their Managers 183. Customers Who Never Order 184. Department Highest Salary 176. Second Highest Salary 177. Nth Highest Salary 178. Rank Scores 180. Consecutive Numbers 626. Exchange Seats 595. Big Countries 🔗https://leetcode.com/problems/big-countries/description/
+Description 🔗+-----------------+------------+------------+--------------+---------------+ | name | continent | area | population | gdp | +-----------------+------------+------------+--------------+---------------+ | Afghanistan | Asia | 652230 | 25500100 | 20343000 | | Albania | Europe | 28748 | 2831741 | 12960000 | | Algeria | Africa | 2381741 | 37100000 | 188681000 | | Andorra | Europe | 468 | 78115 | 3712000 | | Angola | Africa | 1246700 | 20609294 | 100990000 | +-----------------+------------+------------+--------------+---------------+ 查找面积超过 3,000,000 或者人口数超过 25,000,000 的国家。</description>
     </item>
     
     <item>
@@ -1522,7 +1758,9 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
       <pubDate>Wed, 22 Dec 2021 23:30:39 +0800</pubDate>
       
       <guid>/posts/2021-12-22-mysql/</guid>
-      <description>MySQL 🔗 MySQL  一、索引  B+ Tree 原理 MySQL 索引 索引优化 索引的优点 索引的使用条件   二、查询性能优化  使用 Explain 进行分析 优化数据访问 重构查询方式   三、存储引擎  InnoDB MyISAM 比较   四、数据类型  整型 浮点数 字符串 时间和日期   五、切分  水平切分 垂直切分 Sharding 策略 Sharding 存在的问题   六、复制  主从复制 读写分离   参考资料    一、索引 🔗B+ Tree 原理 🔗1. 数据结构 🔗B Tree 指的是 Balance Tree，也就是平衡树。平衡树是一颗查找树，并且所有叶子节点位于同一层。</description>
+      <description>MySQL 🔗MySQL 一、索引 B+ Tree 原理 MySQL 索引 索引优化 索引的优点 索引的使用条件 二、查询性能优化 使用 Explain 进行分析 优化数据访问 重构查询方式 三、存储引擎 InnoDB MyISAM 比较 四、数据类型 整型 浮点数 字符串 时间和日期 五、切分 水平切分 垂直切分 Sharding 策略 Sharding 存在的问题 六、复制 主从复制 读写分离 参考资料 一、索引 🔗B+ Tree 原理 🔗1. 数据结构 🔗B Tree 指的是 Balance Tree，也就是平衡树。平衡树是一颗查找树，并且所有叶子节点位于同一层。
+B+ Tree 是基于 B Tree 和叶子节点顺序访问指针进行实现，它具有 B Tree 的平衡性，并且通过顺序访问指针来提高区间查询的性能。
+在 B+ Tree 中，一个节点中的 key 从左到右非递减排列，如果某个指针的左右相邻 key 分别是 keyi 和 keyi+1，且不为 null，则该指针指向节点的所有 key 大于等于 keyi 且小于等于 keyi+1。</description>
     </item>
     
     <item>
@@ -1531,7 +1769,10 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
       <pubDate>Wed, 22 Dec 2021 23:28:00 +0800</pubDate>
       
       <guid>/posts/2021-12-22-database/</guid>
-      <description>数据库系统原理 🔗 数据库系统原理  一、事务  概念 ACID AUTOCOMMIT   二、并发一致性问题  丢失修改 读脏数据 不可重复读 幻影读   三、封锁  封锁粒度 封锁类型 封锁协议 MySQL 隐式与显式锁定   四、隔离级别  未提交读（READ UNCOMMITTED） 提交读（READ COMMITTED） 可重复读（REPEATABLE READ） 可串行化（SERIALIZABLE）   五、多版本并发控制  基本思想 版本号 Undo 日志 ReadView 快照读与当前读   六、Next-Key Locks  Record Locks Gap Locks Next-Key Locks   七、关系数据库设计理论  函数依赖 异常 范式   八、ER 图  实体的三种联系 表示出现多次的关系 联系的多向性 表示子类   参考资料    一、事务 🔗概念 🔗事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。</description>
+      <description>数据库系统原理 🔗数据库系统原理 一、事务 概念 ACID AUTOCOMMIT 二、并发一致性问题 丢失修改 读脏数据 不可重复读 幻影读 三、封锁 封锁粒度 封锁类型 封锁协议 MySQL 隐式与显式锁定 四、隔离级别 未提交读（READ UNCOMMITTED） 提交读（READ COMMITTED） 可重复读（REPEATABLE READ） 可串行化（SERIALIZABLE） 五、多版本并发控制 基本思想 版本号 Undo 日志 ReadView 快照读与当前读 六、Next-Key Locks Record Locks Gap Locks Next-Key Locks 七、关系数据库设计理论 函数依赖 异常 范式 八、ER 图 实体的三种联系 表示出现多次的关系 联系的多向性 表示子类 参考资料 一、事务 🔗概念 🔗事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。
+ACID 🔗1. 原子性（Atomicity） 🔗事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。
+回滚可以用回滚日志（Undo Log）来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。
+2. 一致性（Consistency） 🔗数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</description>
     </item>
     
     <item>
@@ -1540,7 +1781,7 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
       <pubDate>Tue, 21 Dec 2021 23:21:29 +0800</pubDate>
       
       <guid>/posts/2021-12-21-3/</guid>
-      <description> 運命を信じますか
+      <description>運命を信じますか
 【相信命运吗】
 そしてそれに従いますか
 【顺从于命运吗】
@@ -1604,8 +1845,7 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
 ひとつだけ教えて下さい
 【只告诉我一件事】
 倖せになれるでしょうか
-【会幸福吗】
- </description>
+【会幸福吗】</description>
     </item>
     
     <item>
@@ -1614,7 +1854,7 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
       <pubDate>Tue, 21 Dec 2021 23:09:27 +0800</pubDate>
       
       <guid>/posts/2021-12-21-2/</guid>
-      <description> 潮風を頬にうけ
+      <description>潮風を頬にうけ
 裸足で駆けてく
 ふり向けば白い砂
 わたしの足跡
@@ -1643,8 +1883,7 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
 潮風を頬にうけ
 裸足で駆けてく
 ふり向けば白い砂
-わたしの足跡
- </description>
+わたしの足跡</description>
     </item>
     
     <item>
@@ -1681,8 +1920,9 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
 ホルディヒヒヤ ホルディクク
 ホルディヒヒヤ ホルディクク
 ホルディヒヒヤ ホー
-  在寂静的山间小屋里 有树叶的芳香，有风儿的沙沙声 度假 度假 嘿嘿呀 度假 库库 度假 嘿嘿呀 度假 库库
-度假 嘿嘿呀 度假 库库</description>
+在寂静的山间小屋里 有树叶的芳香，有风儿的沙沙声 度假 度假 嘿嘿呀 度假 库库 度假 嘿嘿呀 度假 库库
+度假 嘿嘿呀 度假 库库
+度假 嘿嘿呀 嚎</description>
     </item>
     
     <item>
@@ -1723,7 +1963,7 @@ Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数�
 ランララララララー
 幸せの歌
 さあ歌いましょう ドレミファソラシドソド
-  do是甜甜圈的do
+do是甜甜圈的do
 le是柠檬的le
 mi是大家的mi
 fa是战斗的fa
@@ -1781,7 +2021,7 @@ Dream…
 その手で瞳を抱きしめて
 私　いつだって
 あなたの愛になりたい
-  Dream&amp;hellip;
+Dream&amp;hellip;
 收集金色的繁星
 胡乱写着你的姓名
 Dream&amp;hellip;
@@ -1807,7 +2047,8 @@ Dream&amp;hellip;
 沁入梦乡
 在不断追寻着你
 用双手夺下你的视线
-我总有一天</description>
+我总有一天
+成为你的所爱</description>
     </item>
     
     <item>
@@ -1816,7 +2057,7 @@ Dream&amp;hellip;
       <pubDate>Mon, 20 Dec 2021 23:40:15 +0800</pubDate>
       
       <guid>/posts/2021-12-20/</guid>
-      <description> あなたから苦しみを奪えたその時
+      <description>あなたから苦しみを奪えたその時
 私にも生きてゆく勇気が湧いてくる
 あなたと出会うまでは孤独なさすらい人
 その手のぬくもりを 感じさせて
@@ -1836,7 +2077,7 @@ Dream&amp;hellip;
 旅に疲れた時
 ただ心の友と
 私を呼んで
-  当你的痛苦消失不见时
+当你的痛苦消失不见时
 我也满怀生存的勇气
 在未遇见你之前一直都是孤单一人
 让我感受双手的温馨
@@ -1855,8 +2096,7 @@ Dream&amp;hellip;
 爱如同催眠曲
 当旅途劳顿时
 只有交心的朋友
-对我呼喊着
- </description>
+对我呼喊着</description>
     </item>
     
     <item>
@@ -1875,20 +2115,19 @@ Dream&amp;hellip;
       <pubDate>Fri, 17 Dec 2021 22:07:23 +0800</pubDate>
       
       <guid>/posts/2021-12-17-hope-lose/</guid>
-      <description> 从小时候就开始数了。
+      <description>从小时候就开始数了。
 数到懂事、数到成熟,
 还没有数清。
 天上的星星为什么数不清呢？
 像记忆和幻想，
 永远背负着固执的谜……
-  不要失望，
+不要失望，
 失望会使我们衰老，
 趁我们还年轻，
 抬起头来，让我们数星星；
 也许，我们能数得清；
 也许，我们能看到真相；
-也许，我们能找到希望……
- </description>
+也许，我们能找到希望……</description>
     </item>
     
     <item>
@@ -1903,7 +2142,7 @@ Dream&amp;hellip;
 用数组存储顺序表，意味着要分配固定长度的数组空间，因此，必须确定数组的长度。
 顺序表中数据元素的地址是其序号的线性函数，只要确定了存储顺序表的起始地址（即基地址），计算任意一个元素的存储地址的时间是相等的，具有这一特点的存储结构称为随机存储结构。
 顺序表具有以下缺点：
- 插入和删除操作需要移动大量元素。在顺序表上做插入和删除操作，等概率情况下，平均要移动表中一半的元素。 表的容量难以确定。由于数组的长度必须事先确定，因为此，当线性表的长度变化较大时，难以确定合适的存储规模。 造成存储空间的“碎片”。数组要求占用连续的存储空间，即使存储单元数超过所需的数目，如果不连续也不能使用，造成存储空间的“碎片”现象。  造成上述顺序表的缺点的根本原因是静态存储分配，为了克服顺序表的缺点，可以采用动态存储分配连存储线性表，也就是采用链接存储结构。
+插入和删除操作需要移动大量元素。在顺序表上做插入和删除操作，等概率情况下，平均要移动表中一半的元素。 表的容量难以确定。由于数组的长度必须事先确定，因为此，当线性表的长度变化较大时，难以确定合适的存储规模。 造成存储空间的“碎片”。数组要求占用连续的存储空间，即使存储单元数超过所需的数目，如果不连续也不能使用，造成存储空间的“碎片”现象。 造成上述顺序表的缺点的根本原因是静态存储分配，为了克服顺序表的缺点，可以采用动态存储分配连存储线性表，也就是采用链接存储结构。
 三、线性表的链接存储结构及实现 🔗单链表 🔗单链表是用一组任意的存储单元存放线性表的元素，这组存储单元可以连续也可以不连续，甚至可以零散分布在内存中的任意位置。每个存储单元在存储数据元素的同时，还必须存储其后继元素所在的地址信息，这个地址信息称为指针。这两部分组成数据元素的存储映射，称为节点。
 单链表只有一个指针域（next）。
 头节点：无论单链表是否为空，头指针始终指向头节点，因此空表和非空表的处理统一了。
@@ -1923,20 +2162,20 @@ Dream&amp;hellip;
       <pubDate>Wed, 15 Dec 2021 12:35:27 +0800</pubDate>
       
       <guid>/posts/cppbase/</guid>
-      <description>一、语法基础 🔗 指针和引用的概念 指针与内存关系 程序编译过程 static、const、#define的用法和区别 C和C++区别 内存模型 内存中的栈和堆分配  二、面对对象基础 🔗  面向对象理解
-  析构函数
-  构造函数
-  拷贝构造
-  多态
-  纯虚函数和虚函数
-  虚函数实现机制
-  虚函数表
-  访问限定符 public、private、protected
-  继承原理、虚继承、菱形继承
-  静态绑定和动态绑定
-  new/delete和malloc/free
-  重载、重写和隐藏
-  三、语法进阶 🔗 智能指针 左值、右值引用和move语义 类型转换方式 常用的设计模式 线程安全的单例模式 内存溢出和内存泄漏 C++11新特性 静态链接库和动态链接库  四、STL 标准模板库 🔗 迭代器、空间配置器理解 常用容器特点、用法以及底层实现vector、list、deque、set、map、unorderedmap  </description>
+      <description>一、语法基础 🔗 指针和引用的概念 指针与内存关系 程序编译过程 static、const、#define的用法和区别 C和C++区别 内存模型 内存中的栈和堆分配 二、面对对象基础 🔗 面向对象理解
+析构函数
+构造函数
+拷贝构造
+多态
+纯虚函数和虚函数
+虚函数实现机制
+虚函数表
+访问限定符 public、private、protected
+继承原理、虚继承、菱形继承
+静态绑定和动态绑定
+new/delete和malloc/free
+重载、重写和隐藏
+三、语法进阶 🔗 智能指针 左值、右值引用和move语义 类型转换方式 常用的设计模式 线程安全的单例模式 内存溢出和内存泄漏 C++11新特性 静态链接库和动态链接库 四、STL 标准模板库 🔗 迭代器、空间配置器理解 常用容器特点、用法以及底层实现vector、list、deque、set、map、unorderedmap </description>
     </item>
     
     <item>
@@ -1949,7 +2188,7 @@ Dream&amp;hellip;
 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使用 了QPainter 和 的QPaintDevice ，除非他们创建自己的设备的种类从应用程序员隐藏。
 这种方法的主要好处是所有绘制都遵循相同的绘制管道，从而可以轻松添加对新功能的支持并为不受支持的功能提供默认实现。
 一、绘图示例 🔗通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。
-示例1 直接绘制： 🔗MainWindow::MainWindow(QWidget *parent)  : QMainWindow(parent) {  QLabel *label = new QLabel(this);  label-&amp;gt;resize(100, 100);   QPixmap pixmap(100, 100);  pixmap.fill(Qt::gray);   QPainter painter(&amp;amp;pixmap);  painter.drawRect(10, 10, 80, 80);  painter.drawText(20, 30, &amp;#34;Hello World&amp;#34;);   label-&amp;gt;setPixmap(pixmap);   QVBoxLayout *layout = new QVBoxLayout();  layout-&amp;gt;addWidget(label);  this-&amp;gt;setLayout(layout);  this-&amp;gt;resize(200, 200); } 运行结果：</description>
+示例1 直接绘制： 🔗MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) { QLabel *label = new QLabel(this); label-&amp;gt;resize(100, 100); QPixmap pixmap(100, 100); pixmap.fill(Qt::gray); QPainter painter(&amp;amp;pixmap); painter.drawRect(10, 10, 80, 80); painter.drawText(20, 30, &amp;#34;Hello World&amp;#34;); label-&amp;gt;setPixmap(pixmap); QVBoxLayout *layout = new QVBoxLayout(); layout-&amp;gt;addWidget(label); this-&amp;gt;setLayout(layout); this-&amp;gt;resize(200, 200); } 运行结果：</description>
     </item>
     
     <item>
@@ -1960,9 +2199,10 @@ QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可
       <guid>/posts/object/</guid>
       <description>对象模型 🔗标准的 C++ 对象模型为对象范例提供了非常有效的运行时支持。 但是它的静态特性在某些问题领域是不灵活的。 图形用户界面编程是一个需要运行时效率和高度灵活性的领域。 Qt 通过将 C++ 的速度与 Qt 对象模型的灵活性相结合来提供这一点。
 Qt 将这些特性添加到 C++ 中：
- 一种非常强大的无缝对象通信机制，称为 信号和槽 可查询和可设计的 对象属性 强大的 事件和事件过滤器 上下文 用于国际化的 字符串翻译 复杂的间隔驱动 计时器 ，可以在事件驱动的 GUI 中优雅地集成许多任务 分层和可查询 对象树 以自然方式组织对象所有权的 受保护的指针 ( QPointer ) 在引用的对象被销毁时自动设置为 0，这与普通的 C++ 指针不同，后者在对象被销毁时变成悬空指针 动态转换 跨库边界 。 支持 自定义类型 创建。
- 许多 Qt 功能是使用标准 C++ 技术实现的，基于 继承 QObject 的 。 其他的，比如对象通信机制和动态属性系统，需要 的 元对象系统 Qt自己的 提供 元对象编译器（moc） 。
-元对象系统是一个 C++ 扩展，使该语言更适合真正的组件 GUI 编程。</description>
+一种非常强大的无缝对象通信机制，称为 信号和槽 可查询和可设计的 对象属性 强大的 事件和事件过滤器 上下文 用于国际化的 字符串翻译 复杂的间隔驱动 计时器 ，可以在事件驱动的 GUI 中优雅地集成许多任务 分层和可查询 对象树 以自然方式组织对象所有权的 受保护的指针 ( QPointer ) 在引用的对象被销毁时自动设置为 0，这与普通的 C++ 指针不同，后者在对象被销毁时变成悬空指针 动态转换 跨库边界 。 支持 自定义类型 创建。
+许多 Qt 功能是使用标准 C++ 技术实现的，基于 继承 QObject 的 。 其他的，比如对象通信机制和动态属性系统，需要 的 元对象系统 Qt自己的 提供 元对象编译器（moc） 。
+元对象系统是一个 C++ 扩展，使该语言更适合真正的组件 GUI 编程。
+重要类 🔗这些类构成了 Qt 对象模型的基础。</description>
     </item>
     
     <item>
@@ -1974,17 +2214,17 @@ Qt 将这些特性添加到 C++ 中：
       <description>Qt 包含一组丰富的基础使能器，主要来自 Qt Core 模块。 Qt 使用这些促成因素来提供更高级别的 UI 和应用程序开发组件。 以下主题解释了最重要的促成因素，并展示了如何使用它们来实现 Qt 尚未提供的专门功能。
 对象、属性和事件 🔗该 QObject的 类构成Qt的对象模型的基础，是父类的许多Qt类的。 对象模型引入了许多机制，例如元对象系统，它允许运行时内省、操作和调用对象中的属性和方法。 它还作为 Qt 事件系统的基础，这是一种在 之间进行通信的低级方式 QObject 基于 的对象 。 Qt 的信号和槽机制提供了另一种高级通信形式。
 另外， QObject 通过 提供了一个简单的计时机制 QObject::startTimer () 。 或者， QTimer 类为计时器提供高级接口。
- 对象模型
+对象模型
 元对象系统
 物业系统
 事件系统
 信号和插槽
 —— 基于字符串和基于函子的连接之间的差异
 计时器
- 容器类 🔗容器 是一种数据结构，其实例是其他对象的集合。 容器的一些示例是：动态数组、队列、链表和关联数组。 Qt 提供了一组通用的、基于模板的容器类，用于在内存中构造数据。
+容器类 🔗容器 是一种数据结构，其实例是其他对象的集合。 容器的一些示例是：动态数组、队列、链表和关联数组。 Qt 提供了一组通用的、基于模板的容器类，用于在内存中构造数据。
 有关 请参阅 的完整列表 容器类 更多详细信息， 。
 国际化 🔗Qt 使用 Unicode 来编码可显示的文本字符串。 Unicode 为世界上所有常用的书写系统提供支持，是跨平台开发的理想选择。 还可以使用 Qt 强大的国际化系统编写应用程序，以通过一个代码库支持任意数量的不同语言。
- Qt 中的 Unicode Qt 国际化</description>
+Qt 中的 Unicode Qt 国际化</description>
     </item>
     
     <item>
@@ -1995,10 +2235,12 @@ Qt 将这些特性添加到 C++ 中：
       <guid>/posts/qvariant/</guid>
       <description>概述 🔗在本文档中，我们采用自定义类型并描述如何将其集成到 Qt 的对象模型中，以便可以像标准 Qt 类型一样存储它。 然后我们展示如何注册自定义类型以允许它在信号和插槽连接中使用。
 创建自定义类型 🔗在开始之前，我们需要确保我们正在创建的自定义类型满足 QMetaType 强加的所有要求。换言之，它必须提供：
- 公共默认构造函数 公共复制构造函数
+公共默认构造函数 公共复制构造函数
 公共析构函数
- 下列 Message类定义包括以下成员：
-class Message { public:  Message() = default;  ~Message() = default;  Message(const Message &amp;amp;) = default;  Message &amp;amp;operator=(const Message &amp;amp;) = default;   Message(const QString &amp;amp;body, const QStringList &amp;amp;headers);   QStringView body() const;  QStringList headers() const;  private:  QString m_body;  QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。</description>
+下列 Message类定义包括以下成员：
+class Message { public: Message() = default; ~Message() = default; Message(const Message &amp;amp;) = default; Message &amp;amp;operator=(const Message &amp;amp;) = default; Message(const QString &amp;amp;body, const QStringList &amp;amp;headers); QStringView body() const; QStringList headers() const; private: QString m_body; QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。
+使用 QMetaType 声明类型 🔗这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。
+Qt 中负责自定义类型的类是 QMetaType 。 为了让这个类知道类型，我们在定义它的头文件中的类上 添加 Q_DECLARE_METATYPE() 宏：</description>
     </item>
     
     <item>
@@ -2008,36 +2250,52 @@ class Message { public:  Message() = default;  ~Message() = default;  Message(co
       
       <guid>/posts/2021-12-12-trappfamily/</guid>
       <description>一 🔗 耶拉：我觉得我好像做了不该做的事情耶
-  玛莉亚：守规矩当然是很重要的事情
+玛莉亚：守规矩当然是很重要的事情
 玛莉亚：但是为了交我这个举世无双的朋友
 玛莉亚：而不守规矩的话
 玛莉亚：是不会被上帝责骂的
-  耶拉：为什么跟你交朋友必须爬到高塔上面才行呢……
-  玛莉亚：来吧
-  玛莉亚：啊，好棒哦
+耶拉：为什么跟你交朋友必须爬到高塔上面才行呢……
+玛莉亚：来吧
+玛莉亚：啊，好棒哦
 玛莉亚：耶拉
 玛莉亚：你看过阿尔卑斯山的夕阳吗
-  耶拉：我连阿尔卑斯山都没有去过呢
+耶拉：我连阿尔卑斯山都没有去过呢
 耶拉：因为我家里面很穷 所以都忙着帮忙家务
 耶拉：我想只有有钱人……
-  玛莉亚：才不呢 因为我父母双亡
+玛莉亚：才不呢 因为我父母双亡
 玛莉亚：我是靠着奖学金到师范学校念书才刚刚毕业而已
 玛莉亚：为了庆祝顺利毕业
 玛莉亚：我和宿舍室友到阿尔卑斯山去露营
 玛莉亚：就在那时候
 玛莉亚：我突然决定要当修女
 玛莉亚：所以就马上到这里来了
-  “我到底能做什么呢 “
+“我到底能做什么呢 “
 “要做什么才好呢 “
-  玛莉亚：我心里的话 玛莉亚：你是第一个知道的喔
-  耶拉：谢谢你 玛利亚
-  桃乐丝修道长：你们两个赶快下来
-  玛莉亚：啊
-  桃乐丝修道长：玛莉亚
+玛莉亚：我心里的话 玛莉亚：你是第一个知道的喔
+耶拉：谢谢你 玛利亚
+桃乐丝修道长：你们两个赶快下来
+玛莉亚：啊
+桃乐丝修道长：玛莉亚
 桃乐丝修道长：你非要我随时在你身旁管教你不可吗
-  玛莉亚：对不起 修道长
- 二 🔗 玛莉亚：早上好 修道长
-  桃乐丝修道长：从现在到中午为止不准跟任何人说话</description>
+玛莉亚：对不起 修道长
+二 🔗 玛莉亚：早上好 修道长
+桃乐丝修道长：从现在到中午为止不准跟任何人说话
+玛莉亚：是
+桃乐丝修道长：早上的晨祷 一个半小时
+桃乐丝修道长：用餐时间必须保持肃静
+桃乐丝修道长：不可以吹口哨！
+桃乐丝修道长：也不可以吹赞美歌！
+桃乐丝修道长：不可以帮别人做事
+桃乐丝修道长：玛莉亚
+桃乐丝修道长：一步一阶你懂不懂啊
+玛莉亚：可是 修道长 这样比较……
+桃乐丝修道长：不可以顶嘴 玛莉亚
+玛莉亚：对不起 修道长
+三 🔗 玛莉亚：如果能在森林里散步 那该多好啊
+玛莉亚：爬山也不错
+桃乐丝修道长：玛莉亚 玛莉亚 玛莉亚
+玛莉亚：是
+玛莉亚：对不起 修道长</description>
     </item>
     
     <item>
@@ -2046,13 +2304,13 @@ class Message { public:  Message() = default;  ~Message() = default;  Message(co
       <pubDate>Sun, 12 Dec 2021 22:07:23 +0800</pubDate>
       
       <guid>/posts/2021-12-12-saintseiya/</guid>
-      <description> 佛：沙加
+      <description>佛：沙加
 佛：沙加啊
 佛：有什么事让你如此悲伤
 佛：只有六岁的你
 佛：为什么每天都这么坐着
 佛：有什么事情让你如此忧心忡忡
-  沙加：今天
+沙加：今天
 沙加：我又看到冈底斯河中浮着好几具尸体
 沙加：在河岸上有好多来自印度各地的巡礼者在那里沐浴
 沙加：看他们的样子
@@ -2060,11 +2318,11 @@ class Message { public:  Message() = default;  ~Message() = default;  Message(co
 沙加：我所降生的这个国家
 沙加：为什么会这么贫穷呢
 沙加：难道人们是为了受苦受难而来到这个世上的吗
-  佛：沙加
+佛：沙加
 佛：这就是你悲伤的原因吗
-  沙加：当然了
+沙加：当然了
 沙加：谁会希望一个只有痛苦的人生呢
-  佛：那是不对的
+佛：那是不对的
 佛：因为有痛苦
 佛：所以快乐也一定会相应存在
 佛：反过来也是一样的
@@ -2075,7 +2333,7 @@ class Message { public:  Message() = default;  ~Message() = default;  Message(co
 佛：它一直在动着 变着
 佛：这就是无常
 佛：人的一生也是这样的
-  沙加：但是
+沙加：但是
 沙加：最后还是只有一死……
 沙加：这难道不可以说人生还是被悲伤所支配着吗
 沙加：活着的时候
@@ -2083,12 +2341,11 @@ class Message { public:  Message() = default;  ~Message() = default;  Message(co
 沙加：最后死亡还是把一切都化为虚无 沙加：那么人是为了什么而生的呢
 沙加：人想要去和死亡这种永恒的东西对抗
 沙加：根本就是不可能的啊
-  佛：沙加
+佛：沙加
 佛：你忘记了
-  沙加：忘记了？
-  佛：死并不是一切的终结
-佛：死不过是万物变化的一种……
- </description>
+沙加：忘记了？
+佛：死并不是一切的终结
+佛：死不过是万物变化的一种……</description>
     </item>
     
     <item>
@@ -2102,11 +2359,12 @@ It&amp;rsquo;s a world of hopes and a world of fears
 There&amp;rsquo;s so much that we share
 That it&amp;rsquo;s time we&amp;rsquo;re aware
 It&amp;rsquo;s a small world after all
-  It&amp;rsquo;s a small world after all
+It&amp;rsquo;s a small world after all
 It&amp;rsquo;s a small world after all
 It&amp;rsquo;s a small world after all
 It&amp;rsquo;s a small, small world
-  There is just one moon and one golden sun</description>
+There is just one moon and one golden sun
+And a smile means friendship to everyone</description>
     </item>
     
     <item>
@@ -2128,11 +2386,11 @@ It&amp;rsquo;s a small, small world
 The people ask me how
 How I&amp;rsquo;ve lived &amp;rsquo;til now
 I tell them &amp;ldquo;I don&amp;rsquo;t know&amp;rdquo;
-  I guess they understand
+I guess they understand
 How lonely life has been
 But life began again
 The day you took my hand
-  And yes, I know how lonely life can be
+And yes, I know how lonely life can be
 The shadows follow me
 And the night won&amp;rsquo;t set me free
 But I don&amp;rsquo;t let the evening get me down</description>
@@ -2144,13 +2402,13 @@ But I don&amp;rsquo;t let the evening get me down</description>
       <pubDate>Sat, 11 Dec 2021 15:18:33 +0800</pubDate>
       
       <guid>/posts/2021-12-11-6/</guid>
-      <description> 秋天该很好
+      <description>秋天该很好
 你若尚在场
 秋风即使带凉 亦漂亮
 深秋中的你填密我梦想
 就像落叶飞
 轻敲我窗
-  冬天该很好
+冬天该很好
 你若尚在场
 天空多灰
 我们亦放亮
@@ -2163,7 +2421,7 @@ But I don&amp;rsquo;t let the evening get me down</description>
 无人如你逗留我思潮上
 从没再疑问
 这个世界好得很
-  暑天该很好
+暑天该很好
 你若尚在场
 火一般的太阳在脸上
 烧得肌肤如情
@@ -2182,14 +2440,13 @@ But I don&amp;rsquo;t let the evening get me down</description>
 如离别你亦长处心灵上
 宁愿有遗憾
 亦愿和你远亦近
-  春天该很好
+春天该很好
 你若尚在场
 春风仿佛爱情在酝酿
 初春中的你
 撩动我幻想
 就像嫩绿草使
-春雨香
- </description>
+春雨香</description>
     </item>
     
     <item>
@@ -2198,7 +2455,7 @@ But I don&amp;rsquo;t let the evening get me down</description>
       <pubDate>Sat, 11 Dec 2021 15:18:31 +0800</pubDate>
       
       <guid>/posts/2021-12-11-5/</guid>
-      <description> 突然落下的夜晚
+      <description>突然落下的夜晚
 灯火已隔世般阑珊
 昨天已经去得很远
 我的窗前已模糊一片
@@ -2226,8 +2483,7 @@ But I don&amp;rsquo;t let the evening get me down</description>
 咿呀 咿呀
 我们曾在路上
 咿呀 咿呀
-待风将她埋葬
- </description>
+待风将她埋葬</description>
     </item>
     
     <item>
@@ -2244,7 +2500,7 @@ But I don&amp;rsquo;t let the evening get me down</description>
 涙だって　幸せのレッスン
 私らしく　両手を広げて
 Sing my song
-  傷つく事や　恋する気持ちを
+傷つく事や　恋する気持ちを
 恐れるよりも　見つめるのよ
 大切な物　大切な人に
 やさしくなれる それが愛ね
@@ -2252,10 +2508,10 @@ Sing my song
 何があるの?　夢の向こう側に
 待っていたい　両手を広げて
 Sing my song
-  涙だって　ときめきのレッスン
+涙だって　ときめきのレッスン
 青い空に　両手を広げて
 Sing my song
-  登上山丘 做個深呼吸
+登上山丘 做個深呼吸
 不要再戴著 笑容假面具
 畏懼膽小 是每個人都存在的
 要相信 明天依然能夠去展翅飛翔
@@ -2263,9 +2519,13 @@ Sing my song
 盡情流淚吧 必能引導走向幸福
 像我一樣 張開你的雙手
 Sing my song
-  令人悲傷 失戀的感覺
+令人悲傷 失戀的感覺
 不願去面對 感到很恐慌
-他很重要 是無法能放下的</description>
+他很重要 是無法能放下的
+這份情 就是溫柔美好的愛之回憶
+內心間 也在動盪著
+夢想的彼岸 究竟擁有怎樣景色
+不要猶豫 張開你的雙手</description>
     </item>
     
     <item>
@@ -2277,16 +2537,18 @@ Sing my song
       <description>Сонау алыс ауылда қалды-ау сұйген жар
 Аттанарда қош десе алмай болдым- ау зар
 Қайран жалған
-  Кер даланың шөліндеи құлазыды
+Кер даланың шөліндеи құлазыды
 Кең деуші еді Бұл дұние недеген тар
 Қайран жалған
-  Таңдай татыр шетіңе жетемін бе　Құлагер ат аяңдайды тепеңімде
+Таңдай татыр шетіңе жетемін бе　Құлагер ат аяңдайды тепеңімде
 Қайран жалған
-  Әзер тапқан алаштан дегдарім- ай
+Әзер тапқан алаштан дегдарім- ай
 Ай жүзіңді бір көре алмай кетемін бе
 Қайран жалған
-  Көш асады қайқайып қарлы таудан
-Егеи-егеи ел едік біз нарды сауған</description>
+Көш асады қайқайып қарлы таудан
+Егеи-егеи ел едік біз нарды сауған
+Қайран жалған
+Айырды ма шінімен туған жерден</description>
     </item>
     
     <item>
@@ -2295,7 +2557,7 @@ Sing my song
       <pubDate>Sat, 11 Dec 2021 13:35:54 +0800</pubDate>
       
       <guid>/posts/2021-12-11-2/</guid>
-      <description> 淡紅の秋桜が秋の日の
+      <description>淡紅の秋桜が秋の日の
 何気ない陽溜りに揺れている
 此頃涙脆くなった母が
 庭先でひとつ咳をする
@@ -2321,7 +2583,7 @@ Sing my song
 こんな小春日和の穏やかな日は
 もう少しあなたの子供で
 いさせてください
-  淡红色的秋樱在秋日
+淡红色的秋樱在秋日
 平淡的阳光中摇曳
 此刻 易哭的母亲
 在花园中轻咳一声
@@ -2345,8 +2607,7 @@ Sing my song
 我会努力走出我的人生之路
 在这风和日丽的秋日
 让我再多在您身边坐一会
-您的女儿
- </description>
+您的女儿</description>
     </item>
     
     <item>
@@ -2365,9 +2626,9 @@ Sing my song
       
       <guid>/posts/qlist/</guid>
       <description>介绍 🔗QList 类是提供动态数组的模板类。该类中的所有函数都是可重入的。另外两个常用的顺序容器 QStack 和 QQueue 继承自 Qlist。
-详细说明 🔗QList 是 Qt 的通用容器类之一。它将其项目存储在相邻的内存位置，并提供基于索引的快速访问。QVector  在 Qt 5 中曾经是一个不同的类，但现在是 QList 的一个简单别名。
-QList 和QVarLengthArray  提供类似的 API 和功能。它们通常可以互换，但会产生性能后果。以下是用例的概述：
- QList 应该是您的默认首选。 QVarLengthArray提供了一个在堆栈上保留空间的数组，但如果需要，可以动态地增长到堆上。用于通常较小的短寿命容器是很好的。 如果您需要一个真正的链表，它保证在列表中间插入恒定时间并使用迭代器到项目而不是索引，请使用 std::list。  </description>
+详细说明 🔗QList 是 Qt 的通用容器类之一。它将其项目存储在相邻的内存位置，并提供基于索引的快速访问。QVector 在 Qt 5 中曾经是一个不同的类，但现在是 QList 的一个简单别名。
+QList 和QVarLengthArray 提供类似的 API 和功能。它们通常可以互换，但会产生性能后果。以下是用例的概述：
+QList 应该是您的默认首选。 QVarLengthArray提供了一个在堆栈上保留空间的数组，但如果需要，可以动态地增长到堆上。用于通常较小的短寿命容器是很好的。 如果您需要一个真正的链表，它保证在列表中间插入恒定时间并使用迭代器到项目而不是索引，请使用 std::list。 </description>
     </item>
     
     <item>
@@ -2391,8 +2652,8 @@ QList 和QVarLengthArray  提供类似的 API 和功能。它们通常可以互�
 在实现您自己的隐式共享类时，请使用QSharedData和QSharedDataPointer类。
 详细的隐式共享 🔗如果对象即将更改并且引用计数大于 1，则隐式共享会自动将对象从共享块中分离。（这通常称为 copy-on-write 或者 value semantics。）
 隐式共享类可以控制其内部数据。在任何修改其数据的成员函数中，它会在修改数据之前自动分离。但是，请注意容器迭代器的特殊情况；请参阅隐式共享迭代器问题。
- 警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。
- 示例 🔗QPixmap p1, p2; p1.load(&amp;#34;image.bmp&amp;#34;); p2 = p1; // p1 and p2 share data  QPainter paint; paint.begin(&amp;amp;p2); // cuts p2 loose from p1 paint.drawText(0,50, &amp;#34;Hi&amp;#34;); paint.end(); 在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</description>
+警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。
+示例 🔗QPixmap p1, p2; p1.load(&amp;#34;image.bmp&amp;#34;); p2 = p1; // p1 and p2 share data QPainter paint; paint.begin(&amp;amp;p2); // cuts p2 loose from p1 paint.drawText(0,50, &amp;#34;Hi&amp;#34;); paint.end(); 在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。</description>
     </item>
     
     <item>
@@ -2408,7 +2669,7 @@ QList 和QVarLengthArray  提供类似的 API 和功能。它们通常可以互�
 容器类 🔗Qt 提供以下顺序容器：QList、QStack 和 QQueue。对于大多数应用程序，QList 是最好的类型。它提供了非常快速的追加。如果您确实需要链表，请使用 std::list。QStack 和 QQueue 是提供 LIFO 和 FIFO 语义的便利类。QList和QVector在 Qt 6 中被统一。两者都使用来自QVector的数据模型。QVector现在是QList的别名。
 Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet。“Multi”容器方便地支持与单个键关联的多个值。“散列”容器通过使用散列函数而不是对排序集的二分搜索来提供更快的查找。
 作为特殊情况，QCache 和 QContiguousCache 类在有限的缓存存储中提供了有效的对象散列查找。
-   类 简述     QList  这是迄今为止最常用的容器类。它存储可以通过索引访问的给定类型 (T) 的值列表。在内部，它在内存中的相邻位置存储一组给定类型的值。在列表的前面或中间插入可能会很慢，因为它可能导致大量项目必须在内存中移动一个位置。   QVarLengthArray &amp;lt;T, Prealloc &amp;gt; 这提供了一个低级的可变长度数组。在速度特别重要的地方，它可以代替QList使用。   QStack  这是QList 的一个便利子类，提供“后进先出”(LIFO) 语义。它向QList 中已有的函数添加了以下函数：push ()、pop () 和top ()。   QQueue  这是QList的便利子类，提供“先进先出”(FIFO) 语义。它将以下函数添加到QList 中已经存在的函数中：enqueue ()、dequeue () 和head ()。   QSet  这提供了具有快速查找功能的单值数学集。   QMap &amp;lt;Key, T&amp;gt; 这提供了一个字典（关联数组），将 Key 类型的键映射到 T 类型的值。通常每个键都与单个值相关联。QMap以 Key 顺序存储其数据；如果顺序无关紧要QHash是一个更快的选择。   QMultiMap &amp;lt;Key, T&amp;gt; 这是QMap 的一个方便的子类，它为多值映射提供了一个很好的接口，即一个键可以与多个值相关联的映射。   QHash &amp;lt;Key, T&amp;gt; 这与QMap具有几乎相同的 API ，但提供了明显更快的查找。QHash以任意顺序存储其数据。   QMultiHash &amp;lt;Key, T&amp;gt; 这是QHash 的一个便利子类，它为多值散列提供了一个很好的接口。    算法复杂性 🔗下表总结了顺序容器 QList 的算法复杂度。</description>
+类 简述 QList 这是迄今为止最常用的容器类。它存储可以通过索引访问的给定类型 (T) 的值列表。在内部，它在内存中的相邻位置存储一组给定类型的值。在列表的前面或中间插入可能会很慢，因为它可能导致大量项目必须在内存中移动一个位置。 QVarLengthArray &amp;lt;T, Prealloc &amp;gt; 这提供了一个低级的可变长度数组。在速度特别重要的地方，它可以代替QList使用。 QStack 这是QList 的一个便利子类，提供“后进先出”(LIFO) 语义。它向QList 中已有的函数添加了以下函数：push ()、pop () 和top ()。 QQueue 这是QList的便利子类，提供“先进先出”(FIFO) 语义。它将以下函数添加到QList 中已经存在的函数中：enqueue ()、dequeue () 和head ()。 QSet 这提供了具有快速查找功能的单值数学集。 QMap &amp;lt;Key, T&amp;gt; 这提供了一个字典（关联数组），将 Key 类型的键映射到 T 类型的值。通常每个键都与单个值相关联。QMap以 Key 顺序存储其数据；如果顺序无关紧要QHash是一个更快的选择。 QMultiMap &amp;lt;Key, T&amp;gt; 这是QMap 的一个方便的子类，它为多值映射提供了一个很好的接口，即一个键可以与多个值相关联的映射。 QHash &amp;lt;Key, T&amp;gt; 这与QMap具有几乎相同的 API ，但提供了明显更快的查找。QHash以任意顺序存储其数据。 QMultiHash &amp;lt;Key, T&amp;gt; 这是QHash 的一个便利子类，它为多值散列提供了一个很好的接口。 算法复杂性 🔗下表总结了顺序容器 QList 的算法复杂度。</description>
     </item>
     
     <item>
@@ -2423,27 +2684,40 @@ Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet
 阿塔尼斯：虫群无法摧毁我们意志。
 阿塔尼斯：因为神圣的卡拉连接着我们每个人的思想……
 阿塔尼斯：让我们在绝望中团结一致。
-  执政官：势不可挡。
-  阿塔尼斯：今天我们将夺回我们的家园……
+执政官：势不可挡。
+阿塔尼斯：今天我们将夺回我们的家园……
 阿塔尼斯：夺回我们的遗产。
-  阿塔尼斯：圣堂武士们，我们终于又站在了命运的十字路口。 阿塔尼斯：因为今天，我们将恢复属于星灵的荣耀。 阿塔尼斯：今天我们将重整旗鼓，夺回属于我们自己的家园。
-  圣堂武士：为了艾尔！
-  阿塔尼斯：愿卡拉之光指引我们。
-  赛兰迪丝：舰队已经准备就绪。只等您的命令了，大主教。
-  泽拉图：你们必须立即停止出征！
-  阿塔尼斯：泽拉图……
-  赛兰迪丝：圣堂武士，逮捕这个叛徒！
-  阿塔尼斯：慢着！让他把话说完。
-  泽拉图：最终之战已经来临。 泽拉图：黑暗者埃蒙，它回来了。
-  赛兰迪丝：我们不能相信这个异端！
-  泽拉图：出征艾尔会让我们忽略眼前真正的威胁。 泽拉图：埃蒙的怒火将会吞没整个星系。
-  赛兰迪丝：别忘了，就是因为这个叛徒，艾尔才会沦陷。
-  泽拉图：这份愧疚让我无法释怀……但是阿塔尼斯，我知道如何对抗即将来临的黑暗。
+阿塔尼斯：圣堂武士们，我们终于又站在了命运的十字路口。 阿塔尼斯：因为今天，我们将恢复属于星灵的荣耀。 阿塔尼斯：今天我们将重整旗鼓，夺回属于我们自己的家园。
+圣堂武士：为了艾尔！
+阿塔尼斯：愿卡拉之光指引我们。
+赛兰迪丝：舰队已经准备就绪。只等您的命令了，大主教。
+泽拉图：你们必须立即停止出征！
+阿塔尼斯：泽拉图……
+赛兰迪丝：圣堂武士，逮捕这个叛徒！
+阿塔尼斯：慢着！让他把话说完。
+泽拉图：最终之战已经来临。 泽拉图：黑暗者埃蒙，它回来了。
+赛兰迪丝：我们不能相信这个异端！
+泽拉图：出征艾尔会让我们忽略眼前真正的威胁。 泽拉图：埃蒙的怒火将会吞没整个星系。
+赛兰迪丝：别忘了，就是因为这个叛徒，艾尔才会沦陷。
+泽拉图：这份愧疚让我无法释怀……但是阿塔尼斯，我知道如何对抗即将来临的黑暗。
 泽拉图：你必须相信我。
-  阿塔尼斯：我们一起经历了许多，泽拉图。然而已经有太多族人为了此时此刻的到来，付出了生命。
+阿塔尼斯：我们一起经历了许多，泽拉图。然而已经有太多族人为了此时此刻的到来，付出了生命。
 阿塔尼斯：执行官，准备出战！
- （七） 🔗 阿塔尼斯：看来你一直警示的末日之战到来了。告诉我，老朋友，你到底发现了什么？
-  泽拉图：我目睹了万物的毁灭……</description>
+（七） 🔗 阿塔尼斯：看来你一直警示的末日之战到来了。告诉我，老朋友，你到底发现了什么？
+泽拉图：我目睹了万物的毁灭……
+泽拉图：可怕的混合体军团毁灭了一个又一个世界。在黑暗中，一个黑影——埃蒙率领着它们。
+阿塔尼斯：可你说过有对付他的办法。
+泽拉图：我获得了一个善意的预示，仿佛一个来自彼岸的古老声音在呼唤着我。“钥石将指引你们找到希望……”
+阿塔尼斯：钥石？
+泽拉图：在一道强光中，我看到了钥石的所在地。那正是位于人类星球克哈上的萨尔纳加神器。
+泽拉图：预言提及了萨尔纳加会在末日之战中对抗埃蒙。我相信这个钥石能指引我们见证那一刻。
+阿塔尼斯：我一直都相信你，泽拉图。但领袖的重任实在让我有心无力。
+阿塔尼斯：我经常怀疑自己是否真的能够扛起这份重任。
+泽拉图：你的怀疑是多余的，年轻的阿塔尼斯。如果你想成为我们的领袖，你必须建立起自己的信心。
+阿塔尼斯：你去克哈找詹姆斯·雷诺拿到钥石。我来指挥我们的军队进行备战。
+阿塔尼斯：等你回来，圣堂武士将随时候命。
+阿塔尼斯：En taro Tassadar，老朋友。
+泽拉图：En taro Artanis，兄弟。</description>
     </item>
     
     <item>
@@ -2454,23 +2728,22 @@ Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet
       <guid>/posts/2021-11-30-starcraft3/</guid>
       <description>（四） 🔗 雷诺：莎拉？
 雷诺：不……
-  凯瑞甘：我要救你出去。
-  雷诺：你都干了什么？
-  凯瑞甘：我是……迫不得已。
-  雷诺：这话去和芬尼科斯说，去和被你杀害的人说。
-  凯瑞甘：你发誓说你会杀了刀锋女王。
+凯瑞甘：我要救你出去。
+雷诺：你都干了什么？
+凯瑞甘：我是……迫不得已。
+雷诺：这话去和芬尼科斯说，去和被你杀害的人说。
+凯瑞甘：你发誓说你会杀了刀锋女王。
 凯瑞甘：你曾是唯一相信我的人。
 凯瑞甘：你现在……还相信我吗？
-  凯瑞甘：我爱你，吉姆。永远别忘记。
-  雷诺：我们结束了。
- （五） 🔗 凯瑞甘：我现在看清了我真正的敌人。
+凯瑞甘：我爱你，吉姆。永远别忘记。
+雷诺：我们结束了。
+（五） 🔗 凯瑞甘：我现在看清了我真正的敌人。
 凯瑞甘：他在虚空中等待着我，
 凯瑞甘：拥有着我无法想象的力量……
 凯瑞甘：为了对抗他，我放弃了所有的一切。
 凯瑞甘：我的人性、
 凯瑞甘：我的身份、
-凯瑞甘：还有我爱的男人。 凯瑞甘：但我不会独自去面对他的。 凯瑞甘：我即是虫群。
- </description>
+凯瑞甘：还有我爱的男人。 凯瑞甘：但我不会独自去面对他的。 凯瑞甘：我即是虫群。</description>
     </item>
     
     <item>
@@ -2482,40 +2755,52 @@ Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet
       <description>交易 🔗 阿克图尔斯：据说人在被剥夺了自由后……
 阿克图尔斯：……才能真正了解自己
 阿克图尔斯：我在想，你有多了解自己呢？
-  副官：囚犯，向前走上平台。
-  阿克图尔斯：626号囚犯……
+副官：囚犯，向前走上平台。
+阿克图尔斯：626号囚犯……
 阿克图尔斯：谋杀、掠夺、叛国 阿克图尔斯：今天……你出狱了。
 阿克图尔斯：但你很快就会明白…… 阿克图尔斯：……自由也是有代价的。
-  副官：战斗护甲焊接……并锁定完毕。
-  阿克图尔斯：监狱将伴你同行，这身护甲就是你新的牢房。
+副官：战斗护甲焊接……并锁定完毕。
+阿克图尔斯：监狱将伴你同行，这身护甲就是你新的牢房。
 阿克图尔斯：别误会——战争即将开始。
 阿克图尔斯：它带来了功名荣耀……
 阿克图尔斯：也带来了阴森恐怖。
 阿克图尔斯：芬利先生——自由在召唤你。
-  泰凯斯：来吧……好戏开场了。
- 大预言 🔗 泽拉图：虫群的到来早有预言……
+泰凯斯：来吧……好戏开场了。
+大预言 🔗 泽拉图：虫群的到来早有预言……
 泽拉图：而星灵——神之长子，则奋起反抗。
 泽拉图：如今我们的创世者萨尔纳加……回来了。
 泽拉图：但回归是为了拯救……？
 泽拉图：……还是毁灭？
-  凯瑞甘：（笑声）
+凯瑞甘：（笑声）
 凯瑞甘：我就知道，最终你会来的。
-  泽拉图：你的出现亵渎了这里，凯瑞甘。
-  凯瑞甘：你能听到吗，泽拉图？群星间的低语。
+泽拉图：你的出现亵渎了这里，凯瑞甘。
+凯瑞甘：你能听到吗，泽拉图？群星间的低语。
 凯瑞甘：星系会随他们的到来而燃烧。
-  泽拉图：也许……
+泽拉图：也许……
 泽拉图：……但你看不到了！
-  凯瑞甘：拜托，我们的恩怨微不足道。
+凯瑞甘：拜托，我们的恩怨微不足道。
 凯瑞甘：一场势不可挡的风暴正在袭来。
 凯瑞甘：这场湮灭，我们应该共同面对。
-  泽拉图：休想！
-  凯瑞甘：命运无法改变，
+泽拉图：休想！
+凯瑞甘：命运无法改变，
 凯瑞甘：末日正在临近，
 凯瑞甘：当它降临时，
 凯瑞甘：我会欣然接受。
-  泽拉图：预言尚未可知。
+泽拉图：预言尚未可知。
 泽拉图：希望永不湮灭。
- 火与怒 🔗 雷诺：你还能走啊，将军。</description>
+火与怒 🔗 雷诺：你还能走啊，将军。
+沃菲尔德：不知道还能坚持多久。
+雷诺：呵。
+沃菲尔德：我带来了一件礼物。
+沃菲尔德：萨尔纳加神器组装好了。但愿它物有所值。
+泰凯斯：显然，我可不想把性命都压在这些外星垃圾上。
+雷诺：泰凯斯，如果我孤注一掷，那早就完蛋了。这里危机四伏，相互支持才让我们走到今天。
+沃菲尔德：不知道是运气好还是傻人有傻命——我还没见过像你们这样就能成功的。
+雷诺：那东西可能是阻止刀锋女王的关键——但想要成功必须付出血汗的代价！
+雷诺：经历了这么多，历尽艰辛与磨难……
+雷诺：……我明白了一件事——相互依靠才能完成这项任务。
+雷诺：即使是付出生命的代价。
+雷诺：……因为有些东西值得我们去奋斗。</description>
     </item>
     
     <item>
@@ -2552,20 +2837,31 @@ Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet
 别让人类的敌人挡在我们的路上，
 我们最后一定会胜利的，不计任何代价。
 ——阿克图尔斯·蒙斯克
- X-1 🔗 陆战队员1：谁是这个地方的主管？
+X-1 🔗 陆战队员1：谁是这个地方的主管？
 陆战队员1：空中支援到哪里去了？
-  陆战队员2指了指天上。
-  阿列克斯：嗯，杰拉德，对于你把我从工作岗位上硬拉出来，
+陆战队员2指了指天上。
+阿列克斯：嗯，杰拉德，对于你把我从工作岗位上硬拉出来，
 阿列克斯：我想你会给我一个好理由的。
-  杰拉德：我的好阿列克斯，你的伏特加在等你。
+杰拉德：我的好阿列克斯，你的伏特加在等你。
 杰拉德：站到我身边来，看看这些你就知道了。
-  阿列克斯：杰拉德，我知道是有关虫族的事， 阿列克斯：我们看过带子几百遍了……
-  杰拉德：你什么都没看到！
+阿列克斯：杰拉德，我知道是有关虫族的事， 阿列克斯：我们看过带子几百遍了……
+杰拉德：你什么都没看到！
 杰拉德：在实验室解剖死虫是一回事， 杰拉德：用我们的人去撕碎它们却是另一回事。 杰拉德：你必须把眼睛睁亮来对待这件事。 杰拉德：一旦开始之后，就再也没有退路了。 杰拉德：你准备好踏上这条路了吗，阿列克斯？
-  阿列克斯：是……是的，我准备好了，我伟大的将军。
-  杰拉德：好，好。我就知道我可以信任你。
-  马士汀：将军。殖民基地在数分钟之内就会被攻下。我们要插手吗？
-  杰拉德：带我们回到轨道上，马士汀。我们看够了。</description>
+阿列克斯：是……是的，我准备好了，我伟大的将军。
+杰拉德：好，好。我就知道我可以信任你。
+马士汀：将军。殖民基地在数分钟之内就会被攻下。我们要插手吗？
+杰拉德：带我们回到轨道上，马士汀。我们看够了。
+人族 🔗 虫族！
+这个极少被我们说起的可怕种族，再一次让所有人笼罩在恐怖的阴影之下。
+但是现在，我们可以高枕无忧了，因为我们的军队已经占领了他们位于查尔的老家。
+从我们与虫族为敌开始，到现在已经过了数个月的时间。而现在联邦军队已经完全控制了查尔行星，也就是传说中的虫族恶毒的主宰的摇篮。主宰本身是一个巨大而活生生的大脑的形态，可以对手下无数的虫族部队下达命令，相信它们的目标就是地球本身。
+一旦进入攻击之后，我们受过高度训练的联邦部队将能够全力歼灭这些野兽般的虫族。
+即使是最残暴的战斗种族，也无法打倒银河系中最强大的军事科技。
+在查尔行星上的虫族被全面摧毁，而它们的损失将近百万。
+但是，任何战争都有伤亡，不过联邦部队的损伤去很小，舰队的中将斯图可夫在对查尔行星的最后进攻中奉献出他的生命。
+追悼仪式在地球联邦旗舰亚历山大号举行，斯图可夫中将真正理解了牺牲的意义。 然而他的牺牲并非全然白费。主宰就是这场战争中最大的战利品。即使是现在，联邦部队的精神力和威力强大的药剂还在让这个生物活在沉睡之中。我们将持续对主脑进行更深入的研究，以确保地球联邦和所有人类后世的和平。
+——UEN：地球联邦网络 特别报道 最新战况
+虫族 🔗 我又一次站在敌人破碎的尸体上……</description>
     </item>
     
     <item>
@@ -2617,7 +2913,7 @@ Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet
       <pubDate>Wed, 17 Nov 2021 19:38:06 +0800</pubDate>
       
       <guid>/posts/2021-11-17/</guid>
-      <description>一、在本地创建网站 🔗（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 cmd  加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 hugo new site blog ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一个文件夹名字，但为了方便教程工作，请统一）
+      <description>一、在本地创建网站 🔗（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 cmd 加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 hugo new site blog ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一个文件夹名字，但为了方便教程工作，请统一）
 二、下载主题模板（以 hugo-ivy ）为例 🔗（1）接着回到刚刚的命令窗口，输入执行 cd blog\themes 进入 themes 目录。
 （2）下载主题模板（ hugo-ivy ）。接上述步骤，在命令窗口中 执行 git clone https://github.com/yihui/hugo-ivy.git 来下载 hugo.386 主题。下载完成后，blog/themes 文件夹里面就可以看到下载好的主题了。
 三、修改网站配置 🔗将 themes/hugo-ivy/exampleSite 文件夹中的 config.yaml 文件复制到文件夹 blog 下，并删除原有的 config.toml 。用记事本或者其他文本编辑工具，根据需要修改相应的内容。
@@ -2633,24 +2929,23 @@ git init git add .</description>
       
       <guid>/posts/2021-11-16-afterdark/</guid>
       <description>一 🔗 “为什么？”玛丽问。
-  “你是问我，为什么忽然打算好好学习了？”
-  “对。”
-  高桥双手端着咖啡杯，眯起眼睛望着她的脸，就像从窗缝里窥视房间内部。“就是说，你是当真想听到回答才问的？”
-  “当然。一般来说，人们都是想听到回答才提问的吧？”
-  “按道理是。但也有不少人只是出于礼貌才提问的。”
-  “那我就搞不懂了，我干嘛得出于礼貌向你提问呢？“
-  “那倒是。”高桥略一沉吟，将咖啡杯放回小碟子里，发出一声清脆的响声，“我的说明有两个版本，一个长的一个短的，你想听哪一个？“
-  ”中间的。“
-  “知道啦。一个中等尺寸的回答。”
- 二 🔗 “可是……”
-  “可是?&amp;quot;
-  “你好好想想。”玛丽说，“我问你‘是不是对爱丽深有兴趣？’你却回答‘我想是有兴趣’。漏掉了一个深字。我觉得好像有什么东西被你弃之不管了。”
-  高桥感慨道：“你好细心啊。”
-  玛丽无言地等待对方说下去。
-  高桥不知道该如何作答，有些犹豫。”呃……是啊，跟你姐姐面对面长谈时，渐渐地，一种奇妙的感觉袭上心来。一开始我并没有注意到，可是随着时间过去，这种感觉越来越强烈。该怎么说呢？那是好像自己没被放在眼里的感觉。她明明近在眼前，可又好像远在几公里之外。“
-  玛丽仍然一言不发。她轻咬嘴唇，等待下面的话。高桥花时间寻找合适的措辞。
-  “简而言之，不管我说什么话，都不可能进入她的心里。在我和浅井爱丽之间，好像横着一道由透明海绵构筑的地层，我口中说出的话，在穿越那里的时候几乎被吸干了全部养分。在真正意义上，她根本没在听我说什么。说着说着，这种情形变得显而易见。这么一来，她说出的话也不能顺利地传递到我这边来。那实在是非常奇妙的感觉。”
- </description>
+“你是问我，为什么忽然打算好好学习了？”
+“对。”
+高桥双手端着咖啡杯，眯起眼睛望着她的脸，就像从窗缝里窥视房间内部。“就是说，你是当真想听到回答才问的？”
+“当然。一般来说，人们都是想听到回答才提问的吧？”
+“按道理是。但也有不少人只是出于礼貌才提问的。”
+“那我就搞不懂了，我干嘛得出于礼貌向你提问呢？“
+“那倒是。”高桥略一沉吟，将咖啡杯放回小碟子里，发出一声清脆的响声，“我的说明有两个版本，一个长的一个短的，你想听哪一个？“
+”中间的。“
+“知道啦。一个中等尺寸的回答。”
+二 🔗 “可是……”
+“可是?&amp;quot;
+“你好好想想。”玛丽说，“我问你‘是不是对爱丽深有兴趣？’你却回答‘我想是有兴趣’。漏掉了一个深字。我觉得好像有什么东西被你弃之不管了。”
+高桥感慨道：“你好细心啊。”
+玛丽无言地等待对方说下去。
+高桥不知道该如何作答，有些犹豫。”呃……是啊，跟你姐姐面对面长谈时，渐渐地，一种奇妙的感觉袭上心来。一开始我并没有注意到，可是随着时间过去，这种感觉越来越强烈。该怎么说呢？那是好像自己没被放在眼里的感觉。她明明近在眼前，可又好像远在几公里之外。“
+玛丽仍然一言不发。她轻咬嘴唇，等待下面的话。高桥花时间寻找合适的措辞。
+“简而言之，不管我说什么话，都不可能进入她的心里。在我和浅井爱丽之间，好像横着一道由透明海绵构筑的地层，我口中说出的话，在穿越那里的时候几乎被吸干了全部养分。在真正意义上，她根本没在听我说什么。说着说着，这种情形变得显而易见。这么一来，她说出的话也不能顺利地传递到我这边来。那实在是非常奇妙的感觉。”</description>
     </item>
     
     <item>
@@ -2660,23 +2955,24 @@ git init git add .</description>
       
       <guid>/posts/2021-11-16-invitation/</guid>
       <description>The Invitation by Oriah 🔗 ——〔加拿大〕 Oriah（译者：野竹林）
-  It doesn&amp;rsquo;t interest me
+It doesn&amp;rsquo;t interest me
 what you do for a living.
 I want to know
 what you ache for
 and if you dare to dream
 of meeting your heart&amp;rsquo;s longing.
-  你为生存做了些什么，我不关心；
+你为生存做了些什么，我不关心；
 我想知道，
 你的追求，
 你是否敢于梦想去触碰你那内心的渴望。
-  It doesn&amp;rsquo;t interest me
+It doesn&amp;rsquo;t interest me
 how old you are.
 I want to know
 if you will risk
 looking like a fool
 for love
-for your dream</description>
+for your dream
+for the adventure of being alive.</description>
     </item>
     
     <item>
@@ -2730,8 +3026,7 @@ Hugo 和 Github Pages 稍后会介绍，我们先来了解什么是静态网站�
 “I web, therefore I am a spiderman.”，这是 hugo-ivy 主题作者谢益辉在他 blogdown一书提到的个人网站的作用，我深以为然。在当下，个人网站用来交流分享、内容创造或者记录人生仍是一个非常棒的选择。
 值得高兴的是，个人网站搭建技术从未停下发展的脚步，现在搭建一个个人网站已经是一件很容易的事了～如果你拥有了它，那么你便在这嘈杂的网络世界有了一方净土。这需要感谢开源，感谢前人的努力。因为他们的努力，让搭建网站这类技术活变得更简单，让这世界充满自由与奉献的星光。
 但即便如此，为了更自由、更多元化的需求，搭建和管理网站仍需要足够的耐心，特别是对于不了解这方面的人。为了前人的付出让更多的人知晓，让自由的表达有更多选择，我在这里开启系列教程，将搭建个人网站的步骤一一讲述。虽然有很多人做过类似的工作，但我还是希望我能做得更详细、更简单，为有需要的朋友省下一番功夫。注意，本系列教程默认读者为零基础的读者，所以会涉及很多基础概念，有一定基础的读者建议去查找其他教程。同时，因为技术会不停地发展，本教程的一些信息可能已经过时，如果你发现任何问题或者有改进建议，请在评论（需要注册 Github 帐号）指出或者联系我，我会及时更新。在此，感谢支持。
- 当你面对一个陌生领域的挑战时，最困难的往往是开始动手这个决定。
- </description>
+当你面对一个陌生领域的挑战时，最困难的往往是开始动手这个决定。</description>
     </item>
     
     <item>
@@ -2752,10 +3047,10 @@ Hugo 和 Github Pages 稍后会介绍，我们先来了解什么是静态网站�
       <description>Qt 测试最佳实践 🔗我们建议您为错误修复和新功能添加 Qt 测试。在您尝试修复错误之前，添加一个回归测试（理想情况下是自动的），该测试在修复之前失败，表现出错误，并在修复之后通过。在开发新功能时，添加测试以验证它们是否按预期工作。
 符合一组编码标准将使 Qt 自动测试更有可能在所有环境中可靠地工作。例如，有些测试需要从磁盘读取数据。如果没有为如何完成设置标准，则某些测试将无法移植。例如，假设其测试数据文件位于当前工作目录中的测试仅适用于源代码构建。在影子构建中（在源目录之外），测试将无法找到其数据。
 以下章节包含了编写Qt测试的指南。
- 一般原则 编写可靠的测试 改进测试输出 编写可测试的代码 设置测试机  一般原则 🔗下面的章节提供了编写单元测试的一般指南。
- 验证测试 赋予测试函数描述性的名称 编写自带的测试函数 测试全栈 让测试快速完成 使用数据驱动的测试 使用覆盖工具 选择适当的机制来排除测试 避免Q_ASSERT  验证测试 🔗编写并提交你的测试以及你的修复或新功能到一个新的分支上。一旦你完成了,你可以检查出你的工作所基于的分支,然后把你的新测试的测试文件检查到这个分支。这可以让你验证测试是否在前一个分支上失败了,因此确实抓住了一个错误或测试了一个新功能。
+一般原则 编写可靠的测试 改进测试输出 编写可测试的代码 设置测试机 一般原则 🔗下面的章节提供了编写单元测试的一般指南。
+验证测试 赋予测试函数描述性的名称 编写自带的测试函数 测试全栈 让测试快速完成 使用数据驱动的测试 使用覆盖工具 选择适当的机制来排除测试 避免Q_ASSERT 验证测试 🔗编写并提交你的测试以及你的修复或新功能到一个新的分支上。一旦你完成了,你可以检查出你的工作所基于的分支,然后把你的新测试的测试文件检查到这个分支。这可以让你验证测试是否在前一个分支上失败了,因此确实抓住了一个错误或测试了一个新功能。
 例如，如果使用Git版本控制系统，则修复 QDateTime 类中的错误的工作流程可能如下所示：
- 1.为您的修订和测试创建一个分支： git checkout -b fix-branch 5.14
+1.为您的修订和测试创建一个分支： git checkout -b fix-branch 5.14
 2.编写一个测试并修复错误。
 3.用修复版和新的测试版进行构建和测试,以验证新的测试版是否能通过修复版。
 4.将修复程序和测试添加到您的分支： git add tests/auto/corelib/time/qdatetime/tst_qdatetime.cpp src/corelib/time/qdatetime.cpp
@@ -2764,7 +3059,8 @@ Hugo 和 Github Pages 稍后会介绍，我们先来了解什么是静态网站�
 7.仅将测试文件检出到5.14分支： git checkout fix-branch &amp;ndash; tests/auto/corelib/time/qdatetime/tst_qdatetime.cpp
 现在只有测试在fix-branch上。其余的源代码树仍在5.14上。
 8.构建并运行测试,以验证它在5.14上失败,因此确实抓住了一个错误。
-9.您现在可以返回到fix分支： git checkout fix-branch</description>
+9.您现在可以返回到fix分支： git checkout fix-branch
+10.或者，您可以在5.14上将工作树恢复到干净状态： git checkout HEAD &amp;ndash; tests/auto/corelib/time/qdatetime/tst_qdatetime.</description>
     </item>
     
     <item>
@@ -2791,16 +3087,16 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
       <pubDate>Tue, 28 Sep 2021 12:56:24 +0800</pubDate>
       
       <guid>/posts/2021-9-28/</guid>
-      <description>  ——趙子健
-    我那些残梦 灵异九霄
+      <description>——趙子健
+我那些残梦 灵异九霄
 徒忙漫奋斗 满目沧桑
 在滑翔之后 完美坠落
 在四维宇宙 炫目遨游
-    我那些烂曲 流窜九州
+我那些烂曲 流窜九州
 云游魂飞奏 音愤符吼
 在宿命身后 不停挥手
 视死如归仇 毫无保留
-    黑色的不是夜晚
+黑色的不是夜晚
 是漫长的孤单
 看脚下一片黑暗
 望头顶星光璀璨
@@ -2808,15 +3104,14 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
 唯真爱最短暂
 失去的永不复返
 世守恒而今倍还
-    摇旗呐喊的热情
+摇旗呐喊的热情
 携光阴渐远去
 人世间悲喜烂剧
 昼夜轮播不停
 纷飞的滥情男女
 情仇爱恨别离
 一代人终将老去
-但总有人正年轻
-  </description>
+但总有人正年轻</description>
     </item>
     
     <item>
@@ -2840,13 +3135,12 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
       <pubDate>Mon, 09 Aug 2021 13:16:30 +0800</pubDate>
       
       <guid>/posts/2021-8-9/</guid>
-      <description> 神啊
+      <description>神啊
 全知全能的神啊
 请你告诉我
 哪里需要我
 我要到哪里去
-怎样才能给他人带来快乐？
- </description>
+怎样才能给他人带来快乐？</description>
     </item>
     
     <item>
@@ -2874,9 +3168,9 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
 2.用 #include&amp;lt;filename.h&amp;gt;格式来引用非标准库的头文件（编译器将会从标准库目录开始搜索；用 #include&amp;lt;Îy &amp;ldquo;filename.h&amp;rdquo; 格式来引用非标准库的头文件（编译器将从用户的工作目录开始搜索）。（注：一般将 &amp;lt;&amp;gt; 格式的放在前， &amp;ldquo;&amp;ldquo;格式的放在后，为了统一风格）
 3.头文件只存放“声明”而不存放“定义”。（C++中，类的成员函数可以在声明的同时被定义，并且自动成为内联函数。但这样做会造成风格不一致，弊大于利！
 4.不提倡使用全局变量，尽量不要在头文件中出现 extern int value 这类声明。
-头文件作用： 🔗  （1）通过头文件来调用库功能。在很多场合，源代码不便（或不准）向用户公布，只要向用户提供头文件和二进制的库即可。用户只需要按照头文件中的借口声明来调用库的功能，而不必关心接口怎么实现的。编译器会从库中提取相应的代码。
-  （2）头文件能加强类型安全检查。如果某个接口被实现或被使用时，其方式与头文件中的声明不一致，编译器就会指出错误，这一简单的规则能大大减轻程序员调试、改错的负担。
-  目录结构 🔗如果一个软件的头文件数目比较多（如超过十个），通常应将头文件和定义文件分别保存于不同的目录，以便于维护。
+头文件作用： 🔗 （1）通过头文件来调用库功能。在很多场合，源代码不便（或不准）向用户公布，只要向用户提供头文件和二进制的库即可。用户只需要按照头文件中的借口声明来调用库的功能，而不必关心接口怎么实现的。编译器会从库中提取相应的代码。
+（2）头文件能加强类型安全检查。如果某个接口被实现或被使用时，其方式与头文件中的声明不一致，编译器就会指出错误，这一简单的规则能大大减轻程序员调试、改错的负担。
+目录结构 🔗如果一个软件的头文件数目比较多（如超过十个），通常应将头文件和定义文件分别保存于不同的目录，以便于维护。
 例如可将头文件保存于 include 目录，将定义文件保存于 source 目录（可以是多级目录）。
 如果某些头文件是私有的，它不会被用户的程序直接饮用，则没有必要公开其“声明”，可以把这些私有的头文件和定义文件存放于同一个目录。
 空行 🔗1.类声明之后、函数定义结束之后要加空行。
@@ -2907,7 +3201,7 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
 我从高一开始接触羽毛球，那时候，学校羽毛球场特别多，但玩的人也特别多。所以每当放学铃声响起的时候，都要“biu”的一声，冲出教室，去到球场上占着。当时，教学楼外就有几个球场，那就是我们的主战场，我们从教室的窗户上可以轻易地看到下面球场的情况。虽然是室外的场地，有时候也会受到风的影响，不过我们也没那么多讲究，一伙人打着玩。那会，我算是球场熟面孔了。去到那里不管有没有认识的，能加队就一起玩了。我还记得一个初中部的小伙子。时常找我搭伙加双打。虽然那会技术上没什么长进，但就很快乐。后来分班了，我发现新同学里有两位（开头所说高中伙伴便是其一）打羽毛球很厉害，我觉得很酷，就经常和他们打球，边打边学，很有意思。
 羽毛球让我结识了许多朋友，在他们身上，在羽毛球这项运动上，我也学到许多东西。特别记得，我的第一位羽毛球老师，他在第一节课里，言行身教地教我们羽毛球必须遵守的原则和羽毛球必胜诀窍。前者是：尊重你的对手、尊重这项运动，后者是找到并针对对手的弱点。
 这是一个数十年球场经验的前辈总结出来的道理，开始我以为这很简单，慢慢的，我很庆幸曾受过他的教导。为了让前辈的球场哲学让更多的人知晓，我在前辈的基础上编写了《球场快乐指南》，望与诸君共勉。
-《球场快乐指南》 🔗 （强制）尊重你的对手 （强制）尊重该运动 （建议）对手亦好友，且行且珍惜。  </description>
+《球场快乐指南》 🔗 （强制）尊重你的对手 （强制）尊重该运动 （建议）对手亦好友，且行且珍惜。 </description>
     </item>
     
     <item>
@@ -2932,8 +3226,11 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
       <pubDate>Sat, 10 Jul 2021 10:35:46 +0800</pubDate>
       
       <guid>/posts/2021-7-10-3/</guid>
-      <description>一、存活 🔗   操作 含义     i Insert 模式，按 ESC 回到 Normal 模式。   x 删除当前光标所在的一个字符。   :wq 保存退出   dd 删除当前行，并存到剪切板   p 粘贴剪切板   hjkl 左下上右   :help  显示相关命令的帮助    二、感觉良好 🔗1.各种插入模式
-   操作 含义     a 在光标后插入   o 在当前行后插入一个新行   O 在当前行前插入一个新行   cw 替换从光标所在位置到一个单词结尾的字符    2.</description>
+      <description>一、存活 🔗 操作 含义 i Insert 模式，按 ESC 回到 Normal 模式。 x 删除当前光标所在的一个字符。 :wq 保存退出 dd 删除当前行，并存到剪切板 p 粘贴剪切板 hjkl 左下上右 :help 显示相关命令的帮助 二、感觉良好 🔗1.各种插入模式
+操作 含义 a 在光标后插入 o 在当前行后插入一个新行 O 在当前行前插入一个新行 cw 替换从光标所在位置到一个单词结尾的字符 2.简单的光标移动
+操作 含义 0 数字零，到行头 ^ 到本行第一个不是 blank 字符的位置（blank 字符就是空格、tab、换行、回车等） $ 到本行行尾 g_ 到本行最后一个不是 blank 字符的位置 /pattern 搜索 pattern 的字符串（多个匹配时，按 n 到下一个） 3.拷贝/粘贴
+操作 含义 p 粘贴 yy 拷贝当前行 4.撤销反撤销
+操作 含义 u 撤销 ctrl-r 反撤销 5.</description>
     </item>
     
     <item>
@@ -2945,9 +3242,9 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
       <description>最近到处都可以看到中国共产党建党100周年的口号标语，本来这些和我一个吃瓜群众毫无关系，但是今天在单位被拉去凑人头参加活动。完了憋不住，想来这里嚷嚷两句。
 参加的活动是玩得很开心，领导的讲话也很振奋人心。但我总觉得哪里不对。噢，原来是没听到习大大的“不忘初心，牢记使命”。不对啊，现在不兴喊这个了吗？我赶紧翻了翻《中国共产党宣言》，不看不知道，一看吓一跳。上面怎么写着马云、马化腾的名字，是因为他们去中南海议政了吗？啊，怎么还有我的名字！我只是一个工地搬砖的，可不敢写在上面污人眼睛啊。赶紧擦了擦。噢，原来是看错了，上面写的是“资本家”和“无产阶级”……哎，眼睛蒙得太厉害了。
 另外，说一个最近的倒霉事。因为我发现最近 Github Pages 经常打不开（本网站就挂在上面），考虑到最近的政治趋势，国内封杀国外资源是迟早的事，所以趁着华为云 618 活动，我买了一年云对象存储服务。但是，用它之后访问资源的速度居然比不过免费的 Github + jsDriver ！除非我再来一个 CDN 加速服务，但是这个高昂的价格劝退了我。还好，我的服务器还有两年优惠期，还能撑一撑。
- “华为牛掰！支持华为！华为万岁！支持国产！”
+“华为牛掰！支持华为！华为万岁！支持国产！”
 “你买华为什么东西了，用脚支持吗？这样喊两句，华为的东西能便宜点吗？没有你瞎嚷嚷啥呢！”
- PS:我目前使用的所有云产品都是“中华有为”的，仅仅是因为性价比的缘故，亦如大多国企、事业单位使用“美帝良心想”一样。</description>
+PS:我目前使用的所有云产品都是“中华有为”的，仅仅是因为性价比的缘故，亦如大多国企、事业单位使用“美帝良心想”一样。</description>
     </item>
     
     <item>
@@ -2960,11 +3257,10 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
 小白是我家的新成员——一只白色的宠物狗。第一次和它见面时，它就往我身上扑。我看它身上脏兮兮的，而我穿着白衣服，但犹豫了一下，还是没有躲开。它很聪明，非常爱玩。不过我爸妈不怎么喜欢它，因为它经常会在房间里大小便（这可能是因为没人管它）。在多数时间里，它总趴在地上发呆，而且它的姿势有些奇特，要么是两手前伸搭在门沿，头枕在手上，要么像乌龟那样，四肢伸开，头侧在一边。每当有客人来的时候，它就很兴奋，到处瞎跑，往人身上扑。没人搭理它的时候，它就自个趴着发呆。不过它不喜欢自己待着，每次我回家的时候，它总会来我房间。我看电脑的时候，它在旁边趴着；我睡觉的时候，它也在旁边趴着。哎，也不知道你的家人是否尚在，是否挂念着你。
 说说近况，这周回家，我妈说我胖了好多。这句话很少见，但确实我也感觉到最近胖了不少。究其原因，一是饮食问题，二是缺少运动，二者关系密切。变胖原因一：自从上次我哥过来看我，给我带来了一个小冰箱、一个电磁炉和一些厨具，我自以为可以在厨房里大展拳脚了，结果真是一言难尽。从买菜、下厨到清洁收拾，花费的时间比较多，更关键的是，做出来的味道效果不太理想，这就很打击。而且因为买菜（特别是肉类）不好买太少，所以经常是：好不容易做出来的，含着泪也要吃完（肥胖++）……变胖原因二：晚上忙完厨房的时候，已经身心疲惫了。这个时候，运动的事情只能妥协了。
 近期计划：
-  尽量减少厨房事务，认清事实，以后闲下来的时候再好好学厨艺吧！
-  坚持运动，每天至少半小时。
-  茶艺计划。是的，厨艺不行转投茶艺～计划学着做一些果汁、柠檬茶、奶茶之类的。结果估计在下一篇文章见晓。期待^_^
-  时间管理。保证每天足够的代码实践啊（着急：），以后还要加上阅读的时间。我没有时间了！
-  </description>
+尽量减少厨房事务，认清事实，以后闲下来的时候再好好学厨艺吧！
+坚持运动，每天至少半小时。
+茶艺计划。是的，厨艺不行转投茶艺～计划学着做一些果汁、柠檬茶、奶茶之类的。结果估计在下一篇文章见晓。期待^_^
+时间管理。保证每天足够的代码实践啊（着急：），以后还要加上阅读的时间。我没有时间了！</description>
     </item>
     
     <item>
@@ -2975,7 +3271,7 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
       <guid>/posts/2021-6-12/</guid>
       <description>“嗰個人嘅樣好怪啊”
 “我都見到，好似隻狗咁哦”
- 刚刚做了个噩梦，梦到火烧到了脚，但是眼睛却怎么也挣不开，慌张之时我在心头默念：“我一定要醒来”，两下之后，眼睛猛地睁开了。只见墙上映着一道微弱的光，忽闪忽闪。
+刚刚做了个噩梦，梦到火烧到了脚，但是眼睛却怎么也挣不开，慌张之时我在心头默念：“我一定要醒来”，两下之后，眼睛猛地睁开了。只见墙上映着一道微弱的光，忽闪忽闪。
 字数有点少了不好看，那就拿来凑个数吧，《人生啊，就是这么无常……》</description>
     </item>
     
@@ -2985,15 +3281,14 @@ QTEST_MAIN(YourClassName) #include &amp;#34;yourfilename.moc&amp;#34; </descript
       <pubDate>Thu, 10 Jun 2021 13:39:39 +0800</pubDate>
       
       <guid>/posts/2021-6-10/</guid>
-      <description> “30°C，依旧是骑着 BWM 上班的一天，虽然它是山寨的，虽然兜里只有十块钱，但听着周杰伦的《超人不会飞》，就感觉自己也超屌的~”
- 前两天在哔哩哔哩投了两个视频，其中一个是关于网站搭建的。这个视频从计划到完成耗时两周（其实实际动手只花了两天），再次验证了计划在脑海里没有行动，就永远是空想。
+      <description>“30°C，依旧是骑着 BWM 上班的一天，虽然它是山寨的，虽然兜里只有十块钱，但听着周杰伦的《超人不会飞》，就感觉自己也超屌的~”
+前两天在哔哩哔哩投了两个视频，其中一个是关于网站搭建的。这个视频从计划到完成耗时两周（其实实际动手只花了两天），再次验证了计划在脑海里没有行动，就永远是空想。
 其实今年一月初我也做过这样的视频，当时主要是自己搭建网站的操作演示，因为用的环境是 Linux ，可能不适合大众。那个视频的播放量也是挺少，远没有我当时另一个介绍 Manjaro 的视频高（估计大多数人是冲着视频配图来的，后来我把视频删了）。
 为什么我对这件事这么热衷呢？其实我做完第一期视频之后，就不打算再续作了，但前段时间我意外发现本站一个读者，看到我那些个教程，也跟着搭网站，甚至把我的网站源码也复制过去了（其实我最初也是这么干的）。不过因为我把原主题改得乱七八糟了，可能会对他搭建网站造成一定的影响，所以我把自己网站整理之后给他发了一个邮件致歉，同时也给出了修改后的示例网站。也正是这个读者激发了我创作第二期教程的动力，不过现在看来效果依旧不好啊。
 实际上，我不仅写了文章，投了视频，还向身边的一些朋友推荐过，但是可惜的是并没有人感兴趣。可能也是自己太急功近利了些。是的，我做这些是有目的的。它来源于我脑海里的一个想法，不过目前尚没有实现的条件，就不说出来惊扰大家了。（读者还没有几个，你瞎操啥心）。
 是吧，现在自己最大的问题就是太沉不住气了，还是要脚踏实地做事啊。唉，自己的话影响力不高，那就借用益辉他老人家的话结尾吧：“我不和没有个人主页的人说话”。
- 益辉：“我没有说过，别瞎说，别赖我！”
-我：“我说你有你就有！”
- </description>
+益辉：“我没有说过，别瞎说，别赖我！”
+我：“我说你有你就有！”</description>
     </item>
     
     <item>
@@ -3077,7 +3372,7 @@ min / max old /new stat / stop</description>
       <description>前言 🔗“码出高效，码出质量”。本文整理了比较常见的 MySQL 数据库编程规范，主要来源于《阿里巴巴 Java 开发手册》。
 (一)建表规约 🔗1.【强制】表达是与否概念的字段，必须使用 is_xxx 的方式命名，数据类型是 unsigned tinying(1 表示是，0 表示否)。
 说明：任何字段如果为非负数，必须是 unsigned。
-注意：POJO 类中任何布尔类型的变量，都不要加 is 前缀，所以，需要在  设置从 is_xxx 到 Xxx 的映射关系。数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的命名方式是为了明确其取值含义与范围。
+注意：POJO 类中任何布尔类型的变量，都不要加 is 前缀，所以，需要在 设置从 is_xxx 到 Xxx 的映射关系。数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的命名方式是为了明确其取值含义与范围。
 正例：表达逻辑删除的字段名 is_deleted，1 表示删除，0 表示未删除。
 2.【强制】表名、字段名必须使用小写字母或数字，禁止出现数字开头，禁止两个下划线中间只出现数字。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑。
 说明:MySQL 在 Windows 下不区分大小写，但在 Linux 下默认是区分大小写。因此，数据库名、表名、字段名，都不允许出现任何大小写字母，避免节外生枝。
@@ -3085,7 +3380,8 @@ min / max old /new stat / stop</description>
 3.【强制】表明不使用复数名词。 说明：表名应该仅仅表示表里面的实体内容，不应该表示实体数量，对应于 DO 类名也是单数形式，符合表达习惯。
 4.【强制】主键索引名为 pk_字段名；唯一索引名为 uk_字段名；普通索引名则为 idx_字段名。
 说明：pk_ 即 primary key；uk_ 即 unique key；idx_ 即 index 的简称。
-5.【小数类型】为 decimal，禁止使用 float 和 double。</description>
+5.【小数类型】为 decimal，禁止使用 float 和 double。
+说明：float 和 double 在存储的时候，存在精度损失的问题，很可能在值的比较时，得不到正确的结果。如果存储的数据范围超 decimal 的范围，建议将数据拆成整数和小数分开存储。</description>
     </item>
     
     <item>
@@ -3097,7 +3393,7 @@ min / max old /new stat / stop</description>
       <description>我的天空 为何挂满 湿的泪
 我的天空 为何总 灰的脸
 《天空》
- 今天看到王菲的一张专辑，名叫《只爱陌生人》，感觉很有意思。
+今天看到王菲的一张专辑，名叫《只爱陌生人》，感觉很有意思。
 时间总是悄悄溜走，写上篇文章的情形还历历在目，恍惚昨日。
 先说一下我的近况吧。也许是这些日里都没有好好睡午觉，今天中午趴在桌子睡了一阵，起来瞬间感觉头似千斤重，整个下午都昏昏沉沉，脑袋隐隐作痛。所以一下班我就早早走了，也不知道领导有没有记到小本本上。
 回到住处，煮些东西，吃完就听着音乐躺下睡了。然而终究思绪万千，难梦难醒。约莫一个小时，还是觉得头痛难忍，于是就决定去附近的篮球场打会球。最近我每天都会去那里打球，好像哪天不去，这一天都过得不真实。不过今天确实有些晚了，平时在那儿玩闹的小孩都不见了踪影。于是我只能压低声音投球，免得扰人清梦。
@@ -3116,7 +3412,7 @@ min / max old /new stat / stop</description>
 算法参考：Huffman压缩真正的C++实现
 运行环境：Linux 系统（Windows系统下运行尚有 bug ),开发环境为 QT Creator。
 运行截图：
- 核心实现 🔗void create_node_array();//构造包含字符及其频率的数组 void create_pq();//构造优先级队列 void create_huffman_tree();//构造哈夫曼树 void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表 bool calculate_huffman_codes();//计算哈夫曼编码 bool do_compress();//开始压缩 bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树 void decode_huffman();//根据重构的哈夫曼树解码文件 后续 🔗该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎联系我。如有任何问题，亦可与我一同探讨。</description>
+核心实现 🔗void create_node_array();//构造包含字符及其频率的数组 void create_pq();//构造优先级队列 void create_huffman_tree();//构造哈夫曼树 void create_map_table(Node* node,bool);//根据哈夫曼树建立哈夫曼映射表 bool calculate_huffman_codes();//计算哈夫曼编码 bool do_compress();//开始压缩 bool rebuid_huffman_tree();//从哈夫曼编码文件中重构哈夫曼树 void decode_huffman();//根据重构的哈夫曼树解码文件 后续 🔗该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎联系我。如有任何问题，亦可与我一同探讨。</description>
     </item>
     
     <item>
@@ -3129,9 +3425,9 @@ min / max old /new stat / stop</description>
 最近在玩一款名叫《一小时人生》的游戏，国内手机移植版名为&amp;quot;希望之村&amp;quot;，有兴趣可以查查这游戏的来历，很有意思。作为一个游戏老玩家，我玩过很多游戏，但说让我印象深刻的还是要提到它。
 首先介绍一下游戏基本的设定。《一小时人生》，游戏开始，玩家将会以“夏娃”（成年女性，开创者）或者“婴儿”（幼年期无生存能力，必须由他人抚养）的身份诞生在一个原始世界，成年女性会在某个不确定的时间诞生“婴儿”，在老年的时候就会失去生育能力。在游戏里，玩家每分钟会成长一岁，最高寿命为60岁，期间可能会因为饥饿、野兽袭击或疾病等原因致死而结束游戏。
 既然说人生百态，目标不同，那这人生的玩法就很多了，具体怎么玩我就不多说了，有兴趣可以自行体验。下面分享一些我在游戏中遇到的趣事。（注：下列故事出现的人物称呼均为游戏中玩家关系）。
-一 🔗这张图片的背景是：我作为夏娃的儿子诞生，能下地走路独自进食后，我便开始忙于生计，制造各种农具，种植果树。但因为环境恶劣，也或许是能力不足的缘故，随着人口的增多，我的兄弟姐妹在接下来的几次饥荒中丧生，母亲也化为了白骨。时间流逝，我渐渐意识到，这个世界仅剩我一人，在我死后这个世界便再也没有人记得曾有过这样一个家族，我的工作也便没有了价值。于是我放弃了工作，靠着附近的野果度日。最后，白发苍苍的我，忍受了漫长的孤寂，站在母亲的白骨前，等待死亡（我连埋葬都不会）……
-二 🔗为了免受饥饿的困扰，我刻意到人少的地方作为夏娃诞生，苦练种植技术。当积累了足够经验后，因饥荒而导致种族灭绝的情况已经得到改善。然而环境探索和资源采集的过程中，自己或亲人时常被野兽袭击，因为缺乏医疗手段，鲜活的生命转瞬便消失在眼前。于是，我决定奋起反抗，用武器与热血对抗冰冷的大自然。同时也考虑到整个家族的生存大计，我选择在农业发展到一定阶段，自己也不能为家族创造更多价值的时候，拿起早已准备好的武器，向大自然最凶恶的野兽-巨熊，发起挑战！但即使是青壮年面对野兽，也需要足够多的勇气与体魄，更何况垂垂老矣的我，结局不言而喻……
-三 🔗这是一个情节复杂，值得思考的故事，光看图片可能不能理解，且听我细细讲来。
+一 🔗这张图片的背景是：我作为夏娃的儿子诞生，能下地走路独自进食后，我便开始忙于生计，制造各种农具，种植果树。但因为环境恶劣，也或许是能力不足的缘故，随着人口的增多，我的兄弟姐妹在接下来的几次饥荒中丧生，母亲也化为了白骨。时间流逝，我渐渐意识到，这个世界仅剩我一人，在我死后这个世界便再也没有人记得曾有过这样一个家族，我的工作也便没有了价值。于是我放弃了工作，靠着附近的野果度日。最后，白发苍苍的我，忍受了漫长的孤寂，站在母亲的白骨前，等待死亡（我连埋葬都不会）……
+二 🔗为了免受饥饿的困扰，我刻意到人少的地方作为夏娃诞生，苦练种植技术。当积累了足够经验后，因饥荒而导致种族灭绝的情况已经得到改善。然而环境探索和资源采集的过程中，自己或亲人时常被野兽袭击，因为缺乏医疗手段，鲜活的生命转瞬便消失在眼前。于是，我决定奋起反抗，用武器与热血对抗冰冷的大自然。同时也考虑到整个家族的生存大计，我选择在农业发展到一定阶段，自己也不能为家族创造更多价值的时候，拿起早已准备好的武器，向大自然最凶恶的野兽-巨熊，发起挑战！但即使是青壮年面对野兽，也需要足够多的勇气与体魄，更何况垂垂老矣的我，结局不言而喻……
+三 🔗这是一个情节复杂，值得思考的故事，光看图片可能不能理解，且听我细细讲来。
 这一世我作为夏娃的女儿诞生，但当我睁开眼之后，便吓出一身冷汗！原来我诞生在一个香蕉地，附近有一地的香蕉皮，在旁边还有一位刚能走动的姐姐（她也是一位传奇人物，后面会讲述她的故事）。
 显然，这位母亲是一位流浪者，俗称香蕉人，即到处流浪，靠食野果为生。她的生平经历，我无从得知，她的所思所感，我亦无暇顾及。只知道她在我诞生后便放弃了自己的生命，是姐姐靠采摘附近的香蕉把我养大。但是资源终究会消耗完，这样的生活注定不能长久，我们不能让后代延续这样的悲剧。于是，我和姐姐同时做了一个决定，离开这里！我们相约到一个合适的地方共建家园，但是，显然幸运女神没有怜顾我们，我们迷路分离了。这也是流浪者后代的悲剧，在野外恶劣环境下，没有路引，迷失是注定的命运。
 令我宽慰的是，在分开不远处我便找到一个环境不错的地方，同时找到了一些珍稀的果树——覆盘子，这也算是不幸中的万幸。于是我就地开展工作，开启了农耕时代。忙碌一生之后，我凭借附近的丰富资源，建立了一片果园，可以维持后代一定人口的生计。
@@ -3150,7 +3446,7 @@ min / max old /new stat / stop</description>
       
       <guid>/posts/2021-5-9/</guid>
       <description>现在是 5 月 9 日 12 时 55 分。刚刚十一点左右回到住处，躺了一会，发现肚子不太舒服。不知道是刚吃的香辣鸡肉卷的锅，还是奶茶太冰的原因，或者是今天坐七八个小时公交影响。不过不管是哪个原因，经过慎重考虑（？），本人郑重立 flag：
- 奶茶少冰 拒绝某汉堡店 不再吃辣  想到这里，不由地想起前面写的一篇文章，《追》。哈哈哈，开篇的信誓旦旦，现在竟成了赤裸裸的打脸现场。难搞。
+奶茶少冰 拒绝某汉堡店 不再吃辣 想到这里，不由地想起前面写的一篇文章，《追》。哈哈哈，开篇的信誓旦旦，现在竟成了赤裸裸的打脸现场。难搞。
 人生就是不断打脸的过程，下一秒的我，可长点记性吧。</description>
     </item>
     
@@ -3167,13 +3463,13 @@ min / max old /new stat / stop</description>
 运行环境：Linux、Windows均可。开发环境：IDEA。
 演示视频：
 运行截图：
-  功能 🔗本项目实现的功能如下：
- 绘制游戏启动界面、结束界面、地图、主角、道具 实现泡泡爆炸 实现双主角PK（积分制） 实现道具掉落和相应属性加成 实现游戏音效和背景音乐  其中我们对游戏玩法做了调整，大致如下:
+功能 🔗本项目实现的功能如下：
+绘制游戏启动界面、结束界面、地图、主角、道具 实现泡泡爆炸 实现双主角PK（积分制） 实现道具掉落和相应属性加成 实现游戏音效和背景音乐 其中我们对游戏玩法做了调整，大致如下:
 我们把游戏设计为双人pk积分赛模式，在这个模式里面，玩家只要率先达到一定分数既可以赢得比赛。玩家可以通过炸箱子可以得到少量的分数，也可以通过炸掉对手然后戳破包围对手的水泡得到大量分数。而玩家如果被泡泡爆炸击中，会被泡泡包裹一段时间，在这段时间内不可以移动和放泡泡，需要等时间过去或者被对手戳破水泡才能获得自由。但如果玩家被自己放的泡泡炸中，会扣一定的分数。
 思路和架构 🔗整个项目采用 MVC 架构，将项目整体分为数据模型层（M）、视图层（V）、控制层（C）。M层负责元素的创建、存储、管理，V层负责所有元素的显示（24帧/秒），C层负责交互（监听用户的操作），同时负责控制游戏的进程。
 选择MVC架构最主要的原因是让这个游戏项目具有良好的可扩展性和更新功能，当然了，一个好的游戏也需要良好的交互功能，漂亮的UI设计。
 架构设计图：
- 包结构 🔗未完待续……
+包结构 🔗未完待续……
 核心实现 🔗未完待续……
 后续 🔗该项目仍有许多不足之处，如果你对该项目有任何意见或建议，欢迎联系我。如有任何问题，亦可与我一同探讨。</description>
     </item>
@@ -3188,7 +3484,7 @@ min / max old /new stat / stop</description>
 喂马、劈柴，周游世界
 从明天开始，关心粮食和蔬菜
 《面朝大海，春暖花开》
- 我刚刚躺在床上胡思乱想的时候，脑海里冒出一些东西。
+我刚刚躺在床上胡思乱想的时候，脑海里冒出一些东西。
 我终于意识到为何对这房子墙壁的粉刷配色感到熟悉了。是它，《Dark Season》。这个电影多次出现用小孩做残忍实验的片段，所用密闭房间就和我的房间很像。有点慌，怎么办，窗户那边一直传来莫名响动。我要不要睁开眼看一看？</description>
     </item>
     
@@ -3202,8 +3498,7 @@ min / max old /new stat / stop</description>
 值得一提的是，前段时间突然发现我 Github 帐号多了一个粉丝，这可是一件稀奇事。查探一番后，惊讶的发现，他也在使用 hugo-ivy 这个主题搭建博客。原来，他应该是看到我那篇完成了一半的博客搭建教程（现在补充完整了）……真是尴尬，我当时只写了个大概，然后就直接鸽了……不得不说，虽然有些意外，但是还是有些开心。
 回到当下，今天要开始独自租房生活了，值得纪念。同时，这也注定了今晚是一个难眠夜啊。从今天开始，就要独自居住在一个陌生的地方生活。过去不再有，前途飘忽不定。这样的画面，换作很多年前的我，想必是开心的吧。多年期盼终成真，然而人却不再是。任何事都会有代价，选择了，就要去承担。
 不管怎么样，当我写到这里，新的一天已经到来。而明天，是未知，也是希望。
- “好好完成工作，好好度过每一天。蒙德的生活不就是如此吗？”
- </description>
+“好好完成工作，好好度过每一天。蒙德的生活不就是如此吗？”</description>
     </item>
     
     <item>
@@ -3216,7 +3511,7 @@ min / max old /new stat / stop</description>
 前年, 不曾有过什么事，
 大前年, 也不曾有过什么事。
 《斜阳》
- 今天手机又坏了，这足以让我心情胸沉闷到整晚睡不着。:)
+今天手机又坏了，这足以让我心情胸沉闷到整晚睡不着。:)
 忽然想起很多年前的一个朋友，她有时会在晚修的时候跟我开玩笑说，“白天我是女神，晚上呢，是女神经”。我开始不是很懂，但感觉她很聪明，所以也很佩服她。
 人是多么奇怪的生物啊，其实我对人一点也不懂。我不知道别人脑海真正的想法是什么。我在想，应该怎么样才能和另一颗心交流呢？</description>
     </item>
@@ -3250,8 +3545,7 @@ min / max old /new stat / stop</description>
 本以为有着丰富的安装操作系统经验（惨痛经历）的我，装个 Windows 还不是小菜一碟～但，事实上我又被狠狠打脸了。从一个非 Windows 环境装 Windows 系统遭遇的问题之多，让我没办法淡定了……
 整个过程遇到问题很多，最恶心也是最常见的就是装 Windows 的时候，会破坏原有其他操作系统的引导。我想流氓软件里 Windows 也算老大了吧。另外还有差点让我气笑了，微软官网检测到我当前用的不是 Windows 系统，居然不让我下载装 Windows 需要的工具安装包，美名其曰：“怕我下载错了”。这是玩霸道总裁还是别有用心？绝了！
 这次之后，奇怪的知识增加了，而且装系统用的U盘也倍增了，以后应该不会再有类似这样的窘境了。
- “好像，你上次也是这样说的？”
- </description>
+“好像，你上次也是这样说的？”</description>
     </item>
     
     <item>
@@ -3261,9 +3555,9 @@ min / max old /new stat / stop</description>
       
       <guid>/posts/2021-01-12-io/</guid>
       <description>一、概览 🔗Java 的 I/O 大概可以分成以下几类：
- 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO  二、磁盘操作 🔗File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){  if(dir == null || !dir.exists()){  return ;  }  if(dir.isFile()) {  System.out.println(dir.getName());  return ;  }  for (File:file : dir.listFiles()) {  listAllFiles(file);  } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
-三、字节操作 🔗实现文件复制 🔗public static void copuFile(String src, String dist) throws IOException {  FileInputStream in = new FileInputStream(src);  FileOutputStream out = new FileOutStream(dist);   byte[] buffer = new byte[20 * 1024];  int cnt;  // read() 最多读 buffer.</description>
+磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO 二、磁盘操作 🔗File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
+public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { System.out.println(dir.getName()); return ; } for (File:file : dir.listFiles()) { listAllFiles(file); } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
+三、字节操作 🔗实现文件复制 🔗public static void copuFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读 buffer.</description>
     </item>
     
     <item>
@@ -3273,9 +3567,10 @@ public static void listAllFiles(File dir){  if(dir == null || !dir.exists()){  r
       
       <guid>/posts/2021-01-09-concurrent/</guid>
       <description>一、使用线程 🔗有三种使用线程的方法：
- 实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类；  实现 Runnable 接口 🔗需要实现接口中的 run() 方法。
-public class MyRunnable implements Runnable {  @Override  public void run(){  // ...  } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
-public static void main(String[] args){  MyRunnable instance = new MyRunnable();  Thread thread = new Thread(instance);  thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。</description>
+实现 Runnable 接口； 实现 Callable接口； 继承 Tread 类； 实现 Runnable 接口 🔗需要实现接口中的 run() 方法。
+public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+public static void main(String[] args){ MyRunnable instance = new MyRunnable(); Thread thread = new Thread(instance); thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。
+public class MyCallable implements Callable&amp;lt;Integer&amp;gt; { public Integer call(){ return 123; } } public static void main(String[] args) throws ExecutionException,InterruptedException { MyCallable mc = new MyCallble(); FutureTask&amp;lt;Integer&amp;gt; ft = new FutureTask&amp;lt;&amp;gt;(mc); Thread thread = new Thread(ft); thread.</description>
     </item>
     
     <item>
@@ -3285,7 +3580,7 @@ public static void main(String[] args){  MyRunnable instance = new MyRunnable();
       
       <guid>/posts/2021-1-7/</guid>
       <description>“一切的答案，都在奈落之底。” 《来自深渊》
- 人类从未停止对未知事物的探寻。对内，不断剖析人的身体构造、思想信仰；对外，不断探索宇宙的边际，寻找那遥远处的未知。人从哪里来，往哪里去。如果不能解答这些问题，就不能认识到自身的存在意义。</description>
+人类从未停止对未知事物的探寻。对内，不断剖析人的身体构造、思想信仰；对外，不断探索宇宙的边际，寻找那遥远处的未知。人从哪里来，往哪里去。如果不能解答这些问题，就不能认识到自身的存在意义。</description>
     </item>
     
     <item>
@@ -3294,11 +3589,10 @@ public static void main(String[] args){  MyRunnable instance = new MyRunnable();
       <pubDate>Sun, 03 Jan 2021 19:19:51 +0800</pubDate>
       
       <guid>/posts/2021-1-3/</guid>
-      <description> 从前 现在 过去了 再不来
+      <description>从前 现在 过去了 再不来
 红红落叶 长埋 尘土内 开始 终结 总是 没变改
 天边的你 漂泊 白云外
-《一生所爱》
- </description>
+《一生所爱》</description>
     </item>
     
     <item>
@@ -3330,12 +3624,13 @@ public static void main(String[] args){  MyRunnable instance = new MyRunnable();
       <pubDate>Thu, 31 Dec 2020 10:12:40 +0800</pubDate>
       
       <guid>/posts/2020-12-31-sql/</guid>
-      <description>一、基础 二、创建表 三、修改表 四、插入 五、更新 六、删除 七、查询  DISTINCT LIMIT   八、排序 九、过滤 十、通配符 十一、计算字段 十二、函数  汇总 文本处理 日期和时间处理 数值处理   十三、分组 十四、子查询 十五、连接  内连接 自连接 自然连接 外连接   十六、组合查询 十七、视图 十八、存储过程 十九、游标 二十、触发器 二十一、事务管理 二十二、字符集 二十三、权限管理  一、基础 🔗模式定义了数据如何存储、存储怎么样的数据以及数据如何分解等信息，数据库和表都有模式。
+      <description>一、基础 二、创建表 三、修改表 四、插入 五、更新 六、删除 七、查询 DISTINCT LIMIT 八、排序 九、过滤 十、通配符 十一、计算字段 十二、函数 汇总 文本处理 日期和时间处理 数值处理 十三、分组 十四、子查询 十五、连接 内连接 自连接 自然连接 外连接 十六、组合查询 十七、视图 十八、存储过程 十九、游标 二十、触发器 二十一、事务管理 二十二、字符集 二十三、权限管理 一、基础 🔗模式定义了数据如何存储、存储怎么样的数据以及数据如何分解等信息，数据库和表都有模式。
 主键的值不允许修改，也不允许复用（不能将已经删除的主键值赋给新数据行的主键）。
 SQL，（Structred Query Language)，标准 SQL 由 ANSI 标准委员会管理，从而被称为 ANSI SQL。各个 DBMS 都有自己的实现，如 PL/SQL、Transact-SQL 等。
 SQL 语句不区分大小写，但是数据库表名、列名和值是否区分依赖于具体的 DBMS 以及配置。
 SQL 支持以下三种注释：
-### 注释 SELECT * FROM mytable; -- 注释 /* 注释1  注释2 */ 数据库创建与使用：</description>
+### 注释 SELECT * FROM mytable; -- 注释 /* 注释1 注释2 */ 数据库创建与使用：
+CREATE DATABASE test; USE test; 二、创建表 🔗CREATE TABLE mytable ( # int 类型，不为空，自增 id INT NOT NULL AUTO_INCREMENT, # int 类型，不可为空，默认值为1，不为空 col1 INT NOT NULL DEFAULT 1, # 变长字符串类型，最常为 45 个字符，可以为空 col2 VARCHAR(45) NULL, # 日期类型，可为空 col3 DATE NULL, # 设置主健为 id PRIMARY KEY (`id`) ); 三、修改表 🔗添加列</description>
     </item>
     
     <item>
@@ -3359,9 +3654,12 @@ SQL 支持以下三种注释：
       
       <guid>/posts/2020-12-25jvm/</guid>
       <description>参考自 CyC2018/CS-Notes
- 一、运行时数据区域  程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存   二、垃圾收集  判断一个对象是否可被回收 引用类型 垃圾收集算法 垃圾收集器   三、内存分配和回收策略  Minor Gc 和 Full Gc 内存分配策略 Full GC 的触发条件   四、类加载机制  类的生命周期 类加载过程 类初始化时机 类与类加载器 类加载器分类 双亲委派模型 自定义类加载器实现    一、运行时数据区域  🔗程序计数器  🔗记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。
-Java 虚拟机栈  🔗每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
-可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：</description>
+一、运行时数据区域 程序计数器 Java 虚拟机栈 本地方法栈 堆 方法区 运行时常量池 直接内存 二、垃圾收集 判断一个对象是否可被回收 引用类型 垃圾收集算法 垃圾收集器 三、内存分配和回收策略 Minor Gc 和 Full Gc 内存分配策略 Full GC 的触发条件 四、类加载机制 类的生命周期 类加载过程 类初始化时机 类与类加载器 类加载器分类 双亲委派模型 自定义类加载器实现 一、运行时数据区域 🔗程序计数器 🔗记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。
+Java 虚拟机栈 🔗每个 Java方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
+可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK1.5+ 默认为 1M：
+java -Xss2M HaskTheJava 该区域可能抛出以下异常：
+当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常； 栈进行动态扩展的时如果无法申请到足够的内存，会抛出 OutofMemoryError 异常。 本地方法栈 🔗本地方法栈与 Java 虚拟机栈类似，他们之间的区别只不过是本地方法栈为本地方法服务。
+本地方法一般是用其他语言（C、C++或汇编语言等等）编写的，并且被编译为基于本机硬件和操作系统的程序，对待这些方法需要特别处理。</description>
     </item>
     
     <item>
@@ -3374,8 +3672,7 @@ Java 虚拟机栈  🔗每个 Java方法在执行的同时会创建一个栈帧�
 时间回到傍晚时分，他从单位回到了住处。那是一个旧小区，狭窄昏暗的楼梯，忽闪忽闪的楼道灯光，仿佛在陈述着它久远的历史。与往常一样，他翻了翻手机未读信息，便倒睡在床上。枕着按摩枕，戴上热敷眼罩，再给耳朵塞上耳机，最后躺在床上，仿佛在仙境一般舒适，全然忘记了白天的劳累。渐渐地，伴着歌声的旋律，逐渐进入了一种半梦半醒的状态……梦中不知时间流逝，恍惚之间，他从这种状态中醒来。下床，然后走到浴室。忽然，他觉察到某个地方不对劲。猛地低头，发现鞋子有了异样……
 显然，这并非他的鞋子。问题是，它从什么时候出现在他的脚下，或者说什么时候出现在他的床边……未知的诡异感让他一下子清醒，多年的侦探思维派上用场。压下心头思绪，他将它放回室友的鞋架位置，仿佛当做无事发生，而实则开始暗自思索。“刚回来时便穿错了？不对，根据平时放鞋的习惯位置和鞋子的明显差异，可能很小。”“那它从一开始就在那里了？还是，在他睡觉的时候……”
 不寻常的事物从不单独出现，他开始联想最近发生的不平常的事件。“最近深夜无人的客厅常常传来响动、室友某天早起出门后便再没回来……”细细琢磨，平日里安静的环境里隐藏着许多未知的事物。到底发生了什么，又是因何而起，这一切是道德的沦丧还是人性的泯灭……等等！啊，他明白了，猛地转身。原来，这诡异的根源，这诡异的根源，就在他的背后……
- “什么，精神损失费？放心，我会在夜深的时候去送给你的……”
- </description>
+“什么，精神损失费？放心，我会在夜深的时候去送给你的……”</description>
     </item>
     
     <item>
@@ -3385,11 +3682,11 @@ Java 虚拟机栈  🔗每个 Java方法在执行的同时会创建一个栈帧�
       
       <guid>/posts/2020-12-24-collection/</guid>
       <description>参考自 CyC2018/CS-Notes
- 一、概览  Collection Map    一、概览  🔗容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。
-Collection  🔗1.Set
- TreeSet: 基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet, HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。 HashSet: 基于哈希表的实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。 LinkedHashSet: 具有 HashSet 的查找效率，并且内部使用双向链表维护元素的插入顺序。  2.List
- ArrayList： 基于动态数组实现，支持随机访问。 Vector： 和 ArrayList 类似，但它是线程安全的。 LinkedList： 基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用做栈、队列和双向队列。  3.Queue
- LinkedList：可以用它来实现双向队列。 PriorityQueue：基于堆结构实现，可以用它来实现优先队列。  Map  🔗 TreeMap：基于红黑树实现 HashMap：基于哈希表实现 hashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程同时写入 HashTable 不会导致数据不一致。它是遗留类，不应该去使用它，而是使用 ConcurrentHashMap 来支持线程安全，ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。 LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。  </description>
+一、概览 Collection Map 一、概览 🔗容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map存储着键值对（两个对象）的映射表。
+Collection 🔗1.Set
+TreeSet: 基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet, HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。 HashSet: 基于哈希表的实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。 LinkedHashSet: 具有 HashSet 的查找效率，并且内部使用双向链表维护元素的插入顺序。 2.List
+ArrayList： 基于动态数组实现，支持随机访问。 Vector： 和 ArrayList 类似，但它是线程安全的。 LinkedList： 基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用做栈、队列和双向队列。 3.Queue
+LinkedList：可以用它来实现双向队列。 PriorityQueue：基于堆结构实现，可以用它来实现优先队列。 Map 🔗 TreeMap：基于红黑树实现 HashMap：基于哈希表实现 hashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程同时写入 HashTable 不会导致数据不一致。它是遗留类，不应该去使用它，而是使用 ConcurrentHashMap 来支持线程安全，ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。 LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。 </description>
     </item>
     
     <item>
@@ -3401,8 +3698,7 @@ Collection  🔗1.Set
       <description>晚上不开心，就会睡不好，睡不好早上就会早早起床，早起本身和它带来的结果（如吃上热腾腾的早餐）又会让人开心。
 晚上很开心，就会睡得香，睡得香早上就不愿意起床，赖床本身和它带来的结果（如迟到）又会让人不开心。
 所以，在晚上的时候要开心好，还是不开心好？
- “唉，我看你是想找不开心！”
- </description>
+“唉，我看你是想找不开心！”</description>
     </item>
     
     <item>
@@ -3426,7 +3722,7 @@ Collection  🔗1.Set
       <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。
 然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。
 事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：
- //实验1  String s1 = &amp;#34;1&amp;#34;;  Field valueField = String.class.getDeclaredField(&amp;#34;value&amp;#34;);  valueField.setAccessible(true);  char[] value = (char[]) valueField.get(s1);  value[0] = &amp;#39;2&amp;#39;;  System.out.println(s1); //2  System.out.println((s1 == &amp;#34;1&amp;#34;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot;  的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
+//实验1 String s1 = &amp;#34;1&amp;#34;; Field valueField = String.class.getDeclaredField(&amp;#34;value&amp;#34;); valueField.setAccessible(true); char[] value = (char[]) valueField.get(s1); value[0] = &amp;#39;2&amp;#39;; System.out.println(s1); //2 System.out.println((s1 == &amp;#34;1&amp;#34;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot; 的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
     </item>
     
     <item>
@@ -3436,7 +3732,7 @@ Collection  🔗1.Set
       
       <guid>/posts/2020-12-15-base/</guid>
       <description>参考自 CyC2018/CS-Notes
- 一、数据类型  基本类型 包装类型 缓存池   二、String  概述 不可变的好处 String,StringBuffer and StringBuilder StringPoll new String(&amp;ldquo;abc&amp;rdquo;)   三、运算  参数传递 float与double 隐式类型转换 switch   四、关键字  final static   五、Object通用方法  概览 equals() hashCode() toString() clone()   六、继承  访问权限 抽象类和接口 super 重载和重写   七、反射 八、异常 九、泛型 十、注解 十一、特性  一、数据类型  🔗基本类型  🔗 byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~  boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</description>
+一、数据类型 基本类型 包装类型 缓存池 二、String 概述 不可变的好处 String,StringBuffer and StringBuilder StringPoll new String(&amp;ldquo;abc&amp;rdquo;) 三、运算 参数传递 float与double 隐式类型转换 switch 四、关键字 final static 五、Object通用方法 概览 equals() hashCode() toString() clone() 六、继承 访问权限 抽象类和接口 super 重载和重写 七、反射 八、异常 九、泛型 十、注解 十一、特性 一、数据类型 🔗基本类型 🔗 byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~ boolean 只有两个值：true、flase,可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true， 0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</description>
     </item>
     
     <item>
@@ -3449,46 +3745,55 @@ Collection  🔗1.Set
 这分钟却挂念谁
 我会说是唯独你不可失去
 《追》
- 今天没签单位的就业协议。我在想什么呢？到底什么是我想要的呢？
- 你为生存做些什么，我不关心  🔗——〔加拿大〕 Oriah（译者：野竹林）
-  你为生存做了些什么，我不关心；
+今天没签单位的就业协议。我在想什么呢？到底什么是我想要的呢？
+你为生存做些什么，我不关心 🔗——〔加拿大〕 Oriah（译者：野竹林）
+你为生存做了些什么，我不关心；
 我想知道，
 你的追求，
 你是否敢于梦想去触碰你那内心的渴望。
-  你的年龄多大，我不关心；
+你的年龄多大，我不关心；
 我想知道，
 你是否愿意像傻瓜一样不顾风险，
 为了爱，梦想还有活着就该有的冒险。
-  我不关心，是什么行星牵引着你的月亮，
+我不关心，是什么行星牵引着你的月亮，
 我想知道，
 你是否已触及自己悲伤的中心，
 是否因生活的种种背叛而心胸开阔，
 抑或因为害怕更大的痛苦而消沉封闭！
-  我想知道，
+我想知道，
 你是否能面对痛苦——我的或者你自己的，
 而不必去隐藏、涂抹或修饰。
-  我想知道，
+我想知道，
 你是否能享受快乐——我的或者你自己的，
 你是否能充满野性地舞蹈，让你从指端到足尖都被狂喜所充满，
 而不会告诫我们要小心、要现实、要记住做人的禁忌。
-  我并不关心你告诉我的故事是否真实，
+我并不关心你告诉我的故事是否真实，
 我想知道，
 你是否能为了真实地对待自己而不怕别人失望，
 你是否能承受背叛的指责而不出卖自己的灵魂。
 我想知道，你是否能抛弃曾经的信念，而因此值得信赖。
-  我想知道，
+我想知道，
 你是否能发现美，即使它每天都不漂亮，
 你是否能从它的存在中追寻你自己生命的源头。
-  我想知道，
+我想知道，
 你是否能与失败相伴——你的和我的，
 却依然可以站立在湖边对着银色的满月放生大喊
 “是的，就是这样！”
-  我不关心你在哪里生活或者你拥有多少金钱，
+我不关心你在哪里生活或者你拥有多少金钱，
 我想知道，
 在一个悲伤、绝望、厌世和痛彻骨髓的夜晚之后，
 你是否能起床，为养育孩子做那些需要的事情。
-  我不关心你是谁，你是如何来到这里，
-我想知道，你是否愿同我一起站在烈焰的中心，毫不退缩。</description>
+我不关心你是谁，你是如何来到这里，
+我想知道，你是否愿同我一起站在烈焰的中心，毫不退缩。
+我不关心你在哪里受到教育、你学了什么或者你同谁一起学习，
+我想知道，
+当一切都背叛了你，是什么在内心支撑着你前行。
+我想知道，
+你是否能孤独地面对你自己，
+你是否真正喜欢那个你独自一人时交谈的声音。
+The Invitation 🔗 It doesn&amp;rsquo;t interest me
+what you do for a living.
+I want to know</description>
     </item>
     
     <item>
@@ -3497,20 +3802,19 @@ Collection  🔗1.Set
       <pubDate>Mon, 14 Dec 2020 01:07:07 +0800</pubDate>
       
       <guid>/posts/2020-12-14/</guid>
-      <description> 明明知道烈焰焚身的痛苦，
+      <description>明明知道烈焰焚身的痛苦，
 明明知道短暂的光芒过后，
 仍是无尽的黑暗，
 为何你还是，
 一心向前？
-  是火焰的温暖给予你力量，
+是火焰的温暖给予你力量，
 还是黑夜的漫长令你恐慌？
-  我想知道，
+我想知道，
 当灰烬落地，
 你是否找到心中的答案？
 我想知道，
 当火花再次摇晃，
-你是否还会煽动翅膀？
- </description>
+你是否还会煽动翅膀？</description>
     </item>
     
     <item>
@@ -3519,18 +3823,17 @@ Collection  🔗1.Set
       <pubDate>Thu, 10 Dec 2020 23:14:51 +0800</pubDate>
       
       <guid>/posts/2020-12-10/</guid>
-      <description> 我 回头再望某年，
+      <description>我 回头再望某年，
 象失色照片 乍现眼前。
 —— 《风再起时》
- 刚看完《寻找失去的未来》。啊，我是谁，我在哪,我昨天都做了什么？
+刚看完《寻找失去的未来》。啊，我是谁，我在哪,我昨天都做了什么？
 在未来的一天，过去的所有都被遗忘，欢乐和痛苦终化为岁月的尘埃。只是，那时的我，又会变成什么样呢？现在的我，又是什么呢，现在的我，又在追求什么呢？
 “没有未来的未来，不是我想要的未来~”可惜我不是那神原秋人，未来也不知道有没有“未来”。既然未来不可言，那我便讲述一下过去吧。
 相较于“网瘾少年”，我更愿意把小时候的我称为“网上冲浪者”。那时候，最喜欢做的事情就是自个在某个地方，用一部能上网的手机，进入各种游戏聊天室、论坛。在那里，可以接触五湖四海的人们，跟不同的人交流，了解别人。当然，与之而来的苦恼就是每个月的流量费用。
 说起网瘾少年，另一个词也不得不提，那就是“中二病”。和很多患者一样，以前的我总认为自己拥有一种超能力，它就像《冰海战记》里的阿谢拉特那样，看一眼就能“知其人”的能力。
- “嗯？你不是一直都是近视眼吗？”
-  “因为看淡了世间事，所以模糊了双眼。&amp;quot;
-  “喂，120 吗，这里有个病人需要抢救一下。”
- </description>
+“嗯？你不是一直都是近视眼吗？”
+“因为看淡了世间事，所以模糊了双眼。&amp;quot;
+“喂，120 吗，这里有个病人需要抢救一下。”</description>
     </item>
     
   </channel>
