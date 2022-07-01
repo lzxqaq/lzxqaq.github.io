@@ -6,7 +6,26 @@
     <description>Recent content on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 29 Jun 2022 00:30:05 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jul 2022 13:11:55 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Verilog 语法入门</title>
+      <link>/posts/2022-7-1/</link>
+      <pubDate>Fri, 01 Jul 2022 13:11:55 +0800</pubDate>
+      
+      <guid>/posts/2022-7-1/</guid>
+      <description>1. module / endmodule 🔗表征模块的开始和结束。模块名可包含字母、数字以及下划线，需要以字母开头，区分大小写。
+2. assign 🔗赋值操作关键字，该关键字后面跟一个赋值表达式，该关键字是实现组合逻辑操作的一种主要描述方式。
+3. input/output 🔗表征该信号的方向，除输入、输出外还有一种inout（输入输出）型号。
+4. 操作符 🔗~按位取反，&amp;amp;按位与，|按位或。如果只有一个操作数时，则将该操作数的所有位进行操作。
+5. [,] 🔗表征该信号的位宽，推荐写法如input [3:0] a。
+6. 注释 🔗//、/* */。
+7. wire 🔗线网型数据类型，用于表示线网型信号，与实际电路中的信号连线相对应。wire 是 verilog 中的默认数据类型，没有指明数据类型时，默认为 wire。
+8. reg 🔗寄存器类型数据。记住一条原则：在 always 块内被赋值的信号应定义位 reg 型，用 assign 语句赋值的信号应定义为 wire 型。
+9. 信号状态 🔗verilog 中有4种状态“0、1、x、z”，分别表示低电平、高电平、不确定态和高阻态。对于没有进行初始化的信号，一般处于不确定态（x），高阻态表示该信号没有被其他信号驱动，经常用于有多个驱动源的总线型数据上。
+10. 数据格式 🔗基数格式有 4 中，包括：十进制(&amp;rsquo;d 或 &amp;lsquo;D)，十六进制(&amp;lsquo;h 或 &amp;lsquo;H)，二进制（&amp;lsquo;b 或 &amp;lsquo;B），八进制（&amp;lsquo;o 或 &amp;lsquo;O）。数值可指明位宽，也可不指明位宽。如 4&amp;rsquo;b1011，表示 4bit 数值。
+11. 模块实例化 🔗module mux2( input [3:0] d0, input [3:0] d1, input s, output [3:0] y ); assign y = s ?</description>
+    </item>
+    
     <item>
       <title>Formality 形式验证基本原理</title>
       <link>/posts/2022-6-26/</link>
@@ -20,42 +39,6 @@ Multiply-driven net Loop Cutpoint 切割点 Logic Cone 逻辑锥
 2.2 match 🔗根据一定的匹配规则（通常是名字），匹配两个设计的锥。
 可能出现的匹配情况：
 matched 根据用户声明规则 matched Unmatched，不匹配并不说明不通过，也许不匹配的锥对功能不影响 2.3 verify 🔗 对 matched 的锥进行验证，等价即通过，不等价即功能不等价，整个验证没通过。 出现 fail 则 debug 2.4 debug 🔗调试</description>
-    </item>
-    
-    <item>
-      <title>RTL</title>
-      <link>/glossary/rtl/</link>
-      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
-      
-      <guid>/glossary/rtl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>形式验证相关术语梳理</title>
-      <link>/posts/2022-6-21/</link>
-      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
-      
-      <guid>/posts/2022-6-21/</guid>
-      <description>1. rtl 🔗 在电路设计中RTL（Register Transfer Level）表示寄存器传输级。
-RTL设计由Verilog或者VHDL硬件描述语言描述出理想电路达到的功能。其实际对应的结构是众多算术运算单元（ALU）、多路选择器（MUX）、寄存器等。
-在ASIC设计中，设计者的任务是给出功能正确的RTL级代码。
-2. netlist 🔗 电路设计中，网表（netlist）是用于描述电路元件相互之间连接关系的。
-RTL经过逻辑综合后，其描述的电路进一步展开，转换成用逻辑门和基本触发器相互连接搭建的电路，而用来描述这些逻辑门和触发器之间的连接关系的文件就是门级网表文件。
-netlist是由quartus、vivado、dc等综合工具生成的。
-3. hierarchy 🔗 在电路设计中，hierarchy表示设计电路的层次化/结构化结构。
-层次化电路设计方法实际上是一种模块化设计方法，用户可以将带设计的电路划分为多个子模块，每个子模块下面又可以划分为若干个功能模块，每个功能模块下面又可以划分为若干个基本模块，设计好每个基本模块，定义好每个基本模块之间的连接关系，就可以完成整个电路的设计过程。
-若利用布尔运算法则说明，则是给设计添加中间变量和逻辑结构。层次化电路中，综合工具会寻找可分解出来的子块进行扁平化处理。
-4. flatten 🔗 如果利用布尔运算法则说明，flatten扁平化指的是将设计中的中间变量和结构转换掉。
-具体地讲，flatten扁平化能将RTL代码实际对应的结构描述中的众多算术运算单元（ALU）、多路选择器（MUX）、寄存器等，进一步展开，转换成用AND、OR、NOT、XNOR等逻辑门和DFF、JK或者RS等基本触发器搭建的电路。
-5. synthesis 🔗 综合是指从高抽象级转换到低抽象级的过程。数字系统可以在多个层次上描述，这些层次由高到低可以分为算法层、寄存器传输层、逻辑层、版图层。
-通常，综合可分为三个层次，高层次综合、逻辑综合，版图综合。
-其中逻辑综合具体指使用DC、quartus、vivado等综合工具，根据芯片制造商提供的基本电路单元库，将硬件描述语言描述的RTL级电路转换为网表的过程。
-另外也要注意verilog中的可综合与不可综合语句。
-6. techmapping 🔗 technology工艺映射是将逻辑图或网表转化成可以用工艺实现的新的图或网表的过程。
-逻辑综合中,工艺映射是关键的一步。它根据综合第二步骤中的优化所施加的时序和面积约束，从目标工艺库中搜索符合条件的单元来构成实际电路的逻辑网表。
-7. elaborate 🔗 综合包括翻译（translation）+优化（optimization）+映射（techmapping）。elaborate是翻译步骤的一部分。 elaborate是将HDL描述扩展为将所有模块（Verilog）或实体（VHDL）的所有实例表示为唯一对象的过程。它还涉及在整个描述中评估和传播端口、常量和参数（Verilog）或泛型（VHDL）。完成后，您可以仿真或综合您的设计。 8. word-level model 🔗 word-level model表示对rtl电路设计的一种字级表示，一般来说，字级表示模型中会出现类似于input [信号位宽-1 ：0] 端口名，output [信号位宽-1 ：0] 端口名，reg [width-1 : 0] R变量，wire [width-1 : 0] W变量，这种多bit位数据之间直接进行位运算操作。
-9. bit-level model 🔗 bit-level model表示对rtl电路设计的一种位级表示，一般来说，位级表示模型中会出现类似于input [信号位宽-1 ：0] 端口名，output [信号位宽-1 ：0] 端口名，reg [width-1 : 0] R变量，wire [width-1 : 0] W变量这种多bit位数据之间采用其各自的单个bit位如input[0]、input[1]、output[0]、output[1]等逐步进行位运算操作最后得出运算结果。</description>
     </item>
     
     <item>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>形式验证相关术语（持续更新） | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content=" ABC ABC 是一个开源的综合验证系统。 AIGs And-Inverter Graphs，对RTL电路设计做处理后的一种网络表示形式。 ASIC Application Specific Integrated Circuits，专用集成电路。 BDD/OBDD binary decision diagram，二叉决策图/有序二叉决策图，它是一种表示布尔函数的高效方法。 BMC bounded model checking，有界模型检验。 CEC combinational equivalence checking），组合等价性检查。 CNF conjunctive normal form，合取范式的简称。 CTL Compute Tree Logic，是计算树逻辑。 DUT design under test，待测设计。 FPGA Field Programmable Gate Array，现场可编程门阵列。 FSM Finite State Machine，有限状态机, HDL Hardware Description Language，硬件描述语言。 LTL Linear Temporal Logic，线性时态逻辑。 LUT Look-up table 查找表，一个可编程逻辑组件，可以实现 最多固定数量输入的任意布尔函数。 PI Primary input，顶层输入。 PO Primary output，顶层输出 RTL Register Transfer Level，寄存器传输级。 SAT/SMT Satisifiability，SAT问题是布尔可满足性问题的缩写。 SEC sequential equivalence checking），时序等价性检查 STA Static Timing Analysis 静态时序分析，数字IC设计流程中的重要环节。 SVA system verilog硬件描述语言的断言语言。 Tapout 流片，将最终的版图文件送到工艺厂去生产。 Theorem proving 定理证明，形式验证的一种。 Unbounded proof 无界证明 VCD value change dump，一个通用的波形文件格式。 VCS synopsys公司的数字前端仿真工具。 VHDL VHSIC Hardware Description Language，一种硬件描述语言。 Verilog Verilog HDL（简称 Verilog ）是一种硬件描述语言。 Vivado Vivado设计套件，是 FPGA 厂商赛灵思公司发布的集成设计环境。 async circuit 异步电路。 bit-level model rtl电路设计的一种位级表示。 combinational feedback loops 组合反馈回路 elaborate 阐述，是综合里的翻译步骤的一部分。 flatten 扁平化，将设计中的中间变量和结构转换掉。 hierarchy 设计电路的层次化/结构化结构 k-induction k 归纳法。 liveness property BMC的活力属性。 model checking/checker 模型检测（model checking）是形式化验证方法的一种。 netlist 网表，用于描述电路元件相互之间连接关系。 non-resettable flops 可复位的 flops（寄存器）。 primitive 基元，指的是电路的基本元件。 safety property BMC的安全属性。 solver solver一般指求解器，指的是具体的code，也就是算法和框架的具体实现。 spin/re-spin Spin是一款开源的模型验证系统。 sync circuit 同步电路。 synthesis 综合，从高抽象级转换到低抽象级的过程。 synthesizable design 可综合设计。 techmapping 工艺映射，将逻辑图或网表转化成可以用工艺实现的新的图或网表的过程。 word-level model rtl电路设计的一种字级表示 ">
+<meta name="generator" content="Hugo 0.100.1" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">形式验证相关术语（持续更新）</h1>
+
+    <div class="tip">
+        <time datetime="2022-06-29 11:20:09 &#43;0800 CST">2022年06月29日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          163字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <ul>
+<li><a href="../glossary/abc.md">ABC</a> ABC 是一个开源的综合验证系统。</li>
+<li><a href="../glossary/aigs">AIGs</a> And-Inverter Graphs，对RTL电路设计做处理后的一种网络表示形式。</li>
+<li><a href="../glossary/asic">ASIC</a> Application Specific Integrated Circuits，专用集成电路。</li>
+<li><a href="../glossary/bddobdd">BDD/OBDD</a> binary decision diagram，二叉决策图/有序二叉决策图，它是一种表示布尔函数的高效方法。</li>
+<li><a href="../glossary/bmc">BMC</a> bounded model checking，有界模型检验。</li>
+<li><a href="../glossary/cec">CEC</a> combinational equivalence checking），组合等价性检查。</li>
+<li><a href="../glossary/cnf">CNF</a> conjunctive normal form，合取范式的简称。</li>
+<li><a href="../glossary/ctl">CTL</a> Compute Tree Logic，是计算树逻辑。</li>
+<li><a href="../glossary/dut">DUT</a> design under test，待测设计。</li>
+<li><a href="../glossary/fpga">FPGA</a> Field Programmable Gate Array，现场可编程门阵列。</li>
+<li><a href="../glossary/fsm">FSM</a> Finite State Machine，有限状态机,</li>
+<li><a href="../glossary/hdl">HDL</a> Hardware Description Language，硬件描述语言。</li>
+<li><a href="../glossary/ltl">LTL</a> Linear Temporal Logic，线性时态逻辑。</li>
+<li><a href="../glossary/lut">LUT</a> Look-up table 查找表，一个可编程逻辑组件，可以实现 最多固定数量输入的任意布尔函数。</li>
+<li><a href="../glossary/pi">PI</a> Primary input，顶层输入。</li>
+<li><a href="../glossary/rtl">PO</a> Primary output，顶层输出</li>
+<li><a href="../glossary/rtl">RTL</a> Register Transfer Level，寄存器传输级。</li>
+<li><a href="../glossary/satsmt">SAT/SMT</a> Satisifiability，SAT问题是布尔可满足性问题的缩写。</li>
+<li><a href="../glossary/sec">SEC</a> sequential equivalence checking），时序等价性检查</li>
+<li><a href="../glossary/sta">STA</a> Static Timing Analysis 静态时序分析，数字IC设计流程中的重要环节。</li>
+<li><a href="../glossary/sva">SVA</a> system verilog硬件描述语言的断言语言。</li>
+<li><a href="../glossary/tapout">Tapout</a> 流片，将最终的版图文件送到工艺厂去生产。</li>
+<li><a href="../glossary/theoremproving">Theorem proving</a> 定理证明，形式验证的一种。</li>
+<li><a href="../glossary/unboundedproof">Unbounded proof</a> 无界证明</li>
+<li><a href="../glossary/vcd">VCD</a> value change dump，一个通用的波形文件格式。</li>
+<li><a href="../glossary/vcs">VCS</a> synopsys公司的数字前端仿真工具。</li>
+<li><a href="../glossary/vhdl">VHDL</a> VHSIC Hardware Description Language，一种硬件描述语言。</li>
+<li><a href="../glossary/verilog">Verilog</a> Verilog HDL（简称 Verilog ）是一种硬件描述语言。</li>
+<li><a href="../glossary/vivado">Vivado</a> Vivado设计套件，是 FPGA 厂商赛灵思公司发布的集成设计环境。</li>
+<li><a href="../glossary/asynccircuit">async circuit</a> 异步电路。</li>
+<li><a href="../glossary/bit-levelmodel">bit-level model</a> rtl电路设计的一种位级表示。</li>
+<li><a href="../glossary/combinationalfeedbackloops">combinational feedback loops</a> 组合反馈回路</li>
+<li><a href="../glossary/elaborate">elaborate</a> 阐述，是综合里的翻译步骤的一部分。</li>
+<li><a href="../glossary/flatten">flatten</a> 扁平化，将设计中的中间变量和结构转换掉。</li>
+<li><a href="../glossary/hierarchy">hierarchy</a> 设计电路的层次化/结构化结构</li>
+<li><a href="../glossary/k-induction">k-induction</a> k 归纳法。</li>
+<li><a href="../glossary/livenessproperty">liveness property</a> BMC的活力属性。</li>
+<li><a href="../glossary/modelchecker">model checking/checker</a> 模型检测（model checking）是形式化验证方法的一种。</li>
+<li><a href="../glossary/netlist">netlist</a> 网表，用于描述电路元件相互之间连接关系。</li>
+<li><a href="../glossary/non-resettableflops">non-resettable flops</a> 可复位的 flops（寄存器）。</li>
+<li><a href="../glossary/primitive">primitive</a> 基元，指的是电路的基本元件。</li>
+<li><a href="../glossary/safetyproperty">safety property</a> BMC的安全属性。</li>
+<li><a href="../glossary/solver">solver</a> solver一般指求解器，指的是具体的code，也就是算法和框架的具体实现。</li>
+<li><a href="../glossary/spin">spin/re-spin</a> Spin是一款开源的模型验证系统。</li>
+<li><a href="../glossary/synccircuit">sync circuit</a> 同步电路。</li>
+<li><a href="../glossary/synthesis">synthesis</a> 综合，从高抽象级转换到低抽象级的过程。</li>
+<li><a href="../glossary/synthesizabledesign">synthesizable design</a> 可综合设计。</li>
+<li><a href="../glossary/techmapping">techmapping</a> 工艺映射，将逻辑图或网表转化成可以用工艺实现的新的图或网表的过程。</li>
+<li><a href="../glossary/word-levelmodel">word-level model</a> rtl电路设计的一种字级表示</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

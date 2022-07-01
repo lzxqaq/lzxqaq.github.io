@@ -8,12 +8,483 @@
     <language>zh-cn</language>
     <lastBuildDate>Tue, 21 Jun 2022 00:16:54 +0800</lastBuildDate><atom:link href="/glossary/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>ABC</title>
+      <link>/glossary/abc/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/abc/</guid>
+      <description> ABC 是一个开源的综合验证系统。 </description>
+    </item>
+    
+    <item>
+      <title>AIGs</title>
+      <link>/glossary/aigs/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/aigs/</guid>
+      <description> AIG（And-Inverter Graphs）是一种对RTL电路设计做处理后的一种网络表示形式，这种处理就是将电路中所有的逻辑单元仅仅用AND与门、NOT非门和NAND与非门这些基本cell单元表示。 </description>
+    </item>
+    
+    <item>
+      <title>AIGs</title>
+      <link>/glossary/bmc/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/bmc/</guid>
+      <description>BMC（bounded model checking）是有界模型检验的缩写。
+针对前期的OBDD（ordered binary decision diagram）技术的模型检测的不足，有界模型检测BMC使用SAT（satisfiability）求解器来求解需要验证的问题。它通过设置界限阈值k，可以有效地克服状态爆炸问题。
+BMC的主要过程是：使用有限状态自动机（finite state machine，FSM）来表示要验证的模型或系统，通过FSM状态间的转移来模拟系统或模型运行；用线性时序逻辑（linear-time temporal logic，LTL）来描述有限状态自动机；设定边界阈值k；FSM 状态间的转移关系和LTL逻辑规范使用逻辑与来构成BMC转换公式；把BMC转换公式编码成SAT实例，借助SAT工具求解。若有解，则产生反例反之，若无解，则系统一直运行到阈值k阶段后停止，说明系统或模型是安全且没有错误的。</description>
+    </item>
+    
+    <item>
+      <title>AIGs</title>
+      <link>/glossary/fsm/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/fsm/</guid>
+      <description>FSM（Finite State Machine）是有限状态机的简称。
+任何一个FSM都可以用状态转换图来描述，图中的节点表示FSM中的一个状态，有向加权边表示输入字符时状态的变化。如果图中不存在与当前状态和输入字符对应的有向边，则FSM将进入“消亡状态 (Doom State) ”，此后FSM将一直保持“消亡状态”。状态转换图中还有两个特殊状态：状态1称为 “起始状态” ，表示FSM的初始状态。状态6称为 “结束状态” ，表示成功识别了所输入的字符序列。
+在启动一个FSM时，首先必须将FSM置于“起始状态”，然后输入一系列字符，将从当前状态转换到另一个状态 ，或者仍然保持在当前状态，最终，FSM会到达“结束状态”或者“消亡状态”。</description>
+    </item>
+    
+    <item>
+      <title>AIGs</title>
+      <link>/glossary/livenessproperty/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/livenessproperty/</guid>
+      <description> liveness property是BMC的活力属性，它会声明什么状态最终应该发生。活力属性的反例为一个指向循环的路径，这个无限循环不包含应有的状态，它永远无法到达特定的状态。 </description>
+    </item>
+    
+    <item>
+      <title>AIGs</title>
+      <link>/glossary/modelchecker/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/modelchecker/</guid>
+      <description> 模型检测（model checking）是形式化验证方法的一种，它可以自动检测系统的模拟运行是否满足某些期望的规范。但只要一个系统稍微复杂一点，那么它的状态空间就会膨胀得特别大，使得计算机根本不可能遍历完系统的整个状态空间。 </description>
+    </item>
+    
+    <item>
+      <title>AIGs</title>
+      <link>/glossary/safetyproperty/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/safetyproperty/</guid>
+      <description> safety property是BMC的安全属性，它会声明什么状态不应该发生，也即什么状态应该发生。安全属性的反例为一个状态踪迹，这个踪迹的最后一个状态不满足于属性。 </description>
+    </item>
+    
+    <item>
+      <title>AIGs</title>
+      <link>/glossary/sec/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/sec/</guid>
+      <description>SEC（sequential equivalence checking）是时序等价性检查的缩写，也即对两个电路中的时序逻辑是否等价进行验证。
+SEC可以对两个时序逻辑设计进行比对，它可能使用BDD等symbolic算法来对设计的状态空间进行表述，这也就演变为了model checking问题，所以SEC通常会使用更高抽象层级的reference model，这个思想和验证RTL功能的model checking和theorem proving就有明显的共通之处了。
+JasperGold SEC工具就是做时序等价性检查的工具。SEC主要就是针对RTL对RTL了。我们可以把SEC工具看做model checking的一个特例，这里model不是assertion，而是另一个design，甚至可以是一个周期精确的model。</description>
+    </item>
+    
+    <item>
+      <title>AIGs</title>
+      <link>/glossary/theoremproving/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/theoremproving/</guid>
+      <description> Theorem proving也是一种验证RTL功能和model是否match的手段，它使用的是推导的方法。不像model checking是工具自动给的激励来和assertion匹配，定理证明则是用纯数学方法了。它们之间有一点是共通的，就是都是和根据design specification写的model来比，model checking用assertion表达model，而theorem proving则是用某种中间语言来表达。用来进行theorem proving最有名的工具语言算是ACL2了。 </description>
+    </item>
+    
+    <item>
+      <title>ASIC</title>
+      <link>/glossary/asic/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/asic/</guid>
+      <description> ASIC（Application Specific Integrated Circuits），专用集成电路。 ASIC由IC设计人员根据特定的电路需求，设计专用的逻辑电路，在设计完成后生成设计网表，交给芯片制造厂家流片。在流片之后，内部逻辑电路就固定了，芯片的功能也就固定的。 </description>
+    </item>
+    
+    <item>
+      <title>async circuit</title>
+      <link>/glossary/asynccircuit/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/asynccircuit/</guid>
+      <description> 异步电路。 </description>
+    </item>
+    
+    <item>
+      <title>bit-level model</title>
+      <link>/glossary/bit-level-model/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/bit-level-model/</guid>
+      <description>bit-level model表示对rtl电路设计的一种位级表示，一般来说，位级表示模型中会出现类似于input [信号位宽-1 ：0] 端口名，output [信号位宽-1 ：0] 端口名，reg [width-1 : 0] R变量，wire [width-1 : 0] W变量这种多bit位数据之间采用其各自的单个bit位如input[0]、input[1]、output[0]、output[1]等逐步进行位运算操作最后得出运算结果。</description>
+    </item>
+    
+    <item>
+      <title>CEC</title>
+      <link>/glossary/cec/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/cec/</guid>
+      <description>CEC（combinational equivalence checking）是组合等价性检查的缩写，也即对两个电路中的组合逻辑是否等价进行验证。
+我们常用的Synopsys的formality或者Cadence的Conformal LEC都有个步骤叫match，用于match两个design里的参考点，这些参考点和STA里使用的类似，为flip-flop和IO，然后再进行verify。这可以理解为工具把整个等价性检查工具拆分为一系列两个参考点之间的组合逻辑的等价性验证，可以让整个工作高效完成。</description>
+    </item>
+    
+    <item>
+      <title>CNF</title>
+      <link>/glossary/cnf/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/cnf/</guid>
+      <description> CNF （conjunctive normal form）是合取范式的简称，是可满足问题中比较重要的概念。 在实际应用中，我们一般将约束写成 CNF 范式的格式，然后通过求解器 Solver 对其进行求解。因此 CNF 可以理解为一种问题约束的表现形式。 </description>
+    </item>
+    
+    <item>
+      <title>combinational feedback loops</title>
+      <link>/glossary/combinationalfeedbackloops/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/combinationalfeedbackloops/</guid>
+      <description> 组合反馈回路 </description>
+    </item>
+    
+    <item>
+      <title>CTL</title>
+      <link>/glossary/ctl/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/ctl/</guid>
+      <description>CTL（Compute Tree Logic）是计算树逻辑的简称。
+CTL公式通过AF、EF、AG、EG、AX、EX包含路径量词的符号声明系统的正确性。
+AF：表示了一个条件，即对于从一个状态开始的所有（A）路径，最终在将来（F）条件p必须保持成立；
+EF：要求存在（E）一条最终在未来满足条件p的路径；
+AG：要求条件p在所有可能路径的所有状态下始终或全局为真；
+EG：要求存在某条路径，沿着该路径条件p连续为真；
+A[p U q]和E[p U q]：要求条件p为真，直至到达一个满足条件q的状态；
+AX p and EX p：要求条件p在从当前状态至可到达的所有或某些后续状态中为真。</description>
+    </item>
+    
+    <item>
+      <title>DUT</title>
+      <link>/glossary/dut/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/dut/</guid>
+      <description>DUT（design under test）是待测设计的缩写，它一般指的是RTL设计代码。
+TestBench 即测试平台，是为了检验待测设计（design under test，DUT）而搭建的验证环境。有了这个环境，我们就可以对DUT输入定向或随机的激励，以保证DUT的正确性。</description>
+    </item>
+    
+    <item>
+      <title>elaborate</title>
+      <link>/glossary/elaborate/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/elaborate/</guid>
+      <description> 综合包括翻译（translation）+优化（optimization）+映射（techmapping）。elaborate是翻译步骤的一部分。 elaborate是将HDL描述扩展为将所有模块（Verilog）或实体（VHDL）的所有实例表示为唯一对象的过程。它还涉及在整个描述中评估和传播端口、常量和参数（Verilog）或泛型（VHDL）。完成后，您可以仿真或综合您的设计。 </description>
+    </item>
+    
+    <item>
+      <title>flatten</title>
+      <link>/glossary/flatten/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/flatten/</guid>
+      <description>如果利用布尔运算法则说明，flatten 扁平化指的是将设计中的中间变量和结构转换掉。
+具体地讲，flatten扁平化能将RTL代码实际对应的结构描述中的众多算术运算单元（ALU）、多路选择器（MUX）、寄存器等，进一步展开，转换成用AND、OR、NOT、XNOR等逻辑门和DFF、JK或者RS等基本触发器搭建的电路。</description>
+    </item>
+    
+    <item>
+      <title>FPGA</title>
+      <link>/glossary/fpga/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/fpga/</guid>
+      <description> FPGA（Field Programmable Gate Array），现场可编程门阵列。 FPGA由Xilinx，Alter等器件厂家提供，设计人员只需要根据需求选择相应的器件，然后设计逻辑电路，并下载到FPGA器件中去，实现需求的电路功能，随时可以修改电路功能。 </description>
+    </item>
+    
+    <item>
+      <title>HDL</title>
+      <link>/glossary/hdl/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/hdl/</guid>
+      <description> Hardware Description Language，硬件描述语言。 </description>
+    </item>
+    
+    <item>
+      <title>hierarchy</title>
+      <link>/glossary/hierarchy/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/hierarchy/</guid>
+      <description>在电路设计中，hierarchy表示设计电路的层次化/结构化结构。
+层次化电路设计方法实际上是一种模块化设计方法，用户可以将带设计的电路划分为多个子模块，每个子模块下面又可以划分为若干个功能模块，每个功能模块下面又可以划分为若干个基本模块，设计好每个基本模块，定义好每个基本模块之间的连接关系，就可以完成整个电路的设计过程。
+若利用布尔运算法则说明，则是给设计添加中间变量和逻辑结构。层次化电路中，综合工具会寻找可分解出来的子块进行扁平化处理。</description>
+    </item>
+    
+    <item>
+      <title>k-induction</title>
+      <link>/glossary/k-induction/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/k-induction/</guid>
+      <description> k 归纳法 </description>
+    </item>
+    
+    <item>
+      <title>LTL</title>
+      <link>/glossary/ltl/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/ltl/</guid>
+      <description>LTL（Linear Temporal Logic）是线性时态逻辑的简称。
+LTL公式通过X,F,G,U,W,R时态连接词表征系统的正确性声明/规范。
+X ：表示Next下一个状态
+F： 表示Future未来某个状态
+G ：表示Globally所有将来的状态
+U ：表示Until直到
+W： 表示Weak-Until若直到
+R ：表示Release，解放，释放</description>
+    </item>
+    
+    <item>
+      <title>LUT</title>
+      <link>/glossary/lut/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/lut/</guid>
+      <description> Look-up table 查找表，一个可编程逻辑组件，可以实现 最多固定数量输入的任意布尔函数。 </description>
+    </item>
+    
+    <item>
+      <title>NetList</title>
+      <link>/glossary/netlist/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/netlist/</guid>
+      <description>电路设计中，网表（netlist）是用于描述电路元件相互之间连接关系的。
+RTL经过逻辑综合后，其描述的电路进一步展开，转换成用逻辑门和基本触发器相互连接搭建的电路，而用来描述这些逻辑门和触发器之间的连接关系的文件就是门级网表文件。
+netlist是由quartus、vivado、dc等综合工具生成的。</description>
+    </item>
+    
+    <item>
+      <title>non-resettable flops</title>
+      <link>/glossary/non-resettableflops/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/non-resettableflops/</guid>
+      <description> 可复位的 flops（寄存器）。 </description>
+    </item>
+    
+    <item>
+      <title>PI</title>
+      <link>/glossary/pi/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/pi/</guid>
+      <description> Primary input，顶层输入。 </description>
+    </item>
+    
+    <item>
+      <title>PO</title>
+      <link>/glossary/po/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/po/</guid>
+      <description> Primary output，顶层输出 </description>
+    </item>
+    
+    <item>
+      <title>RTL</title>
+      <link>/glossary/bddobdd/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/bddobdd/</guid>
+      <description>BDD（binary decision diagram）是二叉决策图的缩写。它是一种表示布尔函数的高效方法。
+BDD是一个有向无环图，BDD只有两个终端节点0和1，分别表示布尔函数的值是True还是False。</description>
+    </item>
+    
+    <item>
       <title>RTL</title>
       <link>/glossary/rtl/</link>
       <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
       
       <guid>/glossary/rtl/</guid>
-      <description></description>
+      <description>在电路设计中RTL（Register Transfer Level）表示寄存器传输级。
+RTL设计由Verilog或者VHDL硬件描述语言描述出理想电路达到的功能。其实际对应的结构是众多算术运算单元（ALU）、多路选择器（MUX）、寄存器等。
+在ASIC设计中，设计者的任务是给出功能正确的RTL级代码。</description>
+    </item>
+    
+    <item>
+      <title>RTL</title>
+      <link>/glossary/solver/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/solver/</guid>
+      <description> solver一般指求解器，指的是具体的code，也就是算法和框架的具体实现。
+MiniSAT是一种简约的求解器，开源的布尔可满足问题求解器。SAT问题是布尔可满足性问题（又名命题可满足性问题）的缩写，即给定一个布尔公式，判断是否存在满足它的解释的问题。SAT问题是第一个被证明的NP问题。该问题可以简化为：输入一个析取范式（CNF），输出一个布尔值表示它是否是可满足的，若它是可满足的，再输出一个使它为真的解释。 </description>
+    </item>
+    
+    <item>
+      <title>SAT/SMT</title>
+      <link>/glossary/satsmt/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/satsmt/</guid>
+      <description>在电路设计中RTL（Register Transfer Level）表示寄存器传输级。
+RTL设计由Verilog或者VHDL硬件描述语言描述出理想电路达到的功能。其实际对应的结构是众多算术运算单元（ALU）、多路选择器（MUX）、寄存器等。
+在ASIC设计中，设计者的任务是给出功能正确的RTL级代码。</description>
+    </item>
+    
+    <item>
+      <title>spin/re-spin</title>
+      <link>/glossary/spin/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/spin/</guid>
+      <description> Spin是一款开源的模型验证系统，主要用于检测一个有限状态的系统或者说自动机能否达到LTL公式表示的性质的要求。SPIN模型检验工具的基本思想是求两种自动机所接受语言的交集，若交集为空，则安全性得到验证，否则输出不满足安全特性的行为轨迹。 </description>
+    </item>
+    
+    <item>
+      <title>STA</title>
+      <link>/glossary/sta/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/sta/</guid>
+      <description> Static Timing Analysis 静态时序分析，数字IC设计流程中的重要环节。 </description>
+    </item>
+    
+    <item>
+      <title>SVA</title>
+      <link>/glossary/sva/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/sva/</guid>
+      <description>SVA（system verilog assertion）是system verilog硬件描述语言的断言语言的缩写。
+在形式验证的model checking中，model是根据design specification写出来的，具体形式可以是用形如SVA表达的assertion断言集合，model checking的工具使用各种数学手段来试图证明你的design能完全match你写的assertion，如果不能，那么就是找到bug了。</description>
+    </item>
+    
+    <item>
+      <title>sync circuit</title>
+      <link>/glossary/synccircuit/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/synccircuit/</guid>
+      <description> 同步电路。 </description>
+    </item>
+    
+    <item>
+      <title>synthesis</title>
+      <link>/glossary/synthesis/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/synthesis/</guid>
+      <description>综合是指从高抽象级转换到低抽象级的过程。数字系统可以在多个层次上描述，这些层次由高到低可以分为算法层、寄存器传输层、逻辑层、版图层。
+通常，综合可分为三个层次，高层次综合、逻辑综合，版图综合。
+其中逻辑综合具体指使用DC、quartus、vivado等综合工具，根据芯片制造商提供的基本电路单元库，将硬件描述语言描述的RTL级电路转换为网表的过程。
+另外也要注意verilog中的可综合与不可综合语句。</description>
+    </item>
+    
+    <item>
+      <title>synthesizable design</title>
+      <link>/glossary/synthesizabledesign/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/synthesizabledesign/</guid>
+      <description>Synthesizable design指的是可综合设计，为了使得电路能够用逻辑综合工具进行综合，RTL设计者需要在设计电路时考虑verilog等硬件描述语言的可综合与不可综合结构或者关键字。
+Verilog 主要用于数字电路设计的描述，但不是所有的描述方式都可以被综合成实际的硬件电路。例如一些用于仿真验证的关键字，属于仿真验证语言，只能在仿真时使用，不能被综合成电路，如系统任务 $dsiplay, initial 语句等。所以使用 Verilog 设计数字电路时，一定要注意电路的可综合性。testbench 可以随心所欲，只要能构造出需要的仿真激励条件即可。</description>
+    </item>
+    
+    <item>
+      <title>Tapout</title>
+      <link>/glossary/tapout/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/tapout/</guid>
+      <description> 流片，将最终的版图文件送到工艺厂去生产。 </description>
+    </item>
+    
+    <item>
+      <title>techmapping</title>
+      <link>/glossary/techmapping/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/techmapping/</guid>
+      <description>technology 工艺映射是将逻辑图或网表转化成可以用工艺实现的新的图或网表的过程。
+逻辑综合中,工艺映射是关键的一步。它根据综合第二步骤中的优化所施加的时序和面积约束，从目标工艺库中搜索符合条件的单元来构成实际电路的逻辑网表。</description>
+    </item>
+    
+    <item>
+      <title>unbounded</title>
+      <link>/glossary/z-copy/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/z-copy/</guid>
+      <description> 无界证明 </description>
+    </item>
+    
+    <item>
+      <title>unbounded proof</title>
+      <link>/glossary/unboundedproof/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/unboundedproof/</guid>
+      <description> 无界证明 </description>
+    </item>
+    
+    <item>
+      <title>VCD</title>
+      <link>/glossary/vcd/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/vcd/</guid>
+      <description> value change dump，一个通用的波形文件格式。 </description>
+    </item>
+    
+    <item>
+      <title>VCS</title>
+      <link>/glossary/vcs/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/vcs/</guid>
+      <description> synopsys公司的数字前端仿真工具。 </description>
+    </item>
+    
+    <item>
+      <title>Verilog</title>
+      <link>/glossary/verilog/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/verilog/</guid>
+      <description> Verilog HDL（简称 Verilog ）是一种硬件描述语言。 </description>
+    </item>
+    
+    <item>
+      <title>VHDL</title>
+      <link>/glossary/vhdl/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/vhdl/</guid>
+      <description> VHSIC Hardware Description Language，一种硬件描述语言。 </description>
+    </item>
+    
+    <item>
+      <title>Vivado</title>
+      <link>/glossary/vivado/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/vivado/</guid>
+      <description> Vivado设计套件，是 FPGA 厂商赛灵思公司发布的集成设计环境。 </description>
+    </item>
+    
+    <item>
+      <title>word-level model</title>
+      <link>/glossary/word-levelmodel/</link>
+      <pubDate>Tue, 21 Jun 2022 00:16:54 +0800</pubDate>
+      
+      <guid>/glossary/word-levelmodel/</guid>
+      <description>word-level model表示对rtl电路设计的一种字级表示，一般来说，字级表示模型中会出现类似于input [信号位宽-1 ：0] 端口名，output [信号位宽-1 ：0] 端口名，reg [width-1 : 0] R变量，wire [width-1 : 0] W变量，这种多bit位数据之间直接进行位运算操作。</description>
     </item>
     
   </channel>

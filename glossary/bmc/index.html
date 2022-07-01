@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>AIGs | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="BMC（bounded model checking）是有界模型检验的缩写。
+针对前期的OBDD（ordered binary decision diagram）技术的模型检测的不足，有界模型检测BMC使用SAT（satisfiability）求解器来求解需要验证的问题。它通过设置界限阈值k，可以有效地克服状态爆炸问题。
+BMC的主要过程是：使用有限状态自动机（finite state machine，FSM）来表示要验证的模型或系统，通过FSM状态间的转移来模拟系统或模型运行；用线性时序逻辑（linear-time temporal logic，LTL）来描述有限状态自动机；设定边界阈值k；FSM 状态间的转移关系和LTL逻辑规范使用逻辑与来构成BMC转换公式；把BMC转换公式编码成SAT实例，借助SAT工具求解。若有解，则产生反例反之，若无解，则系统一直运行到阈值k阶段后停止，说明系统或模型是安全且没有错误的。">
+<meta name="generator" content="Hugo 0.100.1" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">AIGs</h1>
+
+    <div class="tip">
+        <time datetime="2022-06-21 00:16:54 &#43;0800 CST">2022年06月21日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          13字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <ul>
+<li>
+<p>BMC（bounded model checking）是有界模型检验的缩写。</p>
+</li>
+<li>
+<p>针对前期的OBDD（ordered binary decision
+diagram）技术的模型检测的不足，有界模型检测BMC使用SAT（satisfiability）求解器来求解需要验证的问题。它通过设置界限阈值k，可以有效地克服状态爆炸问题。</p>
+</li>
+<li>
+<p>BMC的主要过程是：使用有限状态自动机（finite state
+machine，FSM）来表示要验证的模型或系统，通过FSM状态间的转移来模拟系统或模型运行；用线性时序逻辑（linear-time
+temporal logic，LTL）来描述有限状态自动机；设定边界阈值k；FSM
+状态间的转移关系和LTL逻辑规范使用逻辑与来构成BMC转换公式；把BMC转换公式编码成SAT实例，借助SAT工具求解。若有解，则产生反例反之，若无解，则系统一直运行到阈值k阶段后停止，说明系统或模型是安全且没有错误的。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

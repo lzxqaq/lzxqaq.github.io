@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>Verilog 语法入门 | Zexun Luo | 罗泽勋</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="1. module / endmodule 🔗表征模块的开始和结束。模块名可包含字母、数字以及下划线，需要以字母开头，区分大小写。
+2. assign 🔗赋值操作关键字，该关键字后面跟一个赋值表达式，该关键字是实现组合逻辑操作的一种主要描述方式。
+3. input/output 🔗表征该信号的方向，除输入、输出外还有一种inout（输入输出）型号。
+4. 操作符 🔗~按位取反，&amp;按位与，|按位或。如果只有一个操作数时，则将该操作数的所有位进行操作。
+5. [,] 🔗表征该信号的位宽，推荐写法如input [3:0] a。
+6. 注释 🔗//、/* */。
+7. wire 🔗线网型数据类型，用于表示线网型信号，与实际电路中的信号连线相对应。wire 是 verilog 中的默认数据类型，没有指明数据类型时，默认为 wire。
+8. reg 🔗寄存器类型数据。记住一条原则：在 always 块内被赋值的信号应定义位 reg 型，用 assign 语句赋值的信号应定义为 wire 型。
+9. 信号状态 🔗verilog 中有4种状态“0、1、x、z”，分别表示低电平、高电平、不确定态和高阻态。对于没有进行初始化的信号，一般处于不确定态（x），高阻态表示该信号没有被其他信号驱动，经常用于有多个驱动源的总线型数据上。
+10. 数据格式 🔗基数格式有 4 中，包括：十进制(&rsquo;d 或 &lsquo;D)，十六进制(&lsquo;h 或 &lsquo;H)，二进制（&lsquo;b 或 &lsquo;B），八进制（&lsquo;o 或 &lsquo;O）。数值可指明位宽，也可不指明位宽。如 4&rsquo;b1011，表示 4bit 数值。
+11. 模块实例化 🔗module mux2( input [3:0] d0, input [3:0] d1, input s, output [3:0] y ); assign y = s ?">
+<meta name="generator" content="Hugo 0.100.1" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-KDTTBGMLCQ', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	
+	
+	
+
+	
+		<a href="/posts">博客</a>
+	
+		<a href="/tags">归档</a>
+	
+		<a href="/about">关于</a>
+	
+
+	
+	  <a class="button" href="/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+
+
+<section id="single">
+    <h1 class="title">Verilog 语法入门</h1>
+
+    <div class="tip">
+        <time datetime="2022-07-01 13:11:55 &#43;0800 CST">2022年07月01日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          155字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
+    </div>
+
+    
+    
+    
+
+
+    <div class="content">
+      <h1 id="1-module--endmodule">1. module / endmodule <a href="#1-module--endmodule" class="anchor">🔗</a></h1><p>表征模块的开始和结束。模块名可包含字母、数字以及下划线，需要以字母开头，区分大小写。</p>
+<h1 id="2-assign">2. assign <a href="#2-assign" class="anchor">🔗</a></h1><p>赋值操作关键字，该关键字后面跟一个赋值表达式，该关键字是实现组合逻辑操作的一种主要描述方式。</p>
+<h1 id="3-inputoutput">3. input/output <a href="#3-inputoutput" class="anchor">🔗</a></h1><p>表征该信号的方向，除输入、输出外还有一种inout（输入输出）型号。</p>
+<h1 id="4-操作符">4. 操作符 <a href="#4-%e6%93%8d%e4%bd%9c%e7%ac%a6" class="anchor">🔗</a></h1><p>~按位取反，&amp;按位与，|按位或。如果只有一个操作数时，则将该操作数的所有位进行操作。</p>
+<h1 id="5-">5. [,] <a href="#5-" class="anchor">🔗</a></h1><p>表征该信号的位宽，推荐写法如input [3:0] a。</p>
+<h1 id="6-注释">6. 注释 <a href="#6-%e6%b3%a8%e9%87%8a" class="anchor">🔗</a></h1><p>//、/* */。</p>
+<h1 id="7-wire">7. wire <a href="#7-wire" class="anchor">🔗</a></h1><p>线网型数据类型，用于表示线网型信号，与实际电路中的信号连线相对应。wire 是 verilog 中的默认数据类型，没有指明数据类型时，默认为 wire。</p>
+<h1 id="8-reg">8. reg <a href="#8-reg" class="anchor">🔗</a></h1><p>寄存器类型数据。记住一条原则：在 always 块内被赋值的信号应定义位 reg 型，用 assign 语句赋值的信号应定义为 wire 型。</p>
+<h1 id="9-信号状态">9. 信号状态 <a href="#9-%e4%bf%a1%e5%8f%b7%e7%8a%b6%e6%80%81" class="anchor">🔗</a></h1><p>verilog 中有4种状态“0、1、x、z”，分别表示低电平、高电平、不确定态和高阻态。对于没有进行初始化的信号，一般处于不确定态（x），高阻态表示该信号没有被其他信号驱动，经常用于有多个驱动源的总线型数据上。</p>
+<h1 id="10-数据格式">10. 数据格式 <a href="#10-%e6%95%b0%e6%8d%ae%e6%a0%bc%e5%bc%8f" class="anchor">🔗</a></h1><p>基数格式有 4 中，包括：十进制(&rsquo;d 或 &lsquo;D)，十六进制(&lsquo;h 或 &lsquo;H)，二进制（&lsquo;b 或 &lsquo;B），八进制（&lsquo;o 或 &lsquo;O）。数值可指明位宽，也可不指明位宽。如 4&rsquo;b1011，表示 4bit 数值。</p>
+<h1 id="11-模块实例化">11. 模块实例化 <a href="#11-%e6%a8%a1%e5%9d%97%e5%ae%9e%e4%be%8b%e5%8c%96" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>module mux2(
+</span></span><span style="display:flex;"><span>    input [3:0] d0,
+</span></span><span style="display:flex;"><span>    input [3:0] d1,
+</span></span><span style="display:flex;"><span>    input s,
+</span></span><span style="display:flex;"><span>    output [3:0] y
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>assign y = s ? d1 : d0;
+</span></span><span style="display:flex;"><span>endmodule
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>module mux2_8(
+</span></span><span style="display:flex;"><span>    input [7:0] d0,
+</span></span><span style="display:flex;"><span>    input [7:0] d1,
+</span></span><span style="display:flex;"><span>    input s,
+</span></span><span style="display:flex;"><span>    output [7:0] y
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// 1
+</span></span><span style="display:flex;"><span>mux2 lsbmux(d0[3:0], d1[3:0], s, y[3:0]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//2 
+</span></span><span style="display:flex;"><span>mux2 msbmux(
+</span></span><span style="display:flex;"><span>    .d0 (d0[7:4]),
+</span></span><span style="display:flex;"><span>    .d1 (d1[7:4]),
+</span></span><span style="display:flex;"><span>    .s  (s),
+</span></span><span style="display:flex;"><span>    .y  (y[7:4])
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>endmodule
+</span></span></code></pre></div><p>可以通过以及设计好的模块来达到重用模块，简化设计的目的。上面例举两种实例化方式，第一种需要验证保证参数顺序，推荐第二种方式。</p>
+<h1 id="位拼接">位拼接 <a href="#%e4%bd%8d%e6%8b%bc%e6%8e%a5" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>assign y = {a[2:1], {3{b[0]}}, a[0], 6&#39;b100_010};
+</span></span></code></pre></div><p>可以将一个或多个信号的指定位，拼接成一个新的信号，对于上述表达式子，如果 y 是 12bit 的信号，则将其各位的值位：a[2] a[1] b[0] b[0] b[0] a[0] 1 0 0 0 1 0。</p>
+<h1 id="下划线">下划线 <a href="#%e4%b8%8b%e5%88%92%e7%ba%bf" class="anchor">🔗</a></h1><p>为了增加可读性，可以在数字中间添加下划线。</p>
+<h1 id="时序逻辑">时序逻辑 <a href="#%e6%97%b6%e5%ba%8f%e9%80%bb%e8%be%91" class="anchor">🔗</a></h1><p>电路具有记忆功能，电路状态不仅与当前输入有关，还与前一时刻的状态有关。</p>
+<h1 id="同步逻辑">同步逻辑 <a href="#%e5%90%8c%e6%ad%a5%e9%80%bb%e8%be%91" class="anchor">🔗</a></h1><p>在时钟信号激励下工作，输出只在时钟的上升沿（或者下降沿）发生变化。</p>
+<h1 id="always">always <a href="#always" class="anchor">🔗</a></h1><p>除 assign 外，另外一种</p>
+
+    </div>
+
+    
+    
+    
+
+
+<script src="https://utteranc.es/client.js"
+repo=""
+issue-term=""
+theme=""
+crossorigin="anonymous"
+async>
+</script>
+
+
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       罗泽勋
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>
