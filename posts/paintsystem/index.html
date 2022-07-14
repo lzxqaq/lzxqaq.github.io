@@ -10,8 +10,8 @@
 QPainter 用于执行绘图操作， QPaintDevice 是二维空间的抽象，可以使用 进行绘制 QPainter ， QPaintEngine 提供了画家用来绘制不同类型设备的接口。 该 QPaintEngine 类是由在内部使用 了QPainter 和 的QPaintDevice ，除非他们创建自己的设备的种类从应用程序员隐藏。
 这种方法的主要好处是所有绘制都遵循相同的绘制管道，从而可以轻松添加对新功能的支持并为不受支持的功能提供默认实现。
 一、绘图示例 🔗通常在 QWidget, QPixmap, QPixture, QPrinter 上面绘图。
-示例1 直接绘制： 🔗MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) { QLabel *label = new QLabel(this); label-&gt;resize(100, 100); QPixmap pixmap(100, 100); pixmap.fill(Qt::gray); QPainter painter(&amp;pixmap); painter.drawRect(10, 10, 80, 80); painter.drawText(20, 30, &#34;Hello World&#34;); label-&gt;setPixmap(pixmap); QVBoxLayout *layout = new QVBoxLayout(); layout-&gt;addWidget(label); this-&gt;setLayout(layout); this-&gt;resize(200, 200); } 运行结果：">
-<meta name="generator" content="Hugo 0.100.1" />
+示例1 直接绘制： 🔗MainWindow::MainWindow(QWidget *parent)  : QMainWindow(parent) {  QLabel *label = new QLabel(this);  label-&gt;resize(100, 100);   QPixmap pixmap(100, 100);  pixmap.fill(Qt::gray);   QPainter painter(&amp;pixmap);  painter.drawRect(10, 10, 80, 80);  painter.drawText(20, 30, &#34;Hello World&#34;);   label-&gt;setPixmap(pixmap);   QVBoxLayout *layout = new QVBoxLayout();  layout-&gt;addWidget(label);  this-&gt;setLayout(layout);  this-&gt;resize(200, 200); } 运行结果：">
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">

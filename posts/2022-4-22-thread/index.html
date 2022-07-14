@@ -25,7 +25,7 @@ Qt 将系统产生的信号（软件中断）转换成Qt事件，并且将事件
 QCoreAppication::exec() 开启事件循环，知道QCoreAppication::exit()被调用才终止，所以事件循环时伴随着Qt程序的整个运行周期。
 另外一种同步处理情形时通过sendEvent()将事件发送出去，直接进入事件的传送和处理流程。
 postEvent和sendEvent的关系就像Qt::QueuedConnection和Qt::DirectConnection的关系，只不过前两者是分发事件后两者是发送消息罢了，机制上postEvent和QueuedConnected是异步通信，而另外两种是同步通信。">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">

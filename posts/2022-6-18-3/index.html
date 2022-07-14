@@ -10,10 +10,9 @@
 官网：https://yosyshq.net/yosys/
 Github：https://github.com/YosysHQ/yosys
 二、编译安装 🔗操作环境： Ubuntu 18.04
-安装依赖包 apt-get install build-essential clang bison flex \ libreadline-dev gawk tcl-dev libffi-dev git \ graphviz xdot pkg-config python3 libboost-system-dev \ libboost-python-dev libboost-filesystem-dev zlib1g-dev 下载源码、编译 git clone https://github.com/YosysHQ/yosys.git cd yosys make make install 三、简单使用 🔗脚本方式：
-$ cat synth.ys read -sv test.v hierarchy -top up3down5 proc; opt; techmap; opt write_verilog synth.v $ ./yosys synth.ys 逐步：
-使用 verilog 前端读入 verilog 原始设计文件 yosys&gt; read -sv tests/simple/fiedler-cooley.">
-<meta name="generator" content="Hugo 0.100.1" />
+ 安装依赖包  apt-get install build-essential clang bison flex \ 	libreadline-dev gawk tcl-dev libffi-dev git \ 	graphviz xdot pkg-config python3 libboost-system-dev \ 	libboost-python-dev libboost-filesystem-dev zlib1g-dev 下载源码、编译  git clone https://github.com/YosysHQ/yosys.git  cd yosys  make  make install 三、简单使用 🔗脚本方式：
+$ cat synth.ys read -sv test.v hierarchy -top up3down5 proc; opt; techmap; opt write_verilog synth.v  $ .">
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
