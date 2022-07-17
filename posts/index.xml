@@ -6,7 +6,21 @@
     <description>Recent content on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 14 Jul 2022 22:27:54 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2022 10:33:12 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>临时解决本站图片无法显示问题（raw.githubusercontent.com 无法访问）</title>
+      <link>/posts/2022-7-17/</link>
+      <pubDate>Sun, 17 Jul 2022 10:33:12 +0800</pubDate>
+      
+      <guid>/posts/2022-7-17/</guid>
+      <description>1. 前言 🔗本站图片等资源都存储在 Github 上，使用 jsDelivr CDN 加速。但最近因为 raw.githubusercontent.com 域名解析被污染严重，如果你发现图片没有显示，暂时只能麻烦修改本地 hosts 解决了。
+2. 查询真实 IP 🔗点击 ipaddress.com 查询 raw.githubusercontent.com 的 IP 地址，如 185.199.108.133。
+3. 修改 hosts 🔗Linux 和 macOS：在终端输入
+sudo vim /etc/hosts 在文件中添加以下内容：
+185.199.108.133 raw.githubusercontent.com windows：
+hosts 文件在 C:\Windows\System32\drivers\etc\hosts，可以用管理员身份运行记事本，再打开 hosts 文件，修改保存。</description>
+    </item>
+    
     <item>
       <title>System-Level 到 RTL 的等价验证简述</title>
       <link>/posts/2022-7-14/</link>
