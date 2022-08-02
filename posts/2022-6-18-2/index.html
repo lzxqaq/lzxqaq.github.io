@@ -9,15 +9,15 @@
 <meta name="description" content="一、前言 🔗VSCode &#43; iverilog 轻量级、开源 verilog 开发解决方案。
 二、安装 iverilog、gtkwave 🔗iverilog:一个轻量、免费、开源的Verilog编译器，基于C&#43;&#43;实现，安装文件中已经包含 GTKWave支持Verilog/VHDL文件的编译和仿真，命令行操作方式，类似gcc编译器，通过testbench文件可以生成对应的仿真波形数据文件
 官方安装文档：https://iverilog.fandom.com/wiki/Installation_Guide
-macOS 用户：brew install icarus-verilog
+ macOS 用户：brew install icarus-verilog
 linux（Ubuntu） 用户：sudo apt-get install iverilog
-gtkwave：查看仿真波形图
-macOS ：brew install gtkwave linux（Ubuntu）：sudo apt-get install gtkwave
-三、安装 VSCode 插件 🔗 Verilog-HDL/SystemVerilog/Bluespec SystemVerilog：提供verilog源文件的语法高亮，自动补全，错误检查（linting）。 Verilog-HDL：提供一个绿色的小按钮，使得你可以一键编译执行一个verilog源文件（其实就是自动帮你在命令行中输入iverilog -o &lt;目标文件&gt; &lt;verilog源文件&gt; ; vvp &lt;源文件&gt;） Verilog Snippet：一键补完固定语法格式的插件。 WaveTrace：查看仿真的波形图 四、配置 🔗打开 VSCode 设置，输入verilog，然后将你的verilog的linter选成iverilog
+ gtkwave：查看仿真波形图
+ macOS ：brew install gtkwave linux（Ubuntu）：sudo apt-get install gtkwave
+ 三、安装 VSCode 插件 🔗 Verilog-HDL/SystemVerilog/Bluespec SystemVerilog：提供verilog源文件的语法高亮，自动补全，错误检查（linting）。 Verilog-HDL：提供一个绿色的小按钮，使得你可以一键编译执行一个verilog源文件（其实就是自动帮你在命令行中输入iverilog -o &lt;目标文件&gt; &lt;verilog源文件&gt; ; vvp &lt;源文件&gt;） Verilog Snippet：一键补完固定语法格式的插件。 WaveTrace：查看仿真的波形图  四、配置 🔗打开 VSCode 设置，输入verilog，然后将你的verilog的linter选成iverilog
 五、运行 🔗点击右上角绿色按钮运行，打开 vcd 文件可看波形图。
 六、相关操作命令行版本 🔗1.编译运行
 &gt; iverilog -o hello hello.v //将 hello.v 编译成 hello 脚本文件 &gt; vvp hello //vvp（解释器）解释运行 hello脚本 2.">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.99.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
