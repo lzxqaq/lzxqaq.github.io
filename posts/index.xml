@@ -6,7 +6,52 @@
     <description>Recent content on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 01 Jul 2022 13:11:55 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Aug 2022 16:50:01 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 SVA 进行模型检查</title>
+      <link>/posts/2022-8-2/</link>
+      <pubDate>Tue, 02 Aug 2022 16:50:01 +0800</pubDate>
+      
+      <guid>/posts/2022-8-2/</guid>
+      <description>简介 🔗 ABV (Assertion Based Verification:基于断言的验证) FPV (Formal property verification:形式属性验证) 一个断言可能的样子（并发断言）：
+断言的类型 🔗即时断言 🔗立即断言的例子（带时钟和不带时钟）：
+并发断言 🔗并发断言捕获跨时间的事件序列，也就是说，它们有一个时域，在系 统的每个时钟周期或时间步长上进行评估。
+并发断言可以定义在：
+initial 或者 always 块 systemverilog:module 或者 systemverilog:checker 对象内部 SystemVerilog interface 仿真：program 块 并发断言的例子：
+Clock 🔗并发断言与一个时钟相关联，该时钟定义采样时钟或断言被计算的时间点。并发属性的默认时钟事件可以使用关键字默认时钟定义，并作为所有并发属性的前导时钟。
+Disable 🔗同样，某些属性可能需要在某些事件期间禁用，因为它们的结果无论如何都是无效的，例如，在重置状态期间。默认禁用 iff (event)关键字可用于定义不打算检查并发断言结果的情况。
+// Concurrent properties are checked each *posedge* PCLK default clocking formal_clock @(posedge PCLK); endclocking // And disabled if the *PRSTn* reset is deasserted default disable iff (!PRSTn); /* The property does not need to explicitly * define PCLK as main clock and !</description>
+    </item>
+    
+    <item>
+      <title>临时解决本站图片无法显示问题（raw.githubusercontent.com 无法访问）</title>
+      <link>/posts/2022-7-17/</link>
+      <pubDate>Sun, 17 Jul 2022 10:33:12 +0800</pubDate>
+      
+      <guid>/posts/2022-7-17/</guid>
+      <description>1. 前言 🔗本站图片等资源都存储在 Github 上，使用 jsDelivr CDN 加速。但最近因为 raw.githubusercontent.com 域名解析被污染严重，如果你发现图片没有显示，暂时只能麻烦修改本地 hosts 解决了。
+2. 查询真实 IP 🔗点击 ipaddress.com 查询 raw.githubusercontent.com 的 IP 地址，如 185.199.108.133。
+3. 修改 hosts 🔗Linux 和 macOS：在终端输入
+sudo vim /etc/hosts 在文件中添加以下内容：
+185.199.108.133 raw.githubusercontent.com windows：
+hosts 文件在 C:\Windows\System32\drivers\etc\hosts，可以用管理员身份运行记事本，再打开 hosts 文件，修改保存。</description>
+    </item>
+    
+    <item>
+      <title>System-Level 到 RTL 的等价验证简述</title>
+      <link>/posts/2022-7-14/</link>
+      <pubDate>Thu, 14 Jul 2022 22:27:54 +0800</pubDate>
+      
+      <guid>/posts/2022-7-14/</guid>
+      <description>System-Level 到 RTL 的等价验证工具： HECTOR
+1. 系统级设计 🔗使用系统级设计的一些原因：
+更快完成验证 更容易探索结构 不需要关注实现细节 使用 High-Level 综合提高生产率 RTL验证的问题：
+RTL 设计的验证更难 错误的 specification 导致 Bug 错误的 implementation 导致 Bug 2. 功能等价性检查 🔗System-level 模型是硬件的 transaction/word level 模型 System 和 RTL 在给定相同输入的情况下计算相同的输出 等价性检查证明功能等价性 时间和内部结构可能会显著不同，但可观察到的结果必须相同 3. 传统流程 🔗 架构师创建 C++ specification RTL 设计师创建 RTL implementation RTL包含更多的实现细节 问题：
+设计通常嵌入到自己的仿真环境中，需要指定输入/输出映射、等效概念 Specification 和 implementation 可能会有很大不同 约束通常在设计师的头脑中，需要形式化 输入/输出差异有时难以在形式化模型中捕捉 4. High-Level 综合流程 🔗 等价性检验工具证明生成的RTL的正确性 优势：
+有关约束和接口映射/延迟差异的所有信息也可从合成中获得 简化验证工作 可能只需点击就完成 问题：
+大量可能解决方案都必须经过一一验证。 5. 整合 Hign-level 综合 🔗</description>
+    </item>
+    
     <item>
       <title>Verilog 语法入门</title>
       <link>/posts/2022-7-1/</link>
