@@ -7,10 +7,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="一、概览 🔗Java 的 I/O 大概可以分成以下几类：
- 磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO  二、磁盘操作 🔗File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
-public static void listAllFiles(File dir){  if(dir == null || !dir.exists()){  return ;  }  if(dir.isFile()) {  System.out.println(dir.getName());  return ;  }  for (File:file : dir.listFiles()) {  listAllFiles(file);  } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
-三、字节操作 🔗实现文件复制 🔗public static void copuFile(String src, String dist) throws IOException {  FileInputStream in = new FileInputStream(src);  FileOutputStream out = new FileOutStream(dist);   byte[] buffer = new byte[20 * 1024];  int cnt;  // read() 最多读 buffer.">
-<meta name="generator" content="Hugo 0.99.1" />
+磁盘操作：File 字节操作：InputStream 和 OutputStream 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO 二、磁盘操作 🔗File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。 递归地列出一个目录的所有文件：
+public static void listAllFiles(File dir){ if(dir == null || !dir.exists()){ return ; } if(dir.isFile()) { System.out.println(dir.getName()); return ; } for (File:file : dir.listFiles()) { listAllFiles(file); } } 从 Java 7 开始，可以使用 Paths 和 Files 代替 File。
+三、字节操作 🔗实现文件复制 🔗public static void copuFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读 buffer.">
+<meta name="generator" content="Hugo 0.100.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">

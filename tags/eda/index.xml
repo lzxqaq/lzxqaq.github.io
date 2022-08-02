@@ -13,13 +13,13 @@
       <pubDate>Wed, 29 Jun 2022 00:30:05 +0800</pubDate>
       
       <guid>/posts/2022-6-26/</guid>
-      <description>1. 相关术语 🔗  Common Compare Points 常见比较点
- Primary output 顶层输出 Register or latch 寄存器或锁存器 Input of a black-box 黑盒输入    Less Common Compare Points
- Multiply-driven net Loop Cutpoint 切割点    Logic Cone 逻辑锥
- 驱动比较点的组合逻辑块（当设计很大的时候，可以分成很多块来比较，这些块就是逻辑锥） 锥底就是需要比较的点，锥底的输入就是要比较的所有输入    2. 原理 🔗2.1 read 读 🔗将参考和实现设计划分为逻辑锥和比较点.
+      <description>1. 相关术语 🔗 Common Compare Points 常见比较点
+Primary output 顶层输出 Register or latch 寄存器或锁存器 Input of a black-box 黑盒输入 Less Common Compare Points
+Multiply-driven net Loop Cutpoint 切割点 Logic Cone 逻辑锥
+驱动比较点的组合逻辑块（当设计很大的时候，可以分成很多块来比较，这些块就是逻辑锥） 锥底就是需要比较的点，锥底的输入就是要比较的所有输入 2. 原理 🔗2.1 read 读 🔗将参考和实现设计划分为逻辑锥和比较点.
 2.2 match 🔗根据一定的匹配规则（通常是名字），匹配两个设计的锥。
 可能出现的匹配情况：
- matched 根据用户声明规则 matched Unmatched，不匹配并不说明不通过，也许不匹配的锥对功能不影响  2.3 verify 🔗 对 matched 的锥进行验证，等价即通过，不等价即功能不等价，整个验证没通过。 出现 fail 则 debug  2.</description>
+matched 根据用户声明规则 matched Unmatched，不匹配并不说明不通过，也许不匹配的锥对功能不影响 2.3 verify 🔗 对 matched 的锥进行验证，等价即通过，不等价即功能不等价，整个验证没通过。 出现 fail 则 debug 2.4 debug 🔗调试</description>
     </item>
     
     <item>
@@ -31,8 +31,9 @@
       <description>1. 介绍 🔗Hector是一种形式功能验证工具，最强大的优势是验证两个模型之间的 transaction 等价性，用于C/C++ model VS RTL的检查。
 组合电路和C++函数在输入之间没有时间延迟地执行事务和输出。时钟RTL电路可能需要一个或多个周期来计算事务。在流水线的情况下，多个事务可能在单个设计块中同时执行。事务的持续时间（以时钟周期为单位）可能是固定的或依赖于数据的，但必须有一个已知的上限。
 Hector的一个关键好处是对事务等价性进行建模，在比较的两个模型中，事务的延迟是不同的。Hector在每种设计中都独立地支持事务相关时钟相位的输入约束和输出比较。
-2. 快速开始 🔗2.1 为C/C++模型编写 Hector 封装器 🔗#include &amp;lt;Hector.h&amp;gt; void hector_wrapper() {  int a, b, mul, madd;  Hector::registerInput(&amp;#34;in_a&amp;#34;, a);  Hector::registerInput(&amp;#34;in_b&amp;#34;, b);  Hector::registerOutput(&amp;#34;out_mul&amp;#34;, mul);  Hector::registerOutput(&amp;#34;out_madd&amp;#34;, madd);  Hector::beginCapture();  compute(a, b, mul, madd);  Hector::endCapture(); } 其中 Hector::registerInput(&amp;quot;in_a&amp;quot;, a);指示应将变量a视为输入，并在Hector的所有后续步骤中将其称为 in_a。
-2.2 声明规范设计 🔗proc compile_spec {} {  create_design -name spec -top hector_wrapper  cppan foo.cc  compile_design spec } cppan 命令分析C++程序。它将g++编译器选项和文件列表作为参数。最后 compile_design 命令将名为spec的设计编译为DFG。</description>
+2. 快速开始 🔗2.1 为C/C++模型编写 Hector 封装器 🔗#include &amp;lt;Hector.h&amp;gt; void hector_wrapper() { int a, b, mul, madd; Hector::registerInput(&amp;#34;in_a&amp;#34;, a); Hector::registerInput(&amp;#34;in_b&amp;#34;, b); Hector::registerOutput(&amp;#34;out_mul&amp;#34;, mul); Hector::registerOutput(&amp;#34;out_madd&amp;#34;, madd); Hector::beginCapture(); compute(a, b, mul, madd); Hector::endCapture(); } 其中 Hector::registerInput(&amp;quot;in_a&amp;quot;, a);指示应将变量a视为输入，并在Hector的所有后续步骤中将其称为 in_a。
+2.2 声明规范设计 🔗proc compile_spec {} { create_design -name spec -top hector_wrapper cppan foo.cc compile_design spec } cppan 命令分析C++程序。它将g++编译器选项和文件列表作为参数。最后 compile_design 命令将名为spec的设计编译为DFG。
+2.3 声明实现设计 🔗proc compile_impl {} { create_design -name impl -top ima –clock clk –reset rst -negReset vcs foo.</description>
     </item>
     
     <item>
@@ -42,12 +43,12 @@ Hector的一个关键好处是对事务等价性进行建模，在比较的两�
       
       <guid>/posts/2022-6-20/</guid>
       <description>参考
- 功能ECO理论基础：逻辑等价性检查（LEC）  【A级忍术】形式验证的原理及流程详细总结   一、基础概念 🔗golden：参考模型
+功能ECO理论基础：逻辑等价性检查（LEC） 【A级忍术】形式验证的原理及流程详细总结 一、基础概念 🔗golden：参考模型
 revised：待比较的设计
 逻辑锥Logic Cone：设计（module）就是“以DFF为终点的逻辑块”组成。不仅网表如此，RTL也是一样。所有数字电路都可以用always和assign这两种语法来实现（latch可以看作是DFF的一种）。这些“以DFF为终点的逻辑块”我们把它叫作逻辑锥
 Keypoint Mapping：逻辑锥的终点是DFF的CK（时钟）、Ｄ（数据）、RN（复位）、SN（置位），如果这几个“关键点”的逻辑都相同或者等价，那么这两个逻辑锥的逻辑就等价。
 只要两种设计的所有对应逻辑锥逻辑功能都被验证为等价，就认为两个设计等价。
-二、流程 🔗 设置一些与进行等价性验证有关的设置。例如，若设计中的某些模块不需要进行检查，可以将其设置为“黑盒子”；在验证插入扫描链的网表时，要将测试模式信号与扫描使能信号设置为禁止使能，等等。 进行比较点匹配。采用match令即可。一般来说，等价性检查工具会根据相近的信号命名来选取比较点，并给出比较点的报告。如果工具无法识别某些比较点，或者识别有错误，那么设计者可以手工进行相应设置。 进行验证。采用verify命令即可。 给出报告，如果发现错误，则利用图形化界面进行调试。  </description>
+二、流程 🔗 设置一些与进行等价性验证有关的设置。例如，若设计中的某些模块不需要进行检查，可以将其设置为“黑盒子”；在验证插入扫描链的网表时，要将测试模式信号与扫描使能信号设置为禁止使能，等等。 进行比较点匹配。采用match令即可。一般来说，等价性检查工具会根据相近的信号命名来选取比较点，并给出比较点的报告。如果工具无法识别某些比较点，或者识别有错误，那么设计者可以手工进行相应设置。 进行验证。采用verify命令即可。 给出报告，如果发现错误，则利用图形化界面进行调试。 </description>
     </item>
     
     <item>
@@ -75,20 +76,26 @@ hierarchy -top modulename 5. write_ilang(write_rtlil) 🔗将设计写入RTLIL�
       <guid>/posts/2022-6-19/</guid>
       <description>参考《yosys manual》
 1. 简介 🔗Yosys是 verilog RTL 综合的一个框架。它目前拥有广泛的Verilog-2005支持，并为各种应用领域提供了一套基本的综合算法。其特点如下：
-  能处理所有可合成的Verilog-2005设计
-  将Verilog转换为BLIF/EDIF/BTOR/SMT-LIB/simple RTL Verilog等格式
-  可以做属性和等价性的检查，做逻辑化简、优化
-  映射到ASIC标准单元库（Liberty文件格式）
-  映射到Xilinx 7系列和Lattice iCE40、ECP5 FPGA, GOWin fpga上等
-  自定义综合流程、扩展自定义的综合算法、扩展针对其他FPGA的综合等
-  2. 实现原理 🔗yosys的实现原理上和编译器非常相似：普通编译器，比如c/c++，是把c/c++语言的程序翻译为机器码，而yosys是把原始输入的行为描述verilog设计，映射翻译为标准库或LUT等资源表述的结构性verilog语言，这种映射变换，首先就是词法分析、语法分析、语义分析、抽象语法树、中间语言，这些和普通编译器都是一样的，不同之处就在于yosys加入了各种逻辑优化、逻辑映射。
+能处理所有可合成的Verilog-2005设计
+将Verilog转换为BLIF/EDIF/BTOR/SMT-LIB/simple RTL Verilog等格式
+可以做属性和等价性的检查，做逻辑化简、优化
+映射到ASIC标准单元库（Liberty文件格式）
+映射到Xilinx 7系列和Lattice iCE40、ECP5 FPGA, GOWin fpga上等
+自定义综合流程、扩展自定义的综合算法、扩展针对其他FPGA的综合等
+2. 实现原理 🔗yosys的实现原理上和编译器非常相似：普通编译器，比如c/c++，是把c/c++语言的程序翻译为机器码，而yosys是把原始输入的行为描述verilog设计，映射翻译为标准库或LUT等资源表述的结构性verilog语言，这种映射变换，首先就是词法分析、语法分析、语义分析、抽象语法树、中间语言，这些和普通编译器都是一样的，不同之处就在于yosys加入了各种逻辑优化、逻辑映射。
 3. 基础原则 🔗3.1 抽象等级 🔗不同的抽象等级和综合。
-3.2 挑战 🔗标准符合性 🔗  标准实施的完整性
-  标准实施的正确性
-  优化 Optimizations 🔗一般来说，很难对合成工具优化设计的程度给出一维描述。首先，因为并非所有优化都适用于所有设计和所有合成任务。一个好的工具能够在不同的抽象级别上应用广泛的优化，并提供设计器控制执行（或跳过）哪些优化以及优化目标是什么。
+3.2 挑战 🔗标准符合性 🔗 标准实施的完整性
+标准实施的正确性
+优化 Optimizations 🔗一般来说，很难对合成工具优化设计的程度给出一维描述。首先，因为并非所有优化都适用于所有设计和所有合成任务。一个好的工具能够在不同的抽象级别上应用广泛的优化，并提供设计器控制执行（或跳过）哪些优化以及优化目标是什么。
 技术映射 Technology Mapping 🔗技术映射是将设计转换为目标体系结构中可用单元的网络列表的过程。
 3.3 编译器设计方法 🔗3.3.1 词法分析 🔗编译器设计中最著名的概念可能是词法分析和语法分析。这两种方法可以一起轻松地处理复杂的计算机语言。
-词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog 输入“assign foo=bar+42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。</description>
+词法分析器使用输入中的单个字符，并生成由类型和值组成的词法标记流。例如，Verilog 输入“assign foo=bar+42可能被lexer翻译为 Tab2.1 中给出的词法标记列表。
+然后，解析器将标记列表转换为与计算机语言语法的结果非常相似的解析树。这种数据结构称为抽象语法树（AST）。
+通常，AST随后被转换为另一种更适合进一步处理的表示。在编译器中，这通常是一种类似于汇编程序的三地址码中间表示。
+4. 实现 🔗4.1 Yosys内部格式 🔗Yosys使用两种不同的内部格式。第一个用于存储Verilog 输入文件的抽象语法树（AST）。这种格式简称为AST，由 Verilog 前端生成。此数据结构由名为AST Frontend1 的子系统使用。然后，这个AST前端以Yosys的主要内部格式生成一个设计，即寄存器传输级中间语言（RTLIL）表示。它通过首先在AST表示中执行大量简化，然后从简化的AST数据结构生成RTLIL来实现。
+RTLIL 基本上是一种 netlist。
+RTLIL的使用还有一个缺点，即在所有过程之间都有一个非常强大的格式，即使在不需要更高级功能的门级合成时也是如此。
+4.2 数据流 🔗下图显示了Yosys内的简化数据流。图中的矩形表示程序模块，省略号表示用于在程序模块之间交换设计数据的内部数据结构。</description>
     </item>
     
     <item>
@@ -101,8 +108,9 @@ hierarchy -top modulename 5. write_ilang(write_rtlil) 🔗将设计写入RTLIL�
 官网：https://yosyshq.net/yosys/
 Github：https://github.com/YosysHQ/yosys
 二、编译安装 🔗操作环境： Ubuntu 18.04
- 安装依赖包  apt-get install build-essential clang bison flex \ 	libreadline-dev gawk tcl-dev libffi-dev git \ 	graphviz xdot pkg-config python3 libboost-system-dev \ 	libboost-python-dev libboost-filesystem-dev zlib1g-dev 下载源码、编译  git clone https://github.com/YosysHQ/yosys.git  cd yosys  make  make install 三、简单使用 🔗脚本方式：
-$ cat synth.ys read -sv test.v hierarchy -top up3down5 proc; opt; techmap; opt write_verilog synth.v  $ .</description>
+安装依赖包 apt-get install build-essential clang bison flex \ libreadline-dev gawk tcl-dev libffi-dev git \ graphviz xdot pkg-config python3 libboost-system-dev \ libboost-python-dev libboost-filesystem-dev zlib1g-dev 下载源码、编译 git clone https://github.com/YosysHQ/yosys.git cd yosys make make install 三、简单使用 🔗脚本方式：
+$ cat synth.ys read -sv test.v hierarchy -top up3down5 proc; opt; techmap; opt write_verilog synth.v $ ./yosys synth.ys 逐步：
+使用 verilog 前端读入 verilog 原始设计文件 yosys&amp;gt; read -sv tests/simple/fiedler-cooley.</description>
     </item>
     
     <item>
@@ -114,11 +122,11 @@ $ cat synth.ys read -sv test.v hierarchy -top up3down5 proc; opt; techmap; opt w
       <description>一、前言 🔗VSCode + iverilog 轻量级、开源 verilog 开发解决方案。
 二、安装 iverilog、gtkwave 🔗iverilog:一个轻量、免费、开源的Verilog编译器，基于C++实现，安装文件中已经包含 GTKWave支持Verilog/VHDL文件的编译和仿真，命令行操作方式，类似gcc编译器，通过testbench文件可以生成对应的仿真波形数据文件
 官方安装文档：https://iverilog.fandom.com/wiki/Installation_Guide
- macOS 用户：brew install icarus-verilog
+macOS 用户：brew install icarus-verilog
 linux（Ubuntu） 用户：sudo apt-get install iverilog
- gtkwave：查看仿真波形图
- macOS ：brew install gtkwave linux（Ubuntu）：sudo apt-get install gtkwave
- 三、安装 VSCode 插件 🔗 Verilog-HDL/SystemVerilog/Bluespec SystemVerilog：提供verilog源文件的语法高亮，自动补全，错误检查（linting）。 Verilog-HDL：提供一个绿色的小按钮，使得你可以一键编译执行一个verilog源文件（其实就是自动帮你在命令行中输入iverilog -o &amp;lt;目标文件&amp;gt; &amp;lt;verilog源文件&amp;gt; ; vvp &amp;lt;源文件&amp;gt;） Verilog Snippet：一键补完固定语法格式的插件。 WaveTrace：查看仿真的波形图  四、配置 🔗打开 VSCode 设置，输入verilog，然后将你的verilog的linter选成iverilog
+gtkwave：查看仿真波形图
+macOS ：brew install gtkwave linux（Ubuntu）：sudo apt-get install gtkwave
+三、安装 VSCode 插件 🔗 Verilog-HDL/SystemVerilog/Bluespec SystemVerilog：提供verilog源文件的语法高亮，自动补全，错误检查（linting）。 Verilog-HDL：提供一个绿色的小按钮，使得你可以一键编译执行一个verilog源文件（其实就是自动帮你在命令行中输入iverilog -o &amp;lt;目标文件&amp;gt; &amp;lt;verilog源文件&amp;gt; ; vvp &amp;lt;源文件&amp;gt;） Verilog Snippet：一键补完固定语法格式的插件。 WaveTrace：查看仿真的波形图 四、配置 🔗打开 VSCode 设置，输入verilog，然后将你的verilog的linter选成iverilog
 五、运行 🔗点击右上角绿色按钮运行，打开 vcd 文件可看波形图。
 六、相关操作命令行版本 🔗1.编译运行
 &amp;gt; iverilog -o hello hello.v //将 hello.v 编译成 hello 脚本文件 &amp;gt; vvp hello //vvp（解释器）解释运行 hello脚本 2.</description>
@@ -134,7 +142,7 @@ linux（Ubuntu） 用户：sudo apt-get install iverilog
 形式验证主要验证数字IC设计流程中的各个阶段的代码功能是否一致，包括综合前RTL代码和综合后网表的验证。
 形式验证方法分为等价性验证（Equivalence Checking）、模型检验（Model Checking）和定理证明（Theorem Proving）等。
 形式验证的应用：
- 1、综合的网表与 RTL 对比做形式验证。确保综合后的网表是想要的。 2、后端网表与综合后的网表对比做形式验证。保证后端没有引入逻辑错误。 3、做 ECO 的时候，ECO 后的网表与 ECO 后的 RTL 做形式验证。  下图为形式验证技术
+1、综合的网表与 RTL 对比做形式验证。确保综合后的网表是想要的。 2、后端网表与综合后的网表对比做形式验证。保证后端没有引入逻辑错误。 3、做 ECO 的时候，ECO 后的网表与 ECO 后的 RTL 做形式验证。 下图为形式验证技术
 2. 模型检查 Model Checking 🔗模型检查，也称为属性检查，是一种基于状态的形式验证方法。
 模型检查主要是检查RTL代码是否满足规范中规定的一些特性。在规定这些特性时一般使用特性规范语言，一般也使用基于断言的验证语言。由于这种方法可以在不需要仿真的前提下检查设计中所有可能出现的情况是否满足规定的特性，所以使用这种方法不会遗漏任何的边界情况。
 优点和缺点：一旦将系统模型和属性规范提供给模型检查器，验证过程就将是完全自动的。但是，从模型检查器要处理的状态数来看，模型检查适用于小型系统。
@@ -152,7 +160,9 @@ linux（Ubuntu） 用户：sudo apt-get install iverilog
 对组合逻辑来说，不存在状态寄存器，其输出值Z[t]不依赖于前面的输入值Xt-i。这时只要对每个输入向量证明其输出向量相同。
 下图为逻辑等价检查示意图
 6. 时序等价性检查 SEC 🔗时序等价性检查（Sequential EquivalencevChecking），验证两个设计在功能上是否相同的过程，并且在提供相同输入时验证是否有相同的输出。它用于比较两种设计的顺序逻辑，而这两种设计可能有不同的实现。
-对一个时序电路而言，可以把它看成一个有限状态机(FSM，finite-state machine)。电路功能的等价可以用有限状态机的等价来判断。假定有两个状态机A和B，要对它们进行比较。直观的说，当A和B有相同的接口，而且从相同的初始状态出发，两者对有效输入值序列产生相同的输出值序列，则可以说A和B等价。</description>
+对一个时序电路而言，可以把它看成一个有限状态机(FSM，finite-state machine)。电路功能的等价可以用有限状态机的等价来判断。假定有两个状态机A和B，要对它们进行比较。直观的说，当A和B有相同的接口，而且从相同的初始状态出发，两者对有效输入值序列产生相同的输出值序列，则可以说A和B等价。
+下图为时序等价性检查示意图
+7. 对比 🔗 Combinational equivalence：用于RTL vs Netlist的检查，检查寄存器之间的组合逻辑在综合前后是否一致，如Formality，Conformal。</description>
     </item>
     
     <item>
@@ -164,10 +174,10 @@ linux（Ubuntu） 用户：sudo apt-get install iverilog
       <description>前言 🔗数字系统中常用的各种数字部件，就其结构和工作原理而言可分为两大类，即组合逻辑电路和时序逻辑电路。
 1. 组合逻辑电路 🔗1.1 概念 🔗对于一个逻辑电路，其输出状态在任何时刻只取决于同一时刻的输入状态，而与电路原本的状态无关
 特点：
- 输出、输入之间没有反馈延迟通路； 电路中不含具有记忆功能的元件。  2.时序逻辑电路 🔗而时序电路是一种输出不仅与当前的输入有关，而且与其输出状态的原始状态有关，其相当于在组合逻辑的输入端加上了一个反馈输入，在其电路中有一个存储电路，其可以将输出的状态保持住。
+输出、输入之间没有反馈延迟通路； 电路中不含具有记忆功能的元件。 2.时序逻辑电路 🔗而时序电路是一种输出不仅与当前的输入有关，而且与其输出状态的原始状态有关，其相当于在组合逻辑的输入端加上了一个反馈输入，在其电路中有一个存储电路，其可以将输出的状态保持住。
 3.对比 🔗1、组合逻辑电路在逻辑功能上的特点是任意时刻的输出仅仅取决于该时刻的输入，与电路原来的状态无关。
 2、时序逻辑电路在逻辑功能上的特点是任意时刻的输出不仅取决于当时的输入信号，而且还取决于电路原来的状态，或者说，还与以前的输入有关。
-4. 常用组合逻辑电路 🔗 算术运算电路（半加器、全加器、加法器） 编码器、译码器 数据选择、分配、比较器  5. 具有典型时序逻辑电路特征的三种逻辑器件 🔗 计数器 寄存器 顺序脉冲发生器  6. 相关概念 🔗 时钟：时钟是整个系统的同步信号，当时钟出现故障时会带来整体的功能故障。  </description>
+4. 常用组合逻辑电路 🔗 算术运算电路（半加器、全加器、加法器） 编码器、译码器 数据选择、分配、比较器 5. 具有典型时序逻辑电路特征的三种逻辑器件 🔗 计数器 寄存器 顺序脉冲发生器 6. 相关概念 🔗 时钟：时钟是整个系统的同步信号，当时钟出现故障时会带来整体的功能故障。 </description>
     </item>
     
     <item>
@@ -177,11 +187,11 @@ linux（Ubuntu） 用户：sudo apt-get install iverilog
       
       <guid>/posts/2022-6-8-verilog/</guid>
       <description>参考资料：
- 《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 语法学习：菜鸟教程 https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216  1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
+《电子设计基础.数字部分》 《VerilogHDL程序设计与实践》 语法学习：菜鸟教程 https://www.runoob.com/w3cnote/verilog-tutorial.html 在线练习：https://hdlbits.01xz.net/wiki/Wire；题解：https://zhuanlan.zhihu.com/c_1131528588117385216 1. 硬件描述语言 HDL 🔗硬件描述语言（HDL）以文本形式来描述数字系统硬件的结构和行为。
 计算机对 HDL 的处理包括两个方面：逻辑仿真和逻辑综合。
 逻辑仿真：用计算机仿真软件对数字逻辑电路的结构和行为进行预测，仿真器对 HDL 描述进行解释，以文本形式或时序波形图形式给出电路的输出。在电路被实现之前，设计人员对仿真结果可以初步判断电路的逻辑功能是否正确。
 逻辑综合：从 HDL 描述的数字逻辑电路模型中导出电路基本元件列表以及元件之间的连接关系（常称为门级网表）的过程。它类似于高级程序设计语言中对一个程序进行编译，得到目标代码的过程。所不同的是，逻辑综合不会产生目标代码，而是产生门级元件及其连接关系的数据库，根据这个数据库可以制作出集成电路或印制电路板（PCB）。
- HDL 语言是并行处理的，具有同一时刻执行多任务的能力。这和一般高级设计语言（例如C语言等）串行执行的特征是不同的。 HDL 有时序的概念。一般的高级编程语言是没有时序的概念的，但在硬件电路中从输入到输出总是有延时存在的，为了描述这一特征，需要引入时延的概念。  1.1 Verilog HDL 描述层次说明 🔗1.1.1 系统级和算法级建模 🔗通常只是用 Verilog HDL 描述系统的功能，不涉及具体实现的细节，实际开发中，设计人员很少应用 Verilog HDL 语言的系统和算法级建模能力。
+HDL 语言是并行处理的，具有同一时刻执行多任务的能力。这和一般高级设计语言（例如C语言等）串行执行的特征是不同的。 HDL 有时序的概念。一般的高级编程语言是没有时序的概念的，但在硬件电路中从输入到输出总是有延时存在的，为了描述这一特征，需要引入时延的概念。 1.1 Verilog HDL 描述层次说明 🔗1.1.1 系统级和算法级建模 🔗通常只是用 Verilog HDL 描述系统的功能，不涉及具体实现的细节，实际开发中，设计人员很少应用 Verilog HDL 语言的系统和算法级建模能力。
 1.1.2 寄存器传输级（RTL）建模 🔗RTL 级建模：描述电路时只关注寄存器本身，以及寄存器到寄存器之间的逻辑功能，而不在意寄存器和组合逻辑的实现细节。
 RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可综合描述语言。在 EDA 工具的帮助下，设计人员可以直接在 RTL 级进行电路设计，而无需从逻辑门电路（与门、或门和非门）的较低层次来设计电路。
 在最终实现时，所有的设计都需要映射到门级电路上，RTL 级代码也不例外，只不过 RTL 代码通过 EDA 软件中的逻辑综合工具转化成设计网表，网表基本上由门电路组成。
@@ -221,7 +231,7 @@ RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可�
 逻辑表达式：
 逻辑图：
 波形图：
-1.9 逻辑代数的基本定律和恒等式 🔗</description>
+1.9 逻辑代数的基本定律和恒等式 🔗</description>
     </item>
     
   </channel>

@@ -6,14 +6,14 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="1. 相关术语 🔗  Common Compare Points 常见比较点
- Primary output 顶层输出 Register or latch 寄存器或锁存器 Input of a black-box 黑盒输入    Less Common Compare Points
- Multiply-driven net Loop Cutpoint 切割点    Logic Cone 逻辑锥
- 驱动比较点的组合逻辑块（当设计很大的时候，可以分成很多块来比较，这些块就是逻辑锥） 锥底就是需要比较的点，锥底的输入就是要比较的所有输入    2. 原理 🔗2.1 read 读 🔗将参考和实现设计划分为逻辑锥和比较点.
+<meta name="description" content="1. 相关术语 🔗 Common Compare Points 常见比较点
+Primary output 顶层输出 Register or latch 寄存器或锁存器 Input of a black-box 黑盒输入 Less Common Compare Points
+Multiply-driven net Loop Cutpoint 切割点 Logic Cone 逻辑锥
+驱动比较点的组合逻辑块（当设计很大的时候，可以分成很多块来比较，这些块就是逻辑锥） 锥底就是需要比较的点，锥底的输入就是要比较的所有输入 2. 原理 🔗2.1 read 读 🔗将参考和实现设计划分为逻辑锥和比较点.
 2.2 match 🔗根据一定的匹配规则（通常是名字），匹配两个设计的锥。
 可能出现的匹配情况：
- matched 根据用户声明规则 matched Unmatched，不匹配并不说明不通过，也许不匹配的锥对功能不影响  2.3 verify 🔗 对 matched 的锥进行验证，等价即通过，不等价即功能不等价，整个验证没通过。 出现 fail 则 debug  2.">
-<meta name="generator" content="Hugo 0.99.1" />
+matched 根据用户声明规则 matched Unmatched，不匹配并不说明不通过，也许不匹配的锥对功能不影响 2.3 verify 🔗 对 matched 的锥进行验证，等价即通过，不等价即功能不等价，整个验证没通过。 出现 fail 则 debug 2.4 debug 🔗调试">
+<meta name="generator" content="Hugo 0.100.1" />
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">

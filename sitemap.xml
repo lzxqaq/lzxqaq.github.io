@@ -3,7 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-<<<<<<< HEAD
     <lastmod>2022-08-02T16:50:01+08:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
@@ -11,12 +10,6 @@
   </url><url>
     <loc>/posts/2022-8-2/</loc>
     <lastmod>2022-08-02T16:50:01+08:00</lastmod>
-=======
-    <lastmod>2022-07-17T10:33:12+08:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2022-07-17T10:33:12+08:00</lastmod>
->>>>>>> 37552d311867f348ad001a66d17cabc849716544
   </url><url>
     <loc>/posts/2022-7-17/</loc>
     <lastmod>2022-07-17T10:33:12+08:00</lastmod>
