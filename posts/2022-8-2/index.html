@@ -14,7 +14,7 @@ initial 或者 always 块 systemverilog:module 或者 systemverilog:checker 对�
 Clock 🔗并发断言与一个时钟相关联，该时钟定义采样时钟或断言被计算的时间点。并发属性的默认时钟事件可以使用关键字默认时钟定义，并作为所有并发属性的前导时钟。
 Disable 🔗同样，某些属性可能需要在某些事件期间禁用，因为它们的结果无论如何都是无效的，例如，在重置状态期间。默认禁用 iff (event)关键字可用于定义不打算检查并发断言结果的情况。
 // Concurrent properties are checked each *posedge* PCLK default clocking formal_clock @(posedge PCLK); endclocking // And disabled if the *PRSTn* reset is deasserted default disable iff (!PRSTn); /* The property does not need to explicitly * define PCLK as main clock and !">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -61,8 +61,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -70,8 +68,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

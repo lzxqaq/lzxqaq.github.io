@@ -6,11 +6,11 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="数据库系统原理 🔗数据库系统原理 一、事务 概念 ACID AUTOCOMMIT 二、并发一致性问题 丢失修改 读脏数据 不可重复读 幻影读 三、封锁 封锁粒度 封锁类型 封锁协议 MySQL 隐式与显式锁定 四、隔离级别 未提交读（READ UNCOMMITTED） 提交读（READ COMMITTED） 可重复读（REPEATABLE READ） 可串行化（SERIALIZABLE） 五、多版本并发控制 基本思想 版本号 Undo 日志 ReadView 快照读与当前读 六、Next-Key Locks Record Locks Gap Locks Next-Key Locks 七、关系数据库设计理论 函数依赖 异常 范式 八、ER 图 实体的三种联系 表示出现多次的关系 联系的多向性 表示子类 参考资料 一、事务 🔗概念 🔗事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。
+<meta name="description" content="数据库系统原理 🔗 数据库系统原理 一、事务 概念 ACID AUTOCOMMIT 二、并发一致性问题 丢失修改 读脏数据 不可重复读 幻影读 三、封锁 封锁粒度 封锁类型 封锁协议 MySQL 隐式与显式锁定 四、隔离级别 未提交读（READ UNCOMMITTED） 提交读（READ COMMITTED） 可重复读（REPEATABLE READ） 可串行化（SERIALIZABLE） 五、多版本并发控制 基本思想 版本号 Undo 日志 ReadView 快照读与当前读 六、Next-Key Locks Record Locks Gap Locks Next-Key Locks 七、关系数据库设计理论 函数依赖 异常 范式 八、ER 图 实体的三种联系 表示出现多次的关系 联系的多向性 表示子类 参考资料 一、事务 🔗概念 🔗事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。
 ACID 🔗1. 原子性（Atomicity） 🔗事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。
 回滚可以用回滚日志（Undo Log）来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。
 2. 一致性（Consistency） 🔗数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -57,8 +57,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -66,8 +64,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

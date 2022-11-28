@@ -14,7 +14,7 @@
 class Message { public: Message() = default; ~Message() = default; Message(const Message &amp;) = default; Message &amp;operator=(const Message &amp;) = default; Message(const QString &amp;body, const QStringList &amp;headers); QStringView body() const; QStringList headers() const; private: QString m_body; QStringList m_headers; }; 该类还提供了一个正常使用的构造函数和两个用于获取私有数据的公共成员函数。
 使用 QMetaType 声明类型 🔗这 Message类只需要一个合适的实现即可使用。 但是，如果没有一些帮助，Qt 的类型系统将无法理解如何存储、检索和序列化此类的实例。 例如，我们将无法存储 Message值 QVariant 中的 。
 Qt 中负责自定义类型的类是 QMetaType 。 为了让这个类知道类型，我们在定义它的头文件中的类上 添加 Q_DECLARE_METATYPE() 宏：">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -61,8 +61,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -70,8 +68,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

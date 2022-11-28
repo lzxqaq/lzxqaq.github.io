@@ -46,10 +46,10 @@ hosts 文件在 C:\Windows\System32\drivers\etc\hosts，可以用管理员身份
       <description>System-Level 到 RTL 的等价验证工具： HECTOR
 1. 系统级设计 🔗使用系统级设计的一些原因：
 更快完成验证 更容易探索结构 不需要关注实现细节 使用 High-Level 综合提高生产率 RTL验证的问题：
-RTL 设计的验证更难 错误的 specification 导致 Bug 错误的 implementation 导致 Bug 2. 功能等价性检查 🔗System-level 模型是硬件的 transaction/word level 模型 System 和 RTL 在给定相同输入的情况下计算相同的输出 等价性检查证明功能等价性 时间和内部结构可能会显著不同，但可观察到的结果必须相同 3. 传统流程 🔗 架构师创建 C++ specification RTL 设计师创建 RTL implementation RTL包含更多的实现细节 问题：
+RTL 设计的验证更难 错误的 specification 导致 Bug 错误的 implementation 导致 Bug 2. 功能等价性检查 🔗 System-level 模型是硬件的 transaction/word level 模型 System 和 RTL 在给定相同输入的情况下计算相同的输出 等价性检查证明功能等价性 时间和内部结构可能会显著不同，但可观察到的结果必须相同 3. 传统流程 🔗 架构师创建 C++ specification RTL 设计师创建 RTL implementation RTL包含更多的实现细节 问题：
 设计通常嵌入到自己的仿真环境中，需要指定输入/输出映射、等效概念 Specification 和 implementation 可能会有很大不同 约束通常在设计师的头脑中，需要形式化 输入/输出差异有时难以在形式化模型中捕捉 4. High-Level 综合流程 🔗 等价性检验工具证明生成的RTL的正确性 优势：
 有关约束和接口映射/延迟差异的所有信息也可从合成中获得 简化验证工作 可能只需点击就完成 问题：
-大量可能解决方案都必须经过一一验证。 5. 整合 Hign-level 综合 🔗</description>
+大量可能解决方案都必须经过一一验证。 5. 整合 Hign-level 综合 🔗 </description>
     </item>
     
     <item>
@@ -268,7 +268,7 @@ Remote - SSH：使用 SSH 打开远程计算机上的任何文件夹，并利用
 计算机对 HDL 的处理包括两个方面：逻辑仿真和逻辑综合。
 逻辑仿真：用计算机仿真软件对数字逻辑电路的结构和行为进行预测，仿真器对 HDL 描述进行解释，以文本形式或时序波形图形式给出电路的输出。在电路被实现之前，设计人员对仿真结果可以初步判断电路的逻辑功能是否正确。
 逻辑综合：从 HDL 描述的数字逻辑电路模型中导出电路基本元件列表以及元件之间的连接关系（常称为门级网表）的过程。它类似于高级程序设计语言中对一个程序进行编译，得到目标代码的过程。所不同的是，逻辑综合不会产生目标代码，而是产生门级元件及其连接关系的数据库，根据这个数据库可以制作出集成电路或印制电路板（PCB）。
-HDL 语言是并行处理的，具有同一时刻执行多任务的能力。这和一般高级设计语言（例如C语言等）串行执行的特征是不同的。 HDL 有时序的概念。一般的高级编程语言是没有时序的概念的，但在硬件电路中从输入到输出总是有延时存在的，为了描述这一特征，需要引入时延的概念。 1.1 Verilog HDL 描述层次说明 🔗1.1.1 系统级和算法级建模 🔗通常只是用 Verilog HDL 描述系统的功能，不涉及具体实现的细节，实际开发中，设计人员很少应用 Verilog HDL 语言的系统和算法级建模能力。
+HDL 语言是并行处理的，具有同一时刻执行多任务的能力。这和一般高级设计语言（例如C语言等）串行执行的特征是不同的。 HDL 有时序的概念。一般的高级编程语言是没有时序的概念的，但在硬件电路中从输入到输出总是有延时存在的，为了描述这一特征，需要引入时延的概念。 1.1 Verilog HDL 描述层次说明 🔗 1.1.1 系统级和算法级建模 🔗通常只是用 Verilog HDL 描述系统的功能，不涉及具体实现的细节，实际开发中，设计人员很少应用 Verilog HDL 语言的系统和算法级建模能力。
 1.1.2 寄存器传输级（RTL）建模 🔗RTL 级建模：描述电路时只关注寄存器本身，以及寄存器到寄存器之间的逻辑功能，而不在意寄存器和组合逻辑的实现细节。
 RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可综合描述语言。在 EDA 工具的帮助下，设计人员可以直接在 RTL 级进行电路设计，而无需从逻辑门电路（与门、或门和非门）的较低层次来设计电路。
 在最终实现时，所有的设计都需要映射到门级电路上，RTL 级代码也不例外，只不过 RTL 代码通过 EDA 软件中的逻辑综合工具转化成设计网表，网表基本上由门电路组成。
@@ -308,7 +308,7 @@ RTL 级描述最大的特点就在于 RTL 级描述时目前最高层次的可�
 逻辑表达式：
 逻辑图：
 波形图：
-1.9 逻辑代数的基本定律和恒等式 🔗</description>
+1.9 逻辑代数的基本定律和恒等式 🔗 </description>
     </item>
     
     <item>
@@ -453,7 +453,7 @@ Demo
 那么，如何在不改变对象的大小的同时添加新的功能呢？
 五、d-pointer 🔗诀窍是通过保存唯一的一个指针而保持一个类库所有公共类的大小不变。这个指针指向一个包含所有数据的私有的（内部的）数据结构。内部结构的大小可以增大或者减小，而不会对应用程序带来副作用，因为指针只会被类库里面的代码访问，从应用程序的视角来看，对象的大小并没有改变 - 它永远是指针的大小。 这个指针被叫做 d-pointer 。
 六、d-pointer 的其它好处 🔗这里不全都是和二进制兼容有关。d-pointer 还有其它的好处： 隐藏了实现细节 - 我们可以只发布带有头文件和二进制文件的 WidgetLib。源文件可以是闭源代码的。
-头文件很干净，不包含实现细节，可以直接作为 API 参考。由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖）事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
+头文件很干净，不包含实现细节，可以直接作为 API 参考。 由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖） 事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
 七、Qt 中的 d-pointers 🔗在 Qt 中，几乎所有的公有类都使用了 d-pointer。唯一不用的情况是如果事先知道某个类永远不会添加额外的成员变量。例如，像 QPoint, QRect 这些类，我们不期望有新的成员添加，因此它们的数据成员直接保存在类里而没用 d-pointer。</description>
     </item>
     
@@ -1323,7 +1323,7 @@ The first story is about connecting the dots.</description>
       <guid>/posts/database/</guid>
       <description>转载自https://github.com/huihut/interview
 本节部分知识点来自《数据库系统概论（第 5 版）》
-基本概念 🔗 数据（data）：描述事物的符号记录称为数据。 数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。 数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。 数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。 实体（entity）：客观存在并可相互区别的事物称为实体。 属性（attribute）：实体所具有的某一特性称为属性。 码（key）：唯一标识实体的属性集称为码。 实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。 实体集（entity set）：同一实体型的集合称为实体集。 联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。 模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。 常用数据模型 🔗 层次模型（hierarchical model） 网状模型（network model） 关系模型（relational model） 关系（relation）：一个关系对应通常说的一张表 元组（tuple）：表中的一行即为一个元组 属性（attribute）：表中的一列即为一个属性 码（key）：表中可以唯一确定一个元组的某个属性组 域（domain）：一组具有相同数据类型的值的集合 分量：元组中的一个属性值 关系模式：对关系的描述，一般表示为 关系名(属性1, 属性2, ..., 属性n) 面向对象数据模型（object oriented data model） 对象关系数据模型（object relational data model） 半结构化数据模型（semistructure data model） 常用 SQL 操作 🔗对象类型对象操作类型数据库模式模式CREATE SCHEMA基本表CREATE SCHEMA，ALTER TABLE视图CREATE VIEW索引CREATE INDEX数据基本表和视图SELECT，INSERT，UPDATE，DELETE，REFERENCES，ALL PRIVILEGES属性列SELECT，INSERT，UPDATE，REFERENCES，ALL PRIVILEGESSQL 语法教程：runoob .</description>
+基本概念 🔗 数据（data）：描述事物的符号记录称为数据。 数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。 数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。 数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。 实体（entity）：客观存在并可相互区别的事物称为实体。 属性（attribute）：实体所具有的某一特性称为属性。 码（key）：唯一标识实体的属性集称为码。 实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。 实体集（entity set）：同一实体型的集合称为实体集。 联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。 模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。 内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。 常用数据模型 🔗 层次模型（hierarchical model） 网状模型（network model） 关系模型（relational model） 关系（relation）：一个关系对应通常说的一张表 元组（tuple）：表中的一行即为一个元组 属性（attribute）：表中的一列即为一个属性 码（key）：表中可以唯一确定一个元组的某个属性组 域（domain）：一组具有相同数据类型的值的集合 分量：元组中的一个属性值 关系模式：对关系的描述，一般表示为 关系名(属性1, 属性2, ..., 属性n) 面向对象数据模型（object oriented data model） 对象关系数据模型（object relational data model） 半结构化数据模型（semistructure data model） 常用 SQL 操作 🔗 对象类型 对象 操作类型 数据库模式 模式 CREATE SCHEMA 基本表 CREATE SCHEMA，ALTER TABLE 视图 CREATE VIEW 索引 CREATE INDEX 数据 基本表和视图 SELECT，INSERT，UPDATE，DELETE，REFERENCES，ALL PRIVILEGES 属性列 SELECT，INSERT，UPDATE，REFERENCES，ALL PRIVILEGES SQL 语法教程：runoob .</description>
     </item>
     
     <item>
@@ -1538,12 +1538,12 @@ new和delete运算符用于动态分配和撤销内存的运算符
 int *a = new int(5) 作用同上,但是同时将整数赋值为5
 开辟数组空间
 一维:
-int *a = new int[100]; // 开辟一个大小为100的整型数组空间二维:
-int **a = new int[5][6]三维及其以上:依此类推
+int *a = new int[100]; // 开辟一个大小为100的整型数组空间 二维:
+int **a = new int[5][6] 三维及其以上:依此类推
 一般用法: new 类型 [初值]
 (2) delete用法 🔗 int *a = new int;
-delete a; //释放单个int的空间int *a = new int[5];
-delete [] a; //释放int数组空间要访问new所开辟的结构体空间,无法直接通过变量名进行,只能通过赋值的指针进行访问。
+delete a; //释放单个int的空间 int *a = new int[5];
+delete [] a; //释放int数组空间 要访问new所开辟的结构体空间,无法直接通过变量名进行,只能通过赋值的指针进行访问。
 用new和delete可以动态开辟，撤销地址空间。在编程序时,若用完一个变量(一般是暂时存储的数组)，下次需要再用，但却又想省去重新初始化的功夫，可以在每次开始使用时开辟一个空间，在用完后撤销它。
 导航 🔗 目录 上一章：Chapter 4 - uint8_t, uint16_t, uint32_t, uint64_t </description>
     </item>
@@ -1557,9 +1557,9 @@ delete [] a; //释放int数组空间要访问new所开辟的结构体空间,无
       <description>转载自https://github.com/andycai/cprimer
 3.1 char*, char[], string 🔗在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&amp;rsquo;\0&amp;rsquo;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
 C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是以后不能利用&amp;rdquo;=&amp;ldquo;对C字符串进行赋值。对C字符串的操作需要通过&amp;quot;string&amp;quot;文件中定义的字符串处理函数。例如：
-//字符串的初始化char a[11] = &amp;quot;huanying&amp;quot;;//字符串的赋值strcpy(a,&amp;quot;nihao&amp;quot;)//获取字符串的长度，不包括&#39;\0&#39;在内strlen(a);printf(&amp;quot;%s&amp;quot;,a);在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
+//字符串的初始化 char a[11] = &amp;quot;huanying&amp;quot;; //字符串的赋值 strcpy(a,&amp;quot;nihao&amp;quot;) //获取字符串的长度，不包括&#39;\0&#39;在内 strlen(a); printf(&amp;quot;%s&amp;quot;,a); 在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
 在C++中则把字符串封装成了一种数据类型string,可以直接声明变量并进行赋值等字符串操作。以下是C字符串和C++中string的区别：
-C字符串 string对象所需的头文件名称 &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt;为什么需要头文件 为了使用字符串函数 为了使用string类如何声明 char name[20]; string name;如何初始化 char name[20]=&amp;quot;nihao&amp;quot;; string name = &amp;quot;nihao&amp;quot;;必须声明字符串长度么？	是 否使用一个null字符么？ 是 否怎样实现字符串赋值 strcpy(name,&amp;quot;John&amp;quot;); name = &amp;quot;John&amp;quot;;其他优点 更快 更易于使用，优选方案可以赋一个比现有字符更 不能 可以长的字符串么？ (1) C++常用字符串函数 🔗char s1[]=&amp;quot;I am a student&amp;quot;;char s2[20]=&amp;quot;teacher&amp;quot;;char s3[]=&amp;quot;student&amp;quot;;int result;char s4[20],*p;串长度 int strlen(char *str)</description>
+C字符串 string对象 所需的头文件名称 &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; 为什么需要头文件 为了使用字符串函数 为了使用string类 如何声明 char name[20]; string name; 如何初始化 char name[20]=&amp;quot;nihao&amp;quot;; string name = &amp;quot;nihao&amp;quot;; 必须声明字符串长度么？	是 否 使用一个null字符么？ 是 否 怎样实现字符串赋值 strcpy(name,&amp;quot;John&amp;quot;); name = &amp;quot;John&amp;quot;; 其他优点 更快 更易于使用，优选方案 可以赋一个比现有字符更 不能 可以 长的字符串么？ (1) C++常用字符串函数 🔗char s1[]=&amp;quot;I am a student&amp;quot;; char s2[20]=&amp;quot;teacher&amp;quot;; char s3[]=&amp;quot;student&amp;quot;; int result; char s4[20],*p; 串长度 int strlen(char *str)</description>
     </item>
     
     <item>
@@ -1570,7 +1570,7 @@ C字符串 string对象所需的头文件名称 &amp;lt;string&amp;gt;或&amp;l
       <guid>/posts/cprimer02/</guid>
       <description>转载自https://github.com/andycai/cprimer
 2.1 refrence 引用 🔗引用是C++中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。
-int m; int &amp;amp;n = m;n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。
+int m; int &amp;amp;n = m; n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。
 引用的规则：
 引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。 不能有NULL引用，引用必须与合法的存储单元关联（指针则可以是NULL）。 一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。 以下示例程序中，k 被初始化为 i 的引用。语句 k = j 并不能将 k 修改成为 j 的引用，只是把 k 的值改变成为6。由于 k 是 i 的引用，所以 i 的值也变成了6。
 int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6; 引用的主要功能是传递函数的参数和返回值。</description>
@@ -1584,9 +1584,9 @@ int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6; �
       <guid>/posts/cprimer01/</guid>
       <description>转载自https://github.com/andycai/cprimer
 1.1 const 🔗(1) const 基础 🔗如果const关键字不涉及到指针，我们很好理解，下面是涉及到指针的情况：
-int b = 500;const int* a = &amp;amp;b; [1]int const *a = &amp;amp;b; [2]int* const a = &amp;amp;b; [3]const int* const a = &amp;amp;b; [4]如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
+int b = 500; const int* a = &amp;amp;b; [1] int const *a = &amp;amp;b; [2] int* const a = &amp;amp;b; [3] const int* const a = &amp;amp;b; [4] 如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
 因此，[1]和[2]的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；[3]为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a++是错误的；[4]为指针本身和指向的内容均为常量。
-(2) 作为参数 🔗void display(const double&amp;amp; r);void display(const double* r);说明:
+(2) 作为参数 🔗void display(const double&amp;amp; r); void display(const double* r); 说明:
 在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义 保证引用的变量的值不被改变 const 在 double 前或者后面意思相同，只是不同的人的写法不同 (3) const对象 🔗声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。</description>
     </item>
     
@@ -1736,7 +1736,7 @@ class Chart { private String type; //图表类型 public Chart(Object[][] data, 
       <pubDate>Wed, 22 Dec 2021 23:41:54 +0800</pubDate>
       
       <guid>/posts/2021-12-22-oop/</guid>
-      <description>面向对象思想 🔗面向对象思想 一、三大特性 封装 继承 多态 二、类图 泛化关系 (Generalization) 实现关系 (Realization) 聚合关系 (Aggregation) 组合关系 (Composition) 关联关系 (Association) 依赖关系 (Dependency) 三、设计原则 S.O.L.I.D 其他常见原则 参考资料 一、三大特性 🔗封装 🔗利用抽象数据类型将数据和基于数据的操作封装在一起，使其构成一个不可分割的独立实体。数据被保护在抽象数据类型的内部，尽可能地隐藏内部的细节，只保留一些对外的接口使其与外部发生联系。用户无需关心对象内部的细节，但可以通过对象对外提供的接口来访问该对象。
+      <description>面向对象思想 🔗 面向对象思想 一、三大特性 封装 继承 多态 二、类图 泛化关系 (Generalization) 实现关系 (Realization) 聚合关系 (Aggregation) 组合关系 (Composition) 关联关系 (Association) 依赖关系 (Dependency) 三、设计原则 S.O.L.I.D 其他常见原则 参考资料 一、三大特性 🔗封装 🔗利用抽象数据类型将数据和基于数据的操作封装在一起，使其构成一个不可分割的独立实体。数据被保护在抽象数据类型的内部，尽可能地隐藏内部的细节，只保留一些对外的接口使其与外部发生联系。用户无需关心对象内部的细节，但可以通过对象对外提供的接口来访问该对象。
 优点：
 减少耦合：可以独立地开发、测试、优化、使用、理解和修改 减轻维护的负担：可以更容易被理解，并且在调试的时候可以不影响其他模块 有效地调节性能：可以通过剖析来确定哪些模块影响了系统的性能 提高软件的可重用性 降低了构建大型系统的风险：即使整个系统不可用，但是这些独立的模块却有可能是可用的 以下 Person 类封装 name、gender、age 等属性，外界只能通过 get() 方法获取一个 Person 对象的 name 属性和 gender 属性，而无法获取 age 属性，但是 age 属性可以供 work() 方法使用。
 注意到 gender 属性使用 int 数据类型进行存储，封装使得用户注意不到这种实现细节。并且在需要修改 gender 属性使用的数据类型时，也可以在不影响客户端代码的情况下进行。
@@ -1749,7 +1749,7 @@ public class Person { private String name; private int gender; private int age; 
       <pubDate>Wed, 22 Dec 2021 23:37:55 +0800</pubDate>
       
       <guid>/posts/2021-12-22-cache/</guid>
-      <description>缓存 🔗缓存 一、缓存特征 二、缓存位置 三、CDN 四、缓存问题 五、数据分布 六、一致性哈希 七、LRU 参考资料 一、缓存特征 🔗命中率 🔗当某个请求能够通过访问缓存而得到响应时，称为缓存命中。
+      <description>缓存 🔗 缓存 一、缓存特征 二、缓存位置 三、CDN 四、缓存问题 五、数据分布 六、一致性哈希 七、LRU 参考资料 一、缓存特征 🔗命中率 🔗当某个请求能够通过访问缓存而得到响应时，称为缓存命中。
 缓存命中率越高，缓存的利用率也就越高。
 最大空间 🔗缓存通常位于内存中，内存的空间通常比磁盘空间小的多，因此缓存的最大空间不可能非常大。
 当缓存存放的数据量超过最大空间时，就需要淘汰部分数据来存放新到达的数据。
@@ -1773,7 +1773,7 @@ CPU 多级缓存 🔗CPU 为了解决运算速度与主存 IO 速度不匹配的
       <pubDate>Wed, 22 Dec 2021 23:34:10 +0800</pubDate>
       
       <guid>/posts/2021-12-22-redis/</guid>
-      <description>Redis 🔗Redis 一、概述 二、数据类型 STRING LIST SET HASH ZSET 三、数据结构 字典 跳跃表 四、使用场景 计数器 缓存 查找表 消息队列 会话缓存 分布式锁实现 其它 五、Redis 与 Memcached 数据类型 数据持久化 分布式 内存管理机制 六、键的过期时间 七、数据淘汰策略 八、持久化 RDB 持久化 AOF 持久化 九、事务 十、事件 文件事件 时间事件 事件的调度与执行 十一、复制 连接过程 主从链 十二、Sentinel 十三、分片 十四、一个简单的论坛系统分析 文章信息 点赞功能 对文章进行排序 参考资料 一、概述 🔗Redis 是速度非常快的非关系型（NoSQL）内存键值数据库，可以存储键和五种不同类型的值之间的映射。
+      <description>Redis 🔗 Redis 一、概述 二、数据类型 STRING LIST SET HASH ZSET 三、数据结构 字典 跳跃表 四、使用场景 计数器 缓存 查找表 消息队列 会话缓存 分布式锁实现 其它 五、Redis 与 Memcached 数据类型 数据持久化 分布式 内存管理机制 六、键的过期时间 七、数据淘汰策略 八、持久化 RDB 持久化 AOF 持久化 九、事务 十、事件 文件事件 时间事件 事件的调度与执行 十一、复制 连接过程 主从链 十二、Sentinel 十三、分片 十四、一个简单的论坛系统分析 文章信息 点赞功能 对文章进行排序 参考资料 一、概述 🔗Redis 是速度非常快的非关系型（NoSQL）内存键值数据库，可以存储键和五种不同类型的值之间的映射。
 键的类型只能为字符串，值支持五种数据类型：字符串、列表、集合、散列表、有序集合。
 Redis 支持很多特性，例如将内存中的数据持久化到硬盘中，使用复制来扩展读性能，使用分片来扩展写性能。
 二、数据类型 🔗 数据类型 可以存储的值 操作 STRING 字符串、整数或者浮点数 对整个字符串或者字符串的其中一部分执行操作&amp;lt;/br&amp;gt; 对整数和浮点数执行自增或者自减操作 LIST 列表 从两端压入或者弹出元素 &amp;lt;/br&amp;gt; 对单个或者多个元素进行修剪，&amp;lt;/br&amp;gt; 只保留一个范围内的元素 SET 无序集合 添加、获取、移除单个元素&amp;lt;/br&amp;gt; 检查一个元素是否存在于集合中&amp;lt;/br&amp;gt; 计算交集、并集、差集&amp;lt;/br&amp;gt; 从集合里面随机获取元素 HASH 包含键值对的无序散列表 添加、获取、移除单个键值对&amp;lt;/br&amp;gt; 获取所有键值对&amp;lt;/br&amp;gt; 检查某个键是否存在 ZSET 有序集合 添加、获取、删除元素&amp;lt;/br&amp;gt; 根据分值范围或者成员来获取元素&amp;lt;/br&amp;gt; 计算一个键的排名 What Redis data structures look like</description>
@@ -1785,7 +1785,7 @@ Redis 支持很多特性，例如将内存中的数据持久化到硬盘中，�
       <pubDate>Wed, 22 Dec 2021 23:32:38 +0800</pubDate>
       
       <guid>/posts/2021-12-22-sqldemo/</guid>
-      <description>SQL 练习 🔗SQL 练习 595. Big Countries 627. Swap Salary 620. Not Boring Movies 596. Classes More Than 5 Students 182. Duplicate Emails 196. Delete Duplicate Emails 175. Combine Two Tables 181. Employees Earning More Than Their Managers 183. Customers Who Never Order 184. Department Highest Salary 176. Second Highest Salary 177. Nth Highest Salary 178. Rank Scores 180. Consecutive Numbers 626. Exchange Seats 595. Big Countries 🔗https://leetcode.com/problems/big-countries/description/
+      <description>SQL 练习 🔗 SQL 练习 595. Big Countries 627. Swap Salary 620. Not Boring Movies 596. Classes More Than 5 Students 182. Duplicate Emails 196. Delete Duplicate Emails 175. Combine Two Tables 181. Employees Earning More Than Their Managers 183. Customers Who Never Order 184. Department Highest Salary 176. Second Highest Salary 177. Nth Highest Salary 178. Rank Scores 180. Consecutive Numbers 626. Exchange Seats 595. Big Countries 🔗https://leetcode.com/problems/big-countries/description/
 Description 🔗+-----------------+------------+------------+--------------+---------------+ | name | continent | area | population | gdp | +-----------------+------------+------------+--------------+---------------+ | Afghanistan | Asia | 652230 | 25500100 | 20343000 | | Albania | Europe | 28748 | 2831741 | 12960000 | | Algeria | Africa | 2381741 | 37100000 | 188681000 | | Andorra | Europe | 468 | 78115 | 3712000 | | Angola | Africa | 1246700 | 20609294 | 100990000 | +-----------------+------------+------------+--------------+---------------+ 查找面积超过 3,000,000 或者人口数超过 25,000,000 的国家。</description>
     </item>
     
@@ -1795,7 +1795,7 @@ Description 🔗+-----------------+------------+------------+--------------+----
       <pubDate>Wed, 22 Dec 2021 23:30:39 +0800</pubDate>
       
       <guid>/posts/2021-12-22-mysql/</guid>
-      <description>MySQL 🔗MySQL 一、索引 B+ Tree 原理 MySQL 索引 索引优化 索引的优点 索引的使用条件 二、查询性能优化 使用 Explain 进行分析 优化数据访问 重构查询方式 三、存储引擎 InnoDB MyISAM 比较 四、数据类型 整型 浮点数 字符串 时间和日期 五、切分 水平切分 垂直切分 Sharding 策略 Sharding 存在的问题 六、复制 主从复制 读写分离 参考资料 一、索引 🔗B+ Tree 原理 🔗1. 数据结构 🔗B Tree 指的是 Balance Tree，也就是平衡树。平衡树是一颗查找树，并且所有叶子节点位于同一层。
+      <description>MySQL 🔗 MySQL 一、索引 B+ Tree 原理 MySQL 索引 索引优化 索引的优点 索引的使用条件 二、查询性能优化 使用 Explain 进行分析 优化数据访问 重构查询方式 三、存储引擎 InnoDB MyISAM 比较 四、数据类型 整型 浮点数 字符串 时间和日期 五、切分 水平切分 垂直切分 Sharding 策略 Sharding 存在的问题 六、复制 主从复制 读写分离 参考资料 一、索引 🔗B+ Tree 原理 🔗1. 数据结构 🔗B Tree 指的是 Balance Tree，也就是平衡树。平衡树是一颗查找树，并且所有叶子节点位于同一层。
 B+ Tree 是基于 B Tree 和叶子节点顺序访问指针进行实现，它具有 B Tree 的平衡性，并且通过顺序访问指针来提高区间查询的性能。
 在 B+ Tree 中，一个节点中的 key 从左到右非递减排列，如果某个指针的左右相邻 key 分别是 keyi 和 keyi+1，且不为 null，则该指针指向节点的所有 key 大于等于 keyi 且小于等于 keyi+1。</description>
     </item>
@@ -1806,7 +1806,7 @@ B+ Tree 是基于 B Tree 和叶子节点顺序访问指针进行实现，它具�
       <pubDate>Wed, 22 Dec 2021 23:28:00 +0800</pubDate>
       
       <guid>/posts/2021-12-22-database/</guid>
-      <description>数据库系统原理 🔗数据库系统原理 一、事务 概念 ACID AUTOCOMMIT 二、并发一致性问题 丢失修改 读脏数据 不可重复读 幻影读 三、封锁 封锁粒度 封锁类型 封锁协议 MySQL 隐式与显式锁定 四、隔离级别 未提交读（READ UNCOMMITTED） 提交读（READ COMMITTED） 可重复读（REPEATABLE READ） 可串行化（SERIALIZABLE） 五、多版本并发控制 基本思想 版本号 Undo 日志 ReadView 快照读与当前读 六、Next-Key Locks Record Locks Gap Locks Next-Key Locks 七、关系数据库设计理论 函数依赖 异常 范式 八、ER 图 实体的三种联系 表示出现多次的关系 联系的多向性 表示子类 参考资料 一、事务 🔗概念 🔗事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。
+      <description>数据库系统原理 🔗 数据库系统原理 一、事务 概念 ACID AUTOCOMMIT 二、并发一致性问题 丢失修改 读脏数据 不可重复读 幻影读 三、封锁 封锁粒度 封锁类型 封锁协议 MySQL 隐式与显式锁定 四、隔离级别 未提交读（READ UNCOMMITTED） 提交读（READ COMMITTED） 可重复读（REPEATABLE READ） 可串行化（SERIALIZABLE） 五、多版本并发控制 基本思想 版本号 Undo 日志 ReadView 快照读与当前读 六、Next-Key Locks Record Locks Gap Locks Next-Key Locks 七、关系数据库设计理论 函数依赖 异常 范式 八、ER 图 实体的三种联系 表示出现多次的关系 联系的多向性 表示子类 参考资料 一、事务 🔗概念 🔗事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。
 ACID 🔗1. 原子性（Atomicity） 🔗事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。
 回滚可以用回滚日志（Undo Log）来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。
 2. 一致性（Consistency） 🔗数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</description>
@@ -3462,9 +3462,9 @@ min / max old /new stat / stop</description>
 最近在玩一款名叫《一小时人生》的游戏，国内手机移植版名为&amp;quot;希望之村&amp;quot;，有兴趣可以查查这游戏的来历，很有意思。作为一个游戏老玩家，我玩过很多游戏，但说让我印象深刻的还是要提到它。
 首先介绍一下游戏基本的设定。《一小时人生》，游戏开始，玩家将会以“夏娃”（成年女性，开创者）或者“婴儿”（幼年期无生存能力，必须由他人抚养）的身份诞生在一个原始世界，成年女性会在某个不确定的时间诞生“婴儿”，在老年的时候就会失去生育能力。在游戏里，玩家每分钟会成长一岁，最高寿命为60岁，期间可能会因为饥饿、野兽袭击或疾病等原因致死而结束游戏。
 既然说人生百态，目标不同，那这人生的玩法就很多了，具体怎么玩我就不多说了，有兴趣可以自行体验。下面分享一些我在游戏中遇到的趣事。（注：下列故事出现的人物称呼均为游戏中玩家关系）。
-一 🔗这张图片的背景是：我作为夏娃的儿子诞生，能下地走路独自进食后，我便开始忙于生计，制造各种农具，种植果树。但因为环境恶劣，也或许是能力不足的缘故，随着人口的增多，我的兄弟姐妹在接下来的几次饥荒中丧生，母亲也化为了白骨。时间流逝，我渐渐意识到，这个世界仅剩我一人，在我死后这个世界便再也没有人记得曾有过这样一个家族，我的工作也便没有了价值。于是我放弃了工作，靠着附近的野果度日。最后，白发苍苍的我，忍受了漫长的孤寂，站在母亲的白骨前，等待死亡（我连埋葬都不会）……
-二 🔗为了免受饥饿的困扰，我刻意到人少的地方作为夏娃诞生，苦练种植技术。当积累了足够经验后，因饥荒而导致种族灭绝的情况已经得到改善。然而环境探索和资源采集的过程中，自己或亲人时常被野兽袭击，因为缺乏医疗手段，鲜活的生命转瞬便消失在眼前。于是，我决定奋起反抗，用武器与热血对抗冰冷的大自然。同时也考虑到整个家族的生存大计，我选择在农业发展到一定阶段，自己也不能为家族创造更多价值的时候，拿起早已准备好的武器，向大自然最凶恶的野兽-巨熊，发起挑战！但即使是青壮年面对野兽，也需要足够多的勇气与体魄，更何况垂垂老矣的我，结局不言而喻……
-三 🔗这是一个情节复杂，值得思考的故事，光看图片可能不能理解，且听我细细讲来。
+一 🔗 这张图片的背景是：我作为夏娃的儿子诞生，能下地走路独自进食后，我便开始忙于生计，制造各种农具，种植果树。但因为环境恶劣，也或许是能力不足的缘故，随着人口的增多，我的兄弟姐妹在接下来的几次饥荒中丧生，母亲也化为了白骨。时间流逝，我渐渐意识到，这个世界仅剩我一人，在我死后这个世界便再也没有人记得曾有过这样一个家族，我的工作也便没有了价值。于是我放弃了工作，靠着附近的野果度日。最后，白发苍苍的我，忍受了漫长的孤寂，站在母亲的白骨前，等待死亡（我连埋葬都不会）……
+二 🔗 为了免受饥饿的困扰，我刻意到人少的地方作为夏娃诞生，苦练种植技术。当积累了足够经验后，因饥荒而导致种族灭绝的情况已经得到改善。然而环境探索和资源采集的过程中，自己或亲人时常被野兽袭击，因为缺乏医疗手段，鲜活的生命转瞬便消失在眼前。于是，我决定奋起反抗，用武器与热血对抗冰冷的大自然。同时也考虑到整个家族的生存大计，我选择在农业发展到一定阶段，自己也不能为家族创造更多价值的时候，拿起早已准备好的武器，向大自然最凶恶的野兽-巨熊，发起挑战！但即使是青壮年面对野兽，也需要足够多的勇气与体魄，更何况垂垂老矣的我，结局不言而喻……
+三 🔗 这是一个情节复杂，值得思考的故事，光看图片可能不能理解，且听我细细讲来。
 这一世我作为夏娃的女儿诞生，但当我睁开眼之后，便吓出一身冷汗！原来我诞生在一个香蕉地，附近有一地的香蕉皮，在旁边还有一位刚能走动的姐姐（她也是一位传奇人物，后面会讲述她的故事）。
 显然，这位母亲是一位流浪者，俗称香蕉人，即到处流浪，靠食野果为生。她的生平经历，我无从得知，她的所思所感，我亦无暇顾及。只知道她在我诞生后便放弃了自己的生命，是姐姐靠采摘附近的香蕉把我养大。但是资源终究会消耗完，这样的生活注定不能长久，我们不能让后代延续这样的悲剧。于是，我和姐姐同时做了一个决定，离开这里！我们相约到一个合适的地方共建家园，但是，显然幸运女神没有怜顾我们，我们迷路分离了。这也是流浪者后代的悲剧，在野外恶劣环境下，没有路引，迷失是注定的命运。
 令我宽慰的是，在分开不远处我便找到一个环境不错的地方，同时找到了一些珍稀的果树——覆盘子，这也算是不幸中的万幸。于是我就地开展工作，开启了农耕时代。忙碌一生之后，我凭借附近的丰富资源，建立了一片果园，可以维持后代一定人口的生计。

@@ -12,7 +12,7 @@ Hector的一个关键好处是对事务等价性进行建模，在比较的两�
 2. 快速开始 🔗2.1 为C/C&#43;&#43;模型编写 Hector 封装器 🔗#include &lt;Hector.h&gt; void hector_wrapper() { int a, b, mul, madd; Hector::registerInput(&#34;in_a&#34;, a); Hector::registerInput(&#34;in_b&#34;, b); Hector::registerOutput(&#34;out_mul&#34;, mul); Hector::registerOutput(&#34;out_madd&#34;, madd); Hector::beginCapture(); compute(a, b, mul, madd); Hector::endCapture(); } 其中 Hector::registerInput(&quot;in_a&quot;, a);指示应将变量a视为输入，并在Hector的所有后续步骤中将其称为 in_a。
 2.2 声明规范设计 🔗proc compile_spec {} { create_design -name spec -top hector_wrapper cppan foo.cc compile_design spec } cppan 命令分析C&#43;&#43;程序。它将g&#43;&#43;编译器选项和文件列表作为参数。最后 compile_design 命令将名为spec的设计编译为DFG。
 2.3 声明实现设计 🔗proc compile_impl {} { create_design -name impl -top ima –clock clk –reset rst -negReset vcs foo.">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -59,8 +59,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -68,8 +66,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

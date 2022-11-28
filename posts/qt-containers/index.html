@@ -14,7 +14,7 @@
 Qt 还提供了这些关联容器：QMap、QMultiMap、QHash、QMultiHash和QSet。“Multi”容器方便地支持与单个键关联的多个值。“散列”容器通过使用散列函数而不是对排序集的二分搜索来提供更快的查找。
 作为特殊情况，QCache 和 QContiguousCache 类在有限的缓存存储中提供了有效的对象散列查找。
 类 简述 QList 这是迄今为止最常用的容器类。它存储可以通过索引访问的给定类型 (T) 的值列表。在内部，它在内存中的相邻位置存储一组给定类型的值。在列表的前面或中间插入可能会很慢，因为它可能导致大量项目必须在内存中移动一个位置。 QVarLengthArray &lt;T, Prealloc &gt; 这提供了一个低级的可变长度数组。在速度特别重要的地方，它可以代替QList使用。 QStack 这是QList 的一个便利子类，提供“后进先出”(LIFO) 语义。它向QList 中已有的函数添加了以下函数：push ()、pop () 和top ()。 QQueue 这是QList的便利子类，提供“先进先出”(FIFO) 语义。它将以下函数添加到QList 中已经存在的函数中：enqueue ()、dequeue () 和head ()。 QSet 这提供了具有快速查找功能的单值数学集。 QMap &lt;Key, T&gt; 这提供了一个字典（关联数组），将 Key 类型的键映射到 T 类型的值。通常每个键都与单个值相关联。QMap以 Key 顺序存储其数据；如果顺序无关紧要QHash是一个更快的选择。 QMultiMap &lt;Key, T&gt; 这是QMap 的一个方便的子类，它为多值映射提供了一个很好的接口，即一个键可以与多个值相关联的映射。 QHash &lt;Key, T&gt; 这与QMap具有几乎相同的 API ，但提供了明显更快的查找。QHash以任意顺序存储其数据。 QMultiHash &lt;Key, T&gt; 这是QHash 的一个便利子类，它为多值散列提供了一个很好的接口。 算法复杂性 🔗下表总结了顺序容器 QList 的算法复杂度。">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -61,8 +61,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -70,8 +68,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

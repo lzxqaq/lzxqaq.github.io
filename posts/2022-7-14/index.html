@@ -9,11 +9,11 @@
 <meta name="description" content="System-Level 到 RTL 的等价验证工具： HECTOR
 1. 系统级设计 🔗使用系统级设计的一些原因：
 更快完成验证 更容易探索结构 不需要关注实现细节 使用 High-Level 综合提高生产率 RTL验证的问题：
-RTL 设计的验证更难 错误的 specification 导致 Bug 错误的 implementation 导致 Bug 2. 功能等价性检查 🔗System-level 模型是硬件的 transaction/word level 模型 System 和 RTL 在给定相同输入的情况下计算相同的输出 等价性检查证明功能等价性 时间和内部结构可能会显著不同，但可观察到的结果必须相同 3. 传统流程 🔗 架构师创建 C&#43;&#43; specification RTL 设计师创建 RTL implementation RTL包含更多的实现细节 问题：
+RTL 设计的验证更难 错误的 specification 导致 Bug 错误的 implementation 导致 Bug 2. 功能等价性检查 🔗 System-level 模型是硬件的 transaction/word level 模型 System 和 RTL 在给定相同输入的情况下计算相同的输出 等价性检查证明功能等价性 时间和内部结构可能会显著不同，但可观察到的结果必须相同 3. 传统流程 🔗 架构师创建 C&#43;&#43; specification RTL 设计师创建 RTL implementation RTL包含更多的实现细节 问题：
 设计通常嵌入到自己的仿真环境中，需要指定输入/输出映射、等效概念 Specification 和 implementation 可能会有很大不同 约束通常在设计师的头脑中，需要形式化 输入/输出差异有时难以在形式化模型中捕捉 4. High-Level 综合流程 🔗 等价性检验工具证明生成的RTL的正确性 优势：
 有关约束和接口映射/延迟差异的所有信息也可从合成中获得 简化验证工作 可能只需点击就完成 问题：
-大量可能解决方案都必须经过一一验证。 5. 整合 Hign-level 综合 🔗">
-<meta name="generator" content="Hugo 0.100.1" />
+大量可能解决方案都必须经过一一验证。 5. 整合 Hign-level 综合 🔗 ">
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -60,8 +60,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -69,8 +67,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

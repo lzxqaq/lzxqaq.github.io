@@ -16,7 +16,7 @@
 （2）修改 config.yaml 文件，添加文章和记录两个菜单。对应的文件夹是 post 和 note。
 （3）这样，再回到浏览器上看。因为我们把示例的文章也复制过来了，所以网站已经有文章显示了。而我们添加的[文章]和[记录]文章也完成了。如果你需要添加其他菜单，可以参考现有的：在 content 文件夹下新建文件夹，然后在 config.yaml 文件中添加修改。
 四、新建文章 🔗我们可以复制 content/post 或者 content/note 下的文件，然后修改里面的标题、作者、日期、分类、标签等等，因为我们使用 hugo server 预览网站，所以可以在浏览器上 localhost:1313 实时查看修改后的效果。不过更常见的做法是通过命令的方式来创建，下面演示在[文章]菜单下创建一篇文章。">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -63,8 +63,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -72,8 +70,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

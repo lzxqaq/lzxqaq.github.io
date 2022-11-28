@@ -13,7 +13,7 @@ revised：待比较的设计
 Keypoint Mapping：逻辑锥的终点是DFF的CK（时钟）、Ｄ（数据）、RN（复位）、SN（置位），如果这几个“关键点”的逻辑都相同或者等价，那么这两个逻辑锥的逻辑就等价。
 只要两种设计的所有对应逻辑锥逻辑功能都被验证为等价，就认为两个设计等价。
 二、流程 🔗 设置一些与进行等价性验证有关的设置。例如，若设计中的某些模块不需要进行检查，可以将其设置为“黑盒子”；在验证插入扫描链的网表时，要将测试模式信号与扫描使能信号设置为禁止使能，等等。 进行比较点匹配。采用match令即可。一般来说，等价性检查工具会根据相近的信号命名来选取比较点，并给出比较点的报告。如果工具无法识别某些比较点，或者识别有错误，那么设计者可以手工进行相应设置。 进行验证。采用verify命令即可。 给出报告，如果发现错误，则利用图形化界面进行调试。 ">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -60,8 +60,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -69,8 +67,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

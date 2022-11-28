@@ -10,7 +10,7 @@
 详细说明 🔗QList 是 Qt 的通用容器类之一。它将其项目存储在相邻的内存位置，并提供基于索引的快速访问。QVector 在 Qt 5 中曾经是一个不同的类，但现在是 QList 的一个简单别名。
 QList 和QVarLengthArray 提供类似的 API 和功能。它们通常可以互换，但会产生性能后果。以下是用例的概述：
 QList 应该是您的默认首选。 QVarLengthArray提供了一个在堆栈上保留空间的数组，但如果需要，可以动态地增长到堆上。用于通常较小的短寿命容器是很好的。 如果您需要一个真正的链表，它保证在列表中间插入恒定时间并使用迭代器到项目而不是索引，请使用 std::list。 ">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -57,8 +57,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -66,8 +64,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

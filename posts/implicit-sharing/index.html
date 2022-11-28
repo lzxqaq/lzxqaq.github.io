@@ -23,7 +23,7 @@
 隐式共享类可以控制其内部数据。在任何修改其数据的成员函数中，它会在修改数据之前自动分离。但是，请注意容器迭代器的特殊情况；请参阅隐式共享迭代器问题。
 警告：在使用STL 样式的迭代器时，请小心复制隐式共享容器（QMap、QList等）。请参阅隐式共享迭代器问题。
 示例 🔗QPixmap p1, p2; p1.load(&#34;image.bmp&#34;); p2 = p1; // p1 and p2 share data QPainter paint; paint.begin(&amp;p2); // cuts p2 loose from p1 paint.drawText(0,50, &#34;Hi&#34;); paint.end(); 在这个例子中，p1 和 p2 共享数据，直到了 p2 被 QPainter::begin() 调用，因为画像素图将修改它。">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -70,8 +70,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -79,8 +77,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

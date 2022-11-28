@@ -8,11 +8,11 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="转载自https://github.com/andycai/cprimer
 1.1 const 🔗(1) const 基础 🔗如果const关键字不涉及到指针，我们很好理解，下面是涉及到指针的情况：
-int b = 500;const int* a = &amp;b; [1]int const *a = &amp;b; [2]int* const a = &amp;b; [3]const int* const a = &amp;b; [4]如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c&#43;&#43;》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
+int b = 500; const int* a = &amp;b; [1] int const *a = &amp;b; [2] int* const a = &amp;b; [3] const int* const a = &amp;b; [4] 如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c&#43;&#43;》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
 因此，[1]和[2]的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；[3]为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a&#43;&#43;是错误的；[4]为指针本身和指向的内容均为常量。
-(2) 作为参数 🔗void display(const double&amp; r);void display(const double* r);说明:
+(2) 作为参数 🔗void display(const double&amp; r); void display(const double* r); 说明:
 在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义 保证引用的变量的值不被改变 const 在 double 前或者后面意思相同，只是不同的人的写法不同 (3) const对象 🔗声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -59,8 +59,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -68,8 +66,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

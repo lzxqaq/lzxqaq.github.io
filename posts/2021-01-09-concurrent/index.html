@@ -11,7 +11,7 @@
 public class MyRunnable implements Runnable { @Override public void run(){ // ... } } 使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
 public static void main(String[] args){ MyRunnable instance = new MyRunnable(); Thread thread = new Thread(instance); thread.start(); } 实现 Callable 接口 🔗与 Runnable 相比，Callable 可以有返回值，返回值通过 FutureTask 进行封装。
 public class MyCallable implements Callable&lt;Integer&gt; { public Integer call(){ return 123; } } public static void main(String[] args) throws ExecutionException,InterruptedException { MyCallable mc = new MyCallble(); FutureTask&lt;Integer&gt; ft = new FutureTask&lt;&gt;(mc); Thread thread = new Thread(ft); thread.">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -58,8 +58,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -67,8 +65,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 

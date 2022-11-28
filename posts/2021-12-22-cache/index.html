@@ -6,7 +6,7 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="缓存 🔗缓存 一、缓存特征 二、缓存位置 三、CDN 四、缓存问题 五、数据分布 六、一致性哈希 七、LRU 参考资料 一、缓存特征 🔗命中率 🔗当某个请求能够通过访问缓存而得到响应时，称为缓存命中。
+<meta name="description" content="缓存 🔗 缓存 一、缓存特征 二、缓存位置 三、CDN 四、缓存问题 五、数据分布 六、一致性哈希 七、LRU 参考资料 一、缓存特征 🔗命中率 🔗当某个请求能够通过访问缓存而得到响应时，称为缓存命中。
 缓存命中率越高，缓存的利用率也就越高。
 最大空间 🔗缓存通常位于内存中，内存的空间通常比磁盘空间小的多，因此缓存的最大空间不可能非常大。
 当缓存存放的数据量超过最大空间时，就需要淘汰部分数据来存放新到达的数据。
@@ -22,7 +22,7 @@ ISP 🔗网络服务提供商（ISP）是网络访问的第一跳，通过将数
 数据库缓存 🔗MySQL 等数据库管理系统具有自己的查询缓存机制来提高查询效率。
 Java 内部的缓存 🔗Java 为了优化空间，提高字符串、基本数据类型包装类的创建效率，设计了字符串常量池及 Byte、Short、Character、Integer、Long、Boolean 这六种包装类缓冲池。
 CPU 多级缓存 🔗CPU 为了解决运算速度与主存 IO 速度不匹配的问题，引入了多级缓存结构，同时使用 MESI 等缓存一致性协议来解决多核 CPU 缓存数据一致性的问题。">
-<meta name="generator" content="Hugo 0.100.1" />
+<meta name="generator" content="Hugo 0.105.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -69,8 +69,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -78,8 +76,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 
