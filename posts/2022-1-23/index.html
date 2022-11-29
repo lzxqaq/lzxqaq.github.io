@@ -54,8 +54,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -63,8 +61,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 
@@ -94,24 +90,22 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: '让世界充满爱',
-            artist: '中央人民广播电台少年广播合唱团',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/中央人民广播电台少年广播合唱团 - 让世界充满爱-幸福平安(童声合唱).mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/2022-1-23\/中央人民广播电台少年广播合唱团 - 让世界充满爱-幸福平安(童声合唱).png',
-        }
+        
     ]
 });
 </script>
-  
+    
     
     
 

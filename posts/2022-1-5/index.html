@@ -55,8 +55,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -64,8 +62,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 
@@ -95,24 +91,22 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: 'Where Am I (Arranged Ver) ',
-            artist: 'LaTale Music',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/라테일_OST_BGM_009_상점_where_am_i_arranged_ver.mp3',
-            cover: '',
-        }
+        
     ]
 });
 </script>
-  
+    
     
     
 

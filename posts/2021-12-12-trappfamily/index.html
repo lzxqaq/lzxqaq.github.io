@@ -100,8 +100,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -109,8 +107,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 
@@ -140,24 +136,22 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: 'ドレミの歌',
-            artist: '伊東恵里,森の木児童合唱团',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/伊東恵里,森の木児童合唱团 - ドレミの歌.mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/世界名作劇場.jpg',
-        }
+        
     ]
 });
 </script>
-  
+    
     
     
 

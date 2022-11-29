@@ -102,8 +102,6 @@ if (!doNotTrack) {
 	
 		<a href="/posts">博客</a>
 	
-		<a href="/tags">归档</a>
-	
 		<a href="/todos">事项</a>
 	
 		<a href="/recipe">菜谱</a>
@@ -111,8 +109,6 @@ if (!doNotTrack) {
 		<a href="/about">关于</a>
 	
 
-	
-	  <a class="button" href="/index.xml">订阅</a>
 	
 </nav>
 
@@ -142,24 +138,22 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: '墮落',
-            artist: '王菲',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/堕落-王菲.mp3',
-            cover: '',
-        }
+        
     ]
 });
 </script>
-  
+    
     
     
 
