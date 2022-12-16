@@ -90,24 +90,22 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: 'Forrest Gump Suite',
-            artist: 'Alan Silvestri',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Alan_Silvestri_Forrest_Gump_Suite2.mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/George_Davidson_Mariage_D_Amour.jpg',
-        }
+        
     ]
 });
 </script>
-  
+    
     
     
 

@@ -129,24 +129,22 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: '花咲く旅路',
-            artist: '原由子',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/原由子 - 花咲く旅路 (原由子1991.6.1 アルバム“MOTHER”より).mp3',
-            cover: '',
-        }
+        
     ]
 });
 </script>
-  
+    
     
     
 

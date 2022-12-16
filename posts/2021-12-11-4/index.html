@@ -123,24 +123,29 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: '両手を広げて',
-            artist: '伊東惠里',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Trapp_Family_Story_Ryoute_wo_hirogete_両手を広げて_H.mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/Trapp_Family_Story_Hohoemi_no_mahou_ほほえみの魔法_Smil.jpg',
-        }
+        
+            {
+                name: '両手を広げて',
+                artist: '伊東惠里',
+                url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Trapp_Family_Story_Ryoute_wo_hirogete_両手を広げて_H.mp3',
+                cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/Trapp_Family_Story_Hohoemi_no_mahou_ほほえみの魔法_Smil.jpg',
+            },
+        
     ]
 });
 </script>
-  
+    
     
     
 

@@ -90,24 +90,29 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: '十分十二吋',
-            artist: '林子祥',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/George_Lam_Shi_Fen_Shi_Er_Cun.mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/linzixiang.jpg',
-        }
+        
+            {
+                name: '十分十二吋',
+                artist: '林子祥',
+                url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/George_Lam_Shi_Fen_Shi_Er_Cun.mp3',
+                cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/linzixiang.jpg',
+            },
+        
     ]
 });
 </script>
-  
+    
     
     
 

@@ -127,24 +127,22 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: '水手',
-            artist: '郑智化',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/水手.mp3',
-            cover: '',
-        }
+        
     ]
 });
 </script>
-  
+    
     
     
 

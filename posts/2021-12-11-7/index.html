@@ -101,24 +101,22 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: 'And I Love You So',
-            artist: 'Don McLean',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Don_McLean_And_I_Love_You_So.mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/Don_McLean_And_I_Love_You_So.jpg',
-        }
+        
     ]
 });
 </script>
-  
+    
     
     
 

@@ -134,24 +134,29 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: '春夏秋冬',
-            artist: '张国荣',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/張國榮_Leslie_Cheung_《春夏秋冬_A_Balloon’s_Journey》MV.mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/monica.jpg',
-        }
+        
+            {
+                name: '春夏秋冬',
+                artist: '张国荣',
+                url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/張國榮_Leslie_Cheung_《春夏秋冬_A_Balloon’s_Journey》MV.mp3',
+                cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/monica.jpg',
+            },
+        
     ]
 });
 </script>
-  
+    
     
     
 

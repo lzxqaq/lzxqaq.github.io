@@ -118,24 +118,29 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: '且听风吟',
-            artist: '朴树',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Pu_Shu_Hear_The_Wind_Sing.mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/\/music\/pushu.jpg',
-        }
+        
+            {
+                name: '且听风吟',
+                artist: '朴树',
+                url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Pu_Shu_Hear_The_Wind_Sing.mp3',
+                cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/\/music\/pushu.jpg',
+            },
+        
     ]
 });
 </script>
-  
+    
     
     
 

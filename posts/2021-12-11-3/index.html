@@ -104,24 +104,29 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: 'Khayran Jalgan',
-            artist: '哈萨克民歌',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/可悲的时代.mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/KhayranJalgan.png',
-        }
+        
+            {
+                name: 'Khayran Jalgan',
+                artist: '哈萨克民歌',
+                url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/可悲的时代.mp3',
+                cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/KhayranJalgan.png',
+            },
+        
     ]
 });
 </script>
-  
+    
     
     
 

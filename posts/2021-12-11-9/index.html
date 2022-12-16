@@ -100,24 +100,29 @@ if (!doNotTrack) {
     </div>
 
      
-  <div class="container">
+    <div class="container">
     <div id="aplayer"></div>
 </div>
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     autoplay: true,
+    loop: 'all',
+    preload: 'auto',
+    listFolded: false,
     audio: [
-        {
-            name: 'It\u0027s a Small World',
-            artist: 'Disney Classics',
-            url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Disney_Classics_It_s_a_Small_World_It_s_a_Small.mp3',
-            cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/Disney.jpeg',
-        }
+        
+            {
+                name: 'It\u0027s a Small World',
+                artist: 'Disney Classics',
+                url: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/music\/Disney_Classics_It_s_a_Small_World_It_s_a_Small.mp3',
+                cover: 'https:\/\/cdn.jsdelivr.net\/gh\/lzxqaq\/jsdelivr@master\/image\/music\/Disney.jpeg',
+            },
+        
     ]
 });
 </script>
-  
+    
     
     
 
