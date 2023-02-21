@@ -5,7 +5,7 @@
     <link>/tags/c/c&#43;&#43;/</link>
     <description>Recent content in C/C&#43;&#43; on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="/tags/c/c++/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="/tags/c/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PImpl 机制和 Qt 的实现 D-Pointer</title>
       <link>/posts/2022-4-14-dpoint/</link>
@@ -239,92 +239,6 @@ Effective C++ 🔗 视 C++ 为一个语言联邦（C、Object-Oriented C++、Tem
 const 🔗作用 🔗 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。 const 的指针与引用 🔗 指针 指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer） 引用 指向常量的引用（reference to const） 没有 const reference，因为引用只是对象的别名，引用不是对象，不能用 const 修饰 （为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 p2、p3
 使用 🔗const 使用
 // 类 class A { private: const int a; // 常对象成员，可以使用初始化列表或者类内初始化 public: // 构造函数 A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表 // const可用于对重载函数的区分 int getValue(); // 普通成员函数 int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象 A b; // 普通对象，可以调用全部成员函数 const A a; // 常对象，只能调用常成员函数 const A *p = &amp;amp;a; // 指针变量，指向常对象 const A &amp;amp;q = a; // 指向常对象的引用 // 指针 char greeting[] = &amp;#34;Hello&amp;#34;; char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); 宏定义 #define 和 const 常量 🔗 宏定义 #define const 常量 宏定义，相当于字符替换 常量声明 预处理器处理 编译器处理 无类型安全检查 有类型安全检查 不分配内存 要分配内存 存储在代码段 存储在数据段 可通过 #undef 取消 不可取消 static 🔗作用 🔗 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。 this 指针 🔗 this 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 this 指针。 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。 this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）； this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &amp;amp;this）。 在以下场景中，经常需要显式引用 this 指针： 为实现对象的链式引用； 为避免对同一对象进行赋值操作； 在实现一些数据结构时，如 list。 inline 内联函数 🔗特征 🔗 相当于把内联函数里面的内容写在调用内联函数处； 相当于不用执行进入函数的步骤，直接执行函数体； 相当于宏，却比宏多了类型检查，真正具有函数特性； 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数； 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。 使用 🔗inline 使用</description>
-    </item>
-    
-    <item>
-      <title>C Primer 之 new, delete</title>
-      <link>/posts/cprimer04/</link>
-      <pubDate>Thu, 30 Dec 2021 07:13:11 +0800</pubDate>
-      
-      <guid>/posts/cprimer04/</guid>
-      <description>转载自https://github.com/andycai/cprimer
-new和delete运算符用于动态分配和撤销内存的运算符
-(1) new用法 🔗 开辟单变量地址空间 new int; //开辟一个存放数组的存储空间,返回一个指向该存储空间的地址.int *a = new int 即为将一个int类型的地址赋值给整型指针a.
-int *a = new int(5) 作用同上,但是同时将整数赋值为5
-开辟数组空间
-一维:
-int *a = new int[100]; // 开辟一个大小为100的整型数组空间 二维:
-int **a = new int[5][6] 三维及其以上:依此类推
-一般用法: new 类型 [初值]
-(2) delete用法 🔗 int *a = new int;
-delete a; //释放单个int的空间 int *a = new int[5];
-delete [] a; //释放int数组空间 要访问new所开辟的结构体空间,无法直接通过变量名进行,只能通过赋值的指针进行访问。
-用new和delete可以动态开辟，撤销地址空间。在编程序时,若用完一个变量(一般是暂时存储的数组)，下次需要再用，但却又想省去重新初始化的功夫，可以在每次开始使用时开辟一个空间，在用完后撤销它。
-导航 🔗 目录 上一章：Chapter 4 - uint8_t, uint16_t, uint32_t, uint64_t </description>
-    </item>
-    
-    <item>
-      <title>C Primer 之 char*, char[], string</title>
-      <link>/posts/cprimer03/</link>
-      <pubDate>Thu, 30 Dec 2021 07:12:45 +0800</pubDate>
-      
-      <guid>/posts/cprimer03/</guid>
-      <description>转载自https://github.com/andycai/cprimer
-3.1 char*, char[], string 🔗在C中，并没有字符串这个数据类型，而是使用字符数组来保存字符串。C字符串实际上就是一个以null(&amp;rsquo;\0&amp;rsquo;)字符结尾的字符数组，null字符表示字符串的结束。需要注意的是：只有以null字符结尾的字符数组才是C字符串，否则只是一般的C字符数组。
-C字符串定义时可以利用&amp;quot;=&amp;ldquo;号进行初始化，但是以后不能利用&amp;rdquo;=&amp;ldquo;对C字符串进行赋值。对C字符串的操作需要通过&amp;quot;string&amp;quot;文件中定义的字符串处理函数。例如：
-//字符串的初始化 char a[11] = &amp;quot;huanying&amp;quot;; //字符串的赋值 strcpy(a,&amp;quot;nihao&amp;quot;) //获取字符串的长度，不包括&#39;\0&#39;在内 strlen(a); printf(&amp;quot;%s&amp;quot;,a); 在C中也可以使用字符指针来访问一个字符串,通过字符指针指向存放字符串数组的首元素地址来进行访问. char *a = &amp;ldquo;nihao&amp;rdquo;; printf(&amp;quot;%s&amp;rdquo;,a);
-在C++中则把字符串封装成了一种数据类型string,可以直接声明变量并进行赋值等字符串操作。以下是C字符串和C++中string的区别：
-C字符串 string对象 所需的头文件名称 &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; &amp;lt;string&amp;gt;或&amp;lt;string.h&amp;gt; 为什么需要头文件 为了使用字符串函数 为了使用string类 如何声明 char name[20]; string name; 如何初始化 char name[20]=&amp;quot;nihao&amp;quot;; string name = &amp;quot;nihao&amp;quot;; 必须声明字符串长度么？	是 否 使用一个null字符么？ 是 否 怎样实现字符串赋值 strcpy(name,&amp;quot;John&amp;quot;); name = &amp;quot;John&amp;quot;; 其他优点 更快 更易于使用，优选方案 可以赋一个比现有字符更 不能 可以 长的字符串么？ (1) C++常用字符串函数 🔗char s1[]=&amp;quot;I am a student&amp;quot;; char s2[20]=&amp;quot;teacher&amp;quot;; char s3[]=&amp;quot;student&amp;quot;; int result; char s4[20],*p; 串长度 int strlen(char *str)</description>
-    </item>
-    
-    <item>
-      <title>C Primer 之 指针和引用</title>
-      <link>/posts/cprimer02/</link>
-      <pubDate>Thu, 30 Dec 2021 07:12:43 +0800</pubDate>
-      
-      <guid>/posts/cprimer02/</guid>
-      <description>转载自https://github.com/andycai/cprimer
-2.1 refrence 引用 🔗引用是C++中的概念，初学者容易把引用和指针混淆一起。以下程序中，n 是 m 的一个引用（reference），m 是被引用物（referent）。
-int m; int &amp;amp;n = m; n 相当于 m 的别名（绰号），对 n 的任何操作就是对m的操作。所以 n 既不是 m 的拷贝，也不是指向 m 的指针，其实 n 就是 m 它自己。
-引用的规则：
-引用被创建的同时必须被初始化（指针则可以在任何时候被初始化）。 不能有NULL引用，引用必须与合法的存储单元关联（指针则可以是NULL）。 一旦引用被初始化，就不能改变引用的关系（指针则可以随时改变所指的对象）。 以下示例程序中，k 被初始化为 i 的引用。语句 k = j 并不能将 k 修改成为 j 的引用，只是把 k 的值改变成为6。由于 k 是 i 的引用，所以 i 的值也变成了6。
-int i = 5; int j = 6; int &amp;amp;k = i; k = j; // k和i的值都变成了6; 引用的主要功能是传递函数的参数和返回值。</description>
-    </item>
-    
-    <item>
-      <title>C Primer 之 const, inline, static, this</title>
-      <link>/posts/cprimer01/</link>
-      <pubDate>Thu, 30 Dec 2021 07:12:38 +0800</pubDate>
-      
-      <guid>/posts/cprimer01/</guid>
-      <description>转载自https://github.com/andycai/cprimer
-1.1 const 🔗(1) const 基础 🔗如果const关键字不涉及到指针，我们很好理解，下面是涉及到指针的情况：
-int b = 500; const int* a = &amp;amp;b; [1] int const *a = &amp;amp;b; [2] int* const a = &amp;amp;b; [3] const int* const a = &amp;amp;b; [4] 如果你能区分出上述四种情况，那么，恭喜你，你已经迈出了可喜的一步。不知道，也没关系，我们可以参考《Effective c++》Item21上的做法， 如果 const 位于星号的左侧，则 const 就是用来修饰指针所指向的变量，即指针指向为常量；如果 const 位于星号的右侧，const 就是修饰指针本身，即指针本身是常量。
-因此，[1]和[2]的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；[3]为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a++是错误的；[4]为指针本身和指向的内容均为常量。
-(2) 作为参数 🔗void display(const double&amp;amp; r); void display(const double* r); 说明:
-在引用或者指针参数的时候使用 const 限制是有意义的，而对于值传递的参数使用 const 则没有意义 保证引用的变量的值不被改变 const 在 double 前或者后面意思相同，只是不同的人的写法不同 (3) const对象 🔗声明为 const 的对象只能访问类中声明为 const 的成员函数，不能调用其它成员函数。</description>
-    </item>
-    
-    <item>
-      <title>C&#43;&#43; 基础总结</title>
-      <link>/posts/cppbase/</link>
-      <pubDate>Wed, 15 Dec 2021 12:35:27 +0800</pubDate>
-      
-      <guid>/posts/cppbase/</guid>
-      <description>一、语法基础 🔗 指针和引用的概念 指针与内存关系 程序编译过程 static、const、#define的用法和区别 C和C++区别 内存模型 内存中的栈和堆分配 二、面对对象基础 🔗 面向对象理解
-析构函数
-构造函数
-拷贝构造
-多态
-纯虚函数和虚函数
-虚函数实现机制
-虚函数表
-访问限定符 public、private、protected
-继承原理、虚继承、菱形继承
-静态绑定和动态绑定
-new/delete和malloc/free
-重载、重写和隐藏
-三、语法进阶 🔗 智能指针 左值、右值引用和move语义 类型转换方式 常用的设计模式 线程安全的单例模式 内存溢出和内存泄漏 C++11新特性 静态链接库和动态链接库 四、STL 标准模板库 🔗 迭代器、空间配置器理解 常用容器特点、用法以及底层实现vector、list、deque、set、map、unorderedmap </description>
     </item>
     
   </channel>

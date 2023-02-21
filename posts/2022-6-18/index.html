@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us">
   <head>
     <title>VSCode 搭建远程开发环境 | Zexun Luo | 罗泽勋</title>
 
@@ -11,7 +11,7 @@
 三、安装远程插件 🔗在 VSCode 插件中搜索安装 Remote - SSH 插件。
 Remote - SSH：使用 SSH 打开远程计算机上的任何文件夹，并利用 VS Code 的完整功能。
 四、配置远程 🔗 1.打开侧边栏中的远程资源管理器，点击添加，随后输入 ssh 用户名@地址 或者点击配置并且输入相关配置信息。 2.点击连接，输入密码登陆。 3.登陆成功后，在资源管理器中打开远程文件夹。 五、配置 SSH 免密登陆 🔗 1.在本地主机中生成密钥。执行 ssh-keygen。 2.将公钥文件 id_rsa.pub 中的内容，上传到服务器的 ～/.ssh/authorized_keys 文件中，这里可以使用 scp 等命令传输。 ">
-<meta name="generator" content="Hugo 0.105.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -51,18 +51,10 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	
-	
-	
+	<a href="/posts">归档</a>
+	<a href="/tags">标签</a>
+	<a href="/about">关于</a>
 
-	
-		<a href="/posts">博客</a>
-	
-		<a href="/todos">事项</a>
-	
-		<a href="/recipe">菜谱</a>
-	
-		<a href="/about">关于</a>
 	
 
 	
@@ -145,7 +137,7 @@ async>
     <div class="copyright">
     
        © Copyright 
-       2022 
+       2023 
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

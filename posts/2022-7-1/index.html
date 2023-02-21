@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us">
   <head>
     <title>Verilog 语法入门 | Zexun Luo | 罗泽勋</title>
 
@@ -17,7 +17,7 @@
 9. 信号状态 🔗verilog 中有4种状态“0、1、x、z”，分别表示低电平、高电平、不确定态和高阻态。对于没有进行初始化的信号，一般处于不确定态（x），高阻态表示该信号没有被其他信号驱动，经常用于有多个驱动源的总线型数据上。
 10. 数据格式 🔗基数格式有 4 中，包括：十进制(&rsquo;d 或 &lsquo;D)，十六进制(&lsquo;h 或 &lsquo;H)，二进制（&lsquo;b 或 &lsquo;B），八进制（&lsquo;o 或 &lsquo;O）。数值可指明位宽，也可不指明位宽。如 4&rsquo;b1011，表示 4bit 数值。
 11. 模块实例化 🔗module mux2( input [3:0] d0, input [3:0] d1, input s, output [3:0] y ); assign y = s ?">
-<meta name="generator" content="Hugo 0.105.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -57,18 +57,10 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	
-	
-	
+	<a href="/posts">归档</a>
+	<a href="/tags">标签</a>
+	<a href="/about">关于</a>
 
-	
-		<a href="/posts">博客</a>
-	
-		<a href="/todos">事项</a>
-	
-		<a href="/recipe">菜谱</a>
-	
-		<a href="/about">关于</a>
 	
 
 	
@@ -116,19 +108,19 @@ if (!doNotTrack) {
 <h1 id="9-信号状态">9. 信号状态 <a href="#9-%e4%bf%a1%e5%8f%b7%e7%8a%b6%e6%80%81" class="anchor">🔗</a></h1><p>verilog 中有4种状态“0、1、x、z”，分别表示低电平、高电平、不确定态和高阻态。对于没有进行初始化的信号，一般处于不确定态（x），高阻态表示该信号没有被其他信号驱动，经常用于有多个驱动源的总线型数据上。</p>
 <h1 id="10-数据格式">10. 数据格式 <a href="#10-%e6%95%b0%e6%8d%ae%e6%a0%bc%e5%bc%8f" class="anchor">🔗</a></h1><p>基数格式有 4 中，包括：十进制(&rsquo;d 或 &lsquo;D)，十六进制(&lsquo;h 或 &lsquo;H)，二进制（&lsquo;b 或 &lsquo;B），八进制（&lsquo;o 或 &lsquo;O）。数值可指明位宽，也可不指明位宽。如 4&rsquo;b1011，表示 4bit 数值。</p>
 <h1 id="11-模块实例化">11. 模块实例化 <a href="#11-%e6%a8%a1%e5%9d%97%e5%ae%9e%e4%be%8b%e5%8c%96" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">module</span> <span style="color:#00a000">mux2</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> [<span style="color:#b44">3</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">d0</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> [<span style="color:#b44">3</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">d1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> [<span style="">3</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">d0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> [<span style="">3</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">d1</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> <span style="color:#b8860b">s</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">output</span> [<span style="color:#b44">3</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">y</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">output</span> [<span style="">3</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">y</span>
 </span></span><span style="display:flex;"><span>);
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">assign</span> <span style="color:#b8860b">y</span> <span style="color:#666">=</span> <span style="color:#b8860b">s</span> <span style="color:#a2f;font-weight:bold">?</span> <span style="color:#b8860b">d1</span> : <span style="color:#b8860b">d0</span>;
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">endmodule</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">module</span> <span style="color:#00a000">mux2_8</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> [<span style="color:#b44">7</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">d0</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> [<span style="color:#b44">7</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">d1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> [<span style="">7</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">d0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> [<span style="">7</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">d1</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#b8860b">input</span> <span style="color:#b8860b">s</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">output</span> [<span style="color:#b44">7</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">y</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">output</span> [<span style="">7</span>:<span style="color:#b44">0</span>] <span style="color:#b8860b">y</span>
 </span></span><span style="display:flex;"><span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 1
@@ -180,7 +172,7 @@ async>
     <div class="copyright">
     
        © Copyright 
-       2022 
+       2023 
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

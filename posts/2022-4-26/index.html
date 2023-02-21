@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us">
   <head>
     <title>C&#43;&#43; 面试题 | Zexun Luo | 罗泽勋</title>
 
@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="0.C和C&#43;&#43;有什么区别 🔗 C&#43;&#43; 是面向对象的语言，C是面向过程的语言； C&#43;&#43; 引入 new/delete 运算符，取代了 C 中的 malloc/free 库函数。 C&#43;&#43; 引入引用的概念，而 C 中没有； C&#43;&#43; 引入类的概念，而 C 中没有； C&#43;&#43; 引入函数重载的概念，而 C 中没有。 1.C&#43;&#43;11有哪些新特性 🔗 Lambda表达式用于创建匿名函数 自动类型推导 auto 和 decltype 列表初始化 = default 生成默认构造函数，= delete 禁止使用拷贝构造函数 nullptr 关键字，用于解决 NULL 的二义性。 引入 shared_ptr、unique_ptr 等智能指针 右值引用，将引用绑定到右值，如临时对象或字面量 引入线程库 范围 for 循环 2. struct 和 class 有什么区别 🔗 成员的默认访问权限 struct 的成员默认为 public 权限，class 的成员默认为 private 权限。 默认继承权限 struct 的继承按照 public 处理，class 的继承按照 private 处理。 对于一个频繁使用的短小函数，应该使用什么来实现，有什么优缺点？ 🔗应该使用 inline 内联函数，即编译器将 inline 内联函数内的代码替换到函数被调用的地方。">
-<meta name="generator" content="Hugo 0.105.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -47,18 +47,10 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	
-	
-	
+	<a href="/posts">归档</a>
+	<a href="/tags">标签</a>
+	<a href="/about">关于</a>
 
-	
-		<a href="/posts">博客</a>
-	
-		<a href="/todos">事项</a>
-	
-		<a href="/recipe">菜谱</a>
-	
-		<a href="/about">关于</a>
 	
 
 	
@@ -206,7 +198,7 @@ async>
     <div class="copyright">
     
        © Copyright 
-       2022 
+       2023 
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

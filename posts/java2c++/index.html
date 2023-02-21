@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us">
   <head>
     <title>从 Java 到 Qt/C&#43;&#43; 的一些经验总结 | Zexun Luo | 罗泽勋</title>
 
@@ -11,7 +11,7 @@
 检查语法，将预处理过的文件编译生成汇编文件 gcc -S demo2.c -o demo2.s 汇编
 将汇编文件生成目标文件（二进制代码文件，即.o 文件） gcc -c demo3.c -o demo3.o 链接
 找到依赖的库文件，将目标文件链接为可执行程序。 gcc demo4.c -o demo4 -L./ -llib1 通过gcc编译器让 demo4 链接自己制作的 lib1 动态库，并把 demo4 编译成可执行程序。 Java 代码编译和执行的过程 🔗 源文件由编译器编译成字节码 字节码由 Java 虚拟机解释运行。因为 Java 程序既要编译同时也要经过 JVM 的解释运行，所以 Java 也被称为半解释语言。 静态和动态 🔗 静态：在编译（编译 &#43; 链接）阶段 动态：在执行阶段 #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main() { int m, n; int *p, *q; scanf(&#34;%d%d&#34;, &amp;m, &amp;n); p = (int*)malloc(sizeof(int) * m); q = (int*)malloc(sizeof(int) * n); return 0; } m、n、p、q 静态分配内存。局部变量，要占多大空间、往哪里放，在编译时就已经确定。 malloc 函数动态分配内存，在堆区分配内存，把地址赋值给 p、q。">
-<meta name="generator" content="Hugo 0.105.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -51,18 +51,10 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	
-	
-	
+	<a href="/posts">归档</a>
+	<a href="/tags">标签</a>
+	<a href="/about">关于</a>
 
-	
-		<a href="/posts">博客</a>
-	
-		<a href="/todos">事项</a>
-	
-		<a href="/recipe">菜谱</a>
-	
-		<a href="/about">关于</a>
 	
 
 	
@@ -624,6 +616,12 @@ static 和静态、动态分配内存没关系，static 指 sum 变量的创建�
     </div>
 
     
+        <div class="tags">
+            
+                <a href="/tags/%E7%9E%8E%E6%90%9E">瞎搞</a>
+            
+        </div>
+    
     
     
 
@@ -651,7 +649,7 @@ async>
     <div class="copyright">
     
        © Copyright 
-       2022 
+       2023 
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

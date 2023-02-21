@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us">
   <head>
     <title>PImpl 机制和 Qt 的实现 D-Pointer | Zexun Luo | 罗泽勋</title>
 
@@ -15,7 +15,7 @@
 六、d-pointer 的其它好处 🔗这里不全都是和二进制兼容有关。d-pointer 还有其它的好处： 隐藏了实现细节 - 我们可以只发布带有头文件和二进制文件的 WidgetLib。源文件可以是闭源代码的。
 头文件很干净，不包含实现细节，可以直接作为 API 参考。 由于实施需要的包含的头文件从头文件里已到了实施（源文件）里面，编译速更快。（译：降低了编译依赖） 事实上，上边的好处是微乎其微的。Qt 使用 d-pointer 的真正原因是为了二进制兼容。
 七、Qt 中的 d-pointers 🔗在 Qt 中，几乎所有的公有类都使用了 d-pointer。唯一不用的情况是如果事先知道某个类永远不会添加额外的成员变量。例如，像 QPoint, QRect 这些类，我们不期望有新的成员添加，因此它们的数据成员直接保存在类里而没用 d-pointer。">
-<meta name="generator" content="Hugo 0.105.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -55,18 +55,10 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	
-	
-	
+	<a href="/posts">归档</a>
+	<a href="/tags">标签</a>
+	<a href="/about">关于</a>
 
-	
-		<a href="/posts">博客</a>
-	
-		<a href="/todos">事项</a>
-	
-		<a href="/recipe">菜谱</a>
-	
-		<a href="/about">关于</a>
 	
 
 	
@@ -255,7 +247,7 @@ async>
     <div class="copyright">
     
        © Copyright 
-       2022 
+       2023 
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

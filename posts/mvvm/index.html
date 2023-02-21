@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us">
   <head>
     <title>Qt 实现 MVVM 框架 | Zexun Luo | 罗泽勋</title>
 
@@ -11,7 +11,7 @@
 什么是 MVC 🔗 Model：数据模型，用来存储数据 View：视图界面，用来展示UI界面和响应用户交互 Controller：控制器(大管家角色)，监听模型数据的改变和控制视图行为、处理用户交互 为什么是 MVVM 🔗在 MVC 开发模式中，由于Controller主要用来处理各种逻辑和数据转化，复杂业务逻辑界面的Controller非常庞大，维护困难，所以有人想到把Controller的数据和逻辑处理部分从中抽离出来，用一个专门的对象去管理，这个对象就是ViewModel，是Model和View之间的一座桥梁。
 优点 🔗1.逻辑清晰： ViewModel分离了大部分Controller代码，更加清晰和容易维护。 2.方便测试：开发中大部分Bug来至于逻辑处理，由于ViewModel分离了许多逻辑，可以对ViewModel构造单元测试。 3.开发解耦。 4.逻辑清晰。
 框架功能与实现 🔗">
-<meta name="generator" content="Hugo 0.105.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -51,18 +51,10 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	
-	
-	
+	<a href="/posts">归档</a>
+	<a href="/tags">标签</a>
+	<a href="/about">关于</a>
 
-	
-		<a href="/posts">博客</a>
-	
-		<a href="/todos">事项</a>
-	
-		<a href="/recipe">菜谱</a>
-	
-		<a href="/about">关于</a>
 	
 
 	
@@ -142,7 +134,7 @@ async>
     <div class="copyright">
     
        © Copyright 
-       2022 
+       2023 
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

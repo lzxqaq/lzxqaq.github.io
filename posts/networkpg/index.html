@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us">
   <head>
     <title>C&#43;&#43; 开发必备之网络编程 | Zexun Luo | 罗泽勋</title>
 
@@ -9,7 +9,7 @@
 <meta name="description" content="转载自https://github.com/huihut/interview
 Socket 🔗 Linux Socket 编程（不限 Linux）
 Socket 中的 read()、write() 函数 🔗ssize_t read(int fd, void *buf, size_t count); ssize_t write(int fd, const void *buf, size_t count); read() 🔗 read 函数是负责从 fd 中读取内容。 当读成功时，read 返回实际所读的字节数。 如果返回的值是 0 表示已经读到文件的结束了，小于 0 表示出现了错误。 如果错误为 EINTR 说明读是由中断引起的；如果是 ECONNREST 表示网络连接出了问题。 write() 🔗 write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd。 成功时返回写的字节数。失败时返回 -1，并设置 errno 变量。 在网络程序中，当我们向套接字文件描述符写时有俩种可能。 （1）write 的返回值大于 0，表示写了部分或者是全部的数据。 （2）返回的值小于 0，此时出现了错误。 如果错误为 EINTR 表示在写的时候出现了中断错误；如果为 EPIPE 表示网络连接出现了问题（对方已经关闭了连接）。 Socket 中 TCP 的三次握手建立连接 🔗我们知道 TCP 建立连接要进行 “三次握手”，即交换三个分组。大致流程如下：">
-<meta name="generator" content="Hugo 0.105.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -49,18 +49,10 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	
-	
-	
+	<a href="/posts">归档</a>
+	<a href="/tags">标签</a>
+	<a href="/about">关于</a>
 
-	
-		<a href="/posts">博客</a>
-	
-		<a href="/todos">事项</a>
-	
-		<a href="/recipe">菜谱</a>
-	
-		<a href="/about">关于</a>
 	
 
 	
@@ -188,7 +180,7 @@ async>
     <div class="copyright">
     
        © Copyright 
-       2022 
+       2023 
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

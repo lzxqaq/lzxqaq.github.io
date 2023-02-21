@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us">
   <head>
     <title>C&#43;&#43; 开发必备之链接装载库 | Zexun Luo | 罗泽勋</title>
 
@@ -14,7 +14,7 @@
 空闲链表（Free List） 位图（Bitmap） 对象池 “段错误（segment fault）” 或 “非法操作，该内存地址不能 read/write” 🔗典型的非法指针解引用造成的错误。当指针指向一个不允许读写的内存地址，而程序却试图利用指针来读或写该地址时，会出现这个错误。
 普遍原因：
 将指针初始化为 NULL，之后没有给它一个合理的值就开始使用指针 没用初始化栈中的指针，指针的值一般会是随机数，之后就直接开始使用指针 编译链接 🔗各平台文件格式 🔗 平台 可执行文件 目标文件 动态库/共享对象 静态库 Windows exe obj dll lib Unix/Linux ELF、out o so a Mac Mach-O o dylib、tbd、framework a、framework 编译链接过程 🔗 预编译（预编译器处理如 #include、#define 等预编译指令，生成 .i 或 .ii 文件） 编译（编译器进行词法分析、语法分析、语义分析、中间代码生成、目标代码生成、优化，生成 .s 文件） 汇编（汇编器把汇编码翻译成机器码，生成 .">
-<meta name="generator" content="Hugo 0.105.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -54,18 +54,10 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	
-	
-	
+	<a href="/posts">归档</a>
+	<a href="/tags">标签</a>
+	<a href="/about">关于</a>
 
-	
-		<a href="/posts">博客</a>
-	
-		<a href="/todos">事项</a>
-	
-		<a href="/recipe">菜谱</a>
-	
-		<a href="/about">关于</a>
 	
 
 	
@@ -665,7 +657,7 @@ async>
     <div class="copyright">
     
        © Copyright 
-       2022 
+       2023 
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
