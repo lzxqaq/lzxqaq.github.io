@@ -6,7 +6,28 @@
     <description>Recent content on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Dec 2022 02:38:01 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Mar 2023 06:07:33 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>注册使用 ChatGPT 教程</title>
+      <link>/posts/2023-3-6/</link>
+      <pubDate>Mon, 06 Mar 2023 06:07:33 +0800</pubDate>
+      
+      <guid>/posts/2023-3-6/</guid>
+      <description>0. 成果展示 🔗注册 ChatGPT 并不难，但是想要拥有一个简单高效的使用体验，需要下一番功夫。除了通过官网访问 ChatGPT，还可以将它应用于各类平台，比如个人微信、公众号、QQ、Telegram、Gmail邮箱等等。
+1. 前提准备之科学上网 🔗现在科学上网的方法有很多，这里介绍一下我认为比较省心省钱的方法。首先需要从订阅商那里获取订阅链接（自己搭建梯子更贵、免费节点不稳定访问慢）。我使用的是 GHelper，它有Chrome、firefox浏览器的插件，也有 Windows、Mac 的客户端，不过并没有 Linux 客户端，Linux 和安卓手机上我通过 Clash 完成。如果使用该方法，你需要在 GHelper 上购买会员，如果你是 Windows 用户，直接使用 GHelper 提供的客户端即可；如果你是 Linux 或安卓用户，可以使用 clash 来完成。
+Chrome 插件下载地址
+Firefox 插件下载地址
+Windows、Mac 客户端下载地址
+Clash(linux)
+ClashForAndroid 下载地址 或者通过谷歌商店下载 ClashForAndroid。
+2. 注册 OpenAI 账号 🔗OpenAI 账号需要国外手机号验证，通过邮箱注册（推荐谷歌邮箱或者Outlook等国外邮箱）或者通过谷歌账号、微软账号注册。
+2.1.1 （可选）注册谷歌账号 🔗如果你没有谷歌账号（邮箱），这里提供一种国内手机注册谷歌账号的方法（谷歌官网限制大陆手机号注册），前提是你是安卓手机、并且手机已经可以科学上网。
+在手机设置里搜索 Google，进入 Google 设置。 通过里面的账号管理来注册 Google 账号。 2.1.2 注册接收验证码的平台 🔗因为注册 OpenAI 需要用到国外的手机号短信验证，因此需要在这类接码平台上购买虚拟手机号接受二维码（一次性使用、10元以内）。我使用的是 SMS 平台。
+注册 sms-activate.org 账号，使用邮箱注册。
+充值，可以使用支付宝充值 1 美元。
+在网站左侧选择 OpenAI 服务，然后选择购买印度尼西亚的服务（最便宜）。购买之后，你便得到一个可用来接受二维码的印度尼西亚的手机号码（20分钟有效，没收到验证码会自动退款，可重复购买操作，如果一个手机号收不到验证码，可以删除重新购买）</description>
+    </item>
+    
     <item>
       <title>今天又结束了</title>
       <link>/posts/2022-12-17/</link>

@@ -3,13 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2022-12-17T02:38:01+08:00</lastmod>
+    <lastmod>2023-03-06T06:07:33+08:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2022-12-17T02:38:01+08:00</lastmod>
+    <lastmod>2023-03-06T06:07:33+08:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2022-12-17T02:38:01+08:00</lastmod>
+    <lastmod>2023-03-06T06:07:33+08:00</lastmod>
+  </url><url>
+    <loc>/tags/%E7%9E%8E%E6%90%9E/</loc>
+    <lastmod>2023-03-06T06:07:33+08:00</lastmod>
+  </url><url>
+    <loc>/posts/2023-3-6/</loc>
+    <lastmod>2023-03-06T06:07:33+08:00</lastmod>
   </url><url>
     <loc>/posts/2022-12-17/</loc>
     <lastmod>2022-12-17T02:38:01+08:00</lastmod>
@@ -30,9 +36,6 @@
     <lastmod>2022-03-16T23:38:01+08:00</lastmod>
   </url><url>
     <loc>/posts/java2c&#43;&#43;/</loc>
-    <lastmod>2022-03-07T12:22:40+08:00</lastmod>
-  </url><url>
-    <loc>/tags/%E7%9E%8E%E6%90%9E/</loc>
     <lastmod>2022-03-07T12:22:40+08:00</lastmod>
   </url><url>
     <loc>/posts/2022-2-9/</loc>
