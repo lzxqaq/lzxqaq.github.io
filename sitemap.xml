@@ -20,12 +20,6 @@
     <loc>/posts/2023-5-15-2/</loc>
     <lastmod>2023-05-15T02:50:32+08:00</lastmod>
   </url><url>
-    <loc>/todos/</loc>
-    <lastmod>2023-05-15T01:59:22+08:00</lastmod>
-  </url><url>
-    <loc>/todos/savemoney/</loc>
-    <lastmod>2023-05-15T01:59:22+08:00</lastmod>
-  </url><url>
     <loc>/posts/2023-5-15/</loc>
     <lastmod>2023-05-15T01:09:10+08:00</lastmod>
   </url><url>
@@ -327,6 +321,8 @@
     <lastmod>2020-12-10T23:14:51+08:00</lastmod>
   </url><url>
     <loc>/about/</loc>
+  </url><url>
+    <loc>/todos/</loc>
   </url><url>
     <loc>/categories/</loc>
   </url><url>
