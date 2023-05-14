@@ -5,6 +5,16 @@
     <link>/todos/</link>
     <description>Recent content on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/todos/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 May 2023 01:59:22 +0800</lastBuildDate><atom:link href="/todos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>攒钱计划</title>
+      <link>/todos/savemoney/</link>
+      <pubDate>Mon, 15 May 2023 01:59:22 +0800</pubDate>
+      
+      <guid>/todos/savemoney/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

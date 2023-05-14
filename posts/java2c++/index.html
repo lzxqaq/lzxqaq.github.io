@@ -11,7 +11,7 @@
 检查语法，将预处理过的文件编译生成汇编文件 gcc -S demo2.c -o demo2.s 汇编
 将汇编文件生成目标文件（二进制代码文件，即.o 文件） gcc -c demo3.c -o demo3.o 链接
 找到依赖的库文件，将目标文件链接为可执行程序。 gcc demo4.c -o demo4 -L./ -llib1 通过gcc编译器让 demo4 链接自己制作的 lib1 动态库，并把 demo4 编译成可执行程序。 Java 代码编译和执行的过程 🔗 源文件由编译器编译成字节码 字节码由 Java 虚拟机解释运行。因为 Java 程序既要编译同时也要经过 JVM 的解释运行，所以 Java 也被称为半解释语言。 静态和动态 🔗 静态：在编译（编译 &#43; 链接）阶段 动态：在执行阶段 #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main() { int m, n; int *p, *q; scanf(&#34;%d%d&#34;, &amp;m, &amp;n); p = (int*)malloc(sizeof(int) * m); q = (int*)malloc(sizeof(int) * n); return 0; } m、n、p、q 静态分配内存。局部变量，要占多大空间、往哪里放，在编译时就已经确定。 malloc 函数动态分配内存，在堆区分配内存，把地址赋值给 p、q。">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.111.3">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -51,10 +51,16 @@ if (!doNotTrack) {
 	
 		<a href="/"> <span class="arrow">←</span>首页</a>
 	
-	<a href="/posts">归档</a>
-	<a href="/tags">标签</a>
-	<a href="/about">关于</a>
+	
 
+	
+		<a href="/posts">归档</a>
+	
+		<a href="/tags">标签</a>
+	
+		<a href="/todos">日常</a>
+	
+		<a href="/about">关于</a>
 	
 
 	
@@ -71,18 +77,9 @@ if (!doNotTrack) {
 
     <div class="tip">
         <time datetime="2022-03-07 12:22:40 &#43;0800 CST">2022年03月07日</time>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          984字
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          5分钟
-        </span>
+        
+        
+        
     </div>
 
     
