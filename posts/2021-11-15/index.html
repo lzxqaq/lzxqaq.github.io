@@ -1,184 +1,163 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-cn">
+
   <head>
-    <title>从零开始的博客建站之旅-准备工作 | Zexun Luo | 罗泽勋</title>
-
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
-<meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="一、注册 Github 帐号 🔗（1）.前往 github.com 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>从零开始的博客建站之旅-准备工作 - Shaka</title>
+    <meta property="og:title" content="从零开始的博客建站之旅-准备工作 - Shaka">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+    
+      
+    
+
+    
+      
+      <meta property="description" content="（1）.前往 github.com 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）
 （2）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库。
-二、安装 Git 🔗（1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
-（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 git config --global user.email &quot;你注册Github所用的邮箱&quot; 回车执行，再输入 git config --global user.name &quot;你的昵称&quot; 回车执行。
-注意：这种方式打开命令窗口会默认进入 C 盘的用户目录。如果需要切换到其他目录，比如我们后面所用的 D:/hugo/site/blog 目录，则需要先执行 D: 切换盘符，然后执行 cd hugo/site/blog，其中 cd 就是进入目录的命令，后面是需要进入的文件夹，有时候我们需要返回上一层目录，则可以执行 cd .. 来完成。后面会有相关操作。
-三、安装 Hugo 🔗（1）首先在 D 盘创建一个新文件夹 hugo，然后在里面创建 bin 和 site 两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。
-（2）前往https://github.com/spf13/hugo/releases，找到并下载 hugo_Windows-64bit.zip。解压，如果是一个 hugo_windows_amd64.exe 文件，将它改名为 hugo.exe。
-（3）将这个 hugo.">
-<meta name="generator" content="Hugo 0.111.3">
+[&amp;hellip;] （1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
+（2）配置。在 win10 搜索 cmd &amp;hellip;">
+      <meta property="og:description" content="（1）.前往 github.com 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）
+（2）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库。
+[&amp;hellip;] （1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
+（2）配置。在 win10 搜索 cmd &amp;hellip;">
+      
+    
 
+    
+    
+    
+    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/-2.png">
+    
+    
 
-  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
 
+    
+    
 
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
- 
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-KDTTBGMLCQ', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-
-
   </head>
+  <body class="posts">
+    <header class="masthead">
+      <h1><a href="/">Shaka</a></h1>
 
-  <body>
-    <nav class="navigation">
-	
-		<a href="/"> <span class="arrow">←</span>首页</a>
-	
-	
+<p class="tagline">我唯一知道的是我一无所知。</p>
 
-	
-		<a href="/posts">归档</a>
-	
-		<a href="/tags">标签</a>
-	
-		<a href="/todos">日常</a>
-	
-		<a href="/about">关于</a>
-	
-
-	
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/posts">归档</a></li>
+  
+  <li><a href="/todos">日常</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/tags">标签</a></li>
+  
+  <li><a href="/index.xml">订阅</a></li>
+  
+  
+  </ul>
 </nav>
 
+    </header>
 
-    <main class="main">
+    <article class="main">
+      <header class="title">
       
+<h1>从零开始的博客建站之旅-准备工作</h1>
 
 
 
-<section id="single">
-    <h1 class="title">从零开始的博客建站之旅-准备工作</h1>
+<h3>
 
-    <div class="tip">
-        <time datetime="2021-11-15 12:26:45 &#43;0800 CST">2021年11月15日</time>
-        
-        
-        
-    </div>
-
-    
-    
-    
+lzx
 
 
-    <div class="content">
-      <h3 id="一注册-github-帐号">一、注册 Github 帐号 <a href="#%e4%b8%80%e6%b3%a8%e5%86%8c-github-%e5%b8%90%e5%8f%b7" class="anchor">🔗</a></h3><p>（1）.前往 <a href="https://github.com/" target="_blank" rel="noopener">github.com</a> 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）</p>
+
+
+
+
+ / 
+2021-11-15
+</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+
+
+<h3 id="一注册-github-帐号">一、注册 Github 帐号</h3>
+<p>（1）.前往 <a href="https://github.com/">github.com</a> 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）</p>
 <p>（2）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库。</p>
-<p><p class="markdown-image">
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/-2.png" alt="img"  />
-</p></p>
-<p><p class="markdown-image">
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/-1.png" alt="img"  />
-</p></p>
-<h3 id="二安装-git">二、安装 Git <a href="#%e4%ba%8c%e5%ae%89%e8%a3%85-git" class="anchor">🔗</a></h3><p>（1）下载安装。前往 <a href="https://git-scm.com/download/win" target="_blank">这里</a> ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。</p>
-<p><p class="markdown-image">
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/0.png" alt="img"  />
-</p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/-2.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/-1.png" alt="img"></p>
+<h3 id="二安装-git">二、安装 Git</h3>
+<p>（1）下载安装。前往 <a href="https://git-scm.com/download/win" target="_blank">这里</a> ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/0.png" alt="img"></p>
 <p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
-<p><p class="markdown-image">
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/1.png" alt="img"  />
-</p></p>
-<p><p class="markdown-image">
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/2.png" alt="img"  />
-</p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/1.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/2.png" alt="img"></p>
 <p>注意：这种方式打开命令窗口会默认进入 C 盘的用户目录。如果需要切换到其他目录，比如我们后面所用的 <code>D:/hugo/site/blog</code> 目录，则需要先执行 <code>D:</code> 切换盘符，然后执行 <code>cd hugo/site/blog</code>，其中 <code>cd</code> 就是进入目录的命令，后面是需要进入的文件夹，有时候我们需要返回上一层目录，则可以执行 <code>cd ..</code> 来完成。后面会有相关操作。</p>
-<h3 id="三安装-hugo">三、安装 Hugo <a href="#%e4%b8%89%e5%ae%89%e8%a3%85-hugo" class="anchor">🔗</a></h3><p>（1）首先在 D 盘创建一个新文件夹 hugo，然后在里面创建 bin 和 site 两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。</p>
-<p>（2）前往<a href="https://github.com/spf13/hugo/releases" target="_blank" rel="noopener">https://github.com/spf13/hugo/releases</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
-<p><p class="markdown-image">
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/3.png" alt="img"  />
-</p></p>
+<h3 id="三安装-hugo">三、安装 Hugo</h3>
+<p>（1）首先在 D 盘创建一个新文件夹 hugo，然后在里面创建 bin 和 site 两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。</p>
+<p>（2）前往<a href="https://github.com/spf13/hugo/releases">https://github.com/spf13/hugo/releases</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/3.png" alt="img"></p>
 <p>（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。</p>
 <p>（4）配置环境变量。在 win10 搜索环境变量，进去找到系统变量中的 Path，双击编辑，在弹出的界面点新建，然后将 <code>D:\hugo\bin</code> 复制进去，最后连续确定。</p>
-<p><p class="markdown-image">
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/4.png" alt="img"  />
-</p></p>
-<p><p class="markdown-image">
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/5.png" alt="img"  />
-</p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/4.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/5.png" alt="img"></p>
 <p>（5）验证。重新打开命令窗口（关闭上一步骤使用的），输入执行 <code>hugo help</code>，如果你能看到下图所示的 Hugo 帮助文档，就证明配置成功，否则重新执行上一步骤。</p>
-<p><p class="markdown-image">
-  <img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/6.png" alt="img"  />
-</p></p>
-
-    </div>
-
-    
-        <div class="tags">
-            
-                <a href="/tags/%E7%9E%8E%E6%90%9E">瞎搞</a>
-            
-        </div>
-    
-    
-    
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/6.png" alt="img"></p>
 
 
-<script src="https://utteranc.es/client.js"
-repo=""
-issue-term=""
-theme=""
-crossorigin="anonymous"
-async>
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://lzxqaq.com">Zexun Luo</a> 2020-2023 | <a href="https://github.com/lzxqaq">Github</a></div>
+  
+  </footer>
+  </article>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
 </script>
-
-
-
-
-
-</section>
-
-
-    </main>
-    
-    <footer id="footer">
-    
-
-    <div class="copyright">
-    
-       © Copyright 
-       2023 
-       <span class="split">
-        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
-  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
-</svg>
-       </span>
-       罗泽勋
-    
-    </div>
-
-    
-</footer>
-
-
 
   </body>
 </html>
+

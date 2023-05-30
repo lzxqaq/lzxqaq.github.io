@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>瞎搞 on Zexun Luo | 罗泽勋</title>
+    <title>瞎搞 on Shaka</title>
     <link>/tags/%E7%9E%8E%E6%90%9E/</link>
-    <description>Recent content in 瞎搞 on Zexun Luo | 罗泽勋</description>
+    <description>Recent content in 瞎搞 on Shaka</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <lastBuildDate>Mon, 06 Mar 2023 06:07:33 +0800</lastBuildDate><atom:link href="/tags/%E7%9E%8E%E6%90%9E/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>注册使用 ChatGPT 教程</title>
@@ -13,16 +13,16 @@
       <pubDate>Mon, 06 Mar 2023 06:07:33 +0800</pubDate>
       
       <guid>/posts/2023-3-6/</guid>
-      <description>0. 成果展示 🔗注册 ChatGPT 并不难，但是想要拥有一个简单高效的使用体验，需要下一番功夫。除了通过官网访问 ChatGPT，还可以将它应用于各类平台，比如个人微信、公众号、QQ、Telegram、Gmail邮箱等等。
-1. 前提准备之科学上网 🔗现在科学上网的方法有很多，这里介绍一下我认为比较省心省钱的方法。首先需要从订阅商那里获取订阅链接（自己搭建梯子更贵、免费节点不稳定访问慢）。我使用的是 GHelper，它有Chrome、firefox浏览器的插件，也有 Windows、Mac 的客户端，不过并没有 Linux 客户端，Linux 和安卓手机上我通过 Clash 完成。如果使用该方法，你需要在 GHelper 上购买会员，如果你是 Windows 用户，直接使用 GHelper 提供的客户端即可；如果你是 Linux 或安卓用户，可以使用 clash 来完成。
+      <description>0. 成果展示 注册 ChatGPT 并不难，但是想要拥有一个简单高效的使用体验，需要下一番功夫。除了通过官网访问 ChatGPT，还可以将它应用于各类平台，比如个人微信、公众号、QQ、Telegram、Gmail邮箱等等。
+1. 前提准备之科学上网 现在科学上网的方法有很多，这里介绍一下我认为比较省心省钱的方法。首先需要从订阅商那里获取订阅链接（自己搭建梯子更贵、免费节点不稳定访问慢）。我使用的是 GHelper，它有Chrome、firefox浏览器的插件，也有 Windows、Mac 的客户端，不过并没有 Linux 客户端，Linux 和安卓手机上我通过 Clash 完成。如果使用该方法，你需要在 GHelper 上购买会员，如果你是 Windows 用户，直接使用 GHelper 提供的客户端即可；如果你是 Linux 或安卓用户，可以使用 clash 来完成。
 Chrome 插件下载地址
 Firefox 插件下载地址
 Windows、Mac 客户端下载地址
 Clash(linux)
 ClashForAndroid 下载地址 或者通过谷歌商店下载 ClashForAndroid。
-2. 注册 OpenAI 账号 🔗OpenAI 账号需要国外手机号验证，通过邮箱注册（推荐谷歌邮箱或者Outlook等国外邮箱）或者通过谷歌账号、微软账号注册。
-2.1.1 （可选）注册谷歌账号 🔗如果你没有谷歌账号（邮箱），这里提供一种国内手机注册谷歌账号的方法（谷歌官网限制大陆手机号注册），前提是你是安卓手机、并且手机已经可以科学上网。
-在手机设置里搜索 Google，进入 Google 设置。 通过里面的账号管理来注册 Google 账号。 2.1.2 注册接收验证码的平台 🔗因为注册 OpenAI 需要用到国外的手机号短信验证，因此需要在这类接码平台上购买虚拟手机号接受二维码（一次性使用、10元以内）。我使用的是 SMS 平台。
+2. 注册 OpenAI 账号 OpenAI 账号需要国外手机号验证，通过邮箱注册（推荐谷歌邮箱或者Outlook等国外邮箱）或者通过谷歌账号、微软账号注册。
+2.1.1 （可选）注册谷歌账号 如果你没有谷歌账号（邮箱），这里提供一种国内手机注册谷歌账号的方法（谷歌官网限制大陆手机号注册），前提是你是安卓手机、并且手机已经可以科学上网。
+在手机设置里搜索 Google，进入 Google 设置。 通过里面的账号管理来注册 Google 账号。 2.1.2 注册接收验证码的平台 因为注册 OpenAI 需要用到国外的手机号短信验证，因此需要在这类接码平台上购买虚拟手机号接受二维码（一次性使用、10元以内）。我使用的是 SMS 平台。
 注册 sms-activate.org 账号，使用邮箱注册。
 充值，可以使用支付宝充值 1 美元。
 在网站左侧选择 OpenAI 服务，然后选择购买印度尼西亚的服务（最便宜）。购买之后，你便得到一个可用来接受二维码的印度尼西亚的手机号码（20分钟有效，没收到验证码会自动退款，可重复购买操作，如果一个手机号收不到验证码，可以删除重新购买）</description>
@@ -34,11 +34,11 @@ ClashForAndroid 下载地址 或者通过谷歌商店下载 ClashForAndroid。
       <pubDate>Mon, 07 Mar 2022 12:22:40 +0800</pubDate>
       
       <guid>/posts/java2c&#43;&#43;/</guid>
-      <description>C/C++ 代码编译成可执行程序的过程 🔗 预处理
+      <description>C/C++ 代码编译成可执行程序的过程 预处理
 进行宏定义展开、头文件展开、条件编译，不检查语法。 gcc -E demo1.c -o demo1.i 编译
 检查语法，将预处理过的文件编译生成汇编文件 gcc -S demo2.c -o demo2.s 汇编
 将汇编文件生成目标文件（二进制代码文件，即.o 文件） gcc -c demo3.c -o demo3.o 链接
-找到依赖的库文件，将目标文件链接为可执行程序。 gcc demo4.c -o demo4 -L./ -llib1 通过gcc编译器让 demo4 链接自己制作的 lib1 动态库，并把 demo4 编译成可执行程序。 Java 代码编译和执行的过程 🔗 源文件由编译器编译成字节码 字节码由 Java 虚拟机解释运行。因为 Java 程序既要编译同时也要经过 JVM 的解释运行，所以 Java 也被称为半解释语言。 静态和动态 🔗 静态：在编译（编译 + 链接）阶段 动态：在执行阶段 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; int main() { int m, n; int *p, *q; scanf(&amp;#34;%d%d&amp;#34;, &amp;amp;m, &amp;amp;n); p = (int*)malloc(sizeof(int) * m); q = (int*)malloc(sizeof(int) * n); return 0; } m、n、p、q 静态分配内存。局部变量，要占多大空间、往哪里放，在编译时就已经确定。 malloc 函数动态分配内存，在堆区分配内存，把地址赋值给 p、q。</description>
+找到依赖的库文件，将目标文件链接为可执行程序。 gcc demo4.c -o demo4 -L./ -llib1 通过gcc编译器让 demo4 链接自己制作的 lib1 动态库，并把 demo4 编译成可执行程序。 Java 代码编译和执行的过程 源文件由编译器编译成字节码 字节码由 Java 虚拟机解释运行。因为 Java 程序既要编译同时也要经过 JVM 的解释运行，所以 Java 也被称为半解释语言。 静态和动态 静态：在编译（编译 + 链接）阶段 动态：在执行阶段 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; int main() { int m, n; int *p, *q; scanf(&amp;quot;%d%d&amp;quot;, &amp;amp;m, &amp;amp;n); p = (int*)malloc(sizeof(int) * m); q = (int*)malloc(sizeof(int) * n); return 0; } m、n、p、q 静态分配内存。局部变量，要占多大空间、往哪里放，在编译时就已经确定。 malloc 函数动态分配内存，在堆区分配内存，把地址赋值给 p、q。</description>
     </item>
     
     <item>
@@ -47,16 +47,16 @@ ClashForAndroid 下载地址 或者通过谷歌商店下载 ClashForAndroid。
       <pubDate>Thu, 18 Nov 2021 18:36:33 +0800</pubDate>
       
       <guid>/posts/2021-11-18/</guid>
-      <description>前情提要 🔗完成前面的工作后，我们的网站是下图这样的，非常符合极简之美。不过空荡荡的网站不是我们想要的，接下来我们就开始最核心的部分：修改网站内容。
-一、准备文本编辑工具 🔗（1）下载文本编辑工具。创作当然离不开文本的编辑，那么一款高效好用的文本编辑工具就非常重要了。这里我强烈推荐一个常用的工具 Visual Studio Code，它可以多文件管理。点击 https://code.visualstudio.com/Download 可以直达官网下载。接下来的讲述会使用到 VSCode，如果你选择其他文本编辑器，也无妨，找到对应的文件修改即可。
+      <description>前情提要 完成前面的工作后，我们的网站是下图这样的，非常符合极简之美。不过空荡荡的网站不是我们想要的，接下来我们就开始最核心的部分：修改网站内容。
+一、准备文本编辑工具 （1）下载文本编辑工具。创作当然离不开文本的编辑，那么一款高效好用的文本编辑工具就非常重要了。这里我强烈推荐一个常用的工具 Visual Studio Code，它可以多文件管理。点击 https://code.visualstudio.com/Download 可以直达官网下载。接下来的讲述会使用到 VSCode，如果你选择其他文本编辑器，也无妨，找到对应的文件修改即可。
 （2）用 VSCode 打开 blog 文件夹。打开 VSCode 后，点击左上角文件菜单，然后点击打开文件夹，选择 D:/hugo/site/blog 文件夹。
 （3）我们需要关注 content 文件夹、public 文件夹和 config.yaml 文件即可。content 存放网站的所有内容，我们平时写文章会在里面创建；public 存放网站的源代码，我们使用 hugo 命令时它会自动生成，我们需要将它上传到 Github ；config.yaml 是网站的配置文件，我们网站的基本信息都会在里面配置。
-二、网站预览 🔗用命令窗口进入网站 blog 根目录，执行 hugo server。打开浏览器，访问 localhost:1313。
-三、创建菜单栏 🔗可以看到我们的网站现在有五个菜单，如果你前面在网站配置把菜单改成中文的话，那么将是[主页]、[关于]、[分类]、[标签]、[订阅]。[主页]不用多说了，[分类]、[标签]、[订阅]是自动管理的，如果不需要的话可以在网站目录的 config.yaml 里删掉，[关于]现在点击的话，是访问不了的，因为我们还没有创建对应的文件夹或文件。
+二、网站预览 用命令窗口进入网站 blog 根目录，执行 hugo server。打开浏览器，访问 localhost:1313。
+三、创建菜单栏 可以看到我们的网站现在有五个菜单，如果你前面在网站配置把菜单改成中文的话，那么将是[主页]、[关于]、[分类]、[标签]、[订阅]。[主页]不用多说了，[分类]、[标签]、[订阅]是自动管理的，如果不需要的话可以在网站目录的 config.yaml 里删掉，[关于]现在点击的话，是访问不了的，因为我们还没有创建对应的文件夹或文件。
 （1）打开 themes/hugo-ivy/exampleSite 文件夹，这是 hugo-ivy 主题作者提供的示例网站。复制其中的 content 文件夹下的所有文件和文件夹，放到我们网站根目录下的 content文件夹下面。
 （2）修改 config.yaml 文件，添加文章和记录两个菜单。对应的文件夹是 post 和 note。
 （3）这样，再回到浏览器上看。因为我们把示例的文章也复制过来了，所以网站已经有文章显示了。而我们添加的[文章]和[记录]文章也完成了。如果你需要添加其他菜单，可以参考现有的：在 content 文件夹下新建文件夹，然后在 config.yaml 文件中添加修改。
-四、新建文章 🔗我们可以复制 content/post 或者 content/note 下的文件，然后修改里面的标题、作者、日期、分类、标签等等，因为我们使用 hugo server 预览网站，所以可以在浏览器上 localhost:1313 实时查看修改后的效果。不过更常见的做法是通过命令的方式来创建，下面演示在[文章]菜单下创建一篇文章。</description>
+四、新建文章 我们可以复制 content/post 或者 content/note 下的文件，然后修改里面的标题、作者、日期、分类、标签等等，因为我们使用 hugo server 预览网站，所以可以在浏览器上 localhost:1313 实时查看修改后的效果。不过更常见的做法是通过命令的方式来创建，下面演示在[文章]菜单下创建一篇文章。</description>
     </item>
     
     <item>
@@ -65,12 +65,12 @@ ClashForAndroid 下载地址 或者通过谷歌商店下载 ClashForAndroid。
       <pubDate>Wed, 17 Nov 2021 19:38:06 +0800</pubDate>
       
       <guid>/posts/2021-11-17/</guid>
-      <description>一、在本地创建网站 🔗（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 cmd 加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 hugo new site blog ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一个文件夹名字，但为了方便教程工作，请统一）
-二、下载主题模板（以 hugo-ivy ）为例 🔗（1）接着回到刚刚的命令窗口，输入执行 cd blog\themes 进入 themes 目录。
+      <description>一、在本地创建网站 （1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 cmd 加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 hugo new site blog ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一个文件夹名字，但为了方便教程工作，请统一）
+二、下载主题模板（以 hugo-ivy ）为例 （1）接着回到刚刚的命令窗口，输入执行 cd blog\themes 进入 themes 目录。
 （2）下载主题模板（ hugo-ivy ）。接上述步骤，在命令窗口中 执行 git clone https://github.com/yihui/hugo-ivy.git 来下载 hugo.386 主题。下载完成后，blog/themes 文件夹里面就可以看到下载好的主题了。
-三、修改网站配置 🔗将 themes/hugo-ivy/exampleSite 文件夹中的 config.yaml 文件复制到文件夹 blog 下，并删除原有的 config.toml 。用记事本或者其他文本编辑工具，根据需要修改相应的内容。
-四、网站本地预览 🔗用命令窗口进入 blog 目录，先执行 hugo 生成网页文件，再执行 hugo server 开启预览。打开浏览器，访问 localhost:1313 。（注意，这个命令窗口需要保持到你不需要预览网站的时候，届时可以用两次 Ctrl + c 停止，或者直接关闭窗口）
-五、将网站推送到 Github 平台 🔗（2）打开命令窗口，进入 blog\public 目录，分别执行
+三、修改网站配置 将 themes/hugo-ivy/exampleSite 文件夹中的 config.yaml 文件复制到文件夹 blog 下，并删除原有的 config.toml 。用记事本或者其他文本编辑工具，根据需要修改相应的内容。
+四、网站本地预览 用命令窗口进入 blog 目录，先执行 hugo 生成网页文件，再执行 hugo server 开启预览。打开浏览器，访问 localhost:1313 。（注意，这个命令窗口需要保持到你不需要预览网站的时候，届时可以用两次 Ctrl + c 停止，或者直接关闭窗口）
+五、将网站推送到 Github 平台 （2）打开命令窗口，进入 blog\public 目录，分别执行
 git init git add .</description>
     </item>
     
@@ -80,12 +80,12 @@ git init git add .</description>
       <pubDate>Mon, 15 Nov 2021 12:26:45 +0800</pubDate>
       
       <guid>/posts/2021-11-15/</guid>
-      <description>一、注册 Github 帐号 🔗（1）.前往 github.com 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）
+      <description>一、注册 Github 帐号 （1）.前往 github.com 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）
 （2）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库。
-二、安装 Git 🔗（1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
+二、安装 Git （1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
 （2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 git config --global user.email &amp;quot;你注册Github所用的邮箱&amp;quot; 回车执行，再输入 git config --global user.name &amp;quot;你的昵称&amp;quot; 回车执行。
 注意：这种方式打开命令窗口会默认进入 C 盘的用户目录。如果需要切换到其他目录，比如我们后面所用的 D:/hugo/site/blog 目录，则需要先执行 D: 切换盘符，然后执行 cd hugo/site/blog，其中 cd 就是进入目录的命令，后面是需要进入的文件夹，有时候我们需要返回上一层目录，则可以执行 cd .. 来完成。后面会有相关操作。
-三、安装 Hugo 🔗（1）首先在 D 盘创建一个新文件夹 hugo，然后在里面创建 bin 和 site 两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。
+三、安装 Hugo （1）首先在 D 盘创建一个新文件夹 hugo，然后在里面创建 bin 和 site 两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。
 （2）前往https://github.com/spf13/hugo/releases，找到并下载 hugo_Windows-64bit.zip。解压，如果是一个 hugo_windows_amd64.exe 文件，将它改名为 hugo.exe。
 （3）将这个 hugo.</description>
     </item>
@@ -125,8 +125,8 @@ Hugo 和 Github Pages 稍后会介绍，我们先来了解什么是静态网站�
       <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
       
       <guid>/posts/2021-6-1/</guid>
-      <description>前言 🔗小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。
-准备工作（与前篇一致） 🔗1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是你网站网址的一部分）
+      <description>前言 小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。
+准备工作（与前篇一致） 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是你网站网址的一部分）
 补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。
 2.准备Git。
 （1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
@@ -144,7 +144,7 @@ Hugo 和 Github Pages 稍后会介绍，我们先来了解什么是静态网站�
       <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
       
       <guid>/posts/2021-2-18-2/</guid>
-      <description>准备工作 🔗1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）
+      <description>准备工作 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）
 补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。
 2.准备Git。
 （1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
@@ -179,7 +179,7 @@ Hugo 和 Github Pages 稍后会介绍，我们先来了解什么是静态网站�
       <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。
 然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。
 事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：
-//实验1 String s1 = &amp;#34;1&amp;#34;; Field valueField = String.class.getDeclaredField(&amp;#34;value&amp;#34;); valueField.setAccessible(true); char[] value = (char[]) valueField.get(s1); value[0] = &amp;#39;2&amp;#39;; System.out.println(s1); //2 System.out.println((s1 == &amp;#34;1&amp;#34;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot; 的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
+//实验1 String s1 = &amp;quot;1&amp;quot;; Field valueField = String.class.getDeclaredField(&amp;quot;value&amp;quot;); valueField.setAccessible(true); char[] value = (char[]) valueField.get(s1); value[0] = &#39;2&#39;; System.out.println(s1); //2 System.out.println((s1 == &amp;quot;1&amp;quot;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot; 的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
     </item>
     
   </channel>
