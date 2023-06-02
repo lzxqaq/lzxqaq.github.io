@@ -307,7 +307,7 @@ thead, tfoot, tr:nth-child(even) {
 
   .main {
     width: auto;
-    padding: 40px 10px;
+    padding: 40px 25px;
     margin-left: 0;
     border-left: none;
     min-height: auto;
