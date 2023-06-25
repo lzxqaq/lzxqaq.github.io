@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>接入 ChatGPT 让小爱音箱更好玩！ - 沙加</title>
+    <meta property="og:title" content="接入 ChatGPT 让小爱音箱更好玩！ - 沙加">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+    
+      
+    
+
+    
+      
+      <meta property="description" content="本篇介绍如何利用开源项目 github.com/yihong0618/xiaogpt 给小爱音箱接入 ChatGPT。
+原理为：在本地/服务器执行程序，不断从小米平台获取小爱同学最新的聊天记录，如果符合要求就发送给 GPT，再用 tts 让小爱同学朗读。
+[&amp;hellip;] 终端 git clone 或在 github 下载压缩包解压。
+git clone &amp;hellip;">
+      <meta property="og:description" content="本篇介绍如何利用开源项目 github.com/yihong0618/xiaogpt 给小爱音箱接入 ChatGPT。
+原理为：在本地/服务器执行程序，不断从小米平台获取小爱同学最新的聊天记录，如果符合要求就发送给 GPT，再用 tts 让小爱同学朗读。
+[&amp;hellip;] 终端 git clone 或在 github 下载压缩包解压。
+git clone &amp;hellip;">
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/github.min.css">
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+  </head>
+  <body class="posts">
+    <header class="masthead">
+      <h1><a href="/">沙加</a></h1>
+
+<p class="tagline">我唯一知道的是我一无所知。</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/posts">归档</a></li>
+  
+  <li><a href="/todos">日常</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/tags">标签</a></li>
+  
+  <li><a href="/index.xml">订阅</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>接入 ChatGPT 让小爱音箱更好玩！</h1>
+
+
+
+<h3>
+
+lzx
+
+
+
+
+
+
+ / 
+2023-06-25
+</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+
+
+<h3 id="0-介绍">0. 介绍</h3>
+<p>本篇介绍如何利用开源项目 <a href="github.com/yihong0618/xiaogpt">github.com/yihong0618/xiaogpt</a> 给小爱音箱接入 ChatGPT。</p>
+<p>原理为：在本地/服务器执行程序，不断从小米平台获取小爱同学最新的聊天记录，如果符合要求就发送给 GPT，再用 tts 让小爱同学朗读。</p>
+<h3 id="1-准备">1. 准备</h3>
+<ul>
+<li>OpenAI 的 GPT API（https://platform.openai.com/ 查看，需要收费，新用户有5$额度，够用很久）</li>
+<li>小爱音箱</li>
+<li>代理网络</li>
+<li>Python 3.8+</li>
+</ul>
+<h3 id="2-下载-xiaogpt-项目">2. 下载 xiaogpt 项目</h3>
+<p>终端 git clone 或在 <a href="ttps://github.com/yihong0618/xiaogpt.git">github</a> 下载压缩包解压。</p>
+<pre><code>git clone https://github.com/yihong0618/xiaogpt.git
+</code></pre>
+<h3 id="3-安装依赖">3. 安装依赖</h3>
+<p>进入项目根目录，执行</p>
+<pre><code>pip install -U --force-reinstall xiaogpt
+</code></pre>
+<h3 id="4-获取小米音箱的配置信息">4. 获取小米音箱的配置信息</h3>
+<ul>
+<li>下载 Miservice 项目，同第二步，并进入该项目目录</li>
+</ul>
+<pre><code>git clone https://github.com/yihong0618/MiService.git
+</code></pre>
+<ul>
+<li>临时设小米账号和密码到环境变量</li>
+</ul>
+<p>Windows:</p>
+<pre><code>set MI_USER=xxxx
+set MI_PASS=xxxx
+</code></pre>
+<p>linux</p>
+<pre><code>export MI_USER=xxxx
+export MI_PASS=xxxx
+</code></pre>
+<ul>
+<li>查询小米设备信息。</li>
+</ul>
+<p>执行，可以显示自己账号下的设备列表，包含名称、DID、Token、型号(hardware) 等信息。</p>
+<pre><code>python3 micli.py list
+</code></pre>
+<h3 id="5-配置小米音箱和gpt信息">5. 配置小米音箱和GPT信息</h3>
+<p>回到 xiaogpt 目录，复制目录下的 xiao_config.json.example 文件为 xiao_config.json，并根据需要，修改其中的 hardware（型号）、account、password（小米账号、密码）、openai_key（OpenAI的API 密钥）、mi_did等。</p>
+<p>本地开代理后，配置 proxy，格式如 &ldquo;http://127.0.0.1:端口号&rdquo;。</p>
+<p>默认通过&quot;请问&quot;或者&quot;开始持续对话触发 ChatGPT&quot;，可通过 &ldquo;keyword&rdquo;、&ldquo;start_conversation&quot;等修改。</p>
+<h3 id="6-使用配置文件运行">6. 使用配置文件运行</h3>
+<pre><code>python3 xiaogpt.py --config xiao_config.json
+</code></pre>
+<p>现在就可以通过&quot;请问&quot;等提示词在小爱同学的对话中与 ChatGPT 对话啦！</p>
+
+
+
+  <footer>
+  
+  
+
+
+
+
+
+
+
+<script src="//cdn.jsdelivr.net/combine/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js,npm/@xiee/utils/js/load-highlight.js" defer></script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://lzxqaq.com">Zexun Luo</a> 2020-2023 | <a href="https://github.com/lzxqaq">Github</a></div>
+  
+  </footer>
+  </article>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  </body>
+</html>
+

@@ -7,6 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>接入 ChatGPT 让小爱音箱更好玩！</title>
+      <link>/posts/2023-6-25/</link>
+      <pubDate>Sun, 25 Jun 2023 20:54:40 +0800</pubDate>
+      
+      <guid>/posts/2023-6-25/</guid>
+      <description>0. 介绍 本篇介绍如何利用开源项目 github.com/yihong0618/xiaogpt 给小爱音箱接入 ChatGPT。
+原理为：在本地/服务器执行程序，不断从小米平台获取小爱同学最新的聊天记录，如果符合要求就发送给 GPT，再用 tts 让小爱同学朗读。
+1. 准备 OpenAI 的 GPT API（https://platform.openai.com/ 查看，需要收费，新用户有5$额度，够用很久） 小爱音箱 代理网络 Python 3.8+ 2. 下载 xiaogpt 项目 终端 git clone 或在 github 下载压缩包解压。
+git clone https://github.com/yihong0618/xiaogpt.git 3. 安装依赖 进入项目根目录，执行
+pip install -U --force-reinstall xiaogpt 4. 获取小米音箱的配置信息 下载 Miservice 项目，同第二步，并进入该项目目录 git clone https://github.com/yihong0618/MiService.git 临时设小米账号和密码到环境变量 Windows:
+set MI_USER=xxxx set MI_PASS=xxxx linux
+export MI_USER=xxxx export MI_PASS=xxxx 查询小米设备信息。 执行，可以显示自己账号下的设备列表，包含名称、DID、Token、型号(hardware) 等信息。
+python3 micli.py list 5. 配置小米音箱和GPT信息 回到 xiaogpt 目录，复制目录下的 xiao_config.</description>
+    </item>
+    
+    <item>
       <title>浪漫铁道《蹉跎篇》</title>
       <link>/posts/2023-6-3/</link>
       <pubDate>Sat, 03 Jun 2023 01:10:28 +0800</pubDate>
