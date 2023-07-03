@@ -2,16 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2023-07-04T01:39:36+08:00</lastmod>
-  </url><url>
-    <loc>/posts/2023-7-3-2/</loc>
-    <lastmod>2023-07-04T01:39:36+08:00</lastmod>
-  </url><url>
-    <loc>/tags/%E7%9E%8E%E8%AF%B4/</loc>
-    <lastmod>2023-07-04T01:39:36+08:00</lastmod>
-  </url><url>
     <loc>/posts/2023-7-3/</loc>
+    <lastmod>2023-07-04T01:36:30+08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
     <lastmod>2023-07-04T01:36:30+08:00</lastmod>
   </url><url>
     <loc>/tags/%E7%9E%8E%E5%90%AC/</loc>
@@ -39,6 +33,9 @@
     <lastmod>2023-03-06T08:02:13+08:00</lastmod>
   </url><url>
     <loc>/posts/2022-12-17/</loc>
+    <lastmod>2023-02-22T02:32:02+08:00</lastmod>
+  </url><url>
+    <loc>/tags/%E7%9E%8E%E8%AF%B4/</loc>
     <lastmod>2023-02-22T02:32:02+08:00</lastmod>
   </url><url>
     <loc>/posts/2022-5-20/</loc>
