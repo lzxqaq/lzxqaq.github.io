@@ -7,6 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>折腾 Linux 的最终奥义！</title>
+      <link>/posts/2023-7-23/</link>
+      <pubDate>Sun, 23 Jul 2023 09:53:28 +0800</pubDate>
+      
+      <guid>/posts/2023-7-23/</guid>
+      <description>昨天因为修改了一些内核参数，我的 Arch Linux 无法启动了，折腾一下又修好了。就在这次事故里，我领悟了折腾 Linux 的最终奥义：双 Arch 大法！
+双 Arch ：安装一大一小两个 ArchLinux 系统，大的日常使用，小的在崩溃修复时使用。它的核心是利用 Arch Linux 的 chroot 切换操作系统，免去了制作启动 U 盘的麻烦。
+当然 Windows 有时候还是需要的，所以双 Arch Linux + Windows，无敌！
+一些经验 系统出问题时不要慌，在你格式化硬盘前都是小问题。 进行没把握的危险操作时，备份你的重要数据。 相关命令 查看分区： lsblk 和 fdisk -l 挂载分区： mount /dev/分区 /mnt 分区表： /mnt/etc/fstab 生成分区表： genfstab -U /mnt &amp;raquo; /mnt/etc/fstab 切换操作系统： arch-chroot /mnt 安装 grub （示例）： grub-install &amp;ndash;target=x86_64-efi &amp;ndash;efi-directory=/boot &amp;ndash;bootloader-id=ArchLinux 生成 grub 配置：grub-mkconfig -o /boot/grub/grub.cfg default grub ： /etc/default/grub </description>
+    </item>
+    
+    <item>
       <title>罗翔、余华谈话《兄弟》</title>
       <link>/posts/2023-7-16/</link>
       <pubDate>Sun, 16 Jul 2023 08:26:45 +0800</pubDate>
