@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>数字芯片全流程开源工具集 - 沙加</title>
+    <meta property="og:title" content="数字芯片全流程开源工具集 - 沙加">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Verible 是一组基于通用 SystemVerilog 解析引擎的工具，提供命令行界面，可以轻松地与其他日常使用工具或 CI 系统集成以进行自动测试和部署。
+[&amp;hellip;] Surelog是一个支持SystemVerilog 2017的Pre-processor、Parser、UHDM Compiler，可用于语法检查、仿真、综合、形式验证工具的前端。
+[&amp;hellip;] UHDM 代 &amp;hellip;">
+      <meta property="og:description" content="Verible 是一组基于通用 SystemVerilog 解析引擎的工具，提供命令行界面，可以轻松地与其他日常使用工具或 CI 系统集成以进行自动测试和部署。
+[&amp;hellip;] Surelog是一个支持SystemVerilog 2017的Pre-processor、Parser、UHDM Compiler，可用于语法检查、仿真、综合、形式验证工具的前端。
+[&amp;hellip;] UHDM 代 &amp;hellip;">
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+  </head>
+  <body class="posts">
+    <header class="masthead">
+      <h1><a href="/">沙加</a></h1>
+
+<p class="tagline">我唯一知道的是我一无所知。</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/posts">归档</a></li>
+  
+  <li><a href="/todos">日常</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/tags">标签</a></li>
+  
+  <li><a href="/index.xml">订阅</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>数字芯片全流程开源工具集</h1>
+
+
+
+<h3>
+
+lzx
+
+
+
+
+
+
+ / 
+2023-07-25
+</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+
+
+<h3 id="一解析器">一、解析器</h3>
+<ul>
+<li><a href="https://github.com/chipsalliance/verible">verible</a></li>
+</ul>
+<p>Verible 是一组基于通用 SystemVerilog 解析引擎的工具，提供命令行界面，可以轻松地与其他日常使用工具或 CI 系统集成以进行自动测试和部署。</p>
+<ul>
+<li><a href="https://github.com/chipsalliance/Surelog">Surelog</a></li>
+</ul>
+<p>Surelog是一个支持SystemVerilog 2017的Pre-processor、Parser、UHDM Compiler，可用于语法检查、仿真、综合、形式验证工具的前端。</p>
+<ul>
+<li><a href="https://github.com/chipsalliance/UHDM">UHDM</a></li>
+</ul>
+<p>UHDM 代表通用硬件数据模型，它既是一种用于存储硬件设计的文件格式，也是一个能够操作该格式的库。客户端应用程序可以使用 VPI 访问数据，VPI 是 SystemVerilog 的标准编程接口。</p>
+<ul>
+<li><a href="https://github.com/YosysHQ/yosys">Yosys</a></li>
+</ul>
+<p>Yosys 是 Verilog RTL 综合的框架。</p>
+<h3 id="二高阶综合hls">二、高阶综合(HLS)</h3>
+<ul>
+<li><a href="https://github.com/amaranth-lang">Amaranth HDL</a></li>
+</ul>
+<p>Amaranth HDL 是一个用于同步逻辑的寄存器传输级建模的 Python 库。普通的Python代码用于构建数字电路的网表，可以通过Yosys进行模拟、直接合成，或转换为人类可读的Verilog代码以与行业标准工具链一起使用。</p>
+<ul>
+<li><a href="https://google.github.io/xls/">XLS</a></li>
+</ul>
+<p>XLS 实现了高级综合 (HLS) 工具链，该工具链可根据灵活的高级功能描述生成可综合的设计（Verilog 和 SystemVerilog）</p>
+<h3 id="三综合">三、综合</h3>
+<ul>
+<li><a href="https://github.com/YosysHQ/yosys">Yosys</a></li>
+</ul>
+<p>Yosys 是 Verilog RTL 综合的框架。</p>
+<ul>
+<li><a href="https://clash-lang.org/">Clash</a></li>
+</ul>
+<p>Clash 是一种函数式硬件描述语言,它的编译器可以将其转换为低级可综合的VHDL、Verilog或SystemVerilog。</p>
+<ul>
+<li><a href="https://ku-fpg.github.io/software/kansas-lava/">Kansas Lava</a></li>
+</ul>
+<p>Kansas Lava 根据 FSM、行为规范（VHDL、Verilog）生成电路，并验证。NuSMV（堪萨斯大学）</p>
+<ul>
+<li><a href="https://github.com/chipsalliance/chisel">Chisel</a></li>
+</ul>
+<p>Chisel 是一种开源硬件描述语言 (HDL)，用于在寄存器传输级别描述数字电子和电路，从而促进 ASIC 和 FPGA 数字逻辑设计的高级电路生成和设计重用。 Chisel 将硬件构造原语添加到 Scala 编程语言中，为设计人员提供了现代编程语言的强大功能，可以编写复杂的、可参数化的电路生成器，从而生成可综合的 Verilog。</p>
+<h3 id="四仿真">四、仿真</h3>
+<ul>
+<li><a href="https://verilator.org/guide/latest/">Verilator</a></li>
+</ul>
+<p>Verilator是一款开源的支持Verilog和System Verilog仿真工具，它支持代码质量检查等功能，能够将给定的电路设计（由Verilog或System Verilog编写）编译成（或者说翻译成）C++或者System C的库等中间文件，最后再编写testbench（在Verilator中叫做wrapper file），去调用前面生成的中间文件，然后统一由C编译器编译执行，来完成仿真。</p>
+<ul>
+<li><a href="https://ngspice.sourceforge.io/">Ngspice</a></li>
+</ul>
+<p>Ngspice 是用于电气和电子电路的开源 SPICE 模拟器。</p>
+<ul>
+<li><a href="https://xyce.sandia.gov/">Xyce</a></li>
+</ul>
+<p>Xyce 是一款开源、兼容SPICE的高性能模拟电路模拟器，能够通过支持大规模并行计算平台来解决极其庞大的电路问题。</p>
+<h3 id="五形式验证">五、形式验证</h3>
+<ul>
+<li><a href="https://people.eecs.berkeley.edu/~alanmi/abc/">ABC</a></li>
+</ul>
+<p>ABC 是一个时序综合与验证的系统。</p>
+<ul>
+<li><a href="https://www.cs.cmu.edu/~modelcheck/code.htm">Model Checking @CMU</a></li>
+</ul>
+<p>卡内基梅隆大学的 Model Checking 小组，软件包有 BMC/CBMC/EBMC 等等。</p>
+<ul>
+<li><a href="http://users.ics.aalto.fi/kepa/tools/punroll/">Punroll</a></li>
+</ul>
+<p>Punroll 是一个有界可达性检查器，从 1-bounded Petri nets 生成约束布尔电路。它支持过程、步骤和交错语义。 （赫尔辛基理工大学）</p>
+<h3 id="六布局布线">六、布局布线</h3>
+<ul>
+<li><a href="http://opencircuitdesign.com/magic/">Magic</a></li>
+</ul>
+<p>Magic 被广泛认为是最容易用于电路布局的工具(老派)。</p>
+<ul>
+<li><a href="https://www.klayout.de/">KLayout</a></li>
+</ul>
+<p>现代风格的布局绘图工具。</p>
+<ul>
+<li><a href="https://xschem.sourceforge.io/stefan/index.html">Xschem</a></li>
+</ul>
+<p>Xschem 是一个原理图捕获、仿真程序(老派)。</p>
+<ul>
+<li><a href="https://nyancad.github.io/Mosaic/">Mosaic</a></li>
+</ul>
+<p>Mosaic 是一种用于设计和模拟模拟集成电路设计的工具。它专注于现代、易于使用的界面、即时设计反馈、设计重用、验证和自动化。</p>
+<h3 id="七asic-全流程">七、ASIC 全流程</h3>
+<ul>
+<li><a href="https://github.com/The-OpenROAD-Project/OpenLane">OpenLane</a></li>
+</ul>
+<p>OpenLane 是一个自动化 RTL 到 GDSII 流程，基于多个组件，包括 OpenROAD、Yosys、Magic、Netgen 和用于设计探索和优化的自定义方法脚本。</p>
+<ul>
+<li><a href="https://www.siliconcompiler.com/">Silicon Compiler</a></li>
+</ul>
+<p>SiliconCompiler 是一个开源框架，可自动将源代码转换为芯片。</p>
+<ul>
+<li><a href="http://coriolis.lip6.fr/">Alliance/Coriolis</a></li>
+</ul>
+<p>Alliance 是用于 vlsi 设计的完整工具链。它提供了 vhdl 编译器和模拟器、逻辑合成器、自动布局和布线以及便携式 cmos 库。Coriolis 作为 Alliance 布局布线阶段的替代品。</p>
+<ul>
+<li><a href="https://github.com/YosysHQ/oss-cad-suite-build">OSS Cad Suite</a></li>
+</ul>
+<p>OSS CAD Suite 适用于数字逻辑设计中使用的许多开源软件,用于 RTL 综合、形式硬件验证、布局布线、FPGA 编程以及支持 HDL（如 Verilog、Migen 和 Amaranth）的测试的工具。</p>
+<ul>
+<li><a href="https://github.com/os-fpga">OSFPGA</a></li>
+</ul>
+<p>使用 Yosys、VTR 和 VPR 等开源工具的端到端 FPGA 流程。</p>
+
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://lzxqaq.com">Zexun Luo</a> 2020-2023 | <a href="https://github.com/lzxqaq">Github</a></div>
+  
+  </footer>
+  </article>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  </body>
+</html>
+
