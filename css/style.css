@@ -191,6 +191,7 @@ body {
 }
 
 .masthead .menu a {
+  border-bottom: none;
   direction: ltr;
 }
 
@@ -288,6 +289,37 @@ thead, tfoot, tr:nth-child(even) {
 
 /* Tablet screens and smaller */
 
+@media screen and (min-width: 961px) {
+  body {
+    width: auto;
+    padding: 30px 0;
+  }
+
+  .masthead {
+    position: sticky;
+    top: 0;
+    padding: 2em 20px;
+    border-right: 3px solid #ddd;
+    min-height: calc(100vh - 60px);
+ /* background: #fafafa; */
+    width: calc(30% - 160px);
+    padding-left: calc(30% - 400px);
+    float: left;
+    min-width: 260px;
+  }
+
+  .main {
+    max-width: 960px;
+    width: auto;
+    padding: 2em 40px;
+    border-left: none;
+    margin-left:  calc(27.5%);
+
+    min-height: calc(100vh - 60px);
+    
+  }
+}
+
 @media screen and (max-width: 960px) {
 
   body {
@@ -307,7 +339,7 @@ thead, tfoot, tr:nth-child(even) {
 
   .main {
     width: auto;
-    padding: 40px 25px;
+    padding: 40px 20px;
     margin-left: 0;
     border-left: none;
     min-height: auto;
