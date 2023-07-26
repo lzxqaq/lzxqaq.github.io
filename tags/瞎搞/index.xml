@@ -1,198 +1,206 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>瞎搞 on 沙加</title>
-    <link>/tags/%E7%9E%8E%E6%90%9E/</link>
-    <description>Recent content in 瞎搞 on 沙加</description>
+    <title>瞎搞 on Zexun Luo | 罗泽勋</title>
+    <link>https://lzxqaq.com/tags/%E7%9E%8E%E6%90%9E/</link>
+    <description>Recent content in 瞎搞 on Zexun Luo | 罗泽勋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 23 Jul 2023 09:53:28 +0800</lastBuildDate><atom:link href="/tags/%E7%9E%8E%E6%90%9E/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jul 2023 09:53:28 +0800</lastBuildDate>
+    <atom:link href="https://lzxqaq.com/tags/%E7%9E%8E%E6%90%9E/" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Linux 之最终奥义：双 Arch 大法！</title>
-      <link>/posts/2023-7-23/</link>
+      <link>https://lzxqaq.com/posts/2023-7-23/</link>
       <pubDate>Sun, 23 Jul 2023 09:53:28 +0800</pubDate>
-      
-      <guid>/posts/2023-7-23/</guid>
-      <description>昨天因为修改了一些内核参数，我的 Arch Linux 无法启动了，因为出差在外没带 U 盘，所以又又又买了一个，做成启动盘修复系统。在这次事故里，我领悟到折腾 Linux 的最终方案：双 Arch。
-双 Arch ：安装一大一小两个 ArchLinux 系统，大的日常使用，小的在崩溃修复时使用。它的关键在于是当日常用的 ArchLinux 系统崩溃无法启动时，登陆修复用的小的 ArchLinux 系统，然后通过 chroot 切换到那个无法启动的操作系统进行修复，优点是不需要准备启动 U 盘。
-当然如果需要的话还可以加上一个 Windows 系统。
-一些经验 系统出问题时不要慌，在你格式化硬盘前都是小问题。 进行没把握的危险操作时，备份你的重要数据。 相关命令 查看分区： lsblk 和 fdisk -l 挂载分区： mount /dev/分区 /mnt 分区表： /mnt/etc/fstab 生成分区表： genfstab -U /mnt &amp;raquo; /mnt/etc/fstab 切换操作系统： arch-chroot /mnt 安装 grub （示例）： grub-install &amp;ndash;target=x86_64-efi &amp;ndash;efi-directory=/boot &amp;ndash;bootloader-id=ArchLinux 生成 grub 配置：grub-mkconfig -o /boot/grub/grub.cfg default grub ： /etc/default/grub </description>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2023-7-23/</guid>
+      <description>
+        <![CDATA[
+        
+        <p>昨天因为修改了一些内核参数，我的 Arch Linux 无法启动了，因为出差在外没带 U 盘，所以又又又买了一个，做成启动盘修复系统。在这次事故里，我领悟到折腾 Linux 的最终方案：双 Arch。[&hellip;] <a href="https://lzxqaq.com/posts/2023-7-23/">https://lzxqaq.com/posts/2023-7-23/</a></p>
+        
+        ]]>
+      </description>
     </item>
+    
+    
     
     <item>
       <title>注册使用 ChatGPT 教程</title>
-      <link>/posts/2023-3-6/</link>
+      <link>https://lzxqaq.com/posts/2023-3-6/</link>
       <pubDate>Mon, 06 Mar 2023 06:07:33 +0800</pubDate>
-      
-      <guid>/posts/2023-3-6/</guid>
-      <description>0. 成果展示 注册 ChatGPT 并不难，但是想要拥有一个简单高效的使用体验，需要下一番功夫。除了通过官网访问 ChatGPT，还可以将它应用于各类平台，比如个人微信、公众号、QQ、Telegram、Gmail邮箱等等。
-1. 前提准备之科学上网 现在科学上网的方法有很多，这里介绍一下我认为比较省心省钱的方法。首先需要从订阅商那里获取订阅链接（自己搭建梯子更贵、免费节点不稳定访问慢）。我使用的是 GHelper，它有Chrome、firefox浏览器的插件，也有 Windows、Mac 的客户端，不过并没有 Linux 客户端，Linux 和安卓手机上我通过 Clash 完成。如果使用该方法，你需要在 GHelper 上购买会员，如果你是 Windows 用户，直接使用 GHelper 提供的客户端即可；如果你是 Linux 或安卓用户，可以使用 clash 来完成。
-Chrome 插件下载地址
-Firefox 插件下载地址
-Windows、Mac 客户端下载地址
-Clash(linux)
-ClashForAndroid 下载地址 或者通过谷歌商店下载 ClashForAndroid。
-2. 注册 OpenAI 账号 OpenAI 账号需要国外手机号验证，通过邮箱注册（推荐谷歌邮箱或者Outlook等国外邮箱）或者通过谷歌账号、微软账号注册。
-2.1.1 （可选）注册谷歌账号 如果你没有谷歌账号（邮箱），这里提供一种国内手机注册谷歌账号的方法（谷歌官网限制大陆手机号注册），前提是你是安卓手机、并且手机已经可以科学上网。
-在手机设置里搜索 Google，进入 Google 设置。 通过里面的账号管理来注册 Google 账号。 2.1.2 注册接收验证码的平台 因为注册 OpenAI 需要用到国外的手机号短信验证，因此需要在这类接码平台上购买虚拟手机号接受二维码（一次性使用、10元以内）。我使用的是 SMS 平台。
-注册 sms-activate.org 账号，使用邮箱注册。
-充值，可以使用支付宝充值 1 美元。
-在网站左侧选择 OpenAI 服务，然后选择购买印度尼西亚的服务（最便宜）。购买之后，你便得到一个可用来接受二维码的印度尼西亚的手机号码（20分钟有效，没收到验证码会自动退款，可重复购买操作，如果一个手机号收不到验证码，可以删除重新购买）</description>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2023-3-6/</guid>
+      <description>
+        <![CDATA[
+        
+        <h1 id="0-成果展示">0. 成果展示</h1>
+<p>注册 ChatGPT 并不难，但是想要拥有一个简单高效的使用体验，需要下一番功夫。除了通过官网访问 ChatGPT，还可以将它应用于各类平台，比如个人微信、公众[&hellip;] <a href="https://lzxqaq.com/posts/2023-3-6/">https://lzxqaq.com/posts/2023-3-6/</a></p>
+        
+        ]]>
+      </description>
     </item>
+    
+    
     
     <item>
       <title>从 Java 到 Qt/C&#43;&#43; 的一些经验总结</title>
-      <link>/posts/java2c&#43;&#43;/</link>
+      <link>https://lzxqaq.com/posts/java2c&#43;&#43;/</link>
       <pubDate>Mon, 07 Mar 2022 12:22:40 +0800</pubDate>
-      
-      <guid>/posts/java2c&#43;&#43;/</guid>
-      <description>C/C++ 代码编译成可执行程序的过程 预处理
-进行宏定义展开、头文件展开、条件编译，不检查语法。 gcc -E demo1.c -o demo1.i 编译
-检查语法，将预处理过的文件编译生成汇编文件 gcc -S demo2.c -o demo2.s 汇编
-将汇编文件生成目标文件（二进制代码文件，即.o 文件） gcc -c demo3.c -o demo3.o 链接
-找到依赖的库文件，将目标文件链接为可执行程序。 gcc demo4.c -o demo4 -L./ -llib1 通过gcc编译器让 demo4 链接自己制作的 lib1 动态库，并把 demo4 编译成可执行程序。 Java 代码编译和执行的过程 源文件由编译器编译成字节码 字节码由 Java 虚拟机解释运行。因为 Java 程序既要编译同时也要经过 JVM 的解释运行，所以 Java 也被称为半解释语言。 静态和动态 静态：在编译（编译 + 链接）阶段 动态：在执行阶段 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; int main() { int m, n; int *p, *q; scanf(&amp;quot;%d%d&amp;quot;, &amp;amp;m, &amp;amp;n); p = (int*)malloc(sizeof(int) * m); q = (int*)malloc(sizeof(int) * n); return 0; } m、n、p、q 静态分配内存。局部变量，要占多大空间、往哪里放，在编译时就已经确定。 malloc 函数动态分配内存，在堆区分配内存，把地址赋值给 p、q。</description>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/java2c&#43;&#43;/</guid>
+      <description>
+        <![CDATA[
+        
+        <h3 id="c-c-代码编译成可执行程序的过程">C/C++ 代码编译成可执行程序的过程</h3>
+<ul>
+<li>
+<p>预处理</p>
+<ul>
+<li>进行宏定义展开、头文件展开、条件编译，不检查语法。</li>
+<li>gcc -E demo1.c -o demo1.i</li>
+</ul>
+</li>
+<li>
+<p>编译</p>
+<ul>
+<li>检查语法，将预处理过的文件编[&hellip;] <a href="https://lzxqaq.com/posts/java2c++/">https://lzxqaq.com/posts/java2c++/</a></li></ul></li></li></ul></li></ul>
+        
+        ]]>
+      </description>
     </item>
+    
+    
     
     <item>
       <title>从零开始的博客建站之旅-修改菜单栏和文章创作</title>
-      <link>/posts/2021-11-18/</link>
+      <link>https://lzxqaq.com/posts/2021-11-18/</link>
       <pubDate>Thu, 18 Nov 2021 18:36:33 +0800</pubDate>
-      
-      <guid>/posts/2021-11-18/</guid>
-      <description>前情提要 完成前面的工作后，我们的网站是下图这样的，非常符合极简之美。不过空荡荡的网站不是我们想要的，接下来我们就开始最核心的部分：修改网站内容。
-一、准备文本编辑工具 （1）下载文本编辑工具。创作当然离不开文本的编辑，那么一款高效好用的文本编辑工具就非常重要了。这里我强烈推荐一个常用的工具 Visual Studio Code，它可以多文件管理。点击 https://code.visualstudio.com/Download 可以直达官网下载。接下来的讲述会使用到 VSCode，如果你选择其他文本编辑器，也无妨，找到对应的文件修改即可。
-（2）用 VSCode 打开 blog 文件夹。打开 VSCode 后，点击左上角文件菜单，然后点击打开文件夹，选择 D:/hugo/site/blog 文件夹。
-（3）我们需要关注 content 文件夹、public 文件夹和 config.yaml 文件即可。content 存放网站的所有内容，我们平时写文章会在里面创建；public 存放网站的源代码，我们使用 hugo 命令时它会自动生成，我们需要将它上传到 Github ；config.yaml 是网站的配置文件，我们网站的基本信息都会在里面配置。
-二、网站预览 用命令窗口进入网站 blog 根目录，执行 hugo server。打开浏览器，访问 localhost:1313。
-三、创建菜单栏 可以看到我们的网站现在有五个菜单，如果你前面在网站配置把菜单改成中文的话，那么将是[主页]、[关于]、[分类]、[标签]、[订阅]。[主页]不用多说了，[分类]、[标签]、[订阅]是自动管理的，如果不需要的话可以在网站目录的 config.yaml 里删掉，[关于]现在点击的话，是访问不了的，因为我们还没有创建对应的文件夹或文件。
-（1）打开 themes/hugo-ivy/exampleSite 文件夹，这是 hugo-ivy 主题作者提供的示例网站。复制其中的 content 文件夹下的所有文件和文件夹，放到我们网站根目录下的 content文件夹下面。
-（2）修改 config.yaml 文件，添加文章和记录两个菜单。对应的文件夹是 post 和 note。
-（3）这样，再回到浏览器上看。因为我们把示例的文章也复制过来了，所以网站已经有文章显示了。而我们添加的[文章]和[记录]文章也完成了。如果你需要添加其他菜单，可以参考现有的：在 content 文件夹下新建文件夹，然后在 config.yaml 文件中添加修改。
-四、新建文章 我们可以复制 content/post 或者 content/note 下的文件，然后修改里面的标题、作者、日期、分类、标签等等，因为我们使用 hugo server 预览网站，所以可以在浏览器上 localhost:1313 实时查看修改后的效果。不过更常见的做法是通过命令的方式来创建，下面演示在[文章]菜单下创建一篇文章。</description>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2021-11-18/</guid>
+      <description>
+        <![CDATA[
+        
+        <h3 id="前情提要">前情提要</h3>
+<p>完成前面的工作后，我们的网站是下图这样的，非常符合极简之美。不过空荡荡的网站不是我们想要的，接下来我们就开始最核心的部分：修改网站内容。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/0.png" alt="img"></p>
+<h3 id="一-准备文本编辑工具">一、准备文本编辑工具</h3>
+<p>（1）下载文本编辑工具。创作[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-18/">https://lzxqaq.com/posts/2021-11-18/</a></p>
+        
+        ]]>
+      </description>
     </item>
+    
+    
     
     <item>
       <title>从零开始的博客建站之旅-搭建</title>
-      <link>/posts/2021-11-17/</link>
+      <link>https://lzxqaq.com/posts/2021-11-17/</link>
       <pubDate>Wed, 17 Nov 2021 19:38:06 +0800</pubDate>
-      
-      <guid>/posts/2021-11-17/</guid>
-      <description>一、在本地创建网站 （1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 cmd 加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 hugo new site blog ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一个文件夹名字，但为了方便教程工作，请统一）
-二、下载主题模板（以 hugo-ivy ）为例 （1）接着回到刚刚的命令窗口，输入执行 cd blog\themes 进入 themes 目录。
-（2）下载主题模板（ hugo-ivy ）。接上述步骤，在命令窗口中 执行 git clone https://github.com/yihui/hugo-ivy.git 来下载 hugo.386 主题。下载完成后，blog/themes 文件夹里面就可以看到下载好的主题了。
-三、修改网站配置 将 themes/hugo-ivy/exampleSite 文件夹中的 config.yaml 文件复制到文件夹 blog 下，并删除原有的 config.toml 。用记事本或者其他文本编辑工具，根据需要修改相应的内容。
-四、网站本地预览 用命令窗口进入 blog 目录，先执行 hugo 生成网页文件，再执行 hugo server 开启预览。打开浏览器，访问 localhost:1313 。（注意，这个命令窗口需要保持到你不需要预览网站的时候，届时可以用两次 Ctrl + c 停止，或者直接关闭窗口）
-五、将网站推送到 Github 平台 （2）打开命令窗口，进入 blog\public 目录，分别执行
-git init git add .</description>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2021-11-17/</guid>
+      <description>
+        <![CDATA[
+        
+        <h3 id="一-在本地创建网站">一、在本地创建网站</h3>
+<p>（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 <code>cmd </code> 加空[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-17/">https://lzxqaq.com/posts/2021-11-17/</a></p>
+        
+        ]]>
+      </description>
     </item>
+    
+    
     
     <item>
       <title>从零开始的博客建站之旅-准备工作</title>
-      <link>/posts/2021-11-15/</link>
+      <link>https://lzxqaq.com/posts/2021-11-15/</link>
       <pubDate>Mon, 15 Nov 2021 12:26:45 +0800</pubDate>
-      
-      <guid>/posts/2021-11-15/</guid>
-      <description>一、注册 Github 帐号 （1）.前往 github.com 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）
-（2）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库。
-二、安装 Git （1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
-（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 git config --global user.email &amp;quot;你注册Github所用的邮箱&amp;quot; 回车执行，再输入 git config --global user.name &amp;quot;你的昵称&amp;quot; 回车执行。
-注意：这种方式打开命令窗口会默认进入 C 盘的用户目录。如果需要切换到其他目录，比如我们后面所用的 D:/hugo/site/blog 目录，则需要先执行 D: 切换盘符，然后执行 cd hugo/site/blog，其中 cd 就是进入目录的命令，后面是需要进入的文件夹，有时候我们需要返回上一层目录，则可以执行 cd .. 来完成。后面会有相关操作。
-三、安装 Hugo （1）首先在 D 盘创建一个新文件夹 hugo，然后在里面创建 bin 和 site 两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。
-（2）前往https://github.com/spf13/hugo/releases，找到并下载 hugo_Windows-64bit.zip。解压，如果是一个 hugo_windows_amd64.exe 文件，将它改名为 hugo.exe。
-（3）将这个 hugo.</description>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2021-11-15/</guid>
+      <description>
+        <![CDATA[
+        
+        <h3 id="一-注册-github-帐号">一、注册 Github 帐号</h3>
+<p>（1）.前往 <a href="https://github.com/">github.com</a> 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）</p>
+<p>（2）在 Github 中创建一[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-15/">https://lzxqaq.com/posts/2021-11-15/</a></p>
+        
+        ]]>
+      </description>
     </item>
     
-    <item>
-      <title>从零开始的博客建站之旅-基础概念</title>
-      <link>/posts/2021-11-14-2/</link>
-      <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
-      
-      <guid>/posts/2021-11-14-2/</guid>
-      <description>教程开始前，先来介绍一下最终的成果，以便确认是否符合你的需求。本篇教程以 Hugo 和 Github Pages 为基础，创建一个静态的网站。这个过程仅需要一台联网的电脑，不需要其他花费（注意：如果你想自定义域名，则需要自行购买域名，后面会有相关介绍）。下文提到的概念理论只需要有一个模糊的认识就足够了，不需要理解透彻，因为在后续文章中会具体介绍其用法，届时就会有更直观的认识了。
-Hugo 和 Github Pages 稍后会介绍，我们先来了解什么是静态网站。静态网站是由静态网页文件（也就是HTML文件)组成，它不需要服务器运行，也不需要数据库。我们将组成网站的这些网页文件上传到服务器上，别人就可以在互联网上通过这台服务器的地址或域名（例如 www.lzxqaq.com)访问这些网页文件，这就是静态网站的大致原理。
-不过，这里所说的服务器并非我们日常所用的电脑，因为我们日常所用的电脑都是在局域网里，是不能让整个互联网的人都能访问到的。所以一般都要用所谓的云服务器，例如阿里云服务器、华为云服务器等等。不过现在有一些平台提供了免费的站点服务，我们就不需要购买昂贵的服务器了。例如本教程中使用的 Github Pages 服务，我们可以将网站托管到 Github 平台上，让平台帮我们把网站跑起来并在互联网上可以访问。
-这里提到的 Github 是一个代码托管平台，也是全世界最大的开源社区。在本教程中，我们只需要知道，它是帮我们帮网站跑起来的就行了。我们在自己的电脑上创建网站，然后将这些网页文件上传到 Github 平台，而 Github 会帮我们运行网站，这样网站就可以访问了。另外，我们还需要在 Github 下载网站主题（这会在后续介绍）。如何将我们的网站文件上传到 Github 或者从 Github 下载东西呢？这里我们会用到 Git 这个工具。
-那么如何建立网站呢？需要去学习网页技术吗？答案是不需要，我们将使用静态网站生成器来完成这项繁琐的工作。在本教程里，我们会使用 Hugo 这款出色的静态网站生成器。我们只需要挑选别人制作好的博客模板，根据某种规则去生成网站就好了（这里说的规则可以简单理解成约定好的文本格式，我们在约定好的文本格式下写文字，网站生成器会将这些文字翻译成网页文件）。所以我们只需要关注网站的文本，也就是展示的文章那些。（理想状态下，就类似我们写微博、发说说，编辑好文本发送出去就可以了）
-简单来说，我们的工作流程是：在自己的电脑上，用一个静态网站生成器工具生成网页文件，然后将网站文件上传到某个平台上，这样别人就可以访问我们的网站了。如果修改网站（比如添加文章），也是重复上述步骤：重新生成网页文件，重新上传。
-后续文章我会细述搭建网站的具体步骤，尽可能考虑新手建站的情况。如果你在这过程中遇到问题，欢迎在评论中指出或着与我联系。</description>
-    </item>
+    
     
     <item>
       <title>从零开始的博客建站之旅-开篇</title>
-      <link>/posts/2021-11-14-3/</link>
+      <link>https://lzxqaq.com/posts/2021-11-14-3/</link>
       <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
-      
-      <guid>/posts/2021-11-14-3/</guid>
-      <description>回顾过去，我刚接触互联网时，还是 2G 时代，那时各类论坛博客和聊天室正蓬勃发展。这种跨越时空的交流方式让我感到非常新奇，看着屏幕吐出文字的时候，就感觉打开了一个新世界的大门。通过一根根网线，就可以将世界连起来，人们可以在其中感知世界并畅所欲言。有趣的是，当时还是小学生的我，已经在一款网页文字游戏中建立队伍，和几十位素不相识的伙伴一起在游戏江湖里打拼了……
-不过随着QQ、微信和微博等便捷交流平台的发展，传统博客和论坛逐渐淡出人们的视线。然而人们在选择这些便捷的平台时，也被其束缚着。特别是在内容分发推荐和主流媒体导流的当下，人们获取信息的的渠道看似变多了，但是这过程已经从主动变成了被动，我不认为这是什么好事。
-“I web, therefore I am a spiderman.”，这是 hugo-ivy 主题作者谢益辉在他 blogdown一书提到的个人网站的作用，我深以为然。在当下，个人网站用来交流分享、内容创造或者记录人生仍是一个非常棒的选择。
-值得高兴的是，个人网站搭建技术从未停下发展的脚步，现在搭建一个个人网站已经是一件很容易的事了～如果你拥有了它，那么你便在这嘈杂的网络世界有了一方净土。这需要感谢开源，感谢前人的努力。因为他们的努力，让搭建网站这类技术活变得更简单，让这世界充满自由与奉献的星光。
-但即便如此，为了更自由、更多元化的需求，搭建和管理网站仍需要足够的耐心，特别是对于不了解这方面的人。为了前人的付出让更多的人知晓，让自由的表达有更多选择，我在这里开启系列教程，将搭建个人网站的步骤一一讲述。虽然有很多人做过类似的工作，但我还是希望我能做得更详细、更简单，为有需要的朋友省下一番功夫。注意，本系列教程默认读者为零基础的读者，所以会涉及很多基础概念，有一定基础的读者建议去查找其他教程。同时，因为技术会不停地发展，本教程的一些信息可能已经过时，如果你发现任何问题或者有改进建议，请在评论（需要注册 Github 帐号）指出或者联系我，我会及时更新。在此，感谢支持。
-当你面对一个陌生领域的挑战时，最困难的往往是开始动手这个决定。</description>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2021-11-14-3/</guid>
+      <description>
+        <![CDATA[
+        
+        <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-14/0.jpg" alt="img"></p>
+<p>回顾过去，我刚接触互联网时，还是 2G 时代，那时各类论坛博客和聊天室正蓬勃发展。这种跨越时空的交流方式让我感到非常新奇，看着屏幕吐出文字的时候，就感觉打开了一个新世界的大门。通过一根根网线，就可以[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-14-3/">https://lzxqaq.com/posts/2021-11-14-3/</a></p>
+        
+        ]]>
+      </description>
     </item>
+    
+    
+    
+    <item>
+      <title>从零开始的博客建站之旅-基础概念</title>
+      <link>https://lzxqaq.com/posts/2021-11-14-2/</link>
+      <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2021-11-14-2/</guid>
+      <description>
+        <![CDATA[
+        
+        <p>教程开始前，先来介绍一下最终的成果，以便确认是否符合你的需求。本篇教程以 Hugo 和 Github Pages 为基础，创建一个静态的网站。这个过程仅需要一台联网的电脑，不需要其他花费（注意：如果你[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-14-2/">https://lzxqaq.com/posts/2021-11-14-2/</a></p>
+        
+        ]]>
+      </description>
+    </item>
+    
+    
     
     <item>
       <title>从零开始搭建个人网站——小白篇</title>
-      <link>/posts/2021-6-1/</link>
+      <link>https://lzxqaq.com/posts/2021-6-1/</link>
       <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
-      
-      <guid>/posts/2021-6-1/</guid>
-      <description>前言 小白篇和前面正经篇的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的示例网站，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。
-准备工作（与前篇一致） 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是你网站网址的一部分）
-补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。
-2.准备Git。
-（1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
-（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 git config --global user.email &amp;quot;你注册Github所用的邮箱&amp;quot; 回车执行，再输入 git config --global user.name &amp;quot;你的昵称&amp;quot; 回车执行。
-3.安装 Hugo。（官方教程可看这里)
-（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。
-（2）前往这里，找到并下载 hugo_Windows-64bit.zip。解压，如果是一个 hugo_windows_amd64.exe 文件，将它改名为 hugo.exe。
-（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。
-（4）配置环境变量。方法1:在 win10 搜索 cmd，右键以管理员身份打开命令提示符，将 setx &amp;quot;Path&amp;quot; &amp;quot;%PATH%;D:\Hugo\bin&amp;quot; /m 复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&amp;gt;编辑-&amp;gt;新建，然后将 D:\Hugo\bin 复制进去，确定。</description>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2021-6-1/</guid>
+      <description>
+        <![CDATA[
+        
+        <h3 id="前言">前言</h3>
+<p>小白篇和前面<a href="../2021-2-18-2/">正经篇</a>的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的<a href="https://gitee.com/lzxqaq/demosite.git">示例网站</a>，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对[&hellip;] <a href="https://lzxqaq.com/posts/2021-6-1/">https://lzxqaq.com/posts/2021-6-1/</a></p>
+        
+        ]]>
+      </description>
     </item>
+    
+    
     
     <item>
       <title>从零开始搭建个人网站（win10,Github,Hugo）</title>
-      <link>/posts/2021-2-18-2/</link>
+      <link>https://lzxqaq.com/posts/2021-2-18-2/</link>
       <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
-      
-      <guid>/posts/2021-2-18-2/</guid>
-      <description>准备工作 1.注册 Github 帐号。前往 github.com 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）
-补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。
-2.准备Git。
-（1）下载安装。前往 这里 ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。
-（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 git config --global user.email &amp;quot;你注册Github所用的邮箱&amp;quot; 回车执行，再输入 git config --global user.name &amp;quot;你的昵称&amp;quot; 回车执行。
-3.安装 Hugo。（官方教程可看这里)
-（1）首先在 D 盘创建一个新文件夹 Hugo，然后在里面创建 bin 和 sites两个文件夹。bin 将用来放 Hugo 的可执行文件，sites 将用来放你的网站的源代码。
-（2）前往这里，找到并下载 hugo_Windows-64bit.zip。解压，如果是一个 hugo_windows_amd64.exe 文件，将它改名为 hugo.exe。
-（3）将这个 hugo.exe 文件移动到刚刚创建的 bin 文件夹里。
-（4）配置环境变量。方法1:在 win10 搜索 cmd，右键以管理员身份打开命令提示符，将 setx &amp;quot;Path&amp;quot; &amp;quot;%PATH%;D:\Hugo\bin&amp;quot; /m 复制粘贴上去，回车（输入命令后需回车执行，后文不再赘述）。 方法2：在 win10 搜索环境变量，进去找到系统变量中的 Path，-&amp;gt;编辑-&amp;gt;新建，然后将 D:\Hugo\bin 复制进去，确定。</description>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2021-2-18-2/</guid>
+      <description>
+        <![CDATA[
+        
+        <h3 id="准备工作">准备工作</h3>
+<p>1.注册 Github 帐号。前往 <a href="https://github.com/" target="_blank">github.com</a> 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）</p>
+<p>补充：Github 是一个代码托管平台（远程[&hellip;] <a href="https://lzxqaq.com/posts/2021-2-18-2/">https://lzxqaq.com/posts/2021-2-18-2/</a></p>
+        
+        ]]>
+      </description>
     </item>
     
-    <item>
-      <title>Linux 不同发行版的选择</title>
-      <link>/posts/2020-12-26/</link>
-      <pubDate>Sat, 26 Dec 2020 22:33:13 +0800</pubDate>
-      
-      <guid>/posts/2020-12-26/</guid>
-      <description>如果你对 Linux 感兴趣但还不了解，想知道 Linux 的不同发行版之间的区别，我的这些经历应该对你有帮助。
-我最初使用的是 Ubuntu，它以前经常被推荐为 Linux 入门选择。用了很长一段时间，它给我最大的感受是不稳定和笨重。会经常收到系统内部崩溃的通知，而且另一个问题是装其他显卡驱动时很艰难（做深度学习、玩游戏等等会用到），令我几度崩溃 T_T 。所以，我认为 Ubuntu 对新手非常不友好；
-后来我开始尝试 Deepin 系统，这是一款由国内深之度公司推出的发行版，预装软件最符合国人习惯，而且上手简单，系统不需要怎么配置就能拥有漂亮的界面。但是很快我就不能忍受它的软件源的落后。软件获取、维护便捷本该是 Linux 系统的一大优点，它可以为很多工作带来便利。
-接着我来到 Arch 的世界。遗憾的是 Arch Linux 我在尝试的中途便放弃了。它确实很棒，从零开始定制操作系统很诱人，但是因为时间关系，我需要的是能快速上手，成为主力的操作系统。
-最后，我接触到了很多人推荐的 Manjaro，它是为了让用户更方便使用的 Arch 衍生版。安装之后确实让我很惊喜，它完美符合我对操作系统的需求：上手简单、使用高效、美。而且尝试过后我才知道 Arch 系的软件仓库 AUR 有多强大。AUR 是一个社区维护的软件包仓库，有了它，你可以轻易获取到很多想要的软件。因此我很推荐使用 Manjaro。
-（顺便提一下最稳定发行版之一的 CentOS。当我想在服务器上尝试它时，它就被官宣抛弃了……）</description>
-    </item>
-    
-    <item>
-      <title>Java String 类真的不可以改变吗？</title>
-      <link>/posts/2020-12-15-2/</link>
-      <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
-      
-      <guid>/posts/2020-12-15-2/</guid>
-      <description>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这个变量引用的 char 数组的值虽然可以改变，但是String 类中并没有主动修改 这个 char 数组的方法。这就是通常所说 String 类不可变的依据。
-然而在学习反射的时候，我产生了一个疑问：我们不可以通过反射修改 String 内部的 char 数组的值吗？答案是可以的，了解 Java 反射的人很容易就做到这点。那为什么还说 String 不可变呢？在思考过后，我得出一个答案：String 的不可变说的是一种约束规范。换句话说，String 的不可变是有好处的。在实际工作中，代码是自己写来用的，没有人会费劲给自己找麻烦，而没有任何益处。
-事情到这里就完了？不，最近我再去了解 String 、String Pool（字符串常量池）的时候，又有了一些疑惑，于是亲手操刀给String 来了一次手术。最后也是加深了对 String 的理解，也验证了上面的观点。先上代码（如果你对任一实验结果感到疑惑，没关系，请带着疑惑来看后面的对照实验）：
-//实验1 String s1 = &amp;quot;1&amp;quot;; Field valueField = String.class.getDeclaredField(&amp;quot;value&amp;quot;); valueField.setAccessible(true); char[] value = (char[]) valueField.get(s1); value[0] = &#39;2&#39;; System.out.println(s1); //2 System.out.println((s1 == &amp;quot;1&amp;quot;)); //true 上述实验 1 做的事情就是：用 s1 = &amp;quot;1&amp;quot; 的方式创建字符串，用反射修改它的值为 &amp;quot;2&amp;quot;,最后用它与 &amp;quot;1&amp;quot; 比较，结果是 true 。琢磨琢磨，再看下一段代码：</description>
-    </item>
     
   </channel>
 </rss>

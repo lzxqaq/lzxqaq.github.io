@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>从零开始搭建个人网站——小白篇 - 沙加</title>
-    <meta property="og:title" content="从零开始搭建个人网站——小白篇 - 沙加">
+    <title>从零开始搭建个人网站——小白篇 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="从零开始搭建个人网站——小白篇 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -45,32 +45,38 @@
     <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css">
+
+
+
+
+
+
+
   </head>
   <body class="posts">
     <header class="masthead">
-      <h1><a href="/">沙加</a></h1>
+      
 
-<p class="tagline">我唯一知道的是我一无所知。</p>
+<h1><a href="/"><img src="/images/logo.png" alt="Yihui Xie" /></a></h1>
+
+
 
       <nav class="menu">
-  <input id="menu-check" type="checkbox" hidden/>
-  <label id="menu-label" for="menu-check" class="unselectable" hidden>
-    <span class="icon close-icon">✕</span>
-    <span class="icon open-icon">☰</span>
-    <span class="text">Menu</span>
-  </label>
   <ul>
   
   
   <li><a href="/">首页</a></li>
   
-  <li><a href="/posts">归档</a></li>
+  <li><a href="/posts/">归档</a></li>
   
-  <li><a href="/todos">日常</a></li>
+  <li><a href="/todos/">日常</a></li>
   
   <li><a href="/about/">关于</a></li>
   
-  <li><a href="/tags">标签</a></li>
+  <li><a href="/tags/">标签</a></li>
   
   <li><a href="/index.xml">订阅</a></li>
   
@@ -110,10 +116,9 @@ lzx
 
 
 
-
 <h3 id="前言">前言</h3>
 <p>小白篇和前面<a href="../2021-2-18-2/">正经篇</a>的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的<a href="https://gitee.com/lzxqaq/demosite.git">示例网站</a>，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对空荡荡的网站不知所措的尴尬。</p>
-<h3 id="准备工作与前篇一致">准备工作（与前篇一致）</h3>
+<h3 id="准备工作-与前篇一致">准备工作（与前篇一致）</h3>
 <p>1.注册 Github 帐号。前往 <a href="https://github.com/" target="_blank">github.com</a> 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是你网站网址的一部分）</p>
 <p>补充：Github 是一个代码托管平台（远程仓库），你可以将网站的源代码放在上面，Github Pages 是一个免费的静态网站服务，你将网站的源文件放在上面，它会提供一个链接，使互联网上的人都能访问你的网站。</p>
 <p>2.准备Git。</p>
@@ -149,16 +154,34 @@ git push --set-upstream origin master
 
   <footer>
   
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/posts/2021-5-25/">只爱陌生人</a></span>
+  <span class="nav-next"><a href="/posts/2021-6-10/">网站搭建一二事</a> &rarr;</span>
+</nav>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/comment-utils.min.js,npm/@xiee/utils/js/fix-toc.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/fix-footnote.min.js,npm/@xiee/utils/js/math-code.min.js,npm/@xiee/utils/js/hash-notes.min.js,npm/@xiee/utils/js/toggle-notes.min.js,npm/@xiee/utils/js/post-nav.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/alt-title.min.js,npm/@xiee/utils/js/heading-anchor.min.js,npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/auto-render.min.js,npm/@xiee/utils/js/render-katex.js" defer></script>
+
+
   
-
-
-
-
-
-
-
-<script src="//cdn.jsdelivr.net/combine/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js,npm/@xiee/utils/js/load-highlight.js" defer></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rstudio/markdown/inst/resources/prism-xcode.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-core.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>
 
 
   
@@ -181,4 +204,3 @@ if (!doNotTrack) {
 
   </body>
 </html>
-

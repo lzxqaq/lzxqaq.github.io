@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>从零开始的博客建站之旅-准备工作 - 沙加</title>
-    <meta property="og:title" content="从零开始的博客建站之旅-准备工作 - 沙加">
+    <title>从零开始的博客建站之旅-准备工作 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="从零开始的博客建站之旅-准备工作 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -45,32 +45,38 @@
     <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css">
+
+
+
+
+
+
+
   </head>
   <body class="posts">
     <header class="masthead">
-      <h1><a href="/">沙加</a></h1>
+      
 
-<p class="tagline">我唯一知道的是我一无所知。</p>
+<h1><a href="/"><img src="/images/logo.png" alt="Yihui Xie" /></a></h1>
+
+
 
       <nav class="menu">
-  <input id="menu-check" type="checkbox" hidden/>
-  <label id="menu-label" for="menu-check" class="unselectable" hidden>
-    <span class="icon close-icon">✕</span>
-    <span class="icon open-icon">☰</span>
-    <span class="text">Menu</span>
-  </label>
   <ul>
   
   
   <li><a href="/">首页</a></li>
   
-  <li><a href="/posts">归档</a></li>
+  <li><a href="/posts/">归档</a></li>
   
-  <li><a href="/todos">日常</a></li>
+  <li><a href="/todos/">日常</a></li>
   
   <li><a href="/about/">关于</a></li>
   
-  <li><a href="/tags">标签</a></li>
+  <li><a href="/tags/">标签</a></li>
   
   <li><a href="/index.xml">订阅</a></li>
   
@@ -110,20 +116,19 @@ lzx
 
 
 
-
-<h3 id="一注册-github-帐号">一、注册 Github 帐号</h3>
+<h3 id="一-注册-github-帐号">一、注册 Github 帐号</h3>
 <p>（1）.前往 <a href="https://github.com/">github.com</a> 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）</p>
 <p>（2）在 Github 中创建一个名为 你的仓库名字.github.io 的仓库。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/-2.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/-1.png" alt="img"></p>
-<h3 id="二安装-git">二、安装 Git</h3>
+<h3 id="二-安装-git">二、安装 Git</h3>
 <p>（1）下载安装。前往 <a href="https://git-scm.com/download/win" target="_blank">这里</a> ，点击下载 Git-**-64-bit.exe。然后安装，不懂的话一直 next 。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/0.png" alt="img"></p>
 <p>（2）配置。在 win10 搜索 cmd ，打开命令提示符，输入 <code>git config --global user.email &quot;你注册Github所用的邮箱&quot;</code> 回车执行，再输入 <code>git config --global user.name &quot;你的昵称&quot;</code> 回车执行。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/1.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/2.png" alt="img"></p>
 <p>注意：这种方式打开命令窗口会默认进入 C 盘的用户目录。如果需要切换到其他目录，比如我们后面所用的 <code>D:/hugo/site/blog</code> 目录，则需要先执行 <code>D:</code> 切换盘符，然后执行 <code>cd hugo/site/blog</code>，其中 <code>cd</code> 就是进入目录的命令，后面是需要进入的文件夹，有时候我们需要返回上一层目录，则可以执行 <code>cd ..</code> 来完成。后面会有相关操作。</p>
-<h3 id="三安装-hugo">三、安装 Hugo</h3>
+<h3 id="三-安装-hugo">三、安装 Hugo</h3>
 <p>（1）首先在 D 盘创建一个新文件夹 hugo，然后在里面创建 bin 和 site 两个文件夹。bin 将用来放 Hugo 的可执行文件，site 将用来放你的网站的源代码。</p>
 <p>（2）前往<a href="https://github.com/spf13/hugo/releases">https://github.com/spf13/hugo/releases</a>，找到并下载 hugo_<em><em>Windows-64bit.zip。解压，如果是一个 hugo</em></em>_windows_amd64.exe 文件，将它改名为 hugo.exe。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-15/3.png" alt="img"></p>
@@ -138,6 +143,30 @@ lzx
 
   <footer>
   
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/posts/2021-11-14-2/">从零开始的博客建站之旅-基础概念</a></span>
+  <span class="nav-next"><a href="/posts/2021-11-16/">文非加粗描红不能读也？</a> &rarr;</span>
+</nav>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/comment-utils.min.js,npm/@xiee/utils/js/fix-toc.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/fix-footnote.min.js,npm/@xiee/utils/js/math-code.min.js,npm/@xiee/utils/js/hash-notes.min.js,npm/@xiee/utils/js/toggle-notes.min.js,npm/@xiee/utils/js/post-nav.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/alt-title.min.js,npm/@xiee/utils/js/heading-anchor.min.js,npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/auto-render.min.js,npm/@xiee/utils/js/render-katex.js" defer></script>
+
+
   
 
   
@@ -160,4 +189,3 @@ if (!doNotTrack) {
 
   </body>
 </html>
-

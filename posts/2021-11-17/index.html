@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>从零开始的博客建站之旅-搭建 - 沙加</title>
-    <meta property="og:title" content="从零开始的博客建站之旅-搭建 - 沙加">
+    <title>从零开始的博客建站之旅-搭建 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="从零开始的博客建站之旅-搭建 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -44,32 +44,38 @@
     <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css">
+
+
+
+
+
+
+
   </head>
   <body class="posts">
     <header class="masthead">
-      <h1><a href="/">沙加</a></h1>
+      
 
-<p class="tagline">我唯一知道的是我一无所知。</p>
+<h1><a href="/"><img src="/images/logo.png" alt="Yihui Xie" /></a></h1>
+
+
 
       <nav class="menu">
-  <input id="menu-check" type="checkbox" hidden/>
-  <label id="menu-label" for="menu-check" class="unselectable" hidden>
-    <span class="icon close-icon">✕</span>
-    <span class="icon open-icon">☰</span>
-    <span class="text">Menu</span>
-  </label>
   <ul>
   
   
   <li><a href="/">首页</a></li>
   
-  <li><a href="/posts">归档</a></li>
+  <li><a href="/posts/">归档</a></li>
   
-  <li><a href="/todos">日常</a></li>
+  <li><a href="/todos/">日常</a></li>
   
   <li><a href="/about/">关于</a></li>
   
-  <li><a href="/tags">标签</a></li>
+  <li><a href="/tags/">标签</a></li>
   
   <li><a href="/index.xml">订阅</a></li>
   
@@ -109,28 +115,27 @@ lzx
 
 
 
-
-<h3 id="一在本地创建网站">一、在本地创建网站</h3>
+<h3 id="一-在本地创建网站">一、在本地创建网站</h3>
 <p>（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 <code>cmd </code> 加空格，回车。这样打开命令窗口的同时，进入了相应的目录），执行命令 <code>hugo new site blog</code> ，如出现 Congratulations! 提示则成功。（此时可在文件资源管理器中查看生成的文件，blog 是任意取的一个文件夹名字，但为了方便教程工作，请统一）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/1.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/2.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/3.png" alt="img"></p>
-<h3 id="二下载主题模板以-hugo-ivy-为例">二、下载主题模板（以 hugo-ivy ）为例</h3>
+<h3 id="二-下载主题模板-以-hugo-ivy-为例">二、下载主题模板（以 hugo-ivy ）为例</h3>
 <p>（1）接着回到刚刚的命令窗口，输入执行 <code>cd blog\themes</code> 进入 themes 目录。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/4.png" alt="img"></p>
 <p>（2）下载主题模板（ hugo-ivy ）。接上述步骤，在命令窗口中 执行 <code>git clone https://github.com/yihui/hugo-ivy.git</code> 来下载 hugo.386 主题。下载完成后，blog/themes 文件夹里面就可以看到下载好的主题了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/6.png" alt="img"></p>
-<h3 id="三修改网站配置">三、修改网站配置</h3>
+<h3 id="三-修改网站配置">三、修改网站配置</h3>
 <p>将 themes/hugo-ivy/exampleSite 文件夹中的 config.yaml 文件复制到文件夹 blog 下，并删除原有的 config.toml 。用记事本或者其他文本编辑工具，根据需要修改相应的内容。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/7.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/8.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/9.png" alt="img"></p>
-<h3 id="四网站本地预览">四、网站本地预览</h3>
+<h3 id="四-网站本地预览">四、网站本地预览</h3>
 <p>用命令窗口进入 blog 目录，先执行 <code>hugo</code> 生成网页文件，再执行 <code>hugo server</code> 开启预览。打开浏览器，访问 localhost:1313 。（注意，这个命令窗口需要保持到你不需要预览网站的时候，届时可以用两次 Ctrl + c 停止，或者直接关闭窗口）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/11.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/12.png" alt="img"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-17/10.png" alt="img"></p>
-<h3 id="五将网站推送到-github-平台">五、将网站推送到 Github 平台</h3>
+<h3 id="五-将网站推送到-github-平台">五、将网站推送到 Github 平台</h3>
 <p>（2）打开命令窗口，进入 blog\public 目录，分别执行</p>
 <pre><code>git init 
 git add .
@@ -147,16 +152,34 @@ git push --set-upstream origin master
 
   <footer>
   
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/posts/2021-11-16-afterdark/">《天黑以后》</a></span>
+  <span class="nav-next"><a href="/posts/2021-11-18/">从零开始的博客建站之旅-修改菜单栏和文章创作</a> &rarr;</span>
+</nav>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/comment-utils.min.js,npm/@xiee/utils/js/fix-toc.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/fix-footnote.min.js,npm/@xiee/utils/js/math-code.min.js,npm/@xiee/utils/js/hash-notes.min.js,npm/@xiee/utils/js/toggle-notes.min.js,npm/@xiee/utils/js/post-nav.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/alt-title.min.js,npm/@xiee/utils/js/heading-anchor.min.js,npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/auto-render.min.js,npm/@xiee/utils/js/render-katex.js" defer></script>
+
+
   
-
-
-
-
-
-
-
-<script src="//cdn.jsdelivr.net/combine/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js,npm/@xiee/utils/js/load-highlight.js" defer></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rstudio/markdown/inst/resources/prism-xcode.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-core.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>
 
 
   
@@ -179,4 +202,3 @@ if (!doNotTrack) {
 
   </body>
 </html>
-

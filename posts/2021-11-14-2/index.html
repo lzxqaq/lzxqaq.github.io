@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>从零开始的博客建站之旅-基础概念 - 沙加</title>
-    <meta property="og:title" content="从零开始的博客建站之旅-基础概念 - 沙加">
+    <title>从零开始的博客建站之旅-基础概念 - Zexun Luo | 罗泽勋</title>
+    <meta property="og:title" content="从零开始的博客建站之旅-基础概念 - Zexun Luo | 罗泽勋">
     
     <meta name="twitter:card" content="summary">
 
@@ -38,32 +38,38 @@ Hugo &amp;hellip;">
     <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css">
+
+
+
+
+
+
+
   </head>
   <body class="posts">
     <header class="masthead">
-      <h1><a href="/">沙加</a></h1>
+      
 
-<p class="tagline">我唯一知道的是我一无所知。</p>
+<h1><a href="/"><img src="/images/logo.png" alt="Yihui Xie" /></a></h1>
+
+
 
       <nav class="menu">
-  <input id="menu-check" type="checkbox" hidden/>
-  <label id="menu-label" for="menu-check" class="unselectable" hidden>
-    <span class="icon close-icon">✕</span>
-    <span class="icon open-icon">☰</span>
-    <span class="text">Menu</span>
-  </label>
   <ul>
   
   
   <li><a href="/">首页</a></li>
   
-  <li><a href="/posts">归档</a></li>
+  <li><a href="/posts/">归档</a></li>
   
-  <li><a href="/todos">日常</a></li>
+  <li><a href="/todos/">日常</a></li>
   
   <li><a href="/about/">关于</a></li>
   
-  <li><a href="/tags">标签</a></li>
+  <li><a href="/tags/">标签</a></li>
   
   <li><a href="/index.xml">订阅</a></li>
   
@@ -103,7 +109,6 @@ lzx
 
 
 
-
 <p>教程开始前，先来介绍一下最终的成果，以便确认是否符合你的需求。本篇教程以 Hugo 和 Github Pages 为基础，创建一个静态的网站。这个过程仅需要一台联网的电脑，不需要其他花费（注意：如果你想自定义域名，则需要自行购买域名，后面会有相关介绍）。下文提到的概念理论只需要有一个模糊的认识就足够了，不需要理解透彻，因为在后续文章中会具体介绍其用法，届时就会有更直观的认识了。</p>
 <p>Hugo 和 Github Pages 稍后会介绍，我们先来了解什么是静态网站。静态网站是由静态网页文件（也就是HTML文件)组成，它不需要服务器运行，也不需要数据库。我们将组成网站的这些网页文件上传到服务器上，别人就可以在互联网上通过这台服务器的地址或域名（例如 <a href="https://www.lzxqaq.com">www.lzxqaq.com</a>)访问这些网页文件，这就是静态网站的大致原理。</p>
 <p>不过，这里所说的服务器并非我们日常所用的电脑，因为我们日常所用的电脑都是在局域网里，是不能让整个互联网的人都能访问到的。所以一般都要用所谓的云服务器，例如阿里云服务器、华为云服务器等等。不过现在有一些平台提供了免费的站点服务，我们就不需要购买昂贵的服务器了。例如本教程中使用的 Github Pages 服务，我们可以将网站托管到 Github 平台上，让平台帮我们把网站跑起来并在互联网上可以访问。</p>
@@ -116,6 +121,27 @@ lzx
 
   <footer>
   
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/posts/2021-11-14-3/">从零开始的博客建站之旅-开篇</a></span>
+  <span class="nav-next"><a href="/posts/2021-11-15/">从零开始的博客建站之旅-准备工作</a> &rarr;</span>
+</nav>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/comment-utils.min.js,npm/@xiee/utils/js/fix-toc.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/fix-footnote.min.js,npm/@xiee/utils/js/math-code.min.js,npm/@xiee/utils/js/hash-notes.min.js,npm/@xiee/utils/js/toggle-notes.min.js,npm/@xiee/utils/js/post-nav.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/alt-title.min.js,npm/@xiee/utils/js/heading-anchor.min.js,npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+
+
+
+
+
+
+
+
+
   
 
   
@@ -138,4 +164,3 @@ if (!doNotTrack) {
 
   </body>
 </html>
-
