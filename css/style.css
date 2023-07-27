@@ -456,14 +456,50 @@ thead, tfoot, tr:nth-child(even) {
 
 
 /*  yihui.org */
+@media screen and (max-width: 960px) {
+  .homepage {
+    margin: 0 2rem;
+  }
+}
+
 @media screen and (min-width: 961px) {
+   body {
+    margin: 0;
+   }
+  .homepage {
+    width: 100%;
+    margin: 0;
+  }
+  .homecontent {
+    padding: 6em 0 2rem 0;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+  }
+  .hometext {
+    width: 50%;
+    margin-left: 2rem;
+    margin-right: 4rem;
+    margin-bottom: 4rem;
+  }
+  .homeimg {
+    text-align: right;
+    margin-right: 4rem;
+    width: 40%;
+  }
+  .homeimg img {
+    width: 100%;
+  }
+
   .masthead {
     position: sticky;
     top: 0;
     min-height: 100vh;
     border-right: 3px solid #ddd;
     color: #3a0f03;
-    
+    float: left;
     width: 220px;
     padding: 2em 1em;
   }
@@ -484,8 +520,9 @@ thead, tfoot, tr:nth-child(even) {
 }
 
 body {
-  background-color: #fffbf2;
-  color: #3a0f03;
+  
+  background-color: #fff7f5;
+  /* color: #3a0f03; */
 
   width: auto;
   padding: 0;
