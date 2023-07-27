@@ -471,7 +471,7 @@ thead, tfoot, tr:nth-child(even) {
     margin: 0;
   }
   .homecontent {
-    padding: 6em 0 2rem 0;
+    padding: 6em 0 0 0;
     margin-right: auto;
     margin-left: auto;
     max-width: 1440px;
