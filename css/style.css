@@ -458,7 +458,7 @@ thead, tfoot, tr:nth-child(even) {
 /*  yihui.org */
 @media screen and (max-width: 960px) {
   .homepage {
-    margin: 0 2rem;
+    margin: 0 32px;
   }
 }
 
@@ -471,7 +471,7 @@ thead, tfoot, tr:nth-child(even) {
     margin: 0;
   }
   .homecontent {
-    padding: 6em 0 0 0;
+    padding: 96px 0 0 0;
     margin-right: auto;
     margin-left: auto;
     max-width: 1440px;
@@ -480,13 +480,13 @@ thead, tfoot, tr:nth-child(even) {
   }
   .hometext {
     width: 50%;
-    margin-left: 2rem;
-    margin-right: 4rem;
-    margin-bottom: 4rem;
+    margin-left: 32px;
+    margin-right: 64px;
+    margin-bottom: 64px;
   }
   .homeimg {
     text-align: right;
-    margin-right: 4rem;
+    margin-right: 64px;
     width: 40%;
   }
   .homeimg img {
