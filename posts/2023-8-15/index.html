@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>低功耗设计与验证 - Shaka| 沙加</title>
+    <meta property="og:title" content="低功耗设计与验证 - Shaka| 沙加">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+    
+      
+    
+
+    
+      
+      <meta property="description" content="功耗是现代复杂芯片最重要的维度之一。设计人员可利用功率门控、电压调整、体偏压等复杂功耗分析技术来节省功耗及减少散热。因此，芯片的功耗分析验证是一个相当复杂的过程。功耗管理调试的难度导致大量 EDA 供应商不仅要提供功耗分析前端仿真与硬件加速仿真功能，而且还要推出聚焦于功耗管理验证的工具 —— 从静态分析和基于规则的功耗检查，到功耗分析逻辑等效性检查和 Layout 工具，从前端设计阶段一直到后端实 &amp;hellip;">
+      <meta property="og:description" content="功耗是现代复杂芯片最重要的维度之一。设计人员可利用功率门控、电压调整、体偏压等复杂功耗分析技术来节省功耗及减少散热。因此，芯片的功耗分析验证是一个相当复杂的过程。功耗管理调试的难度导致大量 EDA 供应商不仅要提供功耗分析前端仿真与硬件加速仿真功能，而且还要推出聚焦于功耗管理验证的工具 —— 从静态分析和基于规则的功耗检查，到功耗分析逻辑等效性检查和 Layout 工具，从前端设计阶段一直到后端实 &amp;hellip;">
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/key-buttons.min.css">
+
+
+
+
+
+
+
+  </head>
+  <body class="posts">
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/logo.png" alt="Zexun Luo" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/posts/">归档</a></li>
+  
+  <li><a href="/todos/">日常</a></li>
+  
+  <li><a href="/about/">关于</a></li>
+  
+  <li><a href="/tags/">标签</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>低功耗设计与验证</h1>
+
+
+
+<h3>
+
+lzx
+
+
+
+
+
+
+ / 
+2023-08-15
+</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+
+<h3 id="一-简介">一. 简介</h3>
+<p>功耗是现代复杂芯片最重要的维度之一。设计人员可利用功率门控、电压调整、体偏压等复杂功耗分析技术来节省功耗及减少散热。因此，芯片的功耗分析验证是一个相当复杂的过程。功耗管理调试的难度导致大量 EDA 供应商不仅要提供功耗分析前端仿真与硬件加速仿真功能，而且还要推出聚焦于功耗管理验证的工具 —— 从静态分析和基于规则的功耗检查，到功耗分析逻辑等效性检查和 Layout 工具，从前端设计阶段一直到后端实现阶段。</p>
+<p>功耗管理调试已渗透到传统 HDL 仿真的方方面面，几乎所有的主要 EDA 供应商都需要提供如下功耗专用调试特性：UPF（统一功耗格式） 创建对象的可视化，RTL 源和波形窗口中的 HDL 信号着色和高亮显示，功耗相关的动态信息／状态消息，功耗专用断言的自动生成以及功耗报告的生成。</p>
+<h3 id="二-分类">二、分类</h3>
+<p>功耗分析主要可以分为两个部分 静态功耗和 动态功耗。</p>
+<h4 id="1-静态功耗-漏电流功耗-leakage-power">1. 静态功耗（漏电流功耗 leakage power）</h4>
+<p>CMOS电路中，静态功耗主要是漏电流引起的功耗。即使电路处于静止状态，没有时钟，没有任何switching，这部分功耗依然存在。</p>
+<p>漏电流的计算主要通过.lib中的数据，从而选定一种或几种适合当前design需求的library。如 CellA 相比 CellB 的 leakage 比较大，因此再做 PR 时就不会选 CellA。</p>
+<h4 id="1-1-编译时的静态验证">1.1 编译时的静态验证</h4>
+<p>许多工具会根据 UPF 中描述的 PST 和功耗状态，以统计方式确定域边界处隔离和电平转换器单元的需求。</p>
+<h4 id="2-动态功耗">2. 动态功耗</h4>
+<h4 id="2-1-开关功耗-switch-power">2.1 开关功耗（Switch Power）</h4>
+<p>Switch Power是在CMOS电路中，对负载电容进行充放电时消耗的功耗。通过开关功耗的公式 <code>Pswitch = 0.5 * V^2 * C * Tr</code> 计算。</p>
+<h4 id="2-2-内部功耗-internal-power">2.2 内部功耗(Internal Power)</h4>
+<p>内部功耗(Internal Power)也称短路功耗，是由于信号翻转时，有一段时间 PMOS 和 NMOS 同时导通，那么电源 VDD 到地 VSS 之间就有了通路，形成短路电流。</p>
+<p>内部功耗的公式：<code>Pshort = Tr * V * Qx</code></p>
+<p>由于这部分是由标准单元内部switch造成的功耗。工具根据.lib里的数据计算这部分功耗。输入A变化引起的功耗。工具根据输入A的transition time查询rise_power, fall_power 表。</p>
+<h3 id="三-功耗分析工具">三、功耗分析工具</h3>
+<p>功耗分析预测分析工具包括PowerArtist（Ansys）、Spyglass Power（Synopsys）、Prime Time PX（Synopsys）和Redhawk（Ansys）等。
+下表为不同功耗分析工具的比较。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">RTL功耗</th>
+<th style="text-align:left">门级功耗</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">工具</td>
+<td style="text-align:left">PowerArtist &amp; Spyglass</td>
+<td style="text-align:left">PrimeTime PX</td>
+<td style="text-align:left">Redhawk</td>
+</tr>
+<tr>
+<td style="text-align:left">目的</td>
+<td style="text-align:left">为设计提供建议</td>
+<td style="text-align:left">准确的功耗估计</td>
+<td style="text-align:left">静态和动态分析</td>
+</tr>
+<tr>
+<td style="text-align:left">使用难度</td>
+<td style="text-align:left">易用，适用于硅前验证早期</td>
+<td style="text-align:left">复杂，适合在门级</td>
+<td style="text-align:left">复杂，适合在门级</td>
+</tr>
+<tr>
+<td style="text-align:left">专注领域</td>
+<td style="text-align:left">功耗管理的功能优化</td>
+<td style="text-align:left">布局布线的影响</td>
+<td style="text-align:left">能耗一致性问题调试</td>
+</tr>
+</tbody>
+</table>
+<h3 id="四-低功耗与断言-sva">四、低功耗与断言（SVA）</h3>
+<p>系统 Verilog 断言 (SVA) 是动态验证低功耗设计的强有力方法。断言可用来验证功耗控制逻辑序列，以及确保功耗模式转变之前和之后能满足特定要求。许多 EDA 供应商会提供自动化的、工具生成的断言，以
+在运行时检查隔离和电平转换器单元是否缺少或不正确。针对域边界处的每个接口信号都会插入一个断言，检查是否需要隔离和电平转换器单元。</p>
+<h3 id="五-ic-设计中的功耗分析流程">五、IC 设计中的功耗分析流程</h3>
+<h4 id="1-逻辑综合后的功耗分析-以-synopsys-设计流程为例">1. 逻辑综合后的功耗分析（以 Synopsys 设计流程为例）</h4>
+<p>PTPX所需文件：</p>
+<ul>
+<li>
+<p>1.逻辑综合后的verilog文件（.v）</p>
+</li>
+<li>
+<p>2.静态时序分析时用到的约束文件(.sdc)</p>
+</li>
+<li>
+<p>3.RTL的仿真波形文件（.vcd）</p>
+</li>
+<li>
+<p>4.有功耗信息的库文件(.db)</p>
+</li>
+</ul>
+<p>Synopsys PTPX 功耗分析的流程：</p>
+<ul>
+<li>
+<p>1.允许功耗分析功能；</p>
+</li>
+<li>
+<p>2.设置分析模式（average：不用仿真文件；time-based，时序仿真件）；</p>
+</li>
+<li>
+<ol start="3">
+<li>读入设计和库文件 ；</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>指定operating condition；</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>时序分析；</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li>获取activity data（rtl-level or gate-level）</li>
+</ol>
+</li>
+<li>
+<ol start="7">
+<li>设置功耗分析选项；</li>
+</ol>
+</li>
+<li>
+<ol start="8">
+<li>功耗分析；</li>
+</ol>
+</li>
+<li>
+<ol start="9">
+<li>生成功耗分析报告；</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-布局布线后的功耗分析">2. 布局布线后的功耗分析</h4>
+<p>与综合后功耗分析流程类似。</p>
+<h3 id="六-提高验证效率和电路规模">六、提高验证效率和电路规模</h3>
+<p>现代 EDA 产商 多使用 multi-threaded(多线程)、distributed processing(分布式运算)和Hierarchical analysis(分层分析)技术提高验证效率和电路规模。</p>
+
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/posts/2023-7-25/">数字芯片全流程开源工具集和学习资源</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/comment-utils.min.js,npm/@xiee/utils/js/fix-toc.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/fix-footnote.min.js,npm/@xiee/utils/js/math-code.min.js,npm/@xiee/utils/js/hash-notes.min.js,npm/@xiee/utils/js/toggle-notes.min.js,npm/@xiee/utils/js/post-nav.min.js,npm/@xiee/utils/js/external-link.min.js,npm/@xiee/utils/js/alt-title.min.js,npm/@xiee/utils/js/heading-anchor.min.js,npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://lzxqaq.com">Zexun Luo</a> 2020-2023 | <a href="https://github.com/lzxqaq">Github</a></div>
+  
+  </footer>
+  </article>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDTTBGMLCQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KDTTBGMLCQ', { 'anonymize_ip': false });
+}
+</script>
+
+  </body>
+</html>

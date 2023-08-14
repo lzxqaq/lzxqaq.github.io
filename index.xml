@@ -9,6 +9,24 @@
     
     
     <item>
+      <title>低功耗设计与验证</title>
+      <link>https://lzxqaq.com/posts/2023-8-15/</link>
+      <pubDate>Tue, 15 Aug 2023 01:52:40 +0800</pubDate>
+      <author>lzx</author>
+      <guid>https://lzxqaq.com/posts/2023-8-15/</guid>
+      <description>
+        <![CDATA[
+        
+        <h3 id="一-简介">一. 简介</h3>
+<p>功耗是现代复杂芯片最重要的维度之一。设计人员可利用功率门控、电压调整、体偏压等复杂功耗分析技术来节省功耗及减少散热。因此，芯片的功耗分析验证是一个相当复杂的过程。[&hellip;] <a href="https://lzxqaq.com/posts/2023-8-15/">https://lzxqaq.com/posts/2023-8-15/</a></p>
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
       <title>数字芯片全流程开源工具集和学习资源</title>
       <link>https://lzxqaq.com/posts/2023-7-25/</link>
       <pubDate>Tue, 25 Jul 2023 05:28:01 +0800</pubDate>
@@ -196,25 +214,6 @@
         <p>Twenty-five years and my life is still<br>
 廿五年过去 我的一生依旧波澜不惊<br>
 Trying to get up that great big hill of hope[&hellip;] <a href="https://lzxqaq.com/posts/2023-5-15-3/">https://lzxqaq.com/posts/2023-5-15-3/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>《Ordinary Day》</title>
-      <link>https://lzxqaq.com/posts/2023-5-15-2/</link>
-      <pubDate>Mon, 15 May 2023 02:50:32 +0800</pubDate>
-      <author>lzx</author>
-      <guid>https://lzxqaq.com/posts/2023-5-15-2/</guid>
-      <description>
-        <![CDATA[
-        
-        <p>This is just an ordinary day<br>
-Wipe the insecurities away<br>
-I can see that the darkness will erode[&hellip;] <a href="https://lzxqaq.com/posts/2023-5-15-2/">https://lzxqaq.com/posts/2023-5-15-2/</a></p>
         
         ]]>
       </description>
