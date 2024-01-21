@@ -9,101 +9,6 @@
     
     
     <item>
-      <title>中国的教育为何如此失败？</title>
-      <link>https://lzxqaq.com/posts/2023-8-26/</link>
-      <pubDate>Sat, 26 Aug 2023 01:39:15 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2023-8-26/</guid>
-      <description>
-        <![CDATA[
-        
-        <p>最近，日本福岛核电站处理水排放事件再次引发国内社会群体性癫狂现象。先表明我的观点：在核处理水安全方面，我相信国际原子能机构；在日本水产品食用安全方面，我相信日本人民。也就是说，我相信现代科学和人类文[&hellip;] <a href="https://lzxqaq.com/posts/2023-8-26/">https://lzxqaq.com/posts/2023-8-26/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>《国际歌》</title>
-      <link>https://lzxqaq.com/posts/2023-8-18/</link>
-      <pubDate>Fri, 18 Aug 2023 01:05:55 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2023-8-18/</guid>
-      <description>
-        <![CDATA[
-        
-        <pre><code>起来，饥寒交迫的奴隶，起来，全世界受苦的人！
-满腔的热血已经沸腾，要为真理而斗争！
-旧世界打个落花流水，奴隶们起来起来！
-不要说我们一无所有，我们要做天下的主人！
-这是最后的斗争，团结起来到明天，
-英[&hellip;] <a href="https://lzxqaq.com/posts/2023-8-18/">https://lzxqaq.com/posts/2023-8-18/</a></code></pre>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>低功耗设计与验证</title>
-      <link>https://lzxqaq.com/posts/2023-8-15/</link>
-      <pubDate>Tue, 15 Aug 2023 01:52:40 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2023-8-15/</guid>
-      <description>
-        <![CDATA[
-        
-        <h3 id="一-简介">一. 简介</h3>
-<p>功耗是现代复杂芯片最重要的维度之一。设计人员可利用功率门控、电压调整、体偏压等复杂功耗分析技术来节省功耗及减少散热。因此，芯片的功耗分析验证是一个相当复杂的过程。[&hellip;] <a href="https://lzxqaq.com/posts/2023-8-15/">https://lzxqaq.com/posts/2023-8-15/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>数字芯片全流程开源工具集和学习资源</title>
-      <link>https://lzxqaq.com/posts/2023-7-25/</link>
-      <pubDate>Tue, 25 Jul 2023 05:28:01 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2023-7-25/</guid>
-      <description>
-        <![CDATA[
-        
-        <h3 id="一-解析器">一、解析器</h3>
-<ul>
-<li><a href="https://github.com/chipsalliance/verible">verible</a></li>
-</ul>
-<p>Verible 是一组基于通用 SystemVerilog 解析引擎的工具，提供命令行界面，可以轻松地与其他日常使用工具或 CI 系统集成以进行自动测试和部署。[&hellip;] <a href="https://lzxqaq.com/posts/2023-7-25/">https://lzxqaq.com/posts/2023-7-25/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>Linux 之最终奥义：双 Arch 大法！</title>
-      <link>https://lzxqaq.com/posts/2023-7-23/</link>
-      <pubDate>Sun, 23 Jul 2023 09:53:28 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2023-7-23/</guid>
-      <description>
-        <![CDATA[
-        
-        <p>昨天因为修改了一些内核参数，我的 Arch Linux 无法启动了，因为出差在外没带 U 盘，所以又又又买了一个，做成启动盘修复系统。在这次事故里，我领悟到折腾 Linux 的最终方案：双 Arch。[&hellip;] <a href="https://lzxqaq.com/posts/2023-7-23/">https://lzxqaq.com/posts/2023-7-23/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
       <title>罗翔、余华谈话《兄弟》</title>
       <link>https://lzxqaq.com/posts/2023-7-16/</link>
       <pubDate>Sun, 16 Jul 2023 08:26:45 +0800</pubDate>
@@ -123,19 +28,17 @@
     
     
     <item>
-      <title>经验杂谈：软件工程在实践中的应用</title>
-      <link>https://lzxqaq.com/posts/2023-7-9/</link>
-      <pubDate>Sun, 09 Jul 2023 09:45:37 +0800</pubDate>
+      <title>YOUTH</title>
+      <link>https://lzxqaq.com/posts/2022-5-20/</link>
+      <pubDate>Fri, 20 May 2022 14:02:06 +0800</pubDate>
       <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2023-7-9/</guid>
+      <guid>https://lzxqaq.com/posts/2022-5-20/</guid>
       <description>
         <![CDATA[
         
-        <pre><code>在软件工程中前期花的时间越多，后期就越舒坦。
-—— 五星上将 道格拉斯·麦克阿瑟 ( ・◇・)？
-</code></pre>
-<h3 id="0-背景">0. 背景</h3>
-<p>作为一名程序员，为了娱乐或者学习，在工作之外我写过不少业余项目，然而大部分中途夭折，即使[&hellip;] <a href="https://lzxqaq.com/posts/2023-7-9/">https://lzxqaq.com/posts/2023-7-9/</a></p>
+        <h1 id="samuel-ullman">— Samuel Ullman</h1>
+<blockquote>
+<p>Youth is not a time of life, it is a state of mind; it is not a matter of rosy[&hellip;] <a href="https://lzxqaq.com/posts/2022-5-20/">https://lzxqaq.com/posts/2022-5-20/</a></p></blockquote>
         
         ]]>
       </description>
@@ -144,17 +47,15 @@
     
     
     <item>
-      <title>我的希比欧</title>
-      <link>https://lzxqaq.com/posts/2023-7-6/</link>
-      <pubDate>Thu, 06 Jul 2023 21:22:15 +0800</pubDate>
+      <title>落后就要挨打吗</title>
+      <link>https://lzxqaq.com/posts/2022-4-2/</link>
+      <pubDate>Sat, 02 Apr 2022 12:34:49 +0800</pubDate>
       <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2023-7-6/</guid>
+      <guid>https://lzxqaq.com/posts/2022-4-2/</guid>
       <description>
         <![CDATA[
         
-        <pre><code>因为有痛苦，所以快乐也一定会相应存在。
-</code></pre>
-<p>好久都没认真织下我的希比欧了。很多时候我写了很多很多，但是最后都埋在了草稿里。借着最近冒出的动力，总结一下过去一两年：我经历了一系列很糟糕的事，最后在近乎精神[&hellip;] <a href="https://lzxqaq.com/posts/2023-7-6/">https://lzxqaq.com/posts/2023-7-6/</a></p>
+        <p>今天下班回家的路上，我走在一条十字路口的斑马线上，一辆车从后方疾驰而来，在离我不到半米的地方刹停了。急促的喇叭声中，我看向了这辆想转弯到我左边的车，才意识到我又躲过一劫。司机透过车窗看着我，我们对视了[&hellip;] <a href="https://lzxqaq.com/posts/2022-4-2/">https://lzxqaq.com/posts/2022-4-2/</a></p>
         
         ]]>
       </description>
@@ -163,29 +64,22 @@
     
     
     <item>
-      <title>《我去2000年》</title>
-      <link>https://lzxqaq.com/posts/2023-7-3/</link>
-      <pubDate>Mon, 03 Jul 2023 23:26:46 +0800</pubDate>
+      <title>认知世界形势变化</title>
+      <link>https://lzxqaq.com/posts/2022-3-20/</link>
+      <pubDate>Sun, 20 Mar 2022 10:13:40 +0800</pubDate>
       <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2023-7-3/</guid>
+      <guid>https://lzxqaq.com/posts/2022-3-20/</guid>
       <description>
         <![CDATA[
         
-        <p>没有人仰望蓝天</p>
-<p>繁星密布的夜</p>
-<p>我和我那些秘密</p>
-<p>又能唱给谁听</p>
-<p>你听不清吗</p>
-<p>你看不见吗</p>
-<p>你的大脑呢</p>
-<p>大家醉了</p>
-<p>就我醒着</p>
-<p>我真傻</p>
-<p>说不出什么感觉</p>
-<p>当我准备去告别</p>
-<p>我心中荒草家园</p>
-<p>真理出没的夜</p>
-<p>新的人间化装舞[&hellip;] <a href="https://lzxqaq.com/posts/2023-7-3/">https://lzxqaq.com/posts/2023-7-3/</a></p>
+        <blockquote>
+<p>人类同胞们，<br>
+我来此召集你们，是要你们了解目前的形势。<br>
+每个人都应该意识到我们此时所遭受的危机，<br>
+我们彼此互相争斗，<br>
+为了共和历史的微小冲突而被分散。<br>
+现在，更大的危险正向我们靠近。<br>
+这股威胁将会毁[&hellip;] <a href="https://lzxqaq.com/posts/2022-3-20/">https://lzxqaq.com/posts/2022-3-20/</a></p></blockquote>
         
         ]]>
       </description>
@@ -194,17 +88,132 @@
     
     
     <item>
-      <title>接入 ChatGPT 让小爱音箱更好玩！</title>
-      <link>https://lzxqaq.com/posts/2023-6-25/</link>
-      <pubDate>Sun, 25 Jun 2023 20:54:40 +0800</pubDate>
+      <title>《红发少女安妮——虔诚的承诺》</title>
+      <link>https://lzxqaq.com/posts/2022-2-9/</link>
+      <pubDate>Wed, 09 Feb 2022 19:45:15 +0800</pubDate>
       <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2023-6-25/</guid>
+      <guid>https://lzxqaq.com/posts/2022-2-9/</guid>
       <description>
         <![CDATA[
         
-        <h3 id="0-介绍">0. 介绍</h3>
-<p>本篇介绍如何利用开源项目 <a href="github.com/yihong0618/xiaogpt">github.com/yihong0618/xiaogpt</a> 给小爱音箱接入 ChatGPT。</p>
-<p>原理为：在本地/服务器执行程序，不断从小米平台获取小爱同学最新的聊天[&hellip;] <a href="https://lzxqaq.com/posts/2023-6-25/">https://lzxqaq.com/posts/2023-6-25/</a></p>
+        <h3 id="一">一</h3>
+<blockquote>
+<p>安妮：希望戴安娜会成为我的知心朋友，我一定会喜欢戴安娜的，而且我相信戴安娜她一定也会喜欢我的。因为今天晚上戴安娜家中的橙光，看起来是离我那么近。</p>
+</blockquote>
+<h3 id="二">二</h3>
+<blockquote>
+<p>安妮：雨很快就会停了是不是，还是会一直下[&hellip;] <a href="https://lzxqaq.com/posts/2022-2-9/">https://lzxqaq.com/posts/2022-2-9/</a></p></blockquote>
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>我现在看清了我真正的敌人</title>
+      <link>https://lzxqaq.com/posts/2022-2-5-5/</link>
+      <pubDate>Sat, 05 Feb 2022 19:21:37 +0800</pubDate>
+      <author>Shaka</author>
+      <guid>https://lzxqaq.com/posts/2022-2-5-5/</guid>
+      <description>
+        <![CDATA[
+        
+        <p>前些天，我感觉我的世界崩塌了，可渐渐的，我的心平静了下来，那些一直一直困扰我的问题也随之解开。为了纪念自己进入“不惑”之年，我决定在此发表一段重要讲话：</p>
+<blockquote>
+<p>我现在看清了我真正的敌人。<br>
+他在虚空中等待着[&hellip;] <a href="https://lzxqaq.com/posts/2022-2-5-5/">https://lzxqaq.com/posts/2022-2-5-5/</a></p></blockquote>
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>《Connecting the dots》</title>
+      <link>https://lzxqaq.com/posts/connectthedots/</link>
+      <pubDate>Wed, 26 Jan 2022 22:13:11 +0800</pubDate>
+      
+      <guid>https://lzxqaq.com/posts/connectthedots/</guid>
+      <description>
+        <![CDATA[
+        
+        <blockquote>
+<p>—— Steve Jobs</p>
+</blockquote>
+<blockquote>
+<p>I am honored to be with you today for your commencement from one of the finest[&hellip;] <a href="https://lzxqaq.com/posts/connectthedots/">https://lzxqaq.com/posts/connectthedots/</a></p></blockquote>
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>《罗生门》</title>
+      <link>https://lzxqaq.com/posts/rashomon/</link>
+      <pubDate>Sun, 09 Jan 2022 22:41:53 +0800</pubDate>
+      
+      <guid>https://lzxqaq.com/posts/rashomon/</guid>
+      <description>
+        <![CDATA[
+        
+        <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/costumes/chez-la-marchande-de-pavots-1920-fashion-illustration-in-high-resolution-by-george-barbier-original-from-the-beinecke-rare-book--manuscript-library-digitally-enhanced-by-rawpixel_50805758581_o.jpg" alt="img"></p>
+<blockquote>
+<p>乞丐：（大笑）这倒像是是实话了。</p>
+</blockquote>
+<blockquote>
+<p>砍柴人：我可不撒谎，是我亲眼看见来的。</p>
+</blockquote>
+<blockquote>
+<p>乞丐：那也靠不住。</p>
+</blockquote>
+<blockquote>
+<p>砍柴人：是真的，我可不撒谎。</p>
+</blockquote>
+<blockquote>
+<p>乞丐：撒谎的人才不会说自己是说谎的呢。</p>
+</blockquote>
+<blockquote>
+<p>云游和尚：这[&hellip;] <a href="https://lzxqaq.com/posts/rashomon/">https://lzxqaq.com/posts/rashomon/</a></p></blockquote>
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>我终于变成了冬天的落汤鸡</title>
+      <link>https://lzxqaq.com/posts/2022-1-5/</link>
+      <pubDate>Wed, 05 Jan 2022 19:20:26 +0800</pubDate>
+      <author>Shaka</author>
+      <guid>https://lzxqaq.com/posts/2022-1-5/</guid>
+      <description>
+        <![CDATA[
+        
+        <p>Spring chicken，”春天里的小鸡“，这个词前一段时间总浮现在我脑海里，没想到，今天真成了冬天里的“落汤鸡”。</p>
+<p>今天如同往常一样，在单位餐厅吃晚餐。正当吃完去放餐具时，在我旁边的一位女生，餐[&hellip;] <a href="https://lzxqaq.com/posts/2022-1-5/">https://lzxqaq.com/posts/2022-1-5/</a></p>
+        
+        ]]>
+      </description>
+    </item>
+    
+    
+    
+    <item>
+      <title>你永远都不是独自一人</title>
+      <link>https://lzxqaq.com/posts/2022-1-1/</link>
+      <pubDate>Sat, 01 Jan 2022 22:44:04 +0800</pubDate>
+      <author>Shaka</author>
+      <guid>https://lzxqaq.com/posts/2022-1-1/</guid>
+      <description>
+        <![CDATA[
+        
+        <p>刚刚躺着的时候，我还在想着喵喵到哪去了。因为我在它的窝没看到，别的地方也没找到。还在想着，突然就听到它跳上床的声音……</p>
+<p>今天给它伤口涂了些药，用酒精擦拭的时候它没有反抗，但后面它还是把伤口贴咬下来了。[&hellip;] <a href="https://lzxqaq.com/posts/2022-1-1/">https://lzxqaq.com/posts/2022-1-1/</a></p>
         
         ]]>
       </description>
