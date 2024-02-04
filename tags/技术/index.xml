@@ -74,19 +74,16 @@
     
     
     <item>
-      <title>从零开始的博客建站之旅-修改菜单栏和文章创作</title>
-      <link>https://lzxqaq.com/posts/2021-11-18/</link>
-      <pubDate>Thu, 18 Nov 2021 18:36:33 +0800</pubDate>
+      <title>Linux 不同发行版的选择</title>
+      <link>https://lzxqaq.com/posts/2020-12-26/</link>
+      <pubDate>Sat, 26 Dec 2020 22:33:13 +0800</pubDate>
       <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2021-11-18/</guid>
+      <guid>https://lzxqaq.com/posts/2020-12-26/</guid>
       <description>
         <![CDATA[
         
-        <h3 id="前情提要">前情提要</h3>
-<p>完成前面的工作后，我们的网站是下图这样的，非常符合极简之美。不过空荡荡的网站不是我们想要的，接下来我们就开始最核心的部分：修改网站内容。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-18/0.png" alt="img"></p>
-<h3 id="一-准备文本编辑工具">一、准备文本编辑工具</h3>
-<p>（1）下载文本编辑工具。创作[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-18/">https://lzxqaq.com/posts/2021-11-18/</a></p>
+        <p>如果你对 Linux 感兴趣但还不了解，想知道 Linux 的不同发行版之间的区别，我的这些经历应该对你有帮助。</p>
+<p>我最初使用的是 Ubuntu，它以前经常被推荐为 Linux 入门选择。用了很长一段时[&hellip;] <a href="https://lzxqaq.com/posts/2020-12-26/">https://lzxqaq.com/posts/2020-12-26/</a></p>
         
         ]]>
       </description>
@@ -95,107 +92,15 @@
     
     
     <item>
-      <title>从零开始的博客建站之旅-搭建</title>
-      <link>https://lzxqaq.com/posts/2021-11-17/</link>
-      <pubDate>Wed, 17 Nov 2021 19:38:06 +0800</pubDate>
+      <title>Java String 类真的不可以改变吗？</title>
+      <link>https://lzxqaq.com/posts/2020-12-15-2/</link>
+      <pubDate>Tue, 15 Dec 2020 15:05:27 +0800</pubDate>
       <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2021-11-17/</guid>
+      <guid>https://lzxqaq.com/posts/2020-12-15-2/</guid>
       <description>
         <![CDATA[
         
-        <h3 id="一-在本地创建网站">一、在本地创建网站</h3>
-<p>（1）使用 Hugo 建立网站。打开命令窗口，进入 D:\hugo\site 目录（便捷方法：在文件资源管理器中进入相应目录，单击地址栏右边空白地方，在最左边输入 <code>cmd </code> 加空[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-17/">https://lzxqaq.com/posts/2021-11-17/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>从零开始的博客建站之旅-准备工作</title>
-      <link>https://lzxqaq.com/posts/2021-11-15/</link>
-      <pubDate>Mon, 15 Nov 2021 12:26:45 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2021-11-15/</guid>
-      <description>
-        <![CDATA[
-        
-        <h3 id="一-注册-github-帐号">一、注册 Github 帐号</h3>
-<p>（1）.前往 <a href="https://github.com/">github.com</a> 注册一个帐号。（注意：慎重考虑注册的用户名，如果你不购买别的域名，这个用户名将是你网站域名的一部分）</p>
-<p>（2）在 Github 中创建一[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-15/">https://lzxqaq.com/posts/2021-11-15/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>从零开始的博客建站之旅-开篇</title>
-      <link>https://lzxqaq.com/posts/2021-11-14-3/</link>
-      <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2021-11-14-3/</guid>
-      <description>
-        <![CDATA[
-        
-        <p><img src="https://cdn.jsdelivr.net/gh/lzxqaq/jsdelivr@master/image/2021-11-14/0.jpg" alt="img"></p>
-<p>回顾过去，我刚接触互联网时，还是 2G 时代，那时各类论坛博客和聊天室正蓬勃发展。这种跨越时空的交流方式让我感到非常新奇，看着屏幕吐出文字的时候，就感觉打开了一个新世界的大门。通过一根根网线，就可以[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-14-3/">https://lzxqaq.com/posts/2021-11-14-3/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>从零开始的博客建站之旅-基础概念</title>
-      <link>https://lzxqaq.com/posts/2021-11-14-2/</link>
-      <pubDate>Sun, 14 Nov 2021 20:57:13 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2021-11-14-2/</guid>
-      <description>
-        <![CDATA[
-        
-        <p>教程开始前，先来介绍一下最终的成果，以便确认是否符合你的需求。本篇教程以 Hugo 和 Github Pages 为基础，创建一个静态的网站。这个过程仅需要一台联网的电脑，不需要其他花费（注意：如果你[&hellip;] <a href="https://lzxqaq.com/posts/2021-11-14-2/">https://lzxqaq.com/posts/2021-11-14-2/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>从零开始搭建个人网站——小白篇</title>
-      <link>https://lzxqaq.com/posts/2021-6-1/</link>
-      <pubDate>Tue, 01 Jun 2021 06:16:32 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2021-6-1/</guid>
-      <description>
-        <![CDATA[
-        
-        <h3 id="前言">前言</h3>
-<p>小白篇和前面<a href="../2021-2-18-2/">正经篇</a>的区别是，懒人篇专门针对基础更浅（或者更懒的）朋友而设计，在这里不会新建一个网站，而是下载我预先准备好的<a href="https://gitee.com/lzxqaq/demosite.git">示例网站</a>，在这个示例上面做扩展。这样也是为了避免新手成功创建网站时，面对[&hellip;] <a href="https://lzxqaq.com/posts/2021-6-1/">https://lzxqaq.com/posts/2021-6-1/</a></p>
-        
-        ]]>
-      </description>
-    </item>
-    
-    
-    
-    <item>
-      <title>从零开始搭建个人网站（win10,Github,Hugo）</title>
-      <link>https://lzxqaq.com/posts/2021-2-18-2/</link>
-      <pubDate>Thu, 18 Feb 2021 09:03:38 +0800</pubDate>
-      <author>Shaka</author>
-      <guid>https://lzxqaq.com/posts/2021-2-18-2/</guid>
-      <description>
-        <![CDATA[
-        
-        <h3 id="准备工作">准备工作</h3>
-<p>1.注册 Github 帐号。前往 <a href="https://github.com/" target="_blank">github.com</a> 注册一个 Github 帐号。（友情提示：认真考虑注册时的用户名，它将是网址的一部分）</p>
-<p>补充：Github 是一个代码托管平台（远程[&hellip;] <a href="https://lzxqaq.com/posts/2021-2-18-2/">https://lzxqaq.com/posts/2021-2-18-2/</a></p>
+        <p>对于 java.lang.String 类，我相信很多人印象里都是它不能被改变。通过查看源码，可以知道 String 有一个 final char 数组的变量，这个变量初始化之后便不能重新赋值。虽然这[&hellip;] <a href="https://lzxqaq.com/posts/2020-12-15-2/">https://lzxqaq.com/posts/2020-12-15-2/</a></p>
         
         ]]>
       </description>
